@@ -1,0 +1,34 @@
+{
+  "name": "crypto-marketing-automation",
+  "version": "1.0.0",
+  "description": "Automated marketing and social media management for crypto projects",
+  "main": "marketing-automation.js",
+  "scripts": {
+    "start": "node marketing-automation.js start",
+    "post": "node marketing-automation.js post",
+    "report": "node marketing-automation.js report",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "node-cron": "^3.0.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "crypto",
+    "marketing",
+    "automation",
+    "social-media",
+    "twitter",
+    "discord",
+    "telegram"
+  ],
+  "author": "MoonVault Team",
+  "license": "MIT"
+}

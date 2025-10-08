@@ -1,0 +1,64 @@
+graph LR
+    subgraph "Data Collection"
+        A[Price Data]
+        B[On-Chain Data]
+        C[Social Media]
+        D[News Feed]
+    end
+
+    subgraph "Feature Engineering"
+        E[Technical Indicators]
+        F[Sentiment Scores]
+        G[Network Metrics]
+        H[Market Features]
+    end
+
+    subgraph "ML Models"
+        I[LSTM Model]
+        J[Transformer Model]
+        K[Prophet Model]
+        L[Ensemble]
+    end
+
+    subgraph "Post-Processing"
+        M[Confidence Score]
+        N[Result Validation]
+        O[Consensus]
+    end
+
+    subgraph "Delivery"
+        P[Cache Results]
+        Q[Blockchain Oracle]
+        R[API Response]
+        S[WebSocket Push]
+    end
+
+    A --> E
+    B --> G
+    C --> F
+    D --> F
+
+    E --> I
+    E --> J
+    E --> K
+    F --> I
+    F --> J
+    G --> I
+    H --> J
+
+    I --> L
+    J --> L
+    K --> L
+
+    L --> M
+    M --> N
+    N --> O
+
+    O --> P
+    O --> Q
+    O --> R
+    O --> S
+
+    style L fill:#FF6B6B
+    style O fill:#4ECDC4
+    style Q fill:#95E1D3

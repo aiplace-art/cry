@@ -1,0 +1,55 @@
+graph TB
+    subgraph "Core Contracts"
+        A[NeuralToken.sol]
+        B[StakingRewards.sol]
+        C[GovernanceDAO.sol]
+        D[AIOracle.sol]
+    end
+
+    subgraph "Utility Contracts"
+        E[TokenVesting.sol]
+        F[MultiSig.sol]
+        G[Timelock.sol]
+    end
+
+    subgraph "External Integrations"
+        H[Chainlink VRF]
+        I[Chainlink Price Feeds]
+        J[Uniswap V3 Router]
+    end
+
+    subgraph "OpenZeppelin Libraries"
+        K[ERC20]
+        L[Ownable]
+        M[ReentrancyGuard]
+        N[Pausable]
+    end
+
+    A --> K
+    A --> L
+    A --> N
+    A --> E
+
+    B --> A
+    B --> M
+    B --> D
+
+    C --> A
+    C --> F
+    C --> G
+    C --> D
+
+    D --> H
+    D --> I
+    D --> M
+
+    A --> J
+
+    style A fill:#4CAF50
+    style B fill:#2196F3
+    style C fill:#FF9800
+    style D fill:#9C27B0
+    style K fill:#E0E0E0
+    style L fill:#E0E0E0
+    style M fill:#E0E0E0
+    style N fill:#E0E0E0

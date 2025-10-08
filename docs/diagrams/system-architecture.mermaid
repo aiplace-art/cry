@@ -1,0 +1,87 @@
+graph TB
+    subgraph "Frontend Layer"
+        A[Next.js dApp]
+        B[React Components]
+        C[Web3 Integration]
+        D[State Management]
+    end
+
+    subgraph "API Gateway Layer"
+        E[Express.js API]
+        F[GraphQL Server]
+        G[WebSocket Server]
+        H[Authentication]
+    end
+
+    subgraph "Backend Services"
+        I[AI Service - Python/FastAPI]
+        J[Indexer - The Graph]
+        K[Analytics Service]
+    end
+
+    subgraph "Data Layer"
+        L[(PostgreSQL)]
+        M[(Redis Cache)]
+        N[(TimescaleDB)]
+        O[IPFS Storage]
+    end
+
+    subgraph "Blockchain Layer"
+        P[NeuralToken Contract]
+        Q[Staking Contract]
+        R[AI Oracle Contract]
+        S[Governance DAO]
+        T[Ethereum/Polygon]
+    end
+
+    subgraph "AI/ML Layer"
+        U[Price Prediction Model]
+        V[Sentiment Analyzer]
+        W[Portfolio Optimizer]
+        X[Anomaly Detector]
+    end
+
+    subgraph "External Services"
+        Y[Chainlink Oracles]
+        Z[Price Feeds]
+        AA[Social Media APIs]
+    end
+
+    A --> E
+    A --> F
+    A --> G
+    A --> C
+    C --> T
+
+    E --> I
+    E --> J
+    E --> K
+    F --> I
+
+    I --> U
+    I --> V
+    I --> W
+    I --> X
+
+    E --> L
+    E --> M
+    K --> N
+    S --> O
+
+    J --> T
+    P --> T
+    Q --> T
+    R --> T
+    S --> T
+
+    R --> Y
+    I --> Y
+    I --> Z
+    I --> AA
+    V --> AA
+
+    style A fill:#e1f5ff
+    style E fill:#fff4e1
+    style I fill:#f0e1ff
+    style T fill:#e1ffe1
+    style U fill:#ffe1f0
