@@ -1,0 +1,60 @@
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+.npm
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.docker
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+!README.md
+docs/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Testing
+coverage
+.nyc_output
+test-results
+
+# Build artifacts (will be regenerated)
+cache/
+artifacts/
+deployments/
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+
+# Docker
+docker-compose*.yml
+Dockerfile*
+.dockerignore
+
+# Misc
+.DS_Store
+*.log
+tmp/
+temp/
+
+# Claude
+.claude
+.claude-flow
+CLAUDE.md
+PROJECT_OVERVIEW.md

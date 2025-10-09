@@ -6,6 +6,7 @@ const compression = require('compression');
 require('dotenv').config();
 
 const { connectDB } = require('./config/database');
+const { connectRedis } = require('./config/redis');
 const { setupWebSocket } = require('./websocket/wsServer');
 const { logger } = require('./config/logger');
 const errorHandler = require('./middleware/errorHandler');
@@ -23,8 +24,22 @@ const aiRoutes = require('./routes/ai.routes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Database connection
-connectDB();
+// Initialize connections
+const initializeServices = async () => {
+  try {
+    // Database connections
+    await connectDB();
+    await connectRedis();
+
+    logger.info('✅ All services initialized successfully');
+  } catch (error) {
+    logger.error(`❌ Service initialization failed: ${error.message}`);
+    // Continue running with degraded functionality
+  }
+};
+
+// Start initialization
+initializeServices();
 
 // Middleware
 app.use(helmet());

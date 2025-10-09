@@ -1,72 +1,67 @@
 import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useTokenContract } from './useContract';
+import { tokenApi } from '@/lib/api';
+import { usePriceUpdates } from '@/lib/websocket';
 import type { TokenData } from '@/types';
 import { REFRESH_INTERVAL } from '@/lib/constants';
 
 export function useTokenData(tokenAddress: string) {
-  const [tokenData, setTokenData] = useState<TokenData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const contract = useTokenContract(tokenAddress);
+  const [symbol, setSymbol] = useState<string>('');
 
-  useEffect(() => {
-    let mounted = true;
-    let interval: NodeJS.Timeout;
+  // Get real-time price updates via WebSocket
+  const { price: livePrice, priceChange } = usePriceUpdates(symbol);
 
-    const fetchTokenData = async () => {
-      if (!contract) {
-        setLoading(false);
-        return;
-      }
+  // Fetch token metadata from contract
+  const { data: contractData, isLoading: contractLoading } = useQuery({
+    queryKey: ['token-contract', tokenAddress],
+    queryFn: async () => {
+      if (!contract) throw new Error('Contract not initialized');
 
-      try {
-        const [name, symbol, decimals, totalSupply] = await Promise.all([
-          contract.name(),
-          contract.symbol(),
-          contract.decimals(),
-          contract.totalSupply(),
-        ]);
+      const [name, symbol, decimals, totalSupply] = await Promise.all([
+        contract.name(),
+        contract.symbol(),
+        contract.decimals(),
+        contract.totalSupply(),
+      ]);
 
-        // Mock price data - in production, fetch from an oracle or API
-        const mockPrice = 1.23 + Math.random() * 0.1;
-        const mockPriceChange = (Math.random() - 0.5) * 10;
-        const mockVolume = 1000000 + Math.random() * 500000;
-        const mockHolders = 5000 + Math.floor(Math.random() * 1000);
+      setSymbol(symbol);
 
-        if (mounted) {
-          setTokenData({
-            address: tokenAddress,
-            name,
-            symbol,
-            decimals: Number(decimals),
-            totalSupply: totalSupply.toString(),
-            price: mockPrice,
-            marketCap: mockPrice * Number(totalSupply) / Math.pow(10, Number(decimals)),
-            holders: mockHolders,
-            priceChange24h: mockPriceChange,
-            volume24h: mockVolume,
-          });
-          setError(null);
-        }
-      } catch (err) {
-        if (mounted) {
-          setError(err instanceof Error ? err.message : 'Failed to fetch token data');
-        }
-      } finally {
-        if (mounted) {
-          setLoading(false);
-        }
-      }
-    };
+      return {
+        name,
+        symbol,
+        decimals: Number(decimals),
+        totalSupply: totalSupply.toString(),
+      };
+    },
+    enabled: !!contract,
+    staleTime: 60000,
+  });
 
-    fetchTokenData();
-    interval = setInterval(fetchTokenData, REFRESH_INTERVAL);
+  // Fetch price and market data from API
+  const { data: marketData, isLoading: marketLoading } = useQuery({
+    queryKey: ['token-market', tokenAddress],
+    queryFn: () => tokenApi.getTokenData(tokenAddress),
+    refetchInterval: REFRESH_INTERVAL,
+    enabled: !!tokenAddress,
+  });
 
-    return () => {
-      mounted = false;
-      clearInterval(interval);
-    };
-  }, [contract, tokenAddress]);
+  const loading = contractLoading || marketLoading;
+  const error = !contract && !loading ? 'Contract not initialized' : null;
+
+  const tokenData: TokenData | null = contractData && marketData ? {
+    address: tokenAddress,
+    name: contractData.name,
+    symbol: contractData.symbol,
+    decimals: contractData.decimals,
+    totalSupply: contractData.totalSupply,
+    price: livePrice || marketData.price || 0,
+    marketCap: marketData.marketCap || 0,
+    holders: marketData.holders || 0,
+    priceChange24h: priceChange || marketData.priceChange24h || 0,
+    volume24h: marketData.volume24h || 0,
+  } : null;
 
   return { tokenData, loading, error };
 }

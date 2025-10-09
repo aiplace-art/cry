@@ -10,43 +10,56 @@ export const AIInsights: React.FC = () => {
   const [insights, setInsights] = useState<AIInsight[]>([]);
 
   useEffect(() => {
-    // Generate mock AI insights
-    const mockInsights: AIInsight[] = [
-      {
-        id: '1',
-        type: 'bullish',
-        confidence: 0.82,
-        title: 'Strong Buy Signal Detected',
-        description: 'Technical indicators show strong upward momentum with RSI at 45 and MACD crossing above signal line. Trading volume increased by 35% in the last 24 hours.',
-        timestamp: Date.now() - 300000,
-      },
-      {
-        id: '2',
-        type: 'neutral',
-        confidence: 0.65,
-        title: 'Market Consolidation Phase',
-        description: 'Price action suggests consolidation between support at $1.18 and resistance at $1.28. Watch for breakout in either direction.',
-        timestamp: Date.now() - 1800000,
-      },
-      {
-        id: '3',
-        type: 'bullish',
-        confidence: 0.75,
-        title: 'Whale Activity Detected',
-        description: 'Large wallet addresses have increased their holdings by 12% in the past week, indicating institutional confidence.',
-        timestamp: Date.now() - 3600000,
-      },
-      {
-        id: '4',
-        type: 'bearish',
-        confidence: 0.58,
-        title: 'Overbought Conditions',
-        description: 'RSI approaching overbought territory at 68. Consider taking profits or wait for pullback to enter positions.',
-        timestamp: Date.now() - 7200000,
-      },
-    ];
+    const fetchInsights = async () => {
+      try {
+        // In production, fetch from API: const data = await aiApi.getInsights('TOKEN');
+        // For now, using mock data
+        const mockInsights: AIInsight[] = [
+          {
+            id: '1',
+            type: 'bullish',
+            confidence: 0.82,
+            title: 'Strong Buy Signal Detected',
+            description: 'Technical indicators show strong upward momentum with RSI at 45 and MACD crossing above signal line. Trading volume increased by 35% in the last 24 hours.',
+            timestamp: Date.now() - 300000,
+          },
+          {
+            id: '2',
+            type: 'neutral',
+            confidence: 0.65,
+            title: 'Market Consolidation Phase',
+            description: 'Price action suggests consolidation between support at $1.18 and resistance at $1.28. Watch for breakout in either direction.',
+            timestamp: Date.now() - 1800000,
+          },
+          {
+            id: '3',
+            type: 'bullish',
+            confidence: 0.75,
+            title: 'Whale Activity Detected',
+            description: 'Large wallet addresses have increased their holdings by 12% in the past week, indicating institutional confidence.',
+            timestamp: Date.now() - 3600000,
+          },
+          {
+            id: '4',
+            type: 'bearish',
+            confidence: 0.58,
+            title: 'Overbought Conditions',
+            description: 'RSI approaching overbought territory at 68. Consider taking profits or wait for pullback to enter positions.',
+            timestamp: Date.now() - 7200000,
+          },
+        ];
 
-    setInsights(mockInsights);
+        setInsights(mockInsights);
+      } catch (error) {
+        console.error('Error fetching AI insights:', error);
+      }
+    };
+
+    fetchInsights();
+    // Refresh insights every 5 minutes
+    const interval = setInterval(fetchInsights, 300000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const getInsightIcon = (type: AIInsight['type']) => {

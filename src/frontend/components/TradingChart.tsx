@@ -17,31 +17,45 @@ export const TradingChart: React.FC<TradingChartProps> = ({ tokenSymbol }) => {
   const [timeframe, setTimeframe] = useState<'1H' | '24H' | '7D' | '30D'>('24H');
 
   useEffect(() => {
-    // Generate mock chart data
-    const generateData = () => {
-      const points = timeframe === '1H' ? 60 : timeframe === '24H' ? 24 : timeframe === '7D' ? 7 : 30;
-      const basePrice = 1.23;
-      const data: ChartDataPoint[] = [];
+    const fetchChartData = async () => {
+      try {
+        // In production: const data = await analyticsApi.getChartData(tokenSymbol, timeframe);
+        // For now, generate realistic mock data
+        const generateData = () => {
+          const points = timeframe === '1H' ? 60 : timeframe === '24H' ? 24 : timeframe === '7D' ? 7 : 30;
+          const basePrice = 1.23;
+          const data: ChartDataPoint[] = [];
 
-      for (let i = 0; i < points; i++) {
-        const volatility = 0.05;
-        const trend = Math.sin(i / 10) * 0.1;
-        const random = (Math.random() - 0.5) * volatility;
-        const price = basePrice * (1 + trend + random);
-        const volume = 10000 + Math.random() * 5000;
+          for (let i = 0; i < points; i++) {
+            const volatility = 0.05;
+            const trend = Math.sin(i / 10) * 0.1;
+            const random = (Math.random() - 0.5) * volatility;
+            const price = basePrice * (1 + trend + random);
+            const volume = 10000 + Math.random() * 5000;
 
-        data.push({
-          time: Date.now() - (points - i) * (timeframe === '1H' ? 60000 : 3600000),
-          price,
-          volume,
-        });
+            data.push({
+              time: Date.now() - (points - i) * (timeframe === '1H' ? 60000 : 3600000),
+              price,
+              volume,
+            });
+          }
+
+          return data;
+        };
+
+        setChartData(generateData());
+      } catch (error) {
+        console.error('Error fetching chart data:', error);
       }
-
-      return data;
     };
 
-    setChartData(generateData());
-  }, [timeframe]);
+    fetchChartData();
+    // Refresh chart data based on timeframe
+    const refreshInterval = timeframe === '1H' ? 60000 : timeframe === '24H' ? 300000 : 600000;
+    const interval = setInterval(fetchChartData, refreshInterval);
+
+    return () => clearInterval(interval);
+  }, [timeframe, tokenSymbol]);
 
   const currentPrice = chartData[chartData.length - 1]?.price || 0;
   const previousPrice = chartData[0]?.price || 0;

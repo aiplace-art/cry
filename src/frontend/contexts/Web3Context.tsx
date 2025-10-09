@@ -49,6 +49,11 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const accounts = await provider.send('eth_requestAccounts', []);
+
+      if (accounts.length === 0) {
+        throw new Error('No accounts found');
+      }
+
       const signer = await provider.getSigner();
       const network = await provider.getNetwork();
       const address = accounts[0];
@@ -62,8 +67,13 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({ children
         provider,
         signer,
       });
+
+      // Store connection in localStorage
+      localStorage.setItem('walletConnected', 'true');
     } catch (error) {
       console.error('Error connecting wallet:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Failed to connect wallet';
+      alert(`Connection failed: ${errorMessage}`);
     }
   };
 
@@ -76,6 +86,7 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({ children
       provider: null,
       signer: null,
     });
+    localStorage.removeItem('walletConnected');
   };
 
   const switchChain = async (chainId: number) => {
@@ -96,6 +107,12 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   useEffect(() => {
+    // Auto-connect if previously connected
+    const wasConnected = localStorage.getItem('walletConnected');
+    if (wasConnected === 'true' && typeof window.ethereum !== 'undefined') {
+      connect();
+    }
+
     if (typeof window.ethereum !== 'undefined') {
       window.ethereum.on('accountsChanged', (accounts: string[]) => {
         if (accounts.length === 0) {
@@ -116,7 +133,7 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({ children
         window.ethereum.removeAllListeners('chainChanged');
       }
     };
-  }, [walletState.provider]);
+  }, []);
 
   return (
     <Web3Context.Provider
