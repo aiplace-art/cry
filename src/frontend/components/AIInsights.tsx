@@ -114,9 +114,17 @@ export const AIInsights: React.FC = () => {
 
       <div className="space-y-4">
         {insights.map((insight) => (
-          <Card key={insight.id} hover className="border-l-4" style={{
-            borderLeftColor: insight.type === 'bullish' ? '#10b981' : insight.type === 'bearish' ? '#ef4444' : '#6b7280'
-          }}>
+          <Card
+            key={insight.id}
+            hover
+            className={`border-l-4 ${
+              insight.type === 'bullish'
+                ? 'border-l-green-500'
+                : insight.type === 'bearish'
+                ? 'border-l-red-500'
+                : 'border-l-gray-500'
+            }`}
+          >
             <CardContent>
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">

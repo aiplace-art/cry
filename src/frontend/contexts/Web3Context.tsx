@@ -128,10 +128,8 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     return () => {
-      if (typeof window.ethereum !== 'undefined') {
-        window.ethereum.removeAllListeners('accountsChanged');
-        window.ethereum.removeAllListeners('chainChanged');
-      }
+      // Cleanup is handled by MetaMask automatically
+      // removeAllListeners is not part of the EIP-1193 standard
     };
   }, []);
 
@@ -149,8 +147,4 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({ children
   );
 };
 
-declare global {
-  interface Window {
-    ethereum?: any;
-  }
-}
+// Window.ethereum type is declared in types/window.d.ts

@@ -52,7 +52,7 @@ export const useWallet = () => {
     if (!isMetaMaskInstalled()) {
       return null;
     }
-    return new ethers.BrowserProvider(window.ethereum);
+    return new ethers.BrowserProvider(window.ethereum as any);
   }, [isMetaMaskInstalled]);
 
   /**
@@ -198,14 +198,14 @@ export const useWallet = () => {
 
       try {
         // Try to switch to BSC
-        await window.ethereum.request({
+        await window.ethereum?.request({
           method: 'wallet_switchEthereumChain',
           params: [{ chainId: BSC_CONFIG.chainId }],
         });
       } catch (switchError: any) {
         // This error code indicates that the chain has not been added to MetaMask
         if (switchError.code === 4902) {
-          await window.ethereum.request({
+          await window.ethereum?.request({
             method: 'wallet_addEthereumChain',
             params: [BSC_CONFIG],
           });

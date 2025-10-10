@@ -56,11 +56,11 @@ export function useTokenData(tokenAddress: string) {
     symbol: contractData.symbol,
     decimals: contractData.decimals,
     totalSupply: contractData.totalSupply,
-    price: livePrice || marketData.price || 0,
-    marketCap: marketData.marketCap || 0,
-    holders: marketData.holders || 0,
-    priceChange24h: priceChange || marketData.priceChange24h || 0,
-    volume24h: marketData.volume24h || 0,
+    price: livePrice || (marketData as any)?.price || 0,
+    marketCap: (marketData as any)?.marketCap || 0,
+    holders: (marketData as any)?.holders || 0,
+    priceChange24h: priceChange || (marketData as any)?.priceChange24h || 0,
+    volume24h: (marketData as any)?.volume24h || 0,
   } : null;
 
   return { tokenData, loading, error };

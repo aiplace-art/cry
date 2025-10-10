@@ -322,7 +322,7 @@ export const PurchaseWidget: React.FC<PurchaseWidgetProps> = ({
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               className="bg-gradient-to-br from-gray-900 to-black border border-white/20 rounded-2xl p-8 max-w-md w-full text-center"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
             >
               {transactionStatus === 'confirming' && (
                 <>

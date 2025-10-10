@@ -58,6 +58,7 @@ module.exports = {
         'bounce-slow': 'bounce 2s infinite',
         'shimmer': 'shimmer 2s linear infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
+        'gradient-x': 'gradient-x 3s ease infinite',
       },
       keyframes: {
         shimmer: {
@@ -67,6 +68,16 @@ module.exports = {
         glow: {
           '0%': { boxShadow: '0 0 5px rgba(59, 130, 246, 0.5), 0 0 10px rgba(59, 130, 246, 0.3)' },
           '100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.5)' },
+        },
+        'gradient-x': {
+          '0%, 100%': {
+            backgroundSize: '200% 200%',
+            backgroundPosition: '0% 50%'
+          },
+          '50%': {
+            backgroundSize: '200% 200%',
+            backgroundPosition: '100% 50%'
+          },
         },
       },
     },
