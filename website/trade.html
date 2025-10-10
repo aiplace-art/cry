@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade - HypeAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --primary-blue: #00D4FF;
+            --primary-purple: #9D4EDD;
+            --accent-green: #39FF14;
+            --dark-bg: #0A0E27;
+            --dark-card: #1A1F3A;
+            --white: #FFFFFF;
+            --gray: #A0AEC0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0F1629 100%);
+            color: var(--white);
+            padding-top: 80px;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.9);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            z-index: 1000;
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        nav { display: flex; gap: 2rem; align-items: center; }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--primary-blue); }
+        .wallet-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 1600px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .trade-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            height: calc(100vh - 150px);
+        }
+        .chart-section {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .price-display {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .price-change {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        .timeframes {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .timeframe-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            color: var(--gray);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .timeframe-btn.active, .timeframe-btn:hover {
+            background: rgba(157, 78, 221, 0.2);
+            border-color: var(--primary-purple);
+            color: var(--white);
+        }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 1.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .order-book-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .buy-order { color: var(--accent-green); }
+        .sell-order { color: #FF4757; }
+        .trade-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .input-group label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        .input-group input {
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 1rem;
+            border-radius: 10px;
+            color: var(--white);
+            font-size: 1rem;
+        }
+        .trade-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .buy-btn {
+            background: linear-gradient(135deg, var(--accent-green), #2ECC71);
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .sell-btn {
+            background: linear-gradient(135deg, #FF4757, #E74C3C);
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .buy-btn:hover, .sell-btn:hover { transform: translateY(-2px); }
+        .ai-prediction {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(157, 78, 221, 0.1));
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        .prediction-value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-green);
+        }
+        @media (max-width: 1200px) {
+            .trade-layout {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🧠⚡ HypeAI</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="trade.html">Trade</a>
+            <a href="stake.html">Stake</a>
+            <a href="proof.html" style="color: var(--accent-green);">✅ PROOF</a>
+            <a href="agents.html">AI Team</a>
+            <a href="agents-activity.html" style="color: var(--primary-purple);">🔴 Live</a>
+        </nav>
+        <button class="wallet-btn" onclick="connectWallet()">Connect Wallet</button>
+    </header>
+
+    <div class="container">
+        <div class="trade-layout">
+            <!-- Chart Section -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <div>
+                        <div class="price-display">$0.001234</div>
+                        <div class="price-change">+15.5% (24h)</div>
+                    </div>
+                    <div class="timeframes">
+                        <button class="timeframe-btn">1H</button>
+                        <button class="timeframe-btn">4H</button>
+                        <button class="timeframe-btn active">1D</button>
+                        <button class="timeframe-btn">1W</button>
+                        <button class="timeframe-btn">1M</button>
+                    </div>
+                </div>
+                <canvas id="priceChart"></canvas>
+
+                <div class="ai-prediction" style="margin-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="color: var(--gray); margin-bottom: 0.5rem;">🤖 AI Prediction (24h)</div>
+                            <div class="prediction-value">$0.00142 (+15.0%)</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="color: var(--gray); margin-bottom: 0.5rem;">Confidence</div>
+                            <div style="font-size: 1.5rem; font-weight: 900; color: var(--accent-green);">85%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Order Book -->
+                <div class="card">
+                    <div class="card-title">📊 Order Book</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 0.8rem; color: var(--gray); margin-bottom: 1rem;">
+                        <span>Price</span>
+                        <span>Amount</span>
+                        <span>Total</span>
+                    </div>
+                    <div style="max-height: 200px; overflow-y: auto;">
+                        <div class="order-book-item sell-order">
+                            <span>0.001245</span>
+                            <span>5,240</span>
+                            <span>6.52</span>
+                        </div>
+                        <div class="order-book-item sell-order">
+                            <span>0.001240</span>
+                            <span>8,150</span>
+                            <span>10.11</span>
+                        </div>
+                        <div class="order-book-item sell-order">
+                            <span>0.001238</span>
+                            <span>12,430</span>
+                            <span>15.39</span>
+                        </div>
+                        <div style="height: 1px; background: var(--primary-purple); margin: 0.5rem 0;"></div>
+                        <div class="order-book-item buy-order">
+                            <span>0.001230</span>
+                            <span>9,820</span>
+                            <span>12.08</span>
+                        </div>
+                        <div class="order-book-item buy-order">
+                            <span>0.001225</span>
+                            <span>15,600</span>
+                            <span>19.11</span>
+                        </div>
+                        <div class="order-book-item buy-order">
+                            <span>0.001220</span>
+                            <span>7,340</span>
+                            <span>8.95</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trading Form -->
+                <div class="card">
+                    <div class="card-title">💱 Trade HYPEAI</div>
+                    <div class="trade-form">
+                        <div class="input-group">
+                            <label>Amount (HYPEAI)</label>
+                            <input type="number" placeholder="0.00" value="1000">
+                        </div>
+                        <div class="input-group">
+                            <label>Price (USDT)</label>
+                            <input type="number" placeholder="0.00" value="0.001234">
+                        </div>
+                        <div class="input-group">
+                            <label>Total (USDT)</label>
+                            <input type="number" placeholder="0.00" value="1.234" readonly style="opacity: 0.7;">
+                        </div>
+
+                        <div style="background: rgba(0, 212, 255, 0.1); padding: 1rem; border-radius: 10px; font-size: 0.9rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="color: var(--gray);">Balance:</span>
+                                <span>1,234.56 USDT</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: var(--gray);">Fee (0.1%):</span>
+                                <span>0.00123 USDT</span>
+                            </div>
+                        </div>
+
+                        <div class="trade-buttons">
+                            <button class="buy-btn" onclick="trade('buy')">Buy HYPEAI</button>
+                            <button class="sell-btn" onclick="trade('sell')">Sell HYPEAI</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Price Chart
+        const ctx = document.getElementById('priceChart').getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(0, 212, 255, 0.4)');
+        gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
+
+        // Generate fake price data
+        const generatePriceData = () => {
+            const data = [];
+            let price = 0.001;
+            for (let i = 0; i < 50; i++) {
+                price += (Math.random() - 0.48) * 0.00005;
+                data.push(price);
+            }
+            return data;
+        };
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Array(50).fill(''),
+                datasets: [{
+                    data: generatePriceData(),
+                    borderColor: '#00D4FF',
+                    backgroundColor: gradient,
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { display: false },
+                    y: {
+                        ticks: { color: '#A0AEC0' },
+                        grid: { color: 'rgba(157, 78, 221, 0.1)' }
+                    }
+                }
+            }
+        });
+
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                } catch (error) {
+                    alert('Failed to connect wallet');
+                }
+            } else {
+                alert('Please install MetaMask!');
+                window.open('https://metamask.io/download/', '_blank');
+            }
+        }
+
+        function trade(type) {
+            const amount = document.querySelector('input[placeholder="0.00"]').value;
+            alert(`${type.toUpperCase()} order placed for ${amount} HYPEAI!\n\nThis is a demo. In production, this would interact with smart contracts.`);
+        }
+
+        // Update price in real-time (demo)
+        setInterval(() => {
+            const priceEl = document.querySelector('.price-display');
+            const currentPrice = parseFloat(priceEl.textContent.replace('$', ''));
+            const newPrice = currentPrice + (Math.random() - 0.5) * 0.00001;
+            priceEl.textContent = '$' + newPrice.toFixed(6);
+        }, 3000);
+    </script>
+</body>
+</html>
