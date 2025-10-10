@@ -288,6 +288,39 @@ The **Website Division** is a specialized team of 5 professional AI design agent
 
 ---
 
+## 🛠️ Magic MCP Tools Integration
+
+### ✅ ALL Website Division agents now have access to:
+
+**1. 🎨 Component Builder** (`mcp__magic__21st_magic_component_builder`)
+- Generate complete React UI components from descriptions
+- Create buttons, forms, cards, modals, tables
+- Production-ready JSX/TSX with TypeScript
+- Automatic styling and layout code
+
+**2. 🔍 Logo Search** (`mcp__magic__logo_search`)
+- Search for company/brand logos
+- Returns JSX, TSX, or SVG format
+- Light/dark theme variants
+- High-quality vector graphics
+
+**3. 💡 Component Inspiration** (`mcp__magic__21st_magic_component_inspiration`)
+- Browse component examples from 21st.dev
+- Research design patterns
+- Explore modern UI trends
+- Get real-world inspiration
+
+**4. 🔧 Component Refiner** (`mcp__magic__21st_magic_component_refiner`)
+- Improve existing UI components
+- Redesign and refine styling
+- Optimize UX and accessibility
+- Automated component enhancement
+
+### 📚 Full Documentation:
+See [MAGIC_MCP_INTEGRATION.md](./MAGIC_MCP_INTEGRATION.md) for complete guide on using these tools.
+
+---
+
 ## 📞 Division Contact
 
 **Primary:** Website Division Team
