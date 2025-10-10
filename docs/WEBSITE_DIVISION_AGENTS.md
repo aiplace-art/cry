@@ -400,6 +400,146 @@ See [PLAYWRIGHT_MCP_INTEGRATION.md](./PLAYWRIGHT_MCP_INTEGRATION.md) for complet
 
 ---
 
+## 📚 Context7 MCP Tools Integration
+
+### ✅ ALL Website Division agents now have access to:
+
+**Real-Time Documentation Tools:**
+
+**1. 🔍 Library Resolver** (`mcp__context7__resolve-library-id`)
+- Search and identify exact library versions
+- Find Context7-compatible library IDs
+- Verify available documentation
+- Check library trust scores and coverage
+
+**2. 📖 Documentation Fetcher** (`mcp__context7__get-library-docs`)
+- Fetch up-to-date, version-specific documentation
+- Get code examples and API references
+- Access specific topics (hooks, routing, styling, etc.)
+- Retrieve best practices and patterns
+
+### 🎯 Website Division Context7 Usage
+
+**PIXEL (Chief Design Officer):**
+- Tailwind CSS latest utilities and plugins
+- CSS-in-JS libraries (Styled Components, Emotion)
+- Framer Motion animation APIs
+- Icon library documentation (Lucide, React Icons)
+
+**Example Queries:**
+```javascript
+// Get latest Tailwind CSS custom utilities
+resolve-library-id("tailwindcss")
+get-library-docs("/tailwindlabs/tailwindcss", "custom utilities")
+
+// Framer Motion gesture animations
+resolve-library-id("framer-motion")
+get-library-docs("/framer/motion", "gesture animations")
+```
+
+---
+
+**VIBE (UX Director):**
+- React Hook Form validation patterns
+- React ARIA accessibility APIs
+- User interaction libraries
+- Mobile-first frameworks
+
+**Example Queries:**
+```javascript
+// React Hook Form latest validation
+resolve-library-id("react-hook-form")
+get-library-docs("/react-hook-form/react-hook-form", "validation")
+
+// Accessibility patterns
+resolve-library-id("react-aria")
+get-library-docs("/adobe/react-spectrum", "focus management")
+```
+
+---
+
+**MOTION (Animation Director):**
+- GSAP scroll animations
+- React Spring physics
+- Lottie interactive animations
+- CSS animation utilities
+
+**Example Queries:**
+```javascript
+// GSAP ScrollTrigger latest API
+resolve-library-id("gsap")
+get-library-docs("/greensock/gsap", "scroll trigger")
+
+// React Spring physics-based animations
+resolve-library-id("@react-spring/web")
+get-library-docs("/pmndrs/react-spring", "physics")
+```
+
+---
+
+**PALETTE (Brand Designer):**
+- Chroma.js color manipulation
+- Next Themes dark mode
+- CSS variable management
+- Design token systems
+
+**Example Queries:**
+```javascript
+// Color scale generation
+resolve-library-id("chroma-js")
+get-library-docs("/gka/chroma.js", "color scales")
+
+// Theme switching with system preference
+resolve-library-id("next-themes")
+get-library-docs("/pacocoursey/next-themes", "system theme")
+```
+
+---
+
+**LAYOUT (Web Architect):**
+- React Grid Layout responsive patterns
+- Media query utilities
+- CSS Grid and Flexbox documentation
+- Breakpoint management
+
+**Example Queries:**
+```javascript
+// Responsive grid layouts
+resolve-library-id("react-grid-layout")
+get-library-docs("/react-grid-layout/react-grid-layout", "responsive")
+
+// Media query hooks
+resolve-library-id("react-responsive")
+get-library-docs("/yocontra/react-responsive", "media queries")
+```
+
+---
+
+### 💡 Context7 Benefits for Website Division
+
+**Design Consistency:**
+- Always use latest library versions
+- No outdated CSS patterns
+- Current animation APIs
+- Modern responsive techniques
+
+**Development Speed:**
+- Instant documentation access
+- No more searching docs manually
+- Version-specific examples
+- Best practice patterns
+
+**Quality Assurance:**
+- No deprecated APIs
+- Security-updated libraries
+- Tested code examples
+- Community-verified patterns
+
+### 📚 Full Documentation:
+See [CONTEXT7_MCP_INTEGRATION.md](./CONTEXT7_MCP_INTEGRATION.md) for complete guide on using these tools.
+
+---
+
 ## 📞 Division Contact
 
 **Primary:** Website Division Team
