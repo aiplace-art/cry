@@ -321,6 +321,85 @@ See [MAGIC_MCP_INTEGRATION.md](./MAGIC_MCP_INTEGRATION.md) for complete guide on
 
 ---
 
+## 🎭 Playwright MCP Tools Integration
+
+### ✅ ALL Website Division agents now have access to:
+
+**Testing & Quality Assurance Tools:**
+
+**1. 📸 Visual Testing** (`browser_snapshot`, `browser_take_screenshot`)
+- **PIXEL** - Capture pixel-perfect screenshots for design review
+- **VIBE** - Take accessibility snapshots for UX validation
+- **MOTION** - Screenshot animation states and transitions
+- Screenshot baseline comparisons for visual regression
+
+**2. 🖱️ Interaction Testing** (`browser_click`, `browser_type`, `browser_hover`)
+- **VIBE** - Test user interaction flows and click paths
+- **MOTION** - Validate hover effects and micro-interactions
+- **LAYOUT** - Test responsive button clicks across breakpoints
+- Simulate real user behavior patterns
+
+**3. 📱 Responsive Testing** (`browser_resize`)
+- **LAYOUT** - Test all breakpoints (320px → 1920px+)
+- **VIBE** - Validate mobile-first responsive flows
+- **PIXEL** - Verify design consistency across screen sizes
+- Automated responsive design validation
+
+**4. 📝 Form Testing** (`browser_fill_form`, `browser_select_option`)
+- **VIBE** - Test form usability and validation
+- **LAYOUT** - Validate form layouts on different screens
+- Multi-field form interaction testing
+- Dropdown and input field validation
+
+**5. 🔍 Page Analysis** (`browser_console_messages`, `browser_evaluate`)
+- **MOTION** - Check for JavaScript animation errors
+- **VIBE** - Analyze console for UX issues
+- **PIXEL** - Validate client-side rendering
+- Runtime error detection and debugging
+
+**6. 📊 Navigation Testing** (`browser_navigate`, `browser_tabs`, `browser_wait_for`)
+- **VIBE** - Test user journey navigation flows
+- **LAYOUT** - Validate page structure and routing
+- Multi-page navigation scenarios
+- Async content loading validation
+
+### 🎯 Website Division Testing Responsibilities
+
+**PIXEL (Chief Design Officer):**
+- Visual regression testing with screenshots
+- Design consistency validation
+- Color and typography verification
+- Component appearance testing
+
+**VIBE (UX Director):**
+- User flow end-to-end testing
+- Interaction pattern validation
+- Accessibility compliance testing
+- Mobile UX verification
+
+**MOTION (Animation Director):**
+- Animation state screenshots
+- Transition timing validation
+- Hover effect testing
+- Loading animation verification
+
+**PALETTE (Brand Designer):**
+- Color theme visual testing
+- Brand consistency screenshots
+- Gradient rendering validation
+- Theme variation testing
+
+**LAYOUT (Web Architect):**
+- Responsive breakpoint testing
+- Grid layout validation
+- Component spacing verification
+- Cross-browser layout testing
+
+### 📚 Full Documentation:
+See [PLAYWRIGHT_MCP_INTEGRATION.md](./PLAYWRIGHT_MCP_INTEGRATION.md) for complete guide on using these tools.
+
+---
+
 ## 📞 Division Contact
 
 **Primary:** Website Division Team
