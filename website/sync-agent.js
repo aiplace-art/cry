@@ -139,10 +139,11 @@ async function parseAgentsInfo() {
         if (!fs.existsSync(docsPath)) {
             log('⚠️  DEPLOYMENT_STATUS.md not found, using defaults', 'yellow');
             return {
-                total: 20,
+                total: 26,
                 development: 8,
                 business: 7,
                 website: 5,
+                marketing: 6,
                 agents: []
             };
         }
@@ -155,6 +156,7 @@ async function parseAgentsInfo() {
             development: 0,
             business: 0,
             website: 0,
+            marketing: 0,
             agents: []
         };
 
@@ -190,6 +192,15 @@ async function parseAgentsInfo() {
                 }
             }
 
+            // Найти секцию PR & Marketing Division
+            if ((line.includes('PR & Marketing') || line.includes('Marketing Division')) && line.includes('Agents')) {
+                const match = line.match(/(\d+)\s+Agents/);
+                if (match) {
+                    agents.marketing = parseInt(match[1]);
+                    currentDivision = 'marketing';
+                }
+            }
+
             // Парсить агентов (формат: 1. **NAME** - Role - Description)
             const agentMatch = line.match(/^\d+\.\s+\*\*([A-Z]+)\*\*\s+-\s+(.+)/);
             if (agentMatch && currentDivision) {
@@ -201,19 +212,20 @@ async function parseAgentsInfo() {
             }
         }
 
-        agents.total = agents.development + agents.business + agents.website;
+        agents.total = agents.development + agents.business + agents.website + agents.marketing;
 
-        log(`✅ Parsed ${agents.total} agents (${agents.development} dev + ${agents.business} business + ${agents.website} website)`, 'green');
+        log(`✅ Parsed ${agents.total} agents (${agents.development} dev + ${agents.business} business + ${agents.website} website + ${agents.marketing} marketing)`, 'green');
 
         return agents;
 
     } catch (error) {
         log(`⚠️  Error parsing agents: ${error.message}`, 'yellow');
         return {
-            total: 20,
+            total: 26,
             development: 8,
             business: 7,
             website: 5,
+            marketing: 6,
             agents: []
         };
     }
@@ -262,7 +274,8 @@ async function updateWebsiteStats() {
             divisions: {
                 development: agentsInfo.development,
                 business: agentsInfo.business,
-                website: agentsInfo.website
+                website: agentsInfo.website,
+                marketing: agentsInfo.marketing
             },
             list: agentsInfo.agents,
             status: 'ACTIVE',
