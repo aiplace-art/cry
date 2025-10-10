@@ -3,8 +3,7 @@ pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 /**
  * @title GovernanceDAO
@@ -19,7 +18,6 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
  * - Multi-signature emergency actions
  */
 contract GovernanceDAO is Ownable, ReentrancyGuard {
-    using SafeMath for uint256;
 
     IERC20 public governanceToken;
 
@@ -127,7 +125,7 @@ contract GovernanceDAO is Ownable, ReentrancyGuard {
      * @dev Constructor
      * @param _governanceToken Token used for voting
      */
-    constructor(address _governanceToken) {
+    constructor(address _governanceToken) Ownable(msg.sender) {
         require(_governanceToken != address(0), "Invalid token address");
         governanceToken = IERC20(_governanceToken);
     }
@@ -221,11 +219,11 @@ contract GovernanceDAO is Ownable, ReentrancyGuard {
         vote.reason = reason;
 
         if (support == 0) {
-            proposal.againstVotes = proposal.againstVotes.add(votes);
+            proposal.againstVotes = proposal.againstVotes + votes;
         } else if (support == 1) {
-            proposal.forVotes = proposal.forVotes.add(votes);
+            proposal.forVotes = proposal.forVotes + votes;
         } else {
-            proposal.abstainVotes = proposal.abstainVotes.add(votes);
+            proposal.abstainVotes = proposal.abstainVotes + votes;
         }
 
         emit VoteCast(msg.sender, proposalId, support, votes, reason);
@@ -289,12 +287,12 @@ contract GovernanceDAO is Ownable, ReentrancyGuard {
 
     /**
      * @dev Delegate voting power
-     * @param delegate Address to delegate to
+     * @param delegateTo Address to delegate to
      * @param amount Amount of tokens to delegate
      */
-    function delegate(address delegate, uint256 amount) external {
-        require(delegate != address(0), "Invalid delegate");
-        require(delegate != msg.sender, "Cannot delegate to self");
+    function delegate(address delegateTo, uint256 amount) external {
+        require(delegateTo != address(0), "Invalid delegate");
+        require(delegateTo != msg.sender, "Cannot delegate to self");
         require(
             governanceToken.balanceOf(msg.sender) >= amount,
             "Insufficient balance"
@@ -304,18 +302,16 @@ contract GovernanceDAO is Ownable, ReentrancyGuard {
         Delegation storage currentDelegation = delegations[msg.sender];
 
         if (currentDelegation.delegate != address(0)) {
-            votingPower[currentDelegation.delegate] = votingPower[currentDelegation.delegate].sub(
-                currentDelegation.amount
-            );
+            votingPower[currentDelegation.delegate] = votingPower[currentDelegation.delegate] - currentDelegation.amount;
         }
 
-        currentDelegation.delegate = delegate;
+        currentDelegation.delegate = delegateTo;
         currentDelegation.amount = amount;
         currentDelegation.timestamp = block.timestamp;
 
-        votingPower[delegate] = votingPower[delegate].add(amount);
+        votingPower[delegateTo] = votingPower[delegateTo] + amount;
 
-        emit DelegationChanged(msg.sender, delegate, amount);
+        emit DelegationChanged(msg.sender, delegateTo, amount);
     }
 
     /**
@@ -328,7 +324,7 @@ contract GovernanceDAO is Ownable, ReentrancyGuard {
         address previousDelegate = currentDelegation.delegate;
         uint256 amount = currentDelegation.amount;
 
-        votingPower[previousDelegate] = votingPower[previousDelegate].sub(amount);
+        votingPower[previousDelegate] = votingPower[previousDelegate] - amount;
 
         delete delegations[msg.sender];
 
@@ -360,14 +356,14 @@ contract GovernanceDAO is Ownable, ReentrancyGuard {
         }
 
         // Check if proposal succeeded
-        uint256 totalVotes = proposal.forVotes.add(proposal.againstVotes).add(proposal.abstainVotes);
-        uint256 quorum = governanceToken.totalSupply().mul(quorumPercentage).div(100);
+        uint256 totalVotes = proposal.forVotes + proposal.againstVotes + proposal.abstainVotes;
+        uint256 quorum = (governanceToken.totalSupply() * quorumPercentage) / 100;
 
         if (totalVotes < quorum) {
             return ProposalState.Defeated;
         }
 
-        uint256 forPercentage = proposal.forVotes.mul(100).div(totalVotes);
+        uint256 forPercentage = (proposal.forVotes * 100) / totalVotes;
 
         if (forPercentage < passingThreshold) {
             return ProposalState.Defeated;
@@ -396,7 +392,7 @@ contract GovernanceDAO is Ownable, ReentrancyGuard {
     function _getVotingPower(address account) private view returns (uint256) {
         uint256 balance = governanceToken.balanceOf(account);
         uint256 delegated = votingPower[account];
-        return balance.add(delegated);
+        return balance + delegated;
     }
 
     /**

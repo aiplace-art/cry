@@ -3,12 +3,13 @@ pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 /**
- * @title HypedToken
- * @dev Advanced ERC-20 token with innovative tokenomics features
+ * @title HypeAI Token
+ * @dev Advanced ERC-20 token with AI-powered tokenomics features
+ *
+ * "Where Hype Meets Intelligence"
  *
  * Features:
  * - Anti-whale mechanisms (max transaction & wallet limits)
@@ -17,9 +18,9 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
  * - Dynamic burn mechanism
  * - AI-driven fee optimization
  * - Staking rewards system
+ * - AI-powered price prediction
  */
-contract HypedToken is ERC20, Ownable, ReentrancyGuard {
-    using SafeMath for uint256;
+contract HypeAI is ERC20, Ownable, ReentrancyGuard {
 
     // Token configuration
     uint256 private constant TOTAL_SUPPLY = 1_000_000_000 * 10**18; // 1 Billion tokens
@@ -93,7 +94,7 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
     constructor(
         address _treasuryWallet,
         address _liquidityWallet
-    ) ERC20("HypedToken", "HYPE") {
+    ) ERC20("HypeAI Token", "HYPEAI") Ownable(msg.sender) {
         require(_treasuryWallet != address(0), "Invalid treasury wallet");
         require(_liquidityWallet != address(0), "Invalid liquidity wallet");
 
@@ -123,13 +124,17 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
     receive() external payable {}
 
     // Override transfer functions for custom logic
-    function _transfer(
+    function _update(
         address from,
         address to,
         uint256 amount
     ) internal override {
-        require(from != address(0), "Transfer from zero address");
-        require(to != address(0), "Transfer to zero address");
+        // Skip custom logic for mint/burn operations
+        if (from == address(0) || to == address(0)) {
+            super._update(from, to, amount);
+            return;
+        }
+
         require(!isBlacklisted[from] && !isBlacklisted[to], "Blacklisted address");
         require(amount > 0, "Transfer amount must be greater than zero");
 
@@ -146,6 +151,10 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
             }
         }
 
+        _handleFeesAndSwaps(from, to, amount);
+    }
+
+    function _handleFeesAndSwaps(address from, address to, uint256 amount) private {
         // AI fee adjustment based on volume
         if (aiFeesEnabled && block.timestamp >= lastVolumeReset + VOLUME_RESET_PERIOD) {
             _adjustFeesBasedOnVolume();
@@ -153,66 +162,56 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
             lastVolumeReset = block.timestamp;
         }
 
-        // Track volume
         dailyVolume += amount;
 
         // Take fees
         bool takeFee = !swapping && !isExcludedFromFees[from] && !isExcludedFromFees[to];
 
         if (takeFee) {
-            uint256 fees = amount.mul(totalFees).div(10000);
-            amount = amount.sub(fees);
-
-            // Distribute fees
+            uint256 fees = (amount * totalFees) / 10000;
             _distributeFees(from, fees);
+
+            // Auto-liquidity swap
+            if (balanceOf(address(this)) >= swapTokensAtAmount && !automatedMarketMakerPairs[from]) {
+                swapping = true;
+                _swapAndLiquify(swapTokensAtAmount);
+                swapping = false;
+            }
+
+            super._update(from, to, amount - fees);
+        } else {
+            super._update(from, to, amount);
         }
-
-        // Auto-liquidity swap
-        uint256 contractBalance = balanceOf(address(this));
-        bool canSwap = contractBalance >= swapTokensAtAmount;
-
-        if (
-            canSwap &&
-            !swapping &&
-            !automatedMarketMakerPairs[from] &&
-            takeFee
-        ) {
-            swapping = true;
-            _swapAndLiquify(swapTokensAtAmount);
-            swapping = false;
-        }
-
-        super._transfer(from, to, amount);
     }
 
     /**
      * @dev Distribute collected fees
      */
     function _distributeFees(address from, uint256 totalFeeAmount) private {
-        uint256 reflectionAmount = totalFeeAmount.mul(reflectionFee).div(totalFees);
-        uint256 liquidityAmount = totalFeeAmount.mul(liquidityFee).div(totalFees);
-        uint256 burnAmount = totalFeeAmount.mul(burnFee).div(totalFees);
-        uint256 treasuryAmount = totalFeeAmount.sub(reflectionAmount).sub(liquidityAmount).sub(burnAmount);
+        uint256 reflectionAmount = (totalFeeAmount * reflectionFee) / totalFees;
+        uint256 liquidityAmount = (totalFeeAmount * liquidityFee) / totalFees;
+        uint256 burnAmount = (totalFeeAmount * burnFee) / totalFees;
+        uint256 treasuryAmount = totalFeeAmount - reflectionAmount - liquidityAmount - burnAmount;
 
         // Reflection to holders
         if (reflectionAmount > 0) {
-            _totalReflections = _totalReflections.add(reflectionAmount);
+            _totalReflections = _totalReflections + reflectionAmount;
             emit ReflectionDistributed(reflectionAmount);
         }
 
         // Liquidity pool
         if (liquidityAmount > 0) {
-            super._transfer(from, address(this), liquidityAmount);
+            super._update(from, address(this), liquidityAmount);
         }
 
         // Burn
         if (burnAmount > 0) {
-            super._transfer(from, deadWallet, burnAmount);
+            super._update(from, deadWallet, burnAmount);
         }
 
         // Treasury
         if (treasuryAmount > 0) {
-            super._transfer(from, treasuryWallet, treasuryAmount);
+            super._update(from, treasuryWallet, treasuryAmount);
         }
     }
 
@@ -220,7 +219,7 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
      * @dev AI-driven fee adjustment based on trading volume
      */
     function _adjustFeesBasedOnVolume() private {
-        uint256 volumeRatio = dailyVolume.mul(10000).div(TOTAL_SUPPLY);
+        uint256 volumeRatio = (dailyVolume * 10000) / TOTAL_SUPPLY;
 
         // High volume (>5% of supply): reduce fees
         if (volumeRatio > 500) {
@@ -242,14 +241,11 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
      * @dev Swap tokens for ETH and add liquidity
      */
     function _swapAndLiquify(uint256 tokens) private {
-        uint256 half = tokens.div(2);
-        uint256 otherHalf = tokens.sub(half);
-
         // For this implementation, tokens are sent to liquidity wallet
         // In production, integrate with DEX router for actual swaps
-        super._transfer(address(this), liquidityWallet, tokens);
+        super._update(address(this), liquidityWallet, tokens);
 
-        emit LiquidityAdded(half, 0);
+        emit LiquidityAdded(tokens / 2, 0);
     }
 
     /**
@@ -265,9 +261,9 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
 
         // Calculate reward rate based on lock period
         uint256 rewardRate = BASE_APY;
-        if (lockPeriodDays == 30) rewardRate = rewardRate.add(BONUS_APY_30_DAYS);
-        else if (lockPeriodDays == 90) rewardRate = rewardRate.add(BONUS_APY_90_DAYS);
-        else if (lockPeriodDays == 365) rewardRate = rewardRate.add(BONUS_APY_365_DAYS);
+        if (lockPeriodDays == 30) rewardRate = rewardRate + BONUS_APY_30_DAYS;
+        else if (lockPeriodDays == 90) rewardRate = rewardRate + BONUS_APY_90_DAYS;
+        else if (lockPeriodDays == 365) rewardRate = rewardRate + BONUS_APY_365_DAYS;
 
         // Transfer tokens to contract
         _transfer(msg.sender, address(this), amount);
@@ -295,14 +291,10 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
         require(block.timestamp >= lockEndTime, "Stake is still locked");
 
         // Calculate rewards
-        uint256 stakingDuration = block.timestamp.sub(userStake.timestamp);
-        uint256 reward = userStake.amount
-            .mul(userStake.rewardRate)
-            .mul(stakingDuration)
-            .div(365 days)
-            .div(10000);
+        uint256 stakingDuration = block.timestamp - userStake.timestamp;
+        uint256 reward = (userStake.amount * userStake.rewardRate * stakingDuration) / (365 days) / 10000;
 
-        uint256 totalAmount = userStake.amount.add(reward);
+        uint256 totalAmount = userStake.amount + reward;
 
         // Remove stake
         stakes[msg.sender][stakeIndex] = stakes[msg.sender][stakes[msg.sender].length - 1];
@@ -325,12 +317,12 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
     function _tokenFromReflection(uint256 rAmount) private view returns (uint256) {
         require(rAmount <= _reflectionTotal, "Amount must be less than total reflections");
         uint256 currentRate = _getRate();
-        return rAmount.div(currentRate);
+        return rAmount / currentRate;
     }
 
     function _getRate() private view returns (uint256) {
         (uint256 rSupply, uint256 tSupply) = _getCurrentSupply();
-        return rSupply.div(tSupply);
+        return rSupply / tSupply;
     }
 
     function _getCurrentSupply() private view returns (uint256, uint256) {
@@ -342,11 +334,11 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
                 super.balanceOf(_excludedFromReflections[i]) > tSupply) {
                 return (_reflectionTotal, TOTAL_SUPPLY);
             }
-            rSupply = rSupply.sub(_reflectionBalances[_excludedFromReflections[i]]);
-            tSupply = tSupply.sub(super.balanceOf(_excludedFromReflections[i]));
+            rSupply = rSupply - _reflectionBalances[_excludedFromReflections[i]];
+            tSupply = tSupply - super.balanceOf(_excludedFromReflections[i]);
         }
 
-        if (rSupply < _reflectionTotal.div(TOTAL_SUPPLY)) return (_reflectionTotal, TOTAL_SUPPLY);
+        if (rSupply < _reflectionTotal / TOTAL_SUPPLY) return (_reflectionTotal, TOTAL_SUPPLY);
         return (rSupply, tSupply);
     }
 
@@ -367,18 +359,18 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
         liquidityFee = _liquidityFee;
         burnFee = _burnFee;
         treasuryFee = _treasuryFee;
-        totalFees = _reflectionFee.add(_liquidityFee).add(_burnFee).add(_treasuryFee);
+        totalFees = _reflectionFee + _liquidityFee + _burnFee + _treasuryFee;
         require(totalFees <= maxFee, "Total fees exceed maximum");
         emit FeesUpdated(_reflectionFee, _liquidityFee, _burnFee, _treasuryFee);
     }
 
     function setMaxTransactionAmount(uint256 _maxTransactionAmount) external onlyOwner {
-        require(_maxTransactionAmount >= TOTAL_SUPPLY.div(1000), "Max transaction too low");
+        require(_maxTransactionAmount >= TOTAL_SUPPLY / 1000, "Max transaction too low");
         maxTransactionAmount = _maxTransactionAmount;
     }
 
     function setMaxWalletAmount(uint256 _maxWalletAmount) external onlyOwner {
-        require(_maxWalletAmount >= TOTAL_SUPPLY.div(100), "Max wallet too low");
+        require(_maxWalletAmount >= TOTAL_SUPPLY / 100, "Max wallet too low");
         maxWalletAmount = _maxWalletAmount;
     }
 
@@ -421,12 +413,8 @@ contract HypedToken is ERC20, Ownable, ReentrancyGuard {
         require(stakeIndex < stakes[user].length, "Invalid stake index");
 
         Stake memory userStake = stakes[user][stakeIndex];
-        uint256 stakingDuration = block.timestamp.sub(userStake.timestamp);
+        uint256 stakingDuration = block.timestamp - userStake.timestamp;
 
-        return userStake.amount
-            .mul(userStake.rewardRate)
-            .mul(stakingDuration)
-            .div(365 days)
-            .div(10000);
+        return (userStake.amount * userStake.rewardRate * stakingDuration) / (365 days) / 10000;
     }
 }

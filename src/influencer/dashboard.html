@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypeAI - Influencer Management Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 28px;
+        }
+
+        .header p {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-card .subtext {
+            color: #999;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .tabs {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .tab-buttons {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .tab-button:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .tab-button.active {
+            color: #667eea;
+            background: white;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .pipeline {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .pipeline-column {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            min-height: 300px;
+        }
+
+        .pipeline-column h4 {
+            margin-bottom: 15px;
+            color: #667eea;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .influencer-card {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .influencer-card:hover {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transform: translateX(5px);
+        }
+
+        .influencer-card .name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .influencer-card .platform {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .influencer-card .followers {
+            font-size: 11px;
+            color: #999;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .badge.tier1 { background: #d4edda; color: #155724; }
+        .badge.tier2 { background: #fff3cd; color: #856404; }
+        .badge.tier3 { background: #f8d7da; color: #721c24; }
+        .badge.critical { background: #dc3545; color: white; }
+        .badge.high { background: #ffc107; color: #333; }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-right: 5px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .campaign-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .campaign-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .campaign-card .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .campaign-card .metric .label {
+            color: #666;
+        }
+
+        .campaign-card .metric .value {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .roi-positive {
+            color: #28a745 !important;
+        }
+
+        .roi-negative {
+            color: #dc3545 !important;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.5s;
+        }
+
+        .action-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .close {
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .filter-bar {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .filter-bar select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .search-box {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>HypeAI Influencer Management Dashboard</h1>
+        <p>Manage partnerships, track campaigns, and monitor ROI</p>
+    </div>
+
+    <div class="container">
+        <!-- Statistics Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Influencers</h3>
+                <div class="value" id="stat-total">0</div>
+                <div class="subtext">Across all tiers</div>
+            </div>
+            <div class="stat-card">
+                <h3>Active Partnerships</h3>
+                <div class="value" id="stat-partnered">0</div>
+                <div class="subtext">Currently active</div>
+            </div>
+            <div class="stat-card">
+                <h3>Total Reach</h3>
+                <div class="value" id="stat-reach">0</div>
+                <div class="subtext">Combined followers</div>
+            </div>
+            <div class="stat-card">
+                <h3>Total Budget</h3>
+                <div class="value" id="stat-budget">$0</div>
+                <div class="subtext">Allocated budget</div>
+            </div>
+            <div class="stat-card">
+                <h3>Campaign ROI</h3>
+                <div class="value" id="stat-roi">0%</div>
+                <div class="subtext">Overall return</div>
+            </div>
+        </div>
+
+        <!-- Main Tabs -->
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="switchTab('pipeline')">Pipeline</button>
+                <button class="tab-button" onclick="switchTab('influencers')">All Influencers</button>
+                <button class="tab-button" onclick="switchTab('campaigns')">Campaigns</button>
+                <button class="tab-button" onclick="switchTab('analytics')">Analytics</button>
+            </div>
+
+            <!-- Pipeline Tab -->
+            <div class="tab-content active" id="tab-pipeline">
+                <div class="pipeline" id="pipeline-container">
+                    <div class="pipeline-column">
+                        <h4>Not Contacted (0)</h4>
+                        <div id="pipeline-not_contacted"></div>
+                    </div>
+                    <div class="pipeline-column">
+                        <h4>Contacted (0)</h4>
+                        <div id="pipeline-contacted"></div>
+                    </div>
+                    <div class="pipeline-column">
+                        <h4>Negotiating (0)</h4>
+                        <div id="pipeline-negotiating"></div>
+                    </div>
+                    <div class="pipeline-column">
+                        <h4>Partnered (0)</h4>
+                        <div id="pipeline-partnered"></div>
+                    </div>
+                    <div class="pipeline-column">
+                        <h4>Declined (0)</h4>
+                        <div id="pipeline-declined"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Influencers Tab -->
+            <div class="tab-content" id="tab-influencers">
+                <div class="filter-bar">
+                    <input type="text" class="search-box" id="search-influencers" placeholder="Search influencers...">
+                    <select id="filter-tier">
+                        <option value="">All Tiers</option>
+                        <option value="1">Tier 1</option>
+                        <option value="2">Tier 2</option>
+                        <option value="3">Tier 3</option>
+                    </select>
+                    <select id="filter-status">
+                        <option value="">All Status</option>
+                        <option value="not_contacted">Not Contacted</option>
+                        <option value="contacted">Contacted</option>
+                        <option value="negotiating">Negotiating</option>
+                        <option value="partnered">Partnered</option>
+                        <option value="declined">Declined</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="applyFilters()">Filter</button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Platform</th>
+                            <th>Followers</th>
+                            <th>Tier</th>
+                            <th>Status</th>
+                            <th>Budget</th>
+                            <th>Priority</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="influencers-table">
+                        <tr><td colspan="8" class="loading">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Campaigns Tab -->
+            <div class="tab-content" id="tab-campaigns">
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="showNewCampaignModal()">+ New Campaign</button>
+                    <button class="btn btn-secondary" onclick="loadCampaigns('active')">Active Only</button>
+                    <button class="btn btn-secondary" onclick="loadCampaigns('all')">All Campaigns</button>
+                </div>
+                <div class="campaign-grid" id="campaigns-grid">
+                    <div class="loading">Loading campaigns...</div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="tab-content" id="tab-analytics">
+                <h2 style="margin-bottom: 20px;">ROI Leaderboard</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Campaign</th>
+                            <th>Influencer</th>
+                            <th>Spent</th>
+                            <th>Revenue</th>
+                            <th>ROI</th>
+                        </tr>
+                    </thead>
+                    <tbody id="roi-leaderboard">
+                        <tr><td colspan="6" class="loading">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="influencerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-influencer-name">Influencer Details</h2>
+                <span class="close" onclick="closeModal('influencerModal')">&times;</span>
+            </div>
+            <div id="modal-influencer-body">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allInfluencers = [];
+        let stats = {};
+
+        async function loadData() {
+            try {
+                // Load statistics
+                const statsRes = await fetch('/api/statistics');
+                stats = await statsRes.json();
+                updateStats();
+
+                // Load influencers
+                const infRes = await fetch('/api/influencers');
+                allInfluencers = await infRes.json();
+                renderPipeline();
+                renderInfluencersTable(allInfluencers);
+
+                // Load campaigns
+                loadCampaigns('active');
+
+                // Load ROI leaderboard
+                loadROILeaderboard();
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('stat-total').textContent = stats.total || 0;
+            document.getElementById('stat-partnered').textContent = stats.byStatus.partnered || 0;
+            document.getElementById('stat-reach').textContent = formatNumber(stats.totalReach || 0);
+            document.getElementById('stat-budget').textContent = '$' + formatNumber(stats.totalBudget || 0);
+        }
+
+        async function loadCampaignROI() {
+            try {
+                const res = await fetch('/api/campaigns/stats/overall');
+                const campaignStats = await res.json();
+                document.getElementById('stat-roi').textContent = campaignStats.overallROI + '%';
+            } catch (error) {
+                console.error('Error loading campaign ROI:', error);
+            }
+        }
+
+        function renderPipeline() {
+            const pipeline = {
+                not_contacted: allInfluencers.filter(i => i.status === 'not_contacted'),
+                contacted: allInfluencers.filter(i => i.status === 'contacted'),
+                negotiating: allInfluencers.filter(i => i.status === 'negotiating'),
+                partnered: allInfluencers.filter(i => i.status === 'partnered'),
+                declined: allInfluencers.filter(i => i.status === 'declined')
+            };
+
+            Object.keys(pipeline).forEach(status => {
+                const container = document.getElementById(`pipeline-${status}`);
+                const column = container.parentElement;
+                const header = column.querySelector('h4');
+                header.textContent = header.textContent.replace(/\(\d+\)/, `(${pipeline[status].length})`);
+
+                container.innerHTML = pipeline[status].map(inf => `
+                    <div class="influencer-card" onclick="showInfluencerModal(${inf.id})">
+                        <div class="name">
+                            ${inf.name}
+                            <span class="badge tier${inf.tier}">T${inf.tier}</span>
+                            ${inf.priority === 'critical' || inf.priority === 'high' ? `<span class="badge ${inf.priority}">${inf.priority.toUpperCase()}</span>` : ''}
+                        </div>
+                        <div class="platform">${inf.platform}</div>
+                        <div class="followers">${formatNumber(inf.followers)} followers</div>
+                    </div>
+                `).join('');
+            });
+        }
+
+        function renderInfluencersTable(influencers) {
+            const tbody = document.getElementById('influencers-table');
+            tbody.innerHTML = influencers.map(inf => `
+                <tr>
+                    <td><strong>${inf.name}</strong></td>
+                    <td>${inf.platform}</td>
+                    <td>${formatNumber(inf.followers)}</td>
+                    <td><span class="badge tier${inf.tier}">Tier ${inf.tier}</span></td>
+                    <td>${inf.status.replace('_', ' ')}</td>
+                    <td>$${inf.budget}</td>
+                    <td><span class="badge ${inf.priority}">${inf.priority}</span></td>
+                    <td>
+                        <button class="btn btn-primary" onclick="showInfluencerModal(${inf.id})">View</button>
+                        <button class="btn btn-success" onclick="sendOutreach(${inf.id})">Contact</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function loadCampaigns(filter = 'all') {
+            try {
+                const url = filter === 'active' ? '/api/campaigns?status=active' : '/api/campaigns';
+                const res = await fetch(url);
+                const campaigns = await res.json();
+
+                const grid = document.getElementById('campaigns-grid');
+                grid.innerHTML = campaigns.map(c => `
+                    <div class="campaign-card">
+                        <h3>${c.name}</h3>
+                        <div class="metric">
+                            <span class="label">Influencer:</span>
+                            <span class="value">${c.influencerName}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Status:</span>
+                            <span class="value">${c.status}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Reach:</span>
+                            <span class="value">${formatNumber(c.performance.reach)}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Engagement:</span>
+                            <span class="value">${formatNumber(c.performance.engagement)}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">ROI:</span>
+                            <span class="value ${c.roi >= 0 ? 'roi-positive' : 'roi-negative'}">${c.roi}%</span>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-primary" onclick="viewCampaign(${c.id})">Details</button>
+                        </div>
+                    </div>
+                `).join('');
+
+                loadCampaignROI();
+            } catch (error) {
+                console.error('Error loading campaigns:', error);
+            }
+        }
+
+        async function loadROILeaderboard() {
+            try {
+                const res = await fetch('/api/campaigns/leaderboard/roi');
+                const leaderboard = await res.json();
+
+                const tbody = document.getElementById('roi-leaderboard');
+                tbody.innerHTML = leaderboard.map((item, index) => `
+                    <tr>
+                        <td><strong>#${index + 1}</strong></td>
+                        <td>${item.campaignName}</td>
+                        <td>${item.influencer}</td>
+                        <td>$${formatNumber(item.spent)}</td>
+                        <td>$${formatNumber(item.revenue)}</td>
+                        <td class="${item.roi >= 0 ? 'roi-positive' : 'roi-negative'}"><strong>${item.roi}%</strong></td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading ROI leaderboard:', error);
+            }
+        }
+
+        function switchTab(tabName) {
+            // Update buttons
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+        }
+
+        function applyFilters() {
+            const search = document.getElementById('search-influencers').value.toLowerCase();
+            const tier = document.getElementById('filter-tier').value;
+            const status = document.getElementById('filter-status').value;
+
+            let filtered = allInfluencers;
+
+            if (search) {
+                filtered = filtered.filter(i => i.name.toLowerCase().includes(search) || i.niche.toLowerCase().includes(search));
+            }
+            if (tier) {
+                filtered = filtered.filter(i => i.tier === parseInt(tier));
+            }
+            if (status) {
+                filtered = filtered.filter(i => i.status === status);
+            }
+
+            renderInfluencersTable(filtered);
+        }
+
+        function showInfluencerModal(id) {
+            const influencer = allInfluencers.find(i => i.id === id);
+            if (!influencer) return;
+
+            document.getElementById('modal-influencer-name').textContent = influencer.name;
+            document.getElementById('modal-influencer-body').innerHTML = `
+                <div class="metric"><strong>Platform:</strong> ${influencer.platform}</div>
+                <div class="metric"><strong>Followers:</strong> ${formatNumber(influencer.followers)}</div>
+                <div class="metric"><strong>Engagement:</strong> ${(influencer.engagement * 100).toFixed(1)}%</div>
+                <div class="metric"><strong>Niche:</strong> ${influencer.niche}</div>
+                <div class="metric"><strong>Status:</strong> ${influencer.status}</div>
+                <div class="metric"><strong>Budget:</strong> $${influencer.budget}</div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="updateStatus(${id}, 'contacted')">Mark Contacted</button>
+                    <button class="btn btn-success" onclick="updateStatus(${id}, 'partnered')">Mark Partnered</button>
+                    <button class="btn btn-secondary" onclick="closeModal('influencerModal')">Close</button>
+                </div>
+            `;
+
+            document.getElementById('influencerModal').style.display = 'block';
+        }
+
+        async function updateStatus(id, newStatus) {
+            try {
+                await fetch(`/api/influencers/${id}/status`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                });
+                closeModal('influencerModal');
+                loadData();
+            } catch (error) {
+                console.error('Error updating status:', error);
+            }
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        async function sendOutreach(id) {
+            if (!confirm('Send outreach email to this influencer?')) return;
+
+            try {
+                await fetch('/api/outreach/email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        influencerId: id,
+                        template: 'initial-outreach-cold'
+                    })
+                });
+                alert('Outreach sent successfully!');
+                loadData();
+            } catch (error) {
+                console.error('Error sending outreach:', error);
+                alert('Error sending outreach');
+            }
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            return num.toString();
+        }
+
+        // Load data on page load
+        loadData();
+
+        // Refresh data every 30 seconds
+        setInterval(loadData, 30000);
+    </script>
+</body>
+</html>

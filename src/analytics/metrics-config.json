@@ -1,0 +1,110 @@
+{
+  "hypeai": {
+    "token": {
+      "symbol": "HYPE",
+      "address": "0x...",
+      "chain": "ethereum",
+      "decimals": 18
+    },
+    "social": {
+      "twitter": {
+        "handle": "@HypeAIToken",
+        "api_key": "${TWITTER_API_KEY}",
+        "api_secret": "${TWITTER_API_SECRET}",
+        "bearer_token": "${TWITTER_BEARER_TOKEN}"
+      },
+      "telegram": {
+        "chat_id": "@HypeAICommunity",
+        "bot_token": "${TELEGRAM_BOT_TOKEN}"
+      },
+      "discord": {
+        "server_id": "1234567890",
+        "bot_token": "${DISCORD_BOT_TOKEN}"
+      }
+    },
+    "apis": {
+      "coingecko": {
+        "id": "hypeai",
+        "api_key": "${COINGECKO_API_KEY}"
+      },
+      "coinmarketcap": {
+        "id": "12345",
+        "api_key": "${CMC_API_KEY}"
+      },
+      "google_analytics": {
+        "tracking_id": "${GA_TRACKING_ID}",
+        "service_account": "${GA_SERVICE_ACCOUNT}"
+      }
+    },
+    "notifications": {
+      "slack": {
+        "webhook_url": "${SLACK_WEBHOOK_URL}",
+        "channel": "#hypeai-alerts"
+      },
+      "email": {
+        "smtp_host": "${SMTP_HOST}",
+        "smtp_port": 587,
+        "smtp_user": "${SMTP_USER}",
+        "smtp_pass": "${SMTP_PASS}",
+        "recipients": ["team@hypeai.io"]
+      }
+    },
+    "milestones": {
+      "holders": [100, 500, 1000, 5000, 10000],
+      "marketcap": [100000, 500000, 1000000, 5000000, 10000000],
+      "twitter_followers": [1000, 5000, 10000, 50000, 100000],
+      "telegram_members": [500, 1000, 5000, 10000, 25000]
+    }
+  },
+  "competitors": [
+    {
+      "name": "AIToken1",
+      "symbol": "AI1",
+      "address": "0x...",
+      "coingecko_id": "aitoken1",
+      "twitter": "@AIToken1",
+      "telegram": "@AI1Community"
+    },
+    {
+      "name": "AIToken2",
+      "symbol": "AI2",
+      "address": "0x...",
+      "coingecko_id": "aitoken2",
+      "twitter": "@AIToken2",
+      "telegram": "@AI2Community"
+    },
+    {
+      "name": "AIToken3",
+      "symbol": "AI3",
+      "address": "0x...",
+      "coingecko_id": "aitoken3",
+      "twitter": "@AIToken3",
+      "telegram": "@AI3Community"
+    },
+    {
+      "name": "AIToken4",
+      "symbol": "AI4",
+      "address": "0x...",
+      "coingecko_id": "aitoken4",
+      "twitter": "@AIToken4",
+      "telegram": "@AI4Community"
+    },
+    {
+      "name": "AIToken5",
+      "symbol": "AI5",
+      "address": "0x...",
+      "coingecko_id": "aitoken5",
+      "twitter": "@AIToken5",
+      "telegram": "@AI5Community"
+    }
+  ],
+  "reporting": {
+    "schedule": {
+      "daily": "0 9 * * *",
+      "weekly": "0 9 * * 1",
+      "monthly": "0 9 1 * *"
+    },
+    "formats": ["email", "pdf", "slack"],
+    "retention_days": 90
+  }
+}

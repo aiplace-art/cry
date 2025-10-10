@@ -1,0 +1,124 @@
+version: '3.8'
+
+services:
+  # Discord Bot
+  discord-bot:
+    build:
+      context: ../..
+      dockerfile: src/bots/Dockerfile
+    container_name: hypeai-discord-bot
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+      - DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
+      - BOT_TYPE=discord
+    volumes:
+      - bot-logs:/app/logs
+      - bot-data:/app/data
+    networks:
+      - hypeai-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('healthy')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    command: ["node", "src/bots/discord-bot.js"]
+
+  # Telegram Bot
+  telegram-bot:
+    build:
+      context: ../..
+      dockerfile: src/bots/Dockerfile
+    container_name: hypeai-telegram-bot
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - BOT_TYPE=telegram
+    volumes:
+      - bot-logs:/app/logs
+      - bot-data:/app/data
+    networks:
+      - hypeai-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('healthy')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    command: ["node", "src/bots/telegram-bot.js"]
+
+  # Twitter Bot
+  twitter-bot:
+    build:
+      context: ../..
+      dockerfile: src/bots/Dockerfile
+    container_name: hypeai-twitter-bot
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - TWITTER_API_KEY=${TWITTER_API_KEY}
+      - TWITTER_API_SECRET=${TWITTER_API_SECRET}
+      - TWITTER_ACCESS_TOKEN=${TWITTER_ACCESS_TOKEN}
+      - TWITTER_ACCESS_SECRET=${TWITTER_ACCESS_SECRET}
+      - BOT_TYPE=twitter
+    volumes:
+      - bot-logs:/app/logs
+      - bot-data:/app/data
+    networks:
+      - hypeai-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('healthy')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    command: ["node", "src/bots/twitter-bot.js"]
+
+  # Monitoring Dashboard
+  monitoring:
+    image: nginx:alpine
+    container_name: hypeai-monitoring
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./monitoring:/usr/share/nginx/html:ro
+    networks:
+      - hypeai-network
+    depends_on:
+      - discord-bot
+      - telegram-bot
+      - twitter-bot
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+networks:
+  hypeai-network:
+    driver: bridge
+
+volumes:
+  bot-logs:
+    driver: local
+  bot-data:
+    driver: local

@@ -3,7 +3,7 @@ pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 /**
  * @title Governance DAO Contract for HYPE Token
@@ -59,7 +59,7 @@ contract Governance is Ownable, ReentrancyGuard {
         uint256 _proposalThreshold,
         uint256 _votingPeriod,
         uint256 _quorumPercentage
-    ) {
+    ) Ownable(msg.sender) {
         require(_governanceToken != address(0), "Invalid token address");
         require(_quorumPercentage <= 10000, "Quorum too high");
 
@@ -206,7 +206,16 @@ contract Governance is Ownable, ReentrancyGuard {
     /**
      * @notice Get proposal details
      * @param _proposalId Proposal ID
-     * @return Proposal details
+     * @return id Proposal ID
+     * @return proposer Proposer address
+     * @return description Proposal description
+     * @return forVotes For votes count
+     * @return againstVotes Against votes count
+     * @return abstainVotes Abstain votes count
+     * @return startTime Start time
+     * @return endTime End time
+     * @return executed Execution status
+     * @return status Proposal status
      */
     function getProposal(uint256 _proposalId) external view returns (
         uint256 id,

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuralChain Demo - AI-Powered Blockchain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-item label {
+            display: block;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .info-item value {
+            display: block;
+            font-size: 1.2em;
+            color: #333;
+            word-break: break-all;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .status.connected {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .status.disconnected {
+            background: #f44336;
+            color: white;
+        }
+
+        .loading {
+            text-align: center;
+            color: #667eea;
+            font-style: italic;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #c62828;
+            margin-top: 15px;
+        }
+
+        .pool {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+        }
+
+        .pool:hover {
+            border-color: #667eea;
+        }
+
+        .pool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .pool-name {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .pool-apy {
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .pool-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .pool-stat {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .pool-stat strong {
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 NeuralChain</h1>
+            <p>AI-Powered Blockchain Ecosystem</p>
+        </header>
+
+        <!-- Wallet Connection Card -->
+        <div class="card">
+            <h2>💼 Wallet Connection</h2>
+            <button id="connectBtn" onclick="connectWallet()">Connect MetaMask</button>
+            <div id="wallet-info"></div>
+        </div>
+
+        <!-- Token Information Card -->
+        <div class="card">
+            <h2>🪙 Token Information</h2>
+            <div id="token-info" class="loading">Loading token data...</div>
+        </div>
+
+        <!-- Staking Pools Card -->
+        <div class="card">
+            <h2>💎 Staking Pools</h2>
+            <div id="pools-info" class="loading">Loading staking pools...</div>
+        </div>
+
+        <footer>
+            <p>Built with ❤️ on NeuralChain | Powered by AI & Blockchain</p>
+        </footer>
+    </div>
+
+    <script>
+        // Configuration
+        const API_BASE_URL = 'http://localhost:3001/api';
+        let currentAccount = null;
+        let web3 = null;
+
+        // Initialize on page load
+        window.addEventListener('load', async () => {
+            await initializeApp();
+        });
+
+        async function initializeApp() {
+            // Check if MetaMask is installed
+            if (typeof window.ethereum === 'undefined') {
+                showError('wallet-info', 'MetaMask is not installed. Please install MetaMask to use this demo.');
+                document.getElementById('connectBtn').disabled = true;
+                return;
+            }
+
+            // Load token and pool data
+            await loadTokenInfo();
+            await loadStakingPools();
+
+            // Check if already connected
+            const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+            if (accounts.length > 0) {
+                currentAccount = accounts[0];
+                updateWalletDisplay();
+            }
+
+            // Listen for account changes
+            window.ethereum.on('accountsChanged', handleAccountsChanged);
+            window.ethereum.on('chainChanged', () => window.location.reload());
+        }
+
+        async function connectWallet() {
+            try {
+                const accounts = await window.ethereum.request({
+                    method: 'eth_requestAccounts'
+                });
+                currentAccount = accounts[0];
+                updateWalletDisplay();
+            } catch (error) {
+                console.error('Error connecting wallet:', error);
+                showError('wallet-info', 'Failed to connect wallet: ' + error.message);
+            }
+        }
+
+        function handleAccountsChanged(accounts) {
+            if (accounts.length === 0) {
+                currentAccount = null;
+                document.getElementById('wallet-info').innerHTML = '';
+            } else {
+                currentAccount = accounts[0];
+                updateWalletDisplay();
+            }
+        }
+
+        async function updateWalletDisplay() {
+            try {
+                const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                const balance = await window.ethereum.request({
+                    method: 'eth_getBalance',
+                    params: [currentAccount, 'latest']
+                });
+
+                const balanceInEth = parseInt(balance, 16) / 1e18;
+                const networkName = getNetworkName(chainId);
+
+                document.getElementById('wallet-info').innerHTML = `
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Status</label>
+                            <value><span class="status connected">Connected</span></value>
+                        </div>
+                        <div class="info-item">
+                            <label>Address</label>
+                            <value>${formatAddress(currentAccount)}</value>
+                        </div>
+                        <div class="info-item">
+                            <label>Network</label>
+                            <value>${networkName}</value>
+                        </div>
+                        <div class="info-item">
+                            <label>Balance</label>
+                            <value>${balanceInEth.toFixed(4)} ETH</value>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('connectBtn').textContent = 'Connected';
+                document.getElementById('connectBtn').disabled = true;
+            } catch (error) {
+                console.error('Error updating wallet display:', error);
+                showError('wallet-info', 'Failed to fetch wallet details');
+            }
+        }
+
+        async function loadTokenInfo() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/token/price`);
+                if (!response.ok) throw new Error('Failed to fetch token info');
+
+                const data = await response.json();
+
+                document.getElementById('token-info').innerHTML = `
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Token Name</label>
+                            <value>${data.name || 'NeuralChain'}</value>
+                        </div>
+                        <div class="info-item">
+                            <label>Symbol</label>
+                            <value>${data.symbol || 'NEURAL'}</value>
+                        </div>
+                        <div class="info-item">
+                            <label>Current Price</label>
+                            <value>$${data.price ? data.price.toFixed(4) : '0.0050'}</value>
+                        </div>
+                        <div class="info-item">
+                            <label>24h Change</label>
+                            <value style="color: ${data.change24h >= 0 ? '#4CAF50' : '#f44336'}">
+                                ${data.change24h >= 0 ? '+' : ''}${data.change24h ? data.change24h.toFixed(2) : '+5.23'}%
+                            </value>
+                        </div>
+                        <div class="info-item">
+                            <label>Market Cap</label>
+                            <value>$${data.marketCap ? formatNumber(data.marketCap) : '50,000,000'}</value>
+                        </div>
+                        <div class="info-item">
+                            <label>Total Supply</label>
+                            <value>${data.totalSupply ? formatNumber(data.totalSupply) : '10,000,000,000'}</value>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Error loading token info:', error);
+                // Show fallback data
+                document.getElementById('token-info').innerHTML = `
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Token Name</label>
+                            <value>NeuralChain</value>
+                        </div>
+                        <div class="info-item">
+                            <label>Symbol</label>
+                            <value>NEURAL</value>
+                        </div>
+                        <div class="info-item">
+                            <label>Current Price</label>
+                            <value>$0.0050</value>
+                        </div>
+                        <div class="info-item">
+                            <label>24h Change</label>
+                            <value style="color: #4CAF50">+5.23%</value>
+                        </div>
+                        <div class="info-item">
+                            <label>Market Cap</label>
+                            <value>$50,000,000</value>
+                        </div>
+                        <div class="info-item">
+                            <label>Total Supply</label>
+                            <value>10,000,000,000</value>
+                        </div>
+                    </div>
+                    <div class="error">Note: Using demo data. Backend API not available at ${API_BASE_URL}</div>
+                `;
+            }
+        }
+
+        async function loadStakingPools() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/staking/pools`);
+                if (!response.ok) throw new Error('Failed to fetch staking pools');
+
+                const pools = await response.json();
+
+                if (pools.length === 0) {
+                    throw new Error('No pools available');
+                }
+
+                let poolsHTML = '';
+                pools.forEach(pool => {
+                    poolsHTML += `
+                        <div class="pool">
+                            <div class="pool-header">
+                                <div class="pool-name">${pool.name}</div>
+                                <div class="pool-apy">${pool.apy}% APY</div>
+                            </div>
+                            <div class="pool-stats">
+                                <div class="pool-stat">
+                                    <strong>Total Staked:</strong> ${formatNumber(pool.totalStaked)} NEURAL
+                                </div>
+                                <div class="pool-stat">
+                                    <strong>Lock Period:</strong> ${pool.lockPeriod} days
+                                </div>
+                                <div class="pool-stat">
+                                    <strong>Min Stake:</strong> ${formatNumber(pool.minStake)} NEURAL
+                                </div>
+                                <div class="pool-stat">
+                                    <strong>Participants:</strong> ${pool.participants || 0}
+                                </div>
+                            </div>
+                            <button onclick="stakeInPool('${pool.id}')">Stake Now</button>
+                        </div>
+                    `;
+                });
+
+                document.getElementById('pools-info').innerHTML = poolsHTML;
+            } catch (error) {
+                console.error('Error loading staking pools:', error);
+                // Show fallback pools
+                document.getElementById('pools-info').innerHTML = `
+                    <div class="pool">
+                        <div class="pool-header">
+                            <div class="pool-name">🔥 High Yield Pool</div>
+                            <div class="pool-apy">45% APY</div>
+                        </div>
+                        <div class="pool-stats">
+                            <div class="pool-stat"><strong>Total Staked:</strong> 5,000,000 NEURAL</div>
+                            <div class="pool-stat"><strong>Lock Period:</strong> 90 days</div>
+                            <div class="pool-stat"><strong>Min Stake:</strong> 1,000 NEURAL</div>
+                            <div class="pool-stat"><strong>Participants:</strong> 234</div>
+                        </div>
+                        <button onclick="stakeInPool('pool1')">Stake Now</button>
+                    </div>
+                    <div class="pool">
+                        <div class="pool-header">
+                            <div class="pool-name">⚡ Flexible Pool</div>
+                            <div class="pool-apy">25% APY</div>
+                        </div>
+                        <div class="pool-stats">
+                            <div class="pool-stat"><strong>Total Staked:</strong> 3,200,000 NEURAL</div>
+                            <div class="pool-stat"><strong>Lock Period:</strong> 30 days</div>
+                            <div class="pool-stat"><strong>Min Stake:</strong> 500 NEURAL</div>
+                            <div class="pool-stat"><strong>Participants:</strong> 567</div>
+                        </div>
+                        <button onclick="stakeInPool('pool2')">Stake Now</button>
+                    </div>
+                    <div class="pool">
+                        <div class="pool-header">
+                            <div class="pool-name">🚀 Beginner Pool</div>
+                            <div class="pool-apy">15% APY</div>
+                        </div>
+                        <div class="pool-stats">
+                            <div class="pool-stat"><strong>Total Staked:</strong> 1,500,000 NEURAL</div>
+                            <div class="pool-stat"><strong>Lock Period:</strong> 7 days</div>
+                            <div class="pool-stat"><strong>Min Stake:</strong> 100 NEURAL</div>
+                            <div class="pool-stat"><strong>Participants:</strong> 1,234</div>
+                        </div>
+                        <button onclick="stakeInPool('pool3')">Stake Now</button>
+                    </div>
+                    <div class="error">Note: Using demo data. Backend API not available at ${API_BASE_URL}</div>
+                `;
+            }
+        }
+
+        function stakeInPool(poolId) {
+            if (!currentAccount) {
+                alert('Please connect your wallet first!');
+                return;
+            }
+            alert(`Staking functionality will be implemented soon!\nPool ID: ${poolId}\nWallet: ${currentAccount}`);
+        }
+
+        function formatAddress(address) {
+            return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
+        }
+
+        function formatNumber(num) {
+            return new Intl.NumberFormat('en-US').format(num);
+        }
+
+        function getNetworkName(chainId) {
+            const networks = {
+                '0x1': 'Ethereum Mainnet',
+                '0x5': 'Goerli Testnet',
+                '0x89': 'Polygon Mainnet',
+                '0x13881': 'Mumbai Testnet',
+                '0xaa36a7': 'Sepolia Testnet'
+            };
+            return networks[chainId] || `Chain ID: ${chainId}`;
+        }
+
+        function showError(elementId, message) {
+            document.getElementById(elementId).innerHTML = `<div class="error">${message}</div>`;
+        }
+    </script>
+</body>
+</html>

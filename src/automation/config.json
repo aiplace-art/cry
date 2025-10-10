@@ -1,0 +1,126 @@
+{
+  "system": {
+    "name": "HypeAI Content Automation",
+    "version": "1.0.0",
+    "enabled": true
+  },
+  "scheduling": {
+    "postingTimes": ["09:00", "14:00", "20:00"],
+    "timezone": "UTC",
+    "autoSchedule": true,
+    "checkInterval": "*/5 * * * *"
+  },
+  "platforms": {
+    "twitter": {
+      "enabled": true,
+      "apiVersion": "v2",
+      "rateLimit": {
+        "posts": 50,
+        "period": "15min"
+      },
+      "contentRules": {
+        "maxLength": 280,
+        "allowImages": true,
+        "allowVideos": true,
+        "maxHashtags": 5
+      }
+    },
+    "telegram": {
+      "enabled": true,
+      "rateLimit": {
+        "posts": 30,
+        "period": "1min"
+      },
+      "contentRules": {
+        "maxLength": 4096,
+        "allowImages": true,
+        "allowVideos": true,
+        "parseMode": "Markdown"
+      }
+    },
+    "discord": {
+      "enabled": true,
+      "useWebhook": true,
+      "rateLimit": {
+        "posts": 5,
+        "period": "5sec"
+      },
+      "contentRules": {
+        "maxLength": 2000,
+        "allowEmbeds": true,
+        "embedColor": "#00D9FF"
+      }
+    }
+  },
+  "queue": {
+    "maxRetries": 3,
+    "retryDelay": 300000,
+    "backoffMultiplier": 2,
+    "saveInterval": 60000
+  },
+  "analytics": {
+    "enabled": true,
+    "trackMetrics": [
+      "impressions",
+      "engagements",
+      "clicks",
+      "shares",
+      "comments"
+    ],
+    "bestTimesWindow": 30,
+    "reportingInterval": "daily"
+  },
+  "notifications": {
+    "email": {
+      "enabled": false,
+      "dailyReminder": true,
+      "reminderTime": "08:00",
+      "onFailure": true,
+      "onSuccess": false
+    },
+    "slack": {
+      "enabled": false,
+      "webhookUrl": "",
+      "onFailure": true,
+      "onSuccess": false
+    }
+  },
+  "content": {
+    "sources": [
+      "docs/content/tweets.md",
+      "docs/content/announcements.md",
+      "docs/marketing/social-media-calendar-90days.md"
+    ],
+    "duplicateDetection": true,
+    "contentCache": true,
+    "preprocessor": {
+      "replaceTokens": true,
+      "tokens": {
+        "[ADDRESS]": "0x...",
+        "[DEXTOOLS]": "https://dextools.io/...",
+        "[DISCORD LINK]": "https://discord.gg/hypeai",
+        "[LINK]": "https://hypeai.io"
+      }
+    }
+  },
+  "security": {
+    "requireConfirmation": false,
+    "adminPassword": "",
+    "ipWhitelist": [],
+    "apiKeyRotation": false
+  },
+  "logging": {
+    "level": "info",
+    "console": true,
+    "file": true,
+    "logPath": "logs/automation.log",
+    "maxSize": "10mb",
+    "maxFiles": 5
+  },
+  "backup": {
+    "enabled": true,
+    "interval": "daily",
+    "retention": 30,
+    "path": "backups/"
+  }
+}

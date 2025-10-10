@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypeAI Status</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #111827;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 64px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      color: #6b7280;
+    }
+
+    .overall-status {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .status-operational {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .status-degraded {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .status-outage {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .status-indicator {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .indicator-green { background: #10b981; }
+    .indicator-yellow { background: #f59e0b; }
+    .indicator-red { background: #ef4444; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    .status-message {
+      font-size: 16px;
+      color: #6b7280;
+    }
+
+    .systems {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .systems h2 {
+      font-size: 24px;
+      margin-bottom: 25px;
+      color: #111827;
+    }
+
+    .system-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #e5e7eb;
+      transition: background 0.2s;
+    }
+
+    .system-item:last-child {
+      border-bottom: none;
+    }
+
+    .system-item:hover {
+      background: #f9fafb;
+    }
+
+    .system-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .system-icon {
+      font-size: 24px;
+    }
+
+    .system-name {
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .system-description {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+
+    .system-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .system-status.operational {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .system-status.degraded {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .system-status.down {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .uptime-section {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .uptime-section h2 {
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+
+    .uptime-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .uptime-card {
+      text-align: center;
+      padding: 20px;
+      background: #f9fafb;
+      border-radius: 8px;
+    }
+
+    .uptime-percentage {
+      font-size: 36px;
+      font-weight: bold;
+      color: #10b981;
+      margin-bottom: 5px;
+    }
+
+    .uptime-label {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .incident-history {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .incident-history h2 {
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+
+    .incident {
+      padding: 20px;
+      border-left: 4px solid;
+      margin-bottom: 20px;
+      background: #f9fafb;
+      border-radius: 4px;
+    }
+
+    .incident.resolved { border-color: #10b981; }
+    .incident.investigating { border-color: #f59e0b; }
+    .incident.critical { border-color: #ef4444; }
+
+    .incident-title {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .incident-time {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .incident-description {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .no-incidents {
+      text-align: center;
+      padding: 40px;
+      color: #6b7280;
+    }
+
+    .no-incidents-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .subscribe {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .subscribe h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .subscribe p {
+      color: #6b7280;
+      margin-bottom: 25px;
+    }
+
+    .subscribe-form {
+      display: flex;
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .subscribe-input {
+      flex: 1;
+      min-width: 250px;
+      padding: 12px 20px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .subscribe-input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .subscribe-button {
+      padding: 12px 30px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .subscribe-button:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+        flex-direction: column;
+      }
+
+      .system-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .uptime-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>
+        <span class="logo">🚀</span>
+        <span>HypeAI</span>
+      </h1>
+      <p class="tagline">System Status & Uptime</p>
+    </header>
+
+    <!-- Overall Status -->
+    <div class="overall-status">
+      <div class="status-badge status-operational" id="overallStatus">
+        <span class="status-indicator indicator-green"></span>
+        All Systems Operational
+      </div>
+      <p class="status-message" id="statusMessage">
+        All services are running smoothly. No incidents reported.
+      </p>
+    </div>
+
+    <!-- Systems Status -->
+    <div class="systems">
+      <h2>System Status</h2>
+
+      <div class="system-item">
+        <div class="system-info">
+          <span class="system-icon">🤖</span>
+          <div>
+            <div class="system-name">Discord Bot</div>
+            <div class="system-description">Community engagement and support</div>
+          </div>
+        </div>
+        <div class="system-status operational">
+          <span class="status-indicator indicator-green"></span>
+          Operational
+        </div>
+      </div>
+
+      <div class="system-item">
+        <div class="system-info">
+          <span class="system-icon">✈️</span>
+          <div>
+            <div class="system-name">Telegram Bot</div>
+            <div class="system-description">Real-time updates and alerts</div>
+          </div>
+        </div>
+        <div class="system-status operational">
+          <span class="status-indicator indicator-green"></span>
+          Operational
+        </div>
+      </div>
+
+      <div class="system-item">
+        <div class="system-info">
+          <span class="system-icon">🐦</span>
+          <div>
+            <div class="system-name">Twitter Bot</div>
+            <div class="system-description">Social media monitoring and engagement</div>
+          </div>
+        </div>
+        <div class="system-status operational">
+          <span class="status-indicator indicator-green"></span>
+          Operational
+        </div>
+      </div>
+
+      <div class="system-item">
+        <div class="system-info">
+          <span class="system-icon">🌐</span>
+          <div>
+            <div class="system-name">Website</div>
+            <div class="system-description">Main website and documentation</div>
+          </div>
+        </div>
+        <div class="system-status operational">
+          <span class="status-indicator indicator-green"></span>
+          Operational
+        </div>
+      </div>
+
+      <div class="system-item">
+        <div class="system-info">
+          <span class="system-icon">📊</span>
+          <div>
+            <div class="system-name">Analytics Dashboard</div>
+            <div class="system-description">Real-time analytics and metrics</div>
+          </div>
+        </div>
+        <div class="system-status operational">
+          <span class="status-indicator indicator-green"></span>
+          Operational
+        </div>
+      </div>
+
+      <div class="system-item">
+        <div class="system-info">
+          <span class="system-icon">⛓️</span>
+          <div>
+            <div class="system-name">Smart Contract</div>
+            <div class="system-description">Blockchain operations and transactions</div>
+          </div>
+        </div>
+        <div class="system-status operational">
+          <span class="status-indicator indicator-green"></span>
+          Operational
+        </div>
+      </div>
+    </div>
+
+    <!-- Uptime Statistics -->
+    <div class="uptime-section">
+      <h2>Uptime</h2>
+      <div class="uptime-grid">
+        <div class="uptime-card">
+          <div class="uptime-percentage">99.9%</div>
+          <div class="uptime-label">Last 24 Hours</div>
+        </div>
+        <div class="uptime-card">
+          <div class="uptime-percentage">99.8%</div>
+          <div class="uptime-label">Last 7 Days</div>
+        </div>
+        <div class="uptime-card">
+          <div class="uptime-percentage">99.7%</div>
+          <div class="uptime-label">Last 30 Days</div>
+        </div>
+        <div class="uptime-card">
+          <div class="uptime-percentage">99.6%</div>
+          <div class="uptime-label">Last 90 Days</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Incident History -->
+    <div class="incident-history">
+      <h2>Incident History</h2>
+      <div id="incidentList">
+        <div class="no-incidents">
+          <div class="no-incidents-icon">✅</div>
+          <p><strong>No incidents in the last 90 days</strong></p>
+          <p style="font-size: 14px; margin-top: 10px;">
+            Our systems have been running smoothly with no major incidents.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subscribe to Updates -->
+    <div class="subscribe">
+      <h2>Subscribe to Updates</h2>
+      <p>Get notified when HypeAI creates, updates, or resolves an incident.</p>
+      <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+        <input
+          type="email"
+          class="subscribe-input"
+          placeholder="Enter your email"
+          required
+        />
+        <button type="submit" class="subscribe-button">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      &copy; 2025 HypeAI. All rights reserved. |
+      <a href="https://hypeai.io">Main Site</a> |
+      <a href="https://twitter.com/HypeAI">Twitter</a> |
+      <a href="https://discord.gg/hypeai">Discord</a>
+    </p>
+    <p style="margin-top: 10px; font-size: 12px;">
+      Last updated: <span id="lastUpdate">Loading...</span>
+    </p>
+  </footer>
+
+  <script>
+    // Fetch and update status
+    async function updateStatus() {
+      try {
+        const response = await fetch('/api/health');
+        const data = await response.json();
+
+        // Update overall status
+        const overallStatus = document.getElementById('overallStatus');
+        const statusMessage = document.getElementById('statusMessage');
+
+        if (data.overall.status === 'healthy') {
+          overallStatus.className = 'status-badge status-operational';
+          overallStatus.innerHTML = '<span class="status-indicator indicator-green"></span>All Systems Operational';
+          statusMessage.textContent = 'All services are running smoothly. No incidents reported.';
+        } else if (data.overall.status === 'degraded' || data.overall.status === 'warning') {
+          overallStatus.className = 'status-badge status-degraded';
+          overallStatus.innerHTML = '<span class="status-indicator indicator-yellow"></span>Partial System Outage';
+          statusMessage.textContent = `Some services experiencing issues: ${data.overall.issues.join(', ')}`;
+        } else {
+          overallStatus.className = 'status-badge status-outage';
+          overallStatus.innerHTML = '<span class="status-indicator indicator-red"></span>Major System Outage';
+          statusMessage.textContent = `Critical issues detected: ${data.overall.issues.join(', ')}`;
+        }
+
+        // Update last update time
+        document.getElementById('lastUpdate').textContent = new Date().toLocaleString();
+
+      } catch (error) {
+        console.error('Failed to update status:', error);
+      }
+    }
+
+    // Handle subscription
+    function handleSubscribe(event) {
+      event.preventDefault();
+      const email = event.target.querySelector('input[type="email"]').value;
+
+      fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('✅ Successfully subscribed! You will receive updates about HypeAI status.');
+        event.target.reset();
+      })
+      .catch(error => {
+        alert('❌ Failed to subscribe. Please try again.');
+      });
+    }
+
+    // Load incidents
+    async function loadIncidents() {
+      try {
+        const response = await fetch('/api/incidents?limit=10');
+        const incidents = await response.json();
+
+        const incidentList = document.getElementById('incidentList');
+
+        if (incidents.length === 0) {
+          return; // Keep the "no incidents" message
+        }
+
+        incidentList.innerHTML = incidents.map(incident => `
+          <div class="incident ${incident.status}">
+            <div class="incident-title">${incident.title}</div>
+            <div class="incident-time">
+              ${new Date(incident.startTime).toLocaleString()} -
+              ${incident.endTime ? new Date(incident.endTime).toLocaleString() : 'Ongoing'}
+            </div>
+            <div class="incident-description">${incident.description}</div>
+          </div>
+        `).join('');
+
+      } catch (error) {
+        console.error('Failed to load incidents:', error);
+      }
+    }
+
+    // Initialize
+    updateStatus();
+    loadIncidents();
+
+    // Refresh every 60 seconds
+    setInterval(updateStatus, 60000);
+  </script>
+</body>
+</html>

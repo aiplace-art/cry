@@ -1,0 +1,79 @@
+INFLUENCER PARTNERSHIP AGREEMENT
+
+This Agreement is entered into as of [DATE] between:
+
+HYPEAI ("Company")
+[Company Address]
+
+AND
+
+{FULL_NAME} ("Influencer")
+Platform: {PLATFORM}
+Handle: {NAME}
+
+1. PARTNERSHIP TERMS
+   - Duration: [START DATE] to [END DATE]
+   - Compensation: {BUDGET} USD
+   - Revenue Share: 10% of all referred sales (lifetime)
+
+2. DELIVERABLES
+   Influencer agrees to create and publish:
+   - [X] dedicated posts/videos about HypeAI
+   - [X] stories/shorts mentioning HypeAI
+   - Exclusive discount code for audience
+   - [Optional] Co-hosted event (Twitter Space, AMA, etc.)
+
+3. CONTENT GUIDELINES
+   - Influencer retains creative control
+   - Content must comply with FTC disclosure guidelines
+   - Must include #ad or #sponsored disclosure
+   - Must include HypeAI branding/link
+   - Company has right to review (not approve) before publishing
+
+4. PAYMENT TERMS
+   - Upfront: 50% upon contract signing
+   - Completion: 50% upon deliverable completion
+   - Commission: Paid monthly via [payment method]
+   - Payment method: [Bank transfer / PayPal / Crypto]
+
+5. PERFORMANCE METRICS
+   Influencer agrees to provide:
+   - Post engagement metrics (likes, comments, shares)
+   - Reach/impressions data
+   - Click-through data (if available)
+   - Access to analytics dashboard
+
+6. EXCLUSIVITY
+   - During campaign: No competing crypto AI platforms
+   - Post-campaign: 30-day non-compete period
+
+7. TERMINATION
+   - Either party: 30 days written notice
+   - For cause: Immediate termination with written notice
+   - Upon termination: Pro-rated payment for completed work
+
+8. INTELLECTUAL PROPERTY
+   - Influencer retains rights to content
+   - Company has perpetual license to use content for marketing
+   - Company owns HypeAI brand/trademarks
+
+9. CONFIDENTIALITY
+   - Both parties agree not to disclose confidential information
+   - Exception: Information required by law
+
+10. COMPLIANCE
+    - Influencer will comply with FTC guidelines
+    - Influencer will comply with platform policies
+    - Influencer represents they have legal right to enter agreement
+
+SIGNATURES:
+
+HYPEAI
+_______________________
+[Name, Title]
+Date: __________
+
+INFLUENCER
+_______________________
+{FULL_NAME}
+Date: __________

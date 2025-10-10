@@ -1,0 +1,37 @@
+Subject: Payment Processed - HypeAI Partnership
+
+Hi {NAME},
+
+Great news! Your payment has been processed.
+
+PAYMENT DETAILS:
+- Amount: {BUDGET} USD
+- Campaign: [Campaign Name]
+- Payment Date: [Date]
+- Payment Method: [Method]
+- Transaction ID: [ID]
+
+NEXT STEPS:
+1. Confirm receipt of payment (reply to this email)
+2. Review the creative brief we sent earlier
+3. Let us know when you plan to publish
+4. Send us the link once it's live
+
+ONGOING COMMISSION:
+- You're earning 10% on all referrals
+- Track your earnings at: [dashboard link]
+- Payouts happen monthly (minimum $100)
+- Your unique code: HYPEAI{NAME}10
+
+Need anything? We're here to help!
+
+Creative assets: [link]
+Partner dashboard: [link]
+Support email: partners@hypeai.com
+
+Thanks for partnering with us!
+
+Best,
+HypeAI Team
+
+P.S. Once your content is live, we'll promote it across our channels to maximize your reach!

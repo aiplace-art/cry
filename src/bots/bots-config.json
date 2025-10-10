@@ -1,0 +1,106 @@
+{
+  "discord": {
+    "token": "YOUR_DISCORD_BOT_TOKEN",
+    "prefix": "!",
+    "welcomeChannel": "welcome",
+    "rateLimit": {
+      "requests": 10,
+      "window": 60000
+    }
+  },
+  "telegram": {
+    "token": "YOUR_TELEGRAM_BOT_TOKEN"
+  },
+  "twitter": {
+    "apiKey": "YOUR_TWITTER_API_KEY",
+    "apiSecret": "YOUR_TWITTER_API_SECRET",
+    "accessToken": "YOUR_TWITTER_ACCESS_TOKEN",
+    "accessSecret": "YOUR_TWITTER_ACCESS_SECRET",
+    "userId": "YOUR_TWITTER_USER_ID"
+  },
+  "contractAddress": "0x0000000000000000000000000000000000000000",
+  "partnershipEmail": "partnerships@hypeai.io",
+  "links": {
+    "website": "https://hypeai.io",
+    "docs": "https://docs.hypeai.io",
+    "twitter": "https://twitter.com/HypeAI_Official",
+    "discord": "https://discord.gg/hypeai",
+    "telegram": "https://t.me/hypeai_official",
+    "medium": "https://medium.com/@hypeai",
+    "github": "https://github.com/hypeai",
+    "pancakeswap": "https://pancakeswap.finance/swap?outputCurrency=YOUR_CONTRACT",
+    "coingecko": "https://coingecko.com/en/coins/hypeai",
+    "coinmarketcap": "https://coinmarketcap.com/currencies/hypeai",
+    "stakingDapp": "https://stake.hypeai.io",
+    "dao": "https://dao.hypeai.io",
+    "chart": "https://dexscreener.com/bsc/YOUR_PAIR",
+    "buyGuide": "https://docs.hypeai.io/guides/how-to-buy",
+    "stakingGuide": "https://docs.hypeai.io/guides/staking",
+    "roadmap": "https://hypeai.io/roadmap",
+    "audit": "https://docs.hypeai.io/security/audit"
+  },
+  "moderation": {
+    "antiSpam": {
+      "enabled": true,
+      "messageThreshold": 5,
+      "timeWindow": 10000
+    },
+    "antiScam": {
+      "enabled": true,
+      "whitelistedDomains": [
+        "hypeai.io",
+        "twitter.com",
+        "telegram.org",
+        "discord.gg",
+        "pancakeswap.finance",
+        "etherscan.io",
+        "bscscan.com"
+      ]
+    },
+    "humanReview": {
+      "enabled": true,
+      "requireApprovalFor": [
+        "auto-replies",
+        "scam-deletions",
+        "partnership-responses"
+      ]
+    }
+  },
+  "notifications": {
+    "dailyUpdates": {
+      "enabled": true,
+      "time": "12:00",
+      "timezone": "UTC"
+    },
+    "priceAlerts": {
+      "enabled": true,
+      "checkInterval": 60000
+    }
+  },
+  "features": {
+    "discord": {
+      "welcomeMessages": true,
+      "autoRoles": true,
+      "faqResponses": true,
+      "priceCommands": true,
+      "stakingCalculator": true,
+      "moderation": true,
+      "dailyStats": true
+    },
+    "telegram": {
+      "welcomeMessages": true,
+      "priceAlerts": true,
+      "dailyUpdates": true,
+      "faqResponses": true,
+      "customAlerts": true
+    },
+    "twitter": {
+      "mentionMonitoring": true,
+      "autoReplies": false,
+      "sentimentTracking": true,
+      "viralAlerts": true,
+      "partnershipTracking": true,
+      "humanReview": true
+    }
+  }
+}

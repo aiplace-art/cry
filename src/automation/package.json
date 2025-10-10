@@ -1,0 +1,42 @@
+{
+  "name": "hypeai-content-automation",
+  "version": "1.0.0",
+  "description": "Automated content posting system for HypeAI social media",
+  "main": "content-scheduler.js",
+  "scripts": {
+    "start": "node content-scheduler.js start",
+    "schedule": "node content-scheduler.js schedule",
+    "status": "node content-scheduler.js status",
+    "test": "node multi-publisher.js test",
+    "today": "node calendar-manager.js today",
+    "remind": "node calendar-manager.js remind",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop ecosystem.config.js",
+    "pm2:restart": "pm2 restart ecosystem.config.js",
+    "pm2:logs": "pm2 logs hypeai-automation"
+  },
+  "keywords": [
+    "hypeai",
+    "automation",
+    "social-media",
+    "content-scheduling",
+    "twitter",
+    "telegram",
+    "discord"
+  ],
+  "author": "HypeAI Team",
+  "license": "MIT",
+  "dependencies": {
+    "node-cron": "^3.0.3",
+    "axios": "^1.6.2",
+    "form-data": "^4.0.0",
+    "nodemailer": "^6.9.7",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "pm2": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

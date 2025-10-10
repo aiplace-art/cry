@@ -1,0 +1,51 @@
+ID,Name,Platform,Followers,Tier,Niche,Engagement,Status,Budget,Priority
+1,@CryptoCapo_,Twitter,45000,1,Technical Analysis,0.04,contacted,300,medium
+2,@AltcoinGordon,Twitter,38000,1,Altcoin Gems,0.04,not_contacted,250,high
+3,@CryptoRoverr,Twitter,42000,1,On-chain Analysis,0.035,not_contacted,280,high
+4,@CryptoBull2020,Twitter,35000,1,Bitcoin Macro,0.042,not_contacted,240,medium
+5,@IncomeSharks,Twitter,48000,1,Passive Income/DeFi,0.038,not_contacted,320,high
+6,@TraderXO,Twitter,31000,1,Day Trading,0.05,not_contacted,230,medium
+7,@CryptoELITES,Twitter,29000,1,News/Sentiment,0.032,not_contacted,220,low
+8,@TheCryptoDog,Twitter,44000,1,Memes/Community,0.06,not_contacted,290,high
+9,@CryptoMessiah,Twitter,37000,1,Education/Beginner,0.045,not_contacted,260,medium
+10,@MoonOverlord,Twitter,41000,1,Altcoin Moonshots,0.04,not_contacted,270,high
+11,@CryptoCrewUniversity,TikTok,47000,1,Education,0.08,not_contacted,310,high
+12,@AltcoinDaily_TikTok,TikTok,35000,1,Daily News,0.06,not_contacted,240,medium
+13,@CryptoWendyO_TikTok,TikTok,29000,1,Lifestyle/Female,0.1,not_contacted,220,high
+14,@TheMoonCarl,TikTok,42000,1,Comedy/Memes,0.09,not_contacted,280,high
+15,@CryptoBanter_TikTok,TikTok,38000,1,Trading Clips,0.07,not_contacted,260,medium
+16,@BlockchainBoy,Instagram,33000,1,Tech/NFTs,0.065,not_contacted,235,medium
+17,@CryptoGirlBoss,TikTok,26000,1,Empowerment/Female,0.08,not_contacted,210,high
+18,@SatoshiStacker,Instagram,31000,1,Bitcoin,0.05,not_contacted,230,low
+19,@DeFiDad_TikTok,TikTok,28000,1,DeFi,0.07,not_contacted,215,medium
+20,@CryptoZilla,TikTok,40000,1,Project Reviews,0.06,not_contacted,270,high
+21,Crypto Jebb,YouTube,46000,1,Daily Updates,0.04,not_contacted,400,high
+22,Crypto Rover,YouTube,39000,1,TA Education,0.05,not_contacted,350,high
+23,Crypto Blood,YouTube,34000,1,Deep Dives,0.035,not_contacted,320,medium
+24,Krown's Crypto Cave,YouTube,41000,1,Bitcoin TA,0.042,not_contacted,370,medium
+25,Crypto Kirby,YouTube,37000,1,Altcoin Trading,0.038,not_contacted,340,high
+26,MMCrypto,YouTube,48000,1,Daily News,0.045,not_contacted,410,high
+27,Crypto Zombie,YouTube,43000,1,Entertainment,0.052,not_contacted,380,high
+28,Sheldon Evans,YouTube,32000,1,Passive Income,0.04,not_contacted,310,high
+29,Crypto Daily,YouTube,45000,1,Humor/News,0.06,not_contacted,390,medium
+30,Davincij15,YouTube,50000,1,Bitcoin OG,0.03,not_contacted,420,medium
+31,@APompliano,Twitter,1600000,2,Bitcoin/Macro,0.015,not_contacted,15000,critical
+32,@CryptoCred,Twitter,680000,2,Trading Education,0.02,not_contacted,7500,critical
+33,@CryptoWendyO,Twitter,320000,2,Female Advocate,0.025,not_contacted,4000,high
+34,@TheCryptoDog_Main,Twitter,850000,2,Memes,0.03,not_contacted,10000,critical
+35,@LayahHeilpern,Twitter,425000,2,Journalism,0.022,not_contacted,5000,high
+36,@IvanOnTech,Twitter,510000,2,Developer Focus,0.018,not_contacted,6500,high
+37,@AltcoinDaily,Twitter,780000,2,Daily News,0.02,not_contacted,8500,critical
+38,@CoinBureau,Twitter,920000,2,Education,0.017,not_contacted,12500,critical
+39,DataDash,YouTube,520000,2,Market Analysis,0.03,not_contacted,10000,critical
+40,Crypto Casey,YouTube,310000,2,Beginner Education,0.04,not_contacted,6500,high
+41,Lark Davis,YouTube,495000,2,Altcoin Analysis,0.035,not_contacted,8500,critical
+42,Coin Bureau YouTube,YouTube,2400000,2,Deep Dives,0.025,not_contacted,25000,critical
+43,BitBoy Crypto,YouTube,1500000,2,News/Altcoins,0.02,not_contacted,20000,critical
+44,Crypto VIP Signal,Telegram,185000,2,Trading Signals,0.3,not_contacted,6500,high
+45,Wolf Of All Streets,Discord,45000,2,Trading Community,0.25,not_contacted,4000,high
+46,@VitalikButerin,Twitter,5200000,3,Ethereum/Tech,0.01,not_contacted,0,strategic
+47,@CZ_Binance,Twitter,8500000,3,Exchange/Industry,0.008,not_contacted,0,strategic
+48,@elonmusk,Twitter,180000000,3,Tech/Memes,0.005,not_contacted,0,aspirational
+49,@Cointelegraph,Twitter,2100000,3,News Media,0.012,not_contacted,15000,critical
+50,@TheBlock__,Twitter,920000,3,Journalism,0.015,not_contacted,11500,critical

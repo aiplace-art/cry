@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1760044173330,
+    "name": "Launch Campaign - @CryptoCapo_",
+    "influencerId": 1,
+    "influencerName": "@CryptoCapo_",
+    "platform": "Twitter",
+    "startDate": "2025-10-09T21:09:33.330Z",
+    "status": "active",
+    "deliverables": [
+      "1 thread",
+      "2 tweets"
+    ],
+    "budget": 300,
+    "paid": 150,
+    "posts": [
+      {
+        "id": 1760044173330,
+        "platform": "Twitter",
+        "url": "https://twitter.com/CryptoCapo_/status/123456",
+        "type": "tweet",
+        "publishedAt": "2025-10-09T21:09:33.330Z",
+        "content": "",
+        "metrics": {
+          "reach": 45000,
+          "impressions": 0,
+          "likes": 2500,
+          "comments": 200,
+          "shares": 400,
+          "clicks": 1000,
+          "views": 0
+        },
+        "trackingUrl": "",
+        "lastChecked": "2025-10-09T21:09:33.330Z"
+      }
+    ],
+    "performance": {
+      "reach": 45000,
+      "impressions": 0,
+      "engagement": 3100,
+      "likes": 2500,
+      "comments": 200,
+      "shares": 400,
+      "clicks": 1000,
+      "conversions": 25,
+      "signups": 25,
+      "revenue": 1250
+    },
+    "roi": 733.33,
+    "notes": []
+  }
+]

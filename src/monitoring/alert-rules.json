@@ -1,0 +1,264 @@
+{
+  "rules": [
+    {
+      "id": "bot-down",
+      "name": "Bot Down",
+      "description": "Alert when any bot is down for more than 5 minutes",
+      "condition": {
+        "metric": "bots.*.status",
+        "operator": "equals",
+        "value": "down",
+        "duration": "5m"
+      },
+      "priority": "P1",
+      "channels": ["slack", "email"],
+      "enabled": true
+    },
+    {
+      "id": "website-down",
+      "name": "Website Down",
+      "description": "Emergency alert when website is unreachable",
+      "condition": {
+        "metric": "website.status",
+        "operator": "equals",
+        "value": "down",
+        "duration": "1m"
+      },
+      "priority": "P0",
+      "channels": ["slack", "email", "sms"],
+      "enabled": true
+    },
+    {
+      "id": "price-drop",
+      "name": "Significant Price Drop",
+      "description": "Alert when token price drops more than 10% in 1 hour",
+      "condition": {
+        "metric": "token.priceChange24h",
+        "operator": "less_than",
+        "value": -10,
+        "duration": "1h"
+      },
+      "priority": "P2",
+      "channels": ["slack", "email"],
+      "enabled": true
+    },
+    {
+      "id": "price-surge",
+      "name": "Significant Price Surge",
+      "description": "Notification when token price increases more than 20% in 1 hour",
+      "condition": {
+        "metric": "token.priceChange24h",
+        "operator": "greater_than",
+        "value": 20,
+        "duration": "1h"
+      },
+      "priority": "P3",
+      "channels": ["slack"],
+      "enabled": true
+    },
+    {
+      "id": "holder-milestone-1000",
+      "name": "1000 Holders Milestone",
+      "description": "Celebrate reaching 1000 token holders",
+      "condition": {
+        "metric": "token.holderCount",
+        "operator": "greater_than_or_equal",
+        "value": 1000,
+        "once": true
+      },
+      "priority": "P3",
+      "channels": ["slack", "email"],
+      "enabled": true
+    },
+    {
+      "id": "holder-milestone-5000",
+      "name": "5000 Holders Milestone",
+      "description": "Celebrate reaching 5000 token holders",
+      "condition": {
+        "metric": "token.holderCount",
+        "operator": "greater_than_or_equal",
+        "value": 5000,
+        "once": true
+      },
+      "priority": "P3",
+      "channels": ["slack", "email"],
+      "enabled": true
+    },
+    {
+      "id": "holder-milestone-10000",
+      "name": "10000 Holders Milestone",
+      "description": "Celebrate reaching 10000 token holders",
+      "condition": {
+        "metric": "token.holderCount",
+        "operator": "greater_than_or_equal",
+        "value": 10000,
+        "once": true
+      },
+      "priority": "P3",
+      "channels": ["slack", "email"],
+      "enabled": true
+    },
+    {
+      "id": "low-gas-balance",
+      "name": "Low Gas Balance",
+      "description": "Alert when deployer wallet has low ETH for gas",
+      "condition": {
+        "metric": "blockchain.gasBalance",
+        "operator": "less_than",
+        "value": 0.1,
+        "duration": "15m"
+      },
+      "priority": "P2",
+      "channels": ["slack", "email"],
+      "enabled": true
+    },
+    {
+      "id": "api-rate-limit",
+      "name": "API Rate Limit Hit",
+      "description": "Alert when external API rate limits are hit",
+      "condition": {
+        "metric": "apis.*.status",
+        "operator": "equals",
+        "value": "rate-limited",
+        "duration": "5m"
+      },
+      "priority": "P2",
+      "channels": ["slack"],
+      "enabled": true
+    },
+    {
+      "id": "high-response-time",
+      "name": "High Response Time",
+      "description": "Alert when website response time exceeds 2 seconds",
+      "condition": {
+        "metric": "website.responseTime",
+        "operator": "greater_than",
+        "value": 2000,
+        "duration": "10m"
+      },
+      "priority": "P3",
+      "channels": ["slack"],
+      "enabled": true
+    },
+    {
+      "id": "volume-surge",
+      "name": "Trading Volume Surge",
+      "description": "Notification when 24h volume increases 5x",
+      "condition": {
+        "metric": "token.volume24h",
+        "operator": "multiplier",
+        "value": 5,
+        "baseline": "24h_avg",
+        "duration": "1h"
+      },
+      "priority": "P3",
+      "channels": ["slack"],
+      "enabled": true
+    },
+    {
+      "id": "social-growth",
+      "name": "Social Media Growth",
+      "description": "Celebrate significant follower growth",
+      "condition": {
+        "metric": "social.twitter.followers",
+        "operator": "percent_increase",
+        "value": 10,
+        "baseline": "24h_ago",
+        "duration": "24h"
+      },
+      "priority": "P4",
+      "channels": ["slack"],
+      "enabled": true
+    },
+    {
+      "id": "blockchain-connection-lost",
+      "name": "Blockchain Connection Lost",
+      "description": "Critical alert when blockchain connection fails",
+      "condition": {
+        "metric": "blockchain.status",
+        "operator": "equals",
+        "value": "down",
+        "duration": "2m"
+      },
+      "priority": "P1",
+      "channels": ["slack", "email"],
+      "enabled": true
+    },
+    {
+      "id": "discord-spike",
+      "name": "Discord Activity Spike",
+      "description": "Notification of unusual Discord activity",
+      "condition": {
+        "metric": "social.discord.messages24h",
+        "operator": "multiplier",
+        "value": 3,
+        "baseline": "7d_avg",
+        "duration": "1h"
+      },
+      "priority": "P4",
+      "channels": ["slack"],
+      "enabled": true
+    },
+    {
+      "id": "telegram-spike",
+      "name": "Telegram Activity Spike",
+      "description": "Notification of unusual Telegram activity",
+      "condition": {
+        "metric": "social.telegram.messages24h",
+        "operator": "multiplier",
+        "value": 3,
+        "baseline": "7d_avg",
+        "duration": "1h"
+      },
+      "priority": "P4",
+      "channels": ["slack"],
+      "enabled": true
+    }
+  ],
+  "channels": {
+    "slack": {
+      "enabled": true,
+      "webhook_url": "${SLACK_WEBHOOK_URL}"
+    },
+    "email": {
+      "enabled": true,
+      "from": "${ALERT_EMAIL_FROM}",
+      "to": "${ALERT_EMAIL_TO}",
+      "smtp": {
+        "host": "${SMTP_HOST}",
+        "port": "${SMTP_PORT}",
+        "user": "${SMTP_USER}",
+        "pass": "${SMTP_PASS}"
+      }
+    },
+    "sms": {
+      "enabled": false,
+      "twilio": {
+        "account_sid": "${TWILIO_ACCOUNT_SID}",
+        "auth_token": "${TWILIO_AUTH_TOKEN}",
+        "from_number": "${TWILIO_FROM_NUMBER}",
+        "to_number": "${TWILIO_TO_NUMBER}"
+      }
+    }
+  },
+  "on_call_rotation": [
+    {
+      "name": "Primary Engineer",
+      "email": "engineer1@hypeai.io",
+      "phone": "+1234567890",
+      "days": ["Monday", "Tuesday", "Wednesday"]
+    },
+    {
+      "name": "Secondary Engineer",
+      "email": "engineer2@hypeai.io",
+      "phone": "+0987654321",
+      "days": ["Thursday", "Friday", "Saturday", "Sunday"]
+    }
+  ],
+  "settings": {
+    "grouping_window_minutes": 5,
+    "deduplication_window_minutes": 15,
+    "max_alerts_per_hour": 20,
+    "auto_resolve_after_minutes": 30
+  }
+}

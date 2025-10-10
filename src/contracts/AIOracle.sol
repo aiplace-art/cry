@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 /**
  * @title AIOracle
@@ -78,7 +78,7 @@ contract AIOracle is Ownable, ReentrancyGuard {
     /**
      * @dev Constructor
      */
-    constructor() {
+    constructor() Ownable(msg.sender) {
         authorizedSources[msg.sender] = true;
 
         // Initialize with default metrics
@@ -219,7 +219,7 @@ contract AIOracle is Ownable, ReentrancyGuard {
         else if (currentMetrics.liquidity < 500000 * 10**18) {
             reflectionFee = 200;  // 2%
             liquidityFee = 500;   // 5%
-            burnFee: 100;         // 1%
+            burnFee = 100;        // 1%
             treasuryFee = 200;    // 2%
             reason = "Low liquidity: Focus on pool building";
         }

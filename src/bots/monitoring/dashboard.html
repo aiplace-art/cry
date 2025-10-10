@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypeAI Bot Monitoring Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .auto-refresh {
+            margin-top: 10px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .bot-name {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .status.online {
+            background: #10b981;
+            color: white;
+        }
+
+        .status.offline {
+            background: #ef4444;
+            color: white;
+        }
+
+        .status.warning {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .system-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .system-header {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .system-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .system-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .system-item-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .system-item-value {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2em;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading {
+            animation: pulse 2s infinite;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HypeAI Bot Monitoring</h1>
+            <div class="subtitle">Real-time Status Dashboard</div>
+            <div class="auto-refresh">Auto-refresh: <span id="countdown">10</span>s</div>
+        </header>
+
+        <div id="dashboard" class="loading">
+            Loading bot status...
+        </div>
+
+        <footer>
+            <p>HypeAI - AI-Powered Multi-Platform Bot Network</p>
+            <p>Last updated: <span id="last-update">--</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // Mock data generator (replace with actual API calls in production)
+        function generateMockData() {
+            const bots = [
+                {
+                    name: 'Discord Bot',
+                    type: 'discord',
+                    status: Math.random() > 0.1 ? 'online' : 'offline',
+                    uptime: Math.floor(Math.random() * 86400),
+                    messages: Math.floor(Math.random() * 10000),
+                    errors: Math.floor(Math.random() * 10),
+                    memory: (Math.random() * 200 + 100).toFixed(1),
+                    cpu: (Math.random() * 50).toFixed(1)
+                },
+                {
+                    name: 'Telegram Bot',
+                    type: 'telegram',
+                    status: Math.random() > 0.1 ? 'online' : 'offline',
+                    uptime: Math.floor(Math.random() * 86400),
+                    messages: Math.floor(Math.random() * 8000),
+                    errors: Math.floor(Math.random() * 5),
+                    memory: (Math.random() * 200 + 100).toFixed(1),
+                    cpu: (Math.random() * 50).toFixed(1)
+                },
+                {
+                    name: 'Twitter Bot',
+                    type: 'twitter',
+                    status: Math.random() > 0.1 ? 'online' : 'offline',
+                    uptime: Math.floor(Math.random() * 86400),
+                    messages: Math.floor(Math.random() * 5000),
+                    errors: Math.floor(Math.random() * 3),
+                    memory: (Math.random() * 200 + 100).toFixed(1),
+                    cpu: (Math.random() * 50).toFixed(1)
+                }
+            ];
+
+            return bots;
+        }
+
+        function formatUptime(seconds) {
+            const days = Math.floor(seconds / 86400);
+            const hours = Math.floor((seconds % 86400) / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+
+            if (days > 0) return `${days}d ${hours}h ${minutes}m`;
+            if (hours > 0) return `${hours}h ${minutes}m`;
+            return `${minutes}m`;
+        }
+
+        function renderDashboard(bots) {
+            const totalMessages = bots.reduce((sum, bot) => sum + bot.messages, 0);
+            const totalErrors = bots.reduce((sum, bot) => sum + bot.errors, 0);
+            const onlineBots = bots.filter(bot => bot.status === 'online').length;
+
+            const statsHtml = bots.map(bot => `
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="bot-name">${bot.name}</div>
+                        <div class="status ${bot.status}">${bot.status.toUpperCase()}</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Uptime:</span>
+                        <span class="stat-value">${formatUptime(bot.uptime)}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Messages:</span>
+                        <span class="stat-value">${bot.messages.toLocaleString()}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Errors:</span>
+                        <span class="stat-value">${bot.errors}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Memory:</span>
+                        <span class="stat-value">${bot.memory} MB</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">CPU:</span>
+                        <span class="stat-value">${bot.cpu}%</span>
+                    </div>
+                </div>
+            `).join('');
+
+            const dashboardHtml = `
+                <div class="stats-grid">
+                    ${statsHtml}
+                </div>
+
+                <div class="system-info">
+                    <div class="system-header">System Overview</div>
+                    <div class="system-grid">
+                        <div class="system-item">
+                            <div class="system-item-label">Online Bots</div>
+                            <div class="system-item-value">${onlineBots}/${bots.length}</div>
+                        </div>
+                        <div class="system-item">
+                            <div class="system-item-label">Total Messages</div>
+                            <div class="system-item-value">${totalMessages.toLocaleString()}</div>
+                        </div>
+                        <div class="system-item">
+                            <div class="system-item-label">Total Errors</div>
+                            <div class="system-item-value">${totalErrors}</div>
+                        </div>
+                        <div class="system-item">
+                            <div class="system-item-label">Success Rate</div>
+                            <div class="system-item-value">${((1 - totalErrors / totalMessages) * 100).toFixed(1)}%</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('dashboard').innerHTML = dashboardHtml;
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+        }
+
+        // Auto-refresh countdown
+        let countdown = 10;
+        setInterval(() => {
+            countdown--;
+            if (countdown <= 0) {
+                countdown = 10;
+                updateDashboard();
+            }
+            document.getElementById('countdown').textContent = countdown;
+        }, 1000);
+
+        function updateDashboard() {
+            const bots = generateMockData();
+            renderDashboard(bots);
+        }
+
+        // Initial load
+        updateDashboard();
+
+        // In production, replace generateMockData() with actual API calls:
+        // async function fetchBotStats() {
+        //     const response = await fetch('/api/bot-status');
+        //     return await response.json();
+        // }
+    </script>
+</body>
+</html>

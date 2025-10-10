@@ -1,6 +1,39 @@
-# 🚀 HypedToken - Advanced Tokenomics & Smart Contract
+# 🤖 HypeAI - Where Hype Meets Intelligence
 
-A comprehensive cryptocurrency tokenomics model with innovative features including AI-driven fee optimization, reflection rewards, staking system, and deflationary burn mechanisms.
+**Built by 15 Professional AI Agents, For Future Millionaires**
+
+The FIRST cryptocurrency platform built entirely by AI agents. Not just AI-powered features - **EVERYTHING** created by AI agents working 24/7 with ONE mission: **Make you a MILLIONAIRE.**
+
+## 🎯 Our Mission
+**Creating wealth through infinite AI dedication. While you sleep, 15 professional AI agents work non-stop to make you rich.**
+
+A comprehensive cryptocurrency with AI-driven tokenomics, reflection rewards (up to 62% APY staking), and deflationary burn mechanisms. Built by **15 specialized AI agents** covering ALL aspects of a billion-dollar crypto company - from development to marketing to growth. They will work on this project **FOREVER**.
+
+## 🤖 Meet The Team - 15 Professional AI Agents
+
+### Development Division (8 Agents)
+1. 🔍 **ATLAS** - Chief Research Officer (Market Intelligence)
+2. 🏗️ **NEXUS** - Chief Technology Officer (Architecture)
+3. 💻 **SOLIDITY** - Lead Blockchain Developer (Smart Contracts)
+4. ⚙️ **BEACON** - Backend Infrastructure Lead (API & Databases)
+5. 🎨 **PRISM** - Frontend Experience Director (UI/UX)
+6. 🧠 **NEURAL** - Chief AI Officer (Machine Learning)
+7. 🧪 **VERIFY** - Quality Assurance Director (Testing)
+8. 🛡️ **GUARDIAN** - Chief Security Officer (Security & Audits)
+
+### Business Division (7 Agents)
+9. 💼 **TITAN** - Chief Executive Officer (Strategy & Vision)
+10. 📈 **MOMENTUM** - Chief Marketing Officer (Marketing & Brand)
+11. 👥 **PULSE** - Chief Community Officer (Community Management)
+12. 🤝 **BRIDGE** - Chief Partnership Officer (Partnerships & BD)
+13. ⚖️ **COMPASS** - Chief Legal Officer (Legal & Compliance)
+14. 📊 **INSIGHT** - Chief Data Officer (Analytics & Metrics)
+15. 🎯 **CATALYST** - Chief Growth Officer (User Acquisition & Growth)
+
+**Working 24/7 = 2,520 hours/week (26% MORE than 50 humans!)**
+**Infinite Scalability = Can add ANY number of agents in 15-30 minutes for ANY task!**
+
+👉 [Meet the Full Team](docs/AI_AGENTS_TEAM_FULL.md) | [Quick Reference](AGENTS_NAMES.md) | [AI Services Platform](docs/HYPEAI_SERVICES.md)
 
 ## 📋 Table of Contents
 
@@ -15,10 +48,19 @@ A comprehensive cryptocurrency tokenomics model with innovative features includi
 - [Deployment](#deployment)
 - [Security](#security)
 
+## 🌟 Network: BNB Chain (Binance Smart Chain)
+
+**Why BNB Chain?**
+- ⚡ 3-second transactions (vs 12-15 sec on Ethereum)
+- 💰 $0.10-0.50 fees (vs $5-50 on Ethereum)
+- 🌍 2M+ daily active users
+- 🚀 Direct access to Binance ecosystem
+- 💎 90-99% lower costs for users
+
 ## ✨ Features
 
 ### Smart Contract Features
-- ✅ ERC-20 Standard Compliance
+- ✅ BEP-20 Standard Compliance (ERC-20 compatible)
 - ✅ Anti-Whale Mechanisms (Max TX & Wallet Limits)
 - ✅ Auto-Liquidity Generation (3% fee)
 - ✅ Reflection Rewards (2% to holders)
@@ -28,6 +70,15 @@ A comprehensive cryptocurrency tokenomics model with innovative features includi
 - ✅ Treasury Fund (2% fee)
 - ✅ Trading Controls & Blacklist
 - ✅ ReentrancyGuard Protection
+
+### 🚀 AI Services Platform (REAL TOKEN UTILITY!)
+- ✅ **First-Ever Blockchain AI Services Marketplace** - Pay for professional services ONLY in HYPEAI tokens
+- ✅ **Infinite Scalability** - 15+ agents can become 30, 50, 100+ based on demand
+- ✅ **Any Problem, Any Project** - Development, Research, Consulting, Marketing, Security
+- ✅ **24/7/365 Forever** - AI agents never sleep, never quit, always deliver
+- ✅ **Token Burn Mechanism** - 50% of all service payments burned = constant deflationary pressure
+- ✅ **10+ Service Categories** - Smart contracts, audits, tokenomics, dApps, AI bots, marketing, and more
+- 📖 **Full Details:** See [HYPEAI_SERVICES.md](docs/HYPEAI_SERVICES.md)
 
 ### Tokenomics Features
 - 📊 Complete distribution model (8 categories)
@@ -69,8 +120,8 @@ Crypto/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/hyped-token.git
-cd hyped-token
+git clone https://github.com/aiplace-art/cry.git
+cd cry
 
 # Install dependencies
 npm install
@@ -97,7 +148,7 @@ console.log(summary);
 
 // Calculate staking rewards
 const rewards = calculator.calculateStakingRewards(100000, 365);
-console.log('Staking 100K HYPE for 365 days:', rewards);
+console.log('Staking 100K HYPEAI for 365 days:', rewards);
 
 // Calculate burn projection
 const burnProj = calculator.calculateBurnProjection(365, 10_000_000);
@@ -123,18 +174,18 @@ node src/backend/tokenomics.js
 ### Key Parameters
 
 ```solidity
-Total Supply: 1,000,000,000 HYPE
-Max Transaction: 5,000,000 HYPE (0.5%)
-Max Wallet: 20,000,000 HYPE (2%)
+Total Supply: 1,000,000,000 HYPEAI
+Max Transaction: 5,000,000 HYPEAI (0.5%)
+Max Wallet: 20,000,000 HYPEAI (2%)
 
 Fees:
 - Reflection: 2%
 - Liquidity: 3%
 - Burn: 1%
 - Treasury: 2%
-- Total: 8% (dynamic 5-15%)
+- Total: 8% (AI-optimized 5-15%)
 
-Staking APY:
+Staking APY (AI-Enhanced):
 - 30 days: 17%
 - 90 days: 27%
 - 365 days: 62%
@@ -201,31 +252,33 @@ npm run node
 npm run deploy -- --network localhost
 ```
 
-### Testnet Deployment
+### Testnet Deployment (BSC Testnet - Recommended)
 
 ```bash
-# Deploy to Goerli
-npm run deploy -- --network goerli
-
 # Deploy to BSC Testnet
 npm run deploy -- --network bscTestnet
 
-# Verify contract
-npm run verify -- --network goerli DEPLOYED_CONTRACT_ADDRESS
+# Verify contract on BscScan
+npm run verify -- --network bscTestnet DEPLOYED_CONTRACT_ADDRESS
+
+# Get testnet BNB
+# Visit: https://testnet.bnbchain.org/faucet-smart
 ```
 
-### Mainnet Deployment
+### Mainnet Deployment (BNB Chain - Primary)
 
 ```bash
-# Deploy to Ethereum Mainnet
-npm run deploy -- --network mainnet
-
-# Deploy to BSC Mainnet
+# Deploy to BNB Smart Chain Mainnet
 npm run deploy -- --network bsc
 
-# Deploy to Polygon
-npm run deploy -- --network polygon
+# Verify on BscScan
+npm run verify -- --network bsc DEPLOYED_CONTRACT_ADDRESS
+
+# Alternative: Deploy to Ethereum
+npm run deploy -- --network mainnet
 ```
+
+**📖 Detailed Guide:** See [BNB_DEPLOYMENT_GUIDE.md](docs/BNB_DEPLOYMENT_GUIDE.md)
 
 ## 🔐 Security
 
@@ -265,15 +318,17 @@ npx claude-flow@alpha hooks post-edit --file "src/backend/tokenomics.js" --memor
 
 | Metric | Value |
 |--------|-------|
-| Total Supply | 1B HYPE |
+| Token Name | HypeAI Token (HYPEAI) |
+| Total Supply | 1B HYPEAI |
 | Initial Price | $0.001 |
 | Target Market Cap | $100M |
 | Max Transaction | 0.5% |
 | Max Wallet | 2% |
-| Transaction Fee | 8% (5-15% dynamic) |
-| Staking APY | 17-62% |
+| Transaction Fee | 8% (AI-optimized 5-15%) |
+| Staking APY | 17-62% (AI-Enhanced) |
 | Reflection Yield | Up to 36.5% |
 | Max Burn | 50% supply |
+| AI Features | Price Prediction, Dynamic Fees |
 
 ## 🛣️ Roadmap
 
