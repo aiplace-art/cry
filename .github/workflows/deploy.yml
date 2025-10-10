@@ -1,0 +1,312 @@
+name: Deploy Presale to Production
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'src/frontend/**'
+      - '.github/workflows/deploy.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'src/frontend/**'
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '18'
+  WORKING_DIR: './src/frontend'
+
+jobs:
+  # Quality checks
+  quality:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: ${{ env.WORKING_DIR }}/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ${{ env.WORKING_DIR }}
+        run: npm ci
+
+      - name: Run TypeScript type check
+        working-directory: ${{ env.WORKING_DIR }}
+        run: npm run typecheck
+
+      - name: Run ESLint
+        working-directory: ${{ env.WORKING_DIR }}
+        run: npm run lint
+
+      - name: Check code formatting
+        working-directory: ${{ env.WORKING_DIR }}
+        run: npm run format:check
+
+  # Security audit
+  security:
+    name: Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Run npm audit
+        working-directory: ${{ env.WORKING_DIR }}
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Run Snyk security scan
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+
+  # Build and test
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    needs: [quality]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: ${{ env.WORKING_DIR }}/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ${{ env.WORKING_DIR }}
+        run: npm ci
+
+      - name: Build application
+        working-directory: ${{ env.WORKING_DIR }}
+        env:
+          NEXT_PUBLIC_PRESALE_CONTRACT_ADDRESS: ${{ secrets.NEXT_PUBLIC_PRESALE_CONTRACT_ADDRESS }}
+          NEXT_PUBLIC_USDT_CONTRACT_ADDRESS: ${{ secrets.NEXT_PUBLIC_USDT_CONTRACT_ADDRESS }}
+          NEXT_PUBLIC_BSC_RPC_URL: ${{ secrets.NEXT_PUBLIC_BSC_RPC_URL }}
+          NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID }}
+          NEXT_PUBLIC_ENVIRONMENT: production
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: ${{ env.WORKING_DIR }}/.next
+          retention-days: 1
+
+  # Run tests
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: [quality]
+    if: false  # Enable when tests are added
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: ${{ env.WORKING_DIR }}/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ${{ env.WORKING_DIR }}
+        run: npm ci
+
+      - name: Run unit tests
+        working-directory: ${{ env.WORKING_DIR }}
+        run: npm test -- --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ${{ env.WORKING_DIR }}/coverage/lcov.info
+          flags: unittests
+
+  # Bundle size analysis
+  analyze:
+    name: Bundle Size Analysis
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: ${{ env.WORKING_DIR }}/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ${{ env.WORKING_DIR }}
+        run: npm ci
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: ${{ env.WORKING_DIR }}/.next
+
+      - name: Analyze bundle size
+        working-directory: ${{ env.WORKING_DIR }}
+        run: |
+          npx @next/bundle-analyzer
+          echo "📦 Bundle size analysis complete"
+
+  # Deploy preview for PRs
+  deploy-preview:
+    name: Deploy Preview
+    runs-on: ubuntu-latest
+    needs: [build, quality]
+    if: github.event_name == 'pull_request'
+    environment:
+      name: preview
+      url: ${{ steps.deploy.outputs.preview-url }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel Preview
+        id: deploy
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ${{ env.WORKING_DIR }}
+          scope: ${{ secrets.VERCEL_SCOPE }}
+
+      - name: Comment PR with preview URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚀 Preview deployed to: ${{ steps.deploy.outputs.preview-url }}`
+            })
+
+  # Deploy to production
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [build, quality, security]
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    environment:
+      name: production
+      url: https://presale.elonbtc.com
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel Production
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          working-directory: ${{ env.WORKING_DIR }}
+          scope: ${{ secrets.VERCEL_SCOPE }}
+
+      - name: Create deployment status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.repos.createDeploymentStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              deployment_id: context.payload.deployment.id,
+              state: 'success',
+              environment_url: 'https://presale.elonbtc.com',
+              description: 'Deployment successful'
+            })
+
+  # Lighthouse CI for performance
+  lighthouse:
+    name: Lighthouse Performance Check
+    runs-on: ubuntu-latest
+    needs: [deploy-production]
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://presale.elonbtc.com
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  # Notify deployment
+  notify:
+    name: Notify Deployment Status
+    runs-on: ubuntu-latest
+    needs: [deploy-production]
+    if: always()
+
+    steps:
+      - name: Send Slack notification
+        uses: 8398a7/action-slack@v3
+        if: ${{ secrets.SLACK_WEBHOOK_URL != '' }}
+        with:
+          status: ${{ job.status }}
+          text: |
+            Deployment Status: ${{ job.status }}
+            Repository: ${{ github.repository }}
+            Branch: ${{ github.ref }}
+            Commit: ${{ github.sha }}
+            URL: https://presale.elonbtc.com
+          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Send Discord notification
+        if: ${{ secrets.DISCORD_WEBHOOK != '' }}
+        run: |
+          curl -H "Content-Type: application/json" \
+               -d "{\"content\": \"🚀 Deployment ${{ job.status }}: https://presale.elonbtc.com\"}" \
+               ${{ secrets.DISCORD_WEBHOOK }}
+
+# Secrets required in GitHub repository settings:
+# - VERCEL_TOKEN: Vercel authentication token
+# - VERCEL_ORG_ID: Vercel organization ID
+# - VERCEL_PROJECT_ID: Vercel project ID
+# - VERCEL_SCOPE: Vercel team scope (optional)
+# - NEXT_PUBLIC_PRESALE_CONTRACT_ADDRESS: Smart contract address
+# - NEXT_PUBLIC_USDT_CONTRACT_ADDRESS: USDT contract address
+# - NEXT_PUBLIC_BSC_RPC_URL: BSC RPC endpoint
+# - NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: WalletConnect project ID
+# - SNYK_TOKEN: Snyk security token (optional)
+# - SLACK_WEBHOOK_URL: Slack webhook for notifications (optional)
+# - DISCORD_WEBHOOK: Discord webhook for notifications (optional)

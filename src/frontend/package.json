@@ -1,41 +1,40 @@
 {
-  "name": "dapp-frontend",
+  "name": "@hypeai/intelligent-presale",
   "version": "1.0.0",
-  "private": true,
+  "description": "Intelligent features for HYPEAI presale platform",
+  "main": "index.ts",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "test": "jest --config ../../tests/frontend/jest.config.js",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
   },
+  "keywords": [
+    "hypeai",
+    "presale",
+    "cryptocurrency",
+    "web3",
+    "analytics",
+    "calculator"
+  ],
+  "author": "HYPEAI Team",
+  "license": "MIT",
   "dependencies": {
-    "@tanstack/react-query": "^5.14.2",
-    "@web3modal/wagmi": "^3.5.3",
-    "clsx": "^2.0.0",
-    "date-fns": "^3.0.6",
-    "ethers": "^6.9.0",
-    "framer-motion": "^10.16.16",
-    "lucide-react": "^0.294.0",
-    "next": "^14.0.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "recharts": "^2.10.3",
-    "tailwind-merge": "^2.2.0",
-    "viem": "^2.0.6",
-    "wagmi": "^2.2.1",
-    "zustand": "^4.4.7"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^20.10.5",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.0.4",
-    "hardhat": "^3.0.7",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.4.0",
-    "typescript": "^5.3.3"
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.1.0"
   }
 }
