@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <!-- Electric lightning gradient -->
+    <linearGradient id="lightningGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+      <stop offset="20%" style="stop-color:#00FFFF;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#9D4EDD;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#FF006E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Electric glow -->
+    <radialGradient id="electricGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#00FFFF;stop-opacity:0.8" />
+      <stop offset="60%" style="stop-color:#9D4EDD;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#FF006E;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Lightning bolt gradient -->
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00FFFF;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#0066FF;stop-opacity:0.8" />
+    </linearGradient>
+
+    <!-- Electric spark gradient -->
+    <radialGradient id="sparkGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00FFFF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00D4FF;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Super glow filter -->
+    <filter id="superGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="12" result="bigBlur"/>
+      <feMerge>
+        <feMergeNode in="bigBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Lightning glow -->
+    <filter id="lightningGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Massive electric glow background -->
+  <circle cx="250" cy="250" r="240" fill="url(#electricGlow)" opacity="0.5"/>
+  <circle cx="250" cy="250" r="180" fill="url(#electricGlow)" opacity="0.3"/>
+  <circle cx="250" cy="250" r="120" fill="url(#electricGlow)" opacity="0.2"/>
+
+  <!-- Main infinity symbol with MEGA GLOW -->
+  <g filter="url(#superGlow)">
+    <!-- Left loop - AI -->
+    <path d="M 150 250 Q 120 200, 150 150 Q 180 100, 220 100 Q 260 100, 280 150 Q 300 200, 280 250 Q 260 300, 220 300 Q 180 300, 150 250 Z"
+          fill="url(#lightningGrad)"
+          opacity="0.95"
+          stroke="#FFFFFF"
+          stroke-width="4"/>
+
+    <!-- Right loop - Crypto -->
+    <path d="M 280 250 Q 260 200, 280 150 Q 300 100, 340 100 Q 380 100, 410 150 Q 440 200, 410 250 Q 380 300, 340 300 Q 300 300, 280 250 Z"
+          fill="url(#lightningGrad)"
+          opacity="0.95"
+          stroke="#FFFFFF"
+          stroke-width="4"/>
+
+    <!-- Central synergy point - SUPER BRIGHT -->
+    <circle cx="280" cy="250" r="20" fill="#FFFFFF" opacity="1"/>
+    <circle cx="280" cy="250" r="15" fill="url(#electricGlow)"/>
+    <circle cx="280" cy="250" r="10" fill="#00FFFF"/>
+  </g>
+
+  <!-- LIGHTNING BOLTS - 8 directions -->
+  <g filter="url(#lightningGlow)" opacity="0.9">
+    <!-- Top lightning bolt -->
+    <path d="M 280 250 L 275 180 L 285 180 L 280 150 L 270 150 L 280 100 L 290 160 L 285 160 Z"
+          fill="url(#boltGrad)"
+          stroke="#FFFFFF"
+          stroke-width="2"/>
+
+    <!-- Top-right lightning -->
+    <path d="M 280 250 L 320 200 L 330 205 L 350 170 L 340 165 L 370 140 L 340 195 L 330 190 Z"
+          fill="url(#boltGrad)"
+          stroke="#FFFFFF"
+          stroke-width="2"/>
+
+    <!-- Right lightning -->
+    <path d="M 280 250 L 350 245 L 350 255 L 380 250 L 380 240 L 420 250 L 370 255 L 370 245 Z"
+          fill="url(#boltGrad)"
+          stroke="#FFFFFF"
+          stroke-width="2"/>
+
+    <!-- Bottom-right lightning -->
+    <path d="M 280 250 L 320 300 L 330 295 L 350 330 L 340 335 L 370 360 L 340 305 L 330 310 Z"
+          fill="url(#boltGrad)"
+          stroke="#FFFFFF"
+          stroke-width="2"/>
+
+    <!-- Bottom lightning -->
+    <path d="M 280 250 L 275 320 L 285 320 L 280 350 L 270 350 L 280 400 L 290 340 L 285 340 Z"
+          fill="url(#boltGrad)"
+          stroke="#FFFFFF"
+          stroke-width="2"/>
+
+    <!-- Bottom-left lightning -->
+    <path d="M 280 250 L 240 300 L 230 295 L 210 330 L 220 335 L 190 360 L 220 305 L 230 310 Z"
+          fill="url(#boltGrad)"
+          stroke="#FFFFFF"
+          stroke-width="2"/>
+
+    <!-- Left lightning -->
+    <path d="M 280 250 L 210 245 L 210 255 L 180 250 L 180 240 L 140 250 L 190 255 L 190 245 Z"
+          fill="url(#boltGrad)"
+          stroke="#FFFFFF"
+          stroke-width="2"/>
+
+    <!-- Top-left lightning -->
+    <path d="M 280 250 L 240 200 L 230 205 L 210 170 L 220 165 L 190 140 L 220 195 L 230 190 Z"
+          fill="url(#boltGrad)"
+          stroke="#FFFFFF"
+          stroke-width="2"/>
+  </g>
+
+  <!-- Electric sparks around -->
+  <g opacity="0.8">
+    <!-- Small lightning sparks -->
+    <circle cx="280" cy="80" r="8" fill="url(#sparkGrad)"/>
+    <circle cx="420" cy="140" r="6" fill="url(#sparkGrad)"/>
+    <circle cx="470" cy="250" r="10" fill="url(#sparkGrad)"/>
+    <circle cx="420" cy="360" r="7" fill="url(#sparkGrad)"/>
+    <circle cx="280" cy="430" r="9" fill="url(#sparkGrad)"/>
+    <circle cx="140" cy="360" r="6" fill="url(#sparkGrad)"/>
+    <circle cx="90" cy="250" r="8" fill="url(#sparkGrad)"/>
+    <circle cx="140" cy="140" r="7" fill="url(#sparkGrad)"/>
+
+    <!-- Electric arcs -->
+    <path d="M 280 80 Q 300 85, 320 90" stroke="#00FFFF" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M 420 140 Q 430 150, 440 165" stroke="#00FFFF" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M 470 250 Q 475 260, 475 275" stroke="#00FFFF" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M 420 360 Q 410 370, 395 375" stroke="#00FFFF" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M 280 430 Q 260 425, 240 415" stroke="#00FFFF" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M 140 360 Q 130 350, 125 335" stroke="#00FFFF" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M 90 250 Q 85 240, 85 225" stroke="#00FFFF" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M 140 140 Q 150 130, 165 125" stroke="#00FFFF" stroke-width="3" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- Neural network with electric charge -->
+  <g opacity="0.7">
+    <!-- Left brain nodes - electric blue -->
+    <circle cx="150" cy="180" r="10" fill="#00FFFF" filter="url(#lightningGlow)"/>
+    <circle cx="180" cy="220" r="8" fill="#00D4FF" filter="url(#lightningGlow)"/>
+    <circle cx="150" cy="280" r="10" fill="#9D4EDD" filter="url(#lightningGlow)"/>
+    <circle cx="190" cy="250" r="9" fill="#00FFFF" filter="url(#lightningGlow)"/>
+
+    <!-- Right brain nodes - electric pink/gold -->
+    <circle cx="350" cy="180" r="10" fill="#FF006E" filter="url(#lightningGlow)"/>
+    <circle cx="380" cy="220" r="8" fill="#FFB800" filter="url(#lightningGlow)"/>
+    <circle cx="350" cy="280" r="10" fill="#9D4EDD" filter="url(#lightningGlow)"/>
+    <circle cx="370" cy="250" r="9" fill="#FF006E" filter="url(#lightningGlow)"/>
+
+    <!-- Electric connections -->
+    <line x1="150" y1="180" x2="180" y2="220" stroke="#00FFFF" stroke-width="3" opacity="0.6" filter="url(#lightningGlow)"/>
+    <line x1="180" y1="220" x2="190" y2="250" stroke="#00D4FF" stroke-width="3" opacity="0.6" filter="url(#lightningGlow)"/>
+    <line x1="190" y1="250" x2="150" y2="280" stroke="#9D4EDD" stroke-width="3" opacity="0.6" filter="url(#lightningGlow)"/>
+
+    <line x1="350" y1="180" x2="380" y2="220" stroke="#FF006E" stroke-width="3" opacity="0.6" filter="url(#lightningGlow)"/>
+    <line x1="380" y1="220" x2="370" y2="250" stroke="#FFB800" stroke-width="3" opacity="0.6" filter="url(#lightningGlow)"/>
+    <line x1="370" y1="250" x2="350" y2="280" stroke="#9D4EDD" stroke-width="3" opacity="0.6" filter="url(#lightningGlow)"/>
+  </g>
+
+  <!-- Energy rings around center -->
+  <g opacity="0.4" stroke="#00FFFF" stroke-width="2" fill="none">
+    <circle cx="280" cy="250" r="40"/>
+    <circle cx="280" cy="250" r="60"/>
+    <circle cx="280" cy="250" r="80"/>
+  </g>
+
+  <!-- Text: HYPEAI with ELECTRIC GLOW -->
+  <g transform="translate(250, 440)" filter="url(#superGlow)">
+    <text x="0" y="0"
+          font-family="Arial, sans-serif"
+          font-size="52"
+          font-weight="900"
+          fill="url(#lightningGrad)"
+          text-anchor="middle"
+          letter-spacing="5">HYPEAI</text>
+    <text x="0" y="0"
+          font-family="Arial, sans-serif"
+          font-size="52"
+          font-weight="900"
+          fill="none"
+          stroke="#FFFFFF"
+          stroke-width="2"
+          text-anchor="middle"
+          letter-spacing="5"
+          opacity="0.8">HYPEAI</text>
+    <text x="0" y="0"
+          font-family="Arial, sans-serif"
+          font-size="52"
+          font-weight="900"
+          fill="none"
+          stroke="#00FFFF"
+          stroke-width="1"
+          text-anchor="middle"
+          letter-spacing="5"
+          opacity="0.6">HYPEAI</text>
+  </g>
+
+  <!-- Lightning infinity symbol -->
+  <g transform="translate(420, 450)" filter="url(#superGlow)">
+    <text x="0" y="0"
+          font-family="Arial, sans-serif"
+          font-size="32"
+          font-weight="900"
+          fill="#00FFFF"
+          text-anchor="middle">⚡∞⚡</text>
+  </g>
+</svg>
