@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles,
@@ -15,10 +15,21 @@ import {
   Rocket,
   CheckCircle,
   ArrowRight,
-  Wallet
+  Wallet,
+  AlertCircle,
+  X,
+  ExternalLink
 } from 'lucide-react';
+import { useWallet } from '../hooks/useWallet';
+import { usePresaleContract } from '../hooks/usePresaleContract';
+import { formatters, TransactionStatus } from '../lib/contracts';
 
-// Types
+// Constants
+const PRESALE_END = new Date('2025-11-10T00:00:00').getTime();
+const PRESALE_PRICE = 0.0008;
+const TARGET_RAISE = 80000;
+const FOUNDING_MEMBERS_LIMIT = 500;
+
 interface CountdownTime {
   days: number;
   hours: number;
@@ -26,36 +37,56 @@ interface CountdownTime {
   seconds: number;
 }
 
-interface PurchaseMode {
+interface PurchaseForm {
   currency: 'BNB' | 'USDT';
   amount: string;
 }
 
-// Constants
-const PRESALE_END = new Date('2025-11-10T00:00:00').getTime();
-const TOTAL_SUPPLY = 100_000_000;
-const PRESALE_PRICE = 0.05;
-const TARGET_RAISE = 5_000_000;
-const FOUNDING_MEMBERS_LIMIT = 1000;
-
 export default function PresalePage() {
-  // State Management
+  // Wallet state
+  const {
+    address,
+    isConnected,
+    isCorrectNetwork,
+    bnbBalance,
+    usdtBalance,
+    isLoading: walletLoading,
+    error: walletError,
+    connectWallet,
+    switchToBSC,
+  } = useWallet();
+
+  // Presale contract state
+  const {
+    presaleStats,
+    userInfo,
+    isLoading: presaleLoading,
+    error: presaleError,
+    txStatus,
+    txHash,
+    purchaseTokens,
+    resetTransaction,
+  } = usePresaleContract(
+    isConnected && isCorrectNetwork ? (window as any).ethereum : null,
+    address
+  );
+
+  // Local state
   const [countdown, setCountdown] = useState<CountdownTime>({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0
   });
-  const [raised, setRaised] = useState(1_234_567);
-  const [foundingMembers, setFoundingMembers] = useState(342);
-  const [purchaseMode, setPurchaseMode] = useState<PurchaseMode>({
+  const [purchaseForm, setPurchaseForm] = useState<PurchaseForm>({
     currency: 'BNB',
     amount: ''
   });
-  const [isConnected, setIsConnected] = useState(false);
   const [showParticles, setShowParticles] = useState(true);
+  const [showTxModal, setShowTxModal] = useState(false);
+  const [inputError, setInputError] = useState<string>('');
 
-  // Countdown Timer Effect
+  // Countdown Timer
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -77,52 +108,127 @@ export default function PresalePage() {
     return () => clearInterval(timer);
   }, []);
 
-  // Live Stats Animation
+  // Auto-open transaction modal when status changes
   useEffect(() => {
-    const interval = setInterval(() => {
-      setRaised(prev => prev + Math.random() * 100);
-      if (foundingMembers < FOUNDING_MEMBERS_LIMIT) {
-        if (Math.random() > 0.95) {
-          setFoundingMembers(prev => prev + 1);
-        }
-      }
-    }, 5000);
+    if (txStatus !== TransactionStatus.IDLE) {
+      setShowTxModal(true);
+    }
+  }, [txStatus]);
 
-    return () => clearInterval(interval);
-  }, [foundingMembers]);
+  // Calculate values
+  const calculateTokens = useMemo((): number => {
+    const amount = parseFloat(purchaseForm.amount) || 0;
+    if (amount <= 0) return 0;
 
-  // Calculate Token Amount
-  const calculateTokens = (): number => {
-    const amount = parseFloat(purchaseMode.amount) || 0;
-    const usdValue = purchaseMode.currency === 'BNB' ? amount * 320 : amount;
-    return usdValue / PRESALE_PRICE;
+    const usdValue = purchaseForm.currency === 'BNB' ? amount * 600 : amount;
+    const baseTokens = usdValue / PRESALE_PRICE;
+    const bonusTokens = baseTokens * 0.1; // 10% bonus
+    return baseTokens + bonusTokens;
+  }, [purchaseForm]);
+
+  const calculateUSDValue = useMemo((): number => {
+    const amount = parseFloat(purchaseForm.amount) || 0;
+    return purchaseForm.currency === 'BNB' ? amount * 600 : amount;
+  }, [purchaseForm]);
+
+  // Input validation
+  const validateInput = (value: string): string | null => {
+    const amount = parseFloat(value);
+
+    if (isNaN(amount) || amount <= 0) {
+      return 'Please enter a valid amount';
+    }
+
+    if (amount < 0.001) {
+      return 'Amount too small';
+    }
+
+    const usdValue = purchaseForm.currency === 'BNB' ? amount * 600 : amount;
+
+    if (usdValue < 40) {
+      return 'Minimum purchase is $40';
+    }
+
+    if (usdValue > 800) {
+      return 'Maximum purchase is $800';
+    }
+
+    // Check balance
+    const balance = purchaseForm.currency === 'BNB' ? parseFloat(bnbBalance) : parseFloat(usdtBalance);
+    if (amount > balance) {
+      return `Insufficient ${purchaseForm.currency} balance`;
+    }
+
+    return null;
   };
 
-  // Connect Wallet Handler
+  // Handle amount change
+  const handleAmountChange = (value: string) => {
+    setPurchaseForm(prev => ({ ...prev, amount: value }));
+
+    if (value) {
+      const error = validateInput(value);
+      setInputError(error || '');
+    } else {
+      setInputError('');
+    }
+  };
+
+  // Handle wallet connect
   const handleConnectWallet = async () => {
-    // MetaMask connection logic would go here
-    setIsConnected(true);
+    try {
+      await connectWallet();
+    } catch (err) {
+      console.error('Failed to connect wallet:', err);
+    }
   };
 
-  // Buy Tokens Handler
-  const handleBuyTokens = async () => {
+  // Handle purchase
+  const handlePurchase = async () => {
     if (!isConnected) {
       await handleConnectWallet();
       return;
     }
-    // Purchase logic would go here
-    console.log('Purchasing tokens:', calculateTokens());
+
+    if (!isCorrectNetwork) {
+      await switchToBSC();
+      return;
+    }
+
+    const validationError = validateInput(purchaseForm.amount);
+    if (validationError) {
+      setInputError(validationError);
+      return;
+    }
+
+    // Execute purchase
+    await purchaseTokens({
+      currency: purchaseForm.currency,
+      amount: purchaseForm.amount,
+      onApproving: () => console.log('Approving USDT...'),
+      onPending: () => console.log('Transaction pending...'),
+      onSuccess: (hash) => {
+        console.log('Purchase successful:', hash);
+        setPurchaseForm(prev => ({ ...prev, amount: '' }));
+      },
+      onError: (err) => console.error('Purchase failed:', err)
+    });
   };
 
-  // Progress Percentage
-  const progressPercentage = (raised / TARGET_RAISE) * 100;
+  // Progress percentage
+  const progressPercentage = presaleStats
+    ? (parseFloat(presaleStats.totalUSDRaised) / TARGET_RAISE) * 100
+    : 0;
+
+  const raised = presaleStats ? parseFloat(presaleStats.totalUSDRaised) : 0;
+  const foundingMembers = presaleStats ? presaleStats.foundingMembersCount : 0;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 text-white overflow-hidden relative">
       {/* Animated Background Particles */}
-      {showParticles && (
+      {showParticles && typeof window !== 'undefined' && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(50)].map((_, i) => (
+          {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-1 h-1 bg-cyan-400 rounded-full"
@@ -148,7 +254,7 @@ export default function PresalePage() {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/20 to-transparent animate-pulse-slow" />
 
-      {/* Main Content Container */}
+      {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 py-8">
         {/* Hero Section */}
         <motion.section
@@ -209,11 +315,8 @@ export default function PresalePage() {
               { label: 'HOURS', value: countdown.hours },
               { label: 'MINUTES', value: countdown.minutes },
               { label: 'SECONDS', value: countdown.seconds }
-            ].map((item, idx) => (
-              <div
-                key={item.label}
-                className="relative group"
-              >
+            ].map((item) => (
+              <div key={item.label} className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
                 <div className="relative bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border border-cyan-500/30">
                   <div className="text-5xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
@@ -282,7 +385,7 @@ export default function PresalePage() {
                   ${PRESALE_PRICE}
                 </div>
                 <div className="text-sm text-gray-500 mt-1">
-                  Launch price: $0.10 (+100%)
+                  Launch price: $0.0016 (+100%)
                 </div>
               </div>
             </div>
@@ -325,19 +428,76 @@ export default function PresalePage() {
                 Secure Your Position Now
               </h2>
 
+              {/* Wallet Status Alert */}
+              {!isConnected && (
+                <div className="mb-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-xl flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-yellow-400 font-semibold">Wallet Not Connected</p>
+                    <p className="text-sm text-gray-400 mt-1">Please connect your wallet to participate in the presale</p>
+                  </div>
+                </div>
+              )}
+
+              {isConnected && !isCorrectNetwork && (
+                <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-red-400 font-semibold">Wrong Network</p>
+                    <p className="text-sm text-gray-400 mt-1">Please switch to BNB Smart Chain</p>
+                    <button
+                      onClick={switchToBSC}
+                      className="mt-2 text-sm text-cyan-400 hover:text-cyan-300 font-semibold"
+                    >
+                      Switch Network →
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* User Info */}
+              {isConnected && isCorrectNetwork && userInfo && (
+                <div className="mb-6 p-4 bg-cyan-500/10 border border-cyan-500/30 rounded-xl">
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <span className="text-gray-400">Your Contribution:</span>
+                      <p className="text-white font-bold">${userInfo.contribution}</p>
+                    </div>
+                    <div>
+                      <span className="text-gray-400">Tokens Purchased:</span>
+                      <p className="text-cyan-400 font-bold">
+                        {formatters.formatTokenAmount(userInfo.tokensPurchased)}
+                      </p>
+                    </div>
+                  </div>
+                  {userInfo.isFoundingMember && (
+                    <div className="mt-2 flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-400" />
+                      <span className="text-green-400 font-semibold text-sm">Founding Member</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Currency Toggle */}
               <div className="flex gap-4 mb-6">
                 {(['BNB', 'USDT'] as const).map((currency) => (
                   <button
                     key={currency}
-                    onClick={() => setPurchaseMode({ ...purchaseMode, currency })}
+                    onClick={() => setPurchaseForm(prev => ({ ...prev, currency }))}
+                    disabled={!isConnected || !isCorrectNetwork}
                     className={`flex-1 py-4 rounded-xl font-bold transition-all ${
-                      purchaseMode.currency === currency
+                      purchaseForm.currency === currency
                         ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-lg shadow-cyan-500/50'
                         : 'bg-slate-800 text-gray-400 hover:bg-slate-700'
-                    }`}
+                    } disabled:opacity-50 disabled:cursor-not-allowed`}
                   >
                     {currency}
+                    {isConnected && isCorrectNetwork && (
+                      <span className="block text-xs mt-1">
+                        Balance: {currency === 'BNB' ? bnbBalance : usdtBalance}
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>
@@ -345,29 +505,38 @@ export default function PresalePage() {
               {/* Amount Input */}
               <div className="mb-6">
                 <label className="block text-sm font-semibold text-gray-400 mb-2">
-                  Amount ({purchaseMode.currency})
+                  Amount ({purchaseForm.currency})
                 </label>
                 <div className="relative">
                   <input
                     type="number"
-                    value={purchaseMode.amount}
-                    onChange={(e) => setPurchaseMode({ ...purchaseMode, amount: e.target.value })}
+                    value={purchaseForm.amount}
+                    onChange={(e) => handleAmountChange(e.target.value)}
                     placeholder="0.0"
-                    className="w-full bg-slate-800 border border-slate-700 rounded-xl px-6 py-4 text-2xl font-bold text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                    disabled={!isConnected || !isCorrectNetwork}
+                    className={`w-full bg-slate-800 border ${
+                      inputError ? 'border-red-500' : 'border-slate-700'
+                    } rounded-xl px-6 py-4 text-2xl font-bold text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed`}
                   />
                   <div className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">
-                    {purchaseMode.currency}
+                    {purchaseForm.currency}
                   </div>
                 </div>
-                {purchaseMode.amount && (
+                {inputError && (
+                  <p className="mt-2 text-sm text-red-400 flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4" />
+                    {inputError}
+                  </p>
+                )}
+                {purchaseForm.amount && !inputError && (
                   <div className="mt-2 text-sm text-gray-400">
-                    ≈ ${((parseFloat(purchaseMode.amount) || 0) * (purchaseMode.currency === 'BNB' ? 320 : 1)).toLocaleString('en-US', { maximumFractionDigits: 2 })} USD
+                    ≈ ${calculateUSDValue.toLocaleString('en-US', { maximumFractionDigits: 2 })} USD
                   </div>
                 )}
               </div>
 
               {/* Token Calculation Preview */}
-              {purchaseMode.amount && (
+              {purchaseForm.amount && !inputError && calculateTokens > 0 && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
@@ -376,41 +545,53 @@ export default function PresalePage() {
                   <div className="flex justify-between items-center">
                     <span className="text-gray-400">You will receive:</span>
                     <span className="text-2xl font-black text-cyan-400">
-                      {calculateTokens().toLocaleString('en-US', { maximumFractionDigits: 0 })} TOKENS
+                      {calculateTokens.toLocaleString('en-US', { maximumFractionDigits: 0 })} HYPEAI
                     </span>
                   </div>
                   <div className="flex justify-between items-center mt-2 text-sm">
-                    <span className="text-gray-500">Value at launch ($0.10):</span>
+                    <span className="text-gray-500">Includes 10% bonus</span>
                     <span className="text-green-400 font-bold">
-                      ${(calculateTokens() * 0.10).toLocaleString('en-US', { maximumFractionDigits: 2 })}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center mt-1 text-sm">
-                    <span className="text-gray-500">Instant profit:</span>
-                    <span className="text-green-400 font-bold">
-                      +{((calculateTokens() * 0.10) - (parseFloat(purchaseMode.amount) * (purchaseMode.currency === 'BNB' ? 320 : 1))).toLocaleString('en-US', { maximumFractionDigits: 2 })} USD (+100%)
+                      +{(calculateTokens * 0.1 / 1.1).toLocaleString('en-US', { maximumFractionDigits: 0 })} bonus tokens
                     </span>
                   </div>
                 </motion.div>
               )}
 
-              {/* Action Buttons */}
+              {/* Action Button */}
               {!isConnected ? (
                 <button
                   onClick={handleConnectWallet}
-                  className="w-full py-5 rounded-xl font-black text-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-all shadow-lg shadow-cyan-500/50 hover:shadow-cyan-500/75 hover:scale-105 transform"
+                  disabled={walletLoading}
+                  className="w-full py-5 rounded-xl font-black text-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-all shadow-lg shadow-cyan-500/50 hover:shadow-cyan-500/75 hover:scale-105 transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   <Wallet className="inline-block w-6 h-6 mr-2" />
-                  Connect MetaMask
+                  {walletLoading ? 'Connecting...' : 'Connect MetaMask'}
+                </button>
+              ) : !isCorrectNetwork ? (
+                <button
+                  onClick={switchToBSC}
+                  disabled={walletLoading}
+                  className="w-full py-5 rounded-xl font-black text-lg bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 transition-all shadow-lg shadow-orange-500/50 hover:shadow-orange-500/75 hover:scale-105 transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                >
+                  <AlertCircle className="inline-block w-6 h-6 mr-2" />
+                  {walletLoading ? 'Switching...' : 'Switch to BSC Network'}
                 </button>
               ) : (
                 <button
-                  onClick={handleBuyTokens}
-                  disabled={!purchaseMode.amount || parseFloat(purchaseMode.amount) <= 0}
+                  onClick={handlePurchase}
+                  disabled={
+                    !purchaseForm.amount ||
+                    !!inputError ||
+                    presaleLoading ||
+                    txStatus === TransactionStatus.PENDING ||
+                    txStatus === TransactionStatus.APPROVING
+                  }
                   className="w-full py-5 rounded-xl font-black text-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-400 hover:to-emerald-400 transition-all shadow-lg shadow-green-500/50 hover:shadow-green-500/75 hover:scale-105 transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   <Rocket className="inline-block w-6 h-6 mr-2" />
-                  Buy Tokens Now
+                  {txStatus === TransactionStatus.APPROVING && 'Approving USDT...'}
+                  {txStatus === TransactionStatus.PENDING && 'Processing...'}
+                  {(txStatus === TransactionStatus.IDLE || txStatus === TransactionStatus.ERROR || txStatus === TransactionStatus.SUCCESS) && 'Buy Tokens Now'}
                   <ArrowRight className="inline-block w-6 h-6 ml-2" />
                 </button>
               )}
@@ -424,223 +605,125 @@ export default function PresalePage() {
           </div>
         </motion.section>
 
-        {/* Benefits Grid */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-12">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
-              Founding Member Benefits
-            </span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <Award className="w-8 h-8" />,
-                title: 'Lifetime VIP Status',
-                description: 'Exclusive access to premium features, priority support, and special events forever.',
-                color: 'from-yellow-500 to-orange-500'
-              },
-              {
-                icon: <TrendingUp className="w-8 h-8" />,
-                title: '100% Instant Profit',
-                description: 'Buy at $0.05, launch at $0.10. Guaranteed 2x return on day one.',
-                color: 'from-green-500 to-emerald-500'
-              },
-              {
-                icon: <Zap className="w-8 h-8" />,
-                title: 'Early Access',
-                description: 'Be first to try new AI agents, features, and exclusive beta programs.',
-                color: 'from-cyan-500 to-blue-500'
-              },
-              {
-                icon: <Users className="w-8 h-8" />,
-                title: 'Governance Rights',
-                description: 'Vote on key decisions and shape the future of the ecosystem.',
-                color: 'from-purple-500 to-pink-500'
-              },
-              {
-                icon: <Lock className="w-8 h-8" />,
-                title: 'Bonus Rewards',
-                description: 'Earn 20% more staking rewards and exclusive airdrops.',
-                color: 'from-red-500 to-rose-500'
-              },
-              {
-                icon: <Sparkles className="w-8 h-8" />,
-                title: 'NFT Collection',
-                description: 'Receive exclusive founding member NFT with special utilities.',
-                color: 'from-indigo-500 to-violet-500'
-              }
-            ].map((benefit, idx) => (
+        {/* Transaction Status Modal */}
+        <AnimatePresence>
+          {showTxModal && txStatus !== TransactionStatus.IDLE && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              onClick={() => {
+                if (txStatus === TransactionStatus.SUCCESS || txStatus === TransactionStatus.ERROR) {
+                  setShowTxModal(false);
+                  resetTransaction();
+                }
+              }}
+            >
               <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.7 + idx * 0.1 }}
-                className="relative group"
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 20 }}
+                className="bg-slate-900 rounded-2xl p-8 max-w-md w-full border border-cyan-500/30"
+                onClick={(e: React.MouseEvent) => e.stopPropagation()}
               >
-                <div className={`absolute inset-0 bg-gradient-to-r ${benefit.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity`} />
-                <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700 group-hover:border-cyan-500/50 transition-all h-full">
-                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${benefit.color} mb-4`}>
-                    {benefit.icon}
+                <div className="flex justify-between items-start mb-6">
+                  <h3 className="text-2xl font-black">Transaction Status</h3>
+                  {(txStatus === TransactionStatus.SUCCESS || txStatus === TransactionStatus.ERROR) && (
+                    <button
+                      onClick={() => {
+                        setShowTxModal(false);
+                        resetTransaction();
+                      }}
+                      className="text-gray-400 hover:text-white"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
+                  )}
+                </div>
+
+                {txStatus === TransactionStatus.APPROVING && (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+                    <p className="text-xl font-bold mb-2">Approving USDT</p>
+                    <p className="text-gray-400">Please confirm the approval transaction in your wallet...</p>
                   </div>
-                  <h3 className="text-xl font-black mb-2 text-white">{benefit.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
-                </div>
+                )}
+
+                {txStatus === TransactionStatus.PENDING && (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+                    <p className="text-xl font-bold mb-2">Processing Purchase</p>
+                    <p className="text-gray-400">Please wait while your transaction is being processed...</p>
+                    {txHash && (
+                      <a
+                        href={`https://bscscan.com/tx/${txHash}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300"
+                      >
+                        View on BscScan <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                )}
+
+                {txStatus === TransactionStatus.SUCCESS && (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-10 h-10 text-white" />
+                    </div>
+                    <p className="text-xl font-bold mb-2 text-green-400">Purchase Successful!</p>
+                    <p className="text-gray-400 mb-4">Your tokens have been sent to your wallet</p>
+                    {txHash && (
+                      <a
+                        href={`https://bscscan.com/tx/${txHash}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300"
+                      >
+                        View on BscScan <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                )}
+
+                {txStatus === TransactionStatus.ERROR && (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <AlertCircle className="w-10 h-10 text-white" />
+                    </div>
+                    <p className="text-xl font-bold mb-2 text-red-400">Transaction Failed</p>
+                    <p className="text-gray-400">{presaleError || 'Please try again'}</p>
+                  </div>
+                )}
               </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Trust Section */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.9 }}
-          className="mb-16"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
-                Built by 15 AI Agents
-              </span>
-            </h2>
-            <p className="text-xl text-gray-400">
-              The most advanced AI-powered crypto project in existence
-            </p>
-          </div>
-
-          {/* Security Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {[
-              { icon: <Shield />, title: 'Smart Contract Audited', desc: 'Verified by leading security firms' },
-              { icon: <Lock />, title: 'Liquidity Locked', desc: '100% locked for 2 years' },
-              { icon: <CheckCircle />, title: 'KYC Verified', desc: 'Full team verification complete' }
-            ].map((item, idx) => (
-              <div
-                key={item.title}
-                className="bg-slate-900/60 backdrop-blur-xl rounded-2xl p-6 border border-green-500/30 text-center"
-              >
-                <div className="inline-flex p-4 rounded-full bg-green-500/20 text-green-400 mb-4">
-                  {item.icon}
-                </div>
-                <h3 className="font-black text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-400">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* AI Agents Showcase */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur-2xl opacity-30" />
-            <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-3xl p-8 border border-cyan-500/30">
-              <h3 className="text-2xl font-black text-center mb-8">Meet Our AI Team</h3>
-              <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-                {[
-                  'Strategist', 'Analyst', 'Developer', 'Marketer', 'Trader',
-                  'Risk Manager', 'Community', 'Content', 'Security', 'Research',
-                  'Growth', 'Operations', 'Finance', 'Legal', 'Innovation'
-                ].map((agent, idx) => (
-                  <motion.div
-                    key={agent}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 2 + idx * 0.05 }}
-                    className="text-center group cursor-pointer"
-                  >
-                    <div className="relative mb-2">
-                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full blur opacity-0 group-hover:opacity-75 transition-opacity" />
-                      <div className="relative w-16 h-16 mx-auto bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full flex items-center justify-center text-2xl font-black">
-                        {agent[0]}
-                      </div>
-                    </div>
-                    <div className="text-xs text-gray-400 group-hover:text-cyan-400 transition-colors">
-                      {agent}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Final CTA */}
-        <motion.section
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 2.2 }}
-          className="text-center py-16"
-        >
-          <div className="relative inline-block">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur-3xl opacity-50 animate-pulse" />
-            <div className="relative bg-slate-900 rounded-3xl p-12 border border-cyan-500/50">
-              <h2 className="text-4xl md:text-6xl font-black mb-6">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
-                  Don't Miss Out!
-                </span>
-              </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-                Only {FOUNDING_MEMBERS_LIMIT - foundingMembers} founding member spots remaining.
-                <br />
-                <span className="text-cyan-400 font-bold">Join now or regret forever.</span>
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="px-12 py-6 rounded-xl font-black text-xl bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-all shadow-lg shadow-cyan-500/50 hover:shadow-cyan-500/75"
-              >
-                <Rocket className="inline-block w-6 h-6 mr-2" />
-                Secure My Position Now
-                <ArrowRight className="inline-block w-6 h-6 ml-2" />
-              </motion.button>
-            </div>
-          </div>
-        </motion.section>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Custom Styles */}
       <style jsx global>{`
         @keyframes gradient-x {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
         }
-
         @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
         }
-
         @keyframes pulse-slow {
-          0%, 100% {
-            opacity: 0.5;
-          }
-          50% {
-            opacity: 0.8;
-          }
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 0.8; }
         }
-
         .animate-gradient-x {
           background-size: 200% 200%;
           animation: gradient-x 3s ease infinite;
         }
-
         .animate-shimmer {
           animation: shimmer 2s infinite;
         }
-
         .animate-pulse-slow {
           animation: pulse-slow 4s ease-in-out infinite;
         }

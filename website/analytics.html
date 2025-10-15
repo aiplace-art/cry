@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - HypeAI | Real-Time Market Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Real-time market analytics, AI predictions, and portfolio tracking powered by advanced machine learning algorithms.">
+    <meta name="keywords" content="crypto analytics, AI predictions, market data, portfolio tracker, HypeAI">
+    <meta name="author" content="HypeAI Team">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary-blue: #00D4FF;
+            --primary-purple: #9D4EDD;
+            --accent-green: #39FF14;
+            --accent-red: #FF3860;
+            --dark-bg: #0A0E27;
+            --dark-card: #1A1F3A;
+            --white: #FFFFFF;
+            --gray: #A0AEC0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0F1629 100%);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.8);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 5% 2rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Dashboard Section */
+        .dashboard {
+            padding: 2rem 5%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .market-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .overview-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .overview-value {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .overview-change {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .positive {
+            color: var(--accent-green);
+        }
+
+        .negative {
+            color: var(--accent-red);
+        }
+
+        /* Chart Placeholder */
+        .chart-section {
+            margin-bottom: 3rem;
+        }
+
+        .chart-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .chart-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .chart-placeholder {
+            height: 400px;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(0, 212, 255, 0.3);
+        }
+
+        .placeholder-text {
+            text-align: center;
+            color: var(--gray);
+        }
+
+        /* AI Predictions */
+        .predictions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .prediction-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .prediction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .prediction-symbol {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .prediction-confidence {
+            background: rgba(57, 255, 20, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-green);
+        }
+
+        .prediction-direction {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .prediction-target {
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Market Movers */
+        .movers-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .movers-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .mover-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .mover-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mover-symbol {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .mover-name {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .mover-change {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: rgba(10, 14, 39, 0.9);
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .movers-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            header {
+                padding: 1rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            🧠⚡ HypeAI
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="blog.html">Blog</a>
+            <a href="governance.html">Governance</a>
+            <a href="roadmap.html">Roadmap</a>
+        </nav>
+        <button class="cta-button" onclick="connectWallet()">Connect Wallet</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Real-Time Market Analytics</h1>
+        <p style="color: var(--gray); font-size: 1.2rem;">
+            AI-powered insights and predictions for smarter trading decisions
+        </p>
+    </section>
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+        <!-- Market Overview -->
+        <div class="market-overview">
+            <div class="overview-card">
+                <div class="overview-label">HYPEAI Price</div>
+                <div class="overview-value" style="color: var(--primary-blue);">$0.001</div>
+                <div class="overview-change positive">↑ 12.5% (24h)</div>
+            </div>
+
+            <div class="overview-card">
+                <div class="overview-label">24h Volume</div>
+                <div class="overview-value" style="color: var(--primary-purple);">$245K</div>
+                <div class="overview-change positive">↑ 8.3% (24h)</div>
+            </div>
+
+            <div class="overview-card">
+                <div class="overview-label">Market Cap</div>
+                <div class="overview-value" style="color: var(--accent-green);">$1.2M</div>
+                <div class="overview-change positive">↑ 15.7% (24h)</div>
+            </div>
+
+            <div class="overview-card">
+                <div class="overview-label">Holders</div>
+                <div class="overview-value" style="color: var(--primary-blue);">5,234</div>
+                <div class="overview-change positive">↑ 156 (24h)</div>
+            </div>
+        </div>
+
+        <!-- Price Chart -->
+        <div class="chart-section">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">HYPEAI/USDT Price Chart</h3>
+                    <div style="display: flex; gap: 1rem;">
+                        <button style="padding: 0.5rem 1rem; background: rgba(0, 212, 255, 0.2); border: none; border-radius: 5px; color: white; cursor: pointer;">1H</button>
+                        <button style="padding: 0.5rem 1rem; background: rgba(0, 212, 255, 0.2); border: none; border-radius: 5px; color: white; cursor: pointer;">24H</button>
+                        <button style="padding: 0.5rem 1rem; background: rgba(0, 212, 255, 0.5); border: none; border-radius: 5px; color: white; cursor: pointer;">7D</button>
+                        <button style="padding: 0.5rem 1rem; background: rgba(0, 212, 255, 0.2); border: none; border-radius: 5px; color: white; cursor: pointer;">30D</button>
+                    </div>
+                </div>
+                <div class="chart-placeholder">
+                    <div class="placeholder-text">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                        <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Connect Wallet to View Analytics</div>
+                        <div>Real-time price charts and AI predictions available after connection</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Predictions -->
+        <div>
+            <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">AI Market Predictions</h2>
+            <div class="predictions-grid">
+                <div class="prediction-card">
+                    <div class="prediction-header">
+                        <span class="prediction-symbol">HYPEAI</span>
+                        <span class="prediction-confidence">85% Confidence</span>
+                    </div>
+                    <div class="prediction-direction positive">↗ BULLISH</div>
+                    <div class="prediction-target">Target: $0.0015 (24h)</div>
+                    <div style="color: var(--gray); font-size: 0.85rem;">
+                        AI detects strong buying pressure and positive sentiment
+                    </div>
+                </div>
+
+                <div class="prediction-card">
+                    <div class="prediction-header">
+                        <span class="prediction-symbol">BTC</span>
+                        <span class="prediction-confidence">78% Confidence</span>
+                    </div>
+                    <div class="prediction-direction positive">↗ BULLISH</div>
+                    <div class="prediction-target">Target: $48,500 (7d)</div>
+                    <div style="color: var(--gray); font-size: 0.85rem;">
+                        Technical indicators suggest continued upward momentum
+                    </div>
+                </div>
+
+                <div class="prediction-card">
+                    <div class="prediction-header">
+                        <span class="prediction-symbol">ETH</span>
+                        <span class="prediction-confidence">72% Confidence</span>
+                    </div>
+                    <div class="prediction-direction" style="color: var(--gray);">→ NEUTRAL</div>
+                    <div class="prediction-target">Range: $2,500-$2,700 (7d)</div>
+                    <div style="color: var(--gray); font-size: 0.85rem;">
+                        Consolidation phase expected before next move
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Movers -->
+        <div class="movers-section">
+            <div class="movers-card">
+                <h3 style="margin-bottom: 1.5rem; color: var(--accent-green);">🚀 Top Gainers (24h)</h3>
+                <div class="mover-item">
+                    <div class="mover-info">
+                        <span class="mover-symbol">HYPEAI</span>
+                        <span class="mover-name">HypeAI Token</span>
+                    </div>
+                    <span class="mover-change positive">+12.5%</span>
+                </div>
+                <div class="mover-item">
+                    <div class="mover-info">
+                        <span class="mover-symbol">SOL</span>
+                        <span class="mover-name">Solana</span>
+                    </div>
+                    <span class="mover-change positive">+8.7%</span>
+                </div>
+                <div class="mover-item">
+                    <div class="mover-info">
+                        <span class="mover-symbol">AVAX</span>
+                        <span class="mover-name">Avalanche</span>
+                    </div>
+                    <span class="mover-change positive">+6.3%</span>
+                </div>
+                <div class="mover-item">
+                    <div class="mover-info">
+                        <span class="mover-symbol">MATIC</span>
+                        <span class="mover-name">Polygon</span>
+                    </div>
+                    <span class="mover-change positive">+5.1%</span>
+                </div>
+            </div>
+
+            <div class="movers-card">
+                <h3 style="margin-bottom: 1.5rem; color: var(--accent-red);">📉 Top Losers (24h)</h3>
+                <div class="mover-item">
+                    <div class="mover-info">
+                        <span class="mover-symbol">DOGE</span>
+                        <span class="mover-name">Dogecoin</span>
+                    </div>
+                    <span class="mover-change negative">-4.2%</span>
+                </div>
+                <div class="mover-item">
+                    <div class="mover-info">
+                        <span class="mover-symbol">SHIB</span>
+                        <span class="mover-name">Shiba Inu</span>
+                    </div>
+                    <span class="mover-change negative">-3.8%</span>
+                </div>
+                <div class="mover-item">
+                    <div class="mover-info">
+                        <span class="mover-symbol">ADA</span>
+                        <span class="mover-name">Cardano</span>
+                    </div>
+                    <span class="mover-change negative">-2.5%</span>
+                </div>
+                <div class="mover-item">
+                    <div class="mover-info">
+                        <span class="mover-symbol">DOT</span>
+                        <span class="mover-name">Polkadot</span>
+                    </div>
+                    <span class="mover-change negative">-1.9%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Tracker -->
+        <div class="chart-card">
+            <h3 style="margin-bottom: 1.5rem;">Your Portfolio (Demo Mode)</h3>
+            <div class="chart-placeholder" style="height: 300px;">
+                <div class="placeholder-text">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💼</div>
+                    <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Portfolio Tracking Coming Soon</div>
+                    <div>Connect your wallet to track your HYPEAI holdings and staking rewards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HypeAI</h3>
+                <p style="color: var(--gray); line-height: 1.6;">
+                    AI-Powered Crypto Trading Platform.<br>
+                    Where AI Meets Opportunity.<br><br>
+                    <strong style="color: var(--accent-green);">🤖 Built by Professional AI Agents</strong><br>
+                    <strong style="color: var(--primary-blue);">∞ Working infinitely to make YOU a millionaire 💰</strong>
+                </p>
+                <div class="social-links" style="margin-top: 1.5rem;">
+                    <a href="https://twitter.com/HypeAI_official" style="color: var(--primary-blue);">𝕏</a>
+                    <a href="https://t.me/hypeai" style="color: var(--primary-blue);">✈️</a>
+                    <a href="https://discord.gg/hypeai" style="color: var(--primary-blue);">💬</a>
+                    <a href="https://github.com/hypeai" style="color: var(--primary-blue);">🐙</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul class="footer-links">
+                    <li><a href="/trade">Trade</a></li>
+                    <li><a href="/stake">Stake</a></li>
+                    <li><a href="governance.html">Governance</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="/docs">Documentation</a></li>
+                    <li><a href="/whitepaper">Whitepaper</a></li>
+                    <li><a href="/audit">Security Audit</a></li>
+                    <li><a href="/api">API Docs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Mission</a></li>
+                    <li><a href="roadmap.html">Roadmap</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="agents.html">🤖 AI Agents Team</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2); color: var(--gray);">
+            <p>© 2025 HypeAI. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Built with ❤️ by 26 Professional AI Agents</p>
+            <p style="margin-top: 0.25rem; font-size: 0.9rem; color: var(--gray);">
+                8 Dev • 7 Business • 5 Website • 6 Marketing
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--accent-green);">
+                <strong>Achieve Financial Freedom with AI! 🚀</strong>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                } catch (error) {
+                    console.error('Failed to connect wallet:', error);
+                    alert('Failed to connect wallet. Please try again.');
+                }
+            } else {
+                alert('Please install MetaMask or another Web3 wallet!');
+                window.open('https://metamask.io/download/', '_blank');
+            }
+        }
+    </script>
+</body>
+</html>

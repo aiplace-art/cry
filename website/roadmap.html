@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap - HypeAI | Our Journey to Success</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Follow HypeAI's roadmap from launch to ecosystem expansion. See our milestones, achievements, and plans for the future.">
+    <meta name="keywords" content="HypeAI roadmap, crypto milestones, project timeline, development plans">
+    <meta name="author" content="HypeAI Team">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary-blue: #00D4FF;
+            --primary-purple: #9D4EDD;
+            --accent-green: #39FF14;
+            --accent-yellow: #FFD700;
+            --dark-bg: #0A0E27;
+            --dark-card: #1A1F3A;
+            --white: #FFFFFF;
+            --gray: #A0AEC0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0F1629 100%);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.8);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 5% 3rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--accent-green), var(--accent-yellow), var(--gray));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 52%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 52%;
+        }
+
+        .timeline-content {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            width: 45%;
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+        }
+
+        .dot-completed {
+            background: var(--accent-green);
+        }
+
+        .dot-progress {
+            background: var(--accent-yellow);
+        }
+
+        .dot-upcoming {
+            background: var(--gray);
+        }
+
+        .quarter-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-completed {
+            background: rgba(57, 255, 20, 0.2);
+            color: var(--accent-green);
+        }
+
+        .badge-progress {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--accent-yellow);
+        }
+
+        .badge-upcoming {
+            background: rgba(160, 174, 192, 0.2);
+            color: var(--gray);
+        }
+
+        .quarter-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .milestone-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .milestone-list li {
+            padding: 0.8rem 0;
+            color: var(--gray);
+            line-height: 1.8;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .milestone-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Targets Section */
+        .targets-section {
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .targets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .target-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .target-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+
+        .target-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .target-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .target-label {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: rgba(10, 14, 39, 0.9);
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            header {
+                padding: 1rem 5%;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+                width: calc(100% - 60px);
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            🧠⚡ HypeAI
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="blog.html">Blog</a>
+            <a href="governance.html">Governance</a>
+            <a href="roadmap.html">Roadmap</a>
+        </nav>
+        <button class="cta-button" onclick="connectWallet()">Connect Wallet</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Our Journey to Success</h1>
+        <p style="color: var(--gray); font-size: 1.2rem; max-width: 800px;">
+            Building the future of AI-powered crypto trading, one milestone at a time
+        </p>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section">
+        <div class="timeline-line"></div>
+
+        <!-- Q1 2025 - COMPLETED -->
+        <div class="timeline-item">
+            <div class="timeline-dot dot-completed"></div>
+            <div class="timeline-content">
+                <span class="quarter-badge badge-completed">✓ COMPLETED</span>
+                <h2 class="quarter-title" style="color: var(--accent-green);">Q1 2025 - Launch</h2>
+                <p style="color: var(--gray); margin-bottom: 1rem;">
+                    January - March 2025
+                </p>
+                <ul class="milestone-list">
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-green);">✓</span>
+                        <span>Smart contract development completed (50K+ LOC)</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-green);">✓</span>
+                        <span>Security audit passed with 95/100 score</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-green);">✓</span>
+                        <span>DEX listing on Uniswap and PancakeSwap</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-green);">✓</span>
+                        <span>Initial airdrop to 2,000+ early supporters</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-green);">✓</span>
+                        <span>Community building: 5,000+ token holders</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-green);">✓</span>
+                        <span>Website and documentation launch</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Q2 2025 - IN PROGRESS -->
+        <div class="timeline-item">
+            <div class="timeline-dot dot-progress"></div>
+            <div class="timeline-content">
+                <span class="quarter-badge badge-progress">⚡ IN PROGRESS</span>
+                <h2 class="quarter-title" style="color: var(--accent-yellow);">Q2 2025 - Growth</h2>
+                <p style="color: var(--gray); margin-bottom: 1rem;">
+                    April - June 2025
+                </p>
+                <ul class="milestone-list">
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-yellow);">⚡</span>
+                        <span>CEX listings on Gate.io, MEXC, and BitMart</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-yellow);">⚡</span>
+                        <span>Staking platform launch with up to 62% APY</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-yellow);">⚡</span>
+                        <span>Mobile app release (iOS & Android)</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-yellow);">⚡</span>
+                        <span>Marketing campaigns across major crypto media</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-yellow);">⚡</span>
+                        <span>Strategic partnerships with top DeFi protocols</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-yellow);">⚡</span>
+                        <span>Target: 10,000+ token holders</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Q3 2025 - UPCOMING -->
+        <div class="timeline-item">
+            <div class="timeline-dot dot-upcoming"></div>
+            <div class="timeline-content">
+                <span class="quarter-badge badge-upcoming">📅 UPCOMING</span>
+                <h2 class="quarter-title" style="color: var(--primary-blue);">Q3 2025 - Expansion</h2>
+                <p style="color: var(--gray); margin-bottom: 1rem;">
+                    July - September 2025
+                </p>
+                <ul class="milestone-list">
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>Multi-chain deployment (BSC, Polygon, Avalanche)</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>NFT integration for premium features</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>DAO governance platform launch</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>Advanced AI features: sentiment analysis, portfolio optimizer</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>Institutional partnerships and B2B solutions</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>Target: $50M market cap</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Q4 2025 - PLANNED -->
+        <div class="timeline-item">
+            <div class="timeline-dot dot-upcoming"></div>
+            <div class="timeline-content">
+                <span class="quarter-badge badge-upcoming">📅 PLANNED</span>
+                <h2 class="quarter-title" style="color: var(--primary-purple);">Q4 2025 - Ecosystem</h2>
+                <p style="color: var(--gray); margin-bottom: 1rem;">
+                    October - December 2025
+                </p>
+                <ul class="milestone-list">
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>DeFi product suite: lending, borrowing, yield farming</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>Lending/Borrowing protocol with HYPEAI as collateral</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>Launchpad platform for new AI-powered projects</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>Cross-chain bridges for seamless asset transfers</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon">📅</span>
+                        <span>Major exchange listings (Binance, Coinbase, Kraken)</span>
+                    </li>
+                    <li>
+                        <span class="milestone-icon" style="color: var(--accent-green);">🎯</span>
+                        <span><strong>Target: $100M market cap milestone</strong></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Milestones & Targets -->
+    <section class="targets-section">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">2025 Key Targets</h2>
+        <p style="text-align: center; color: var(--gray); font-size: 1.2rem; margin-bottom: 3rem;">
+            Our ambitious goals for the year ahead
+        </p>
+
+        <div class="targets-grid">
+            <div class="target-card">
+                <div class="target-icon">💰</div>
+                <div class="target-value">$100M</div>
+                <div class="target-label">Market Cap Target</div>
+            </div>
+
+            <div class="target-card">
+                <div class="target-icon">👥</div>
+                <div class="target-value">10,000+</div>
+                <div class="target-label">Active Users</div>
+            </div>
+
+            <div class="target-card">
+                <div class="target-icon">🏦</div>
+                <div class="target-value">5+</div>
+                <div class="target-label">Major Exchange Listings</div>
+            </div>
+
+            <div class="target-card">
+                <div class="target-icon">🔗</div>
+                <div class="target-value">5+</div>
+                <div class="target-label">Blockchain Networks</div>
+            </div>
+
+            <div class="target-card">
+                <div class="target-icon">🤝</div>
+                <div class="target-value">20+</div>
+                <div class="target-label">Strategic Partners</div>
+            </div>
+
+            <div class="target-card">
+                <div class="target-icon">🚀</div>
+                <div class="target-value">100%</div>
+                <div class="target-label">Community Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Statement -->
+    <section style="padding: 4rem 5%; max-width: 1200px; margin: 0 auto;">
+        <div style="background: rgba(26, 31, 58, 0.6); padding: 3rem; border-radius: 20px; backdrop-filter: blur(20px); border: 1px solid rgba(157, 78, 221, 0.2); text-align: center;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--primary-blue);">Beyond 2025</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: var(--gray); max-width: 800px; margin: 0 auto;">
+                Our journey doesn't end here. By 2026, we aim to become the leading AI-powered crypto trading platform
+                with a global community of holders who have achieved financial freedom. We're building not just a token,
+                but an entire ecosystem that empowers individuals through the power of AI and blockchain technology.
+            </p>
+            <p style="font-size: 1.3rem; margin-top: 2rem; color: var(--accent-green); font-weight: 700;">
+                Together, we'll make history. Together, we'll achieve YOUR financial freedom! 🚀
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HypeAI</h3>
+                <p style="color: var(--gray); line-height: 1.6;">
+                    AI-Powered Crypto Trading Platform.<br>
+                    Where AI Meets Opportunity.<br><br>
+                    <strong style="color: var(--accent-green);">🤖 Built by Professional AI Agents</strong><br>
+                    <strong style="color: var(--primary-blue);">∞ Working infinitely to make YOU a millionaire 💰</strong>
+                </p>
+                <div class="social-links" style="margin-top: 1.5rem;">
+                    <a href="https://twitter.com/HypeAI_official" style="color: var(--primary-blue);">𝕏</a>
+                    <a href="https://t.me/hypeai" style="color: var(--primary-blue);">✈️</a>
+                    <a href="https://discord.gg/hypeai" style="color: var(--primary-blue);">💬</a>
+                    <a href="https://github.com/hypeai" style="color: var(--primary-blue);">🐙</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul class="footer-links">
+                    <li><a href="/trade">Trade</a></li>
+                    <li><a href="/stake">Stake</a></li>
+                    <li><a href="governance.html">Governance</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="/docs">Documentation</a></li>
+                    <li><a href="/whitepaper">Whitepaper</a></li>
+                    <li><a href="/audit">Security Audit</a></li>
+                    <li><a href="/api">API Docs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Mission</a></li>
+                    <li><a href="roadmap.html">Roadmap</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="agents.html">🤖 AI Agents Team</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2); color: var(--gray);">
+            <p>© 2025 HypeAI. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Built with ❤️ by 26 Professional AI Agents</p>
+            <p style="margin-top: 0.25rem; font-size: 0.9rem; color: var(--gray);">
+                8 Dev • 7 Business • 5 Website • 6 Marketing
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--accent-green);">
+                <strong>Achieve Financial Freedom with AI! 🚀</strong>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                } catch (error) {
+                    console.error('Failed to connect wallet:', error);
+                    alert('Failed to connect wallet. Please try again.');
+                }
+            } else {
+                alert('Please install MetaMask or another Web3 wallet!');
+                window.open('https://metamask.io/download/', '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
