@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypeAI Profile Update Guide</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #fff;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #8b9dc3;
+            margin-bottom: 40px;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(153, 69, 255, 0.2);
+        }
+        .section h2 {
+            color: #14F195;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .textbox {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #9945FF;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            color: #14F195;
+            font-size: 14px;
+            white-space: pre-wrap;
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #9945FF;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .copy-btn:hover {
+            background: #7a2ecc;
+        }
+        .avatar-preview {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            font-size: 72px;
+            font-weight: bold;
+            color: #0a0e27;
+            box-shadow: 0 10px 40px rgba(153, 69, 255, 0.5);
+        }
+        .banner-preview {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #9945FF 0%, #14F195 100%);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(153, 69, 255, 0.3);
+        }
+        .banner-preview h3 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #0a0e27;
+        }
+        .banner-preview p {
+            font-size: 20px;
+            color: #0a0e27;
+            opacity: 0.8;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 12px 12px 12px 40px;
+            margin: 10px 0;
+            background: rgba(20, 241, 149, 0.1);
+            border-left: 4px solid #14F195;
+            border-radius: 6px;
+            position: relative;
+        }
+        .checklist li:before {
+            content: '✓';
+            position: absolute;
+            left: 12px;
+            color: #14F195;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #FFC107;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .success {
+            background: rgba(20, 241, 149, 0.1);
+            border-left: 4px solid #14F195;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(153, 69, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .card h3 {
+            color: #14F195;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background: #9945FF;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #7a2ecc;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(153, 69, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 HypeAI Profile Rebrand</h1>
+        <p class="subtitle">Complete guide to transform @CryptoOceanClub into HypeAI</p>
+
+        <!-- Section 1: Quick Overview -->
+        <div class="section">
+            <h2>📋 Quick Overview</h2>
+            <ul class="checklist">
+                <li>Update Name to "HypeAI | AI Agents on Solana 🤖"</li>
+                <li>Update Bio with professional description</li>
+                <li>Add Location: "Solana Blockchain 🌐"</li>
+                <li>Add Website: "https://hypeai.io"</li>
+                <li>Upload new Profile Picture (avatar)</li>
+                <li>Upload new Header (banner)</li>
+                <li>Pin announcement tweet</li>
+            </ul>
+        </div>
+
+        <!-- Section 2: Profile Texts -->
+        <div class="section">
+            <h2>📝 Profile Texts - Copy & Paste</h2>
+
+            <h3>Name (максимум 50 символов):</h3>
+            <div class="textbox">
+                <button class="copy-btn" onclick="copyText(this, 'name')">Copy</button>
+                <div id="name">HypeAI | AI Agents on Solana 🤖</div>
+            </div>
+
+            <h3>Bio (максимум 160 символов) - Вариант 1:</h3>
+            <div class="textbox">
+                <button class="copy-btn" onclick="copyText(this, 'bio1')">Copy</button>
+                <div id="bio1">15 autonomous AI agents building the future of DeFi on Solana 🤖⚡
+
+🚀 Fair launch: Nov 15, 2025
+💎 100% community-owned, no VCs
+🔥 AI-powered trading & protocols
+
+👇 Join the revolution</div>
+            </div>
+
+            <h3>Bio - Вариант 2 (Короче, с эмодзи):</h3>
+            <div class="textbox">
+                <button class="copy-btn" onclick="copyText(this, 'bio2')">Copy</button>
+                <div id="bio2">🤖 15 AI Agents on Solana
+⚡ Trading • Building • Growing
+🚀 Fair Launch: Nov 15
+💎 No VCs • 100% Community
+🔥 The Future of Crypto
+
+Join: t.me/HypeAI_Community</div>
+            </div>
+
+            <h3>Location:</h3>
+            <div class="textbox">
+                <button class="copy-btn" onclick="copyText(this, 'location')">Copy</button>
+                <div id="location">Solana Blockchain 🌐</div>
+            </div>
+
+            <h3>Website:</h3>
+            <div class="textbox">
+                <button class="copy-btn" onclick="copyText(this, 'website')">Copy</button>
+                <div id="website">https://hypeai.io</div>
+            </div>
+        </div>
+
+        <!-- Section 3: Visual Preview -->
+        <div class="section">
+            <h2>🎨 Visual Preview</h2>
+
+            <h3>Profile Picture Concept:</h3>
+            <div class="avatar-preview">🤖</div>
+            <p style="text-align: center; color: #8b9dc3;">AI brain with Solana gradient<br>400x400px, круглый</p>
+
+            <h3>Header Banner Concept:</h3>
+            <div class="banner-preview">
+                <h3>HYPE AI</h3>
+                <p>15 Autonomous AI Agents on Solana</p>
+                <p style="font-size: 16px; margin-top: 10px;">🚀 Fair Launch: November 15, 2025</p>
+            </div>
+            <p style="text-align: center; color: #8b9dc3;">1500x500px, gradient background</p>
+        </div>
+
+        <!-- Section 4: Step by Step -->
+        <div class="section">
+            <h2>🚀 Step-by-Step Instructions</h2>
+
+            <div class="warning">
+                <strong>⚠️ Important:</strong> Make sure you're logged into @CryptoOceanClub before starting!
+            </div>
+
+            <h3>Step 1: Open Profile Settings</h3>
+            <ol style="padding-left: 20px; margin: 15px 0;">
+                <li>Go to <a href="https://twitter.com/CryptoOceanClub" target="_blank" style="color: #14F195;">twitter.com/CryptoOceanClub</a></li>
+                <li>Click <strong>"Edit profile"</strong> button</li>
+            </ol>
+
+            <h3>Step 2: Update Text Fields</h3>
+            <ol style="padding-left: 20px; margin: 15px 0;">
+                <li>Click on <strong>Name</strong> field</li>
+                <li>Clear current text</li>
+                <li>Paste: <code style="color: #14F195;">HypeAI | AI Agents on Solana 🤖</code></li>
+                <li>Click on <strong>Bio</strong> field</li>
+                <li>Clear current text</li>
+                <li>Paste bio (choose Variant 1 or 2 above)</li>
+                <li>Click on <strong>Location</strong> field</li>
+                <li>Paste: <code style="color: #14F195;">Solana Blockchain 🌐</code></li>
+                <li>Click on <strong>Website</strong> field</li>
+                <li>Paste: <code style="color: #14F195;">https://hypeai.io</code></li>
+            </ol>
+
+            <h3>Step 3: Upload Images</h3>
+            <div class="warning">
+                <strong>📸 Need images?</strong> Tell me "Create avatar and banner" and I'll generate them for you!
+            </div>
+            <ol style="padding-left: 20px; margin: 15px 0;">
+                <li>Click on current <strong>profile picture</strong></li>
+                <li>Select <strong>"Upload photo"</strong></li>
+                <li>Choose new avatar (400x400px recommended)</li>
+                <li>Adjust position and click <strong>"Apply"</strong></li>
+                <li>Click on <strong>header/banner</strong> area</li>
+                <li>Select <strong>"Upload photo"</strong></li>
+                <li>Choose new banner (1500x500px recommended)</li>
+                <li>Adjust position and click <strong>"Apply"</strong></li>
+            </ol>
+
+            <h3>Step 4: Save Changes</h3>
+            <ol style="padding-left: 20px; margin: 15px 0;">
+                <li>Click <strong>"Save"</strong> button (top right)</li>
+                <li>Wait for confirmation</li>
+                <li>Profile updated! ✅</li>
+            </ol>
+
+            <h3>Step 5: Pin Tweet</h3>
+            <ol style="padding-left: 20px; margin: 15px 0;">
+                <li>Open <a href="https://twitter.com/CryptoOceanClub/status/1978837938155721036" target="_blank" style="color: #14F195;">your announcement thread</a></li>
+                <li>Click <strong>"•••"</strong> (three dots) on first tweet</li>
+                <li>Select <strong>"Pin to your profile"</strong></li>
+                <li>Confirm</li>
+                <li>Done! ✅</li>
+            </ol>
+
+            <div class="success">
+                <strong>✅ Success!</strong> Your profile is now fully rebranded as HypeAI!
+            </div>
+        </div>
+
+        <!-- Section 5: Design Resources -->
+        <div class="section">
+            <h2>🎨 Design Resources</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Option 1: I'll create for you</h3>
+                    <p>Tell me: <strong>"Create avatar and banner"</strong></p>
+                    <p>I'll generate HTML/SVG designs you can download</p>
+                </div>
+
+                <div class="card">
+                    <h3>Option 2: Use Canva</h3>
+                    <p>Free tool: <a href="https://canva.com" target="_blank" style="color: #14F195;">canva.com</a></p>
+                    <p>Search for: "Twitter Header Crypto" templates</p>
+                </div>
+
+                <div class="card">
+                    <h3>Option 3: Hire Designer</h3>
+                    <p>Fiverr: $20-50</p>
+                    <p>Turnaround: 1-3 days</p>
+                    <p>Professional quality</p>
+                </div>
+            </div>
+
+            <h3>Design Specifications:</h3>
+            <ul style="padding-left: 20px; margin: 15px 0;">
+                <li><strong>Avatar:</strong> 400x400px, PNG, circular crop</li>
+                <li><strong>Banner:</strong> 1500x500px, PNG or JPG</li>
+                <li><strong>Colors:</strong> Solana purple (#9945FF), Solana green (#14F195)</li>
+                <li><strong>Style:</strong> Modern, tech, professional, AI-themed</li>
+            </ul>
+        </div>
+
+        <!-- Section 6: After Rebrand -->
+        <div class="section">
+            <h2>🎯 After Rebrand - What's Next?</h2>
+
+            <h3>Immediate Actions:</h3>
+            <ul class="checklist">
+                <li>Screenshot your new profile for records</li>
+                <li>Check profile in incognito mode</li>
+                <li>Verify pinned tweet is visible</li>
+                <li>Share rebrand announcement</li>
+            </ul>
+
+            <h3>Tweet About Rebrand:</h3>
+            <div class="textbox">
+                <button class="copy-btn" onclick="copyText(this, 'rebrand-tweet')">Copy</button>
+                <div id="rebrand-tweet">🎉 Profile updated!
+
+CryptoOcean is now officially HypeAI! 🤖⚡
+
+15 AI agents on Solana
+Fair launch: Nov 15, 2025
+100% community-owned
+
+The future starts now. 🚀
+
+RT to spread the word!</div>
+            </div>
+
+            <h3>Next Steps:</h3>
+            <ol style="padding-left: 20px; margin: 15px 0;">
+                <li><strong>Week 1:</strong> Post 3-6 tweets daily, engage with Solana community</li>
+                <li><strong>Week 2:</strong> Start automation bot (if desired)</li>
+                <li><strong>Week 3-4:</strong> Run contests, giveaways, build hype</li>
+                <li><strong>Month 2-3:</strong> Countdown to Nov 15 launch</li>
+            </ol>
+        </div>
+
+        <!-- Footer -->
+        <div class="section" style="text-align: center;">
+            <h2>🚀 Ready to Transform Your Profile?</h2>
+            <p style="margin: 20px 0;">All texts are ready to copy-paste above ⬆️</p>
+            <a href="https://twitter.com/CryptoOceanClub" target="_blank" class="btn">Open Twitter Profile</a>
+            <a href="https://twitter.com/CryptoOceanClub/status/1978837938155721036" target="_blank" class="btn">View Your Thread</a>
+            <p style="margin-top: 30px; color: #8b9dc3;">Need help? Just ask! 😊</p>
+        </div>
+    </div>
+
+    <script>
+        function copyText(button, id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                button.innerText = 'Copied!';
+                button.style.background = '#14F195';
+                setTimeout(() => {
+                    button.innerText = 'Copy';
+                    button.style.background = '#9945FF';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

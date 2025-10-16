@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "hypeai-website",
-  "buildCommand": "mkdir -p public && rsync -av --exclude='node_modules' --exclude='package-lock.json' --exclude='.git' website/ public/",
+  "buildCommand": "echo 'Using pre-built public/ folder from repository'",
   "installCommand": "echo 'No npm dependencies needed for static site'",
   "outputDirectory": "public",
   "cleanUrls": true,
