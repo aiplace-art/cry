@@ -328,7 +328,7 @@ open http://localhost:8000/agents-activity.html # Live
 **На всех страницах теперь видно:**
 
 > 🤖 Built by 15 Professional AI Agents
-> ∞ Working infinitely to make YOU a millionaire 💰
+> ⚡ Working infinitely to make YOU a millionaire 💰
 
 **PROOF page подчеркивает:**
 - Это НЕ шаблоны

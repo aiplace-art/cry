@@ -247,7 +247,7 @@ CMO (1)
 |----------|-----------|-------------|
 | Twitter | 5 | 150 |
 | Telegram | 3 | 90 |
-| Discord | ∞ | Unlimited |
+| Discord | ⚡ | Unlimited |
 | Instagram | 1 | 30 |
 | LinkedIn | 1 | 30 |
 | TikTok | 1 | 30 |

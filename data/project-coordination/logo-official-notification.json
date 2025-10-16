@@ -52,10 +52,10 @@
     ]
   },
   "doNotUse": [
-    "logo-hypeai.svg",
-    "logo-hypeai-lightning.svg",
-    "logo-brain-lightning.html",
-    "logo-animated.html",
+    "logo-official.svg",
+    "logo-official.svg",
+    "logo-premium-animated.html",
+    "logo-premium-animated.html",
     "Any old infinity symbol versions"
   ],
   "approved": {

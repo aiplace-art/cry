@@ -397,6 +397,6 @@ nohup node sync-agent.js > agent.log 2>&1 &
 
 ---
 
-**Sync Agent - работает ∞ бесконечно для вас! 🤖💚**
+**Sync Agent - работает ⚡ бесконечно для вас! 🤖💚**
 
 **HypeAI - Where AI Meets Opportunity**

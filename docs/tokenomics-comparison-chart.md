@@ -59,8 +59,8 @@
 |--------|------------------|-----------------|--------|
 | **Market Cap** | $69,000 | $100,000+ | +45% |
 | **Liquidity** | 85 SOL (~$17K) | 100 BNB (~$60K) | +253% |
-| **APY Available** | 0% | 17-62% | +∞ |
-| **CEX Listings** | 0 | 2-3 | +∞ |
+| **APY Available** | 0% | 17-62% | +⚡ |
+| **CEX Listings** | 0 | 2-3 | +⚡ |
 | **Holder Benefits** | Trading only | Staking, reflections, LP | +3 features |
 
 ## Conclusion

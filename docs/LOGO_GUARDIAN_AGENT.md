@@ -53,10 +53,10 @@ node scripts/logo-guardian.js --scan
 🎨 LOGO GUARDIAN AGENT - Starting scan...
 📁 Project root: /Users/ai.place/Crypto
 ✅ Approved logos: logo-official.svg, logo-icon-only.svg, logo-premium-animated.html
-🚫 Deprecated logos: logo-hypeai.svg, logo-brain-lightning.html, ...
+🚫 Deprecated logos: logo-official.svg, logo-premium-animated.html, ...
 
 🚫 docs/OLD_README.md
-   Line 15: DEPRECATED_LOGO - "logo-hypeai.svg"
+   Line 15: DEPRECATED_LOGO - "logo-official.svg"
 
 ✅ website/index.html
 ✅ Scan completed in 2.34s
@@ -83,9 +83,9 @@ node scripts/logo-guardian.js --fix
 ```
 🔧 LOGO GUARDIAN - Auto-fixing violations...
 
-✅ docs/OLD_README.md: logo-hypeai.svg → logo-official.svg
-✅ website/archive/old.html: logo-hypeai-compact.svg → logo-icon-only.svg
-✅ src/components/Header.jsx: ∞ → ⚡
+✅ docs/OLD_README.md: logo-official.svg → logo-official.svg
+✅ website/archive/old.html: logo-icon-only.svg → logo-icon-only.svg
+✅ src/components/Header.jsx: ⚡ → ⚡
 
 ✅ Auto-fix completed
 📁 Files fixed: 3
@@ -210,7 +210,7 @@ bash scripts/stop-logo-guardian.sh
   "compliance": {
     "score": 82,
     "approved": ["logo-official.svg", "logo-icon-only.svg", "logo-premium-animated.html"],
-    "deprecated": ["logo-hypeai.svg", "logo-brain-lightning.html", ...]
+    "deprecated": ["logo-official.svg", "logo-premium-animated.html", ...]
   },
   "violations": [
     {
@@ -219,7 +219,7 @@ bash scripts/stop-logo-guardian.sh
         {
           "line": 15,
           "type": "DEPRECATED_LOGO",
-          "match": "logo-hypeai.svg",
+          "match": "logo-official.svg",
           "suggestion": "logo-official.svg"
         }
       ],
@@ -261,13 +261,13 @@ bash scripts/stop-logo-guardian.sh
 
 | Старая версия | Причина | Замена на |
 |---------------|---------|-----------|
-| `logo-hypeai.svg` | Старый дизайн (infinity) | `logo-official.svg` |
-| `logo-hypeai-compact.svg` | Старая компактная версия | `logo-icon-only.svg` |
-| `logo-hypeai-lightning.svg` | Старая версия с молниями | `logo-official.svg` |
-| `logo-brain-lightning.html` | Отклонено ("детский сад") | `logo-premium-animated.html` |
-| `logo-animated.html` | Старая анимация | `logo-premium-animated.html` |
-| `logo-premium-lightning.svg` | Исходная версия | `logo-official.svg` |
-| `logo-ultra-premium.svg` | Альтернатива (не выбрана) | `logo-official.svg` |
+| `logo-official.svg` | Старый дизайн (infinity) | `logo-official.svg` |
+| `logo-icon-only.svg` | Старая компактная версия | `logo-icon-only.svg` |
+| `logo-official.svg` | Старая версия с молниями | `logo-official.svg` |
+| `logo-premium-animated.html` | Отклонено ("детский сад") | `logo-premium-animated.html` |
+| `logo-premium-animated.html` | Старая анимация | `logo-premium-animated.html` |
+| `logo-official.svg` | Исходная версия | `logo-official.svg` |
+| `logo-official.svg` | Альтернатива (не выбрана) | `logo-official.svg` |
 
 ---
 

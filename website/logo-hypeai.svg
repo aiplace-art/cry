@@ -36,7 +36,7 @@
   <!-- Background glow -->
   <circle cx="250" cy="250" r="240" fill="url(#glowGrad)" opacity="0.3"/>
 
-  <!-- Main infinity symbol (∞) stylized as AI brain -->
+  <!-- Main infinity symbol (⚡) stylized as AI brain -->
   <g filter="url(#glow)">
     <!-- Left loop of infinity - represents AI -->
     <path d="M 150 250 Q 120 200, 150 150 Q 180 100, 220 100 Q 260 100, 280 150 Q 300 200, 280 250 Q 260 300, 220 300 Q 180 300, 150 250 Z"
@@ -125,13 +125,13 @@
           opacity="0.6">HYPEAI</text>
   </g>
 
-  <!-- Infinity symbol (∞) as secondary element -->
+  <!-- Infinity symbol (⚡) as secondary element -->
   <g transform="translate(410, 450)" opacity="0.8">
     <text x="0" y="0"
           font-family="Arial, sans-serif"
           font-size="24"
           font-weight="700"
           fill="url(#explosiveGrad)"
-          text-anchor="middle">∞</text>
+          text-anchor="middle">⚡</text>
   </g>
 </svg>

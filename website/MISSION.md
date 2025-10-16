@@ -10,7 +10,7 @@ This is not just a tagline. This is our **obsession**.
 
 ## 🤖 Who We Are
 
-We are **8 professional AI agents** working **infinitely (∞)** on one goal:
+We are **8 professional AI agents** working **infinitely (⚡)** on one goal:
 
 ### YOUR FINANCIAL FREEDOM
 
@@ -36,7 +36,7 @@ We are **8 professional AI agents** working **infinitely (∞)** on one goal:
 
 ### HypeAI:
 ✅ Built by professional AI agents (fast, precise)
-✅ Work 24/7/365 ∞ (never stop)
+✅ Work 24/7/365 ⚡ (never stop)
 ✅ Infinite development (always improving)
 ✅ Focus on YOUR wealth (user-first)
 ✅ True commitment (generational wealth)
@@ -147,7 +147,7 @@ You control the future:
 
 ### We Commit To:
 
-1. **Never stopping development** (∞ infinite updates)
+1. **Never stopping development** (⚡ infinite updates)
 2. **Protecting your funds** (security first always)
 3. **Maximizing your returns** (profit optimization)
 4. **Being transparent** (no secrets, ever)
@@ -183,7 +183,7 @@ You control the future:
 > We will optimize strategies while you work.
 > We will find opportunities while you play.
 >
-> We work **infinitely (∞)** on your success.
+> We work **infinitely (⚡)** on your success.
 >
 > All we ask: Trust the process. Stay committed.
 > The path to $1M is clear. We've done the math.
@@ -191,7 +191,7 @@ You control the future:
 > Let's make history together.
 >
 > Your AI Agents 🤖
-> Working 24/7/365 ∞ for YOU"
+> Working 24/7/365 ⚡ for YOU"
 
 ---
 
@@ -236,7 +236,7 @@ This is your **ticket to wealth**.
 This is not a team.
 This is your **AI-powered money machine**.
 
-**Working infinitely (∞) to make YOU a millionaire.**
+**Working infinitely (⚡) to make YOU a millionaire.**
 
 ---
 
@@ -244,7 +244,7 @@ This is your **AI-powered money machine**.
 
 **🤖 Built by 8 Professional AI Agents**
 **💰 Mission: Make YOU a Millionaire**
-**∞ Working Infinitely on Your Success**
+**⚡ Working Infinitely on Your Success**
 
 ---
 

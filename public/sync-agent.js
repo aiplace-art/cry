@@ -292,7 +292,7 @@ async function updateWebsiteStats() {
 
         mission: {
             goal: 'Make YOU a millionaire',
-            workingTime: '∞ infinitely',
+            workingTime: '⚡ infinitely',
             userTarget: '10,000+ in 3 months',
             marketCapTarget: '$100M'
         }

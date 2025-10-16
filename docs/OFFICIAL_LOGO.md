@@ -121,9 +121,9 @@ og-image.png              - 1200x630px (генерировать для соцс
 ### ⚠️ ВНИМАНИЕ:
 
 **НЕ ИСПОЛЬЗУЙТЕ БОЛЬШЕ:**
-- `logo-hypeai.svg` (старая версия infinity)
-- `logo-brain-lightning.html` (отклонено - "детский сад")
-- `logo-animated.html` (старая версия)
+- `logo-official.svg` (старая версия infinity)
+- `logo-premium-animated.html` (отклонено - "детский сад")
+- `logo-premium-animated.html` (старая версия)
 
 **ИСПОЛЬЗУЙТЕ ТОЛЬКО:**
 - `logo-official.svg` ✅

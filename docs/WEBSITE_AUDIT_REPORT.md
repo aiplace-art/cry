@@ -105,7 +105,7 @@ Create and add favicon.ico to website/ directory.
 - "Working infinitely to make YOU a millionaire"
 - "Our Mission: Make YOU a Millionaire!"
 - "Ready to Become a Millionaire?"
-- "Working ∞ infinitely to make YOU a millionaire"
+- "Working ⚡ infinitely to make YOU a millionaire"
 
 **Issues:**
 - ❌ Can seem scammy/spammy
