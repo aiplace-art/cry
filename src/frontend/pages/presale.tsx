@@ -272,7 +272,7 @@ export default function PresalePage() {
       <div className="relative z-10 container mx-auto px-4 py-8">
         {/* Hero Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
+          
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center py-16 relative"
@@ -292,7 +292,7 @@ export default function PresalePage() {
 
           {/* Main Headline */}
           <motion.h1
-            initial={{ opacity: 0, scale: 0.9 }}
+            
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5 }}
             className="text-6xl md:text-8xl font-black mb-6 leading-tight"
@@ -305,7 +305,7 @@ export default function PresalePage() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0 }}
+            
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
             className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto"
@@ -319,7 +319,7 @@ export default function PresalePage() {
 
           {/* Countdown Timer */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
             className="grid grid-cols-4 gap-4 max-w-2xl mx-auto mb-12"
@@ -347,7 +347,7 @@ export default function PresalePage() {
 
         {/* Why Solana First? Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
+          
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1 }}
           className="mb-16 max-w-4xl mx-auto"
@@ -428,7 +428,7 @@ export default function PresalePage() {
 
         {/* Community Stats */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
+          
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.3 }}
           className="mb-16"
@@ -489,7 +489,7 @@ export default function PresalePage() {
 
         {/* Join the Movement CTA */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
+          
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5 }}
           className="max-w-2xl mx-auto mb-16"
@@ -628,7 +628,7 @@ export default function PresalePage() {
 
         {/* AI Agents Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
+          
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.7 }}
           className="mb-16 max-w-4xl mx-auto"
