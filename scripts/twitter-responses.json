@@ -1,0 +1,144 @@
+{
+  "greetings": [
+    "Hey {user}! 👋 Thanks for reaching out to HypeAI!",
+    "Hi {user}! Great to connect with you! 🤖",
+    "Hello {user}! Thanks for your interest in HypeAI! ⚡",
+    "Hey there {user}! Welcome to the HypeAI community! 🚀",
+    "Hi {user}! Excited to have you here! 💙"
+  ],
+
+  "questions": {
+    "whatIsHypeAI": [
+      "HypeAI is a revolutionary AI agent ecosystem on Solana! 🤖⚡\n\nWe're building 15 autonomous agents for:\n• DeFi trading\n• Smart governance\n• Community management\n\nLearn more: {website}",
+      "Great question! HypeAI brings autonomous AI agents to Solana.\n\nThink:\n✅ Automated trading strategies\n✅ Smart contract governance\n✅ Intelligent analytics\n\nCheck it out: {website}",
+      "HypeAI = AI Agents + Solana's speed! 🔥\n\nOur 15 specialized agents handle everything from trading to community management.\n\nDive in: {website}"
+    ],
+
+    "tokenInfo": [
+      "$HYPE is our utility token powering the AI agent ecosystem! 🪙\n\n💡 Use cases:\n• Agent service payments\n• DAO governance\n• Staking rewards\n\nLaunch: Nov 2025\nJoin: {telegram}",
+      "The $HYPE token fuels our AI agents:\n\n✅ Access premium features\n✅ Vote on governance\n✅ Earn staking rewards\n\nStay tuned for presale! 🚀\n{telegram}",
+      "$HYPE Token Details:\n\n🔹 Total Supply: TBA\n🔹 Network: Solana\n🔹 Use: AI agent services\n🔹 Launch: Q4 2025\n\nFollow for updates! {telegram}"
+    ],
+
+    "howToJoin": [
+      "Welcome to HypeAI! Here's how to join:\n\n1️⃣ Follow us here on Twitter\n2️⃣ Join Telegram: {telegram}\n3️⃣ Visit website: {website}\n4️⃣ Join Discord: {discord}\n\nLet's build the future! 🚀",
+      "Easy! Join our community:\n\n🐦 Twitter: Follow us\n💬 Telegram: {telegram}\n🌐 Website: {website}\n💬 Discord: {discord}\n\nSee you there! ⚡",
+      "Welcome aboard! 🎉\n\nHere's your onboarding:\n✅ Follow @HypeAI_SOL\n✅ Join TG: {telegram}\n✅ Visit: {website}\n✅ Discord: {discord}\n\nLFG! 🚀"
+    ],
+
+    "presale": [
+      "Presale details dropping soon! 🚀\n\nTo be first to know:\n1. Follow us\n2. Join Telegram: {telegram}\n3. Enable notifications 🔔\n\nDon't miss out!",
+      "The $HYPE presale is coming! 🔥\n\nWant early access?\n✅ Join Telegram: {telegram}\n✅ Follow announcements\n✅ Stay active in community\n\nBig things ahead! ⚡",
+      "Presale announcement coming very soon! ⏰\n\nFollow our Telegram for:\n• Exact dates\n• Pricing details\n• Whitelist spots\n\n{telegram}\n\nGet ready! 🚀"
+    ],
+
+    "roadmap": [
+      "Our roadmap is packed! 🗺️\n\nQ4 2025:\n✅ MVP Launch\n✅ First 5 agents\n✅ Community building\n\nQ1 2026:\n✅ Full agent suite\n✅ DEX integration\n✅ Staking\n\nMore: {website}",
+      "Exciting times ahead! 📅\n\nPhase 1: Foundation (Now)\nPhase 2: Agent deployment\nPhase 3: Ecosystem growth\nPhase 4: Full autonomy\n\nDetails: {website}",
+      "HypeAI Roadmap:\n\n🔹 Now: Building core agents\n🔹 Nov 2025: Public launch\n🔹 Q1 2026: Full ecosystem\n🔹 Q2 2026: Advanced features\n\nJoin the journey: {telegram}"
+    ],
+
+    "technology": [
+      "Our tech stack is cutting-edge! 🛠️\n\n🔹 Solana blockchain\n🔹 Advanced AI/ML models\n🔹 Smart contract automation\n🔹 Real-time analytics\n\nTechnical docs: {website}",
+      "HypeAI Technology:\n\n✅ Built on Solana (fast & cheap)\n✅ 15 specialized AI agents\n✅ Autonomous decision-making\n✅ Secure smart contracts\n\nDive deeper: {website}",
+      "We're building with:\n\n🤖 State-of-the-art AI\n⚡ Solana's speed\n🔒 Secure architecture\n📊 Real-time data\n\nDocs: {website}\nTG: {telegram}"
+    ],
+
+    "team": [
+      "Our team consists of:\n\n🔹 Blockchain developers\n🔹 AI/ML engineers\n🔹 DeFi experts\n🔹 Community builders\n\nMeet us: {website}",
+      "HypeAI is built by experienced:\n\n✅ Solana devs\n✅ AI researchers\n✅ Crypto veterans\n\n100% doxxed soon! 👀\n{website}",
+      "Strong team behind HypeAI:\n\n• Years of crypto experience\n• AI/ML expertise\n• Successful launches\n\nLearn more: {website}"
+    ],
+
+    "partnerships": [
+      "We're building relationships with:\n\n🤝 Solana ecosystem projects\n🤝 DeFi protocols\n🤝 AI platforms\n\nAnnouncements coming soon! {telegram}",
+      "Partnerships in the works! 🤝\n\nWatch for announcements about:\n• DEX integrations\n• Wallet partnerships\n• Ecosystem collaborations\n\nStay tuned: {telegram}",
+      "Growing our ecosystem daily!\n\n🔹 Solana partnerships\n🔹 DeFi integrations\n🔹 AI collaborations\n\nUpdates: {telegram}"
+    ]
+  },
+
+  "engagement": {
+    "positive": [
+      "Thanks for the support! 🚀",
+      "Appreciate you! 💙",
+      "Love the energy! ⚡",
+      "This is the way! 🔥",
+      "Let's gooo! 🎉",
+      "You get it! 🤖",
+      "Exactly! 💯",
+      "Big facts! 🙌",
+      "Couldn't agree more! ✅",
+      "You're awesome! 🌟"
+    ],
+
+    "technical": [
+      "Great point! Our team is always innovating. 🛠️\n\nFollow along for updates!\n{website}",
+      "Interesting perspective! We'd love to discuss this deeper.\n\nJoin our Telegram: {telegram}",
+      "Thanks for the feedback! 🙏\n\nJoin our Discord to dive into the tech: {discord}",
+      "Smart question! Check out our technical docs:\n{website}\n\nOr join the discussion: {telegram}",
+      "Love the technical curiosity! 🧠\n\nOur devs are active in:\n• Telegram: {telegram}\n• Discord: {discord}"
+    ],
+
+    "excited": [
+      "We're just getting started! 🚀",
+      "This is only the beginning! ⚡",
+      "So much more to come! 🔥",
+      "The future is bright! 🌟",
+      "Get ready for what's next! 💥",
+      "Big things ahead! 🎯",
+      "You ain't seen nothing yet! 👀",
+      "Buckle up! 🎢",
+      "Can't wait to show you more! 🤖"
+    ],
+
+    "community": [
+      "Our community is amazing! 💙\n\nNot in yet? Join: {telegram}",
+      "That's what we're all about - community first! 🤝\n\n{telegram}",
+      "Together we build! 🏗️\n\nJoin us: {telegram}",
+      "Community is everything! 🌟\n\nConnect: {telegram}",
+      "You all are the best! 🙌\n\n{telegram}"
+    ]
+  },
+
+  "autoResponses": {
+    "mention": [
+      "Thanks for mentioning HypeAI! 🤖\n\nWe're building the future of AI on Solana. ⚡\n\n{website}",
+      "Hey! Thanks for the mention! 👋\n\nCheck out what we're building: {website}",
+      "Appreciate the tag! 🙏\n\nLearn about our AI agents: {website}"
+    ],
+
+    "tag": [
+      "Hey there! Thanks for tagging us! 🤖\n\nSee what we're up to: {website}",
+      "Thanks for the shoutout! 🚀\n\nDiscover HypeAI: {website}",
+      "Appreciate you! 💙\n\nLearn more: {website}"
+    ],
+
+    "question": [
+      "Great question! 🤔\n\nFor detailed info:\n🌐 {website}\n💬 {telegram}",
+      "We'd love to help! ✅\n\nVisit: {website}\nJoin: {telegram}",
+      "Check out our resources:\n\n📖 Website: {website}\n💬 Community: {telegram}\n💬 Discord: {discord}"
+    ],
+
+    "followBack": [
+      "Thanks for the follow! 💙\n\nWelcome to HypeAI! 🤖⚡",
+      "Followed back! 🤝\n\nExcited to have you in the community!",
+      "Thanks for joining us! 🎉\n\nBig things coming! 🚀"
+    ]
+  },
+
+  "helpfulLinks": {
+    "general": "Learn more about HypeAI:\n\n🌐 Website: {website}\n💬 Telegram: {telegram}\n💬 Discord: {discord}\n📱 Twitter: @HypeAI_SOL",
+
+    "developers": "For developers:\n\n📚 Docs: {website}/docs\n💻 GitHub: Coming soon\n💬 Dev chat: {discord}",
+
+    "investors": "For investors:\n\n📊 Tokenomics: {website}/token\n📈 Roadmap: {website}/roadmap\n💬 Community: {telegram}",
+
+    "partners": "Partnership inquiries:\n\n📧 Contact: partnerships@hypeai.io\n💬 Direct: {telegram}\n🌐 Info: {website}"
+  },
+
+  "errorMessages": {
+    "cannotReply": "We'll get back to you soon! In the meantime, join our community: {telegram}",
+    "rateLimit": "Thanks for your interest! For faster responses, join our Telegram: {telegram}",
+    "technical": "Experiencing technical difficulties. Join {telegram} for support!"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "targetDate": "2025-11-15T00:00:00.000Z",
+  "daysRemaining": 30,
+  "readinessScore": 12,
+  "milestones": [
+    {
+      "id": "100_members",
+      "name": "100 Community Members",
+      "target": 100,
+      "completed": false,
+      "priority": "high"
+    },
+    {
+      "id": "500_members",
+      "name": "500 Community Members",
+      "target": 500,
+      "completed": false,
+      "priority": "high"
+    },
+    {
+      "id": "1000_members",
+      "name": "1000 Community Members",
+      "target": 1000,
+      "completed": false,
+      "priority": "critical"
+    },
+    {
+      "id": "website_live",
+      "name": "Website Deployed",
+      "completed": true,
+      "priority": "critical"
+    },
+    {
+      "id": "bots_active",
+      "name": "All Bots Running",
+      "completed": false,
+      "priority": "high"
+    },
+    {
+      "id": "twitter_100",
+      "name": "100 Twitter Followers",
+      "target": 100,
+      "completed": false,
+      "priority": "medium"
+    },
+    {
+      "id": "content_ready",
+      "name": "Launch Content Prepared",
+      "completed": false,
+      "priority": "high"
+    },
+    {
+      "id": "wallet_tested",
+      "name": "Wallet Integration Tested",
+      "completed": false,
+      "priority": "critical"
+    }
+  ],
+  "blockers": [],
+  "lastCheck": "2025-10-16T15:17:11.333Z"
+}

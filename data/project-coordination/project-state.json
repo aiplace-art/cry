@@ -1,0 +1,53 @@
+{
+  "launchDate": "2025-11-15T00:00:00.000Z",
+  "startedAt": "2025-10-16T15:17:08.285Z",
+  "metrics": {
+    "telegramMembers": 0,
+    "twitterFollowers": 0,
+    "websiteVisits": 0,
+    "tokenHolders": 0,
+    "totalValue": 0
+  },
+  "milestones": {
+    "100_members": {
+      "target": 100,
+      "reached": false,
+      "date": null
+    },
+    "500_members": {
+      "target": 500,
+      "reached": false,
+      "date": null
+    },
+    "1000_members": {
+      "target": 1000,
+      "reached": false,
+      "date": null
+    },
+    "launch_ready": {
+      "reached": false,
+      "date": null
+    }
+  },
+  "activeAgents": {},
+  "alerts": [
+    {
+      "id": 1760627834302,
+      "timestamp": "2025-10-16T15:17:14.302Z",
+      "severity": "info",
+      "message": "Project Master Coordinator started",
+      "data": {
+        "activeAgents": 5,
+        "metrics": {
+          "telegramMembers": 0,
+          "twitterFollowers": 0,
+          "websiteVisits": 0,
+          "tokenHolders": 0,
+          "totalValue": 0
+        }
+      },
+      "acknowledged": false
+    }
+  ],
+  "lastUpdate": "2025-10-16T15:22:08.285Z"
+}

@@ -1,0 +1,23 @@
+{
+  "mentions": {
+    "total": 0,
+    "last24h": 0,
+    "twitter": 0,
+    "telegram": 0,
+    "reddit": 0
+  },
+  "sentiment": {
+    "positive": 0,
+    "neutral": 0,
+    "negative": 0,
+    "score": 0
+  },
+  "viralPotential": {
+    "score": 0,
+    "trending": false,
+    "peakReach": 0
+  },
+  "influencers": [],
+  "topMentions": [],
+  "lastUpdate": "2025-10-16T15:17:10.328Z"
+}

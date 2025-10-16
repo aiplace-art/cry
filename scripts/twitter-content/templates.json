@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "project": "HypeAI",
+    "purpose": "Reusable tweet templates for consistent messaging",
+    "usage": "Fill in [VARIABLES] with specific content"
+  },
+  "templates": {
+    "agent_spotlight": {
+      "format": "Agent Spotlight: [AGENT_NAME]\n\n[FEATURE_1]\n[FEATURE_2]\n[FEATURE_3]\n[FEATURE_4]\n\n[TAGLINE]",
+      "hashtags": ["#HypeAI", "#AIAgent", "#[AGENT_CATEGORY]"],
+      "example": "Agent Spotlight: Neural Oracle\n\nReal-time market analysis\nPattern recognition\nRisk scoring\nAutomated alerts\n\nYour 24/7 market intelligence.",
+      "variables": {
+        "AGENT_NAME": "Name of the AI agent",
+        "FEATURE_1-4": "Key features/capabilities",
+        "TAGLINE": "One-liner benefit statement",
+        "AGENT_CATEGORY": "Category (Trading, Governance, Security, etc.)"
+      }
+    },
+    "milestone_announcement": {
+      "format": "Milestone reached:\n\n[METRIC_1]\n[METRIC_2]\n[METRIC_3]\n[METRIC_4]\n\n[THANK_YOU_MESSAGE]",
+      "hashtags": ["#HypeAI", "#Milestone", "#[SPECIFIC_MILESTONE]"],
+      "example": "Milestone reached:\n\n5,000 community members\n500 GitHub stars\n100 beta testers\n15 specialized agents\n\nThanks for believing in the vision. We're just getting started.",
+      "variables": {
+        "METRIC_1-4": "Specific achievement numbers",
+        "THANK_YOU_MESSAGE": "Community appreciation message",
+        "SPECIFIC_MILESTONE": "Type of milestone (Growth, Development, etc.)"
+      }
+    },
+    "daily_update": {
+      "format": "[DAY_COUNT] until [EVENT].\n\n[UPDATE_CATEGORY]:\n[UPDATE_1]\n[UPDATE_2]\n[UPDATE_3]\n\n[CALL_TO_ACTION]",
+      "hashtags": ["#HypeAI", "#[EVENT_HASHTAG]", "#BuildInPublic"],
+      "example": "30 days until Fair Launch.\n\nWhat we've shipped:\n- 15 AI agents\n- Audited smart contracts\n- Open-source codebase\n\nWhat's next? You decide.",
+      "variables": {
+        "DAY_COUNT": "Number of days",
+        "EVENT": "Upcoming event name",
+        "UPDATE_CATEGORY": "Type of update",
+        "UPDATE_1-3": "Specific updates",
+        "CALL_TO_ACTION": "What you want readers to do",
+        "EVENT_HASHTAG": "Event-specific hashtag"
+      }
+    },
+    "educational_thread": {
+      "format": "Thread: [TOPIC]\n\n1/ [INTRODUCTION]\n\n[EXPLANATION_APPROACH]\n\nAll [TECHNOLOGY_AREA].",
+      "hashtags": ["#HypeAI", "#Education", "#[TOPIC_HASHTAG]"],
+      "example": "Thread: How HypeAI's 15 agents work together\n\n1/ Think of it like a specialized team:\n- Analysts gather data\n- Strategists plan moves\n- Executors act\n- Validators ensure quality\n\nAll coordinated on-chain.",
+      "variables": {
+        "TOPIC": "Educational topic",
+        "INTRODUCTION": "Hook for the thread",
+        "EXPLANATION_APPROACH": "Teaching method",
+        "TECHNOLOGY_AREA": "Tech domain",
+        "TOPIC_HASHTAG": "Topic-specific hashtag"
+      }
+    },
+    "community_engagement": {
+      "format": "[QUESTION_OR_PROMPT]\n\n[ADDITIONAL_CONTEXT]\n\n[INCENTIVE]",
+      "hashtags": ["#HypeAI", "#Community", "#[ENGAGEMENT_TYPE]"],
+      "example": "If you could design the 16th agent, what would it do?\n\nBest answer gets featured in our docs.\n\nGo:",
+      "variables": {
+        "QUESTION_OR_PROMPT": "What you're asking",
+        "ADDITIONAL_CONTEXT": "Optional clarification",
+        "INCENTIVE": "What participants get",
+        "ENGAGEMENT_TYPE": "Type of engagement (Poll, Question, Challenge)"
+      }
+    },
+    "technical_deep_dive": {
+      "format": "[TECHNICAL_TOPIC]:\n\n[SPEC_1]\n[SPEC_2]\n[SPEC_3]\n[SPEC_4]\n[SPEC_5]\n\n[CONCLUSION]",
+      "hashtags": ["#HypeAI", "#TechStack", "#[TECH_CATEGORY]"],
+      "example": "Tech Stack Breakdown:\n\nBlockchain: Solana\nSmart Contracts: Rust\nAI Models: Custom-trained\nOracle: Decentralized\nGovernance: On-chain\n\nBuilt for speed, security, and scalability.",
+      "variables": {
+        "TECHNICAL_TOPIC": "What you're explaining",
+        "SPEC_1-5": "Technical specifications",
+        "CONCLUSION": "Summary statement",
+        "TECH_CATEGORY": "Category (Architecture, Performance, Security)"
+      }
+    },
+    "comparison_tweet": {
+      "format": "[COMPETITOR_APPROACH]: [THEIR_CLAIM]\n\nHypeAI: [OUR_REALITY]\n\nWe are not the same.",
+      "hashtags": ["#HypeAI", "#NotTheSame", "#Web3"],
+      "example": "Other projects: \"We have 1 AI bot that tweets\"\n\nHypeAI: \"We have 15 specialized AI agents running autonomous operations on-chain\"\n\nWe are not the same.",
+      "variables": {
+        "COMPETITOR_APPROACH": "What others do",
+        "THEIR_CLAIM": "Their positioning",
+        "OUR_REALITY": "Our actual capability"
+      }
+    },
+    "poll_tweet": {
+      "format": "Quick poll\n\n[QUESTION]\n\nA) [OPTION_A]\nB) [OPTION_B]\nC) [OPTION_C]\nD) [OPTION_D]\n\nComment below!",
+      "hashtags": ["#HypeAI", "#Poll", "#CommunityVote"],
+      "example": "Quick poll\n\nWhich agent are you most excited about?\n\nA) Neural Oracle (market analysis)\nB) Governance Guardian (DAO automation)\nC) Risk Sentinel (security)\nD) All 15 of them\n\nComment below!",
+      "variables": {
+        "QUESTION": "Poll question",
+        "OPTION_A-D": "Answer choices with descriptions"
+      }
+    },
+    "meme_format": {
+      "format": "[SETUP]\n\n[PUNCHLINE_OR_REVELATION]\n\n[REACTION_OR_CONCLUSION]",
+      "hashtags": ["#HypeAI", "#CryptoMemes", "#Web3Humor"],
+      "example": "POV: You found a crypto project that:\n\n- Actually works\n- Is fully documented\n- Has no VCs\n- Launches fairly\n- Uses real AI\n\n*checks if this is real life*",
+      "variables": {
+        "SETUP": "Meme scenario setup",
+        "PUNCHLINE_OR_REVELATION": "The twist",
+        "REACTION_OR_CONCLUSION": "Punchline or reaction"
+      }
+    },
+    "launch_countdown": {
+      "format": "[TIME_REMAINING] until [EVENT].\n\n[STATUS_CATEGORY]:\n[STATUS_1]\n[STATUS_2]\n[STATUS_3]\n[STATUS_4]\n\n[URGENCY_MESSAGE]",
+      "hashtags": ["#HypeAI", "#FairLaunch", "#[COUNTDOWN_HASHTAG]"],
+      "example": "1 week until Fair Launch.\n\nLive now:\n- Agent demo videos\n- Smart contract explorer\n- Governance documentation\n- Community AMAs\n\nNov 15. Be there.",
+      "variables": {
+        "TIME_REMAINING": "Time until event",
+        "EVENT": "What's happening",
+        "STATUS_CATEGORY": "What you're updating on",
+        "STATUS_1-4": "Checklist items",
+        "URGENCY_MESSAGE": "Time-sensitive CTA",
+        "COUNTDOWN_HASHTAG": "Time-specific tag (1WeekToGo, 72Hours, etc.)"
+      }
+    },
+    "quote_highlight": {
+      "format": "From our [SOURCE]:\n\n\"[QUOTE]\"\n\n[RESPONSE_OR_CONTEXT]\n\n[CALL_TO_ACTION]",
+      "hashtags": ["#HypeAI", "#Community", "#[SOURCE_TYPE]"],
+      "example": "From our Discord:\n\n\"This is the first crypto project where I actually understand what they're building.\"\n\nThat's the goal. Clear, honest, transparent.\n\nJoin us: [link]",
+      "variables": {
+        "SOURCE": "Where quote came from",
+        "QUOTE": "The actual quote",
+        "RESPONSE_OR_CONTEXT": "Your reaction/explanation",
+        "CALL_TO_ACTION": "What readers should do",
+        "SOURCE_TYPE": "Platform or category"
+      }
+    },
+    "performance_metrics": {
+      "format": "[METRICS_CONTEXT]:\n\n- [METRIC_1]\n- [METRIC_2]\n- [METRIC_3]\n- [METRIC_4]\n\n[READINESS_STATEMENT]",
+      "hashtags": ["#HypeAI", "#Performance", "#[METRIC_TYPE]"],
+      "example": "Performance metrics from beta:\n\n- 99.9% uptime\n- <100ms agent response time\n- 0 security incidents\n- 10,000+ successful operations\n\nReady for mainnet.",
+      "variables": {
+        "METRICS_CONTEXT": "What you're measuring",
+        "METRIC_1-4": "Specific measurements",
+        "READINESS_STATEMENT": "Conclusion about readiness",
+        "METRIC_TYPE": "Type of metrics (BetaResults, Production, etc.)"
+      }
+    }
+  },
+  "content_calendars": {
+    "weekly_schedule": {
+      "monday": "Educational content or technical deep-dive",
+      "tuesday": "Agent spotlight or feature highlight",
+      "wednesday": "Community engagement (poll, question, contest)",
+      "thursday": "Meme or viral content",
+      "friday": "Milestone update or weekly recap",
+      "saturday": "Community highlight or user story",
+      "sunday": "Inspirational or vision-focused content"
+    },
+    "pre_launch_countdown": {
+      "30_days": "Full feature overview",
+      "21_days": "Security and audit update",
+      "14_days": "Community milestone celebration",
+      "7_days": "Demo videos and documentation",
+      "3_days": "Final checklist and preparations",
+      "1_day": "Launch day hype building",
+      "launch_day": "Launch announcement and celebration"
+    },
+    "post_launch_cadence": {
+      "daily": "Performance metrics and agent activity updates",
+      "weekly": "Community highlights and governance summaries",
+      "monthly": "Roadmap updates and major announcements",
+      "quarterly": "Ecosystem growth reports and strategic vision"
+    }
+  },
+  "response_templates": {
+    "positive_feedback": "Thanks for the support! We're building this for the community, by the community. [SPECIFIC_RESPONSE]",
+    "technical_question": "Great question! [TECHNICAL_ANSWER] Check out our docs for more: [LINK]",
+    "criticism_or_concern": "We appreciate the feedback. [ACKNOWLEDGE_CONCERN] Here's how we're addressing it: [SOLUTION]",
+    "comparison_question": "HypeAI is different because: [KEY_DIFFERENTIATOR]. We focus on [CORE_VALUE].",
+    "how_to_join": "Welcome! Here's how to get started:\n1. [STEP_1]\n2. [STEP_2]\n3. [STEP_3]\nSee you in the community!",
+    "partnership_inquiry": "Thanks for your interest! We're focused on organic ecosystem growth. DM us with details about your project.",
+    "media_inquiry": "For media inquiries, please reach out to [CONTACT]. We're happy to discuss [TOPICS]."
+  }
+}

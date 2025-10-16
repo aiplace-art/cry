@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypeAI Twitter Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .change {
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .stat-card .change.positive {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .stat-card .change.negative {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .chart-card h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        .table-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .table-card h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .hashtag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .hashtag-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .refresh-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin: 20px 0;
+        }
+
+        .refresh-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .last-updated {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <span>🚀</span>
+                HypeAI Twitter Analytics
+                <span>📊</span>
+            </h1>
+            <p class="subtitle">Real-time Performance Dashboard</p>
+            <button class="refresh-btn" onclick="loadAnalytics()">🔄 Refresh Data</button>
+        </div>
+
+        <div id="loading" class="loading">
+            Loading analytics data...
+        </div>
+
+        <div id="dashboard" style="display: none;">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon">👥</div>
+                    <div class="label">Followers</div>
+                    <div class="value" id="followers">-</div>
+                    <div class="change" id="followers-change">-</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="icon">📈</div>
+                    <div class="label">Weekly Growth</div>
+                    <div class="value" id="growth-rate">-</div>
+                    <div class="change" id="growth-change">-</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="icon">💬</div>
+                    <div class="label">Avg Engagement</div>
+                    <div class="value" id="engagement">-</div>
+                    <div class="change" id="engagement-change">Good</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="icon">🐦</div>
+                    <div class="label">Total Tweets</div>
+                    <div class="value" id="total-tweets">-</div>
+                    <div class="change" id="tweets-change">-</div>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>📈 Follower Growth Trend</h3>
+                    <div class="chart-container">
+                        <canvas id="followerChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>💬 Engagement by Content Type</h3>
+                    <div class="chart-container">
+                        <canvas id="contentTypeChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>⏰ Best Posting Times (UTC)</h3>
+                    <div class="chart-container">
+                        <canvas id="timingChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>🏷️ Top Hashtag Performance</h3>
+                    <div class="chart-container">
+                        <canvas id="hashtagChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-card">
+                <h3>⭐ Top Performing Tweets</h3>
+                <table id="top-tweets-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Tweet</th>
+                            <th>Engagement</th>
+                            <th>Likes</th>
+                            <th>Retweets</th>
+                            <th>Impressions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="top-tweets-body">
+                        <tr><td colspan="6">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-card">
+                <h3>🏷️ Top Hashtags</h3>
+                <div class="hashtag-list" id="hashtag-list">
+                    Loading...
+                </div>
+            </div>
+
+            <div class="table-card">
+                <h3>🔍 Competitor Comparison</h3>
+                <table id="competitors-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Account</th>
+                            <th>Followers</th>
+                            <th>Tweets</th>
+                            <th>Ratio to HypeAI</th>
+                        </tr>
+                    </thead>
+                    <tbody id="competitors-body">
+                        <tr><td colspan="5">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="last-updated" id="last-updated">
+            Last updated: Never
+        </div>
+    </div>
+
+    <script>
+        let charts = {};
+
+        async function loadAnalytics() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('dashboard').style.display = 'none';
+
+            try {
+                // In production, these would be API calls
+                // For demo, we'll use sample data
+                const data = generateSampleData();
+
+                updateStats(data);
+                updateCharts(data);
+                updateTables(data);
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                document.getElementById('last-updated').textContent =
+                    `Last updated: ${new Date().toLocaleString()}`;
+            } catch (error) {
+                console.error('Error loading analytics:', error);
+                document.getElementById('loading').innerHTML =
+                    '❌ Error loading data. Please check console.';
+            }
+        }
+
+        function updateStats(data) {
+            document.getElementById('followers').textContent =
+                data.userMetrics.followers.toLocaleString();
+            document.getElementById('followers-change').textContent =
+                `+${data.growthRate.absoluteDaily} today`;
+            document.getElementById('followers-change').className =
+                'change ' + (data.growthRate.absoluteDaily > 0 ? 'positive' : 'negative');
+
+            document.getElementById('growth-rate').textContent =
+                data.growthRate.weekly + '%';
+            document.getElementById('growth-change').textContent =
+                `+${data.growthRate.absoluteWeekly} this week`;
+            document.getElementById('growth-change').className = 'change positive';
+
+            document.getElementById('engagement').textContent =
+                data.topContent.averageEngagement.toFixed(2) + '%';
+            document.getElementById('engagement-change').className = 'change positive';
+
+            document.getElementById('total-tweets').textContent =
+                data.userMetrics.tweets.toLocaleString();
+            document.getElementById('tweets-change').textContent =
+                `${data.tweets.length} analyzed`;
+            document.getElementById('tweets-change').className = 'change positive';
+        }
+
+        function updateCharts(data) {
+            // Follower Growth Chart
+            if (charts.follower) charts.follower.destroy();
+            const followerCtx = document.getElementById('followerChart').getContext('2d');
+            charts.follower = new Chart(followerCtx, {
+                type: 'line',
+                data: {
+                    labels: data.followerTrend.map(d => d.date),
+                    datasets: [{
+                        label: 'Followers',
+                        data: data.followerTrend.map(d => d.followers),
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // Content Type Chart
+            if (charts.contentType) charts.contentType.destroy();
+            const contentCtx = document.getElementById('contentTypeChart').getContext('2d');
+            charts.contentType = new Chart(contentCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Original', 'Replies', 'Retweets'],
+                    datasets: [{
+                        data: [
+                            data.topContent.contentTypes.original,
+                            data.topContent.contentTypes.replies,
+                            data.topContent.contentTypes.retweets
+                        ],
+                        backgroundColor: ['#667eea', '#764ba2', '#f093fb']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Timing Chart
+            if (charts.timing) charts.timing.destroy();
+            const timingCtx = document.getElementById('timingChart').getContext('2d');
+            charts.timing = new Chart(timingCtx, {
+                type: 'bar',
+                data: {
+                    labels: data.optimalTimes.bestHours.map(h => h.hour + ':00'),
+                    datasets: [{
+                        label: 'Avg Engagement %',
+                        data: data.optimalTimes.bestHours.map(h => h.avgEngagement),
+                        backgroundColor: '#667eea'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // Hashtag Chart
+            if (charts.hashtag) charts.hashtag.destroy();
+            const hashtagCtx = document.getElementById('hashtagChart').getContext('2d');
+            charts.hashtag = new Chart(hashtagCtx, {
+                type: 'bar',
+                data: {
+                    labels: data.topContent.bestHashtags.slice(0, 8).map(h => '#' + h.hashtag),
+                    datasets: [{
+                        label: 'Avg Engagement %',
+                        data: data.topContent.bestHashtags.slice(0, 8).map(h => h.avgEngagement),
+                        backgroundColor: '#764ba2'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        function updateTables(data) {
+            // Top Tweets Table
+            const tweetsBody = document.getElementById('top-tweets-body');
+            tweetsBody.innerHTML = data.topContent.topTweets.slice(0, 5).map((tweet, i) => `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${tweet.text.substring(0, 80)}...</td>
+                    <td>${tweet.engagementRate.toFixed(2)}%</td>
+                    <td>${tweet.likes}</td>
+                    <td>${tweet.retweets}</td>
+                    <td>${tweet.impressions.toLocaleString()}</td>
+                </tr>
+            `).join('');
+
+            // Hashtags
+            const hashtagList = document.getElementById('hashtag-list');
+            hashtagList.innerHTML = data.topContent.bestHashtags.slice(0, 15).map(tag => `
+                <div class="hashtag-badge">
+                    #${tag.hashtag} (${tag.uses} uses, ${tag.avgEngagement.toFixed(1)}% eng)
+                </div>
+            `).join('');
+
+            // Competitors
+            const competitorsBody = document.getElementById('competitors-body');
+            competitorsBody.innerHTML = data.competitors.map((comp, i) => `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>@${comp.username}</td>
+                    <td>${comp.followers.toLocaleString()}</td>
+                    <td>${comp.tweets.toLocaleString()}</td>
+                    <td>${comp.followersRatio}x</td>
+                </tr>
+            `).join('');
+        }
+
+        function generateSampleData() {
+            // Sample data for demonstration
+            const dates = Array.from({length: 7}, (_, i) => {
+                const d = new Date();
+                d.setDate(d.getDate() - (6 - i));
+                return d.toISOString().split('T')[0];
+            });
+
+            return {
+                userMetrics: {
+                    followers: 1250,
+                    following: 342,
+                    tweets: 89
+                },
+                growthRate: {
+                    daily: 2.5,
+                    weekly: 8.3,
+                    absoluteDaily: 31,
+                    absoluteWeekly: 96
+                },
+                tweets: Array.from({length: 20}, (_, i) => ({
+                    id: `tweet-${i}`,
+                    text: `Sample HypeAI tweet about Solana AI innovation #HypeAI #Solana #AI tweet ${i}`,
+                    likes: Math.floor(Math.random() * 100),
+                    retweets: Math.floor(Math.random() * 30),
+                    replies: Math.floor(Math.random() * 20),
+                    impressions: Math.floor(Math.random() * 5000),
+                    engagementRate: Math.random() * 5,
+                    hashtags: ['HypeAI', 'Solana', 'AI']
+                })),
+                topContent: {
+                    averageEngagement: 3.2,
+                    topTweets: Array.from({length: 10}, (_, i) => ({
+                        text: `High-performing HypeAI tweet about AI innovation on Solana #${i}`,
+                        likes: 150 - i * 10,
+                        retweets: 45 - i * 3,
+                        replies: 25 - i * 2,
+                        impressions: 6000 - i * 500,
+                        engagementRate: 5.5 - i * 0.3
+                    })),
+                    bestHashtags: [
+                        {hashtag: 'HypeAI', uses: 45, avgEngagement: 4.2},
+                        {hashtag: 'Solana', uses: 38, avgEngagement: 3.8},
+                        {hashtag: 'AI', uses: 42, avgEngagement: 3.5},
+                        {hashtag: 'Crypto', uses: 25, avgEngagement: 3.2},
+                        {hashtag: 'Web3', uses: 20, avgEngagement: 2.9}
+                    ],
+                    contentTypes: {
+                        original: 45,
+                        replies: 30,
+                        retweets: 14
+                    }
+                },
+                optimalTimes: {
+                    bestHours: [
+                        {hour: 14, avgEngagement: 4.2},
+                        {hour: 16, avgEngagement: 3.8},
+                        {hour: 18, avgEngagement: 3.5},
+                        {hour: 10, avgEngagement: 3.2},
+                        {hour: 12, avgEngagement: 2.9}
+                    ]
+                },
+                followerTrend: dates.map((date, i) => ({
+                    date,
+                    followers: 1154 + i * 14
+                })),
+                competitors: [
+                    {username: 'HypeAI_Official', followers: 1250, tweets: 89, followersRatio: 1.00},
+                    {username: 'SolanaAI', followers: 15420, tweets: 1250, followersRatio: 12.34},
+                    {username: 'PhantomWallet', followers: 234500, tweets: 3420, followersRatio: 187.60},
+                    {username: 'MagicEden', followers: 189000, tweets: 2890, followersRatio: 151.20}
+                ]
+            };
+        }
+
+        // Load analytics on page load
+        loadAnalytics();
+    </script>
+</body>
+</html>

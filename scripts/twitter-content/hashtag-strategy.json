@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "project": "HypeAI",
+    "purpose": "Strategic hashtag usage for maximum reach and engagement",
+    "last_updated": "2025-10-16"
+  },
+  "primary_hashtags": {
+    "brand": {
+      "hashtags": ["#HypeAI"],
+      "usage": "Every single tweet",
+      "purpose": "Brand identity and tracking"
+    },
+    "category_core": {
+      "hashtags": ["#AIAgents", "#Solana", "#DeFi", "#Web3"],
+      "usage": "80% of tweets (rotate based on content)",
+      "purpose": "Category positioning and discovery"
+    }
+  },
+  "secondary_hashtags": {
+    "technology": {
+      "hashtags": [
+        "#AI",
+        "#MachineLearning",
+        "#Blockchain",
+        "#SmartContracts",
+        "#DecentralizedAI",
+        "#OnChainAI",
+        "#Rust",
+        "#BuidlOnSolana"
+      ],
+      "usage": "Technical content, deep-dives, architecture tweets",
+      "purpose": "Attract technical audience"
+    },
+    "community": {
+      "hashtags": [
+        "#CryptoTwitter",
+        "#CryptoCommunity",
+        "#BuildInPublic",
+        "#OpenSource",
+        "#Web3Community",
+        "#DAO",
+        "#Governance",
+        "#CommunityDriven"
+      ],
+      "usage": "Community engagement, milestones, user stories",
+      "purpose": "Build community and foster engagement"
+    },
+    "trading_defi": {
+      "hashtags": [
+        "#CryptoTrading",
+        "#YieldFarming",
+        "#Staking",
+        "#Liquidity",
+        "#TradingBot",
+        "#DeFiTools",
+        "#PassiveIncome",
+        "#CryptoYield"
+      ],
+      "usage": "Feature highlights, agent spotlights (trading/staking)",
+      "purpose": "Attract traders and DeFi users"
+    },
+    "launch_events": {
+      "hashtags": [
+        "#FairLaunch",
+        "#TokenLaunch",
+        "#NewListing",
+        "#Crypto",
+        "#Altcoin",
+        "#GemAlert",
+        "#LFG",
+        "#LaunchDay"
+      ],
+      "usage": "Launch countdown, announcements, major events",
+      "purpose": "Create launch hype and FOMO"
+    },
+    "education": {
+      "hashtags": [
+        "#CryptoEducation",
+        "#LearnCrypto",
+        "#AIExplained",
+        "#Web3Education",
+        "#DeFiExplained",
+        "#BlockchainEducation",
+        "#CryptoBasics"
+      ],
+      "usage": "Educational threads, explainers, how-to content",
+      "purpose": "Attract and educate newcomers"
+    },
+    "viral_meme": {
+      "hashtags": [
+        "#CryptoMemes",
+        "#Web3Humor",
+        "#CryptoTwitter",
+        "#Memes",
+        "#POV",
+        "#CryptoLife",
+        "#JustCryptoThings"
+      ],
+      "usage": "Memes, viral content, humorous tweets",
+      "purpose": "Increase engagement and shareability"
+    }
+  },
+  "trending_opportunities": {
+    "solana_ecosystem": {
+      "hashtags": [
+        "#SolanaBreakpoint",
+        "#SolanaSummer",
+        "#SolanaSeasonHackathon",
+        "#SuperteamDAO",
+        "#Solana"
+      ],
+      "usage": "During Solana events, ecosystem news",
+      "monitoring": "Track Solana Foundation announcements"
+    },
+    "ai_trends": {
+      "hashtags": [
+        "#AGI",
+        "#GenAI",
+        "#AINews",
+        "#AIEthics",
+        "#AutonomousAI"
+      ],
+      "usage": "When AI topics trend, industry news",
+      "monitoring": "Track AI industry news cycles"
+    },
+    "crypto_market": {
+      "hashtags": [
+        "#Bullrun",
+        "#BTC",
+        "#ETH",
+        "#Altseason",
+        "#CryptoNews",
+        "#MarketUpdate"
+      ],
+      "usage": "Market commentary, sentiment-aligned content",
+      "monitoring": "Track market sentiment and cycles"
+    }
+  },
+  "hashtag_combinations": {
+    "agent_spotlight": {
+      "primary": ["#HypeAI", "#AIAgents"],
+      "secondary": ["#Solana", "#TradingBot"],
+      "optional": ["#DeFi", "#Automation"]
+    },
+    "technical_content": {
+      "primary": ["#HypeAI", "#Solana"],
+      "secondary": ["#SmartContracts", "#Rust"],
+      "optional": ["#BuidlOnSolana", "#Web3"]
+    },
+    "community_engagement": {
+      "primary": ["#HypeAI", "#CryptoCommunity"],
+      "secondary": ["#BuildInPublic", "#Web3"],
+      "optional": ["#DAO", "#CommunityDriven"]
+    },
+    "launch_countdown": {
+      "primary": ["#HypeAI", "#FairLaunch"],
+      "secondary": ["#Solana", "#TokenLaunch"],
+      "optional": ["#LFG", "#[TimeBasedHashtag]"]
+    },
+    "educational_thread": {
+      "primary": ["#HypeAI", "#CryptoEducation"],
+      "secondary": ["#AIExplained", "#DeFi"],
+      "optional": ["#LearnCrypto", "#Web3Education"]
+    },
+    "meme_viral": {
+      "primary": ["#HypeAI", "#CryptoMemes"],
+      "secondary": ["#CryptoTwitter", "#Web3"],
+      "optional": ["#POV", "#JustCryptoThings"]
+    }
+  },
+  "hashtag_rules": {
+    "best_practices": [
+      "Use 3-5 hashtags per tweet maximum",
+      "Always include #HypeAI as the first hashtag",
+      "Mix high-volume and niche hashtags",
+      "Research trending hashtags daily",
+      "Create campaign-specific hashtags for events",
+      "Avoid hashtag stuffing (looks spammy)",
+      "Place hashtags naturally in tweet or at end",
+      "Track which combinations perform best"
+    ],
+    "avoid": [
+      "Banned or spam-associated hashtags",
+      "Overused generic tags (#crypto alone)",
+      "Competitor project hashtags",
+      "Misleading category tags",
+      "Political or controversial tags",
+      "More than 5 hashtags per tweet"
+    ],
+    "testing": [
+      "A/B test hashtag combinations",
+      "Track engagement metrics per combination",
+      "Monitor hashtag reach and impressions",
+      "Adjust strategy based on performance data",
+      "Document what works for future reference"
+    ]
+  },
+  "time_based_hashtags": {
+    "countdown": {
+      "30_days": "#30DaysToGo",
+      "21_days": "#3WeeksToGo",
+      "14_days": "#2WeeksToGo",
+      "7_days": "#1WeekToGo",
+      "3_days": "#72Hours",
+      "1_day": "#24Hours",
+      "launch": "#LaunchDay #WereLive"
+    },
+    "milestones": {
+      "1000_members": "#1KCommunity",
+      "5000_members": "#5KStrong",
+      "10000_members": "#10KArmy",
+      "beta_complete": "#BetaComplete",
+      "audit_passed": "#AuditPassed"
+    }
+  },
+  "influencer_hashtags": {
+    "solana_influencers": [
+      "#SolanaDaily",
+      "#SOL",
+      "#SuperteamDAO"
+    ],
+    "crypto_vcs_avoid": [
+      "Avoid VC-associated hashtags to maintain fair launch narrative"
+    ],
+    "community_leaders": [
+      "Tag relevant community leaders instead of using their hashtags"
+    ]
+  },
+  "performance_tracking": {
+    "metrics_to_monitor": [
+      "Impressions per hashtag",
+      "Engagement rate by combination",
+      "Follower growth from specific tags",
+      "Click-through rates on hashtag tweets",
+      "Trending hashtag participation success"
+    ],
+    "tools": [
+      "Twitter Analytics",
+      "TweetDeck for monitoring",
+      "RiteTag for hashtag suggestions",
+      "Hashtagify for trend analysis"
+    ],
+    "weekly_review": "Analyze top-performing hashtag combinations and adjust strategy"
+  },
+  "seasonal_strategy": {
+    "pre_launch": {
+      "focus": ["#FairLaunch", "#BuildInPublic", "#ComingSoon"],
+      "intensity": "Daily hashtag rotation, trending participation"
+    },
+    "launch_week": {
+      "focus": ["#FairLaunch", "#LaunchDay", "#NewListing", "#LFG"],
+      "intensity": "Maximum hashtag usage, all hands on deck"
+    },
+    "post_launch": {
+      "focus": ["#Community", "#DAO", "#Performance", "#Governance"],
+      "intensity": "Consistent education and engagement"
+    },
+    "growth_phase": {
+      "focus": ["#AIAgents", "#DeFi", "#Innovation", "#Ecosystem"],
+      "intensity": "Thought leadership and feature highlights"
+    }
+  },
+  "emergency_hashtags": {
+    "positive_news": ["#Breaking", "#MajorUpdate", "#BigNews"],
+    "issues_transparency": ["#Transparency", "#Update", "#StatusReport"],
+    "community_support": ["#CommunityFirst", "#TogetherStrong", "#WeGotThis"]
+  }
+}

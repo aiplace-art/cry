@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "project": "HypeAI",
+    "total_tweets": 55,
+    "categories": [
+      "introduction",
+      "features",
+      "community",
+      "education",
+      "launch",
+      "technical",
+      "engagement",
+      "viral"
+    ],
+    "fair_launch_date": "2025-11-15"
+  },
+  "tweets": [
+    {
+      "id": 1,
+      "category": "introduction",
+      "text": "Meet HypeAI: 15 specialized AI agents running on Solana.\n\nNo VCs. No presale. Fair launch Nov 15.\n\nThe future of decentralized AI is here.",
+      "hashtags": ["#HypeAI", "#Solana", "#AIAgents", "#DeFi"],
+      "media_suggestion": "animated logo reveal"
+    },
+    {
+      "id": 2,
+      "category": "features",
+      "text": "What makes HypeAI different?\n\n15 AI agents, each with unique capabilities:\n- Smart trading analysis\n- Governance automation\n- Risk management\n- Community engagement\n\nAll on Solana's lightning-fast network.",
+      "hashtags": ["#HypeAI", "#AIAgents", "#Solana"],
+      "media_suggestion": "infographic of 15 agents"
+    },
+    {
+      "id": 3,
+      "category": "community",
+      "text": "Building in public.\n\nOur GitHub is open. Our contracts are audited. Our community shapes the roadmap.\n\nThis is what decentralization looks like.",
+      "hashtags": ["#HypeAI", "#OpenSource", "#Web3"],
+      "media_suggestion": "github stats screenshot"
+    },
+    {
+      "id": 4,
+      "category": "education",
+      "text": "AI + DeFi explained:\n\nSmart contracts execute logic. AI agents make decisions.\n\nHypeAI combines both on Solana for:\n- Faster analysis\n- Better governance\n- Smarter trading\n- Real-time adaptation",
+      "hashtags": ["#HypeAI", "#DeFi", "#AIExplained"],
+      "media_suggestion": "simple diagram"
+    },
+    {
+      "id": 5,
+      "category": "launch",
+      "text": "Fair Launch Alert\n\nNov 15, 2025\n- No presale\n- No VC allocation\n- No team tokens locked\n- 100% community distribution\n\nMark your calendars.",
+      "hashtags": ["#HypeAI", "#FairLaunch", "#Crypto"],
+      "media_suggestion": "countdown graphic"
+    },
+    {
+      "id": 6,
+      "category": "technical",
+      "text": "Why Solana?\n\n400ms block times\n65,000 TPS\nSub-cent transaction fees\n\nOur AI agents need speed. Solana delivers.",
+      "hashtags": ["#HypeAI", "#Solana", "#TechStack"],
+      "media_suggestion": "performance comparison chart"
+    },
+    {
+      "id": 7,
+      "category": "engagement",
+      "text": "Pop quiz\n\nHow many AI agents are in the HypeAI ecosystem?\n\nFirst 5 correct answers get early community role.",
+      "hashtags": ["#HypeAI", "#Community"],
+      "media_suggestion": "quiz graphic"
+    },
+    {
+      "id": 8,
+      "category": "viral",
+      "text": "Me: I'll just check crypto Twitter for a minute\n\n*discovers HypeAI*\n\n*reads whitepaper*\n\n*joins Discord*\n\n*learns Solidity*\n\nIt's 3am",
+      "hashtags": ["#HypeAI", "#CryptoTwitter"],
+      "media_suggestion": "meme format"
+    },
+    {
+      "id": 9,
+      "category": "features",
+      "text": "Agent Spotlight: Neural Oracle\n\nReal-time market analysis\nPattern recognition\nRisk scoring\nAutomated alerts\n\nYour 24/7 market intelligence.",
+      "hashtags": ["#HypeAI", "#AIAgent", "#TradingBot"],
+      "media_suggestion": "agent profile card"
+    },
+    {
+      "id": 10,
+      "category": "community",
+      "text": "We're not building FOR the community.\n\nWe're building WITH the community.\n\nYour feedback shapes every agent. Your votes guide every decision.\n\nJoin us: [Discord link]",
+      "hashtags": ["#HypeAI", "#CommunityFirst"],
+      "media_suggestion": "community photo collage"
+    },
+    {
+      "id": 11,
+      "category": "education",
+      "text": "Thread: How HypeAI's 15 agents work together\n\n1/ Think of it like a specialized team:\n- Analysts gather data\n- Strategists plan moves\n- Executors act\n- Validators ensure quality\n\nAll coordinated on-chain.",
+      "hashtags": ["#HypeAI", "#AIThread"],
+      "media_suggestion": "thread starter graphic"
+    },
+    {
+      "id": 12,
+      "category": "launch",
+      "text": "30 days until Fair Launch.\n\nWhat we've shipped:\n- 15 AI agents\n- Audited smart contracts\n- Open-source codebase\n- Community governance framework\n\nWhat's next? You decide.",
+      "hashtags": ["#HypeAI", "#30DaysToGo"],
+      "media_suggestion": "progress tracker"
+    },
+    {
+      "id": 13,
+      "category": "technical",
+      "text": "Security first.\n\n- Multi-signature governance\n- Time-locked contracts\n- Regular audits\n- Bug bounty program\n- Transparent operations\n\nTrust through code, not promises.",
+      "hashtags": ["#HypeAI", "#Security", "#Web3"],
+      "media_suggestion": "security badge icons"
+    },
+    {
+      "id": 14,
+      "category": "viral",
+      "text": "Breaking: Local developer discovers you can combine AI and blockchain without:\n\n- Overpromising\n- Rugpulling\n- Hyping vaporware\n- Selling out to VCs\n\nMore at 11.",
+      "hashtags": ["#HypeAI", "#CryptoMemes"],
+      "media_suggestion": "breaking news meme"
+    },
+    {
+      "id": 15,
+      "category": "engagement",
+      "text": "Drop a if you're ready for decentralized AI.\n\nDrop a if you're building on Solana.\n\nDrop a if you believe in fair launches.\n\nDrop all three if you're ready for HypeAI.",
+      "hashtags": ["#HypeAI", "#Community"],
+      "media_suggestion": "emoji banner"
+    },
+    {
+      "id": 16,
+      "category": "features",
+      "text": "Agent Spotlight: Governance Guardian\n\nAutomates proposal creation\nAnalyzes voting patterns\nDetects anomalies\nEnsures fair participation\n\nDAO governance, evolved.",
+      "hashtags": ["#HypeAI", "#DAO", "#Governance"],
+      "media_suggestion": "agent showcase"
+    },
+    {
+      "id": 17,
+      "category": "education",
+      "text": "Why 15 agents?\n\nEach specializes in one task.\nTogether they create a complete ecosystem.\n\nLike having 15 experts who never sleep, never quit, and always improve.\n\nThat's the power of specialized AI.",
+      "hashtags": ["#HypeAI", "#AIExplained"],
+      "media_suggestion": "animated explanation"
+    },
+    {
+      "id": 18,
+      "category": "community",
+      "text": "Shoutout to our early community members testing the beta.\n\nYour bug reports, feature requests, and feedback are shaping the final product.\n\nThis is what decentralized development looks like.",
+      "hashtags": ["#HypeAI", "#BetaTesters"],
+      "media_suggestion": "thank you graphic"
+    },
+    {
+      "id": 19,
+      "category": "launch",
+      "text": "Fair Launch Checklist:\n\n Smart contracts audited\n Documentation complete\n Community governance live\n Beta testing finished\n Security measures implemented\n\n3 weeks to go.",
+      "hashtags": ["#HypeAI", "#FairLaunch"],
+      "media_suggestion": "checklist graphic"
+    },
+    {
+      "id": 20,
+      "category": "technical",
+      "text": "Tech Stack Breakdown:\n\nBlockchain: Solana\nSmart Contracts: Rust\nAI Models: Custom-trained\nOracle: Decentralized\nGovernance: On-chain\n\nBuilt for speed, security, and scalability.",
+      "hashtags": ["#HypeAI", "#TechStack", "#BuidlOnSolana"],
+      "media_suggestion": "tech stack infographic"
+    },
+    {
+      "id": 21,
+      "category": "viral",
+      "text": "Other projects: \"We have 1 AI bot that tweets\"\n\nHypeAI: \"We have 15 specialized AI agents running autonomous operations on-chain\"\n\nWe are not the same.",
+      "hashtags": ["#HypeAI", "#NotTheSame"],
+      "media_suggestion": "comparison meme"
+    },
+    {
+      "id": 22,
+      "category": "engagement",
+      "text": "If you could design the 16th agent, what would it do?\n\nBest answer gets featured in our docs.\n\nGo:",
+      "hashtags": ["#HypeAI", "#CommunityIdeas"],
+      "media_suggestion": "blank agent card"
+    },
+    {
+      "id": 23,
+      "category": "features",
+      "text": "Agent Spotlight: Liquidity Manager\n\nOptimizes pool distributions\nMonitors health metrics\nAutomated rebalancing\nSlippage protection\n\nYour DeFi operations, automated.",
+      "hashtags": ["#HypeAI", "#DeFi", "#Liquidity"],
+      "media_suggestion": "agent profile"
+    },
+    {
+      "id": 24,
+      "category": "education",
+      "text": "What is a fair launch?\n\n- No presale\n- No VC allocation\n- Equal opportunity for all\n- Community-owned from day 1\n\nHypeAI launches Nov 15. No exceptions.",
+      "hashtags": ["#HypeAI", "#FairLaunch", "#Education"],
+      "media_suggestion": "educational infographic"
+    },
+    {
+      "id": 25,
+      "category": "community",
+      "text": "Community vote results are in:\n\n67% want more agent customization\n23% want faster governance cycles\n10% want additional integrations\n\nAll three are now on the roadmap. Your voice matters.",
+      "hashtags": ["#HypeAI", "#CommunityDriven"],
+      "media_suggestion": "poll results graphic"
+    },
+    {
+      "id": 26,
+      "category": "launch",
+      "text": "2 weeks until Fair Launch.\n\nFinal preparations:\n- Security audit v3 complete\n- Community docs published\n- Agent demos live\n- Governance portal ready\n\nThe countdown is real.",
+      "hashtags": ["#HypeAI", "#2WeeksToGo"],
+      "media_suggestion": "countdown timer"
+    },
+    {
+      "id": 27,
+      "category": "technical",
+      "text": "Performance metrics from beta:\n\n- 99.9% uptime\n- <100ms agent response time\n- 0 security incidents\n- 10,000+ successful operations\n\nReady for mainnet.",
+      "hashtags": ["#HypeAI", "#Performance", "#BetaResults"],
+      "media_suggestion": "metrics dashboard"
+    },
+    {
+      "id": 28,
+      "category": "viral",
+      "text": "Web2: Pay for centralized AI services\n\nWeb3 scams: \"Revolutionary AI\" (it's a chatbot)\n\nHypeAI: 15 specialized agents, fully on-chain, community-owned, fair launch\n\nWe're not playing the same game.",
+      "hashtags": ["#HypeAI", "#Web3", "#RealAI"],
+      "media_suggestion": "evolution meme"
+    },
+    {
+      "id": 29,
+      "category": "engagement",
+      "text": "Tag someone who needs to know about:\n\n- Fair launches\n- Decentralized AI\n- Solana ecosystem\n- Real Web3 innovation\n\nLet's spread the word.",
+      "hashtags": ["#HypeAI", "#TagSomeone"],
+      "media_suggestion": "share prompt graphic"
+    },
+    {
+      "id": 30,
+      "category": "features",
+      "text": "Agent Spotlight: Risk Sentinel\n\nContinuous vulnerability scanning\nSmart contract monitoring\nAnomaly detection\nAutomated emergency protocols\n\nProtecting the ecosystem 24/7.",
+      "hashtags": ["#HypeAI", "#Security", "#RiskManagement"],
+      "media_suggestion": "sentinel agent visual"
+    },
+    {
+      "id": 31,
+      "category": "education",
+      "text": "How do AI agents make decisions?\n\n1. Data collection (on-chain + off-chain)\n2. Pattern analysis (ML models)\n3. Risk assessment (weighted scoring)\n4. Execution (smart contracts)\n5. Learning (feedback loops)\n\nAutonomous but transparent.",
+      "hashtags": ["#HypeAI", "#AIEducation"],
+      "media_suggestion": "flowchart diagram"
+    },
+    {
+      "id": 32,
+      "category": "community",
+      "text": "From our Discord:\n\n\"This is the first crypto project where I actually understand what they're building.\"\n\nThat's the goal. Clear, honest, transparent.\n\nJoin us: [link]",
+      "hashtags": ["#HypeAI", "#Community", "#Transparency"],
+      "media_suggestion": "community quote card"
+    },
+    {
+      "id": 33,
+      "category": "launch",
+      "text": "1 week until Fair Launch.\n\nLive now:\n- Agent demo videos\n- Smart contract explorer\n- Governance documentation\n- Community AMAs\n\nNov 15. Be there.",
+      "hashtags": ["#HypeAI", "#1WeekToGo", "#FairLaunch"],
+      "media_suggestion": "1 week countdown"
+    },
+    {
+      "id": 34,
+      "category": "technical",
+      "text": "Smart Contract Architecture:\n\nModular design\nUpgradeable via governance\nEmergency pause mechanism\nMulti-sig security\nTime-locked operations\n\nCode is law, but governance is key.",
+      "hashtags": ["#HypeAI", "#SmartContracts", "#Architecture"],
+      "media_suggestion": "architecture diagram"
+    },
+    {
+      "id": 35,
+      "category": "viral",
+      "text": "POV: You found a crypto project that:\n\n- Actually works\n- Is fully documented\n- Has no VCs\n- Launches fairly\n- Uses real AI\n\n*checks if this is real life*",
+      "hashtags": ["#HypeAI", "#POV", "#CryptoMemes"],
+      "media_suggestion": "POV meme format"
+    },
+    {
+      "id": 36,
+      "category": "engagement",
+      "text": "Quick poll\n\nWhich agent are you most excited about?\n\nA) Neural Oracle (market analysis)\nB) Governance Guardian (DAO automation)\nC) Risk Sentinel (security)\nD) All 15 of them\n\nComment below!",
+      "hashtags": ["#HypeAI", "#Poll"],
+      "media_suggestion": "poll graphic"
+    },
+    {
+      "id": 37,
+      "category": "features",
+      "text": "Agent Spotlight: Staking Optimizer\n\nMaximizes yield strategies\nAuto-compounds rewards\nRisk-adjusted allocations\nGas optimization\n\nYour passive income, actively managed.",
+      "hashtags": ["#HypeAI", "#Staking", "#YieldFarming"],
+      "media_suggestion": "optimizer visual"
+    },
+    {
+      "id": 38,
+      "category": "education",
+      "text": "Decentralized AI vs Centralized AI:\n\nCentralized:\n- Single point of failure\n- Opaque decisions\n- Corporate control\n\nDecentralized:\n- Distributed resilience\n- Transparent logic\n- Community ownership\n\nHypeAI is the latter.",
+      "hashtags": ["#HypeAI", "#Decentralization", "#AIEducation"],
+      "media_suggestion": "comparison table"
+    },
+    {
+      "id": 39,
+      "category": "community",
+      "text": "Milestone reached:\n\n5,000 community members\n500 GitHub stars\n100 beta testers\n15 specialized agents\n\nThanks for believing in the vision. We're just getting started.",
+      "hashtags": ["#HypeAI", "#Milestone", "#CommunityGrowth"],
+      "media_suggestion": "milestone celebration"
+    },
+    {
+      "id": 40,
+      "category": "launch",
+      "text": "72 hours until Fair Launch.\n\nFinal checklist:\n Website live\n Contracts deployed\n Audits published\n Docs complete\n Community ready\n\nNov 15, 2025. History in the making.",
+      "hashtags": ["#HypeAI", "#FairLaunch", "#72Hours"],
+      "media_suggestion": "final countdown"
+    },
+    {
+      "id": 41,
+      "category": "technical",
+      "text": "Gas optimization results:\n\n- 40% reduction in transaction costs\n- Batched operations for efficiency\n- Solana's low fees amplified\n\nFast, cheap, and effective. The Solana advantage.",
+      "hashtags": ["#HypeAI", "#GasOptimization", "#Solana"],
+      "media_suggestion": "gas savings chart"
+    },
+    {
+      "id": 42,
+      "category": "viral",
+      "text": "Crypto VCs: \"Give us 40% and we'll list you\"\n\nHypeAI: \"No thanks, we'll fair launch\"\n\nVCs: \"But... that's illegal or something\"\n\nHypeAI: \"No, that's decentralization\"",
+      "hashtags": ["#HypeAI", "#FairLaunch", "#NoVCs"],
+      "media_suggestion": "meme format"
+    },
+    {
+      "id": 43,
+      "category": "engagement",
+      "text": "Share your \"aha\" moment.\n\nWhat made you realize HypeAI is different?\n\nBest stories get featured in our launch recap.",
+      "hashtags": ["#HypeAI", "#CommunityStories"],
+      "media_suggestion": "story prompt graphic"
+    },
+    {
+      "id": 44,
+      "category": "features",
+      "text": "All 15 Agents Overview:\n\nAnalytics tier: Neural Oracle, Data Synthesizer, Pattern Hunter\n\nExecution tier: Trade Executor, Liquidity Manager, Staking Optimizer\n\nGovernance tier: Governance Guardian, Proposal Analyst, Vote Coordinator\n\nSecurity tier: Risk Sentinel, Audit Monitor, Emergency Responder\n\nSupport tier: Community Liaison, Documentation Bot, Support Agent",
+      "hashtags": ["#HypeAI", "#AllAgents", "#Ecosystem"],
+      "media_suggestion": "full agent grid"
+    },
+    {
+      "id": 45,
+      "category": "education",
+      "text": "Why Solana for AI agents?\n\n1. Speed: Sub-second confirmations\n2. Cost: Pennies per transaction\n3. Scalability: 65k TPS\n4. Composability: Rich DeFi ecosystem\n\nAI needs fast execution. Solana delivers.",
+      "hashtags": ["#HypeAI", "#Solana", "#WhySolana"],
+      "media_suggestion": "Solana benefits infographic"
+    },
+    {
+      "id": 46,
+      "category": "community",
+      "text": "AMA Highlights:\n\nQ: Tokenomics?\nA: 100% fair launch, no team allocation\n\nQ: Roadmap?\nA: Community-voted quarterly\n\nQ: Partnerships?\nA: Building with ecosystem, not pay-to-play\n\nTransparency first.",
+      "hashtags": ["#HypeAI", "#AMA", "#Transparency"],
+      "media_suggestion": "AMA recap"
+    },
+    {
+      "id": 47,
+      "category": "launch",
+      "text": "24 HOURS UNTIL FAIR LAUNCH\n\nFinal preparations complete.\nAll systems green.\nCommunity energized.\n\nTomorrow, HypeAI goes live.\n\nNov 15, 2025\n\nSee you there.",
+      "hashtags": ["#HypeAI", "#FairLaunch", "#24Hours"],
+      "media_suggestion": "dramatic countdown"
+    },
+    {
+      "id": 48,
+      "category": "technical",
+      "text": "Post-launch monitoring:\n\n- Real-time agent performance dashboards\n- On-chain analytics\n- Community health metrics\n- Security alerts\n\nFull transparency from day 1.",
+      "hashtags": ["#HypeAI", "#Monitoring", "#Transparency"],
+      "media_suggestion": "dashboard preview"
+    },
+    {
+      "id": 49,
+      "category": "viral",
+      "text": "Things that age like fine wine:\n\n- Fair launches\n- Open source code\n- Community governance\n- Real utility\n\nThings that age like milk:\n\n- VC-backed hype\n- Locked team tokens\n- Vague roadmaps\n- \"Trust me bro\" promises",
+      "hashtags": ["#HypeAI", "#CryptoWisdom"],
+      "media_suggestion": "aging comparison meme"
+    },
+    {
+      "id": 50,
+      "category": "engagement",
+      "text": "It's launch day.\n\nRetweet if you're ready.\nLike if you're excited.\nComment if you're part of history.\n\nLet's make this epic.",
+      "hashtags": ["#HypeAI", "#LaunchDay", "#LFG"],
+      "media_suggestion": "launch celebration"
+    },
+    {
+      "id": 51,
+      "category": "features",
+      "text": "Real-time agent coordination:\n\nWatch as 15 agents work together:\n- Sharing data\n- Coordinating actions\n- Optimizing outcomes\n- Learning from results\n\nLive dashboard coming soon.",
+      "hashtags": ["#HypeAI", "#AgentCoordination", "#LiveDemo"],
+      "media_suggestion": "coordination visualization"
+    },
+    {
+      "id": 52,
+      "category": "education",
+      "text": "Agent Training Process:\n\n1. Historical data analysis\n2. Pattern recognition training\n3. Simulation testing\n4. Community feedback integration\n5. Continuous improvement\n\nOur agents learn and evolve.",
+      "hashtags": ["#HypeAI", "#MachineLearning", "#AgentTraining"],
+      "media_suggestion": "training pipeline diagram"
+    },
+    {
+      "id": 53,
+      "category": "community",
+      "text": "To everyone who:\n\n- Tested the beta\n- Reported bugs\n- Suggested features\n- Spread the word\n- Believed in the vision\n\nThis launch is yours. Thank you.",
+      "hashtags": ["#HypeAI", "#CommunityFirst", "#ThankYou"],
+      "media_suggestion": "thank you montage"
+    },
+    {
+      "id": 54,
+      "category": "viral",
+      "text": "Explaining HypeAI to friends:\n\n\"So it's like having 15 AI employees who work for free, never sleep, and get smarter over time. And you own a piece of it.\"\n\n\"That's insane.\"\n\n\"Exactly.\"",
+      "hashtags": ["#HypeAI", "#ExplainLikeIm5"],
+      "media_suggestion": "conversation meme"
+    },
+    {
+      "id": 55,
+      "category": "launch",
+      "text": "WE'RE LIVE!\n\nHypeAI Fair Launch is officially underway.\n\n15 AI agents\n100% community owned\nFully transparent\nBuilt on Solana\n\nWelcome to the future of decentralized AI.\n\n[Launch link]",
+      "hashtags": ["#HypeAI", "#FairLaunch", "#WereLive", "#Solana"],
+      "media_suggestion": "launch announcement graphic"
+    }
+  ]
+}

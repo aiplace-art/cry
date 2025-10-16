@@ -1,0 +1,26 @@
+{
+  "campaigns": [],
+  "posts": {
+    "scheduled": 0,
+    "published": 0,
+    "failed": 0
+  },
+  "engagement": {
+    "likes": 0,
+    "shares": 0,
+    "comments": 0,
+    "clicks": 0
+  },
+  "reach": {
+    "total": 0,
+    "organic": 0,
+    "paid": 0
+  },
+  "roi": {
+    "investment": 0,
+    "return": 0,
+    "ratio": 0
+  },
+  "contentQueue": [],
+  "lastUpdate": "2025-10-16T15:17:12.337Z"
+}

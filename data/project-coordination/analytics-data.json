@@ -1,0 +1,36 @@
+{
+  "websiteVisits": {
+    "total": 0,
+    "unique": 0,
+    "last24h": 0,
+    "pages": {}
+  },
+  "conversions": {
+    "signups": 0,
+    "walletConnects": 0,
+    "socialFollows": 0
+  },
+  "growth": {
+    "daily": [
+      {
+        "date": "2025-10-16",
+        "value": 0,
+        "growthRate": 0
+      },
+      {
+        "date": "2025-10-16",
+        "value": 0,
+        "growthRate": 0
+      }
+    ],
+    "weekly": [],
+    "monthly": []
+  },
+  "sources": {
+    "twitter": 0,
+    "telegram": 0,
+    "direct": 0,
+    "organic": 0
+  },
+  "timestamp": "2025-10-16T15:17:09.313Z"
+}

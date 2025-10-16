@@ -1,0 +1,218 @@
+{
+  "monitoring": {
+    "checkInterval": 120000,
+    "maxMentionsPerCheck": 20,
+    "includeRetweets": false,
+    "languages": ["en"]
+  },
+
+  "engagement": {
+    "autoReply": true,
+    "autoLike": true,
+    "autoRetweet": false,
+    "replyDelay": {
+      "min": 30,
+      "max": 180
+    },
+    "minFollowersToEngage": 10,
+    "maxEngagementsPerHour": 50,
+    "prioritizeVerified": true,
+    "prioritizeHighFollowers": true
+  },
+
+  "rateLimits": {
+    "maxLikesPerHour": 20,
+    "maxRetweetsPerHour": 10,
+    "maxRepliesPerHour": 30,
+    "maxFollowsPerHour": 5,
+    "maxUnfollowsPerHour": 10,
+    "respectTwitterLimits": true
+  },
+
+  "targeting": {
+    "keywords": [
+      "solana",
+      "sol",
+      "ai",
+      "artificial intelligence",
+      "defi",
+      "crypto",
+      "web3",
+      "blockchain",
+      "trading bot",
+      "crypto ai"
+    ],
+    "hashtags": [
+      "#Solana",
+      "#SolanaNFT",
+      "#AI",
+      "#DeFi",
+      "#Web3",
+      "#Crypto",
+      "#Blockchain",
+      "#AIAgents"
+    ],
+    "influencerMinFollowers": 1000,
+    "projectMinFollowers": 500,
+    "languages": ["en"]
+  },
+
+  "antiSpam": {
+    "enabled": true,
+    "minTimeBetweenEngagements": 300000,
+    "maxRepliesPerUser": 3,
+    "maxRepliesPerUserPerDay": 5,
+    "cooldownAfterEngagement": 600000,
+    "blockedKeywords": [
+      "scam",
+      "fake",
+      "ponzi",
+      "rug",
+      "rugpull",
+      "exit scam",
+      "pump and dump",
+      "guaranteed profit",
+      "get rich quick",
+      "airdrop claim",
+      "free money",
+      "double your",
+      "invest now",
+      "click here fast"
+    ],
+    "suspiciousPatterns": [
+      "dm me",
+      "send me",
+      "telegram @",
+      "whatsapp",
+      "investment opportunity"
+    ]
+  },
+
+  "contentFilters": {
+    "minTweetLength": 20,
+    "maxTweetLength": 280,
+    "requireKeywordMatch": true,
+    "minLikesForRetweet": 5,
+    "minFollowersForRetweet": 100,
+    "avoidControversial": true
+  },
+
+  "influencerEngagement": {
+    "enabled": true,
+    "targetAccounts": [
+      "solana",
+      "pumpdotfun",
+      "solanafm",
+      "jupiter_exchange",
+      "MagicEden",
+      "phantom",
+      "SolanaFloor",
+      "solana_daily"
+    ],
+    "engagementFrequency": "daily",
+    "priorityLevel": "high",
+    "autoRetweet": true,
+    "thoughtfulReplies": true
+  },
+
+  "communityManagement": {
+    "welcomeNewFollowers": false,
+    "thankYouForRetweets": false,
+    "respondToAllMentions": true,
+    "respondToAllReplies": true,
+    "moderateLanguage": true,
+    "escalateToHuman": {
+      "enabled": true,
+      "triggers": [
+        "complaint",
+        "technical issue",
+        "partnership request",
+        "press inquiry",
+        "legal",
+        "urgent"
+      ]
+    }
+  },
+
+  "analytics": {
+    "enabled": true,
+    "trackEngagements": true,
+    "trackConversions": true,
+    "trackSentiment": true,
+    "generateReports": true,
+    "reportFrequency": "hourly",
+    "exportPath": ".twitter/analytics"
+  },
+
+  "safety": {
+    "dryRun": false,
+    "requireApprovalForReplies": false,
+    "requireApprovalForRetweets": false,
+    "maxDailyEngagements": 500,
+    "emergencyStop": {
+      "enabled": true,
+      "conditions": [
+        "rate_limit_exceeded",
+        "account_warning",
+        "suspicious_activity"
+      ]
+    },
+    "backup": {
+      "enabled": true,
+      "frequency": "hourly",
+      "path": ".twitter/backups"
+    }
+  },
+
+  "scheduling": {
+    "timezone": "UTC",
+    "peakHours": [8, 11, 14, 17, 20, 23],
+    "avoidHours": [1, 2, 3, 4, 5, 6],
+    "weekendMode": "normal",
+    "holidayMode": "reduced"
+  },
+
+  "advanced": {
+    "naturalLanguageProcessing": {
+      "enabled": false,
+      "sentimentAnalysis": false,
+      "intentDetection": false,
+      "contextAware": true
+    },
+    "machineLearning": {
+      "enabled": false,
+      "learnFromSuccessful": false,
+      "adaptiveResponses": false,
+      "personalizedEngagement": false
+    },
+    "a-bTesting": {
+      "enabled": false,
+      "testResponses": false,
+      "testTimings": false,
+      "testStrategies": false
+    }
+  },
+
+  "notifications": {
+    "enabled": true,
+    "notifyOnMilestones": true,
+    "notifyOnViralTweets": true,
+    "notifyOnErrors": true,
+    "notifyOnRateLimit": true,
+    "channels": {
+      "console": true,
+      "file": true,
+      "telegram": false,
+      "email": false
+    }
+  },
+
+  "debugging": {
+    "verbose": false,
+    "logAllRequests": false,
+    "logAllResponses": true,
+    "logRateLimits": true,
+    "logErrors": true,
+    "logPath": ".twitter/logs"
+  }
+}
