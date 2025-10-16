@@ -57,3 +57,9 @@ temp/
 scripts/.env.telegram
 .telegram/
 *.telegram.log
+.vercel
+
+# Twitter Marketing Bot
+scripts/.env.marketing
+.twitter/
+*.twitter.log

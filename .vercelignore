@@ -62,6 +62,6 @@ tsconfig.json
 package.json
 package-lock.json
 
-# Keep only website folder
-!website
-!website/**
+# Exclude website folder (we deploy from public/ instead)
+website/
+website/**

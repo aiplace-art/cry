@@ -5,7 +5,7 @@
   "contractAddress": "TBD_AFTER_SOLANA_LAUNCH",
   "partnershipEmail": "partnerships@hypeai.io",
   "links": {
-    "website": "http://localhost:3000/presale",
+    "website": "https://frontend-c6e0yn5b9-aiplaces-projects.vercel.app/presale",
     "docs": "https://github.com/hypeai/docs",
     "twitter": "https://twitter.com/HypeAI_SOL",
     "telegram": "https://t.me/HypeAI_Community",

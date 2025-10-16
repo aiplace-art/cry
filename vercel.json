@@ -1,7 +1,8 @@
 {
   "version": 2,
   "name": "hypeai-website",
-  "buildCommand": "npm run build",
+  "buildCommand": "mkdir -p public && rsync -av --exclude='node_modules' --exclude='package-lock.json' --exclude='.git' website/ public/",
+  "installCommand": "echo 'No npm dependencies needed for static site'",
   "outputDirectory": "public",
   "cleanUrls": true,
   "public": true,
@@ -28,15 +29,6 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/(.*\\.(svg|png|jpg|jpeg|gif|ico|css|js))",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400, immutable"
         }
       ]
     }
