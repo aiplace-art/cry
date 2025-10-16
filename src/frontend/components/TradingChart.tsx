@@ -102,6 +102,7 @@ export const TradingChart: React.FC<TradingChartProps> = ({ tokenSymbol }) => {
           </div>
           {/* @ts-ignore - recharts type incompatibility with React 18 */}
           <ResponsiveContainer width="100%" height={400}>
+            {/* @ts-ignore */}
             <AreaChart data={chartData}>
               <defs>
                 <linearGradient id="priceGradient" x1="0" y1="0" x2="0" y2="1">
@@ -163,6 +164,7 @@ export const TradingChart: React.FC<TradingChartProps> = ({ tokenSymbol }) => {
         <CardContent>
           {/* @ts-ignore - recharts type incompatibility with React 18 */}
           <ResponsiveContainer width="100%" height={200}>
+            {/* @ts-ignore */}
             <AreaChart data={chartData}>
               <defs>
                 <linearGradient id="volumeGradient" x1="0" y1="0" x2="0" y2="1">
