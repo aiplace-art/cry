@@ -100,6 +100,7 @@ export const TradingChart: React.FC<TradingChartProps> = ({ tokenSymbol }) => {
               {formatCurrency(currentPrice)}
             </p>
           </div>
+          {/* @ts-ignore - recharts type incompatibility with React 18 */}
           <ResponsiveContainer width="100%" height={400}>
             <AreaChart data={chartData}>
               <defs>
@@ -160,6 +161,7 @@ export const TradingChart: React.FC<TradingChartProps> = ({ tokenSymbol }) => {
           <CardTitle>Volume</CardTitle>
         </CardHeader>
         <CardContent>
+          {/* @ts-ignore - recharts type incompatibility with React 18 */}
           <ResponsiveContainer width="100%" height={200}>
             <AreaChart data={chartData}>
               <defs>
