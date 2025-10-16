@@ -17,11 +17,12 @@
     "acknowledged": false
   },
   {
-    "id": 1760628375941,
-    "timestamp": "2025-10-16T15:26:15.941Z",
+    "id": 1760628624232,
+    "timestamp": "2025-10-16T15:30:24.232Z",
     "severity": "info",
     "message": "Project Master Coordinator started",
     "data": {
+      "activeAgents": 5,
       "metrics": {
         "telegramMembers": 0,
         "twitterFollowers": 0,

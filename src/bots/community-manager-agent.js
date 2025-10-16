@@ -3,20 +3,17 @@
 /**
  * 👥 COMMUNITY MANAGER AGENT
  *
- * Manages Telegram community engagement, growth, and moderation
+ * Manages Telegram community metrics tracking
  * Reports metrics back to Project Master Coordinator
+ * NOTE: Telegram bot is managed by Project Master Coordinator, not this agent
  */
 
-import TelegramBot from 'node-telegram-bot-api';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'solana-bot-config.json'), 'utf8'));
-const bot = new TelegramBot(config.telegram.token, { polling: true });
 
 const metrics = {
   totalMembers: 0,
@@ -28,40 +25,8 @@ const metrics = {
   leftLast24h: 0
 };
 
-// Track activity
-bot.on('message', (msg) => {
-  metrics.messagesTotal++;
-  metrics.messagesLast24h++;
-  metrics.activeToday.add(msg.from.id);
-
-  // Calculate engagement
-  if (metrics.totalMembers > 0) {
-    metrics.engagementRate = (metrics.activeToday.size / metrics.totalMembers * 100).toFixed(2);
-  }
-});
-
-bot.on('new_chat_members', (msg) => {
-  metrics.joinedLast24h += msg.new_chat_members.length;
-  metrics.totalMembers += msg.new_chat_members.length;
-
-  // Welcome new members
-  msg.new_chat_members.forEach(member => {
-    bot.sendMessage(msg.chat.id,
-      `🎉 Welcome ${member.first_name} to HypeAI Community!\n\n` +
-      `🚀 We're launching on Solana November 15, 2025\n` +
-      `💎 Join ${metrics.totalMembers}+ members building the future!\n\n` +
-      `Use /help to see what I can do!`
-    );
-  });
-
-  reportMetrics();
-});
-
-bot.on('left_chat_member', (msg) => {
-  metrics.leftLast24h++;
-  metrics.totalMembers--;
-  reportMetrics();
-});
+// Simulate metrics tracking (in production, would read from Telegram API via coordinator)
+// For now, just track and report placeholder metrics
 
 // Report metrics to coordinator every 5 minutes
 function reportMetrics() {

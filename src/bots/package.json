@@ -1,38 +1,7 @@
 {
-  "name": "hypeai-community-bots",
+  "type": "module",
+  "name": "@hypeai/bots",
   "version": "1.0.0",
-  "description": "Automated community management bots for HypeAI (Discord, Telegram, Twitter)",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "start:discord": "node index.js --no-telegram --no-twitter",
-    "start:telegram": "node index.js --no-discord --no-twitter",
-    "start:twitter": "node index.js --no-discord --no-telegram",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "discord",
-    "telegram",
-    "twitter",
-    "bot",
-    "community",
-    "crypto",
-    "blockchain",
-    "ai"
-  ],
-  "author": "HypeAI Team",
-  "license": "MIT",
-  "dependencies": {
-    "discord.js": "^14.14.1",
-    "dotenv": "^16.3.1",
-    "node-telegram-bot-api": "^0.64.0",
-    "twitter-api-v2": "^1.16.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  "description": "HypeAI Project Management Bots",
+  "private": true
 }

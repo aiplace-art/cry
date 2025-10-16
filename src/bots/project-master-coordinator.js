@@ -120,7 +120,10 @@ function loadState() {
   try {
     if (fs.existsSync(STATE_FILE)) {
       const saved = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+      // Preserve activeAgents Map - don't overwrite from saved state
+      const activeAgentsBackup = projectState.activeAgents;
       Object.assign(projectState, saved);
+      projectState.activeAgents = activeAgentsBackup;
       projectState.launchDate = new Date(projectState.launchDate);
       projectState.startedAt = new Date(projectState.startedAt);
       projectState.lastUpdate = new Date(projectState.lastUpdate);
@@ -137,7 +140,9 @@ function loadState() {
 function saveState() {
   try {
     projectState.lastUpdate = new Date();
-    fs.writeFileSync(STATE_FILE, JSON.stringify(projectState, null, 2));
+    // Don't serialize activeAgents Map - it's runtime only
+    const { activeAgents, ...stateToSave } = projectState;
+    fs.writeFileSync(STATE_FILE, JSON.stringify(stateToSave, null, 2));
   } catch (error) {
     console.error('⚠️ Error saving state:', error.message);
   }
