@@ -99,6 +99,55 @@ const agents = [
     description: 'Finds growth opportunities, partnerships, influencers',
     metrics: ['opportunities_found', 'partnerships_initiated', 'roi'],
     enabled: true
+  },
+  // ===== TOKENOMICS MONITORING AGENTS =====
+  {
+    id: 'tokenomics-validator',
+    name: 'Tokenomics Validator Agent',
+    script: 'tokenomics-validator-agent.js',
+    description: 'Validates ALL tokenomics with ZERO error tolerance',
+    metrics: ['checks_performed', 'errors_found', 'warnings_issued'],
+    enabled: true
+  },
+  {
+    id: 'staking-calculator',
+    name: 'Staking Calculator Agent',
+    script: 'staking-calculator-agent.js',
+    description: 'Calculates and validates staking rewards (17%, 27%, 62% APY)',
+    metrics: ['total_staked', 'rewards_distributed', 'calculations_performed'],
+    enabled: true
+  },
+  {
+    id: 'distribution-monitor',
+    name: 'Token Distribution Monitor',
+    script: 'token-distribution-monitor.js',
+    description: 'Tracks all token distributions and flows',
+    metrics: ['total_distributed', 'total_locked', 'vesting_progress'],
+    enabled: true
+  },
+  {
+    id: 'rewards-auditor',
+    name: 'Rewards Auditor Agent',
+    script: 'rewards-auditor-agent.js',
+    description: 'Cross-validates all reward calculations',
+    metrics: ['audits_performed', 'discrepancies_found'],
+    enabled: true
+  },
+  {
+    id: 'balance-reconciliation',
+    name: 'Balance Reconciliation Agent',
+    script: 'balance-reconciliation-agent.js',
+    description: 'Ensures all balances match across systems',
+    metrics: ['reconciliations_performed', 'mismatches_found'],
+    enabled: true
+  },
+  {
+    id: 'financial-reporter',
+    name: 'Financial Reporter Agent',
+    script: 'financial-reporter-agent.js',
+    description: 'Generates comprehensive financial accuracy reports',
+    metrics: ['reports_generated', 'health_score'],
+    enabled: true
   }
 ];
 
