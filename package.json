@@ -18,7 +18,13 @@
     "mention-bot:pm2": "pm2 start src/bots/mention-monitor-bot.js --name mention-monitor --interpreter node --node-args='--no-warnings=ExperimentalWarning --input-type=commonjs'",
     "mention-analytics": "node --input-type=commonjs scripts/analyze-mention-logs.js",
     "mention-analytics:export": "node --input-type=commonjs scripts/analyze-mention-logs.js --export",
-    "build": "mkdir -p public && rsync -av --exclude='node_modules' --exclude='package-lock.json' --exclude='.git' website/ public/"
+    "build": "mkdir -p public && rsync -av --exclude='node_modules' --exclude='package-lock.json' --exclude='.git' website/ public/",
+    "project:start": "./scripts/start-project-agents.sh",
+    "project:coordinator": "node src/bots/project-master-coordinator.js",
+    "project:status": "pm2 status",
+    "project:logs": "pm2 logs",
+    "project:stop": "pm2 stop all",
+    "project:restart": "pm2 restart all"
   },
   "keywords": [
     "ethereum",
