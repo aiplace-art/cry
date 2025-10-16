@@ -107,6 +107,26 @@
             gap: 0.5rem;
         }
 
+        /* Animated Logo */
+        .logo img {
+            animation: logoSpin 8s linear infinite, logoPulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+        }
+
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes logoPulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.8));
+            }
+        }
+
         nav {
             display: flex;
             gap: 2rem;
@@ -441,7 +461,7 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="logo-icon-only.svg" alt="HypeAI Logo" style="width: 50px; height: 50px; margin-right: 0.5rem;">
+            <img src="logo-icon-only.svg" alt="HypeAI Logo" style="width: 70px; height: 70px; margin-right: 0.5rem;">
             HypeAI <span style="font-size: 1.2rem; margin-left: 0.3rem;">⚡</span>
         </div>
         <nav>
