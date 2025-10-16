@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="premiumMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0f3460;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#533483;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="electricAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0095ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="lightningPremium" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:0.85" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:0.75" />
+    </linearGradient>
+
+    <radialGradient id="subtleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#0095ff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:0" />
+    </radialGradient>
+
+    <filter id="premiumGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="sharpEdge">
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="200" cy="200" r="180" fill="url(#subtleGlow)" opacity="0.4"/>
+
+  <g filter="url(#sharpEdge)" transform="translate(-50, -20)">
+    <path d="M 250 120 L 340 170 L 340 270 L 250 320 L 160 270 L 160 170 Z"
+          fill="none"
+          stroke="url(#electricAccent)"
+          stroke-width="3"
+          opacity="0.8"/>
+
+    <path d="M 250 150 L 320 190 L 320 250 L 250 290 L 180 250 L 180 190 Z"
+          fill="url(#premiumMetal)"
+          stroke="url(#electricAccent)"
+          stroke-width="2"
+          opacity="0.95"/>
+
+    <circle cx="250" cy="220" r="35"
+            fill="url(#electricAccent)"
+            opacity="0.9"
+            filter="url(#premiumGlow)"/>
+
+    <circle cx="250" cy="220" r="25"
+            fill="#ffffff"
+            opacity="0.15"/>
+  </g>
+
+  <g filter="url(#premiumGlow)" opacity="0.85" transform="translate(-50, -20)">
+    <path d="M 250 220 L 248 165 L 255 165 L 250 140 L 245 140 L 250 110 L 252 150 L 248 150 Z"
+          fill="url(#lightningPremium)" stroke="#ffffff" stroke-width="0.5"/>
+    <path d="M 250 220 L 285 180 L 290 185 L 310 160 L 305 155 L 325 135 L 295 175 L 290 170 Z"
+          fill="url(#lightningPremium)" stroke="#ffffff" stroke-width="0.5"/>
+    <path d="M 250 220 L 305 218 L 305 222 L 330 220 L 330 216 L 360 220 L 320 222 L 320 218 Z"
+          fill="url(#lightningPremium)" stroke="#ffffff" stroke-width="0.5"/>
+    <path d="M 250 220 L 285 260 L 290 255 L 310 280 L 305 285 L 325 305 L 295 265 L 290 270 Z"
+          fill="url(#lightningPremium)" stroke="#ffffff" stroke-width="0.5"/>
+    <path d="M 250 220 L 248 275 L 255 275 L 250 300 L 245 300 L 250 330 L 252 290 L 248 290 Z"
+          fill="url(#lightningPremium)" stroke="#ffffff" stroke-width="0.5"/>
+    <path d="M 250 220 L 215 260 L 210 255 L 190 280 L 195 285 L 175 305 L 205 265 L 210 270 Z"
+          fill="url(#lightningPremium)" stroke="#ffffff" stroke-width="0.5"/>
+    <path d="M 250 220 L 195 218 L 195 222 L 170 220 L 170 216 L 140 220 L 180 222 L 180 218 Z"
+          fill="url(#lightningPremium)" stroke="#ffffff" stroke-width="0.5"/>
+    <path d="M 250 220 L 215 180 L 210 185 L 190 160 L 195 155 L 175 135 L 205 175 L 210 170 Z"
+          fill="url(#lightningPremium)" stroke="#ffffff" stroke-width="0.5"/>
+  </g>
+
+  <g opacity="0.4" stroke="url(#electricAccent)" stroke-width="1.5" fill="none" transform="translate(-50, -20)">
+    <line x1="180" y1="190" x2="220" y2="205"/>
+    <line x1="280" y1="205" x2="320" y2="190"/>
+    <line x1="180" y1="250" x2="220" y2="235"/>
+    <line x1="280" y1="235" x2="320" y2="250"/>
+    <line x1="200" y1="190" x2="210" y2="220"/>
+    <line x1="290" y1="220" x2="300" y2="190"/>
+  </g>
+
+  <g filter="url(#premiumGlow)" transform="translate(-50, -20)">
+    <circle cx="180" cy="190" r="4" fill="#00d4ff" opacity="0.9"/>
+    <circle cx="220" cy="205" r="3" fill="#0095ff" opacity="0.9"/>
+    <circle cx="180" cy="250" r="4" fill="#0061ff" opacity="0.9"/>
+    <circle cx="210" cy="220" r="3.5" fill="#00d4ff" opacity="0.9"/>
+    <circle cx="320" cy="190" r="4" fill="#00d4ff" opacity="0.9"/>
+    <circle cx="280" cy="205" r="3" fill="#0095ff" opacity="0.9"/>
+    <circle cx="320" cy="250" r="4" fill="#0061ff" opacity="0.9"/>
+    <circle cx="290" cy="220" r="3.5" fill="#00d4ff" opacity="0.9"/>
+  </g>
+
+  <g opacity="0.25" stroke="url(#electricAccent)" stroke-width="1" fill="none" transform="translate(-50, -20)">
+    <circle cx="250" cy="220" r="50"/>
+    <circle cx="250" cy="220" r="70"/>
+    <circle cx="250" cy="220" r="90"/>
+  </g>
+</svg>

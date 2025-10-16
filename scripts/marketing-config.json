@@ -1,0 +1,174 @@
+{
+  "project": "HypeAI",
+  "targetHashtags": [
+    "#Solana",
+    "#SolanaAI",
+    "#SolDeFi",
+    "#AIAgents",
+    "#DeFi",
+    "#Web3",
+    "#CryptoAI",
+    "#SolanaNFT",
+    "#BuidlOnSolana",
+    "#SolanaEcosystem",
+    "#AITrading",
+    "#DecentralizedAI",
+    "#SmartContracts",
+    "#Blockchain",
+    "#CryptoTwitter",
+    "#SolanaAlpha",
+    "#SolDev",
+    "#SolanaNews",
+    "#AIonChain",
+    "#MachineLearning",
+    "#AutomatedTrading",
+    "#DAOGovernance",
+    "#FairLaunch",
+    "#CommunityOwned",
+    "#OpenSource"
+  ],
+  "competitorAccounts": [
+    "solana",
+    "pumpdotfun",
+    "RaydiumProtocol",
+    "JupiterExchange",
+    "phantom",
+    "MagicEden",
+    "SolanaFloor",
+    "ProjectSerum",
+    "metaplex",
+    "SolanaMobile",
+    "SolanaFndn",
+    "SolanaSpaces",
+    "MarinadeFinance",
+    "SolendProtocol",
+    "orcaprotocol",
+    "SaberHQ",
+    "Port_Finance",
+    "StepFinance_",
+    "SolanaMonkeyBiz",
+    "DeGodsNFT"
+  ],
+  "influencerCategories": {
+    "megaInfluencers": {
+      "followerRange": "100K+",
+      "targets": [
+        "VitalikButerin",
+        "cz_binance",
+        "elonmusk",
+        "aantonop"
+      ],
+      "strategy": "Monitor, rare engagement on extremely relevant posts"
+    },
+    "macroInfluencers": {
+      "followerRange": "10K-100K",
+      "targets": [
+        "SolanaLegend",
+        "SolanaDaily",
+        "solanafm",
+        "CryptoGodJohn"
+      ],
+      "strategy": "Regular engagement, quote tweets, collaboration DMs"
+    },
+    "microInfluencers": {
+      "followerRange": "1K-10K",
+      "targets": [
+        "Search dynamically for active Solana builders",
+        "Target AI/ML crypto enthusiasts",
+        "Find DeFi power users",
+        "Identify meme creators"
+      ],
+      "strategy": "Deep engagement, mutual follows, content collaboration"
+    }
+  },
+  "contentStrategy": {
+    "postingFrequency": {
+      "tweets": "3 per day",
+      "threads": "1 per week",
+      "polls": "1 per week",
+      "memes": "1 per day",
+      "alpha": "1 per day"
+    },
+    "contentMix": {
+      "educational": "30%",
+      "engagement": "25%",
+      "viral": "20%",
+      "technical": "15%",
+      "community": "10%"
+    },
+    "peakTimes": [
+      "08:00-10:00 EST (US morning)",
+      "13:00-15:00 EST (EU peak)",
+      "20:00-22:00 EST (Asia morning)"
+    ]
+  },
+  "growthTactics": {
+    "immediate": [
+      "Reply-guy strategy on @solana, @pumpdotfun, @JupiterExchange",
+      "Quote-tweet viral Solana posts with HypeAI perspective",
+      "Tag micro-influencers in relevant content",
+      "Use trending hashtags in next 3 tweets",
+      "Run small giveaway ($50) for follows + RT"
+    ],
+    "shortTerm": [
+      "Partner with 2-3 micro-influencers for cross-promotion",
+      "Create weekly AI agent showcase thread",
+      "Host Twitter Space about AI + DeFi",
+      "Launch ambassador program (recruit 10-20)",
+      "Create shareable infographics"
+    ],
+    "longTerm": [
+      "Build AI agent demo that tweets automatically",
+      "Develop signature content format (e.g., 'AI Agent Monday')",
+      "Establish HypeAI as thought leader in AI + crypto",
+      "Partner with major Solana projects",
+      "Launch community challenges with rewards"
+    ]
+  },
+  "targetKPIs": {
+    "week1": {
+      "followers": 120,
+      "engagement": "5%",
+      "impressions": "5000+"
+    },
+    "month1": {
+      "followers": 350,
+      "engagement": "8%",
+      "impressions": "25000+"
+    },
+    "month3": {
+      "followers": 1000,
+      "engagement": "10%",
+      "impressions": "100000+"
+    },
+    "month10": {
+      "followers": 10000,
+      "engagement": "12%",
+      "impressions": "500000+"
+    }
+  },
+  "budgetAllocation": {
+    "microInfluencers": "$2000 (collaboration fees)",
+    "giveaways": "$3000 (community growth)",
+    "tools": "$500 (analytics, scheduling)",
+    "ads": "$1500 (Twitter Ads for key campaigns)",
+    "content": "$1000 (graphics, videos)",
+    "total": "$8000 over 6 months"
+  },
+  "avoidance": {
+    "spamTactics": [
+      "Mass following/unfollowing",
+      "Buying followers",
+      "Bot-like behavior",
+      "Irrelevant hashtag stuffing",
+      "Aggressive DMs"
+    ],
+    "contentToAvoid": [
+      "Overpromising returns",
+      "Price predictions",
+      "Financial advice",
+      "Attacking competitors",
+      "Controversial politics"
+    ]
+  }
+}

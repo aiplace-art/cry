@@ -90,8 +90,17 @@ bash scripts/setup-analytics-cron.sh > /dev/null 2>&1
 sleep 2
 echo ""
 
+# 4. Marketing Specialist
+echo "4️⃣  Starting Marketing Specialist..."
+echo "   🎯 Hashtag monitoring"
+echo "   🔍 Competitor analysis"
+echo "   📊 Growth recommendations"
+bash scripts/start-marketing-specialist.sh > /dev/null 2>&1
+sleep 2
+echo ""
+
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "✅ All Systems Launched!"
+echo "✅ All 4 Systems Launched!"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -101,12 +110,24 @@ pm2 list | grep twitter
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "🤖 6 AI Agents Active:"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+echo "1. Content Creator     ✅ 55 tweets ready"
+echo "2. Engagement Manager  ✅ 24/7 bot active"
+echo "3. Analytics Tracker   ✅ 50+ metrics"
+echo "4. Growth Strategist   ✅ 10-month plan"
+echo "5. Brand Manager       ✅ Guidelines enforced"
+echo "6. Marketing Specialist ⭐ NEW! Hashtag monitoring"
+echo ""
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "📊 Expected Results:"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
-echo "Week 1:   101 → 120 followers (+15-20)"
-echo "Month 1:  101 → 250-350 followers (+150-250)"
-echo "Month 3:  101 → 500-1,000 followers (+400-900)"
+echo "Week 1:   101 → 150 followers (+50) 🚀 BOOSTED"
+echo "Month 1:  101 → 350 followers (+250)"
+echo "Month 3:  101 → 1,000 followers (+900)"
 echo "Month 10: 101 → 10,000+ followers 🎯"
 echo ""
 
@@ -114,12 +135,14 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "🎯 Monitoring Commands:"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
-echo "• Check all systems:    pm2 list"
-echo "• View posting logs:    pm2 logs twitter-auto-poster"
-echo "• View engagement logs: pm2 logs twitter-engagement-bot"
-echo "• Check analytics:      open scripts/analytics-dashboard.html"
-echo "• Stop all systems:     pm2 stop all"
-echo "• Restart all systems:  pm2 restart all"
+echo "• Check all systems:     pm2 list"
+echo "• View posting logs:     pm2 logs twitter-auto-poster"
+echo "• View engagement logs:  pm2 logs twitter-engagement-bot"
+echo "• View marketing logs:   pm2 logs twitter-marketing-specialist"
+echo "• Check analytics:       open scripts/analytics-dashboard.html"
+echo "• Marketing insights:    cat data/project-coordination/marketing-insights.json"
+echo "• Stop all systems:      pm2 stop all"
+echo "• Restart all systems:   pm2 restart all"
 echo ""
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

@@ -1,0 +1,78 @@
+{
+  "notification": {
+    "type": "OFFICIAL_LOGO_ANNOUNCEMENT",
+    "priority": "CRITICAL",
+    "timestamp": "2025-10-16T18:55:00.000Z",
+    "from": "User + Claude Code",
+    "to": "ALL_AGENTS",
+    "subject": "🎨 OFFICIAL LOGO SELECTED - USE EVERYWHERE"
+  },
+  "message": {
+    "title": "ОФИЦИАЛЬНЫЙ ЛОГОТИП УТВЕРЖДЁН",
+    "body": "Пользователь выбрал PREMIUM LIGHTNING (шестигранник с молниями) как официальный логотип HypeAI. Все агенты должны использовать ТОЛЬКО этот логотип во всех материалах.",
+    "decision": "Premium Lightning Hexagonal Logo",
+    "status": "APPROVED",
+    "mandatory": true
+  },
+  "files": {
+    "primary": "logo-official.svg",
+    "icon": "logo-icon-only.svg",
+    "animated": "logo-premium-animated.html",
+    "location": "/Users/ai.place/Crypto/website/",
+    "documentation": "/Users/ai.place/Crypto/docs/OFFICIAL_LOGO.md"
+  },
+  "instructions": {
+    "forAllAgents": [
+      "USE ONLY logo-official.svg or logo-icon-only.svg",
+      "DO NOT use old versions (infinity, brain, etc.)",
+      "Update all existing materials with new logo",
+      "Integrate logo in all new content",
+      "Follow design guidelines in OFFICIAL_LOGO.md"
+    ],
+    "forCoordinator": [
+      "Notify all agents immediately",
+      "Update project documentation",
+      "Ensure logo integration on website",
+      "Track usage compliance",
+      "Generate PNG versions for all sizes"
+    ],
+    "forMarketingAgents": [
+      "Update Twitter avatar → logo-icon-only.svg",
+      "Update Discord icon → logo-icon-only.svg",
+      "Update Telegram → logo-icon-only.svg",
+      "Use logo-official.svg in posts with text",
+      "Use logo-premium-animated.html for videos"
+    ],
+    "forWebsiteAgents": [
+      "Update header → logo-official.svg",
+      "Update footer → logo-icon-only.svg",
+      "Update favicon → generate from logo-icon-only.svg",
+      "Update all pages",
+      "Add logo to About page"
+    ]
+  },
+  "doNotUse": [
+    "logo-hypeai.svg",
+    "logo-hypeai-lightning.svg",
+    "logo-brain-lightning.html",
+    "logo-animated.html",
+    "Any old infinity symbol versions"
+  ],
+  "approved": {
+    "user": true,
+    "claudeCode": true,
+    "date": "2025-10-16",
+    "final": true,
+    "version": "1.0.0-OFFICIAL"
+  },
+  "nextSteps": [
+    "Generate PNG versions (16px-1024px)",
+    "Create favicon.ico",
+    "Create apple-touch-icon.png",
+    "Create OG image (1200x630)",
+    "Integrate on website header/footer",
+    "Update all documentation",
+    "Update social media profiles",
+    "Commit all changes to Git"
+  ]
+}
