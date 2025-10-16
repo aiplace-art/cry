@@ -12,13 +12,12 @@ dotenv.config({ path: './scripts/.env.marketing' });
 
 const HYPEAI_PROFILE = {
   name: 'HypeAI | AI Agents on Solana 🤖',
-  description: `15 autonomous AI agents building the future of DeFi on Solana 🤖⚡
+  description: `🤖 15 AI Agents on Solana
+⚡ Trading • Building • Growing
+🚀 Fair Launch: Nov 15
+💎 No VCs • 100% Community
 
-🚀 Fair launch: Nov 15, 2025
-💎 100% community-owned, no VCs
-🔥 AI-powered trading & protocols
-
-👇 Join the revolution`,
+Join: t.me/HypeAI_Community`,
   location: 'Solana Blockchain 🌐',
   url: 'https://hypeai.io',
 };
