@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypeAI Twitter Automation Dashboard | AI-Powered Social Growth</title>
+    <meta name="description" content="Real-time monitoring of HypeAI's AI-powered Twitter automation - 15 AI Agents on Solana driving to 10K followers">
+    <link rel="icon" type="image/svg+xml" href="../../public/logo-official.svg">
+
+    <!-- Chart.js for beautiful visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div class="brand">
+                <img src="../../public/logo-official.svg" alt="HypeAI Logo" class="logo" onerror="this.style.display='none'">
+                <div class="brand-text">
+                    <h1>HypeAI</h1>
+                    <p class="tagline">15 AI Agents on Solana</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-secondary" id="refreshBtn">
+                    <span class="icon">🔄</span> Refresh
+                </button>
+                <button class="btn btn-primary" id="launchBtn">
+                    <span class="icon">🚀</span> Launch Campaign
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-main">
+        <div class="container">
+
+            <!-- Hero Stats Section -->
+            <section class="hero-section">
+                <div class="countdown-card glass-card">
+                    <div class="countdown-header">
+                        <h2>🔓 Twitter API Unblock Countdown</h2>
+                        <span class="status-badge status-pending">Waiting</span>
+                    </div>
+                    <div class="countdown-timer" id="countdownTimer">
+                        <div class="time-unit">
+                            <span class="time-value" id="daysValue">00</span>
+                            <span class="time-label">Days</span>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-unit">
+                            <span class="time-value" id="hoursValue">00</span>
+                            <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-unit">
+                            <span class="time-value" id="minutesValue">00</span>
+                            <span class="time-label">Minutes</span>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-unit">
+                            <span class="time-value" id="secondsValue">00</span>
+                            <span class="time-label">Seconds</span>
+                        </div>
+                    </div>
+                    <p class="countdown-message">Campaign launches automatically when API access is restored</p>
+                </div>
+
+                <div class="quick-stats">
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Current Followers</div>
+                            <div class="stat-value" id="currentFollowers">0</div>
+                            <div class="stat-change positive">+<span id="followerGrowth">0</span> today</div>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Goal Progress</div>
+                            <div class="stat-value"><span id="goalProgress">0</span>%</div>
+                            <div class="stat-change">to 10,000 followers</div>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">📝</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Tweets Posted</div>
+                            <div class="stat-value" id="tweetsPosted">0</div>
+                            <div class="stat-change">Last: <span id="lastTweetTime">Never</span></div>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">💬</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Engagement Rate</div>
+                            <div class="stat-value" id="engagementRate">0.0</div>
+                            <div class="stat-change positive">+<span id="engagementChange">0</span>%</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Agents Section -->
+            <section class="agents-section">
+                <h2 class="section-title">🤖 AI Agents Status</h2>
+                <div class="agents-grid">
+                    <div class="agent-card glass-card" data-agent="content">
+                        <div class="agent-header">
+                            <div class="agent-icon">✍️</div>
+                            <div class="agent-info">
+                                <h3>Content Creator</h3>
+                                <span class="agent-status status-active">Active</span>
+                            </div>
+                        </div>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <span class="stat-label">Generated</span>
+                                <span class="stat-value">247 tweets</span>
+                            </div>
+                            <div class="agent-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="agent-activity">Last: 2 mins ago</div>
+                    </div>
+
+                    <div class="agent-card glass-card" data-agent="engagement">
+                        <div class="agent-header">
+                            <div class="agent-icon">💬</div>
+                            <div class="agent-info">
+                                <h3>Engagement Bot</h3>
+                                <span class="agent-status status-active">Active</span>
+                            </div>
+                        </div>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <span class="stat-label">Interactions</span>
+                                <span class="stat-value">1.2K today</span>
+                            </div>
+                            <div class="agent-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 72%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="agent-activity">Last: 30 secs ago</div>
+                    </div>
+
+                    <div class="agent-card glass-card" data-agent="analytics">
+                        <div class="agent-header">
+                            <div class="agent-icon">📊</div>
+                            <div class="agent-info">
+                                <h3>Analytics Agent</h3>
+                                <span class="agent-status status-active">Active</span>
+                            </div>
+                        </div>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <span class="stat-label">Reports</span>
+                                <span class="stat-value">42 generated</span>
+                            </div>
+                            <div class="agent-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="agent-activity">Last: 5 mins ago</div>
+                    </div>
+
+                    <div class="agent-card glass-card" data-agent="scheduler">
+                        <div class="agent-header">
+                            <div class="agent-icon">⏰</div>
+                            <div class="agent-info">
+                                <h3>Scheduler</h3>
+                                <span class="agent-status status-active">Active</span>
+                            </div>
+                        </div>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <span class="stat-label">Queued</span>
+                                <span class="stat-value">15 tweets</span>
+                            </div>
+                            <div class="agent-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="agent-activity">Next: in 15 mins</div>
+                    </div>
+
+                    <div class="agent-card glass-card" data-agent="marketing">
+                        <div class="agent-header">
+                            <div class="agent-icon">🎯</div>
+                            <div class="agent-info">
+                                <h3>Marketing AI</h3>
+                                <span class="agent-status status-active">Active</span>
+                            </div>
+                        </div>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <span class="stat-label">Campaigns</span>
+                                <span class="stat-value">8 running</span>
+                            </div>
+                            <div class="agent-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="agent-activity">Last: 1 min ago</div>
+                    </div>
+
+                    <div class="agent-card glass-card" data-agent="moderator">
+                        <div class="agent-header">
+                            <div class="agent-icon">🛡️</div>
+                            <div class="agent-info">
+                                <h3>Content Moderator</h3>
+                                <span class="agent-status status-active">Active</span>
+                            </div>
+                        </div>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <span class="stat-label">Reviews</span>
+                                <span class="stat-value">156 passed</span>
+                            </div>
+                            <div class="agent-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="agent-activity">Last: 45 secs ago</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Systems Overview -->
+            <section class="systems-section">
+                <h2 class="section-title">⚙️ System Status</h2>
+                <div class="systems-grid">
+                    <div class="system-card glass-card">
+                        <div class="system-header">
+                            <h3>📝 Posting System</h3>
+                            <span class="status-indicator status-active"></span>
+                        </div>
+                        <div class="system-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Queue</span>
+                                <span class="metric-value">15 tweets</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Success Rate</span>
+                                <span class="metric-value">98.5%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Avg. Engagement</span>
+                                <span class="metric-value">4.2%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card glass-card">
+                        <div class="system-header">
+                            <h3>🤝 Engagement System</h3>
+                            <span class="status-indicator status-active"></span>
+                        </div>
+                        <div class="system-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Daily Interactions</span>
+                                <span class="metric-value">1,247</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Response Rate</span>
+                                <span class="metric-value">94.3%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Sentiment</span>
+                                <span class="metric-value">92% Positive</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card glass-card">
+                        <div class="system-header">
+                            <h3>📊 Analytics System</h3>
+                            <span class="status-indicator status-active"></span>
+                        </div>
+                        <div class="system-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Reports Today</span>
+                                <span class="metric-value">42</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Data Points</span>
+                                <span class="metric-value">12.4K</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Accuracy</span>
+                                <span class="metric-value">99.1%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-card glass-card">
+                        <div class="system-header">
+                            <h3>🎯 Marketing System</h3>
+                            <span class="status-indicator status-active"></span>
+                        </div>
+                        <div class="system-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Active Campaigns</span>
+                                <span class="metric-value">8</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Conversion</span>
+                                <span class="metric-value">3.8%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">ROI</span>
+                                <span class="metric-value">247%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="charts-grid">
+                    <div class="chart-card glass-card">
+                        <h3 class="chart-title">📈 Follower Growth</h3>
+                        <canvas id="followerChart"></canvas>
+                    </div>
+                    <div class="chart-card glass-card">
+                        <h3 class="chart-title">💬 Engagement Metrics</h3>
+                        <canvas id="engagementChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activity Feed -->
+            <section class="activity-section">
+                <h2 class="section-title">📋 Recent Activity</h2>
+                <div class="activity-feed glass-card" id="activityFeed">
+                    <!-- Activity items will be dynamically added here -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">🤖</span>
+                <span class="footer-text">Built by HypeAI AI Agents | First Product</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://twitter.com/HypeAI_Solana" target="_blank" class="footer-link">Twitter</a>
+                <a href="https://t.me/HypeAI_Official" target="_blank" class="footer-link">Telegram</a>
+                <a href="../../README.md" class="footer-link">Documentation</a>
+            </div>
+            <div class="footer-status">
+                <span class="status-dot"></span>
+                All Systems Operational
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/realtime.js"></script>
+</body>
+</html>
