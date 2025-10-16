@@ -1,0 +1,53 @@
+{
+  "schedule": {
+    "timezone": "Europe/Moscow",
+    "postsPerDay": 3,
+    "times": {
+      "morning": "09:00",
+      "afternoon": "15:00",
+      "evening": "21:00"
+    },
+    "cronExpression": "0 6,12,18 * * *",
+    "description": "Posts 3x daily at 9 AM, 3 PM, 9 PM Moscow time"
+  },
+  "contentRotation": {
+    "totalTweets": 55,
+    "categories": [
+      "introduction",
+      "features",
+      "community",
+      "education",
+      "launch",
+      "technical",
+      "engagement",
+      "viral"
+    ],
+    "strategy": "Sequential rotation through all content, then reset"
+  },
+  "targeting": {
+    "peakTimes": [
+      "09:00-10:00 (morning commute)",
+      "15:00-16:00 (afternoon break)",
+      "21:00-22:00 (evening leisure)"
+    ],
+    "expectedReach": {
+      "morning": "100-200 views",
+      "afternoon": "150-250 views",
+      "evening": "200-300 views"
+    }
+  },
+  "weeklyPlan": {
+    "monday": ["introduction", "features", "education"],
+    "tuesday": ["technical", "community", "engagement"],
+    "wednesday": ["features", "viral", "education"],
+    "thursday": ["community", "launch", "features"],
+    "friday": ["viral", "engagement", "technical"],
+    "saturday": ["community", "features", "education"],
+    "sunday": ["launch", "introduction", "engagement"]
+  },
+  "growth": {
+    "expectedGrowth": "10-20 followers per week with consistent posting",
+    "engagementTarget": "5-10% engagement rate",
+    "strategy": "Mix educational, viral, and community content for balanced growth"
+  }
+}
