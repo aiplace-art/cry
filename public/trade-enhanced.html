@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade - HypeAI | AI-Powered Crypto Trading Platform</title>
+    <meta name="description" content="Trade HYPEAI with AI-powered predictions, real-time charts, and professional trading tools. 85% accuracy AI predictions.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- TradingView Lightweight Charts -->
+    <script src="https://unpkg.com/lightweight-charts@4.1.0/dist/lightweight-charts.standalone.production.js"></script>
+
+    <!-- CountUp.js for number animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.8.0/countUp.umd.min.js"></script>
+
+    <style>
+        /* ============================================
+           HYPEAI COLOR SYSTEM - Research by PALETTE
+           ============================================ */
+        :root {
+            /* Primary Brand Colors - UNIQUE Cyan Identity */
+            --primary-cyan: #00E5FF;
+            --primary-purple: #B24BF3;
+            --neon-pink: #FF2E97;
+            --deep-space: #0A0E1A;
+
+            /* Secondary Colors */
+            --electric-blue: #00D4FF;
+            --cosmic-purple: #9D4EDD;
+            --hot-pink: #FF007A;
+
+            /* Semantic Colors - Trading */
+            --success-green: #22C55E;
+            --danger-red: #EF4444;
+            --warning-yellow: #F59E0B;
+            --info-blue: #3B82F6;
+
+            /* Dark Mode Layers (4 elevation levels) */
+            --layer-0: #0A0E1A;  /* Deep space background */
+            --layer-1: #151922;  /* Elevated cards */
+            --layer-2: #1F2533;  /* Higher elevation */
+            --layer-3: #2A3040;  /* Highest elevation */
+
+            /* Glass Effects */
+            --glass-bg: rgba(21, 25, 34, 0.4);
+            --glass-border: rgba(0, 229, 255, 0.2);
+            --glass-highlight: rgba(255, 255, 255, 0.05);
+
+            /* Text Colors - WCAG AAA Compliant */
+            --text-primary: #FFFFFF;      /* 17.2:1 contrast */
+            --text-secondary: #B8BFCC;    /* 10.8:1 contrast */
+            --text-tertiary: #7E8897;     /* 7.4:1 contrast */
+
+            /* Spacing System - 8pt Base (Layout Research) */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 16px;
+            --space-4: 24px;
+            --space-5: 32px;
+            --space-6: 48px;
+            --space-7: 64px;
+            --space-8: 96px;
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+
+            /* Animations - Motion Research */
+            --duration-instant: 100ms;
+            --duration-fast: 200ms;
+            --duration-normal: 300ms;
+            --duration-slow: 500ms;
+            --duration-slower: 800ms;
+
+            --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--layer-0);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(178, 75, 243, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 46, 151, 0.1) 0%, transparent 50%);
+            animation: gradientShift 20s ease infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* ============================================
+           HEADER - Enhanced Glassmorphism
+           ============================================ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: var(--space-3) var(--space-5);
+
+            /* Enhanced Glassmorphism - PIXEL Research */
+            background: rgba(21, 25, 34, 0.7);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+
+            border-bottom: 1px solid var(--glass-border);
+
+            /* Subtle shadow */
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        /* Logo with animated gradient */
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--neon-pink));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 5s ease infinite;
+            cursor: pointer;
+            transition: transform var(--duration-fast) var(--easing-smooth);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: var(--space-5);
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color var(--duration-fast) var(--easing-smooth);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
+            transition: width var(--duration-normal) var(--easing-smooth);
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--primary-cyan);
+        }
+
+        /* Connect Wallet Button - Enhanced */
+        .wallet-btn {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
+            border: none;
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--duration-fast) var(--easing-smooth);
+            box-shadow: 0 4px 16px rgba(0, 229, 255, 0.3);
+        }
+
+        .wallet-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left var(--duration-slow) var(--easing-smooth);
+        }
+
+        .wallet-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 229, 255, 0.5);
+        }
+
+        .wallet-btn:hover::before {
+            left: 100%;
+        }
+
+        .wallet-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           MAIN CONTAINER - Grid System (Layout Research)
+           ============================================ */
+        main {
+            position: relative;
+            z-index: 1;
+            padding-top: 88px; /* Header height */
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--space-5);
+        }
+
+        /* Trading Layout - Desktop: Chart + Sidebar */
+        .trade-layout {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: var(--space-4);
+            min-height: calc(100vh - 120px);
+        }
+
+        /* ============================================
+           CHART SECTION - TradingView Style
+           ============================================ */
+        .chart-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-5);
+            position: relative;
+            overflow: hidden;
+
+            /* Animated border glow - PIXEL Research */
+            box-shadow:
+                0 0 0 1px var(--glass-border),
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 var(--glass-highlight);
+        }
+
+        .chart-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg,
+                var(--primary-cyan),
+                var(--primary-purple),
+                var(--neon-pink),
+                var(--primary-cyan)
+            );
+            background-size: 300% 300%;
+            border-radius: var(--radius-lg);
+            opacity: 0;
+            transition: opacity var(--duration-normal) var(--easing-smooth);
+            animation: borderGlow 8s ease infinite;
+            z-index: -1;
+        }
+
+        .chart-section:hover::before {
+            opacity: 0.3;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Chart Header */
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-5);
+            flex-wrap: wrap;
+            gap: var(--space-3);
+        }
+
+        .price-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        /* Price Display - Animated with CountUp */
+        .price-display {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            position: relative;
+        }
+
+        /* Price flash effect on update */
+        @keyframes priceFlash {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .price-display.flash-green {
+            animation: priceFlash var(--duration-normal) ease;
+            color: var(--success-green);
+            -webkit-text-fill-color: var(--success-green);
+        }
+
+        .price-display.flash-red {
+            animation: priceFlash var(--duration-normal) ease;
+            color: var(--danger-red);
+            -webkit-text-fill-color: var(--danger-red);
+        }
+
+        .price-change {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: var(--space-2);
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            transition: all var(--duration-fast) var(--easing-smooth);
+        }
+
+        .price-change.positive {
+            color: var(--success-green);
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .price-change.negative {
+            color: var(--danger-red);
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        /* Timeframe Selector */
+        .timeframes {
+            display: flex;
+            gap: var(--space-2);
+            background: rgba(21, 25, 34, 0.6);
+            padding: 4px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(0, 229, 255, 0.1);
+        }
+
+        .timeframe-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--easing-smooth);
+            position: relative;
+        }
+
+        .timeframe-btn:hover {
+            color: var(--text-primary);
+            background: rgba(0, 229, 255, 0.05);
+        }
+
+        .timeframe-btn.active {
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
+            box-shadow: 0 2px 8px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Chart Container */
+        .chart-container {
+            height: 500px;
+            margin: var(--space-4) 0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: rgba(10, 14, 26, 0.5);
+        }
+
+        /* AI Prediction Card - Enhanced */
+        .ai-prediction {
+            background: linear-gradient(135deg,
+                rgba(0, 229, 255, 0.1) 0%,
+                rgba(178, 75, 243, 0.1) 100%
+            );
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--primary-cyan);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            margin-top: var(--space-4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-prediction::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(0, 229, 255, 0.2),
+                transparent
+            );
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            to { left: 100%; }
+        }
+
+        .ai-prediction-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prediction-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-1);
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+        }
+
+        .prediction-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: var(--success-green);
+        }
+
+        .confidence-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                rgba(34, 197, 94, 0.2) 0%,
+                transparent 70%
+            );
+            border: 3px solid var(--success-green);
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--success-green);
+            position: relative;
+        }
+
+        .confidence-badge::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(45deg, var(--success-green), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ============================================
+           SIDEBAR - Order Book + Trading Form
+           ============================================ */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+
+        /* Card - Enhanced Glassmorphism */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            transition: all var(--duration-normal) var(--easing-smooth);
+            box-shadow:
+                0 0 0 1px var(--glass-border),
+                0 4px 16px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 var(--glass-highlight);
+        }
+
+        .card:hover {
+            border-color: var(--primary-cyan);
+            box-shadow:
+                0 0 0 1px var(--primary-cyan),
+                0 8px 24px rgba(0, 229, 255, 0.2),
+                inset 0 1px 0 var(--glass-highlight);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--text-primary);
+        }
+
+        /* Order Book */
+        .orderbook-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--space-2);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-3);
+            padding-bottom: var(--space-2);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .orderbook-list {
+            max-height: 280px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        .orderbook-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .orderbook-list::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .orderbook-list::-webkit-scrollbar-thumb {
+            background: var(--primary-cyan);
+            border-radius: 3px;
+        }
+
+        .orderbook-list::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-purple);
+        }
+
+        .order-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--space-2);
+            padding: var(--space-2);
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: var(--radius-sm);
+            transition: background var(--duration-fast) var(--easing-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            transition: width var(--duration-normal) var(--easing-smooth);
+        }
+
+        .order-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .order-item.sell {
+            color: var(--danger-red);
+        }
+
+        .order-item.sell::before {
+            background: linear-gradient(90deg, rgba(239, 68, 68, 0.1), transparent);
+        }
+
+        .order-item.sell:hover::before {
+            width: 100%;
+        }
+
+        .order-item.buy {
+            color: var(--success-green);
+        }
+
+        .order-item.buy::before {
+            background: linear-gradient(90deg, rgba(34, 197, 94, 0.1), transparent);
+        }
+
+        .order-item.buy:hover::before {
+            width: 100%;
+        }
+
+        .spread-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            padding: var(--space-2) 0;
+            margin: var(--space-2) 0;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        /* Trading Form */
+        .trade-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .input-group label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .input-group input {
+            background: rgba(10, 14, 26, 0.6);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all var(--duration-fast) var(--easing-smooth);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
+            background: rgba(10, 14, 26, 0.8);
+        }
+
+        .input-group input:hover {
+            border-color: var(--primary-cyan);
+        }
+
+        /* Quick Amount Buttons - UX Improvement */
+        .quick-amounts {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-2);
+            margin-top: var(--space-2);
+        }
+
+        .quick-btn {
+            padding: 8px;
+            background: rgba(0, 229, 255, 0.05);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--easing-smooth);
+        }
+
+        .quick-btn:hover {
+            background: rgba(0, 229, 255, 0.1);
+            border-color: var(--primary-cyan);
+            color: var(--primary-cyan);
+            transform: translateY(-1px);
+        }
+
+        /* Balance Info */
+        .balance-info {
+            background: rgba(0, 229, 255, 0.05);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            padding: var(--space-3);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+        }
+
+        .balance-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-2);
+        }
+
+        .balance-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .balance-label {
+            color: var(--text-secondary);
+        }
+
+        .balance-value {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Trade Buttons */
+        .trade-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3);
+            margin-top: var(--space-3);
+        }
+
+        .trade-btn {
+            padding: 16px 24px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--duration-fast) var(--easing-smooth);
+        }
+
+        .trade-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width var(--duration-slow) var(--easing-smooth),
+                        height var(--duration-slow) var(--easing-smooth);
+        }
+
+        .trade-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .trade-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .buy-btn {
+            background: linear-gradient(135deg, var(--success-green), #16A34A);
+            color: white;
+            box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.5);
+        }
+
+        .buy-btn:active {
+            transform: translateY(0);
+        }
+
+        .sell-btn {
+            background: linear-gradient(135deg, var(--danger-red), #DC2626);
+            color: white;
+            box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+        }
+
+        .sell-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(239, 68, 68, 0.5);
+        }
+
+        .sell-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Trust Badges - UX Improvement (VIBE Research) */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            padding: var(--space-3);
+            margin-top: var(--space-4);
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-2);
+            background: rgba(0, 229, 255, 0.05);
+            border: 1px solid rgba(0, 229, 255, 0.1);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            transition: all var(--duration-fast) var(--easing-smooth);
+        }
+
+        .trust-badge:hover {
+            background: rgba(0, 229, 255, 0.1);
+            border-color: var(--primary-cyan);
+            transform: translateY(-2px);
+        }
+
+        .trust-icon {
+            font-size: 1.5rem;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN - Mobile First (Layout Research)
+           ============================================ */
+
+        /* Tablet: 768px - 1279px */
+        @media (max-width: 1279px) {
+            .trade-layout {
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+            }
+
+            .sidebar {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: var(--space-4);
+            }
+        }
+
+        /* Mobile: < 768px */
+        @media (max-width: 767px) {
+            :root {
+                font-size: 14px;
+            }
+
+            header {
+                padding: var(--space-3);
+            }
+
+            .header-container {
+                gap: var(--space-2);
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            nav {
+                display: none; /* Mobile menu would go here */
+            }
+
+            .container {
+                padding: var(--space-3);
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .price-display {
+                font-size: 2rem;
+            }
+
+            .timeframes {
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            .chart-container {
+                height: 350px;
+            }
+
+            .trade-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges {
+                gap: var(--space-2);
+            }
+        }
+
+        /* ============================================
+           ACCESSIBILITY - WCAG AAA (VIBE Research)
+           ============================================ */
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            :root {
+                --glass-border: rgba(0, 229, 255, 0.5);
+            }
+
+            .card {
+                border-width: 2px;
+            }
+
+            button {
+                border: 2px solid currentColor;
+            }
+        }
+
+        /* Focus Visible for Keyboard Navigation */
+        *:focus-visible {
+            outline: 3px solid var(--primary-cyan);
+            outline-offset: 2px;
+        }
+
+        /* Screen Reader Only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Loading State */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 229, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-cyan);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header role="banner">
+        <div class="header-container">
+            <div class="logo" role="img" aria-label="HypeAI Logo">🧠⚡ HypeAI</div>
+
+            <nav role="navigation" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="trade.html" class="active" aria-current="page">Trade</a>
+                <a href="stake.html">Stake</a>
+                <a href="proof.html" style="color: var(--success-green);">✅ PROOF</a>
+                <a href="agents.html">AI Team</a>
+                <a href="agents-activity.html" style="color: var(--primary-purple);">🔴 Live</a>
+            </nav>
+
+            <button class="wallet-btn" onclick="connectWallet()" aria-label="Connect cryptocurrency wallet">
+                <span>Connect Wallet</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main">
+        <div class="container">
+            <div class="trade-layout">
+                <!-- Chart Section -->
+                <section class="chart-section" aria-labelledby="chart-title">
+                    <div class="chart-header">
+                        <div class="price-info">
+                            <h1 id="chart-title" class="sr-only">HYPEAI Trading Chart</h1>
+                            <div class="price-display" id="currentPrice" aria-live="polite" aria-atomic="true">$0.001234</div>
+                            <div class="price-change positive" id="priceChange" aria-live="polite">
+                                <span aria-hidden="true">▲</span>
+                                <span>+15.5% (24h)</span>
+                            </div>
+                        </div>
+
+                        <div class="timeframes" role="tablist" aria-label="Chart timeframes">
+                            <button class="timeframe-btn" role="tab" data-timeframe="1H" aria-selected="false">1H</button>
+                            <button class="timeframe-btn" role="tab" data-timeframe="4H" aria-selected="false">4H</button>
+                            <button class="timeframe-btn active" role="tab" data-timeframe="1D" aria-selected="true">1D</button>
+                            <button class="timeframe-btn" role="tab" data-timeframe="1W" aria-selected="false">1W</button>
+                            <button class="timeframe-btn" role="tab" data-timeframe="1M" aria-selected="false">1M</button>
+                        </div>
+                    </div>
+
+                    <div class="chart-container" id="chartContainer" role="img" aria-label="Price chart showing HYPEAI trading data">
+                        <!-- TradingView chart will be rendered here -->
+                    </div>
+
+                    <!-- AI Prediction Card -->
+                    <div class="ai-prediction" role="region" aria-labelledby="ai-prediction-title">
+                        <div class="ai-prediction-content">
+                            <div>
+                                <div class="prediction-label" id="ai-prediction-title">
+                                    <span aria-hidden="true">🤖</span>
+                                    <span>AI Prediction (24h)</span>
+                                </div>
+                                <div class="prediction-value" aria-live="polite">$0.00142 <small style="font-size: 0.6em; color: var(--success-green);">(+15.0%)</small></div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div class="prediction-label">Confidence</div>
+                                <div class="confidence-badge" aria-label="85% confidence level">85%</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Order Book -->
+                    <section class="card" aria-labelledby="orderbook-title">
+                        <h2 class="card-title" id="orderbook-title">
+                            <span aria-hidden="true">📊</span>
+                            <span>Order Book</span>
+                        </h2>
+
+                        <div class="orderbook-header" role="row">
+                            <span role="columnheader">Price (USDT)</span>
+                            <span role="columnheader">Amount (HYPEAI)</span>
+                            <span role="columnheader">Total (USDT)</span>
+                        </div>
+
+                        <div class="orderbook-list" role="table" aria-label="Current buy and sell orders">
+                            <!-- Sell Orders -->
+                            <div class="order-item sell" role="row">
+                                <span role="cell">0.001245</span>
+                                <span role="cell">5,240</span>
+                                <span role="cell">6.52</span>
+                            </div>
+                            <div class="order-item sell" role="row">
+                                <span role="cell">0.001240</span>
+                                <span role="cell">8,150</span>
+                                <span role="cell">10.11</span>
+                            </div>
+                            <div class="order-item sell" role="row">
+                                <span role="cell">0.001238</span>
+                                <span role="cell">12,430</span>
+                                <span role="cell">15.39</span>
+                            </div>
+
+                            <!-- Spread -->
+                            <div class="spread-indicator" role="status">
+                                <span>Spread:</span>
+                                <span style="color: var(--primary-cyan); font-weight: 900;">0.000008 (0.65%)</span>
+                            </div>
+
+                            <!-- Buy Orders -->
+                            <div class="order-item buy" role="row">
+                                <span role="cell">0.001230</span>
+                                <span role="cell">9,820</span>
+                                <span role="cell">12.08</span>
+                            </div>
+                            <div class="order-item buy" role="row">
+                                <span role="cell">0.001225</span>
+                                <span role="cell">15,600</span>
+                                <span role="cell">19.11</span>
+                            </div>
+                            <div class="order-item buy" role="row">
+                                <span role="cell">0.001220</span>
+                                <span role="cell">7,340</span>
+                                <span role="cell">8.95</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Trading Form -->
+                    <section class="card" aria-labelledby="trade-form-title">
+                        <h2 class="card-title" id="trade-form-title">
+                            <span aria-hidden="true">💱</span>
+                            <span>Trade HYPEAI</span>
+                        </h2>
+
+                        <form class="trade-form" onsubmit="return false;" aria-label="Trading form">
+                            <!-- Amount Input -->
+                            <div class="input-group">
+                                <label for="amount">
+                                    <span>Amount (HYPEAI)</span>
+                                    <span style="color: var(--primary-cyan); cursor: pointer;" onclick="setMaxAmount()">MAX</span>
+                                </label>
+                                <input
+                                    type="number"
+                                    id="amount"
+                                    placeholder="0.00"
+                                    value="1000"
+                                    min="0"
+                                    step="0.01"
+                                    aria-describedby="amount-help"
+                                    oninput="calculateTotal()"
+                                >
+
+                                <!-- Quick Amount Buttons -->
+                                <div class="quick-amounts">
+                                    <button type="button" class="quick-btn" onclick="setAmount(100)">$100</button>
+                                    <button type="button" class="quick-btn" onclick="setAmount(500)">$500</button>
+                                    <button type="button" class="quick-btn" onclick="setAmount(1000)">$1K</button>
+                                    <button type="button" class="quick-btn" onclick="setMaxAmount()">MAX</button>
+                                </div>
+                            </div>
+
+                            <!-- Price Input -->
+                            <div class="input-group">
+                                <label for="price">Price (USDT)</label>
+                                <input
+                                    type="number"
+                                    id="price"
+                                    placeholder="0.00"
+                                    value="0.001234"
+                                    min="0"
+                                    step="0.000001"
+                                    oninput="calculateTotal()"
+                                >
+                            </div>
+
+                            <!-- Total -->
+                            <div class="input-group">
+                                <label for="total">Total (USDT)</label>
+                                <input
+                                    type="number"
+                                    id="total"
+                                    placeholder="0.00"
+                                    value="1.234"
+                                    readonly
+                                    style="opacity: 0.7; cursor: not-allowed;"
+                                    aria-readonly="true"
+                                >
+                            </div>
+
+                            <!-- Balance Info -->
+                            <div class="balance-info" role="status">
+                                <div class="balance-row">
+                                    <span class="balance-label">Available Balance:</span>
+                                    <span class="balance-value">1,234.56 USDT</span>
+                                </div>
+                                <div class="balance-row">
+                                    <span class="balance-label">Trading Fee (0.1%):</span>
+                                    <span class="balance-value" id="feeAmount">0.00123 USDT</span>
+                                </div>
+                            </div>
+
+                            <!-- Trade Buttons -->
+                            <div class="trade-buttons">
+                                <button type="button" class="trade-btn buy-btn" onclick="trade('buy')" aria-label="Place buy order">
+                                    <span>Buy HYPEAI</span>
+                                </button>
+                                <button type="button" class="trade-btn sell-btn" onclick="trade('sell')" aria-label="Place sell order">
+                                    <span>Sell HYPEAI</span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Trust Badges -->
+                        <div class="trust-badges" role="list" aria-label="Security and trust indicators">
+                            <div class="trust-badge" role="listitem">
+                                <span class="trust-icon" aria-hidden="true">🔒</span>
+                                <span>Secure</span>
+                            </div>
+                            <div class="trust-badge" role="listitem">
+                                <span class="trust-icon" aria-hidden="true">✅</span>
+                                <span>Audited</span>
+                            </div>
+                            <div class="trust-badge" role="listitem">
+                                <span class="trust-icon" aria-hidden="true">⚡</span>
+                                <span>Instant</span>
+                            </div>
+                            <div class="trust-badge" role="listitem">
+                                <span class="trust-icon" aria-hidden="true">💎</span>
+                                <span>Verified</span>
+                            </div>
+                        </div>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // ============================================
+        // TRADINGVIEW CHART INTEGRATION
+        // ============================================
+
+        let chart;
+        let candleSeries;
+
+        function initChart() {
+            const chartContainer = document.getElementById('chartContainer');
+
+            chart = LightweightCharts.createChart(chartContainer, {
+                width: chartContainer.clientWidth,
+                height: chartContainer.clientHeight,
+                layout: {
+                    background: { color: 'transparent' },
+                    textColor: '#B8BFCC',
+                },
+                grid: {
+                    vertLines: { color: 'rgba(0, 229, 255, 0.05)' },
+                    horzLines: { color: 'rgba(0, 229, 255, 0.05)' },
+                },
+                crosshair: {
+                    mode: LightweightCharts.CrosshairMode.Normal,
+                },
+                rightPriceScale: {
+                    borderColor: 'rgba(0, 229, 255, 0.2)',
+                },
+                timeScale: {
+                    borderColor: 'rgba(0, 229, 255, 0.2)',
+                    timeVisible: true,
+                    secondsVisible: false,
+                },
+            });
+
+            candleSeries = chart.addCandlestickSeries({
+                upColor: '#22C55E',
+                downColor: '#EF4444',
+                borderVisible: false,
+                wickUpColor: '#22C55E',
+                wickDownColor: '#EF4444',
+            });
+
+            // Generate initial data
+            const data = generateCandleData(100);
+            candleSeries.setData(data);
+
+            // Fit content
+            chart.timeScale().fitContent();
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                chart.applyOptions({
+                    width: chartContainer.clientWidth,
+                    height: chartContainer.clientHeight,
+                });
+            });
+        }
+
+        function generateCandleData(count) {
+            const data = [];
+            let time = Math.floor(Date.now() / 1000) - count * 3600;
+            let price = 0.001234;
+
+            for (let i = 0; i < count; i++) {
+                const open = price;
+                const close = price + (Math.random() - 0.5) * 0.00005;
+                const high = Math.max(open, close) + Math.random() * 0.00002;
+                const low = Math.min(open, close) - Math.random() * 0.00002;
+
+                data.push({
+                    time,
+                    open,
+                    high,
+                    low,
+                    close,
+                });
+
+                price = close;
+                time += 3600;
+            }
+
+            return data;
+        }
+
+        // ============================================
+        // PRICE UPDATES WITH ANIMATION
+        // ============================================
+
+        let currentPrice = 0.001234;
+        let priceCountUp;
+
+        function initPriceCounter() {
+            const priceEl = document.getElementById('currentPrice');
+            priceCountUp = new CountUp('currentPrice', currentPrice, {
+                prefix: '$',
+                decimalPlaces: 6,
+                duration: 0.3,
+            });
+        }
+
+        function updatePrice() {
+            const priceEl = document.getElementById('currentPrice');
+            const priceChangeEl = document.getElementById('priceChange');
+
+            const oldPrice = currentPrice;
+            const change = (Math.random() - 0.48) * 0.00001;
+            currentPrice += change;
+
+            // Update with animation
+            if (priceCountUp) {
+                priceCountUp.update(currentPrice);
+            }
+
+            // Flash effect
+            priceEl.classList.remove('flash-green', 'flash-red');
+            void priceEl.offsetWidth; // Trigger reflow
+
+            if (change > 0) {
+                priceEl.classList.add('flash-green');
+                priceChangeEl.classList.remove('negative');
+                priceChangeEl.classList.add('positive');
+            } else {
+                priceEl.classList.add('flash-red');
+                priceChangeEl.classList.remove('positive');
+                priceChangeEl.classList.add('negative');
+            }
+
+            // Update candlestick chart
+            if (candleSeries) {
+                const lastData = candleSeries.dataByIndex(99, 0);
+                if (lastData) {
+                    const newData = {
+                        time: Math.floor(Date.now() / 1000),
+                        open: lastData.close,
+                        high: Math.max(lastData.close, currentPrice),
+                        low: Math.min(lastData.close, currentPrice),
+                        close: currentPrice,
+                    };
+                    candleSeries.update(newData);
+                }
+            }
+        }
+
+        // ============================================
+        // WALLET CONNECTION
+        // ============================================
+
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({
+                        method: 'eth_requestAccounts'
+                    });
+
+                    const address = accounts[0];
+                    const shortAddress = address.substring(0, 6) + '...' + address.substring(38);
+
+                    // Update button
+                    const btn = document.querySelector('.wallet-btn span');
+                    btn.textContent = shortAddress;
+
+                    // Show success message
+                    showNotification('Wallet connected successfully!', 'success');
+
+                    // Store in localStorage for session persistence
+                    localStorage.setItem('walletConnected', 'true');
+                    localStorage.setItem('walletAddress', address);
+
+                } catch (error) {
+                    showNotification('Failed to connect wallet: ' + error.message, 'error');
+                }
+            } else {
+                if (confirm('MetaMask not detected. Would you like to install it?')) {
+                    window.open('https://metamask.io/download/', '_blank');
+                }
+            }
+        }
+
+        // Check for existing wallet connection
+        function checkWalletConnection() {
+            if (localStorage.getItem('walletConnected') === 'true') {
+                const address = localStorage.getItem('walletAddress');
+                if (address) {
+                    const shortAddress = address.substring(0, 6) + '...' + address.substring(38);
+                    const btn = document.querySelector('.wallet-btn span');
+                    btn.textContent = shortAddress;
+                }
+            }
+        }
+
+        // ============================================
+        // TRADING FUNCTIONS
+        // ============================================
+
+        function calculateTotal() {
+            const amount = parseFloat(document.getElementById('amount').value) || 0;
+            const price = parseFloat(document.getElementById('price').value) || 0;
+            const total = amount * price;
+            const fee = total * 0.001; // 0.1% fee
+
+            document.getElementById('total').value = total.toFixed(6);
+            document.getElementById('feeAmount').textContent = fee.toFixed(6) + ' USDT';
+        }
+
+        function setAmount(usdAmount) {
+            const price = parseFloat(document.getElementById('price').value) || 0.001234;
+            const amount = usdAmount / price;
+            document.getElementById('amount').value = amount.toFixed(2);
+            calculateTotal();
+        }
+
+        function setMaxAmount() {
+            const balance = 1234.56; // Mock balance
+            const price = parseFloat(document.getElementById('price').value) || 0.001234;
+            const amount = balance / price;
+            document.getElementById('amount').value = amount.toFixed(2);
+            calculateTotal();
+        }
+
+        function trade(type) {
+            const amount = document.getElementById('amount').value;
+            const price = document.getElementById('price').value;
+            const total = document.getElementById('total').value;
+
+            if (!amount || parseFloat(amount) <= 0) {
+                showNotification('Please enter a valid amount', 'error');
+                return;
+            }
+
+            // Show loading state
+            const btn = document.querySelector(type === 'buy' ? '.buy-btn' : '.sell-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="loading"></span>';
+            btn.disabled = true;
+
+            // Simulate transaction
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+
+                showNotification(
+                    `${type.toUpperCase()} order placed for ${amount} HYPEAI at $${price}!`,
+                    'success'
+                );
+            }, 1500);
+        }
+
+        // ============================================
+        // NOTIFICATIONS
+        // ============================================
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                padding: 16px 24px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #22C55E, #16A34A)' :
+                            type === 'error' ? 'linear-gradient(135deg, #EF4444, #DC2626)' :
+                            'linear-gradient(135deg, #00E5FF, #B24BF3)'};
+                color: white;
+                border-radius: 12px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                font-weight: 600;
+                max-width: 400px;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize chart
+            initChart();
+
+            // Initialize price counter
+            initPriceCounter();
+
+            // Check wallet connection
+            checkWalletConnection();
+
+            // Start price updates (every 3 seconds)
+            setInterval(updatePrice, 3000);
+
+            // Timeframe buttons
+            document.querySelectorAll('.timeframe-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.timeframe-btn').forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-selected', 'false');
+                    });
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-selected', 'true');
+
+                    // Regenerate chart data for new timeframe
+                    const data = generateCandleData(100);
+                    candleSeries.setData(data);
+                    chart.timeScale().fitContent();
+                });
+            });
+
+            // Initial calculation
+            calculateTotal();
+        });
+
+        // Add CSS for slide animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

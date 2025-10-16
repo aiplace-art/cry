@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAO Governance - HypeAI | Community-Driven Decision Making</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Participate in HypeAI's decentralized governance. Vote on proposals, create new ones, and shape the future of the platform. 1 HYPEAI = 1 Vote.">
+    <meta name="keywords" content="DAO governance, crypto voting, decentralized governance, HypeAI DAO">
+    <meta name="author" content="HypeAI Team">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary-blue: #00D4FF;
+            --primary-purple: #9D4EDD;
+            --accent-green: #39FF14;
+            --accent-red: #FF3860;
+            --dark-bg: #0A0E27;
+            --dark-card: #1A1F3A;
+            --white: #FFFFFF;
+            --gray: #A0AEC0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0F1629 100%);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.8);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 5% 3rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin: 0 auto 1rem;
+        }
+
+        /* Governance Stats */
+        .gov-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Proposals Section */
+        .proposals-section {
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .create-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .create-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .proposal-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .proposal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .proposal-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-active {
+            background: rgba(57, 255, 20, 0.2);
+            color: var(--accent-green);
+        }
+
+        .proposal-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .proposal-meta {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .proposal-description {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .voting-section {
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+            padding-top: 1.5rem;
+        }
+
+        .vote-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .vote-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .vote-progress {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .vote-progress-bar {
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));
+            transition: width 0.3s;
+        }
+
+        .vote-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .vote-button {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .vote-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .vote-yes {
+            background: var(--accent-green);
+            color: var(--dark-bg);
+        }
+
+        .vote-no {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        /* Voting Power Calculator */
+        .calculator-section {
+            padding: 3rem 5%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .calculator-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .calculator-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+
+        .calculator-result {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .result-value {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: rgba(10, 14, 39, 0.9);
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            header {
+                padding: 1rem 5%;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            🧠⚡ HypeAI
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="blog.html">Blog</a>
+            <a href="governance.html">Governance</a>
+            <a href="roadmap.html">Roadmap</a>
+        </nav>
+        <button class="cta-button" onclick="connectWallet()">Connect Wallet</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Decentralized Governance</h1>
+        <p style="color: var(--gray); font-size: 1.2rem; max-width: 800px;">
+            Shape the future of HypeAI through community-driven decision making
+        </p>
+        <p style="color: var(--accent-green); font-size: 1.3rem; margin-top: 1rem; font-weight: 700;">
+            1 HYPEAI = 1 Vote
+        </p>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">How Governance Works</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3 style="margin-bottom: 1rem;">Hold HYPEAI</h3>
+                <p style="color: var(--gray); line-height: 1.6;">
+                    Acquire HYPEAI tokens to gain voting power in our DAO
+                </p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3 style="margin-bottom: 1rem;">Connect Wallet</h3>
+                <p style="color: var(--gray); line-height: 1.6;">
+                    Link your wallet to verify token holdings and voting power
+                </p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3 style="margin-bottom: 1rem;">Review Proposals</h3>
+                <p style="color: var(--gray); line-height: 1.6;">
+                    Read active proposals and community discussions
+                </p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3 style="margin-bottom: 1rem;">Cast Your Vote</h3>
+                <p style="color: var(--gray); line-height: 1.6;">
+                    Vote on proposals that matter to you and the community
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance Stats -->
+    <section class="gov-stats">
+        <div class="stat-card">
+            <div class="stat-value">127</div>
+            <div style="color: var(--gray);">Total Proposals</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">3,421</div>
+            <div style="color: var(--gray);">Active Voters</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">85%</div>
+            <div style="color: var(--gray);">Average Participation</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">$1.2M</div>
+            <div style="color: var(--gray);">Treasury Value</div>
+        </div>
+    </section>
+
+    <!-- Active Proposals -->
+    <section class="proposals-section">
+        <div class="section-header">
+            <h2 class="section-title">Active Proposals</h2>
+            <button class="create-button" onclick="alert('Connect wallet to create proposals')">+ Create Proposal</button>
+        </div>
+
+        <div class="proposal-card">
+            <div class="proposal-header">
+                <div>
+                    <h3 class="proposal-title">Proposal #003: Increase Staking Rewards Pool</h3>
+                    <div class="proposal-meta">
+                        Proposed by 0x742d...35Bd • Ends in 3 days
+                    </div>
+                </div>
+                <span class="proposal-badge badge-active">ACTIVE</span>
+            </div>
+            <p class="proposal-description">
+                Proposal to increase the staking rewards pool allocation from 15% to 20% of total supply.
+                This will allow us to offer higher APY rates and attract more long-term holders.
+                The additional 5% will be sourced from the treasury allocation.
+            </p>
+            <div class="voting-section">
+                <div class="vote-stats">
+                    <div class="vote-option">
+                        <span style="color: var(--accent-green);">✓ For</span>
+                        <strong>2.3M votes (78%)</strong>
+                    </div>
+                    <div class="vote-option">
+                        <span style="color: var(--accent-red);">✗ Against</span>
+                        <strong>650K votes (22%)</strong>
+                    </div>
+                </div>
+                <div class="vote-progress">
+                    <div class="vote-progress-bar" style="width: 78%"></div>
+                </div>
+                <div class="vote-buttons">
+                    <button class="vote-button vote-yes" onclick="alert('Connect wallet to vote')">Vote For</button>
+                    <button class="vote-button vote-no" onclick="alert('Connect wallet to vote')">Vote Against</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="proposal-card">
+            <div class="proposal-header">
+                <div>
+                    <h3 class="proposal-title">Proposal #002: Multi-Chain Deployment to BSC</h3>
+                    <div class="proposal-meta">
+                        Proposed by 0x1a2b...4c5d • Ends in 5 days
+                    </div>
+                </div>
+                <span class="proposal-badge badge-active">ACTIVE</span>
+            </div>
+            <p class="proposal-description">
+                Deploy HYPEAI on Binance Smart Chain to expand our reach and reduce transaction costs for users.
+                This includes bridge development, liquidity provision, and marketing efforts on the BSC ecosystem.
+            </p>
+            <div class="voting-section">
+                <div class="vote-stats">
+                    <div class="vote-option">
+                        <span style="color: var(--accent-green);">✓ For</span>
+                        <strong>3.1M votes (85%)</strong>
+                    </div>
+                    <div class="vote-option">
+                        <span style="color: var(--accent-red);">✗ Against</span>
+                        <strong>550K votes (15%)</strong>
+                    </div>
+                </div>
+                <div class="vote-progress">
+                    <div class="vote-progress-bar" style="width: 85%"></div>
+                </div>
+                <div class="vote-buttons">
+                    <button class="vote-button vote-yes" onclick="alert('Connect wallet to vote')">Vote For</button>
+                    <button class="vote-button vote-no" onclick="alert('Connect wallet to vote')">Vote Against</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="proposal-card">
+            <div class="proposal-header">
+                <div>
+                    <h3 class="proposal-title">Proposal #001: Partnership with DeFi Protocol X</h3>
+                    <div class="proposal-meta">
+                        Proposed by 0x9f8e...7d6c • Ends in 1 week
+                    </div>
+                </div>
+                <span class="proposal-badge badge-active">ACTIVE</span>
+            </div>
+            <p class="proposal-description">
+                Strategic partnership with leading DeFi protocol to integrate HYPEAI into their lending platform.
+                This will increase utility and exposure for our token while providing additional earning opportunities for holders.
+            </p>
+            <div class="voting-section">
+                <div class="vote-stats">
+                    <div class="vote-option">
+                        <span style="color: var(--accent-green);">✓ For</span>
+                        <strong>1.8M votes (62%)</strong>
+                    </div>
+                    <div class="vote-option">
+                        <span style="color: var(--accent-red);">✗ Against</span>
+                        <strong>1.1M votes (38%)</strong>
+                    </div>
+                </div>
+                <div class="vote-progress">
+                    <div class="vote-progress-bar" style="width: 62%"></div>
+                </div>
+                <div class="vote-buttons">
+                    <button class="vote-button vote-yes" onclick="alert('Connect wallet to vote')">Vote For</button>
+                    <button class="vote-button vote-no" onclick="alert('Connect wallet to vote')">Vote Against</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voting Power Calculator -->
+    <section class="calculator-section">
+        <div class="calculator-card">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Calculate Your Voting Power</h2>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 2rem;">
+                Enter your HYPEAI token balance to see your voting power
+            </p>
+            <input
+                type="number"
+                class="calculator-input"
+                placeholder="Enter HYPEAI amount"
+                id="votingInput"
+                oninput="calculateVotingPower()"
+            >
+            <div class="calculator-result">
+                <div style="color: var(--gray); margin-bottom: 0.5rem;">Your Voting Power</div>
+                <div class="result-value" id="votingPower">0</div>
+                <div style="color: var(--gray); margin-top: 0.5rem;">votes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HypeAI</h3>
+                <p style="color: var(--gray); line-height: 1.6;">
+                    AI-Powered Crypto Trading Platform.<br>
+                    Where AI Meets Opportunity.<br><br>
+                    <strong style="color: var(--accent-green);">🤖 Built by Professional AI Agents</strong><br>
+                    <strong style="color: var(--primary-blue);">∞ Working infinitely to make YOU a millionaire 💰</strong>
+                </p>
+                <div class="social-links" style="margin-top: 1.5rem;">
+                    <a href="https://twitter.com/HypeAI_official" style="color: var(--primary-blue);">𝕏</a>
+                    <a href="https://t.me/hypeai" style="color: var(--primary-blue);">✈️</a>
+                    <a href="https://discord.gg/hypeai" style="color: var(--primary-blue);">💬</a>
+                    <a href="https://github.com/hypeai" style="color: var(--primary-blue);">🐙</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul class="footer-links">
+                    <li><a href="trade.html">Trade</a></li>
+                    <li><a href="stake.html">Stake</a></li>
+                    <li><a href="governance.html">Governance</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="whitepaper.html">Whitepaper</a></li>
+                    <li><a href="audit.html">Security Audit</a></li>
+                    <li><a href="api.html">API Docs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Mission</a></li>
+                    <li><a href="roadmap.html">Roadmap</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="agents.html">🤖 AI Agents Team</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2); color: var(--gray);">
+            <p>© 2025 HypeAI. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Built with ❤️ by 26 Professional AI Agents</p>
+            <p style="margin-top: 0.25rem; font-size: 0.9rem; color: var(--gray);">
+                8 Dev • 7 Business • 5 Website • 6 Marketing
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--accent-green);">
+                <strong>Achieve Financial Freedom with AI! 🚀</strong>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                } catch (error) {
+                    console.error('Failed to connect wallet:', error);
+                    alert('Failed to connect wallet. Please try again.');
+                }
+            } else {
+                alert('Please install MetaMask or another Web3 wallet!');
+                window.open('https://metamask.io/download/', '_blank');
+            }
+        }
+
+        function calculateVotingPower() {
+            const input = document.getElementById('votingInput');
+            const output = document.getElementById('votingPower');
+            const value = parseFloat(input.value) || 0;
+            output.textContent = value.toLocaleString();
+        }
+    </script>
+</body>
+</html>

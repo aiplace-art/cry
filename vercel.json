@@ -1,57 +1,11 @@
 {
   "version": 2,
-  "name": "hyped-token",
+  "name": "hypeai-website",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": null,
-  "installCommand": "npm ci",
-  "env": {
-    "NODE_VERSION": "18.x",
-    "NODE_ENV": "production"
-  },
-  "build": {
-    "env": {
-      "NEXT_PUBLIC_CONTRACT_ADDRESS": "@contract_address",
-      "NEXT_PUBLIC_CHAIN_ID": "@chain_id",
-      "NEXT_PUBLIC_RPC_URL": "@rpc_url",
-      "NEXT_PUBLIC_API_URL": "@api_url"
-    }
-  },
-  "regions": ["iad1", "sfo1"],
-  "functions": {
-    "api/**/*.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "public": true,
   "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "X-Requested-With, Content-Type, Authorization"
-        }
-      ]
-    },
     {
       "source": "/(.*)",
       "headers": [
@@ -70,21 +24,21 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
         }
       ]
-    }
-  ],
-  "rewrites": [
+    },
     {
-      "source": "/docs/:path*",
-      "destination": "/docs/:path*"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/home",
-      "destination": "/",
-      "permanent": true
+      "source": "/(.*\\.(svg|png|jpg|jpeg|gif|ico|css|js))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, immutable"
+        }
+      ]
     }
   ]
 }

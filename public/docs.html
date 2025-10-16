@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Documentation - HypeAI</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="HypeAI Complete Documentation - Get started with smart contracts, API integration, staking, and DAO governance. Developer guides and resources.">
+    <meta name="keywords" content="HypeAI docs, crypto documentation, smart contract guide, API docs, developer resources">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary-blue: #00D4FF;
+            --primary-purple: #9D4EDD;
+            --accent-green: #39FF14;
+            --dark-bg: #0A0E27;
+            --dark-card: #1A1F3A;
+            --white: #FFFFFF;
+            --gray: #A0AEC0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0F1629 100%);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.8);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 5% 4rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--gray);
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .content {
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .quick-start-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(157, 78, 221, 0.2));
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--primary-blue);
+            margin-bottom: 4rem;
+        }
+
+        .quick-start-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .code-block {
+            background: rgba(10, 14, 39, 0.9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+        }
+
+        .code-block code {
+            color: var(--accent-green);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-desc {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .card-link:hover {
+            color: var(--accent-green);
+        }
+
+        .resources-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .resource-item {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .resource-info {
+            flex: 1;
+        }
+
+        .resource-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .resource-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .community-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .community-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .community-card:hover {
+            transform: scale(1.05);
+        }
+
+        .community-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            padding: 4rem 5%;
+            background: rgba(10, 14, 39, 0.9);
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            header {
+                padding: 1rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <header>
+        <a href="index.html" class="logo">
+            🧠⚡ HypeAI
+        </a>
+        <nav>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#tokenomics">Tokenomics</a>
+            <a href="index.html#roadmap">Roadmap</a>
+            <a href="docs.html" style="color: var(--accent-green);">Docs</a>
+            <a href="whitepaper.html">Whitepaper</a>
+            <a href="api.html">API</a>
+            <a href="audit.html">Audit</a>
+        </nav>
+        <button class="cta-button" onclick="connectWallet()">Connect Wallet</button>
+    </header>
+
+    <section class="hero">
+        <h1>📚 Complete Documentation</h1>
+        <p class="hero-subtitle">
+            Everything you need to integrate, develop, and build with HypeAI.<br>
+            Comprehensive guides from getting started to advanced development.
+        </p>
+    </section>
+
+    <div class="content">
+        <div class="quick-start-card">
+            <h3>🚀 Quick Start Guide</h3>
+            <p style="color: var(--gray); margin-bottom: 1.5rem; font-size: 1.1rem;">
+                Get up and running with HypeAI in under 5 minutes
+            </p>
+
+            <div style="margin: 2rem 0;">
+                <h4 style="margin-bottom: 1rem;">1. Install Dependencies</h4>
+                <div class="code-block">
+                    <code>npm install @hypeai/sdk ethers</code>
+                </div>
+
+                <h4 style="margin: 2rem 0 1rem;">2. Initialize SDK</h4>
+                <div class="code-block">
+                    <code>import { HypeAI } from '@hypeai/sdk';<br><br>
+const hypeai = new HypeAI({<br>
+&nbsp;&nbsp;apiKey: 'your-api-key',<br>
+&nbsp;&nbsp;network: 'polygon'<br>
+});</code>
+                </div>
+
+                <h4 style="margin: 2rem 0 1rem;">3. Start Trading</h4>
+                <div class="code-block">
+                    <code>const prediction = await hypeai.ai.getPrediction('BTC/USD');<br>
+console.log(`AI Prediction: ${prediction.price} (${prediction.confidence}% confidence)`);</code>
+                </div>
+            </div>
+
+            <a href="api.html" class="resource-btn">View Full API Docs →</a>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Documentation Categories</h2>
+            <p class="section-subtitle">Explore comprehensive guides for every aspect of HypeAI</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Getting Started</h3>
+                    <p class="card-desc">
+                        Installation, setup, and your first transaction. Learn the basics of HypeAI platform.
+                    </p>
+                    <a href="#" class="card-link">Read Guide →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📜</div>
+                    <h3 class="card-title">Smart Contracts</h3>
+                    <p class="card-desc">
+                        Detailed documentation for Token, Staking, Governance, and AIOracle contracts.
+                    </p>
+                    <a href="#" class="card-link">View Contracts →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3 class="card-title">API Reference</h3>
+                    <p class="card-desc">
+                        Complete REST and GraphQL API documentation with authentication and endpoints.
+                    </p>
+                    <a href="api.html" class="card-link">API Docs →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🏗️</div>
+                    <h3 class="card-title">Architecture</h3>
+                    <p class="card-desc">
+                        System design, multi-chain deployment, and infrastructure documentation.
+                    </p>
+                    <a href="#" class="card-link">Learn More →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3 class="card-title">Tokenomics</h3>
+                    <p class="card-desc">
+                        Token distribution, staking mechanics, APY calculations, and fee structure.
+                    </p>
+                    <a href="whitepaper.html" class="card-link">View Details →</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3 class="card-title">Deployment Guide</h3>
+                    <p class="card-desc">
+                        Step-by-step guide for deploying contracts to testnet and mainnet.
+                    </p>
+                    <a href="#" class="card-link">Deploy Now →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Developer Resources</h2>
+            <p class="section-subtitle">Tools, SDKs, and resources for developers</p>
+
+            <div class="resources-list">
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-title">JavaScript SDK</div>
+                        <p class="card-desc">Official JavaScript/TypeScript SDK for HypeAI integration</p>
+                    </div>
+                    <a href="https://github.com/hypeai/sdk-js" class="resource-btn">View on GitHub</a>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-title">Python SDK</div>
+                        <p class="card-desc">Python library for AI predictions and trading automation</p>
+                    </div>
+                    <a href="https://github.com/hypeai/sdk-python" class="resource-btn">View on GitHub</a>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-title">Smart Contract Templates</div>
+                        <p class="card-desc">Pre-built templates for staking, governance, and more</p>
+                    </div>
+                    <a href="https://github.com/hypeai/contracts" class="resource-btn">Browse Templates</a>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-title">Code Examples</div>
+                        <p class="card-desc">Real-world examples and integration patterns</p>
+                    </div>
+                    <a href="https://github.com/hypeai/examples" class="resource-btn">View Examples</a>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-title">API Postman Collection</div>
+                        <p class="card-desc">Ready-to-use Postman collection for API testing</p>
+                    </div>
+                    <a href="#" class="resource-btn">Download</a>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-title">Developer Portal</div>
+                        <p class="card-desc">Interactive API playground and testing environment</p>
+                    </div>
+                    <a href="#" class="resource-btn">Launch Portal</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Community Links</h2>
+            <p class="section-subtitle">Join our developer community and get support</p>
+
+            <div class="community-links">
+                <a href="https://discord.gg/hypeai" style="text-decoration: none; color: inherit;">
+                    <div class="community-card">
+                        <div class="community-icon">💬</div>
+                        <h3 class="card-title">Discord</h3>
+                        <p class="card-desc">Join 10,000+ developers<br>24/7 support available</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/hypeai" style="text-decoration: none; color: inherit;">
+                    <div class="community-card">
+                        <div class="community-icon">🐙</div>
+                        <h3 class="card-title">GitHub</h3>
+                        <p class="card-desc">Open source code<br>Contribute to the project</p>
+                    </div>
+                </a>
+
+                <a href="https://twitter.com/HypeAI_official" style="text-decoration: none; color: inherit;">
+                    <div class="community-card">
+                        <div class="community-icon">𝕏</div>
+                        <h3 class="card-title">Twitter</h3>
+                        <p class="card-desc">Latest updates<br>Developer announcements</p>
+                    </div>
+                </a>
+
+                <a href="https://t.me/hypeai_dev" style="text-decoration: none; color: inherit;">
+                    <div class="community-card">
+                        <div class="community-icon">✈️</div>
+                        <h3 class="card-title">Telegram</h3>
+                        <p class="card-desc">Developer chat<br>Real-time discussions</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HypeAI</h3>
+                <p style="color: var(--gray); line-height: 1.6;">
+                    AI-Powered Crypto Trading Platform.<br>
+                    Where AI Meets Opportunity.<br><br>
+                    <strong style="color: var(--accent-green);">🤖 Built by Professional AI Agents</strong><br>
+                    <strong style="color: var(--primary-blue);">∞ Working infinitely to make YOU a millionaire 💰</strong>
+                </p>
+                <div class="social-links" style="margin-top: 1.5rem;">
+                    <a href="https://twitter.com/HypeAI_official" style="color: var(--primary-blue);">𝕏</a>
+                    <a href="https://t.me/hypeai" style="color: var(--primary-blue);">✈️</a>
+                    <a href="https://discord.gg/hypeai" style="color: var(--primary-blue);">💬</a>
+                    <a href="https://github.com/hypeai" style="color: var(--primary-blue);">🐙</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul class="footer-links">
+                    <li><a href="trade.html">Trade</a></li>
+                    <li><a href="stake.html">Stake</a></li>
+                    <li><a href="governance.html">Governance</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="whitepaper.html">Whitepaper</a></li>
+                    <li><a href="audit.html">Security Audit</a></li>
+                    <li><a href="api.html">API Docs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="agents.html">🤖 AI Agents Team</a></li>
+                    <li><a href="index.html#roadmap">Roadmap</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About Mission</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2); color: var(--gray);">
+            <p>© 2025 HypeAI. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Built with ❤️ by 26 Professional AI Agents</p>
+            <p style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--accent-green);">
+                <strong>Achieve Financial Freedom with AI! 🚀</strong>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                } catch (error) {
+                    console.error('Failed to connect wallet:', error);
+                    alert('Failed to connect wallet. Please try again.');
+                }
+            } else {
+                alert('Please install MetaMask or another Web3 wallet!');
+                window.open('https://metamask.io/download/', '_blank');
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stake - HypeAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #00D4FF;
+            --primary-purple: #9D4EDD;
+            --accent-green: #39FF14;
+            --dark-bg: #0A0E27;
+            --dark-card: #1A1F3A;
+            --white: #FFFFFF;
+            --gray: #A0AEC0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0F1629 100%);
+            color: var(--white);
+            padding-top: 80px;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.9);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            z-index: 1000;
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        nav { display: flex; gap: 2rem; align-items: center; }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--primary-blue); }
+        .wallet-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+        .page-subtitle {
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        .pools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .pool-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(157, 78, 221, 0.3);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .pool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+        }
+        .pool-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+        .pool-tier {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .pool-apy {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-green), #2ECC71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        .pool-details {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .pool-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background: rgba(10, 14, 39, 0.4);
+            border-radius: 10px;
+        }
+        .stake-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .stake-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+        .active-stakes {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .stake-item {
+            background: rgba(10, 14, 39, 0.6);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+        .stake-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .stake-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        .stake-status {
+            padding: 0.5rem 1rem;
+            background: rgba(57, 255, 20, 0.2);
+            border-radius: 20px;
+            color: var(--accent-green);
+            font-size: 0.9rem;
+        }
+        .stake-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .stake-stat {
+            text-align: center;
+        }
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(10, 14, 39, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            transition: width 0.3s;
+        }
+        .unstake-btn {
+            padding: 0.75rem 2rem;
+            background: rgba(255, 71, 87, 0.2);
+            border: 1px solid #FF4757;
+            border-radius: 10px;
+            color: #FF4757;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .unstake-btn:hover {
+            background: rgba(255, 71, 87, 0.3);
+        }
+        .calculator {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+        .calc-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 10px;
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .calc-result {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(57, 255, 20, 0.1));
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(57, 255, 20, 0.3);
+        }
+        .calc-result-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-green), #2ECC71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🧠⚡ HypeAI</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="trade.html">Trade</a>
+            <a href="stake.html">Stake</a>
+            <a href="proof.html" style="color: var(--accent-green);">✅ PROOF</a>
+            <a href="agents.html">AI Team</a>
+            <a href="agents-activity.html" style="color: var(--primary-purple);">🔴 Live</a>
+        </nav>
+        <button class="wallet-btn" onclick="connectWallet()">Connect Wallet</button>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">💰 Stake HYPEAI</h1>
+            <p class="page-subtitle">Earn up to 62% APY with flexible staking periods</p>
+        </div>
+
+        <!-- Staking Pools -->
+        <div class="pools-grid">
+            <!-- 30 Days -->
+            <div class="pool-card">
+                <div class="pool-tier">🥉 Bronze Tier</div>
+                <div class="pool-apy">17% APY</div>
+                <p style="color: var(--gray); margin-bottom: 2rem;">30-Day Lock Period</p>
+
+                <div class="pool-details">
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Min. Stake</span>
+                        <strong>1,000 HYPEAI</strong>
+                    </div>
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Lock Period</span>
+                        <strong>30 Days</strong>
+                    </div>
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Total Staked</span>
+                        <strong>12.5M HYPEAI</strong>
+                    </div>
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Est. Rewards</span>
+                        <strong style="color: var(--accent-green);">+14.2 HYPEAI/day</strong>
+                    </div>
+                </div>
+
+                <button class="stake-btn" onclick="openStakeModal('30', '17')">Stake Now</button>
+            </div>
+
+            <!-- 90 Days -->
+            <div class="pool-card">
+                <div class="pool-tier">🥈 Silver Tier</div>
+                <div class="pool-apy">27% APY</div>
+                <p style="color: var(--gray); margin-bottom: 2rem;">90-Day Lock Period</p>
+
+                <div class="pool-details">
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Min. Stake</span>
+                        <strong>5,000 HYPEAI</strong>
+                    </div>
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Lock Period</span>
+                        <strong>90 Days</strong>
+                    </div>
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Total Staked</span>
+                        <strong>28.3M HYPEAI</strong>
+                    </div>
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Est. Rewards</span>
+                        <strong style="color: var(--accent-green);">+36.9 HYPEAI/day</strong>
+                    </div>
+                </div>
+
+                <button class="stake-btn" onclick="openStakeModal('90', '27')">Stake Now</button>
+            </div>
+
+            <!-- 365 Days -->
+            <div class="pool-card">
+                <div class="pool-tier">🥇 Gold Tier</div>
+                <div class="pool-apy">62% APY</div>
+                <p style="color: var(--gray); margin-bottom: 2rem;">365-Day Lock Period</p>
+
+                <div class="pool-details">
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Min. Stake</span>
+                        <strong>10,000 HYPEAI</strong>
+                    </div>
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Lock Period</span>
+                        <strong>365 Days</strong>
+                    </div>
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Total Staked</span>
+                        <strong>65.8M HYPEAI</strong>
+                    </div>
+                    <div class="pool-detail">
+                        <span style="color: var(--gray);">Est. Rewards</span>
+                        <strong style="color: var(--accent-green);">+169.9 HYPEAI/day</strong>
+                    </div>
+                </div>
+
+                <button class="stake-btn" onclick="openStakeModal('365', '62')">Stake Now</button>
+            </div>
+        </div>
+
+        <!-- Active Stakes -->
+        <div class="active-stakes">
+            <h2 class="section-title">Your Active Stakes</h2>
+
+            <div class="stake-item">
+                <div class="stake-header">
+                    <div class="stake-amount">100,000 HYPEAI</div>
+                    <div class="stake-status">⏱️ Active</div>
+                </div>
+
+                <div class="stake-stats">
+                    <div class="stake-stat">
+                        <div class="stat-label">Lock Period</div>
+                        <div class="stat-value">365 Days</div>
+                    </div>
+                    <div class="stake-stat">
+                        <div class="stat-label">APY</div>
+                        <div class="stat-value" style="color: var(--accent-green);">62%</div>
+                    </div>
+                    <div class="stake-stat">
+                        <div class="stat-label">Time Left</div>
+                        <div class="stat-value">287 Days</div>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 21%;"></div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div style="color: var(--gray); margin-bottom: 0.5rem;">Accumulated Rewards</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-green);">13,260 HYPEAI</div>
+                    </div>
+                    <button class="unstake-btn" onclick="unstake()">Unstake (Penalty)</button>
+                </div>
+            </div>
+
+            <div class="stake-item">
+                <div class="stake-header">
+                    <div class="stake-amount">50,000 HYPEAI</div>
+                    <div class="stake-status" style="background: rgba(0, 212, 255, 0.2); color: var(--primary-blue);">✅ Completed</div>
+                </div>
+
+                <div class="stake-stats">
+                    <div class="stake-stat">
+                        <div class="stat-label">Lock Period</div>
+                        <div class="stat-value">90 Days</div>
+                    </div>
+                    <div class="stake-stat">
+                        <div class="stat-label">APY</div>
+                        <div class="stat-value" style="color: var(--accent-green);">27%</div>
+                    </div>
+                    <div class="stake-stat">
+                        <div class="stat-label">Status</div>
+                        <div class="stat-value">Unlocked</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+                    <div>
+                        <div style="color: var(--gray); margin-bottom: 0.5rem;">Total Earned</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-green);">3,328 HYPEAI</div>
+                    </div>
+                    <button class="stake-btn" style="width: auto; padding: 0.75rem 2rem;" onclick="claimRewards()">Claim All</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rewards Calculator -->
+        <div class="calculator">
+            <h2 class="section-title">🧮 Rewards Calculator</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                <div>
+                    <label style="color: var(--gray); display: block; margin-bottom: 0.5rem;">Stake Amount</label>
+                    <input type="number" class="calc-input" id="calcAmount" value="10000" oninput="calculate()">
+                </div>
+                <div>
+                    <label style="color: var(--gray); display: block; margin-bottom: 0.5rem;">Lock Period</label>
+                    <select class="calc-input" id="calcPeriod" onchange="calculate()">
+                        <option value="30">30 Days (17% APY)</option>
+                        <option value="90">90 Days (27% APY)</option>
+                        <option value="365" selected>365 Days (62% APY)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calc-result">
+                <div style="color: var(--gray); margin-bottom: 1rem;">Estimated Rewards</div>
+                <div class="calc-result-value" id="calcResult">6,200 HYPEAI</div>
+                <div style="color: var(--gray); margin-top: 1rem;">≈ $6.20 at current price</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                } catch (error) {
+                    alert('Failed to connect wallet');
+                }
+            } else {
+                alert('Please install MetaMask!');
+                window.open('https://metamask.io/download/', '_blank');
+            }
+        }
+
+        function openStakeModal(days, apy) {
+            const amount = prompt(`Enter amount to stake (min. ${days === '30' ? '1,000' : days === '90' ? '5,000' : '10,000'} HYPEAI):`);
+            if (amount && !isNaN(amount)) {
+                alert(`Staking ${amount} HYPEAI for ${days} days at ${apy}% APY\n\nThis is a demo. In production, this would interact with smart contracts.`);
+            }
+        }
+
+        function unstake() {
+            if (confirm('Early unstaking will incur a 10% penalty. Continue?')) {
+                alert('Unstaking initiated.\n\nIn production, this would:\n1. Calculate penalty\n2. Return tokens to wallet\n3. Update rewards');
+            }
+        }
+
+        function claimRewards() {
+            alert('Claiming 3,328 HYPEAI rewards!\n\nIn production, this would transfer tokens to your wallet.');
+        }
+
+        function calculate() {
+            const amount = parseFloat(document.getElementById('calcAmount').value) || 0;
+            const period = document.getElementById('calcPeriod').value;
+            const apyMap = { '30': 0.17, '90': 0.27, '365': 0.62 };
+            const apy = apyMap[period];
+            const days = parseInt(period);
+
+            const rewards = (amount * apy * days) / 365;
+            document.getElementById('calcResult').textContent = Math.round(rewards).toLocaleString() + ' HYPEAI';
+        }
+
+        calculate();
+    </script>
+</body>
+</html>

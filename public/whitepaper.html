@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📖 Whitepaper - HypeAI</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="HypeAI Whitepaper - AI-Powered Crypto Trading Platform. Learn about our technology, tokenomics, roadmap, and vision for the future of DeFi.">
+    <meta name="keywords" content="HypeAI whitepaper, crypto whitepaper, AI trading, DeFi, blockchain technology">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary-blue: #00D4FF;
+            --primary-purple: #9D4EDD;
+            --accent-green: #39FF14;
+            --dark-bg: #0A0E27;
+            --dark-card: #1A1F3A;
+            --white: #FFFFFF;
+            --gray: #A0AEC0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0F1629 100%);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.8);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 5% 4rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--gray);
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .content {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .abstract-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            margin-bottom: 4rem;
+        }
+
+        .abstract-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .toc-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .toc-list {
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+
+        .toc-list li {
+            counter-increment: toc-counter;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-left: 3px solid var(--primary-blue);
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .toc-list li:hover {
+            background: rgba(0, 212, 255, 0.15);
+        }
+
+        .toc-list li::before {
+            content: counter(toc-counter) ". ";
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-desc {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .feature-stat {
+            display: block;
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tokenomics-viz {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            margin: 2rem 0;
+        }
+
+        .token-dist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .roadmap-timeline {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .roadmap-phase {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .phase-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .phase-list {
+            list-style: none;
+            color: var(--gray);
+            line-height: 2;
+        }
+
+        .phase-list li {
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .phase-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .spec-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .spec-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        footer {
+            padding: 4rem 5%;
+            background: rgba(10, 14, 39, 0.9);
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            header {
+                padding: 1rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <header>
+        <a href="index.html" class="logo">
+            🧠⚡ HypeAI
+        </a>
+        <nav>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#tokenomics">Tokenomics</a>
+            <a href="index.html#roadmap">Roadmap</a>
+            <a href="docs.html">Docs</a>
+            <a href="whitepaper.html" style="color: var(--accent-green);">Whitepaper</a>
+            <a href="api.html">API</a>
+            <a href="audit.html">Audit</a>
+        </nav>
+        <button class="cta-button" onclick="connectWallet()">Connect Wallet</button>
+    </header>
+
+    <section class="hero">
+        <h1>📖 HypeAI Whitepaper</h1>
+        <p class="hero-subtitle">
+            AI-Powered Crypto Trading Platform<br>
+            Where Artificial Intelligence Meets Decentralized Finance
+        </p>
+        <a href="#" class="download-btn" onclick="alert('PDF download will be available soon!')">📥 Download PDF</a>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2 class="section-title">Abstract</h2>
+            <div class="abstract-card">
+                <p>
+                    HypeAI represents the convergence of artificial intelligence and decentralized finance, creating a revolutionary platform that empowers traders with unprecedented market insights and automated trading capabilities. By leveraging advanced machine learning algorithms including LSTM networks and Transformer models, HypeAI achieves 85%+ prediction accuracy across multiple cryptocurrency markets.
+                </p>
+                <p>
+                    The platform introduces a unique economic model that combines high-yield staking (up to 62% APY), community-driven DAO governance, and AI-powered prediction services. Built on Polygon Layer 2 for scalability and efficiency, HypeAI processes over 1000 transactions per second while maintaining minimal fees and Ethereum-level security.
+                </p>
+                <p>
+                    This whitepaper outlines the technical architecture, tokenomics, governance model, and roadmap for HypeAI. Our mission is to democratize access to institutional-grade AI trading tools while building a sustainable, community-driven ecosystem that rewards participation and innovation. With a total supply of 1 billion HYPEAI tokens and a fair distribution model, we aim to create long-term value for all stakeholders.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Table of Contents</h2>
+            <div class="toc-card">
+                <ul class="toc-list">
+                    <li>Introduction & Vision</li>
+                    <li>Technical Architecture & AI Models</li>
+                    <li>Tokenomics & Distribution</li>
+                    <li>Staking & Rewards System</li>
+                    <li>DAO Governance Model</li>
+                    <li>Security & Audits</li>
+                    <li>Roadmap & Milestones</li>
+                    <li>Team & Partners</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Key Features</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI Predictions</h3>
+                    <p class="feature-desc">
+                        Advanced LSTM and Transformer models analyze historical data, market sentiment, and on-chain metrics to provide highly accurate price predictions.
+                    </p>
+                    <span class="feature-stat">85%+ Accuracy</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">High-Yield Staking</h3>
+                    <p class="feature-desc">
+                        Multi-tier staking system with daily compounding. Lock your tokens for 30, 90, or 365 days to earn passive income.
+                    </p>
+                    <span class="feature-stat">Up to 62% APY</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗳️</div>
+                    <h3 class="feature-title">DAO Governance</h3>
+                    <p class="feature-desc">
+                        Community-driven decision making with token-weighted voting on protocol upgrades, partnerships, and treasury management.
+                    </p>
+                    <span class="feature-stat">1 Token = 1 Vote</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Multi-chain Support</h3>
+                    <p class="feature-desc">
+                        Deployed on Polygon L2 with plans to expand to Arbitrum, Optimism, and other leading Layer 2 solutions.
+                    </p>
+                    <span class="feature-stat">1000+ TPS</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Security First</h3>
+                    <p class="feature-desc">
+                        Comprehensive security audits from CertiK, OpenZeppelin, and Trail of Bits. Battle-tested smart contracts with multiple safeguards.
+                    </p>
+                    <span class="feature-stat">95/100 Score</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Real-time Analytics</h3>
+                    <p class="feature-desc">
+                        Advanced dashboard with live charts, portfolio tracking, AI predictions, and market sentiment analysis.
+                    </p>
+                    <span class="feature-stat">24/7 Monitoring</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Tokenomics</h2>
+
+            <div class="tokenomics-viz">
+                <h3 style="margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">Total Supply: 1,000,000,000 HYPEAI</h3>
+
+                <div class="token-dist-item">
+                    <span>🎯 Public Sale</span>
+                    <strong style="color: var(--accent-green);">25% (250M)</strong>
+                </div>
+                <div class="token-dist-item">
+                    <span>💧 Liquidity Pool</span>
+                    <strong style="color: var(--accent-green);">20% (200M)</strong>
+                </div>
+                <div class="token-dist-item">
+                    <span>💰 Staking Rewards</span>
+                    <strong style="color: var(--accent-green);">15% (150M)</strong>
+                </div>
+                <div class="token-dist-item">
+                    <span>👥 Team & Advisors</span>
+                    <strong style="color: var(--accent-green);">15% (150M)</strong>
+                </div>
+                <div class="token-dist-item">
+                    <span>🏦 Treasury & Development</span>
+                    <strong style="color: var(--accent-green);">10% (100M)</strong>
+                </div>
+                <div class="token-dist-item">
+                    <span>📢 Marketing & Growth</span>
+                    <strong style="color: var(--accent-green);">8% (80M)</strong>
+                </div>
+                <div class="token-dist-item">
+                    <span>🤝 Strategic Partnerships</span>
+                    <strong style="color: var(--accent-green);">5% (50M)</strong>
+                </div>
+                <div class="token-dist-item">
+                    <span>🎁 Community Airdrop</span>
+                    <strong style="color: var(--accent-green);">2% (20M)</strong>
+                </div>
+            </div>
+
+            <div style="background: rgba(26, 31, 58, 0.6); padding: 2.5rem; border-radius: 20px; margin-top: 2rem; border: 1px solid rgba(157, 78, 221, 0.2);">
+                <h3 style="margin-bottom: 1.5rem; text-align: center;">Transaction Fees: 8%</h3>
+                <div style="display: grid; gap: 1rem;">
+                    <div style="display: flex; justify-content: space-between; padding: 1rem; background: rgba(0, 212, 255, 0.1); border-radius: 10px;">
+                        <span>💧 Liquidity Pool</span>
+                        <strong style="color: var(--accent-green);">3%</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem; background: rgba(157, 78, 221, 0.1); border-radius: 10px;">
+                        <span>🔁 Holder Reflection</span>
+                        <strong style="color: var(--accent-green);">2%</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem; background: rgba(57, 255, 20, 0.1); border-radius: 10px;">
+                        <span>🏦 Treasury</span>
+                        <strong style="color: var(--accent-green);">2%</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 1rem; background: rgba(255, 0, 0, 0.1); border-radius: 10px;">
+                        <span>🔥 Token Burn</span>
+                        <strong style="color: var(--accent-green);">1%</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Roadmap</h2>
+
+            <div class="roadmap-timeline">
+                <div class="roadmap-phase">
+                    <h3 class="phase-title">Q1 2025 - Foundation</h3>
+                    <ul class="phase-list">
+                        <li>Smart contract development & testing</li>
+                        <li>Comprehensive security audits</li>
+                        <li>Website & documentation launch</li>
+                        <li>Community building & social media</li>
+                        <li>Initial DEX listing (Uniswap/PancakeSwap)</li>
+                        <li>Community airdrop campaign</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h3 class="phase-title">Q2 2025 - Growth</h3>
+                    <ul class="phase-list">
+                        <li>CEX listings (Gate.io, MEXC, KuCoin)</li>
+                        <li>Staking platform launch with APY rewards</li>
+                        <li>Mobile app release (iOS & Android)</li>
+                        <li>Major marketing campaigns</li>
+                        <li>Strategic partnerships with DeFi protocols</li>
+                        <li>AI prediction API beta launch</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h3 class="phase-title">Q3 2025 - Expansion</h3>
+                    <ul class="phase-list">
+                        <li>Multi-chain deployment (Arbitrum, Optimism)</li>
+                        <li>NFT marketplace integration</li>
+                        <li>DAO governance platform launch</li>
+                        <li>Advanced AI features & sentiment analysis</li>
+                        <li>Institutional partnership program</li>
+                        <li>Trading competition & rewards</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h3 class="phase-title">Q4 2025 - Ecosystem</h3>
+                    <ul class="phase-list">
+                        <li>DeFi product suite launch</li>
+                        <li>Lending & borrowing protocol</li>
+                        <li>Launchpad platform for new projects</li>
+                        <li>Cross-chain bridge integration</li>
+                        <li>Achieve $100M market cap milestone</li>
+                        <li>Global expansion & partnerships</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Technical Specifications</h2>
+
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-label">Blockchain</div>
+                    <div class="spec-value">Polygon (Matic)</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label">Token Standard</div>
+                    <div class="spec-value">ERC-20</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label">Total Supply</div>
+                    <div class="spec-value">1B HYPEAI</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label">Transaction Fee</div>
+                    <div class="spec-value">8%</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label">Max Staking APY</div>
+                    <div class="spec-value">62%</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label">AI Accuracy</div>
+                    <div class="spec-value">85%+</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label">TPS Capacity</div>
+                    <div class="spec-value">1000+</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label">Security Score</div>
+                    <div class="spec-value">95/100</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HypeAI</h3>
+                <p style="color: var(--gray); line-height: 1.6;">
+                    AI-Powered Crypto Trading Platform.<br>
+                    Where AI Meets Opportunity.<br><br>
+                    <strong style="color: var(--accent-green);">🤖 Built by Professional AI Agents</strong><br>
+                    <strong style="color: var(--primary-blue);">∞ Working infinitely to make YOU a millionaire 💰</strong>
+                </p>
+                <div class="social-links" style="margin-top: 1.5rem;">
+                    <a href="https://twitter.com/HypeAI_official" style="color: var(--primary-blue);">𝕏</a>
+                    <a href="https://t.me/hypeai" style="color: var(--primary-blue);">✈️</a>
+                    <a href="https://discord.gg/hypeai" style="color: var(--primary-blue);">💬</a>
+                    <a href="https://github.com/hypeai" style="color: var(--primary-blue);">🐙</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul class="footer-links">
+                    <li><a href="trade.html">Trade</a></li>
+                    <li><a href="stake.html">Stake</a></li>
+                    <li><a href="governance.html">Governance</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="whitepaper.html">Whitepaper</a></li>
+                    <li><a href="audit.html">Security Audit</a></li>
+                    <li><a href="api.html">API Docs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="agents.html">🤖 AI Agents Team</a></li>
+                    <li><a href="index.html#roadmap">Roadmap</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About Mission</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2); color: var(--gray);">
+            <p>© 2025 HypeAI. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">Built with ❤️ by 26 Professional AI Agents</p>
+            <p style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--accent-green);">
+                <strong>Achieve Financial Freedom with AI! 🚀</strong>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                } catch (error) {
+                    console.error('Failed to connect wallet:', error);
+                    alert('Failed to connect wallet. Please try again.');
+                }
+            } else {
+                alert('Please install MetaMask or another Web3 wallet!');
+                window.open('https://metamask.io/download/', '_blank');
+            }
+        }
+    </script>
+</body>
+</html>

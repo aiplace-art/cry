@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="compactGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+      <stop offset="33%" style="stop-color:#0066FF;stop-opacity:1" />
+      <stop offset="66%" style="stop-color:#9D4EDD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF006E;stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="compactGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#00D4FF;stop-opacity:0" />
+    </radialGradient>
+
+    <filter id="compactGlowFilter">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Glow background -->
+  <circle cx="100" cy="100" r="90" fill="url(#compactGlow)" opacity="0.4"/>
+
+  <!-- Stylized AI infinity brain -->
+  <g filter="url(#compactGlowFilter)">
+    <!-- Infinity symbol with neural network style -->
+    <path d="M 60 100 Q 50 80, 60 60 Q 70 40, 90 40 Q 110 40, 120 60 Q 130 80, 120 100 Q 110 120, 90 120 Q 70 120, 60 100 Z"
+          fill="url(#compactGrad)"
+          opacity="0.95"
+          stroke="#FFFFFF"
+          stroke-width="2"/>
+
+    <path d="M 120 100 Q 110 80, 120 60 Q 130 40, 150 40 Q 170 40, 180 60 Q 190 80, 180 100 Q 170 120, 150 120 Q 130 120, 120 100 Z"
+          fill="url(#compactGrad)"
+          opacity="0.95"
+          stroke="#FFFFFF"
+          stroke-width="2"/>
+
+    <!-- Connection point -->
+    <circle cx="120" cy="100" r="8" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="120" cy="100" r="5" fill="url(#compactGrad)"/>
+  </g>
+
+  <!-- Neural nodes -->
+  <g opacity="0.7">
+    <circle cx="60" cy="75" r="4" fill="#00D4FF"/>
+    <circle cx="75" cy="90" r="3" fill="#0066FF"/>
+    <circle cx="60" cy="115" r="4" fill="#9D4EDD"/>
+    <circle cx="150" cy="75" r="4" fill="#FF006E"/>
+    <circle cx="165" cy="90" r="3" fill="#FFB800"/>
+    <circle cx="150" cy="115" r="4" fill="#9D4EDD"/>
+  </g>
+
+  <!-- Explosion rays -->
+  <g opacity="0.6" stroke="url(#compactGrad)" stroke-width="2" fill="none">
+    <line x1="120" y1="100" x2="120" y2="30" stroke-linecap="round"/>
+    <line x1="120" y1="100" x2="170" y2="50" stroke-linecap="round"/>
+    <line x1="120" y1="100" x2="190" y2="100" stroke-linecap="round"/>
+    <line x1="120" y1="100" x2="170" y2="150" stroke-linecap="round"/>
+    <line x1="120" y1="100" x2="120" y2="170" stroke-linecap="round"/>
+    <line x1="120" y1="100" x2="70" y2="150" stroke-linecap="round"/>
+    <line x1="120" y1="100" x2="50" y2="100" stroke-linecap="round"/>
+    <line x1="120" y1="100" x2="70" y2="50" stroke-linecap="round"/>
+  </g>
+
+  <!-- Compact "H∞" monogram -->
+  <g transform="translate(100, 170)">
+    <text x="0" y="0"
+          font-family="Arial, sans-serif"
+          font-size="28"
+          font-weight="900"
+          fill="url(#compactGrad)"
+          text-anchor="middle"
+          letter-spacing="2">H∞</text>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://hypeai.io/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Allow all public pages
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /images/
+Allow: /assets/

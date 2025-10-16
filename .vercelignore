@@ -1,0 +1,67 @@
+# Dependencies
+node_modules
+src/frontend/node_modules
+src/backend/node_modules
+src/bots/node_modules
+website/node_modules
+
+# Build outputs
+.next
+out
+dist
+build
+
+# Environment variables
+.env
+.env.local
+.env*.local
+scripts/.env.marketing
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+*.pem
+
+# IDEs
+.idea
+.vscode
+*.swp
+*.swo
+
+# Testing
+coverage
+.nyc_output
+
+# Blockchain
+cache
+artifacts
+
+# Temporary
+tmp
+temp
+*.tmp
+
+# Source code (not needed for website deployment)
+src/
+tests/
+scripts/
+docs/LAUNCH_SUCCESS.md
+docs/VERCEL_DEPLOYMENT.md
+docs/FIX_TWITTER_PERMISSIONS.md
+docs/TWITTER_PERMISSIONS_VISUAL_GUIDE.md
+
+# Config files not needed
+hardhat.config.js
+truffle-config.js
+tsconfig.json
+package.json
+package-lock.json
+
+# Keep only website folder
+!website
+!website/**
