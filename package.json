@@ -13,7 +13,11 @@
     "calc": "node src/backend/tokenomics.js",
     "lint": "eslint . --ext .js,.sol",
     "format": "prettier --write '**/*.{js,sol,json,md}'",
-    "coverage": "hardhat coverage"
+    "coverage": "hardhat coverage",
+    "mention-bot": "node --no-warnings=ExperimentalWarning --input-type=commonjs src/bots/mention-monitor-bot.js",
+    "mention-bot:pm2": "pm2 start src/bots/mention-monitor-bot.js --name mention-monitor --interpreter node --node-args='--no-warnings=ExperimentalWarning --input-type=commonjs'",
+    "mention-analytics": "node --input-type=commonjs scripts/analyze-mention-logs.js",
+    "mention-analytics:export": "node --input-type=commonjs scripts/analyze-mention-logs.js --export"
   },
   "keywords": [
     "ethereum",
@@ -34,7 +38,9 @@
   "author": "15 Professional AI Agents - HypeAI Team",
   "license": "MIT",
   "dependencies": {
-    "ethers": "^6.7.1"
+    "axios": "^1.12.2",
+    "ethers": "^6.7.1",
+    "node-telegram-bot-api": "^0.66.0"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.1.0",

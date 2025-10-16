@@ -1,0 +1,48 @@
+{
+  "telegram": {
+    "token": "7984417748:AAGpe_lXaklW__NLPr9j_UztdXbSz2br__o"
+  },
+  "contractAddress": "TBD_AFTER_SOLANA_LAUNCH",
+  "partnershipEmail": "partnerships@hypeai.io",
+  "links": {
+    "website": "http://localhost:3000/presale",
+    "docs": "https://github.com/hypeai/docs",
+    "twitter": "https://twitter.com/HypeAI_SOL",
+    "telegram": "https://t.me/HypeAI_Community",
+    "pumpfun": "https://pump.fun/hypeai",
+    "solscan": "https://solscan.io/token/TBD",
+    "raydium": "https://raydium.io/swap/",
+    "buyGuide": "https://pump.fun/how-it-works"
+  },
+  "moderation": {
+    "antiSpam": {
+      "enabled": true,
+      "messageThreshold": 5,
+      "timeWindow": 10000
+    },
+    "humanReview": {
+      "enabled": true,
+      "requireApprovalFor": ["auto-replies"]
+    }
+  },
+  "notifications": {
+    "dailyUpdates": {
+      "enabled": true,
+      "time": "12:00",
+      "timezone": "UTC"
+    },
+    "priceAlerts": {
+      "enabled": true,
+      "checkInterval": 60000
+    }
+  },
+  "features": {
+    "telegram": {
+      "welcomeMessages": true,
+      "priceAlerts": true,
+      "dailyUpdates": true,
+      "faqResponses": true,
+      "customAlerts": true
+    }
+  }
+}

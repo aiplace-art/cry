@@ -5,7 +5,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { ethers } from 'ethers';
-import { BSC_CONFIG, CONTRACTS, ERC20_ABI, formatters, ERROR_MESSAGES, isCorrectNetwork } from '../lib/contracts';
+import { getCurrentNetworkConfig, CONTRACTS, ERC20_ABI, formatters, ERROR_MESSAGES, isCorrectNetwork } from '../lib/contracts';
 
 export interface WalletState {
   address: string | null;
@@ -196,18 +196,20 @@ export const useWallet = () => {
         throw new Error('MetaMask is not installed');
       }
 
+      const networkConfig = getCurrentNetworkConfig();
+
       try {
-        // Try to switch to BSC
+        // Try to switch to target network
         await window.ethereum?.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: BSC_CONFIG.chainId }],
+          params: [{ chainId: networkConfig.chainId }],
         });
       } catch (switchError: any) {
         // This error code indicates that the chain has not been added to MetaMask
         if (switchError.code === 4902) {
           await window.ethereum?.request({
             method: 'wallet_addEthereumChain',
-            params: [BSC_CONFIG],
+            params: [networkConfig],
           });
         } else {
           throw switchError;

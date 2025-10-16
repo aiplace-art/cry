@@ -25,10 +25,15 @@ import { usePresaleContract } from '../hooks/usePresaleContract';
 import { formatters, TransactionStatus } from '../lib/contracts';
 
 // Constants
-const PRESALE_END = new Date('2025-11-10T00:00:00').getTime();
-const PRESALE_PRICE = 0.0008;
-const TARGET_RAISE = 80000;
-const FOUNDING_MEMBERS_LIMIT = 500;
+const LAUNCH_DATE = new Date('2025-11-15T00:00:00').getTime();
+const INITIAL_PRICE = 0.0001; // Solana launch price
+const COMMUNITY_TARGET = 1000;
+const TARGET_RAISE = 80000; // $80k target for progress bar
+const SOCIAL_LINKS = {
+  twitter: 'https://twitter.com/HypeAI_SOL',
+  telegram: 'https://t.me/HypeAI_Community',
+  pumpfun: 'https://pump.fun/hypeai',
+};
 
 interface CountdownTime {
   days: number;
@@ -82,7 +87,12 @@ export default function PresalePage() {
     currency: 'BNB',
     amount: ''
   });
-  const [showParticles, setShowParticles] = useState(true);
+  const [showParticles, setShowParticles] = useState(false);
+
+  // Enable particles only on client side to avoid hydration errors
+  useEffect(() => {
+    setShowParticles(true);
+  }, []);
   const [showTxModal, setShowTxModal] = useState(false);
   const [inputError, setInputError] = useState<string>('');
 
@@ -90,7 +100,7 @@ export default function PresalePage() {
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
-      const distance = PRESALE_END - now;
+      const distance = LAUNCH_DATE - now;
 
       if (distance < 0) {
         clearInterval(timer);
@@ -121,7 +131,7 @@ export default function PresalePage() {
     if (amount <= 0) return 0;
 
     const usdValue = purchaseForm.currency === 'BNB' ? amount * 600 : amount;
-    const baseTokens = usdValue / PRESALE_PRICE;
+    const baseTokens = usdValue / 0.0001; // $0.0001 per token
     const bonusTokens = baseTokens * 0.1; // 10% bonus
     return baseTokens + bonusTokens;
   }, [purchaseForm]);
@@ -228,26 +238,30 @@ export default function PresalePage() {
       {/* Animated Background Particles */}
       {showParticles && typeof window !== 'undefined' && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-cyan-400 rounded-full"
-              initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                opacity: Math.random()
-              }}
-              animate={{
-                y: [null, Math.random() * window.innerHeight],
-                opacity: [null, Math.random(), 0]
-              }}
-              transition={{
-                duration: Math.random() * 10 + 5,
-                repeat: Infinity,
-                ease: 'linear'
-              }}
-            />
-          ))}
+          {[...Array(20)].map((_, i) => {
+            const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : 1920;
+            const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 1080;
+            return (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+                initial={{
+                  x: Math.random() * viewportWidth,
+                  y: Math.random() * viewportHeight,
+                  opacity: Math.random()
+                }}
+                animate={{
+                  y: [null, Math.random() * viewportHeight],
+                  opacity: [null, Math.random(), 0]
+                }}
+                transition={{
+                  duration: Math.random() * 10 + 5,
+                  repeat: Infinity,
+                  ease: 'linear'
+                }}
+              />
+            );
+          })}
         </div>
       )}
 
@@ -263,16 +277,16 @@ export default function PresalePage() {
           transition={{ duration: 0.8 }}
           className="text-center py-16 relative"
         >
-          {/* Founding Members Badge */}
+          {/* Community Launch Badge */}
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.3, type: 'spring' }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/50 backdrop-blur-sm mb-8"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/50 backdrop-blur-sm mb-8"
           >
-            <Award className="w-5 h-5 text-yellow-400 animate-pulse" />
-            <span className="text-yellow-400 font-bold text-sm tracking-wider">
-              FOUNDING MEMBERS ONLY • LIMITED TO {FOUNDING_MEMBERS_LIMIT}
+            <Rocket className="w-5 h-5 text-purple-400 animate-pulse" />
+            <span className="text-purple-400 font-bold text-sm tracking-wider">
+              COMMUNITY LAUNCH ON SOLANA • POWERED BY PUMP.FUN
             </span>
           </motion.div>
 
@@ -284,10 +298,10 @@ export default function PresalePage() {
             className="text-6xl md:text-8xl font-black mb-6 leading-tight"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 animate-gradient-x">
-              Join 15 AI Agents
+              15 AI Agents
             </span>
             <br />
-            <span className="text-white">Building The Future</span>
+            <span className="text-white">Building On Solana</span>
           </motion.h1>
 
           <motion.p
@@ -296,10 +310,10 @@ export default function PresalePage() {
             transition={{ delay: 0.7 }}
             className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto"
           >
-            Be part of the revolutionary AI-powered crypto ecosystem.
+            The first truly community-driven AI crypto project.
             <br />
             <span className="text-cyan-400 font-semibold">
-              First-mover advantage. Lifetime VIP benefits. Unprecedented ROI.
+              Fair launch. No presale. 100% transparency.
             </span>
           </motion.p>
 
@@ -331,376 +345,335 @@ export default function PresalePage() {
           </motion.div>
         </motion.section>
 
-        {/* Live Stats Dashboard */}
+        {/* Why Solana First? Section */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1 }}
-          className="mb-16"
+          className="mb-16 max-w-4xl mx-auto"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {/* Raised Amount */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity" />
-              <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-2xl p-6 border border-green-500/30">
-                <div className="flex items-center gap-3 mb-3">
-                  <TrendingUp className="w-6 h-6 text-green-400" />
-                  <span className="text-sm text-gray-400 font-semibold">RAISED</span>
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity" />
+            <div className="relative bg-slate-900/80 backdrop-blur-2xl rounded-3xl p-8 border border-cyan-500/30">
+              <div className="text-center mb-8">
+                <h2 className="text-4xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+                  Why Solana First?
+                </h2>
+                <p className="text-lg text-gray-300 mb-6">
+                  We're taking a different path. Here's why we chose a community launch over a traditional presale:
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-6 bg-slate-800/50 rounded-xl border border-cyan-500/20">
+                  <div className="flex items-start gap-3 mb-3">
+                    <Zap className="w-6 h-6 text-cyan-400 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-bold text-cyan-400 mb-2">Lightning Fast</h3>
+                      <p className="text-gray-400 text-sm">
+                        Solana's sub-second finality and low fees make it perfect for our AI-powered trading agents.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-4xl font-black text-green-400">
-                  ${raised.toLocaleString('en-US', { maximumFractionDigits: 0 })}
+
+                <div className="p-6 bg-slate-800/50 rounded-xl border border-purple-500/20">
+                  <div className="flex items-start gap-3 mb-3">
+                    <Users className="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-bold text-purple-400 mb-2">Community First</h3>
+                      <p className="text-gray-400 text-sm">
+                        Fair launch on pump.fun means everyone gets the same opportunity. No VCs, no insiders.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-sm text-gray-500 mt-1">
-                  of ${TARGET_RAISE.toLocaleString()} goal
+
+                <div className="p-6 bg-slate-800/50 rounded-xl border border-green-500/20">
+                  <div className="flex items-start gap-3 mb-3">
+                    <Shield className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-bold text-green-400 mb-2">100% Transparent</h3>
+                      <p className="text-gray-400 text-sm">
+                        All code is open source. All decisions are community-driven. All 15 AI agents work in public.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-slate-800/50 rounded-xl border border-yellow-500/20">
+                  <div className="flex items-start gap-3 mb-3">
+                    <Sparkles className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-bold text-yellow-400 mb-2">AI-Native Chain</h3>
+                      <p className="text-gray-400 text-sm">
+                        Solana's ecosystem is embracing AI agents. We're building where the innovation happens.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Founding Members */}
+              <div className="mt-8 p-6 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl border border-cyan-500/30">
+                <h3 className="text-xl font-bold mb-3 text-center">Our Commitment</h3>
+                <p className="text-gray-300 text-center leading-relaxed">
+                  We initially explored BSC, but we realized that true innovation requires a community-first approach.
+                  Solana and pump.fun enable us to launch fairly, transparently, and with full community participation from day one.
+                  No hidden allocations, no team tokens unlock later. Just pure community ownership.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Community Stats */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.3 }}
+          className="mb-16"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Community Members */}
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity" />
               <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/30">
                 <div className="flex items-center gap-3 mb-3">
                   <Users className="w-6 h-6 text-purple-400" />
-                  <span className="text-sm text-gray-400 font-semibold">FOUNDING MEMBERS</span>
+                  <span className="text-sm text-gray-400 font-semibold">COMMUNITY GOAL</span>
                 </div>
                 <div className="text-4xl font-black text-purple-400">
-                  {foundingMembers}/{FOUNDING_MEMBERS_LIMIT}
+                  {COMMUNITY_TARGET}+
                 </div>
                 <div className="text-sm text-gray-500 mt-1">
-                  {((foundingMembers / FOUNDING_MEMBERS_LIMIT) * 100).toFixed(1)}% filled
+                  Members before launch
                 </div>
               </div>
             </div>
 
-            {/* Token Price */}
+            {/* Initial Price */}
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity" />
               <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-2xl p-6 border border-cyan-500/30">
                 <div className="flex items-center gap-3 mb-3">
                   <Target className="w-6 h-6 text-cyan-400" />
-                  <span className="text-sm text-gray-400 font-semibold">PRESALE PRICE</span>
+                  <span className="text-sm text-gray-400 font-semibold">FAIR LAUNCH PRICE</span>
                 </div>
                 <div className="text-4xl font-black text-cyan-400">
-                  ${PRESALE_PRICE}
+                  ${INITIAL_PRICE}
                 </div>
                 <div className="text-sm text-gray-500 mt-1">
-                  Launch price: $0.0016 (+100%)
+                  Set by pump.fun bonding curve
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Progress Bar */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-30" />
-            <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-full p-2 border border-cyan-500/30">
-              <div className="relative h-8 bg-slate-800 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${progressPercentage}%` }}
-                  transition={{ duration: 2, ease: 'easeOut' }}
-                  className="h-full bg-gradient-to-r from-green-500 via-cyan-500 to-purple-500 rounded-full relative overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
-                </motion.div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-sm font-bold text-white drop-shadow-lg">
-                    {progressPercentage.toFixed(1)}% Complete
-                  </span>
+            {/* Launch Platform */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity" />
+              <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-2xl p-6 border border-green-500/30">
+                <div className="flex items-center gap-3 mb-3">
+                  <Rocket className="w-6 h-6 text-green-400" />
+                  <span className="text-sm text-gray-400 font-semibold">LAUNCH PLATFORM</span>
+                </div>
+                <div className="text-4xl font-black text-green-400">
+                  pump.fun
+                </div>
+                <div className="text-sm text-gray-500 mt-1">
+                  Fair launch on Solana
                 </div>
               </div>
             </div>
           </div>
         </motion.section>
 
-        {/* Purchase Widget */}
+        {/* Join the Movement CTA */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3 }}
+          transition={{ delay: 1.5 }}
           className="max-w-2xl mx-auto mb-16"
         >
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity" />
             <div className="relative bg-slate-900/80 backdrop-blur-2xl rounded-3xl p-8 border border-cyan-500/30">
               <h2 className="text-3xl font-black mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
-                Secure Your Position Now
+                Join the Movement
               </h2>
 
-              {/* Wallet Status Alert */}
-              {!isConnected && (
-                <div className="mb-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-xl flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-yellow-400 font-semibold">Wallet Not Connected</p>
-                    <p className="text-sm text-gray-400 mt-1">Please connect your wallet to participate in the presale</p>
-                  </div>
-                </div>
-              )}
+              <p className="text-center text-gray-300 mb-8 text-lg">
+                Be part of the first AI-powered crypto project launching on Solana.
+                Join our community and help shape the future of decentralized AI.
+              </p>
 
-              {isConnected && !isCorrectNetwork && (
-                <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-red-400 font-semibold">Wrong Network</p>
-                    <p className="text-sm text-gray-400 mt-1">Please switch to BNB Smart Chain</p>
-                    <button
-                      onClick={switchToBSC}
-                      className="mt-2 text-sm text-cyan-400 hover:text-cyan-300 font-semibold"
-                    >
-                      Switch Network →
-                    </button>
+              {/* Social Links Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                {/* Twitter */}
+                <a
+                  href={SOCIAL_LINKS.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl blur opacity-40 group-hover:opacity-60 transition-opacity" />
+                  <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-xl p-6 border border-cyan-500/30 hover:border-cyan-500/60 transition-all transform hover:scale-105">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center">
+                        <ExternalLink className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-400">Follow us on</p>
+                        <p className="text-lg font-bold text-white">Twitter</p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-400">Get real-time updates from our AI agents</p>
                   </div>
-                </div>
-              )}
+                </a>
 
-              {/* User Info */}
-              {isConnected && isCorrectNetwork && userInfo && (
-                <div className="mb-6 p-4 bg-cyan-500/10 border border-cyan-500/30 rounded-xl">
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <span className="text-gray-400">Your Contribution:</span>
-                      <p className="text-white font-bold">${userInfo.contribution}</p>
+                {/* Telegram */}
+                <a
+                  href={SOCIAL_LINKS.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur opacity-40 group-hover:opacity-60 transition-opacity" />
+                  <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-xl p-6 border border-purple-500/30 hover:border-purple-500/60 transition-all transform hover:scale-105">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                        <Users className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-400">Join our</p>
+                        <p className="text-lg font-bold text-white">Telegram</p>
+                      </div>
                     </div>
-                    <div>
-                      <span className="text-gray-400">Tokens Purchased:</span>
-                      <p className="text-cyan-400 font-bold">
-                        {formatters.formatTokenAmount(userInfo.tokensPurchased)}
-                      </p>
-                    </div>
+                    <p className="text-sm text-gray-400">Chat with the community 24/7</p>
                   </div>
-                  {userInfo.isFoundingMember && (
-                    <div className="mt-2 flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-400" />
-                      <span className="text-green-400 font-semibold text-sm">Founding Member</span>
-                    </div>
-                  )}
-                </div>
-              )}
+                </a>
 
-              {/* Currency Toggle */}
-              <div className="flex gap-4 mb-6">
-                {(['BNB', 'USDT'] as const).map((currency) => (
-                  <button
-                    key={currency}
-                    onClick={() => setPurchaseForm(prev => ({ ...prev, currency }))}
-                    disabled={!isConnected || !isCorrectNetwork}
-                    className={`flex-1 py-4 rounded-xl font-bold transition-all ${
-                      purchaseForm.currency === currency
-                        ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-lg shadow-cyan-500/50'
-                        : 'bg-slate-800 text-gray-400 hover:bg-slate-700'
-                    } disabled:opacity-50 disabled:cursor-not-allowed`}
-                  >
-                    {currency}
-                    {isConnected && isCorrectNetwork && (
-                      <span className="block text-xs mt-1">
-                        Balance: {currency === 'BNB' ? bnbBalance : usdtBalance}
-                      </span>
-                    )}
-                  </button>
-                ))}
+                {/* pump.fun */}
+                <a
+                  href={SOCIAL_LINKS.pumpfun}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl blur opacity-40 group-hover:opacity-60 transition-opacity" />
+                  <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-xl p-6 border border-green-500/30 hover:border-green-500/60 transition-all transform hover:scale-105">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                        <Rocket className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-400">Launch on</p>
+                        <p className="text-lg font-bold text-white">pump.fun</p>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-400">Fair launch platform on Solana</p>
+                  </div>
+                </a>
               </div>
 
-              {/* Amount Input */}
-              <div className="mb-6">
-                <label className="block text-sm font-semibold text-gray-400 mb-2">
-                  Amount ({purchaseForm.currency})
-                </label>
-                <div className="relative">
-                  <input
-                    type="number"
-                    value={purchaseForm.amount}
-                    onChange={(e) => handleAmountChange(e.target.value)}
-                    placeholder="0.0"
-                    disabled={!isConnected || !isCorrectNetwork}
-                    className={`w-full bg-slate-800 border ${
-                      inputError ? 'border-red-500' : 'border-slate-700'
-                    } rounded-xl px-6 py-4 text-2xl font-bold text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed`}
-                  />
-                  <div className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">
-                    {purchaseForm.currency}
+              {/* Launch Details */}
+              <div className="p-6 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl border border-cyan-500/30 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p className="text-gray-400 mb-1">Launch Date</p>
+                    <p className="text-white font-bold text-lg">
+                      {new Date(LAUNCH_DATE).toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                      })}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-gray-400 mb-1">Blockchain</p>
+                    <p className="text-cyan-400 font-bold text-lg">Solana</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-400 mb-1">Platform</p>
+                    <p className="text-purple-400 font-bold text-lg">pump.fun</p>
+                  </div>
+                  <div>
+                    <p className="text-gray-400 mb-1">Initial Price</p>
+                    <p className="text-green-400 font-bold text-lg">${INITIAL_PRICE}</p>
                   </div>
                 </div>
-                {inputError && (
-                  <p className="mt-2 text-sm text-red-400 flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4" />
-                    {inputError}
-                  </p>
-                )}
-                {purchaseForm.amount && !inputError && (
-                  <div className="mt-2 text-sm text-gray-400">
-                    ≈ ${calculateUSDValue.toLocaleString('en-US', { maximumFractionDigits: 2 })} USD
-                  </div>
-                )}
               </div>
 
-              {/* Token Calculation Preview */}
-              {purchaseForm.amount && !inputError && calculateTokens > 0 && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  className="mb-6 p-4 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl border border-cyan-500/30"
-                >
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-400">You will receive:</span>
-                    <span className="text-2xl font-black text-cyan-400">
-                      {calculateTokens.toLocaleString('en-US', { maximumFractionDigits: 0 })} HYPEAI
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center mt-2 text-sm">
-                    <span className="text-gray-500">Includes 10% bonus</span>
-                    <span className="text-green-400 font-bold">
-                      +{(calculateTokens * 0.1 / 1.1).toLocaleString('en-US', { maximumFractionDigits: 0 })} bonus tokens
-                    </span>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Action Button */}
-              {!isConnected ? (
-                <button
-                  onClick={handleConnectWallet}
-                  disabled={walletLoading}
-                  className="w-full py-5 rounded-xl font-black text-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-all shadow-lg shadow-cyan-500/50 hover:shadow-cyan-500/75 hover:scale-105 transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                >
-                  <Wallet className="inline-block w-6 h-6 mr-2" />
-                  {walletLoading ? 'Connecting...' : 'Connect MetaMask'}
-                </button>
-              ) : !isCorrectNetwork ? (
-                <button
-                  onClick={switchToBSC}
-                  disabled={walletLoading}
-                  className="w-full py-5 rounded-xl font-black text-lg bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 transition-all shadow-lg shadow-orange-500/50 hover:shadow-orange-500/75 hover:scale-105 transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                >
-                  <AlertCircle className="inline-block w-6 h-6 mr-2" />
-                  {walletLoading ? 'Switching...' : 'Switch to BSC Network'}
-                </button>
-              ) : (
-                <button
-                  onClick={handlePurchase}
-                  disabled={
-                    !purchaseForm.amount ||
-                    !!inputError ||
-                    presaleLoading ||
-                    txStatus === TransactionStatus.PENDING ||
-                    txStatus === TransactionStatus.APPROVING
-                  }
-                  className="w-full py-5 rounded-xl font-black text-lg bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-400 hover:to-emerald-400 transition-all shadow-lg shadow-green-500/50 hover:shadow-green-500/75 hover:scale-105 transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                >
-                  <Rocket className="inline-block w-6 h-6 mr-2" />
-                  {txStatus === TransactionStatus.APPROVING && 'Approving USDT...'}
-                  {txStatus === TransactionStatus.PENDING && 'Processing...'}
-                  {(txStatus === TransactionStatus.IDLE || txStatus === TransactionStatus.ERROR || txStatus === TransactionStatus.SUCCESS) && 'Buy Tokens Now'}
+              {/* Main CTA */}
+              <a
+                href={SOCIAL_LINKS.telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <button className="w-full py-5 rounded-xl font-black text-lg bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:from-cyan-400 hover:via-purple-400 hover:to-pink-400 transition-all shadow-lg shadow-purple-500/50 hover:shadow-purple-500/75 hover:scale-105 transform">
+                  <Users className="inline-block w-6 h-6 mr-2" />
+                  Join Our Community Now
                   <ArrowRight className="inline-block w-6 h-6 ml-2" />
                 </button>
-              )}
+              </a>
 
-              {/* Security Badge */}
+              {/* Info Badge */}
               <div className="mt-6 flex items-center justify-center gap-2 text-sm text-gray-400">
                 <Shield className="w-4 h-4 text-green-400" />
-                <span>Secured by Smart Contract • Audited by AI Agents</span>
+                <span>Open Source • Community Owned • AI Powered</span>
               </div>
             </div>
           </div>
         </motion.section>
 
-        {/* Transaction Status Modal */}
-        <AnimatePresence>
-          {showTxModal && txStatus !== TransactionStatus.IDLE && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-              onClick={() => {
-                if (txStatus === TransactionStatus.SUCCESS || txStatus === TransactionStatus.ERROR) {
-                  setShowTxModal(false);
-                  resetTransaction();
-                }
-              }}
-            >
-              <motion.div
-                initial={{ scale: 0.9, y: 20 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.9, y: 20 }}
-                className="bg-slate-900 rounded-2xl p-8 max-w-md w-full border border-cyan-500/30"
-                onClick={(e: React.MouseEvent) => e.stopPropagation()}
-              >
-                <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-2xl font-black">Transaction Status</h3>
-                  {(txStatus === TransactionStatus.SUCCESS || txStatus === TransactionStatus.ERROR) && (
-                    <button
-                      onClick={() => {
-                        setShowTxModal(false);
-                        resetTransaction();
-                      }}
-                      className="text-gray-400 hover:text-white"
-                    >
-                      <X className="w-6 h-6" />
-                    </button>
-                  )}
+        {/* AI Agents Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.7 }}
+          className="mb-16 max-w-4xl mx-auto"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
+              Meet the 15 AI Agents
+            </h2>
+            <p className="text-lg text-gray-300">
+              Autonomous agents working 24/7 to build, trade, and grow the ecosystem
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {[
+              { name: 'Trader', icon: TrendingUp, color: 'green' },
+              { name: 'Developer', icon: Zap, color: 'cyan' },
+              { name: 'Analyst', icon: Target, color: 'purple' },
+              { name: 'Community', icon: Users, color: 'pink' },
+              { name: 'Security', icon: Shield, color: 'yellow' },
+              { name: 'Marketing', icon: Sparkles, color: 'orange' },
+              { name: 'Research', icon: Clock, color: 'blue' },
+              { name: 'Strategy', icon: Award, color: 'red' },
+              { name: 'Integration', icon: Lock, color: 'indigo' },
+              { name: 'Growth', icon: Rocket, color: 'teal' },
+            ].map((agent, i) => {
+              const Icon = agent.icon;
+              return (
+                <div key={i} className="relative group">
+                  <div className={`absolute inset-0 bg-gradient-to-r from-${agent.color}-500 to-${agent.color}-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity`} />
+                  <div className="relative bg-slate-900/60 backdrop-blur-xl rounded-xl p-4 border border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+                    <Icon className={`w-8 h-8 text-${agent.color}-400 mb-2 mx-auto`} />
+                    <p className="text-xs font-bold text-center text-gray-300">{agent.name}</p>
+                  </div>
                 </div>
+              );
+            })}
+          </div>
 
-                {txStatus === TransactionStatus.APPROVING && (
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-                    <p className="text-xl font-bold mb-2">Approving USDT</p>
-                    <p className="text-gray-400">Please confirm the approval transaction in your wallet...</p>
-                  </div>
-                )}
-
-                {txStatus === TransactionStatus.PENDING && (
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-                    <p className="text-xl font-bold mb-2">Processing Purchase</p>
-                    <p className="text-gray-400">Please wait while your transaction is being processed...</p>
-                    {txHash && (
-                      <a
-                        href={`https://bscscan.com/tx/${txHash}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300"
-                      >
-                        View on BscScan <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-                )}
-
-                {txStatus === TransactionStatus.SUCCESS && (
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-10 h-10 text-white" />
-                    </div>
-                    <p className="text-xl font-bold mb-2 text-green-400">Purchase Successful!</p>
-                    <p className="text-gray-400 mb-4">Your tokens have been sent to your wallet</p>
-                    {txHash && (
-                      <a
-                        href={`https://bscscan.com/tx/${txHash}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300"
-                      >
-                        View on BscScan <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-                )}
-
-                {txStatus === TransactionStatus.ERROR && (
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <AlertCircle className="w-10 h-10 text-white" />
-                    </div>
-                    <p className="text-xl font-bold mb-2 text-red-400">Transaction Failed</p>
-                    <p className="text-gray-400">{presaleError || 'Please try again'}</p>
-                  </div>
-                )}
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          <div className="mt-8 text-center">
+            <p className="text-gray-400 text-sm">
+              + 5 more specialized agents in development
+            </p>
+          </div>
+        </motion.section>
       </div>
 
       {/* Custom Styles */}

@@ -1,0 +1,38 @@
+{
+  "botToken": "YOUR_TELEGRAM_BOT_TOKEN",
+  "adminIds": [
+    123456789,
+    987654321
+  ],
+  "monitoredGroups": [
+    "-1001234567890",
+    "-1009876543210"
+  ],
+  "blacklist": [],
+  "maxResponsesPerHour": 5,
+  "keywords": {
+    "direct": [
+      "HypeAI",
+      "@HypeAI",
+      "Hype AI",
+      "hypeai.fun"
+    ],
+    "related": [
+      "AI tokens",
+      "Solana AI",
+      "AI agents",
+      "pump.fun",
+      "15 agents",
+      "autonomous agents",
+      "AI meme coins",
+      "Solana memes"
+    ],
+    "questions": [
+      "best AI token",
+      "AI crypto projects",
+      "autonomous agent tokens",
+      "which AI tokens",
+      "AI token recommendations"
+    ]
+  }
+}

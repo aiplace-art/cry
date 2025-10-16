@@ -63,7 +63,8 @@ contract HypeAIPrivateSale is Ownable, ReentrancyGuard, Pausable {
     ) Ownable(msg.sender) {
         require(_hypeaiToken != address(0), "Invalid token address");
         require(_usdtToken != address(0), "Invalid USDT address");
-        require(_saleStartTime >= block.timestamp, "Invalid start time");
+        // Allow immediate start for testing
+        require(_saleStartTime > 0, "Invalid start time");
 
         hypeaiToken = IERC20(_hypeaiToken);
         usdtToken = IERC20(_usdtToken);

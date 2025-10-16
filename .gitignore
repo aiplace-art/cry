@@ -52,3 +52,8 @@ temp/
 
 # Claude-Flow
 .swarm/
+
+# Telegram Bot
+scripts/.env.telegram
+.telegram/
+*.telegram.log

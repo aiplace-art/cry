@@ -33,6 +33,20 @@ export const BSC_TESTNET_CONFIG = {
   blockExplorerUrls: ['https://testnet.bscscan.com'],
 };
 
+// Hardhat Localhost Configuration (for local development)
+export const LOCALHOST_CONFIG = {
+  chainId: '0x7a69', // 31337 in hex
+  chainIdDecimal: 31337,
+  chainName: 'Hardhat Local',
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  rpcUrls: [process.env.NEXT_PUBLIC_BSC_RPC_URL || 'http://localhost:8545'],
+  blockExplorerUrls: [],
+};
+
 // Contract Addresses (replace with actual deployed addresses)
 export const CONTRACTS = {
   PRESALE: process.env.NEXT_PUBLIC_PRESALE_CONTRACT || '',
@@ -193,10 +207,26 @@ export enum TransactionStatus {
 }
 
 /**
+ * Get current network config based on environment
+ */
+export const getCurrentNetworkConfig = () => {
+  const chainId = process.env.NEXT_PUBLIC_CHAIN_ID;
+
+  if (chainId === '31337') {
+    return LOCALHOST_CONFIG;
+  } else if (chainId === '97') {
+    return BSC_TESTNET_CONFIG;
+  } else {
+    return BSC_CONFIG; // Default to mainnet
+  }
+};
+
+/**
  * Network validation
  */
 export const isCorrectNetwork = (chainId: number): boolean => {
-  return chainId === BSC_CONFIG.chainIdDecimal;
+  const targetChainId = parseInt(process.env.NEXT_PUBLIC_CHAIN_ID || '56', 10);
+  return chainId === targetChainId;
 };
 
 /**

@@ -1,0 +1,39 @@
+{
+  "botToken": "PASTE_YOUR_BOT_TOKEN_HERE",
+  "adminIds": [
+    999999999
+  ],
+  "monitoredGroups": [],
+  "blacklist": [],
+  "maxResponsesPerHour": 5,
+  "keywords": {
+    "direct": [
+      "HypeAI",
+      "@HypeAI",
+      "Hype AI",
+      "hypeai.fun"
+    ],
+    "related": [
+      "AI tokens",
+      "Solana AI",
+      "AI agents",
+      "pump.fun",
+      "15 agents",
+      "autonomous agents",
+      "AI meme coins",
+      "Solana memes",
+      "best AI projects",
+      "AI crypto"
+    ],
+    "questions": [
+      "best AI token",
+      "AI crypto projects",
+      "autonomous agent tokens",
+      "which AI tokens",
+      "AI token recommendations",
+      "what AI projects",
+      "good AI tokens",
+      "AI meme coins"
+    ]
+  }
+}
