@@ -58,10 +58,16 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
     }
 
     mapping(address => Stake[]) public stakes;
+
+    // Dynamic APY system (adjusts based on pool health to prevent depletion)
     uint256 public constant BASE_APY = 1200; // 12% base APY
     uint256 public constant BONUS_APY_30_DAYS = 500; // +5% for 30 days
     uint256 public constant BONUS_APY_90_DAYS = 1500; // +15% for 90 days
     uint256 public constant BONUS_APY_365_DAYS = 5000; // +50% for 365 days
+
+    uint256 public constant INITIAL_STAKING_POOL = 2_500_000_000 * 10**18; // 2.5B tokens
+    uint256 public stakingPoolRemaining = INITIAL_STAKING_POOL; // Tracks available rewards
+    uint256 public totalStakedAmount; // Total currently staked
 
     // Liquidity management
     uint256 public swapTokensAtAmount = 10_000_000 * 10**18; // 0.1% of supply
@@ -71,10 +77,11 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
     event TradingEnabled();
     event FeesUpdated(uint256 reflection, uint256 liquidity, uint256 burn, uint256 treasury);
     event AIFeesUpdated(uint256 newTotalFee);
-    event Staked(address indexed user, uint256 amount, uint256 lockPeriod);
+    event Staked(address indexed user, uint256 amount, uint256 lockPeriod, uint256 effectiveAPY);
     event Unstaked(address indexed user, uint256 amount, uint256 reward);
     event ReflectionDistributed(uint256 amount);
     event LiquidityAdded(uint256 tokenAmount, uint256 ethAmount);
+    event StakingPoolUpdated(uint256 remaining, uint256 poolHealthPercent);
 
     constructor(
         address _treasuryWallet,
@@ -200,7 +207,7 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
     }
 
     /**
-     * @dev Stake tokens for rewards
+     * @dev Stake tokens for rewards with DYNAMIC APY based on pool health
      */
     function stake(uint256 amount, uint256 lockPeriodDays) external nonReentrant {
         require(amount > 0, "Cannot stake 0 tokens");
@@ -209,29 +216,46 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
             lockPeriodDays == 30 || lockPeriodDays == 90 || lockPeriodDays == 365,
             "Invalid lock period"
         );
+        require(stakingPoolRemaining > 0, "Staking pool depleted");
 
-        // Calculate reward rate based on lock period
-        uint256 rewardRate = BASE_APY;
-        if (lockPeriodDays == 30) rewardRate = rewardRate + BONUS_APY_30_DAYS;
-        else if (lockPeriodDays == 90) rewardRate = rewardRate + BONUS_APY_90_DAYS;
-        else if (lockPeriodDays == 365) rewardRate = rewardRate + BONUS_APY_365_DAYS;
+        // Calculate base reward rate based on lock period
+        uint256 baseRewardRate = BASE_APY;
+        if (lockPeriodDays == 30) baseRewardRate = baseRewardRate + BONUS_APY_30_DAYS;
+        else if (lockPeriodDays == 90) baseRewardRate = baseRewardRate + BONUS_APY_90_DAYS;
+        else if (lockPeriodDays == 365) baseRewardRate = baseRewardRate + BONUS_APY_365_DAYS;
+
+        // DYNAMIC APY: Adjust reward rate based on pool health
+        // Formula: effectiveAPY = baseAPY × (poolRemaining / initialPool)
+        // When pool is 100% → 100% APY
+        // When pool is 50% → 50% APY
+        // When pool is 10% → 10% APY (minimum threshold)
+        uint256 poolHealthBasisPoints = (stakingPoolRemaining * 10000) / INITIAL_STAKING_POOL;
+
+        // Ensure minimum 10% APY even when pool is low (prevents 0% APY)
+        if (poolHealthBasisPoints < 1000) poolHealthBasisPoints = 1000; // 10% minimum
+
+        uint256 effectiveRewardRate = (baseRewardRate * poolHealthBasisPoints) / 10000;
 
         // Transfer tokens to contract
         _transfer(msg.sender, address(this), amount);
 
-        // Create stake
+        // Update total staked
+        totalStakedAmount = totalStakedAmount + amount;
+
+        // Create stake with DYNAMIC reward rate
         stakes[msg.sender].push(Stake({
             amount: amount,
             timestamp: block.timestamp,
             lockPeriod: lockPeriodDays,
-            rewardRate: rewardRate
+            rewardRate: effectiveRewardRate
         }));
 
-        emit Staked(msg.sender, amount, lockPeriodDays);
+        emit Staked(msg.sender, amount, lockPeriodDays, effectiveRewardRate);
+        emit StakingPoolUpdated(stakingPoolRemaining, poolHealthBasisPoints / 100);
     }
 
     /**
-     * @dev Unstake tokens and claim rewards
+     * @dev Unstake tokens and claim rewards (deducts from pool)
      */
     function unstake(uint256 stakeIndex) external nonReentrant {
         require(stakeIndex < stakes[msg.sender].length, "Invalid stake index");
@@ -241,11 +265,20 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
 
         require(block.timestamp >= lockEndTime, "Stake is still locked");
 
-        // Calculate rewards
+        // Calculate rewards based on the DYNAMIC APY at time of staking
         uint256 stakingDuration = block.timestamp - userStake.timestamp;
         uint256 reward = (userStake.amount * userStake.rewardRate * stakingDuration) / (365 days) / 10000;
 
+        // Cap reward at remaining pool (safety check)
+        if (reward > stakingPoolRemaining) {
+            reward = stakingPoolRemaining;
+        }
+
         uint256 totalAmount = userStake.amount + reward;
+
+        // Update pool and total staked
+        stakingPoolRemaining = stakingPoolRemaining - reward;
+        totalStakedAmount = totalStakedAmount - userStake.amount;
 
         // Remove stake
         stakes[msg.sender][stakeIndex] = stakes[msg.sender][stakes[msg.sender].length - 1];
@@ -255,6 +288,7 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
         _transfer(address(this), msg.sender, totalAmount);
 
         emit Unstaked(msg.sender, userStake.amount, reward);
+        emit StakingPoolUpdated(stakingPoolRemaining, (stakingPoolRemaining * 100) / INITIAL_STAKING_POOL);
     }
 
 
@@ -314,7 +348,34 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
 
         Stake memory userStake = stakes[user][stakeIndex];
         uint256 stakingDuration = block.timestamp - userStake.timestamp;
+        uint256 reward = (userStake.amount * userStake.rewardRate * stakingDuration) / (365 days) / 10000;
 
-        return (userStake.amount * userStake.rewardRate * stakingDuration) / (365 days) / 10000;
+        // Cap at remaining pool
+        if (reward > stakingPoolRemaining) {
+            return stakingPoolRemaining;
+        }
+
+        return reward;
+    }
+
+    /**
+     * @dev Get current pool health and effective APY rates
+     */
+    function getPoolHealth() external view returns (
+        uint256 poolRemaining,
+        uint256 poolHealthPercent,
+        uint256 effectiveAPY30Days,
+        uint256 effectiveAPY90Days,
+        uint256 effectiveAPY365Days
+    ) {
+        poolRemaining = stakingPoolRemaining;
+        poolHealthPercent = (stakingPoolRemaining * 100) / INITIAL_STAKING_POOL;
+
+        uint256 poolHealthBasisPoints = (stakingPoolRemaining * 10000) / INITIAL_STAKING_POOL;
+        if (poolHealthBasisPoints < 1000) poolHealthBasisPoints = 1000; // 10% minimum
+
+        effectiveAPY30Days = ((BASE_APY + BONUS_APY_30_DAYS) * poolHealthBasisPoints) / 10000;
+        effectiveAPY90Days = ((BASE_APY + BONUS_APY_90_DAYS) * poolHealthBasisPoints) / 10000;
+        effectiveAPY365Days = ((BASE_APY + BONUS_APY_365_DAYS) * poolHealthBasisPoints) / 10000;
     }
 }
