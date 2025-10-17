@@ -1780,6 +1780,34 @@
     </div>
 
     <script>
+        // Wallet state
+        let connectedWallet = null;
+
+        // Update button UI
+        function updateWalletButton(address) {
+            const buttons = document.querySelectorAll('.cta-button');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('Connect') || btn.textContent.includes('0x')) {
+                    const shortAddress = address.substring(0, 6) + '...' + address.substring(38);
+                    btn.innerHTML = '🟢 ' + shortAddress;
+                    btn.style.background = 'linear-gradient(135deg, var(--accent-green), #00D4FF)';
+                    btn.onclick = disconnectWallet;
+                }
+            });
+            connectedWallet = address;
+        }
+
+        // Disconnect wallet
+        function disconnectWallet() {
+            connectedWallet = null;
+            const buttons = document.querySelectorAll('.cta-button');
+            buttons.forEach(btn => {
+                btn.textContent = 'Connect Wallet';
+                btn.style.background = 'linear-gradient(135deg, var(--primary-blue), var(--primary-purple))';
+                btn.onclick = connectWallet;
+            });
+        }
+
         // Show wallet modal
         function connectWallet() {
             document.getElementById('walletModal').classList.add('active');
@@ -1802,7 +1830,7 @@
             if (typeof window.ethereum !== 'undefined') {
                 try {
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    alert('✅ MetaMask connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                    updateWalletButton(accounts[0]);
                     closeWalletModal();
                 } catch (error) {
                     console.error('Failed to connect MetaMask:', error);
@@ -1825,12 +1853,12 @@
 
                     if (provider) {
                         const accounts = await provider.request({ method: 'eth_requestAccounts' });
-                        alert('✅ Trust Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                        updateWalletButton(accounts[0]);
                         closeWalletModal();
                     } else {
                         // If Trust Wallet not detected, try generic ethereum
                         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                        alert('✅ Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                        updateWalletButton(accounts[0]);
                         closeWalletModal();
                     }
                 } catch (error) {
@@ -1847,6 +1875,29 @@
         async function connectWalletConnect() {
             alert('🔗 WalletConnect integration coming soon!\\n\\nFor now, please use:\\n• MetaMask browser extension\\n• Trust Wallet mobile app\\n• Coinbase Wallet\\n\\nWe\'re working on full WalletConnect support.');
         }
+
+        // Check if wallet is already connected on page load
+        window.addEventListener('load', async function() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                    if (accounts.length > 0) {
+                        updateWalletButton(accounts[0]);
+                    }
+                } catch (error) {
+                    console.error('Failed to check wallet connection:', error);
+                }
+
+                // Listen for account changes
+                window.ethereum.on('accountsChanged', function(accounts) {
+                    if (accounts.length === 0) {
+                        disconnectWallet();
+                    } else {
+                        updateWalletButton(accounts[0]);
+                    }
+                });
+            }
+        });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
