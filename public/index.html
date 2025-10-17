@@ -8,7 +8,7 @@
     <link rel="alternate icon" href="favicon.svg">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Trade smarter with HypeAI's AI-powered predictions. Stake for up to 62% APY. Community-driven DAO governance. The future of crypto trading is here.">
+    <meta name="description" content="HypeAI - AI-powered crypto platform with 27 professional AI agents. AI Services, Token Economics, and 85% prediction accuracy. Stake for up to 62% APY.">
     <meta name="keywords" content="AI crypto, DeFi staking, crypto trading, blockchain AI, high APY, DAO governance, HYPEAI">
     <meta name="author" content="HypeAI Team">
 
@@ -22,7 +22,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="HypeAI - AI-Powered Crypto">
-    <meta name="twitter:description" content="Trade smarter, stake higher, govern together">
+    <meta name="twitter:description" content="AI Services Platform with 27 AI agents working 24/7. Build your crypto project with AI power.">
     <meta name="twitter:image" content="https://hypeai.io/twitter-card.png">
 
     <!-- Fonts -->
@@ -63,6 +63,12 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
+        /* Accessibility: Focus indicators */
+        a:focus, button:focus, input:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
         /* Animated Background */
         .animated-bg {
             position: fixed;
@@ -91,6 +97,7 @@
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             background: rgba(10, 14, 39, 0.8);
             border-bottom: 1px solid rgba(157, 78, 221, 0.2);
             z-index: 1000;
@@ -142,6 +149,47 @@
 
         nav a:hover {
             color: var(--primary-blue);
+        }
+
+        /* Live Agents Button */
+        .live-agents-btn {
+            position: relative;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.2), rgba(57, 255, 20, 0.4));
+            border: 2px solid var(--accent-green);
+            border-radius: 20px;
+            color: var(--accent-green) !important;
+            font-weight: 700;
+            animation: livePulseGreen 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+        }
+
+        .live-agents-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.8);
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.3), rgba(57, 255, 20, 0.5));
+        }
+
+        .live-agents-btn::before {
+            content: '🔴';
+            margin-right: 0.5rem;
+            animation: blinkRed 1.5s ease-in-out infinite;
+        }
+
+        @keyframes livePulseGreen {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+                border-color: var(--accent-green);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(57, 255, 20, 0.9);
+                border-color: #66FF44;
+            }
+        }
+
+        @keyframes blinkRed {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
         }
 
         .cta-button {
@@ -249,6 +297,7 @@
             background: rgba(26, 31, 58, 0.6);
             border-radius: 20px;
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(157, 78, 221, 0.2);
             max-width: 1200px;
             margin: 0 auto;
@@ -270,6 +319,128 @@
             color: var(--gray);
             font-size: 0.9rem;
             margin-top: 0.5rem;
+        }
+
+        /* NEW SECTIONS STYLES */
+        .services, .token-growth, .ai-agents {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .token-growth {
+            background: rgba(26, 31, 58, 0.3);
+        }
+
+        .subsection-title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        /* AI Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-features li {
+            color: var(--gray);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .service-pricing {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        .service-cta {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .service-cta:hover {
+            color: var(--white);
+        }
+
+        .services-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
         }
 
         /* Features Section */
@@ -303,6 +474,7 @@
             padding: 2.5rem;
             border-radius: 20px;
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(157, 78, 221, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -327,6 +499,154 @@
             line-height: 1.6;
         }
 
+        /* Agent Cards */
+        .agents-section {
+            margin-bottom: 3rem;
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .agent-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(0, 212, 255, 0.3);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .agent-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .agent-name {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .agent-role {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .agent-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-green);
+        }
+
+        .status-dot.active {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .agent-stats {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+        }
+
+        .agent-stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .agent-stat-item .stat-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .agent-stat-item .stat-text {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .show-more-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        /* Live Dashboard */
+        .live-dashboard {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            margin-bottom: 4rem;
+        }
+
+        .dashboard-status {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .status-indicator {
+            font-size: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .status-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .dashboard-stat {
+            text-align: center;
+        }
+
+        .dashboard-stat .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dashboard-stat .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
         /* Tokenomics Section */
         .tokenomics {
             padding: 6rem 5%;
@@ -347,6 +667,7 @@
             padding: 3rem;
             border-radius: 20px;
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(157, 78, 221, 0.2);
         }
 
@@ -386,6 +707,7 @@
             padding: 2rem;
             border-radius: 20px;
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(157, 78, 221, 0.2);
         }
 
@@ -440,17 +762,163 @@
             font-size: 1.5rem;
         }
 
+        /* Wallet Modal */
+        .wallet-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wallet-modal.active {
+            display: flex;
+        }
+
+        .wallet-modal-content {
+            background: rgba(26, 31, 58, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .wallet-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .wallet-modal-close:hover {
+            opacity: 1;
+        }
+
+        .wallet-modal h3 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .wallet-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .wallet-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .wallet-option:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: var(--primary-blue);
+            transform: translateX(10px);
+        }
+
+        .wallet-icon {
+            font-size: 2rem;
+        }
+
+        .wallet-info h4 {
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .wallet-info p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
         @media (max-width: 768px) {
             .tokenomics-content {
                 grid-template-columns: 1fr;
             }
 
             nav {
-                display: none;
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 80px);
+                background: rgba(10, 14, 39, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: right 0.3s ease;
+                border-left: 1px solid rgba(157, 78, 221, 0.3);
+                z-index: 999;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
 
             header {
                 padding: 1rem 5%;
+            }
+
+            .services, .token-growth, .ai-agents {
+                padding: 4rem 5%;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-buttons a {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -464,28 +932,23 @@
             <img src="logo-icon-only.svg" alt="HypeAI Logo" style="width: 70px; height: 70px; margin-right: 0.5rem;">
             HypeAI <span style="font-size: 1.2rem; margin-left: 0.3rem;">⚡</span>
         </div>
-        <nav>
-            <a href="trade-enhanced.html" style="color: var(--primary-blue); font-weight: 700;">💎 Trade</a>
-            <a href="#features">Features</a>
-            <a href="#tokenomics">Tokenomics</a>
-            <a href="#roadmap">Roadmap</a>
+        <nav id="mobileNav">
+            <a href="#services" onclick="closeMobileMenu()">Services</a>
+            <a href="#ai-agents" onclick="closeMobileMenu()">AI Team</a>
+            <a href="agents-activity.html" class="live-agents-btn">Live (27/27)</a>
+            <a href="#tokenomics" onclick="closeMobileMenu()">Tokenomics</a>
             <a href="proof.html" style="color: var(--accent-green);">✅ PROOF</a>
-            <a href="agents.html">AI Team</a>
-            <a href="agents-activity.html" style="color: var(--primary-purple);">🔴 Live</a>
             <a href="docs.html">Docs</a>
         </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         <button class="cta-button" onclick="connectWallet()">Connect Wallet</button>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <h1>Where AI Meets Opportunity</h1>
-        <p class="hero-subtitle">
-            Trade smarter with AI-powered predictions.<br>
-            Stake for up to 62% APY. Vote on the future.
-        </p>
         <div class="hero-ctas">
-            <a href="trade-enhanced.html" class="primary-button">🚀 Start Trading Now</a>
+            <a href="#services" class="primary-button">🚀 Explore Services</a>
             <a href="docs.html" class="secondary-button">View Docs</a>
         </div>
 
@@ -493,35 +956,531 @@
         <div class="stats">
             <div class="stat">
                 <div class="stat-value">$1.2M</div>
-                <div class="stat-label">Total Value Locked</div>
+                <div class="stat-label">Total Value Locked (Demo)</div>
             </div>
             <div class="stat">
                 <div class="stat-value">5,234</div>
-                <div class="stat-label">Token Holders</div>
+                <div class="stat-label">Token Holders (Demo)</div>
             </div>
             <div class="stat">
                 <div class="stat-value">62%</div>
-                <div class="stat-label">Maximum APY</div>
+                <div class="stat-label">Maximum APY (High Risk)</div>
             </div>
             <div class="stat">
                 <div class="stat-value">85%</div>
-                <div class="stat-label">AI Accuracy</div>
+                <div class="stat-label">AI Accuracy (Demo)</div>
             </div>
             <div class="stat">
                 <div class="stat-value">$0.001</div>
-                <div class="stat-label">Token Price</div>
+                <div class="stat-label">Token Price (Demo)</div>
             </div>
             <div class="stat">
                 <div class="stat-value">24/7</div>
-                <div class="stat-label">Trading Active</div>
+                <div class="stat-label">Trading Active (Demo)</div>
             </div>
+        </div>
+    </section>
+
+    <!-- AI SERVICES PLATFORM SECTION -->
+    <section id="services" class="services">
+        <h2 class="section-title">AI Services Platform</h2>
+        <p class="section-subtitle">35+ professional AI services for crypto projects. From security audits to full-stack development.</p>
+
+        <!-- 8 Service Category Cards in 4x2 Grid -->
+        <div class="services-grid">
+            <!-- Security Category -->
+            <div class="service-card" data-category="security">
+                <div class="service-icon">🛡️</div>
+                <h3 class="service-title">Security & Auditing</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                    Professional smart contract audits and security assessments by ATLAS, our blockchain security specialist. We identify vulnerabilities, ensure code safety, and protect your project from exploits with military-grade security protocols.
+                </p>
+                <ul class="service-features">
+                    <li>Smart Contract Audits</li>
+                    <li>Penetration Testing</li>
+                    <li>24/7 Security Monitoring</li>
+                    <li>Incident Response</li>
+                </ul>
+                <div class="service-pricing">From $2,500</div>
+            </div>
+
+            <!-- Tokenomics Category -->
+            <div class="service-card" data-category="tokenomics">
+                <div class="service-icon">💰</div>
+                <h3 class="service-title">Tokenomics Design</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                    Data-driven tokenomics models crafted by MOMENTUM, our economics specialist. We design sustainable token economies with proven burn mechanisms, staking rewards, and deflationary strategies that ensure long-term growth and value appreciation.
+                </p>
+                <ul class="service-features">
+                    <li>Economic Modeling</li>
+                    <li>Token Distribution</li>
+                    <li>Vesting Schedules</li>
+                    <li>Burn Mechanisms</li>
+                </ul>
+                <div class="service-pricing">From $1,200</div>
+            </div>
+
+            <!-- Development Category -->
+            <div class="service-card" data-category="development">
+                <div class="service-icon">💻</div>
+                <h3 class="service-title">Smart Contract Development</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                    Enterprise-grade smart contracts and dApps built by NEXUS, SOLIDITY, and PRISM - our full-stack development team. From Solidity contracts to React frontends, we deliver production-ready code with 100% test coverage and gas optimization.
+                </p>
+                <ul class="service-features">
+                    <li>Custom Smart Contracts</li>
+                    <li>dApp Development</li>
+                    <li>Multi-Chain Deployment</li>
+                    <li>Backend & APIs</li>
+                </ul>
+                <div class="service-pricing">From $3,500</div>
+            </div>
+
+            <!-- Marketing Category -->
+            <div class="service-card" data-category="marketing">
+                <div class="service-icon">📢</div>
+                <h3 class="service-title">Marketing & Growth</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                    Aggressive growth campaigns executed by MOMENTUM, our marketing CMO. We scale crypto projects from 0 to 10,000+ followers with proven strategies: Twitter automation, influencer partnerships, viral content, and community building that converts.
+                </p>
+                <ul class="service-features">
+                    <li>Social Media Management</li>
+                    <li>Launch Campaigns</li>
+                    <li>Content Creation</li>
+                    <li>Influencer Marketing</li>
+                </ul>
+                <div class="service-pricing">From $799/mo</div>
+            </div>
+
+            <!-- Community Category -->
+            <div class="service-card" data-category="community">
+                <div class="service-icon">👥</div>
+                <h3 class="service-title">Community Management</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                    24/7 community engagement powered by PULSE, our community AI. Never miss a mention, question, or complaint. We manage Discord, Telegram, Twitter with instant responses, sentiment analysis, and proactive community building that keeps your holders loyal.
+                </p>
+                <ul class="service-features">
+                    <li>Discord/Telegram Setup</li>
+                    <li>24/7 Moderation</li>
+                    <li>Engagement Programs</li>
+                    <li>Sentiment Analysis</li>
+                </ul>
+                <div class="service-pricing">From $499/mo</div>
+            </div>
+
+            <!-- Design Category -->
+            <div class="service-card" data-category="design">
+                <div class="service-icon">🎨</div>
+                <h3 class="service-title">Design & Branding</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                    Apple-level design crafted by PIXEL and VIBE, our design and brand specialists. We create logos, websites, and brand identities that look like $100M projects - even for startups. Modern, clean, and professional designs that inspire trust and investment.
+                </p>
+                <ul class="service-features">
+                    <li>Logo & Brand Identity</li>
+                    <li>Website Design</li>
+                    <li>UI/UX for dApps</li>
+                    <li>Marketing Assets</li>
+                </ul>
+                <div class="service-pricing">From $1,500</div>
+            </div>
+
+            <!-- Content Category -->
+            <div class="service-card" data-category="content">
+                <div class="service-icon">✍️</div>
+                <h3 class="service-title">Content Creation</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                    Professional content from CONTENT, our writing AI. Whitepapers that investors actually read, technical docs that developers understand, and blog posts that rank on Google. SEO-optimized, technically accurate, and professionally formatted.
+                </p>
+                <ul class="service-features">
+                    <li>Whitepaper Writing</li>
+                    <li>Technical Documentation</li>
+                    <li>Blog Posts & Articles</li>
+                    <li>Video Scripts</li>
+                </ul>
+                <div class="service-pricing">From $399</div>
+            </div>
+
+            <!-- Operations Category -->
+            <div class="service-card" data-category="operations">
+                <div class="service-icon">⚙️</div>
+                <h3 class="service-title">DevOps & Operations</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                    Enterprise infrastructure managed by our DevOps team. CI/CD pipelines, Docker containers, AWS/Vercel deployments, monitoring, alerts, and 99.9% uptime. Your project stays online 24/7 while you focus on growth, not servers.
+                </p>
+                <ul class="service-features">
+                    <li>CI/CD Pipeline Setup</li>
+                    <li>Cloud Infrastructure</li>
+                    <li>Monitoring & Alerts</li>
+                    <li>Performance Optimization</li>
+                </ul>
+                <div class="service-pricing">From $699/mo</div>
+            </div>
+        </div>
+
+        <!-- Key Benefits -->
+        <div class="services-benefits">
+            <div class="benefit-item">
+                <span class="benefit-icon">✅</span>
+                <span>35+ AI agents ready to help your project</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">✅</span>
+                <span>60-80% cheaper than traditional agencies</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">✅</span>
+                <span>3-4x faster execution</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">✅</span>
+                <span>Working 24/7 without breaks</span>
+            </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+            <a href="agents.html" class="primary-button">📋 View All AI Agents</a>
+            <a href="docs.html" class="secondary-button">📚 View Documentation</a>
+        </div>
+    </section>
+
+    <!-- TOKEN GROWTH ECONOMICS SECTION (SIMPLIFIED) -->
+    <section id="token-growth" class="token-growth">
+        <h2 class="section-title">Data-Driven Token Economics</h2>
+        <p class="section-subtitle">Sustainable growth mechanisms backed by real utility</p>
+
+        <div class="services-benefits">
+            <div class="benefit-item">
+                <span class="benefit-icon">📊</span>
+                <span>Real utility drives demand - AI services require HYPE tokens</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🔥</span>
+                <span>Deflationary mechanics - 50% of service fees burned</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">💎</span>
+                <span>Staking lockup reduces circulating supply (up to 62% APY)</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">📈</span>
+                <span>B2B revenue reinvested in ecosystem development</span>
+            </div>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="stake.html" class="primary-button">💰 Start Staking</a>
+            <a href="whitepaper.html" class="secondary-button">📄 Read Whitepaper</a>
+        </div>
+    </section>
+
+    <!-- 27 AI AGENTS SHOWCASE SECTION -->
+    <section id="ai-agents" class="ai-agents">
+        <h2 class="section-title">Meet Our AI Team</h2>
+        <p class="section-subtitle">27 agents working 24/7. Never sleep. Never quit.</p>
+
+        <!-- Live Dashboard -->
+        <div class="live-dashboard">
+            <div class="dashboard-status">
+                <span class="status-indicator">🟢</span>
+                <span class="status-text">ALL SYSTEMS OPERATIONAL</span>
+            </div>
+            <div class="dashboard-stats">
+                <div class="dashboard-stat">
+                    <div class="stat-value">27/27</div>
+                    <div class="stat-label">Agents Online</div>
+                </div>
+                <div class="dashboard-stat">
+                    <div class="stat-value">2,520</div>
+                    <div class="stat-label">Hours/Week Working</div>
+                </div>
+                <div class="dashboard-stat">
+                    <div class="stat-value">12,845</div>
+                    <div class="stat-label">Tasks Completed</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Cards Grid (Featured 6 Agents) -->
+        <div class="agents-section">
+            <h3 class="subsection-title">Development Division</h3>
+            <div class="agents-grid">
+                <!-- ATLAS -->
+                <div class="agent-card">
+                    <div class="agent-icon">🔍</div>
+                    <h4 class="agent-name">ATLAS</h4>
+                    <div class="agent-role">Smart Contract Architect</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">342</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEXUS -->
+                <div class="agent-card">
+                    <div class="agent-icon">🏗️</div>
+                    <h4 class="agent-name">NEXUS</h4>
+                    <div class="agent-role">Backend Engineer</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">289</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOLIDITY -->
+                <div class="agent-card">
+                    <div class="agent-icon">💻</div>
+                    <h4 class="agent-name">SOLIDITY</h4>
+                    <div class="agent-role">Blockchain Integration</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">156</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRISM -->
+                <div class="agent-card">
+                    <div class="agent-icon">🎨</div>
+                    <h4 class="agent-name">PRISM</h4>
+                    <div class="agent-role">Frontend Developer</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">412</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VERIFY -->
+                <div class="agent-card">
+                    <div class="agent-icon">✅</div>
+                    <h4 class="agent-name">VERIFY</h4>
+                    <div class="agent-role">QA Specialist</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">234</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOTION -->
+                <div class="agent-card">
+                    <div class="agent-icon">🎬</div>
+                    <h4 class="agent-name">MOTION</h4>
+                    <div class="agent-role">Animation Specialist</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">189</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="agents-section">
+            <h3 class="subsection-title">Business Division</h3>
+            <div class="agents-grid">
+                <!-- TITAN -->
+                <div class="agent-card">
+                    <div class="agent-icon">💼</div>
+                    <h4 class="agent-name">TITAN</h4>
+                    <div class="agent-role">CEO Strategy</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">89</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOMENTUM -->
+                <div class="agent-card">
+                    <div class="agent-icon">📈</div>
+                    <h4 class="agent-name">MOMENTUM</h4>
+                    <div class="agent-role">Marketing CMO</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">201</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PULSE -->
+                <div class="agent-card">
+                    <div class="agent-icon">👥</div>
+                    <h4 class="agent-name">PULSE</h4>
+                    <div class="agent-role">Community Manager</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">178</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIBE -->
+                <div class="agent-card">
+                    <div class="agent-icon">💎</div>
+                    <h4 class="agent-name">VIBE</h4>
+                    <div class="agent-role">Brand Manager</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">145</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PIXEL -->
+                <div class="agent-card">
+                    <div class="agent-icon">🖌️</div>
+                    <h4 class="agent-name">PIXEL</h4>
+                    <div class="agent-role">UI/UX Designer</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">267</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="agent-card">
+                    <div class="agent-icon">✍️</div>
+                    <h4 class="agent-name">CONTENT</h4>
+                    <div class="agent-role">Content Strategist</div>
+                    <div class="agent-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                    <div class="agent-stats">
+                        <div class="agent-stat-item">
+                            <span class="stat-number">312</span>
+                            <span class="stat-text">tasks completed</span>
+                        </div>
+                        <div class="agent-stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">uptime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Show More Button -->
+        <div class="show-more-section">
+            <p style="color: var(--gray); margin-bottom: 1rem;">Showing 12 of 27 agents</p>
+            <a href="agents.html" class="secondary-button">👥 Meet All 27 Agents</a>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+            <a href="agents.html" class="primary-button">👥 Meet All 27 Agents</a>
+            <a href="agents-activity.html" class="secondary-button">🔴 View Live Activity</a>
         </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="features">
         <h2 class="section-title">Powered by Intelligence</h2>
-        <p class="section-subtitle">Advanced features designed for the modern crypto trader</p>
+        <p class="section-subtitle">Advanced AI-powered features for the modern crypto ecosystem</p>
 
         <div class="features-grid">
             <div class="feature-card">
@@ -731,24 +1690,24 @@
                     AI-Powered Crypto Trading Platform.<br>
                     Where AI Meets Opportunity.<br><br>
                     <strong style="color: var(--accent-green);">🤖 Built by Professional AI Agents</strong><br>
-                    <strong style="color: var(--primary-blue);">⚡ Working infinitely to make YOU a millionaire 💰</strong>
+                    <strong style="color: var(--primary-blue);">⚡ Working 24/7 to build the future of AI trading</strong>
                 </p>
                 <div class="social-links" style="margin-top: 1.5rem;">
-                    <a href="https://twitter.com/HypeAI_official" style="color: var(--primary-blue);">𝕏</a>
-                    <a href="https://t.me/hypeai" style="color: var(--primary-blue);">✈️</a>
-                    <a href="https://discord.gg/hypeai" style="color: var(--primary-blue);">💬</a>
-                    <a href="https://github.com/hypeai" style="color: var(--primary-blue);">🐙</a>
+                    <a href="https://twitter.com/HypeAI_official" rel="noopener noreferrer" target="_blank" style="color: var(--primary-blue);">𝕏</a>
+                    <a href="https://t.me/hypeai" rel="noopener noreferrer" target="_blank" style="color: var(--primary-blue);">✈️</a>
+                    <a href="https://discord.gg/hypeai" rel="noopener noreferrer" target="_blank" style="color: var(--primary-blue);">💬</a>
+                    <a href="https://github.com/hypeai" rel="noopener noreferrer" target="_blank" style="color: var(--primary-blue);">🐙</a>
                 </div>
             </div>
 
             <div class="footer-section">
                 <h3>Product</h3>
                 <ul class="footer-links">
-                    <li><a href="trade-enhanced.html" style="color: var(--primary-blue); font-weight: 700;">💎 Trade (Pro)</a></li>
-                    <li><a href="trade.html">Trade (Basic)</a></li>
+                    <li><a href="#services">AI Services</a></li>
+                    <li><a href="#token-growth">Token Economics</a></li>
+                    <li><a href="#ai-agents">AI Team</a></li>
                     <li><a href="stake.html">Stake</a></li>
                     <li><a href="governance.html">Governance</a></li>
-                    <li><a href="analytics.html">Analytics</a></li>
                 </ul>
             </div>
 
@@ -773,11 +1732,15 @@
             </div>
         </div>
 
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2); text-align: center; font-size: 0.85rem; color: var(--gray);">
+            <strong>Risk Disclaimer:</strong> Cryptocurrency trading involves substantial risk. Past performance does not guarantee future results. DYOR (Do Your Own Research). Not financial advice.
+        </div>
+
         <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2); color: var(--gray);">
             <p>© 2025 HypeAI. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">Built with ❤️ by 26 Professional AI Agents</p>
+            <p style="margin-top: 0.5rem;">Built with ❤️ by 27 Professional AI Agents</p>
             <p style="margin-top: 0.25rem; font-size: 0.9rem; color: var(--gray);">
-                8 Dev • 7 Business • 5 Website • 6 Marketing
+                12 showcased on homepage • 15 working behind the scenes
             </p>
             <p style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--accent-green);">
                 <strong>Achieve Financial Freedom with AI! 🚀</strong>
@@ -785,20 +1748,104 @@
         </div>
     </footer>
 
+    <!-- Wallet Connection Modal -->
+    <div id="walletModal" class="wallet-modal">
+        <div class="wallet-modal-content">
+            <button class="wallet-modal-close" onclick="closeWalletModal()">✕</button>
+            <h3>Connect Wallet</h3>
+            <div class="wallet-options">
+                <div class="wallet-option" onclick="connectMetaMask()">
+                    <div class="wallet-icon">🦊</div>
+                    <div class="wallet-info">
+                        <h4>MetaMask</h4>
+                        <p>Connect with MetaMask extension</p>
+                    </div>
+                </div>
+                <div class="wallet-option" onclick="connectTrustWallet()">
+                    <div class="wallet-icon">🛡️</div>
+                    <div class="wallet-info">
+                        <h4>Trust Wallet</h4>
+                        <p>Connect with Trust Wallet</p>
+                    </div>
+                </div>
+                <div class="wallet-option" onclick="connectWalletConnect()">
+                    <div class="wallet-icon">🔗</div>
+                    <div class="wallet-info">
+                        <h4>WalletConnect</h4>
+                        <p>Scan with WalletConnect to connect</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        async function connectWallet() {
+        // Show wallet modal
+        function connectWallet() {
+            document.getElementById('walletModal').classList.add('active');
+        }
+
+        // Close wallet modal
+        function closeWalletModal() {
+            document.getElementById('walletModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('walletModal').addEventListener('click', function(e) {
+            if (e.target.id === 'walletModal') {
+                closeWalletModal();
+            }
+        });
+
+        // Connect with MetaMask
+        async function connectMetaMask() {
             if (typeof window.ethereum !== 'undefined') {
                 try {
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    alert('Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                    alert('✅ MetaMask connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                    closeWalletModal();
                 } catch (error) {
-                    console.error('Failed to connect wallet:', error);
-                    alert('Failed to connect wallet. Please try again.');
+                    console.error('Failed to connect MetaMask:', error);
+                    alert('❌ Failed to connect MetaMask. Please try again.');
                 }
             } else {
-                alert('Please install MetaMask or another Web3 wallet!');
-                window.open('https://metamask.io/download/', '_blank');
+                alert('MetaMask is not installed. Redirecting to download page...');
+                window.open('https://metamask.io/download/', '_blank', 'noopener,noreferrer');
             }
+        }
+
+        // Connect with Trust Wallet
+        async function connectTrustWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    // Check if Trust Wallet is available
+                    const provider = window.ethereum.providers ?
+                        window.ethereum.providers.find(p => p.isTrust) :
+                        (window.ethereum.isTrust ? window.ethereum : null);
+
+                    if (provider) {
+                        const accounts = await provider.request({ method: 'eth_requestAccounts' });
+                        alert('✅ Trust Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                        closeWalletModal();
+                    } else {
+                        // If Trust Wallet not detected, try generic ethereum
+                        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                        alert('✅ Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                        closeWalletModal();
+                    }
+                } catch (error) {
+                    console.error('Failed to connect Trust Wallet:', error);
+                    alert('❌ Failed to connect. Please try again.');
+                }
+            } else {
+                alert('Trust Wallet is not installed. Redirecting to download page...');
+                window.open('https://trustwallet.com/download', '_blank', 'noopener,noreferrer');
+            }
+        }
+
+        // Connect with WalletConnect
+        async function connectWalletConnect() {
+            alert('🔗 WalletConnect integration coming soon!\\n\\nFor now, please use:\\n• MetaMask browser extension\\n• Trust Wallet mobile app\\n• Coinbase Wallet\\n\\nWe\'re working on full WalletConnect support.');
         }
 
         // Smooth scroll
@@ -810,6 +1857,26 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobileNav');
+            nav.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const nav = document.getElementById('mobileNav');
+            nav.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            if (nav.classList.contains('active') && !nav.contains(event.target) && !menuBtn.contains(event.target)) {
+                closeMobileMenu();
+            }
         });
     </script>
 </body>

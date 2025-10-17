@@ -762,6 +762,98 @@
             font-size: 1.5rem;
         }
 
+        /* Wallet Modal */
+        .wallet-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wallet-modal.active {
+            display: flex;
+        }
+
+        .wallet-modal-content {
+            background: rgba(26, 31, 58, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .wallet-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .wallet-modal-close:hover {
+            opacity: 1;
+        }
+
+        .wallet-modal h3 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .wallet-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .wallet-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .wallet-option:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: var(--primary-blue);
+            transform: translateX(10px);
+        }
+
+        .wallet-icon {
+            font-size: 2rem;
+        }
+
+        .wallet-info h4 {
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .wallet-info p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
@@ -1656,20 +1748,104 @@
         </div>
     </footer>
 
+    <!-- Wallet Connection Modal -->
+    <div id="walletModal" class="wallet-modal">
+        <div class="wallet-modal-content">
+            <button class="wallet-modal-close" onclick="closeWalletModal()">✕</button>
+            <h3>Connect Wallet</h3>
+            <div class="wallet-options">
+                <div class="wallet-option" onclick="connectMetaMask()">
+                    <div class="wallet-icon">🦊</div>
+                    <div class="wallet-info">
+                        <h4>MetaMask</h4>
+                        <p>Connect with MetaMask extension</p>
+                    </div>
+                </div>
+                <div class="wallet-option" onclick="connectTrustWallet()">
+                    <div class="wallet-icon">🛡️</div>
+                    <div class="wallet-info">
+                        <h4>Trust Wallet</h4>
+                        <p>Connect with Trust Wallet</p>
+                    </div>
+                </div>
+                <div class="wallet-option" onclick="connectWalletConnect()">
+                    <div class="wallet-icon">🔗</div>
+                    <div class="wallet-info">
+                        <h4>WalletConnect</h4>
+                        <p>Scan with WalletConnect to connect</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        async function connectWallet() {
+        // Show wallet modal
+        function connectWallet() {
+            document.getElementById('walletModal').classList.add('active');
+        }
+
+        // Close wallet modal
+        function closeWalletModal() {
+            document.getElementById('walletModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('walletModal').addEventListener('click', function(e) {
+            if (e.target.id === 'walletModal') {
+                closeWalletModal();
+            }
+        });
+
+        // Connect with MetaMask
+        async function connectMetaMask() {
             if (typeof window.ethereum !== 'undefined') {
                 try {
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    alert('Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                    alert('✅ MetaMask connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                    closeWalletModal();
                 } catch (error) {
-                    console.error('Failed to connect wallet:', error);
-                    alert('Failed to connect wallet. Please try again.');
+                    console.error('Failed to connect MetaMask:', error);
+                    alert('❌ Failed to connect MetaMask. Please try again.');
                 }
             } else {
-                alert('Please install MetaMask or another Web3 wallet!');
+                alert('MetaMask is not installed. Redirecting to download page...');
                 window.open('https://metamask.io/download/', '_blank', 'noopener,noreferrer');
             }
+        }
+
+        // Connect with Trust Wallet
+        async function connectTrustWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    // Check if Trust Wallet is available
+                    const provider = window.ethereum.providers ?
+                        window.ethereum.providers.find(p => p.isTrust) :
+                        (window.ethereum.isTrust ? window.ethereum : null);
+
+                    if (provider) {
+                        const accounts = await provider.request({ method: 'eth_requestAccounts' });
+                        alert('✅ Trust Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                        closeWalletModal();
+                    } else {
+                        // If Trust Wallet not detected, try generic ethereum
+                        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                        alert('✅ Wallet connected: ' + accounts[0].substring(0, 6) + '...' + accounts[0].substring(38));
+                        closeWalletModal();
+                    }
+                } catch (error) {
+                    console.error('Failed to connect Trust Wallet:', error);
+                    alert('❌ Failed to connect. Please try again.');
+                }
+            } else {
+                alert('Trust Wallet is not installed. Redirecting to download page...');
+                window.open('https://trustwallet.com/download', '_blank', 'noopener,noreferrer');
+            }
+        }
+
+        // Connect with WalletConnect
+        async function connectWalletConnect() {
+            alert('🔗 WalletConnect integration coming soon!\\n\\nFor now, please use:\\n• MetaMask browser extension\\n• Trust Wallet mobile app\\n• Coinbase Wallet\\n\\nWe\'re working on full WalletConnect support.');
         }
 
         // Smooth scroll
