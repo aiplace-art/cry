@@ -3,5 +3,8 @@
   "name": "@hypeai/bots",
   "version": "1.0.0",
   "description": "HypeAI Project Management Bots",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.67.0"
+  }
 }
