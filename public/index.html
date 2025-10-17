@@ -1236,11 +1236,11 @@
             HypeAI <span style="font-size: 1.2rem; margin-left: 0.3rem;">⚡</span>
         </div>
         <nav id="mobileNav">
-            <a href="#services" onclick="closeMobileMenu()" data-i18n="nav.services">Services</a>
-            <a href="#ai-agents" onclick="closeMobileMenu()" data-i18n="nav.aiTeam">AI Team</a>
-            <a href="agents-activity.html" class="live-agents-btn" data-i18n="nav.live">Live (27/27)</a>
-            <a href="#tokenomics" onclick="closeMobileMenu()" data-i18n="nav.tokenomics">Tokenomics</a>
-            <a href="proof.html" style="color: var(--accent-green);" data-i18n="nav.proof">✅ PROOF</a>
+            <a href="#services" onclick="closeMobileMenu()" data-i18n="nav.trade">Trade</a>
+            <a href="#ai-agents" onclick="closeMobileMenu()" data-i18n="nav.agents">AI Agents</a>
+            <a href="agents-activity.html" class="live-agents-btn">Live (27/27)</a>
+            <a href="#tokenomics" onclick="closeMobileMenu()" data-i18n="nav.stake">Stake</a>
+            <a href="proof.html" style="color: var(--accent-green);">✅ PROOF</a>
             <a href="docs.html" data-i18n="nav.docs">Docs</a>
         </nav>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -1249,7 +1249,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1 data-i18n="hero.title">Where AI Meets Opportunity</h1>
+        <h1 data-i18n="hero.title">AI-Powered Crypto Trading</h1>
 
         <!-- PRESALE CTA BUTTON -->
         <div style="margin-bottom: 2rem;">
@@ -1266,8 +1266,8 @@
                 box-shadow: 0 0 30px rgba(57, 255, 20, 0.6), 0 0 60px rgba(57, 255, 20, 0.3);
                 animation: glowPulse 2s ease-in-out infinite;
                 transition: all 0.3s;
-            " data-i18n="hero.ctaPrimary" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 40px rgba(57, 255, 20, 0.8), 0 0 80px rgba(57, 255, 20, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 30px rgba(57, 255, 20, 0.6), 0 0 60px rgba(57, 255, 20, 0.3)';">
-                💎 Join Presale
+            " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 40px rgba(57, 255, 20, 0.8), 0 0 80px rgba(57, 255, 20, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 30px rgba(57, 255, 20, 0.6), 0 0 60px rgba(57, 255, 20, 0.3)';">
+                <span data-i18n="hero.ctaPrimary">Start Trading Now</span>
             </a>
         </div>
 
@@ -1285,8 +1285,8 @@
         </style>
 
         <div class="hero-ctas">
-            <a href="#services" class="primary-button" data-i18n="hero.ctaSecondary">🚀 Explore Services</a>
-            <a href="docs.html" class="secondary-button" data-i18n="hero.ctaTertiary">View Docs</a>
+            <a href="#services" class="primary-button"><span data-i18n="hero.ctaSecondary">View AI Agents</span></a>
+            <a href="docs.html" class="secondary-button"><span data-i18n="buttons.learnMore">Learn More</span></a>
         </div>
 
         <!-- Stats Bar -->
@@ -1297,7 +1297,7 @@
             </div>
             <div class="stat">
                 <div class="stat-value">5,234</div>
-                <div class="stat-label">Token Holders (Demo)</div>
+                <div class="stat-label" data-i18n="stats.holders">Token Holders (Demo)</div>
             </div>
             <div class="stat">
                 <div class="stat-value">62%</div>
@@ -1309,19 +1309,19 @@
             </div>
             <div class="stat">
                 <div class="stat-value">$0.001</div>
-                <div class="stat-label">Token Price (Demo)</div>
+                <div class="stat-label" data-i18n="stats.price">Token Price (Demo)</div>
             </div>
             <div class="stat">
                 <div class="stat-value">24/7</div>
-                <div class="stat-label">Trading Active (Demo)</div>
+                <div class="stat-label" data-i18n="stats.trading">Trading Active (Demo)</div>
             </div>
         </div>
     </section>
 
     <!-- WHY HYPEAI IS DESTINED TO SUCCEED SECTION -->
     <section id="why-succeed" class="features" style="background: rgba(26, 31, 58, 0.3);">
-        <h2 class="section-title">🚀 Why HypeAI is Destined to Succeed</h2>
-        <p class="section-subtitle">Built on real revenue, utility, and AI innovation. Our success is inevitable.</p>
+        <h2 class="section-title" data-i18n="whySucceed.title">🚀 Why HypeAI is Destined to Succeed</h2>
+        <p class="section-subtitle" data-i18n="whySucceed.subtitle">Built on real revenue, utility, and AI innovation. Our success is inevitable.</p>
 
         <div class="features-grid">
             <!-- 1. CRYPTO CHECKER - MAIN PRODUCT -->
@@ -1522,15 +1522,15 @@
 
         <!-- CTA Buttons -->
         <div class="cta-buttons">
-            <a href="stake.html" class="primary-button">💎 Start Staking Now</a>
-            <a href="whitepaper.html" class="secondary-button">📄 Read Full Analysis</a>
+            <a href="stake.html" class="primary-button"><span data-i18n="buttons.getStarted">Get Started</span></a>
+            <a href="whitepaper.html" class="secondary-button"><span data-i18n="buttons.learnMore">Learn More</span></a>
         </div>
     </section>
 
     <!-- AI SERVICES PLATFORM SECTION -->
     <section id="services" class="services">
-        <h2 class="section-title">AI Services Platform</h2>
-        <p class="section-subtitle">35+ professional AI services for crypto projects. From security audits to full-stack development.</p>
+        <h2 class="section-title" data-i18n="services.title">AI Services Platform</h2>
+        <p class="section-subtitle" data-i18n="services.subtitle">35+ professional AI services for crypto projects. From security audits to full-stack development.</p>
 
         <!-- 8 Service Category Cards in 4x2 Grid -->
         <div class="services-grid">
@@ -1685,8 +1685,8 @@
 
         <!-- CTA Buttons -->
         <div class="cta-buttons">
-            <a href="agents.html" class="primary-button">📋 View All AI Agents</a>
-            <a href="docs.html" class="secondary-button">📚 View Documentation</a>
+            <a href="agents.html" class="primary-button"><span data-i18n="buttons.meetAgents">👥 Meet All 27 Agents</span></a>
+            <a href="docs.html" class="secondary-button"><span data-i18n="buttons.learnMore">Learn More</span></a>
         </div>
     </section>
 
@@ -1715,8 +1715,8 @@
         </div>
 
         <div class="cta-buttons">
-            <a href="stake.html" class="primary-button">💰 Start Staking</a>
-            <a href="whitepaper.html" class="secondary-button">📄 Read Whitepaper</a>
+            <a href="stake.html" class="primary-button"><span data-i18n="buttons.getStarted">Get Started</span></a>
+            <a href="whitepaper.html" class="secondary-button"><span data-i18n="buttons.learnMore">Learn More</span></a>
         </div>
     </section>
 
@@ -1734,7 +1734,7 @@
             <div class="dashboard-stats">
                 <div class="dashboard-stat">
                     <div class="stat-value">27/27</div>
-                    <div class="stat-label">Agents Online</div>
+                    <div class="stat-label" data-i18n="stats.agents">AI Agents</div>
                 </div>
                 <div class="dashboard-stat">
                     <div class="stat-value">2,520</div>
@@ -2227,9 +2227,9 @@
             <div class="footer-section">
                 <h3>HypeAI</h3>
                 <p style="color: var(--gray); line-height: 1.6;">
-                    AI-Powered Crypto Trading Platform.<br>
-                    Where AI Meets Opportunity.<br><br>
-                    <strong style="color: var(--accent-green);">🤖 Built by Professional AI Agents</strong><br>
+                    <span data-i18n="footer.tagline">AI-Powered Crypto Trading Platform.<br>
+                    Where AI Meets Opportunity.</span><br><br>
+                    <strong style="color: var(--accent-green);">🤖 <span data-i18n="footer.builtBy">Built by AI Agents Team</span></strong><br>
                     <strong style="color: var(--primary-blue);">⚡ Working 24/7 to build the future of AI trading</strong>
                 </p>
                 <div class="social-links" style="margin-top: 1.5rem;">
@@ -2241,30 +2241,30 @@
             </div>
 
             <div class="footer-section">
-                <h3>Product</h3>
+                <h3 data-i18n="footer.quickLinks">Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="#services">AI Services</a></li>
+                    <li><a href="#services" data-i18n="nav.trade">Trade</a></li>
                     <li><a href="#token-growth">Token Economics</a></li>
-                    <li><a href="#ai-agents">AI Team</a></li>
-                    <li><a href="stake.html">Stake</a></li>
+                    <li><a href="#ai-agents" data-i18n="nav.agents">AI Agents</a></li>
+                    <li><a href="stake.html" data-i18n="nav.stake">Stake</a></li>
                     <li><a href="governance.html">Governance</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h3>Resources</h3>
+                <h3 data-i18n="footer.resources">Resources</h3>
                 <ul class="footer-links">
-                    <li><a href="docs.html">Documentation</a></li>
-                    <li><a href="whitepaper.html">Whitepaper</a></li>
+                    <li><a href="docs.html" data-i18n="nav.docs">Docs</a></li>
+                    <li><a href="whitepaper.html" data-i18n="nav.whitepaper">Whitepaper</a></li>
                     <li><a href="audit.html">Security Audit</a></li>
                     <li><a href="api.html">API Docs</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h3>Company</h3>
+                <h3 data-i18n="footer.community">Community</h3>
                 <ul class="footer-links">
-                    <li><a href="agents.html">🤖 AI Agents Team</a></li>
+                    <li><a href="agents.html"><span data-i18n="nav.agents">AI Agents</span></a></li>
                     <li><a href="roadmap.html">Roadmap</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="about.html">About Mission</a></li>
@@ -2275,7 +2275,7 @@
         <!-- Legal Compliance Section -->
         <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2);">
             <div class="footer-section">
-                <h3 style="text-align: center; margin-bottom: 1.5rem;">Legal & Compliance</h3>
+                <h3 style="text-align: center; margin-bottom: 1.5rem;" data-i18n="footer.legal">Legal</h3>
                 <ul class="footer-links" style="text-align: center; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
                     <li><a href="privacy.html">🔒 Privacy Policy</a></li>
                     <li><a href="terms.html">📜 Terms of Service</a></li>
@@ -2286,12 +2286,12 @@
         </div>
 
         <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2); text-align: center; font-size: 0.85rem; color: var(--gray);">
-            <strong>⚠️ Risk Disclaimer:</strong> Cryptocurrency trading involves substantial risk of loss. Past performance does not guarantee future results. Always DYOR (Do Your Own Research). Not financial advice.
+            <span data-i18n="footer.disclaimer">Cryptocurrency investments carry risk. Do your own research.</span>
         </div>
 
         <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2); color: var(--gray);">
-            <p>© 2025 HypeAI. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">Built with ❤️ by 27 Professional AI Agents</p>
+            <p><span data-i18n="footer.rights">All rights reserved.</span></p>
+            <p style="margin-top: 0.5rem;"><span data-i18n="footer.builtBy">Built by AI Agents Team</span></p>
             <p style="margin-top: 0.25rem; font-size: 0.9rem; color: var(--gray);">
                 12 showcased on homepage • 15 working behind the scenes
             </p>
