@@ -1,0 +1,289 @@
+/**
+ * HypeAI Multi-Language Switcher Styles
+ * Professional 8-language dropdown with gradient design
+ * Agent: BABEL - Translation Specialist
+ */
+
+/* ========================================
+   LANGUAGE SWITCHER DROPDOWN
+   ======================================== */
+
+.language-switcher-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+/* Dropdown Button */
+.lang-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(99, 102, 241, 0.15));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 50px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.lang-dropdown-btn:hover {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(99, 102, 241, 0.25));
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    transform: translateY(-1px);
+}
+
+.lang-dropdown-btn:active {
+    transform: translateY(0);
+}
+
+/* Current Language Display */
+.lang-current-flag {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.lang-current-name {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* Dropdown Arrow */
+.lang-dropdown-arrow {
+    color: #A0AEC0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   DROPDOWN MENU
+   ======================================== */
+
+.lang-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 220px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 16px;
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+.lang-dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ========================================
+   DROPDOWN ITEMS
+   ======================================== */
+
+.lang-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    color: #A0AEC0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+}
+
+.lang-dropdown-item:hover:not(.lang-coming-soon) {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(99, 102, 241, 0.2));
+    color: #FFFFFF;
+    transform: translateX(4px);
+}
+
+/* Item Content */
+.lang-item-flag {
+    font-size: 1.3rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.lang-item-name {
+    flex: 1;
+    font-weight: 600;
+}
+
+/* Active Language */
+.lang-dropdown-item.lang-active {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(99, 102, 241, 0.15));
+    color: #00D4FF;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.lang-active-check {
+    color: #00D4FF;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   COMING SOON LANGUAGES
+   ======================================== */
+
+.lang-dropdown-item.lang-coming-soon {
+    opacity: 0.5;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.lang-coming-badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(99, 102, 241, 0.3));
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #8B5CF6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .language-switcher-dropdown {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .lang-dropdown-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .lang-dropdown-menu {
+        left: 0;
+        right: 0;
+        min-width: 100%;
+    }
+
+    .lang-dropdown-item {
+        padding: 1rem 1.25rem;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .lang-dropdown-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .lang-current-name {
+        display: none;
+    }
+
+    .lang-dropdown-menu {
+        min-width: 200px;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+.lang-dropdown-btn:focus {
+    outline: 2px solid rgba(0, 212, 255, 0.5);
+    outline-offset: 2px;
+}
+
+.lang-dropdown-item:focus:not(.lang-coming-soon) {
+    outline: 2px solid rgba(0, 212, 255, 0.5);
+    outline-offset: -2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .lang-dropdown-btn {
+        border-width: 2px;
+    }
+
+    .lang-dropdown-menu {
+        border-width: 2px;
+    }
+
+    .lang-dropdown-item.lang-active {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .lang-dropdown-btn,
+    .lang-dropdown-menu,
+    .lang-dropdown-item,
+    .lang-dropdown-arrow {
+        transition: none;
+    }
+}
+
+/* ========================================
+   DARK MODE ENHANCEMENTS
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+    .lang-dropdown-menu {
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7),
+                    0 0 30px rgba(139, 92, 246, 0.3);
+    }
+
+    .lang-dropdown-btn:hover {
+        box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+    }
+}

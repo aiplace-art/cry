@@ -314,5 +314,353 @@
       "learnMore": "Узнать больше",
       "getStarted": "Начать"
     }
+  },
+  "zh": {
+    "_meta": {
+      "language": "Chinese (Simplified)",
+      "status": "coming_soon",
+      "completion": "0%",
+      "last_updated": "2025-10-17",
+      "notes": "Placeholder structure for Chinese (Simplified). Translations needed."
+    },
+    "nav": {
+      "home": "Home",
+      "trade": "Trade",
+      "stake": "Stake",
+      "agents": "AI Agents",
+      "docs": "Docs",
+      "whitepaper": "Whitepaper",
+      "connectWallet": "Connect Wallet"
+    },
+    "hero": {
+      "title": "AI-Powered Crypto Trading",
+      "subtitle": "Smarter. Faster. Better.",
+      "description": "27 AI Agents working infinitely to empower your financial growth",
+      "ctaPrimary": "Start Trading Now",
+      "ctaSecondary": "View AI Agents",
+      "whySuccessButton": "🚀 Why 50x-100x-1000x is Inevitable"
+    },
+    "stats": {
+      "agents": "AI Agents",
+      "holders": "Token Holders",
+      "price": "Token Price (Demo)",
+      "trading": "Trading Active (Demo)"
+    },
+    "whySucceed": {
+      "title": "🚀 Why HypeAI is Destined to Succeed",
+      "subtitle": "Built on real revenue, utility, and AI innovation. Our success is inevitable."
+    },
+    "services": {
+      "title": "AI Services Platform",
+      "subtitle": "35+ professional AI services for crypto projects. From security audits to full-stack development."
+    },
+    "footer": {
+      "tagline": "27 AI Agents. Infinite Work. YOUR Success.",
+      "rights": "All rights reserved.",
+      "builtBy": "Built by AI Agents Team",
+      "disclaimer": "Cryptocurrency investments carry risk. Do your own research.",
+      "quickLinks": "Quick Links",
+      "resources": "Resources",
+      "community": "Community",
+      "legal": "Legal"
+    },
+    "buttons": {
+      "launchSoon": "🚀 Launch Soon",
+      "meetAgents": "👥 Meet All 27 Agents",
+      "viewActivity": "🔴 View Live Activity",
+      "buyNow": "💰 Buy $HYPE Now",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started"
+    }
+  },
+  "es": {
+    "_meta": {
+      "language": "Spanish",
+      "status": "coming_soon",
+      "completion": "0%",
+      "last_updated": "2025-10-17",
+      "notes": "Placeholder structure for Spanish. Translations needed."
+    },
+    "nav": {
+      "home": "Home",
+      "trade": "Trade",
+      "stake": "Stake",
+      "agents": "AI Agents",
+      "docs": "Docs",
+      "whitepaper": "Whitepaper",
+      "connectWallet": "Connect Wallet"
+    },
+    "hero": {
+      "title": "AI-Powered Crypto Trading",
+      "subtitle": "Smarter. Faster. Better.",
+      "description": "27 AI Agents working infinitely to empower your financial growth",
+      "ctaPrimary": "Start Trading Now",
+      "ctaSecondary": "View AI Agents",
+      "whySuccessButton": "🚀 Why 50x-100x-1000x is Inevitable"
+    },
+    "stats": {
+      "agents": "AI Agents",
+      "holders": "Token Holders",
+      "price": "Token Price (Demo)",
+      "trading": "Trading Active (Demo)"
+    },
+    "whySucceed": {
+      "title": "🚀 Why HypeAI is Destined to Succeed",
+      "subtitle": "Built on real revenue, utility, and AI innovation. Our success is inevitable."
+    },
+    "services": {
+      "title": "AI Services Platform",
+      "subtitle": "35+ professional AI services for crypto projects. From security audits to full-stack development."
+    },
+    "footer": {
+      "tagline": "27 AI Agents. Infinite Work. YOUR Success.",
+      "rights": "All rights reserved.",
+      "builtBy": "Built by AI Agents Team",
+      "disclaimer": "Cryptocurrency investments carry risk. Do your own research.",
+      "quickLinks": "Quick Links",
+      "resources": "Resources",
+      "community": "Community",
+      "legal": "Legal"
+    },
+    "buttons": {
+      "launchSoon": "🚀 Launch Soon",
+      "meetAgents": "👥 Meet All 27 Agents",
+      "viewActivity": "🔴 View Live Activity",
+      "buyNow": "💰 Buy $HYPE Now",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started"
+    }
+  },
+  "fr": {
+    "_meta": {
+      "language": "French",
+      "status": "coming_soon",
+      "completion": "0%",
+      "last_updated": "2025-10-17",
+      "notes": "Placeholder structure for French. Translations needed."
+    },
+    "nav": {
+      "home": "Home",
+      "trade": "Trade",
+      "stake": "Stake",
+      "agents": "AI Agents",
+      "docs": "Docs",
+      "whitepaper": "Whitepaper",
+      "connectWallet": "Connect Wallet"
+    },
+    "hero": {
+      "title": "AI-Powered Crypto Trading",
+      "subtitle": "Smarter. Faster. Better.",
+      "description": "27 AI Agents working infinitely to empower your financial growth",
+      "ctaPrimary": "Start Trading Now",
+      "ctaSecondary": "View AI Agents",
+      "whySuccessButton": "🚀 Why 50x-100x-1000x is Inevitable"
+    },
+    "stats": {
+      "agents": "AI Agents",
+      "holders": "Token Holders",
+      "price": "Token Price (Demo)",
+      "trading": "Trading Active (Demo)"
+    },
+    "whySucceed": {
+      "title": "🚀 Why HypeAI is Destined to Succeed",
+      "subtitle": "Built on real revenue, utility, and AI innovation. Our success is inevitable."
+    },
+    "services": {
+      "title": "AI Services Platform",
+      "subtitle": "35+ professional AI services for crypto projects. From security audits to full-stack development."
+    },
+    "footer": {
+      "tagline": "27 AI Agents. Infinite Work. YOUR Success.",
+      "rights": "All rights reserved.",
+      "builtBy": "Built by AI Agents Team",
+      "disclaimer": "Cryptocurrency investments carry risk. Do your own research.",
+      "quickLinks": "Quick Links",
+      "resources": "Resources",
+      "community": "Community",
+      "legal": "Legal"
+    },
+    "buttons": {
+      "launchSoon": "🚀 Launch Soon",
+      "meetAgents": "👥 Meet All 27 Agents",
+      "viewActivity": "🔴 View Live Activity",
+      "buyNow": "💰 Buy $HYPE Now",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started"
+    }
+  },
+  "de": {
+    "_meta": {
+      "language": "German",
+      "status": "coming_soon",
+      "completion": "0%",
+      "last_updated": "2025-10-17",
+      "notes": "Placeholder structure for German. Translations needed."
+    },
+    "nav": {
+      "home": "Home",
+      "trade": "Trade",
+      "stake": "Stake",
+      "agents": "AI Agents",
+      "docs": "Docs",
+      "whitepaper": "Whitepaper",
+      "connectWallet": "Connect Wallet"
+    },
+    "hero": {
+      "title": "AI-Powered Crypto Trading",
+      "subtitle": "Smarter. Faster. Better.",
+      "description": "27 AI Agents working infinitely to empower your financial growth",
+      "ctaPrimary": "Start Trading Now",
+      "ctaSecondary": "View AI Agents",
+      "whySuccessButton": "🚀 Why 50x-100x-1000x is Inevitable"
+    },
+    "stats": {
+      "agents": "AI Agents",
+      "holders": "Token Holders",
+      "price": "Token Price (Demo)",
+      "trading": "Trading Active (Demo)"
+    },
+    "whySucceed": {
+      "title": "🚀 Why HypeAI is Destined to Succeed",
+      "subtitle": "Built on real revenue, utility, and AI innovation. Our success is inevitable."
+    },
+    "services": {
+      "title": "AI Services Platform",
+      "subtitle": "35+ professional AI services for crypto projects. From security audits to full-stack development."
+    },
+    "footer": {
+      "tagline": "27 AI Agents. Infinite Work. YOUR Success.",
+      "rights": "All rights reserved.",
+      "builtBy": "Built by AI Agents Team",
+      "disclaimer": "Cryptocurrency investments carry risk. Do your own research.",
+      "quickLinks": "Quick Links",
+      "resources": "Resources",
+      "community": "Community",
+      "legal": "Legal"
+    },
+    "buttons": {
+      "launchSoon": "🚀 Launch Soon",
+      "meetAgents": "👥 Meet All 27 Agents",
+      "viewActivity": "🔴 View Live Activity",
+      "buyNow": "💰 Buy $HYPE Now",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started"
+    }
+  },
+  "ja": {
+    "_meta": {
+      "language": "Japanese",
+      "status": "coming_soon",
+      "completion": "0%",
+      "last_updated": "2025-10-17",
+      "notes": "Placeholder structure for Japanese. Translations needed."
+    },
+    "nav": {
+      "home": "Home",
+      "trade": "Trade",
+      "stake": "Stake",
+      "agents": "AI Agents",
+      "docs": "Docs",
+      "whitepaper": "Whitepaper",
+      "connectWallet": "Connect Wallet"
+    },
+    "hero": {
+      "title": "AI-Powered Crypto Trading",
+      "subtitle": "Smarter. Faster. Better.",
+      "description": "27 AI Agents working infinitely to empower your financial growth",
+      "ctaPrimary": "Start Trading Now",
+      "ctaSecondary": "View AI Agents",
+      "whySuccessButton": "🚀 Why 50x-100x-1000x is Inevitable"
+    },
+    "stats": {
+      "agents": "AI Agents",
+      "holders": "Token Holders",
+      "price": "Token Price (Demo)",
+      "trading": "Trading Active (Demo)"
+    },
+    "whySucceed": {
+      "title": "🚀 Why HypeAI is Destined to Succeed",
+      "subtitle": "Built on real revenue, utility, and AI innovation. Our success is inevitable."
+    },
+    "services": {
+      "title": "AI Services Platform",
+      "subtitle": "35+ professional AI services for crypto projects. From security audits to full-stack development."
+    },
+    "footer": {
+      "tagline": "27 AI Agents. Infinite Work. YOUR Success.",
+      "rights": "All rights reserved.",
+      "builtBy": "Built by AI Agents Team",
+      "disclaimer": "Cryptocurrency investments carry risk. Do your own research.",
+      "quickLinks": "Quick Links",
+      "resources": "Resources",
+      "community": "Community",
+      "legal": "Legal"
+    },
+    "buttons": {
+      "launchSoon": "🚀 Launch Soon",
+      "meetAgents": "👥 Meet All 27 Agents",
+      "viewActivity": "🔴 View Live Activity",
+      "buyNow": "💰 Buy $HYPE Now",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started"
+    }
+  },
+  "ko": {
+    "_meta": {
+      "language": "Korean",
+      "status": "coming_soon",
+      "completion": "0%",
+      "last_updated": "2025-10-17",
+      "notes": "Placeholder structure for Korean. Translations needed."
+    },
+    "nav": {
+      "home": "Home",
+      "trade": "Trade",
+      "stake": "Stake",
+      "agents": "AI Agents",
+      "docs": "Docs",
+      "whitepaper": "Whitepaper",
+      "connectWallet": "Connect Wallet"
+    },
+    "hero": {
+      "title": "AI-Powered Crypto Trading",
+      "subtitle": "Smarter. Faster. Better.",
+      "description": "27 AI Agents working infinitely to empower your financial growth",
+      "ctaPrimary": "Start Trading Now",
+      "ctaSecondary": "View AI Agents",
+      "whySuccessButton": "🚀 Why 50x-100x-1000x is Inevitable"
+    },
+    "stats": {
+      "agents": "AI Agents",
+      "holders": "Token Holders",
+      "price": "Token Price (Demo)",
+      "trading": "Trading Active (Demo)"
+    },
+    "whySucceed": {
+      "title": "🚀 Why HypeAI is Destined to Succeed",
+      "subtitle": "Built on real revenue, utility, and AI innovation. Our success is inevitable."
+    },
+    "services": {
+      "title": "AI Services Platform",
+      "subtitle": "35+ professional AI services for crypto projects. From security audits to full-stack development."
+    },
+    "footer": {
+      "tagline": "27 AI Agents. Infinite Work. YOUR Success.",
+      "rights": "All rights reserved.",
+      "builtBy": "Built by AI Agents Team",
+      "disclaimer": "Cryptocurrency investments carry risk. Do your own research.",
+      "quickLinks": "Quick Links",
+      "resources": "Resources",
+      "community": "Community",
+      "legal": "Legal"
+    },
+    "buttons": {
+      "launchSoon": "🚀 Launch Soon",
+      "meetAgents": "👥 Meet All 27 Agents",
+      "viewActivity": "🔴 View Live Activity",
+      "buyNow": "💰 Buy $HYPE Now",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started"
+    }
   }
 }

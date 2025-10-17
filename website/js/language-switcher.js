@@ -11,7 +11,20 @@
     const LanguageManager = {
         currentLang: 'en',
         translations: null,
-        supportedLangs: ['en', 'ru'],
+        supportedLangs: ['en', 'ru', 'zh', 'es', 'fr', 'de', 'ja', 'ko'],
+        activeLangs: ['en', 'ru'], // Currently active languages
+
+        // Language metadata
+        languageInfo: {
+            en: { name: 'English', flag: '🇺🇸', status: 'active', availability: 'Q1 2025' },
+            ru: { name: 'Russian', flag: '🇷🇺', status: 'active', availability: 'Q1 2025' },
+            zh: { name: 'Chinese', flag: '🇨🇳', status: 'coming', availability: 'Q2 2025' },
+            es: { name: 'Spanish', flag: '🇪🇸', status: 'coming', availability: 'Q2 2025' },
+            fr: { name: 'French', flag: '🇫🇷', status: 'coming', availability: 'Q3 2025' },
+            de: { name: 'German', flag: '🇩🇪', status: 'coming', availability: 'Q3 2025' },
+            ja: { name: 'Japanese', flag: '🇯🇵', status: 'coming', availability: 'Q3 2025' },
+            ko: { name: 'Korean', flag: '🇰🇷', status: 'coming', availability: 'Q4 2025' }
+        },
 
         // Initialize
         init: async function() {
@@ -105,6 +118,13 @@
         switchLanguage: function(lang) {
             if (!this.supportedLangs.includes(lang)) return;
 
+            // Check if language is active
+            if (!this.activeLangs.includes(lang)) {
+                const info = this.languageInfo[lang];
+                console.log(`⏳ ${info.name} coming ${info.availability}`);
+                return;
+            }
+
             this.currentLang = lang;
             localStorage.setItem('hypeai_language', lang);
 
@@ -114,13 +134,16 @@
             // Update switcher UI
             this.updateSwitcherUI();
 
+            // Close dropdown
+            this.closeDropdown();
+
             console.log(`🌍 Language switched to: ${lang.toUpperCase()}`);
 
             // Dispatch custom event
             window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
         },
 
-        // Create language switcher UI
+        // Create language switcher UI with dropdown
         createSwitcher: function() {
             // Check if nav exists
             const nav = document.querySelector('nav .nav-links');
@@ -131,37 +154,61 @@
 
             // Create switcher container
             const switcherContainer = document.createElement('div');
-            switcherContainer.className = 'language-switcher';
-            switcherContainer.style.cssText = `
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                margin-left: 1rem;
-                padding: 0.5rem 1rem;
-                background: rgba(157, 78, 221, 0.1);
-                border-radius: 50px;
-                border: 1px solid rgba(157, 78, 221, 0.3);
-                transition: all 0.3s;
+            switcherContainer.className = 'language-switcher-dropdown';
+
+            // Create dropdown button
+            const dropdownBtn = document.createElement('button');
+            dropdownBtn.className = 'lang-dropdown-btn';
+
+            const currentInfo = this.languageInfo[this.currentLang];
+            dropdownBtn.innerHTML = `
+                <span class="lang-current-flag">${currentInfo.flag}</span>
+                <span class="lang-current-name">${currentInfo.name}</span>
+                <svg class="lang-dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                    <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             `;
 
-            // Create EN button
-            const enBtn = this.createLangButton('en', '🇺🇸 EN');
+            // Create dropdown menu
+            const dropdownMenu = document.createElement('div');
+            dropdownMenu.className = 'lang-dropdown-menu';
 
-            // Create RU button
-            const ruBtn = this.createLangButton('ru', '🇷🇺 RU');
+            // Add all languages to dropdown
+            this.supportedLangs.forEach(lang => {
+                const info = this.languageInfo[lang];
+                const langItem = document.createElement('button');
+                langItem.className = 'lang-dropdown-item';
+                langItem.setAttribute('data-lang', lang);
 
-            // Add separator
-            const separator = document.createElement('span');
-            separator.textContent = '|';
-            separator.style.cssText = `
-                color: rgba(157, 78, 221, 0.5);
-                font-weight: 300;
-            `;
+                if (info.status === 'coming') {
+                    langItem.classList.add('lang-coming-soon');
+                    langItem.disabled = true;
+                }
 
-            // Append buttons
-            switcherContainer.appendChild(enBtn);
-            switcherContainer.appendChild(separator);
-            switcherContainer.appendChild(ruBtn);
+                if (lang === this.currentLang) {
+                    langItem.classList.add('lang-active');
+                }
+
+                langItem.innerHTML = `
+                    <span class="lang-item-flag">${info.flag}</span>
+                    <span class="lang-item-name">${info.name}</span>
+                    ${info.status === 'coming' ? `<span class="lang-coming-badge">Coming ${info.availability}</span>` : ''}
+                    ${lang === this.currentLang ? '<span class="lang-active-check">✓</span>' : ''}
+                `;
+
+                // Click handler for active languages
+                if (info.status === 'active') {
+                    langItem.addEventListener('click', () => {
+                        this.switchLanguage(lang);
+                    });
+                }
+
+                dropdownMenu.appendChild(langItem);
+            });
+
+            // Append elements
+            switcherContainer.appendChild(dropdownBtn);
+            switcherContainer.appendChild(dropdownMenu);
 
             // Insert before wallet button or at end
             const walletBtn = nav.querySelector('.connect-wallet');
@@ -171,75 +218,84 @@
                 nav.appendChild(switcherContainer);
             }
 
-            // Update initial state
-            this.updateSwitcherUI();
-
-            // Add hover effect to container
-            switcherContainer.addEventListener('mouseenter', function() {
-                this.style.background = 'rgba(157, 78, 221, 0.2)';
-                this.style.borderColor = 'rgba(157, 78, 221, 0.5)';
+            // Toggle dropdown
+            dropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggleDropdown();
             });
 
-            switcherContainer.addEventListener('mouseleave', function() {
-                this.style.background = 'rgba(157, 78, 221, 0.1)';
-                this.style.borderColor = 'rgba(157, 78, 221, 0.3)';
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                this.closeDropdown();
             });
+
+            console.log('✅ Multi-language dropdown created (8 languages)');
         },
 
-        // Create language button
-        createLangButton: function(lang, text) {
-            const btn = document.createElement('button');
-            btn.className = `lang-btn lang-btn-${lang}`;
-            btn.textContent = text;
-            btn.setAttribute('data-lang', lang);
-            btn.style.cssText = `
-                background: transparent;
-                border: none;
-                color: #A0AEC0;
-                font-weight: 600;
-                font-size: 0.9rem;
-                cursor: pointer;
-                transition: all 0.3s;
-                padding: 0.25rem 0.5rem;
-                border-radius: 20px;
-            `;
+        // Toggle dropdown
+        toggleDropdown: function() {
+            const dropdown = document.querySelector('.language-switcher-dropdown');
+            if (!dropdown) return;
 
-            // Click handler
-            btn.addEventListener('click', () => {
-                this.switchLanguage(lang);
-            });
+            const menu = dropdown.querySelector('.lang-dropdown-menu');
+            const arrow = dropdown.querySelector('.lang-dropdown-arrow');
 
-            // Hover effects
-            btn.addEventListener('mouseenter', function() {
-                if (!this.classList.contains('active')) {
-                    this.style.color = '#00D4FF';
-                }
-            });
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show');
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                menu.classList.add('show');
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        },
 
-            btn.addEventListener('mouseleave', function() {
-                if (!this.classList.contains('active')) {
-                    this.style.color = '#A0AEC0';
-                }
-            });
+        // Close dropdown
+        closeDropdown: function() {
+            const dropdown = document.querySelector('.language-switcher-dropdown');
+            if (!dropdown) return;
 
-            return btn;
+            const menu = dropdown.querySelector('.lang-dropdown-menu');
+            const arrow = dropdown.querySelector('.lang-dropdown-arrow');
+
+            if (menu) {
+                menu.classList.remove('show');
+            }
+            if (arrow) {
+                arrow.style.transform = 'rotate(0deg)';
+            }
         },
 
         // Update switcher UI to show active language
         updateSwitcherUI: function() {
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                const btnLang = btn.getAttribute('data-lang');
+            // Update dropdown button
+            const dropdownBtn = document.querySelector('.lang-dropdown-btn');
+            if (dropdownBtn) {
+                const currentInfo = this.languageInfo[this.currentLang];
+                const flagSpan = dropdownBtn.querySelector('.lang-current-flag');
+                const nameSpan = dropdownBtn.querySelector('.lang-current-name');
 
-                if (btnLang === this.currentLang) {
-                    btn.classList.add('active');
-                    btn.style.color = '#00D4FF';
-                    btn.style.background = 'rgba(0, 212, 255, 0.15)';
-                    btn.style.fontWeight = '700';
+                if (flagSpan) flagSpan.textContent = currentInfo.flag;
+                if (nameSpan) nameSpan.textContent = currentInfo.name;
+            }
+
+            // Update dropdown items
+            document.querySelectorAll('.lang-dropdown-item').forEach(item => {
+                const itemLang = item.getAttribute('data-lang');
+
+                if (itemLang === this.currentLang) {
+                    item.classList.add('lang-active');
+                    // Add checkmark if not already there
+                    if (!item.querySelector('.lang-active-check')) {
+                        const check = document.createElement('span');
+                        check.className = 'lang-active-check';
+                        check.textContent = '✓';
+                        item.appendChild(check);
+                    }
                 } else {
-                    btn.classList.remove('active');
-                    btn.style.color = '#A0AEC0';
-                    btn.style.background = 'transparent';
-                    btn.style.fontWeight = '600';
+                    item.classList.remove('lang-active');
+                    // Remove checkmark
+                    const check = item.querySelector('.lang-active-check');
+                    if (check) check.remove();
                 }
             });
         },
@@ -267,23 +323,10 @@
     // Make globally accessible
     window.HypeAILanguage = LanguageManager;
 
-    // Add CSS for mobile responsiveness
-    const style = document.createElement('style');
-    style.textContent = `
-        @media (max-width: 768px) {
-            .language-switcher {
-                margin-left: 0 !important;
-                margin-top: 1rem;
-                width: 100%;
-                justify-content: center;
-            }
-
-            .lang-btn {
-                flex: 1;
-                text-align: center;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+    // Load external CSS
+    const cssLink = document.createElement('link');
+    cssLink.rel = 'stylesheet';
+    cssLink.href = '/css/language-switcher.css';
+    document.head.appendChild(cssLink);
 
 })();

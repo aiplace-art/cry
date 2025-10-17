@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypeAI Language Switcher - Design Preview</title>
+  <link rel="stylesheet" href="css/language-switcher.css">
+  <style>
+    /* Demo Page Styles - NOT part of component */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: white;
+    }
+
+    .demo-container {
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .demo-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .demo-header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #8B5CF6 0%, #00D4FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .demo-header p {
+      font-size: 18px;
+      color: #A0AEC0;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .demo-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .demo-card h2 {
+      font-size: 20px;
+      margin-bottom: 24px;
+      color: #8B5CF6;
+    }
+
+    .features {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 40px;
+    }
+
+    .features h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #00D4FF;
+    }
+
+    .features ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .features li {
+      padding: 12px;
+      background: rgba(139, 92, 246, 0.1);
+      border-radius: 8px;
+      font-size: 14px;
+      color: #A0AEC0;
+    }
+
+    .features li::before {
+      content: '✓';
+      color: #00D4FF;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    .code-preview {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+
+    .code-preview h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: #8B5CF6;
+    }
+
+    .code-preview code {
+      color: #A0AEC0;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      display: block;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <!-- Header -->
+    <div class="demo-header">
+      <h1>🎨 HypeAI Language Switcher</h1>
+      <p>Professional, elegant, enterprise-level design</p>
+    </div>
+
+    <!-- Demo Grid -->
+    <div class="demo-grid">
+      <!-- Default State -->
+      <div class="demo-card">
+        <h2>Default State</h2>
+        <div class="language-switcher">
+          <button class="lang-button" aria-label="Select language" aria-expanded="false">
+            <span class="flag">🇺🇸</span>
+            <span class="name">English</span>
+            <span class="arrow">▼</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hover State (simulated) -->
+      <div class="demo-card">
+        <h2>Hover State</h2>
+        <div class="language-switcher">
+          <button class="lang-button" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%); border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);">
+            <span class="flag">🇺🇸</span>
+            <span class="name">English</span>
+            <span class="arrow">▼</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dropdown Open -->
+      <div class="demo-card">
+        <h2>Dropdown Menu</h2>
+        <div class="language-switcher">
+          <button class="lang-button open" aria-label="Select language" aria-expanded="true">
+            <span class="flag">🇺🇸</span>
+            <span class="name">English</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="lang-dropdown show">
+            <div class="lang-option active">🇺🇸 English</div>
+            <div class="lang-option">🇷🇺 Русский</div>
+            <div class="lang-option disabled">🇨🇳 中文 <span class="coming-soon">Q2 2025</span></div>
+            <div class="lang-option disabled">🇪🇸 Español <span class="coming-soon">Q2 2025</span></div>
+            <div class="lang-option disabled">🇩🇪 Deutsch <span class="coming-soon">Q2 2025</span></div>
+            <div class="lang-option disabled">🇫🇷 Français <span class="coming-soon">Q2 2025</span></div>
+            <div class="lang-option disabled">🇯🇵 日本語 <span class="coming-soon">Q2 2025</span></div>
+            <div class="lang-option disabled">🇰🇷 한국어 <span class="coming-soon">Q2 2025</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="features">
+      <h3>✨ Design Features</h3>
+      <ul>
+        <li>Glass-morphism effect with backdrop blur</li>
+        <li>Purple gradient glow on hover</li>
+        <li>Light blue accent for active state</li>
+        <li>Smooth animations (0.3s cubic-bezier)</li>
+        <li>Elegant fade-in for dropdown items</li>
+        <li>Responsive design (desktop → mobile)</li>
+        <li>Accessibility support (ARIA, keyboard nav)</li>
+        <li>"Coming Soon" badges for future languages</li>
+        <li>Checkmark indicator for active language</li>
+        <li>Reduced motion support</li>
+        <li>High contrast mode compatible</li>
+        <li>Print-friendly (hidden in print)</li>
+      </ul>
+    </div>
+
+    <!-- Code Preview -->
+    <div class="code-preview">
+      <h3>📝 Integration Code</h3>
+      <code>&lt;!-- Add to your HTML --&gt;
+&lt;link rel="stylesheet" href="css/language-switcher.css"&gt;
+
+&lt;div class="language-switcher"&gt;
+  &lt;button class="lang-button" id="langButton" aria-label="Select language" aria-expanded="false"&gt;
+    &lt;span class="flag"&gt;🇺🇸&lt;/span&gt;
+    &lt;span class="name"&gt;English&lt;/span&gt;
+    &lt;span class="arrow"&gt;▼&lt;/span&gt;
+  &lt;/button&gt;
+
+  &lt;div class="lang-dropdown" id="langDropdown"&gt;
+    &lt;div class="lang-option active" data-lang="en"&gt;🇺🇸 English&lt;/div&gt;
+    &lt;div class="lang-option" data-lang="ru"&gt;🇷🇺 Русский&lt;/div&gt;
+    &lt;div class="lang-option disabled"&gt;🇨🇳 中文 &lt;span class="coming-soon"&gt;Q2 2025&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="lang-option disabled"&gt;🇪🇸 Español &lt;span class="coming-soon"&gt;Q2 2025&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="lang-option disabled"&gt;🇩🇪 Deutsch &lt;span class="coming-soon"&gt;Q2 2025&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="lang-option disabled"&gt;🇫🇷 Français &lt;span class="coming-soon"&gt;Q2 2025&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="lang-option disabled"&gt;🇯🇵 日本語 &lt;span class="coming-soon"&gt;Q2 2025&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="lang-option disabled"&gt;🇰🇷 한국어 &lt;span class="coming-soon"&gt;Q2 2025&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  // Simple toggle functionality
+  const langButton = document.getElementById('langButton');
+  const langDropdown = document.getElementById('langDropdown');
+
+  langButton.addEventListener('click', () =&gt; {
+    langButton.classList.toggle('open');
+    langDropdown.classList.toggle('show');
+    const isOpen = langButton.classList.contains('open');
+    langButton.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) =&gt; {
+    if (!e.target.closest('.language-switcher')) {
+      langButton.classList.remove('open');
+      langDropdown.classList.remove('show');
+      langButton.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Language selection
+  document.querySelectorAll('.lang-option:not(.disabled)').forEach(option =&gt; {
+    option.addEventListener('click', () =&gt; {
+      const lang = option.getAttribute('data-lang');
+      const flagAndName = option.textContent.trim();
+
+      // Update button
+      langButton.querySelector('.flag').textContent = option.textContent.split(' ')[0];
+      langButton.querySelector('.name').textContent = option.textContent.split(' ')[1];
+
+      // Update active state
+      document.querySelectorAll('.lang-option').forEach(opt =&gt; opt.classList.remove('active'));
+      option.classList.add('active');
+
+      // Close dropdown
+      langButton.classList.remove('open');
+      langDropdown.classList.remove('show');
+      langButton.setAttribute('aria-expanded', 'false');
+
+      // TODO: Implement actual language switching logic
+      console.log('Language switched to:', lang);
+    });
+  });
+&lt;/script&gt;</code>
+    </div>
+  </div>
+
+  <script>
+    // Interactive demo functionality
+    const langButton = document.querySelector('.demo-card:nth-child(3) .lang-button');
+    const langDropdown = document.querySelector('.demo-card:nth-child(3) .lang-dropdown');
+
+    if (langButton) {
+      langButton.addEventListener('click', () => {
+        langButton.classList.toggle('open');
+        langDropdown.classList.toggle('show');
+        const isOpen = langButton.classList.contains('open');
+        langButton.setAttribute('aria-expanded', isOpen);
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.demo-card:nth-child(3) .language-switcher')) {
+          langButton.classList.remove('open');
+          langDropdown.classList.remove('show');
+          langButton.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.querySelectorAll('.demo-card:nth-child(3) .lang-option:not(.disabled)').forEach(option => {
+        option.addEventListener('click', () => {
+          document.querySelectorAll('.demo-card:nth-child(3) .lang-option').forEach(opt => opt.classList.remove('active'));
+          option.classList.add('active');
+
+          const flagAndName = option.textContent.trim().split(' ');
+          langButton.querySelector('.flag').textContent = flagAndName[0];
+          langButton.querySelector('.name').textContent = flagAndName[1];
+
+          langButton.classList.remove('open');
+          langDropdown.classList.remove('show');
+          langButton.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
