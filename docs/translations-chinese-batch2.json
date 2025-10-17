@@ -1,0 +1,134 @@
+{
+  "zh": {
+    "whySucceed": {
+      "cryptoChecker": {
+        "title": "加密货币检测器 - 付费服务 💰",
+        "intro": "输入任何加密货币地址。我们的27个AI代理将在30秒内完成分析：",
+        "feature1": "✅ 骗局还是合法？- 撤池检测，蜜罐检查",
+        "feature2": "📊 全面分析 - 合约安全性、流动性、持有者",
+        "feature3": "📈 成功概率 - AI预测10倍、100倍或暴跌",
+        "feature4": "📄 完整报告 - 代币经济学、团队、营销、路线图",
+        "pricing": "💵 定价：每次检测9.99美元",
+        "payment": "使用HYPE代币支付。50%的费用将永久销毁。🔥",
+        "launch": "🎯 2025年第二季度上线：保护投资者免受骗局，赚取收入，销毁代币。三赢局面。"
+      },
+      "aiOracle": {
+        "title": "AI预言机 - 价格预测",
+        "description": "我们的神经网络每秒分析1000多个数据点，以85%以上的准确率预测加密货币价格走势。使用LSTM、Transformer模型和链上分析技术。",
+        "feature1": "📊 实时市场分析",
+        "feature2": "🧠 AI驱动的预测",
+        "feature3": "📈 85%以上准确率",
+        "feature4": "⚡ 每60秒更新一次"
+      },
+      "b2bRevenue": {
+        "title": "真实的B2B收入",
+        "description": "与模因币不同，我们拥有真实的付费客户。加密项目为安全审计、代币经济学、营销和开发服务向我们支付2,500至10,000美元。",
+        "feature1": "💼 35+项付费AI服务",
+        "feature2": "📈 不断增长的客户群",
+        "feature3": "🔥 50%的收入用于代币销毁",
+        "feature4": "📊 可持续增长模式"
+      },
+      "tokenBurns": {
+        "title": "激进的代币销毁",
+        "description": "所有服务费用的50%将被永久销毁。随着使用量增长，供应量减少。简单的经济学原理：供应减少+需求增加=价格上涨。📈",
+        "expected": "预期：第一年销毁超过1亿枚代币"
+      },
+      "staking": {
+        "title": "62% APY质押=供应冲击",
+        "description": "当40-60%的代币被锁定在质押中（365天锁定期），流通供应量将大幅下降。可用代币减少=价格上涨。钻石手将获得丰厚回报。",
+        "projected": "预测：到2025年第四季度将锁定超过5亿枚代币"
+      },
+      "aiAgents": {
+        "title": "27个代理无限工作",
+        "description": "我们的AI代理永不休息，永不辞职，永不休假。它们⚡无限工作，构建功能，获取用户，创建内容，发展生态系统。零人力成本。",
+        "result": "结果：比任何竞争对手都快的开发速度"
+      }
+    },
+    "services": {
+      "security": {
+        "title": "安全与审计",
+        "description": "由ATLAS（我们的区块链安全专家）提供专业的智能合约审计和安全评估服务。我们识别漏洞，确保代码安全，采用军事级安全协议保护您的项目免受攻击。",
+        "feature1": "智能合约审计",
+        "feature2": "渗透测试",
+        "feature3": "7×24小时安全监控",
+        "feature4": "事件响应",
+        "pricing": "起价2,500美元"
+      },
+      "tokenomicsDesign": {
+        "title": "代币经济学设计",
+        "description": "由MOMENTUM（我们的经济学专家）打造的数据驱动型代币经济模型。我们设计可持续的代币经济，包含经过验证的销毁机制、质押奖励和通缩策略，确保长期增长和价值增值。",
+        "feature1": "经济建模",
+        "feature2": "代币分配",
+        "feature3": "锁仓计划",
+        "feature4": "销毁机制",
+        "pricing": "起价1,200美元"
+      },
+      "development": {
+        "title": "智能合约开发",
+        "description": "由NEXUS、SOLIDITY和PRISM（我们的全栈开发团队）构建企业级智能合约和去中心化应用。从Solidity合约到React前端，我们交付具有100%测试覆盖率和Gas优化的生产就绪代码。",
+        "feature1": "定制智能合约",
+        "feature2": "去中心化应用开发",
+        "feature3": "多链部署",
+        "feature4": "后端与API",
+        "pricing": "起价3,500美元"
+      },
+      "marketing": {
+        "title": "营销与增长",
+        "description": "由MOMENTUM（我们的营销首席执行官）执行激进的增长营销活动。我们通过经过验证的策略将加密项目从0扩展到10,000多名粉丝：Twitter自动化、影响者合作、病毒式内容和能够转化的社区建设。",
+        "feature1": "社交媒体管理",
+        "feature2": "启动营销活动",
+        "feature3": "内容创作",
+        "feature4": "影响者营销",
+        "pricing": "起价799美元/月"
+      },
+      "community": {
+        "title": "社区管理",
+        "description": "由PULSE（我们的社区AI）提供7×24小时社区互动服务。永不错过任何提及、问题或投诉。我们通过即时响应、情绪分析和主动的社区建设来管理Discord、Telegram、Twitter，保持持有者的忠诚度。",
+        "feature1": "Discord/Telegram设置",
+        "feature2": "7×24小时审核",
+        "feature3": "互动计划",
+        "feature4": "情绪分析",
+        "pricing": "起价499美元/月"
+      },
+      "design": {
+        "title": "设计与品牌",
+        "description": "由PIXEL和VIBE（我们的设计和品牌专家）打造苹果级别的设计。我们为初创公司创建看起来像价值1亿美元项目的标志、网站和品牌形象。现代、简洁、专业的设计激发信任和投资。",
+        "feature1": "标志与品牌识别",
+        "feature2": "网站设计",
+        "feature3": "去中心化应用UI/UX",
+        "feature4": "营销素材",
+        "pricing": "起价1,500美元"
+      },
+      "content": {
+        "title": "内容创作",
+        "description": "由CONTENT（我们的写作AI）提供专业内容。投资者真正会阅读的白皮书，开发者能够理解的技术文档，以及在Google上排名的博客文章。SEO优化、技术准确、专业格式。",
+        "feature1": "白皮书撰写",
+        "feature2": "技术文档",
+        "feature3": "博客文章与资讯",
+        "feature4": "视频脚本",
+        "pricing": "起价399美元"
+      },
+      "devops": {
+        "title": "DevOps与运维",
+        "description": "由我们的DevOps团队管理企业基础设施。CI/CD管道、Docker容器、AWS/Vercel部署、监控、告警和99.9%的正常运行时间。您的项目7×24小时在线，让您专注于增长而非服务器。",
+        "feature1": "CI/CD管道搭建",
+        "feature2": "云基础设施",
+        "feature3": "监控与告警",
+        "feature4": "性能优化",
+        "pricing": "起价699美元/月"
+      }
+    },
+    "tokenGrowth": {
+      "title": "数据驱动的代币经济学",
+      "subtitle": "由真实效用支持的可持续增长机制",
+      "benefit1": "📊 真实效用驱动需求 - AI服务需要HYPE代币",
+      "benefit2": "🔥 通缩机制 - 50%的服务费用被销毁",
+      "benefit3": "💎 质押锁定减少流通供应（高达62% APY）",
+      "benefit4": "📈 B2B收入再投资于生态系统发展"
+    },
+    "aiAgents": {
+      "title": "认识我们的AI团队",
+      "subtitle": "27个代理7×24小时工作。永不休息。永不辞职。"
+    }
+  }
+}

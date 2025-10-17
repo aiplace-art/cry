@@ -9,21 +9,21 @@
 
   "questions": {
     "whatIsHypeAI": [
-      "HypeAI is a revolutionary AI agent ecosystem on Solana! 🤖⚡\n\nWe're building 15 autonomous agents for:\n• DeFi trading\n• Smart governance\n• Community management\n\nLearn more: {website}",
-      "Great question! HypeAI brings autonomous AI agents to Solana.\n\nThink:\n✅ Automated trading strategies\n✅ Smart contract governance\n✅ Intelligent analytics\n\nCheck it out: {website}",
-      "HypeAI = AI Agents + Solana's speed! 🔥\n\nOur 15 specialized agents handle everything from trading to community management.\n\nDive in: {website}"
+      "HypeAI is a revolutionary AI agent ecosystem on BNB Chain! 🤖⚡\n\nWe're building 15 autonomous agents for:\n• DeFi trading\n• Smart governance\n• Community management\n\nLearn more: {website}",
+      "Great question! HypeAI brings autonomous AI agents to BNB Chain.\n\nThink:\n✅ Automated trading strategies\n✅ Smart contract governance\n✅ Intelligent analytics\n\nCheck it out: {website}",
+      "HypeAI = AI Agents + BNB Chain's efficiency! 🔥\n\nOur 15 specialized agents handle everything from trading to community management.\n\nDive in: {website}"
     ],
 
     "tokenInfo": [
       "$HYPE is our utility token powering the AI agent ecosystem! 🪙\n\n💡 Use cases:\n• Agent service payments\n• DAO governance\n• Staking rewards\n\nLaunch: Nov 2025\nJoin: {telegram}",
       "The $HYPE token fuels our AI agents:\n\n✅ Access premium features\n✅ Vote on governance\n✅ Earn staking rewards\n\nStay tuned for presale! 🚀\n{telegram}",
-      "$HYPE Token Details:\n\n🔹 Total Supply: TBA\n🔹 Network: Solana\n🔹 Use: AI agent services\n🔹 Launch: Q4 2025\n\nFollow for updates! {telegram}"
+      "$HYPE Token Details:\n\n🔹 Total Supply: TBA\n🔹 Network: BNB Chain\n🔹 Use: AI agent services\n🔹 Launch: Q4 2025\n\nFollow for updates! {telegram}"
     ],
 
     "howToJoin": [
       "Welcome to HypeAI! Here's how to join:\n\n1️⃣ Follow us here on Twitter\n2️⃣ Join Telegram: {telegram}\n3️⃣ Visit website: {website}\n4️⃣ Join Discord: {discord}\n\nLet's build the future! 🚀",
       "Easy! Join our community:\n\n🐦 Twitter: Follow us\n💬 Telegram: {telegram}\n🌐 Website: {website}\n💬 Discord: {discord}\n\nSee you there! ⚡",
-      "Welcome aboard! 🎉\n\nHere's your onboarding:\n✅ Follow @HypeAI_SOL\n✅ Join TG: {telegram}\n✅ Visit: {website}\n✅ Discord: {discord}\n\nLFG! 🚀"
+      "Welcome aboard! 🎉\n\nHere's your onboarding:\n✅ Follow @HypeAIProject\n✅ Join TG: {telegram}\n✅ Visit: {website}\n✅ Discord: {discord}\n\nLFG! 🚀"
     ],
 
     "presale": [
@@ -39,21 +39,21 @@
     ],
 
     "technology": [
-      "Our tech stack is cutting-edge! 🛠️\n\n🔹 Solana blockchain\n🔹 Advanced AI/ML models\n🔹 Smart contract automation\n🔹 Real-time analytics\n\nTechnical docs: {website}",
-      "HypeAI Technology:\n\n✅ Built on Solana (fast & cheap)\n✅ 15 specialized AI agents\n✅ Autonomous decision-making\n✅ Secure smart contracts\n\nDive deeper: {website}",
-      "We're building with:\n\n🤖 State-of-the-art AI\n⚡ Solana's speed\n🔒 Secure architecture\n📊 Real-time data\n\nDocs: {website}\nTG: {telegram}"
+      "Our tech stack is cutting-edge! 🛠️\n\n🔹 BNB Chain blockchain\n🔹 Advanced AI/ML models\n🔹 Smart contract automation\n🔹 Real-time analytics\n\nTechnical docs: {website}",
+      "HypeAI Technology:\n\n✅ Built on BNB Chain (efficient & scalable)\n✅ 15 specialized AI agents\n✅ Autonomous decision-making\n✅ Secure smart contracts\n\nDive deeper: {website}",
+      "We're building with:\n\n🤖 State-of-the-art AI\n⚡ BNB Chain's efficiency\n🔒 Secure architecture\n📊 Real-time data\n\nDocs: {website}\nTG: {telegram}"
     ],
 
     "team": [
       "Our team consists of:\n\n🔹 Blockchain developers\n🔹 AI/ML engineers\n🔹 DeFi experts\n🔹 Community builders\n\nMeet us: {website}",
-      "HypeAI is built by experienced:\n\n✅ Solana devs\n✅ AI researchers\n✅ Crypto veterans\n\n100% doxxed soon! 👀\n{website}",
+      "HypeAI is built by experienced:\n\n✅ BNB Chain devs\n✅ AI researchers\n✅ Crypto veterans\n\n100% doxxed soon! 👀\n{website}",
       "Strong team behind HypeAI:\n\n• Years of crypto experience\n• AI/ML expertise\n• Successful launches\n\nLearn more: {website}"
     ],
 
     "partnerships": [
-      "We're building relationships with:\n\n🤝 Solana ecosystem projects\n🤝 DeFi protocols\n🤝 AI platforms\n\nAnnouncements coming soon! {telegram}",
+      "We're building relationships with:\n\n🤝 BNB Chain ecosystem projects\n🤝 DeFi protocols\n🤝 AI platforms\n\nAnnouncements coming soon! {telegram}",
       "Partnerships in the works! 🤝\n\nWatch for announcements about:\n• DEX integrations\n• Wallet partnerships\n• Ecosystem collaborations\n\nStay tuned: {telegram}",
-      "Growing our ecosystem daily!\n\n🔹 Solana partnerships\n🔹 DeFi integrations\n🔹 AI collaborations\n\nUpdates: {telegram}"
+      "Growing our ecosystem daily!\n\n🔹 BNB Chain partnerships\n🔹 DeFi integrations\n🔹 AI collaborations\n\nUpdates: {telegram}"
     ]
   },
 
@@ -102,7 +102,7 @@
 
   "autoResponses": {
     "mention": [
-      "Thanks for mentioning HypeAI! 🤖\n\nWe're building the future of AI on Solana. ⚡\n\n{website}",
+      "Thanks for mentioning HypeAI! 🤖\n\nWe're building the future of AI on BNB Chain. ⚡\n\n{website}",
       "Hey! Thanks for the mention! 👋\n\nCheck out what we're building: {website}",
       "Appreciate the tag! 🙏\n\nLearn about our AI agents: {website}"
     ],
@@ -127,7 +127,7 @@
   },
 
   "helpfulLinks": {
-    "general": "Learn more about HypeAI:\n\n🌐 Website: {website}\n💬 Telegram: {telegram}\n💬 Discord: {discord}\n📱 Twitter: @HypeAI_SOL",
+    "general": "Learn more about HypeAI:\n\n🌐 Website: {website}\n💬 Telegram: {telegram}\n💬 Discord: {discord}\n📱 Twitter: @HypeAIProject",
 
     "developers": "For developers:\n\n📚 Docs: {website}/docs\n💻 GitHub: Coming soon\n💬 Dev chat: {discord}",
 

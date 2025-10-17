@@ -31,8 +31,10 @@
 
   "targeting": {
     "keywords": [
-      "solana",
-      "sol",
+      "bnb chain",
+      "binance smart chain",
+      "bnb",
+      "bsc",
       "ai",
       "artificial intelligence",
       "defi",
@@ -43,8 +45,9 @@
       "crypto ai"
     ],
     "hashtags": [
-      "#Solana",
-      "#SolanaNFT",
+      "#BNB",
+      "#BNBChain",
+      "#BSC",
       "#AI",
       "#DeFi",
       "#Web3",
@@ -100,14 +103,14 @@
   "influencerEngagement": {
     "enabled": true,
     "targetAccounts": [
-      "solana",
-      "pumpdotfun",
-      "solanafm",
-      "jupiter_exchange",
-      "MagicEden",
-      "phantom",
-      "SolanaFloor",
-      "solana_daily"
+      "BNBCHAIN",
+      "binance",
+      "cz_binance",
+      "PancakeSwap",
+      "VenusProtocol",
+      "Biswap_Dex",
+      "THENA_FI",
+      "MetaMask"
     ],
     "engagementFrequency": "daily",
     "priorityLevel": "high",

@@ -1438,5 +1438,149 @@
       "accountedTokens": 0
     },
     "acknowledged": false
+  },
+  {
+    "id": 1760731176055,
+    "timestamp": "2025-10-17T19:59:36.055Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760731476059,
+    "timestamp": "2025-10-17T20:04:36.059Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760731939673,
+    "timestamp": "2025-10-17T20:12:19.673Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760732239683,
+    "timestamp": "2025-10-17T20:17:19.683Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760732539691,
+    "timestamp": "2025-10-17T20:22:19.691Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760732839691,
+    "timestamp": "2025-10-17T20:27:19.691Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760733139695,
+    "timestamp": "2025-10-17T20:32:19.695Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760733439697,
+    "timestamp": "2025-10-17T20:37:19.697Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760733739661,
+    "timestamp": "2025-10-17T20:42:19.661Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760734039666,
+    "timestamp": "2025-10-17T20:47:19.666Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760734339663,
+    "timestamp": "2025-10-17T20:52:19.663Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760734754917,
+    "timestamp": "2025-10-17T20:59:14.917Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
   }
 ]

@@ -1,29 +1,29 @@
 {
-  "timestamp": "2025-10-17T19:51:52.549Z",
+  "timestamp": "2025-10-17T21:00:10.384Z",
   "hashtags": [],
   "competitors": [
     {
-      "username": "solana",
-      "followers": 3566656,
-      "following": 2918,
-      "tweets": 19430,
-      "engagementRate": "18356.44",
+      "username": "binance",
+      "followers": 14885942,
+      "following": 577,
+      "tweets": 40280,
+      "engagementRate": "36956.16",
       "strategy": "Established player"
     },
     {
-      "username": "pumpdotfun",
-      "followers": 597296,
-      "following": 0,
-      "tweets": 3027,
-      "engagementRate": "19732.28",
+      "username": "BNBCHAIN",
+      "followers": 3897081,
+      "following": 638,
+      "tweets": 30519,
+      "engagementRate": "12769.36",
       "strategy": "Established player"
     },
     {
-      "username": "RaydiumProtocol",
-      "followers": 443631,
-      "following": 873,
-      "tweets": 6685,
-      "engagementRate": "6636.22",
+      "username": "PancakeSwap",
+      "followers": 2136588,
+      "following": 209,
+      "tweets": 17254,
+      "engagementRate": "12383.15",
       "strategy": "Established player"
     }
   ],
@@ -32,7 +32,7 @@
     {
       "type": "competitor",
       "priority": "MEDIUM",
-      "action": "Study @solana's content strategy",
+      "action": "Study @binance's content strategy",
       "tactics": [
         "Analyze their best-performing tweets",
         "Identify their posting schedule",
@@ -79,5 +79,5 @@
       "expectedImpact": "+50-100 followers/week"
     }
   ],
-  "previousRun": "2025-10-17T16:50:08.631Z"
+  "previousRun": "2025-10-17T20:04:06.844Z"
 }

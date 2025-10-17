@@ -1,0 +1,67 @@
+{
+  "timestamp": "2025-10-17T20:48:06.581Z",
+  "templates": [
+    {
+      "name": "BNB Chain Update",
+      "logos": [
+        "bnb-chain-logo.svg"
+      ],
+      "layout": "Single logo top-left",
+      "style": "Professional, Clean",
+      "text": "Stats or announcement",
+      "colors": [
+        "#F3BA2F",
+        "#000000"
+      ]
+    },
+    {
+      "name": "Partner Spotlight",
+      "logos": [
+        "bnb-chain-logo.svg",
+        "partner-logo.svg"
+      ],
+      "layout": "Two logos side-by-side",
+      "style": "Collaborative",
+      "text": "Partnership announcement",
+      "colors": [
+        "#F3BA2F",
+        "Partner colors"
+      ]
+    },
+    {
+      "name": "Ecosystem Overview",
+      "logos": [
+        "pancakeswap-logo.svg",
+        "venus-logo.svg",
+        "thena-logo.png",
+        "biswap-logo.svg"
+      ],
+      "layout": "Grid 2x2",
+      "style": "Vibrant, Diverse",
+      "text": "Ecosystem highlights",
+      "colors": [
+        "Multiple brand colors"
+      ]
+    },
+    {
+      "name": "Technical Update",
+      "logos": [
+        "bnb-chain-logo.svg"
+      ],
+      "layout": "Logo + tech icons",
+      "style": "Technical, Modern",
+      "text": "Development updates",
+      "colors": [
+        "#F3BA2F",
+        "#000000",
+        "#1E2026"
+      ]
+    }
+  ],
+  "usage": {
+    "recommendation": "Use official logos in all BNB Chain related posts",
+    "placement": "Top-left or center, minimum 100x100px",
+    "background": "Ensure good contrast with logo",
+    "spacing": "Minimum 20px clear space around logo"
+  }
+}

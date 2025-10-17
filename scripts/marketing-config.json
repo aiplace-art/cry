@@ -1,24 +1,23 @@
 {
   "project": "HypeAI",
   "targetHashtags": [
-    "#Solana",
-    "#SolanaAI",
-    "#SolDeFi",
+    "#BNB",
+    "#BNBChain",
+    "#BSC",
     "#AIAgents",
     "#DeFi",
     "#Web3",
     "#CryptoAI",
-    "#SolanaNFT",
-    "#BuidlOnSolana",
-    "#SolanaEcosystem",
+    "#BuildOnBNB",
+    "#BNBEcosystem",
     "#AITrading",
     "#DecentralizedAI",
     "#SmartContracts",
     "#Blockchain",
     "#CryptoTwitter",
-    "#SolanaAlpha",
-    "#SolDev",
-    "#SolanaNews",
+    "#BNBAlpha",
+    "#BNBDev",
+    "#BinanceSmartChain",
     "#AIonChain",
     "#MachineLearning",
     "#AutomatedTrading",
@@ -28,26 +27,26 @@
     "#OpenSource"
   ],
   "competitorAccounts": [
-    "solana",
-    "pumpdotfun",
-    "RaydiumProtocol",
-    "JupiterExchange",
-    "phantom",
-    "MagicEden",
-    "SolanaFloor",
-    "ProjectSerum",
-    "metaplex",
-    "SolanaMobile",
-    "SolanaFndn",
-    "SolanaSpaces",
-    "MarinadeFinance",
-    "SolendProtocol",
-    "orcaprotocol",
-    "SaberHQ",
-    "Port_Finance",
-    "StepFinance_",
-    "SolanaMonkeyBiz",
-    "DeGodsNFT"
+    "BNBCHAIN",
+    "binance",
+    "PancakeSwap",
+    "VenusProtocol",
+    "Biswap_Dex",
+    "THENA_FI",
+    "AlpacaFinance",
+    "WombatExchange",
+    "RadioShack",
+    "BabySwap_BSC",
+    "ApeSwapFinance",
+    "Dodoex_io",
+    "1inch",
+    "TrustWallet",
+    "MetaMask",
+    "beefy_finance",
+    "autofarmnetwork",
+    "ellipsis_fi",
+    "BeltFi",
+    "bakeryswap"
   ],
   "influencerCategories": {
     "megaInfluencers": {
@@ -63,9 +62,9 @@
     "macroInfluencers": {
       "followerRange": "10K-100K",
       "targets": [
-        "SolanaLegend",
-        "SolanaDaily",
-        "solanafm",
+        "BNBDaily",
+        "BSCNews",
+        "BSC_Daily",
         "CryptoGodJohn"
       ],
       "strategy": "Regular engagement, quote tweets, collaboration DMs"
@@ -73,7 +72,7 @@
     "microInfluencers": {
       "followerRange": "1K-10K",
       "targets": [
-        "Search dynamically for active Solana builders",
+        "Search dynamically for active BNB Chain builders",
         "Target AI/ML crypto enthusiasts",
         "Find DeFi power users",
         "Identify meme creators"
@@ -104,8 +103,8 @@
   },
   "growthTactics": {
     "immediate": [
-      "Reply-guy strategy on @solana, @pumpdotfun, @JupiterExchange",
-      "Quote-tweet viral Solana posts with HypeAI perspective",
+      "Reply-guy strategy on @BNBCHAIN, @binance, @PancakeSwap",
+      "Quote-tweet viral BNB Chain posts with HypeAI perspective",
       "Tag micro-influencers in relevant content",
       "Use trending hashtags in next 3 tweets",
       "Run small giveaway ($50) for follows + RT"
@@ -121,7 +120,7 @@
       "Build AI agent demo that tweets automatically",
       "Develop signature content format (e.g., 'AI Agent Monday')",
       "Establish HypeAI as thought leader in AI + crypto",
-      "Partner with major Solana projects",
+      "Partner with major BNB Chain projects",
       "Launch community challenges with rewards"
     ]
   },
