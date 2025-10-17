@@ -2089,29 +2089,45 @@
         // Wallet state
         let connectedWallet = null;
 
-        // Update button UI
+        // Update ALL wallet buttons on the page
         function updateWalletButton(address) {
-            const btn = document.getElementById('walletButton');
-            if (btn) {
-                const shortAddress = address.substring(0, 6) + '...' + address.substring(38);
-                btn.innerHTML = '🟢 ' + shortAddress;
-                btn.style.background = 'linear-gradient(135deg, var(--accent-green), #00D4FF)';
-                btn.onclick = disconnectWallet;
-                connectedWallet = address;
-                console.log('✅ Wallet connected:', shortAddress);
-            }
+            const shortAddress = address.substring(0, 6) + '...' + address.substring(38);
+            connectedWallet = address;
+
+            // Find all wallet buttons on the page
+            const allButtons = document.querySelectorAll('button.cta-button, button[onclick*="connectWallet"]');
+
+            allButtons.forEach(btn => {
+                // Check if this is a wallet connection button
+                if (btn.textContent.includes('Connect Wallet') || btn.id === 'walletButton' || btn.textContent.includes('0x')) {
+                    btn.innerHTML = '🟢 ' + shortAddress;
+                    btn.style.background = 'linear-gradient(135deg, var(--accent-green), #00D4FF)';
+                    btn.onclick = disconnectWallet;
+                }
+            });
+
+            console.log('✅ Wallet connected:', shortAddress);
+            console.log('✅ Updated', allButtons.length, 'wallet buttons');
         }
 
-        // Disconnect wallet
+        // Disconnect wallet and reset ALL buttons
         function disconnectWallet() {
             connectedWallet = null;
-            const btn = document.getElementById('walletButton');
-            if (btn) {
-                btn.textContent = 'Connect Wallet';
-                btn.style.background = 'linear-gradient(135deg, var(--primary-blue), var(--primary-purple))';
-                btn.onclick = connectWallet;
-                console.log('✅ Wallet disconnected');
-            }
+
+            // Find all wallet buttons on the page
+            const allButtons = document.querySelectorAll('button.cta-button, button[onclick*="disconnectWallet"]');
+
+            allButtons.forEach(btn => {
+                // Check if this is a connected wallet button
+                if (btn.textContent.includes('0x') || btn.id === 'walletButton') {
+                    btn.textContent = 'Connect Wallet';
+                    btn.style.background = 'linear-gradient(135deg, var(--primary-blue), var(--primary-purple))';
+                    btn.onclick = connectWallet;
+                }
+            });
+
+            console.log('✅ Wallet disconnected');
+            console.log('✅ Reset', allButtons.length, 'wallet buttons');
         }
 
         // Show wallet modal
