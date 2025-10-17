@@ -23,9 +23,9 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 contract HypeAI is ERC20, Ownable, ReentrancyGuard {
 
     // Token configuration
-    uint256 private constant TOTAL_SUPPLY = 1_000_000_000 * 10**18; // 1 Billion tokens
-    uint256 public maxTransactionAmount = 5_000_000 * 10**18; // 0.5% of total supply
-    uint256 public maxWalletAmount = 20_000_000 * 10**18; // 2% of total supply
+    uint256 private constant TOTAL_SUPPLY = 10_000_000_000 * 10**18; // 10 Billion tokens
+    uint256 public maxTransactionAmount = 50_000_000 * 10**18; // 0.5% of total supply
+    uint256 public maxWalletAmount = 200_000_000 * 10**18; // 2% of total supply
 
     // Fee structure (in basis points, 1% = 100)
     uint256 public reflectionFee = 200; // 2%
@@ -74,7 +74,7 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
     uint256 public constant BONUS_APY_365_DAYS = 5000; // +50% for 365 days
 
     // Liquidity management
-    uint256 public swapTokensAtAmount = 1_000_000 * 10**18; // 0.1% of supply
+    uint256 public swapTokensAtAmount = 10_000_000 * 10**18; // 0.1% of supply
     bool private swapping;
 
     // Volume tracking for AI fee adjustment

@@ -18,14 +18,14 @@ contract HypeAIPrivateSale is Ownable, ReentrancyGuard, Pausable {
     // USDT token for payments (BSC: 0x55d398326f99059fF775485246999027B3197955)
     IERC20 public usdtToken;
 
-    // Sale parameters
-    uint256 public constant TOKEN_PRICE = 8 * 10**14; // $0.0008 in wei (assuming BNB = $600)
+    // Sale parameters (10B tokenomics: prices ÷10, amounts ×10)
+    uint256 public constant TOKEN_PRICE = 8 * 10**13; // $0.00008 in wei (assuming BNB = $600)
     uint256 public constant MIN_PURCHASE_USD = 40; // $40 minimum
     uint256 public constant MAX_PURCHASE_USD = 800; // $800 maximum
     uint256 public constant HARD_CAP_USD = 80000; // $80,000 hard cap
     uint256 public constant BONUS_PERCENTAGE = 10; // 10% bonus tokens
 
-    uint256 public constant TOKENS_FOR_SALE = 100_000_000 * 10**18; // 100M tokens
+    uint256 public constant TOKENS_FOR_SALE = 1_100_000_000 * 10**18; // 1.1B tokens (includes 10% bonus buffer)
     uint256 public constant MAX_FOUNDING_MEMBERS = 500;
 
     // Sale state
@@ -165,9 +165,9 @@ contract HypeAIPrivateSale is Ownable, ReentrancyGuard, Pausable {
         uint256 _usdValue,
         bool _isBNB
     ) internal {
-        // Calculate tokens (1 HYPEAI = $0.0008)
-        // tokens = usdValue / 0.0008 = usdValue * 1250
-        uint256 baseTokens = _usdValue * 1250 * 10**18;
+        // Calculate tokens (1 HYPEAI = $0.00008) - 10B tokenomics
+        // tokens = usdValue / 0.00008 = usdValue * 12500
+        uint256 baseTokens = _usdValue * 12500 * 10**18;
 
         // Calculate bonus (10%)
         uint256 bonusTokens = (baseTokens * BONUS_PERCENTAGE) / 100;
@@ -243,8 +243,8 @@ contract HypeAIPrivateSale is Ownable, ReentrancyGuard, Pausable {
             return (false, 0, 0);
         }
 
-        // Calculate tokens with bonus
-        uint256 baseTokens = remainingAllocation * 1250 * 10**18;
+        // Calculate tokens with bonus (10B tokenomics: ×10)
+        uint256 baseTokens = remainingAllocation * 12500 * 10**18;
         tokensWouldReceive = baseTokens + (baseTokens * BONUS_PERCENTAGE / 100);
 
         eligible = true;

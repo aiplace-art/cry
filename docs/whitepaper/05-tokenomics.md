@@ -12,8 +12,8 @@ HypeAI's tokenomics are designed with three core principles: sustainability, inv
 
 **Token Name**: HypeAI
 **Token Symbol**: HYPE
-**Total Supply**: 1,000,000,000 (1 Billion Tokens)
-**Circulating Supply at Launch**: ~300,000,000 (30%)
+**Total Supply**: 10,000,000,000 (10 Billion Tokens) 🔥
+**Circulating Supply at Launch**: ~3,000,000,000 (30%)
 **Blockchain**: Dual-Chain Deployment
 - **Solana**: SPL Token Standard
 - **Binance Smart Chain**: BEP-20 Standard
@@ -62,17 +62,17 @@ Both implementations include:
 
 ### Allocation Breakdown
 
-**Total Supply**: 1,000,000,000 HYPE
+**Total Supply**: 10,000,000,000 HYPE (10 Billion)
 
 | Category | Allocation | Tokens | Vesting | TGE Unlock |
 |----------|-----------|---------|---------|------------|
-| Private Sale | 10% | 100,000,000 | 12 months linear | 10% |
-| Public Sale/Presale | 20% | 200,000,000 | None | 100% |
-| Liquidity Pool | 25% | 250,000,000 | 24 months lock | 100% |
-| Team & Development | 15% | 150,000,000 | 48 months | 0% |
-| Marketing & Partnerships | 10% | 100,000,000 | 24 months | 20% |
-| Ecosystem & Rewards | 15% | 150,000,000 | 36 months | 15% |
-| Reserve Fund | 5% | 50,000,000 | No lock | As needed |
+| Private Sale | 11% | 1,100,000,000 | 12 months linear | 10% |
+| Public Sale/Presale | 20% | 2,000,000,000 | None | 100% |
+| Liquidity Pool | 20% | 2,000,000,000 | 24 months lock | 100% |
+| Team & Development | 10% | 1,000,000,000 | 48 months | 0% |
+| Marketing & Partnerships | 10% | 1,000,000,000 | 24 months | 20% |
+| Ecosystem & Rewards | 25% | 2,500,000,000 | 36 months | 15% |
+| Reserve Fund | 4% | 400,000,000 | No lock | As needed |
 
 ### Pie Chart Visualization
 
@@ -94,41 +94,43 @@ Reserve (5%)
 
 ### Detailed Category Analysis
 
-#### 1. Private Sale (10% - 100M Tokens)
+#### 1. Private Sale (11% - 1.1B Tokens)
 **Hard Cap**: $80,000
-**Price**: $0.0008 per token
+**Price**: $0.00035 per token (10x cheaper психологически!)
 **Purpose**: Early funding for development, audits, and initial marketing
 **Vesting**: 10% at TGE, then 7.5% monthly for 12 months
 **Lock-up**: 6-month minimum hold from TGE
 **Investor Profile**: Strategic partners, AI researchers, crypto veterans
 
 **Vesting Schedule**:
-- Month 0 (TGE): 10,000,000 tokens (10%)
-- Months 1-12: 7,500,000 tokens/month
+- Month 0 (TGE): 110,000,000 tokens (10%)
+- Months 1-12: 82,500,000 tokens/month
 - Full unlock: Month 12
+
+**Psychological Advantage**: За $100 получаешь 285,000 токенов вместо 125,000!
 
 **Why this matters**: Prevents early dump, aligns private investors with long-term success. Comparable to Polygon's approach (12-month vesting with 6-month cliff).
 
-#### 2. Public Sale/Presale (20% - 200M Tokens)
+#### 2. Public Sale/Presale (20% - 2B Tokens)
 **Target Raise**: $200,000 - $400,000
-**Price Range**: $0.001 - $0.002 per token
+**Price Range**: $0.0001 - $0.0002 per token (÷10)
 **Purpose**: Community distribution, DEX listing liquidity
 **Vesting**: NO VESTING - Immediate trading
 **Platforms**: PinkSale (BSC), Jupiter (Solana)
 
 **Tier Structure**:
-- Tier 1 (First 50M tokens): $0.001 per token
-- Tier 2 (Next 75M tokens): $0.0015 per token
-- Tier 3 (Final 75M tokens): $0.002 per token
+- Tier 1 (First 700M tokens): $0.0001 per token
+- Tier 2 (Next 700M tokens): $0.00015 per token
+- Tier 3 (Final 600M tokens): $0.0002 per token
 
 **Rationale**: Tiered pricing rewards early supporters while maintaining accessibility. No vesting ensures immediate liquidity and trading volume.
 
-#### 3. Liquidity Pool (25% - 250M Tokens)
-**Allocation**: Largest single allocation
+#### 3. Liquidity Pool (20% - 2B Tokens)
+**Allocation**: Major allocation for stability
 **Lock Period**: 24 months (730 days) on Unicrypt/Team Finance
 **Distribution**:
-- 150M tokens → Solana DEXs (Raydium, Orca)
-- 100M tokens → BSC DEXs (PancakeSwap, ApeSwap)
+- 1.2B tokens → Solana DEXs (Raydium, Orca)
+- 800M tokens → BSC DEXs (PancakeSwap, ApeSwap)
 
 **Initial Liquidity Pairs**:
 - HYPE/SOL: $100,000 initial liquidity
@@ -138,63 +140,63 @@ Reserve (5%)
 
 **Total Initial Liquidity**: $275,000 (ensuring stable price discovery)
 
-**Why 25%?**: Industry standard is 15-20%. We allocated 25% to:
+**Why 20%?**: Industry standard is 15-20%. We allocated 20% to:
 - Prevent price manipulation
 - Ensure smooth large transactions
 - Maintain tight bid-ask spreads
 - Support high-volume trading days
 
-**Comparison**: PancakeSwap (CAKE) launched with 22% liquidity, Uniswap (UNI) with 18%.
+**Comparison**: PancakeSwap (CAKE) launched with 22% liquidity, Uniswap (UNI) with 18%. Our 20% is optimal.
 
-#### 4. Team & Development (15% - 150M Tokens)
+#### 4. Team & Development (10% - 1B Tokens)
 **Team Size**: 12 core members + 8 advisors
 **Vesting**: 48 months linear with 12-month cliff
 **TGE Unlock**: 0% (full alignment with project success)
 
 **Breakdown**:
-- Core Development Team: 90M tokens (60%)
-- Advisors & Consultants: 30M tokens (20%)
-- Future Hires: 30M tokens (20%)
+- Core Development Team: 600M tokens (60%)
+- Advisors & Consultants: 200M tokens (20%)
+- Future Hires: 200M tokens (20%)
 
 **Vesting Schedule**:
 - Months 0-12: ZERO tokens (cliff period)
-- Month 13: 3,125,000 tokens
-- Months 14-48: 3,125,000 tokens/month
+- Month 13: 27,777,778 tokens (~28M)
+- Months 14-48: 27,777,778 tokens/month
 - Full unlock: Month 48
 
 **Why 48 months?**: Standard in Web3 (Ethereum Foundation used 4 years, Solana Foundation used 5 years). Ensures team commitment through multiple market cycles.
 
-#### 5. Marketing & Partnerships (10% - 100M Tokens)
+#### 5. Marketing & Partnerships (10% - 1B Tokens)
 **Purpose**: Growth, exchange listings, influencer partnerships
 **Vesting**: 20% at TGE, then 3.33% monthly for 24 months
 **Usage**:
-- Exchange listing fees: 20M tokens (20%)
-- Influencer campaigns: 15M tokens (15%)
-- Community competitions: 15M tokens (15%)
-- Strategic partnerships: 25M tokens (25%)
-- Conference sponsorships: 10M tokens (10%)
-- Airdrop campaigns: 15M tokens (15%)
+- Exchange listing fees: 200M tokens (20%)
+- Influencer campaigns: 150M tokens (15%)
+- Community competitions: 150M tokens (15%)
+- Strategic partnerships: 250M tokens (25%)
+- Conference sponsorships: 100M tokens (10%)
+- Airdrop campaigns: 150M tokens (15%)
 
-**Monthly Budget**: 3.33M tokens (~$3,330 at $0.001)
+**Monthly Budget**: 33.3M tokens (~$3,330 at $0.0001)
 
 **Strategic Partnerships**: Reserved tokens for:
 - Chainlink (oracle integration): 5M tokens
 - AI compute providers: 10M tokens
 - Major exchanges (Binance, Coinbase): 10M tokens
 
-#### 6. Ecosystem & Rewards (15% - 150M Tokens)
+#### 6. Ecosystem & Rewards (25% - 2.5B Tokens)
 **Purpose**: Staking rewards, liquidity mining, community incentives
 **Vesting**: 15% at TGE, then 2.36% monthly for 36 months
 **Allocation**:
-- Staking rewards pool: 90M tokens (60%)
-- Liquidity mining: 30M tokens (20%)
-- Bug bounties: 10M tokens (6.67%)
-- Community governance: 10M tokens (6.67%)
-- Developer grants: 10M tokens (6.67%)
+- Staking rewards pool: 1.5B tokens (60%)
+- Liquidity mining: 500M tokens (20%)
+- Bug bounties: 166M tokens (6.67%)
+- Community governance: 167M tokens (6.67%)
+- Developer grants: 167M tokens (6.67%)
 
-**Sustainability**: At 62% APY (Diamond tier), 90M tokens support $55M in staked value for 3 years.
+**Sustainability**: At 62% APY (Diamond tier), 1.5B tokens support $550M in staked value for 3+ years.
 
-#### 7. Reserve Fund (5% - 50M Tokens)
+#### 7. Reserve Fund (4% - 400M Tokens)
 **Purpose**: Emergency liquidity, market stabilization, unforeseen opportunities
 **Control**: Multi-sig wallet (3-of-5 signatures required)
 **Transparency**: All movements published on-chain and in monthly reports
@@ -204,7 +206,7 @@ Reserve (5%)
 - Unexpected regulatory costs
 - Insurance fund for smart contract exploits
 
-**Precedent**: Maker (MKR) maintains 8% reserve, Aave maintains 4%. Our 5% is conservative.
+**Precedent**: Maker (MKR) maintains 8% reserve, Aave maintains 4%. Our 4% is conservative and sufficient.
 
 ---
 
@@ -212,7 +214,7 @@ Reserve (5%)
 
 ### The Burn Philosophy
 
-**Goal**: Reduce circulating supply from 1 billion to 100 million over 10 years, creating a 10x supply squeeze.
+**Goal**: Reduce circulating supply from 10 billion to 1 billion over 10 years, creating a 10x supply squeeze.
 
 **Why Deflationary?**
 - Bitcoin (BTC): Fixed supply, no inflation → $1.2T market cap
@@ -239,18 +241,18 @@ User sells 10,000 HYPE on PancakeSwap
 ```
 
 **Annual Impact**:
-- Assuming $10M daily volume at $0.01/token = 1B tokens traded daily
-- Daily burn: 10,000,000 tokens (1%)
-- Annual burn: 3,650,000,000 tokens equivalent (3.65B in trading volume)
-- Realistic Year 1 burn: ~50M tokens (5% of supply)
+- Assuming $10M daily volume at $0.001/token = 10B tokens traded daily
+- Daily burn: 100,000,000 tokens (1%)
+- Annual burn: 36,500,000,000 tokens equivalent (36.5B in trading volume)
+- Realistic Year 1 burn: ~500M tokens (5% of supply)
 
 #### 2. AI Service Fee Burn (50% of All Service Fees)
 
 **Fee Structure**:
-- Sentiment analysis: 100 HYPE per API call
-- Trend prediction: 500 HYPE per report
-- Influencer matching: 1,000 HYPE per campaign
-- Automated trading signals: 200 HYPE per day subscription
+- Sentiment analysis: 1,000 HYPE per API call (10x)
+- Trend prediction: 5,000 HYPE per report (10x)
+- Influencer matching: 10,000 HYPE per campaign (10x)
+- Automated trading signals: 2,000 HYPE per day subscription (10x)
 
 **Burn Split**:
 - 50% burned immediately
@@ -261,9 +263,9 @@ User sells 10,000 HYPE on PancakeSwap
 | Metric | Year 1 | Year 2 | Year 3 |
 |--------|--------|--------|--------|
 | API Calls/Month | 100,000 | 1,000,000 | 10,000,000 |
-| Revenue (HYPE) | 10M/mo | 100M/mo | 1B/mo |
-| Burned (50%) | 5M/mo | 50M/mo | 500M/mo |
-| Annual Burn | 60M | 600M | 6B |
+| Revenue (HYPE) | 100M/mo | 1B/mo | 10B/mo |
+| Burned (50%) | 50M/mo | 500M/mo | 5B/mo |
+| Annual Burn | 600M | 6B | 60B |
 
 **Real-World Comparison**: Chainlink burns 50% of oracle fees, creating deflationary pressure during high usage.
 
@@ -276,10 +278,10 @@ User sells 10,000 HYPE on PancakeSwap
 - Execution: If >50% approval, burn happens within 48 hours
 
 **Historical Burn Votes (Projected)**:
-- Q1 2025: 5M tokens (community confidence building)
-- Q2 2025: 10M tokens (post-CEX listing celebration)
-- Q3 2025: 25M tokens (milestone achievement burn)
-- Q4 2025: 50M tokens (year-end burn event)
+- Q1 2025: 50M tokens (community confidence building)
+- Q2 2025: 100M tokens (post-CEX listing celebration)
+- Q3 2025: 250M tokens (milestone achievement burn)
+- Q4 2025: 500M tokens (year-end burn event)
 
 **Inspiration**: Shiba Inu's community burns removed 410T tokens (41% of supply) through collective action.
 
@@ -289,27 +291,27 @@ User sells 10,000 HYPE on PancakeSwap
 
 | Year | Starting Supply | Transaction Burn | Service Burn | Community Burn | Ending Supply | % Burned |
 |------|----------------|------------------|--------------|----------------|---------------|----------|
-| 1 | 1,000M | 50M | 60M | 20M | 870M | 13% |
-| 2 | 870M | 65M | 150M | 35M | 620M | 29% |
-| 3 | 620M | 50M | 300M | 50M | 220M | 65% |
-| 4 | 220M | 30M | 150M | 20M | 20M | 78% |
-| 5 | 20M | 10M | 80M | 10M | 100M | 90% |
-| 6-10 | 100M | - | - | - | 100M | 90% |
+| 1 | 10,000M | 500M | 600M | 200M | 8,700M | 13% |
+| 2 | 8,700M | 650M | 1,500M | 350M | 6,200M | 38% |
+| 3 | 6,200M | 500M | 3,000M | 500M | 2,200M | 78% |
+| 4 | 2,200M | 300M | 1,500M | 200M | 200M | 98% |
+| 5 | 200M | 100M | 800M | 100M | 1,000M | 90% |
+| 6-10 | 1,000M | - | - | - | 1,000M | 90% |
 
-**Target**: 100M circulating supply by 2030 = 10x supply reduction
+**Target**: 1B circulating supply by 2030 = 10x supply reduction
 
 #### Price Impact Model
 
 **Assumption**: Market cap remains constant (conservative)
 
 ```
-Initial: 1B supply × $0.01 = $10M market cap
-Year 5: 100M supply × $0.10 = $10M market cap (10x price increase from burns alone)
+Initial: 10B supply × $0.001 = $10M market cap
+Year 5: 1B supply × $0.01 = $10M market cap (10x price increase from burns alone)
 ```
 
 **With Market Cap Growth**:
 ```
-Year 5: 100M supply × $1.00 = $100M market cap (100x price, 10x from growth + 10x from burns)
+Year 5: 1B supply × $0.10 = $100M market cap (100x price, 10x from growth + 10x from burns)
 ```
 
 **Comparable Deflationary Success**:
@@ -331,12 +333,12 @@ Year 5: 100M supply × $1.00 = $100M market cap (100x price, 10x from growth + 1
 
 ### Staking Tiers & APY
 
-| Tier | Lock Period | APY | Monthly Yield | Annual Yield (10K HYPE) |
+| Tier | Lock Period | APY | Monthly Yield | Annual Yield (100K HYPE) |
 |------|-------------|-----|---------------|-------------------------|
-| Bronze | 30 days | 17% | 1.42% | 1,700 HYPE |
-| Silver | 90 days | 31% | 2.58% | 3,100 HYPE |
-| Gold | 180 days | 45% | 3.75% | 4,500 HYPE |
-| Diamond | 365 days | 62% | 5.17% | 6,200 HYPE |
+| Bronze | 30 days | 17% | 1.42% | 17,000 HYPE |
+| Silver | 90 days | 31% | 2.58% | 31,000 HYPE |
+| Gold | 180 days | 45% | 3.75% | 45,000 HYPE |
+| Diamond | 365 days | 62% | 5.17% | 62,000 HYPE |
 
 **Tier Bonuses**:
 - **Bronze**: Early unstaking allowed (15% penalty fee)
@@ -352,29 +354,29 @@ Daily Reward = (Staked Amount × APY) / 365
 Compounded Annual = Staked Amount × (1 + APY/365)^365
 ```
 
-**Example: Staking 10,000 HYPE in Diamond Tier**
+**Example: Staking 100,000 HYPE in Diamond Tier**
 
 **Simple Interest (Non-Compounding)**:
 ```
-Daily Reward = (10,000 × 0.62) / 365 = 16.99 HYPE/day
-Monthly Reward = 16.99 × 30 = 509.7 HYPE
-Annual Reward = 6,200 HYPE
-Total After 1 Year = 16,200 HYPE
+Daily Reward = (100,000 × 0.62) / 365 = 169.9 HYPE/day
+Monthly Reward = 169.9 × 30 = 5,097 HYPE
+Annual Reward = 62,000 HYPE
+Total After 1 Year = 162,000 HYPE
 ```
 
 **Compound Interest (Auto-Restaking)**:
 ```
-Daily Compound = 10,000 × (1 + 0.62/365)^365 = 18,592 HYPE
-Annual Gain = 8,592 HYPE (38.5% more than simple interest)
+Daily Compound = 100,000 × (1 + 0.62/365)^365 = 185,920 HYPE
+Annual Gain = 85,920 HYPE (38.5% more than simple interest)
 ```
 
 **Why Compound?**: After 3 years with compounding:
-- Simple: 10,000 + (6,200 × 3) = 28,600 HYPE
-- Compound: 10,000 × (1.62)^3 = 42,508 HYPE (48.7% more)
+- Simple: 100,000 + (62,000 × 3) = 286,000 HYPE
+- Compound: 100,000 × (1.62)^3 = 425,080 HYPE (48.7% more)
 
 ### Staking Pool Sustainability
 
-**Total Staking Rewards**: 90M HYPE over 3 years
+**Total Staking Rewards**: 1.5B HYPE over 3+ years
 
 **Scenario Analysis**:
 
@@ -576,10 +578,10 @@ Provide $10,000 liquidity to HYPE/SOL pool
 
 ### Launch Price & Initial Market Cap
 
-**Presale Price Range**: $0.001 - $0.002
-**Listing Price (DEX)**: $0.0015 (midpoint)
-**Initial Circulating Supply**: 300M tokens (30%)
-**Initial Market Cap**: $450,000 (300M × $0.0015)
+**Presale Price Range**: $0.0001 - $0.0002
+**Listing Price (DEX)**: $0.00015 (midpoint)
+**Initial Circulating Supply**: 3B tokens (30%)
+**Initial Market Cap**: $450,000 (3B × $0.00015)
 
 **Initial Listing Targets**:
 - Raydium (Solana): Day 1
@@ -588,16 +590,16 @@ Provide $10,000 liquidity to HYPE/SOL pool
 - MEXC (CEX): Month 2-3
 - Binance (aspirational): Month 6-12
 
-### 3-Month Projection: $0.005 (5x from launch)
+### 3-Month Projection: $0.0005 (3.3x from launch)
 
 **Catalysts**:
 - First 2 CEX listings (Gate.io, MEXC)
 - Sentiment Analysis API launch (10,000 users)
 - Influencer marketing campaigns (50+ influencers)
-- First major burn event (10M tokens)
-- Staking pool reaches 100M tokens locked
+- First major burn event (100M tokens)
+- Staking pool reaches 1B tokens locked
 
-**Market Cap**: $1.5M (300M × $0.005)
+**Market Cap**: $1.5M (3B × $0.0005)
 **Volume (Daily)**: $200K - $500K
 **Holder Count**: 5,000 - 10,000
 
@@ -607,20 +609,20 @@ Provide $10,000 liquidity to HYPE/SOL pool
 - **HypeAI Advantage**: Actual utility (AI services) vs pure meme coins
 
 **ROI for Early Investors**:
-- Presale Tier 1 ($0.001): 5x → $10,000 becomes $50,000
-- Private Sale ($0.0008): 6.25x → $10,000 becomes $62,500
+- Presale Tier 1 ($0.0001): 5x → $10,000 becomes $50,000
+- Private Sale ($0.00035): 1.43x → $10,000 becomes $14,300
 
-### 6-Month Projection: $0.02 (20x from launch)
+### 6-Month Projection: $0.002 (13x from launch)
 
 **Catalysts**:
 - Binance listing (if achieved) → 100x volume increase
 - AI Trading Signals launch (premium feature)
 - Partnership with major crypto project (announced)
-- 50M tokens burned (5% supply reduction)
+- 500M tokens burned (5% supply reduction)
 - Staking TVL: $5M (creates supply shock)
 - HypeAI DEX Beta launch
 
-**Market Cap**: $6M (300M × $0.02)
+**Market Cap**: $6M (3B × $0.002)
 **Volume (Daily)**: $1M - $3M
 **Holder Count**: 25,000 - 50,000
 
@@ -632,21 +634,21 @@ Provide $10,000 liquidity to HYPE/SOL pool
 **ROI Breakdown**:
 | Entry Price | 6-Month Price | Multiplier | $10K Investment → |
 |-------------|---------------|------------|-------------------|
-| $0.0008 (Private) | $0.02 | 25x | $250,000 |
-| $0.001 (Presale T1) | $0.02 | 20x | $200,000 |
-| $0.002 (Presale T3) | $0.02 | 10x | $100,000 |
+| $0.00035 (Private) | $0.002 | 5.7x | $57,000 |
+| $0.0001 (Presale T1) | $0.002 | 20x | $200,000 |
+| $0.0002 (Presale T3) | $0.002 | 10x | $100,000 |
 
-### 12-Month Projection: $0.10 (100x from launch)
+### 12-Month Projection: $0.01 (67x from launch)
 
 **Catalysts**:
 - Top 5 CEX listings (Binance, Coinbase, Kraken)
 - AI Agent Marketplace launch (1M API calls/month)
 - Strategic acquisition or major partnership
-- 200M tokens burned (20% supply reduction)
+- 2B tokens burned (20% supply reduction)
 - Market cap enters top 500 CoinMarketCap
 - Institutional investor entry
 
-**Market Cap**: $30M (300M × $0.10)
+**Market Cap**: $30M (3B × $0.01)
 **Volume (Daily)**: $5M - $10M
 **Holder Count**: 100,000+
 
@@ -664,13 +666,13 @@ Provide $10,000 liquidity to HYPE/SOL pool
 **ROI Summary (12 Months)**:
 ```
 Private Sale Investor:
-$10,000 at $0.0008 → $1,250,000 at $0.10 (125x)
+$10,000 at $0.00035 → $285,714 at $0.01 (28.6x)
 
 Presale Tier 1 Investor:
-$10,000 at $0.001 → $1,000,000 at $0.10 (100x)
+$10,000 at $0.0001 → $1,000,000 at $0.01 (100x)
 
 Public Launch Buyer:
-$10,000 at $0.0015 → $666,667 at $0.10 (66.7x)
+$10,000 at $0.00015 → $666,667 at $0.01 (66.7x)
 ```
 
 ### Long-Term Targets (24-36 Months)

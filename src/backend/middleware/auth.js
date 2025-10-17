@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 const { ethers } = require('ethers');
-const User = require('../models/User');
 const { logger } = require('../config/logger');
+
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
 
 /**
  * Verify JWT token middleware
@@ -11,17 +12,24 @@ const verifyToken = async (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1];
 
     if (!token) {
-      return res.status(401).json({ error: 'No token provided' });
+      return res.status(401).json({
+        success: false,
+        error: 'No token provided'
+      });
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET);
     req.userId = decoded.userId;
     req.walletAddress = decoded.walletAddress;
+    req.email = decoded.email;
 
     next();
   } catch (error) {
     logger.error(`Token verification failed: ${error.message}`);
-    return res.status(401).json({ error: 'Invalid or expired token' });
+    return res.status(401).json({
+      success: false,
+      error: 'Invalid or expired token'
+    });
   }
 };
 

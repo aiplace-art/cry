@@ -11,7 +11,7 @@
       "purpose": "Brand identity and tracking"
     },
     "category_core": {
-      "hashtags": ["#AIAgents", "#Solana", "#DeFi", "#Web3"],
+      "hashtags": ["#AIAgents", "#BNB", "#DeFi", "#Web3"],
       "usage": "80% of tweets (rotate based on content)",
       "purpose": "Category positioning and discovery"
     }
@@ -25,8 +25,8 @@
         "#SmartContracts",
         "#DecentralizedAI",
         "#OnChainAI",
-        "#Rust",
-        "#BuidlOnSolana"
+        "#Solidity",
+        "#BuildOnBNB"
       ],
       "usage": "Technical content, deep-dives, architecture tweets",
       "purpose": "Attract technical audience"
@@ -101,16 +101,16 @@
     }
   },
   "trending_opportunities": {
-    "solana_ecosystem": {
+    "bnb_ecosystem": {
       "hashtags": [
-        "#SolanaBreakpoint",
-        "#SolanaSummer",
-        "#SolanaSeasonHackathon",
-        "#SuperteamDAO",
-        "#Solana"
+        "#BNBChain",
+        "#BinanceSmartChain",
+        "#BSC",
+        "#BNB",
+        "#BUIDLonBNB"
       ],
-      "usage": "During Solana events, ecosystem news",
-      "monitoring": "Track Solana Foundation announcements"
+      "usage": "During BNB Chain events, ecosystem news",
+      "monitoring": "Track BNB Chain announcements"
     },
     "ai_trends": {
       "hashtags": [
@@ -139,13 +139,13 @@
   "hashtag_combinations": {
     "agent_spotlight": {
       "primary": ["#HypeAI", "#AIAgents"],
-      "secondary": ["#Solana", "#TradingBot"],
+      "secondary": ["#BNB", "#TradingBot"],
       "optional": ["#DeFi", "#Automation"]
     },
     "technical_content": {
-      "primary": ["#HypeAI", "#Solana"],
-      "secondary": ["#SmartContracts", "#Rust"],
-      "optional": ["#BuidlOnSolana", "#Web3"]
+      "primary": ["#HypeAI", "#BNB"],
+      "secondary": ["#SmartContracts", "#Solidity"],
+      "optional": ["#BuildOnBNB", "#Web3"]
     },
     "community_engagement": {
       "primary": ["#HypeAI", "#CryptoCommunity"],
@@ -154,7 +154,7 @@
     },
     "launch_countdown": {
       "primary": ["#HypeAI", "#FairLaunch"],
-      "secondary": ["#Solana", "#TokenLaunch"],
+      "secondary": ["#BNB", "#TokenLaunch"],
       "optional": ["#LFG", "#[TimeBasedHashtag]"]
     },
     "educational_thread": {
@@ -214,10 +214,10 @@
     }
   },
   "influencer_hashtags": {
-    "solana_influencers": [
-      "#SolanaDaily",
-      "#SOL",
-      "#SuperteamDAO"
+    "bnb_influencers": [
+      "#BNBDaily",
+      "#BNB",
+      "#BNBChain"
     ],
     "crypto_vcs_avoid": [
       "Avoid VC-associated hashtags to maintain fair launch narrative"

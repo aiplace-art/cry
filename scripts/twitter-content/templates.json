@@ -65,7 +65,7 @@
     "technical_deep_dive": {
       "format": "[TECHNICAL_TOPIC]:\n\n[SPEC_1]\n[SPEC_2]\n[SPEC_3]\n[SPEC_4]\n[SPEC_5]\n\n[CONCLUSION]",
       "hashtags": ["#HypeAI", "#TechStack", "#[TECH_CATEGORY]"],
-      "example": "Tech Stack Breakdown:\n\nBlockchain: Solana\nSmart Contracts: Rust\nAI Models: Custom-trained\nOracle: Decentralized\nGovernance: On-chain\n\nBuilt for speed, security, and scalability.",
+      "example": "Tech Stack Breakdown:\n\nBlockchain: BNB Chain\nSmart Contracts: Solidity\nAI Models: Custom-trained\nOracle: Decentralized\nGovernance: On-chain\n\nBuilt for speed, security, and scalability.",
       "variables": {
         "TECHNICAL_TOPIC": "What you're explaining",
         "SPEC_1-5": "Technical specifications",

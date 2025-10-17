@@ -7,10 +7,13 @@
 (function() {
     'use strict';
 
+    // Embedded translations (to avoid CORS issues with file:// protocol)
+    const TRANSLATIONS = {"en":{"nav":{"home":"Home","services":"Services","aiTeam":"AI Team","live":"Live (27/27)","tokenomics":"Tokenomics","proof":"✅ PROOF","docs":"Docs","trade":"Trade","stake":"Stake","agents":"AI Agents","whitepaper":"Whitepaper","connectWallet":"Connect Wallet"},"hero":{"title":"Where AI Meets Opportunity","subtitle":"Smarter. Faster. Better.","description":"27 AI Agents working infinitely to empower your financial growth","ctaPrimary":"💎 Join Presale","ctaSecondary":"🚀 Explore Services","ctaTertiary":"View Docs"}},"ru":{"nav":{"home":"Главная","services":"Сервисы","aiTeam":"Команда ИИ","live":"Онлайн (27/27)","tokenomics":"Токеномика","proof":"✅ ДОКАЗАТЕЛЬСТВА","docs":"Документация","trade":"Торговля","stake":"Стейкинг","agents":"ИИ Агенты","whitepaper":"Whitepaper","connectWallet":"Подключить кошелек"},"hero":{"title":"Где ИИ встречает возможности","subtitle":"Умнее. Быстрее. Лучше.","description":"27 ИИ-агентов работают бесконечно, чтобы помочь вам достичь финансовых целей","ctaPrimary":"💎 Присоединиться к предпродаже","ctaSecondary":"🚀 Узнать о сервисах","ctaTertiary":"Документация"}}};
+
     // Language Manager
     const LanguageManager = {
         currentLang: 'en',
-        translations: null,
+        translations: TRANSLATIONS, // Use embedded translations
         supportedLangs: ['en', 'ru', 'zh', 'es', 'fr', 'de', 'ja', 'ko'],
         activeLangs: ['en', 'ru'], // Currently active languages
 
@@ -50,25 +53,11 @@
             console.log(`🌍 HypeAI Language: ${this.currentLang.toUpperCase()}`);
         },
 
-        // Load translations from JSON
+        // Load translations (now embedded, no fetch needed)
         loadTranslations: async function() {
-            try {
-                // Try multiple path formats to support both file:// and http://
-                let response;
-                try {
-                    // Try relative path first (works with file:// and http://)
-                    response = await fetch('./i18n/translations.json');
-                } catch (e) {
-                    // Fallback to absolute path (works on servers)
-                    response = await fetch('/i18n/translations.json');
-                }
-                this.translations = await response.json();
-                console.log('✅ Translations loaded successfully');
-            } catch (error) {
-                console.error('❌ Failed to load translations:', error);
-                // Fallback to English
-                this.currentLang = 'en';
-            }
+            // Translations are now embedded in the script to avoid CORS issues
+            console.log('✅ Translations loaded from embedded data');
+            return Promise.resolve();
         },
 
         // Apply translations to page

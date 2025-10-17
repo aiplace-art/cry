@@ -45,11 +45,13 @@
   "author": "15 Professional AI Agents - HypeAI Team",
   "license": "MIT",
   "dependencies": {
+    "@types/qrcode": "^1.5.5",
     "axios": "^1.12.2",
     "canvas": "^3.2.0",
     "ethers": "^6.7.1",
     "node-telegram-bot-api": "^0.66.0",
     "pg": "^8.16.3",
+    "qrcode": "^1.5.4",
     "twitter-api-v2": "^1.27.0"
   },
   "devDependencies": {

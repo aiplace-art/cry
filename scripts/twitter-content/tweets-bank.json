@@ -18,15 +18,15 @@
     {
       "id": 1,
       "category": "introduction",
-      "text": "Meet HypeAI: 15 specialized AI agents running on Solana.\n\nNo VCs. No presale. Fair launch Nov 15.\n\nThe future of decentralized AI is here.",
-      "hashtags": ["#HypeAI", "#Solana", "#AIAgents", "#DeFi"],
+      "text": "Meet HypeAI: 15 specialized AI agents running on BNB Chain.\n\nNo VCs. No presale. Fair launch Nov 15.\n\nThe future of decentralized AI is here.",
+      "hashtags": ["#HypeAI", "#BNB", "#AIAgents", "#DeFi"],
       "media_suggestion": "animated logo reveal"
     },
     {
       "id": 2,
       "category": "features",
-      "text": "What makes HypeAI different?\n\n15 AI agents, each with unique capabilities:\n- Smart trading analysis\n- Governance automation\n- Risk management\n- Community engagement\n\nAll on Solana's lightning-fast network.",
-      "hashtags": ["#HypeAI", "#AIAgents", "#Solana"],
+      "text": "What makes HypeAI different?\n\n15 AI agents, each with unique capabilities:\n- Smart trading analysis\n- Governance automation\n- Risk management\n- Community engagement\n\nAll on BNB Chain's efficient network.",
+      "hashtags": ["#HypeAI", "#AIAgents", "#BNB"],
       "media_suggestion": "infographic of 15 agents"
     },
     {
@@ -39,7 +39,7 @@
     {
       "id": 4,
       "category": "education",
-      "text": "AI + DeFi explained:\n\nSmart contracts execute logic. AI agents make decisions.\n\nHypeAI combines both on Solana for:\n- Faster analysis\n- Better governance\n- Smarter trading\n- Real-time adaptation",
+      "text": "AI + DeFi explained:\n\nSmart contracts execute logic. AI agents make decisions.\n\nHypeAI combines both on BNB Chain for:\n- Faster analysis\n- Better governance\n- Smarter trading\n- Real-time adaptation",
       "hashtags": ["#HypeAI", "#DeFi", "#AIExplained"],
       "media_suggestion": "simple diagram"
     },
@@ -53,8 +53,8 @@
     {
       "id": 6,
       "category": "technical",
-      "text": "Why Solana?\n\n400ms block times\n65,000 TPS\nSub-cent transaction fees\n\nOur AI agents need speed. Solana delivers.",
-      "hashtags": ["#HypeAI", "#Solana", "#TechStack"],
+      "text": "Why BNB Chain?\n\n3-second block times\nHigh throughput\nLow transaction fees\n\nOur AI agents need efficiency. BNB Chain delivers.",
+      "hashtags": ["#HypeAI", "#BNB", "#TechStack"],
       "media_suggestion": "performance comparison chart"
     },
     {
@@ -67,7 +67,7 @@
     {
       "id": 8,
       "category": "viral",
-      "text": "Me: I'll just check crypto Twitter for a minute\n\n*discovers HypeAI*\n\n*reads whitepaper*\n\n*joins Discord*\n\n*learns Solidity*\n\nIt's 3am",
+      "text": "Me: I'll just check crypto Twitter for a minute\n\n*discovers HypeAI*\n\n*reads whitepaper*\n\n*joins Discord*\n\n*learns about BNB Chain*\n\nIt's 3am",
       "hashtags": ["#HypeAI", "#CryptoTwitter"],
       "media_suggestion": "meme format"
     },
@@ -116,7 +116,7 @@
     {
       "id": 15,
       "category": "engagement",
-      "text": "Drop a if you're ready for decentralized AI.\n\nDrop a if you're building on Solana.\n\nDrop a if you believe in fair launches.\n\nDrop all three if you're ready for HypeAI.",
+      "text": "Drop a if you're ready for decentralized AI.\n\nDrop a if you're building on BNB Chain.\n\nDrop a if you believe in fair launches.\n\nDrop all three if you're ready for HypeAI.",
       "hashtags": ["#HypeAI", "#Community"],
       "media_suggestion": "emoji banner"
     },
@@ -151,8 +151,8 @@
     {
       "id": 20,
       "category": "technical",
-      "text": "Tech Stack Breakdown:\n\nBlockchain: Solana\nSmart Contracts: Rust\nAI Models: Custom-trained\nOracle: Decentralized\nGovernance: On-chain\n\nBuilt for speed, security, and scalability.",
-      "hashtags": ["#HypeAI", "#TechStack", "#BuidlOnSolana"],
+      "text": "Tech Stack Breakdown:\n\nBlockchain: BNB Chain\nSmart Contracts: Solidity\nAI Models: Custom-trained\nOracle: Decentralized\nGovernance: On-chain\n\nBuilt for speed, security, and scalability.",
+      "hashtags": ["#HypeAI", "#TechStack", "#BuildOnBNB"],
       "media_suggestion": "tech stack infographic"
     },
     {
@@ -214,7 +214,7 @@
     {
       "id": 29,
       "category": "engagement",
-      "text": "Tag someone who needs to know about:\n\n- Fair launches\n- Decentralized AI\n- Solana ecosystem\n- Real Web3 innovation\n\nLet's spread the word.",
+      "text": "Tag someone who needs to know about:\n\n- Fair launches\n- Decentralized AI\n- BNB Chain ecosystem\n- Real Web3 innovation\n\nLet's spread the word.",
       "hashtags": ["#HypeAI", "#TagSomeone"],
       "media_suggestion": "share prompt graphic"
     },
@@ -298,8 +298,8 @@
     {
       "id": 41,
       "category": "technical",
-      "text": "Gas optimization results:\n\n- 40% reduction in transaction costs\n- Batched operations for efficiency\n- Solana's low fees amplified\n\nFast, cheap, and effective. The Solana advantage.",
-      "hashtags": ["#HypeAI", "#GasOptimization", "#Solana"],
+      "text": "Gas optimization results:\n\n- 40% reduction in transaction costs\n- Batched operations for efficiency\n- BNB Chain's low fees amplified\n\nFast, cheap, and effective. The BNB Chain advantage.",
+      "hashtags": ["#HypeAI", "#GasOptimization", "#BNB"],
       "media_suggestion": "gas savings chart"
     },
     {
@@ -326,9 +326,9 @@
     {
       "id": 45,
       "category": "education",
-      "text": "Why Solana for AI agents?\n\n1. Speed: Sub-second confirmations\n2. Cost: Pennies per transaction\n3. Scalability: 65k TPS\n4. Composability: Rich DeFi ecosystem\n\nAI needs fast execution. Solana delivers.",
-      "hashtags": ["#HypeAI", "#Solana", "#WhySolana"],
-      "media_suggestion": "Solana benefits infographic"
+      "text": "Why BNB Chain for AI agents?\n\n1. Speed: Fast 3-second confirmations\n2. Cost: Low transaction fees\n3. Scalability: High throughput\n4. Ecosystem: Largest DeFi ecosystem\n\nAI needs reliability. BNB Chain delivers.",
+      "hashtags": ["#HypeAI", "#BNB", "#WhyBNB"],
+      "media_suggestion": "BNB Chain benefits infographic"
     },
     {
       "id": 46,
@@ -396,8 +396,8 @@
     {
       "id": 55,
       "category": "launch",
-      "text": "WE'RE LIVE!\n\nHypeAI Fair Launch is officially underway.\n\n15 AI agents\n100% community owned\nFully transparent\nBuilt on Solana\n\nWelcome to the future of decentralized AI.\n\n[Launch link]",
-      "hashtags": ["#HypeAI", "#FairLaunch", "#WereLive", "#Solana"],
+      "text": "WE'RE LIVE!\n\nHypeAI Fair Launch is officially underway.\n\n15 AI agents\n100% community owned\nFully transparent\nBuilt on BNB Chain\n\nWelcome to the future of decentralized AI.\n\n[Launch link]",
+      "hashtags": ["#HypeAI", "#FairLaunch", "#WereLive", "#BNB"],
       "media_suggestion": "launch announcement graphic"
     }
   ]

@@ -4,8 +4,8 @@
 
 **Status:** LIVE - Ready for immediate implementation
 **Token:** HYPE
-**Total Supply:** 1,000,000,000 HYPE
-**Presale Allocation:** 300,000,000 HYPE (30%)
+**Total Supply:** 10,000,000,000 HYPE (10 Billion)
+**Presale Allocation:** 3,000,000,000 HYPE (30%)
 **Sale Type:** Direct private sale via website
 **Start Date:** TODAY
 
@@ -14,32 +14,33 @@
 ## 💰 PRICING STRUCTURE
 
 ### Base Price
-**$0.0015 per HYPE token**
+**$0.00035 per HYPE token** (10x cheaper психологически!)
 
 **Rationale:**
-- Mid-range between $0.001-$0.003 for optimal balance
-- 50-70% discount vs anticipated public sale price ($0.003-$0.005)
+- "Дешёвая" цена - за $100 получаешь 285,000 токенов вместо 66,667
+- 50-70% discount vs anticipated public sale price ($0.0004-$0.0005)
 - Attractive for early investors while maintaining project value
 - Allows for 2-3x immediate ROI at DEX listing
+- Психологически приятнее покупать миллионы токенов
 
 ### Price Comparison
 | Stage | Price | Discount | Potential ROI |
 |-------|-------|----------|---------------|
-| Private Sale | $0.0015 | 70% | 233% at $0.005 |
-| Public Sale (Est.) | $0.003-0.005 | Baseline | - |
-| DEX Listing Target | $0.005-0.008 | - | 333-533% |
+| Private Sale | $0.00035 | 70% | 233% at $0.0005 |
+| Public Sale (Est.) | $0.0004-0.00045 | Baseline | - |
+| DEX Listing Target | $0.00045-$0.0008 | - | 333-533% |
 
 ---
 
 ## 📊 TOKEN ALLOCATION FOR SALE
 
 ### Phase 1: Immediate Private Sale
-**100,000,000 HYPE tokens** (10% of total supply, 33% of presale allocation)
+**1,100,000,000 HYPE tokens** (11% of total supply, 37% of presale allocation)
 
 ### Reserved for Future Rounds
-**200,000,000 HYPE tokens** (20% of total supply)
-- Phase 2 Strategic Sale: 100M
-- Phase 3 Public Presale: 100M
+**1,900,000,000 HYPE tokens** (19% of total supply)
+- Phase 2 Strategic Sale: 900M
+- Phase 3 Public Presale: 1,000M
 
 ### Strategic Reasoning
 - Selling 100M creates scarcity and urgency
@@ -67,7 +68,7 @@
 ### Realistic Target
 **$80,000 - $100,000**
 - Based on current crypto market conditions
-- Assumes 50-67M tokens sold
+- Assumes 228M-285M tokens sold (с бонусами до 330M)
 - Provides runway for 6-9 months
 
 ### What Happens If We Hit:
@@ -83,14 +84,14 @@
 
 | Purchase Amount | Bonus % | Effective Price | Total Tokens |
 |----------------|---------|-----------------|--------------|
-| $100 - $499 | 0% | $0.0015 | Base + 0% |
-| $500 - $1,999 | 5% | $0.00143 | Base + 5% |
-| $2,000 - $4,999 | 10% | $0.00136 | Base + 10% |
-| $5,000 - $9,999 | 15% | $0.00130 | Base + 15% |
-| $10,000+ | 20% | $0.00125 | Base + 20% |
+| $100 - $499 | 0% | $0.00035 | Base + 0% |
+| $500 - $1,999 | 5% | $0.000333 | Base + 5% |
+| $2,000 - $4,999 | 10% | $0.000318 | Base + 10% |
+| $5,000 - $9,999 | 15% | $0.000304 | Base + 15% |
+| $10,000+ | 20% | $0.000292 | Base + 20% |
 
 **Example:**
-- Invest $5,000 → Get 3,333,333 HYPE + 15% bonus (500,000 HYPE) = **3,833,333 HYPE total**
+- Invest $5,000 → Get 14,285,714 HYPE + 15% bonus (2,142,857 HYPE) = **16,428,571 HYPE total** 🔥
 
 ### 2. Early Bird Bonus
 **First 24 Hours: +10% bonus tokens**
@@ -100,10 +101,10 @@
 
 **Example:**
 - $10,000 invested in first 24 hours:
-  - Base: 6,666,667 HYPE
-  - Volume bonus (20%): 1,333,333 HYPE
-  - Early bird (10%): 666,667 HYPE
-  - **Total: 8,666,667 HYPE** (effective price: $0.00115)
+  - Base: 28,571,429 HYPE
+  - Volume bonus (20%): 5,714,286 HYPE
+  - Early bird (10%): 2,857,143 HYPE
+  - **Total: 37,142,858 HYPE** (effective price: $0.000269) 🚀
 
 ### 3. Referral Program
 **10% bonus for referrer + 5% bonus for referee**
@@ -116,10 +117,10 @@
   - Both bonuses added to purchase
 
 **Example:**
-- You refer someone who buys $1,000 worth (666,667 HYPE)
-- You receive: 66,667 HYPE bonus
-- They receive: 33,333 HYPE bonus (5% of 666,667)
-- Win-win situation
+- You refer someone who buys $1,000 worth (2,857,143 HYPE)
+- You receive: 285,714 HYPE bonus (10%)
+- They receive: 142,857 HYPE bonus (5% of 2,857,143)
+- Win-win situation - у вас почти 300K токенов!
 
 ### Bonus Caps
 - Maximum combined bonus: 30% (excludes referral bonuses)
@@ -173,12 +174,12 @@
 - Month 3: 20% (90 days after purchase)
 
 **Example:**
-- Purchase: $10,000 (6,666,667 HYPE + bonuses)
-- With 20% early bird + volume = 8,000,000 HYPE total
-  - **Immediate:** 3,200,000 HYPE (40%)
-  - **Month 1:** 1,600,000 HYPE (20%)
-  - **Month 2:** 1,600,000 HYPE (20%)
-  - **Month 3:** 1,600,000 HYPE (20%)
+- Purchase: $10,000 (28,571,429 HYPE base + bonuses)
+- With 30% total bonuses = 37,142,858 HYPE total
+  - **Immediate:** 14,857,143 HYPE (40%) - Почти 15 миллионов!
+  - **Month 1:** 7,428,571 HYPE (20%)
+  - **Month 2:** 7,428,571 HYPE (20%)
+  - **Month 3:** 7,428,571 HYPE (20%)
 
 ### Option B: Full Immediate Release
 **100% tokens at purchase**
@@ -223,17 +224,24 @@ Best balance between investor satisfaction and project protection.
 | $0.010 | 567% | 650% | 950% | 1,500% |
 
 ### Conservative Projection (Base Case)
-**DEX Listing at $0.005:**
-- Private sale investor: $10,000 → 8M HYPE (with bonuses)
-- At $0.005: Portfolio value = $40,000
-- ROI: 300%
+**DEX Listing at $0.0005:**
+- Private sale investor: $10,000 → 37M HYPE (with bonuses)
+- At $0.0005: Portfolio value = $18,500
+- ROI: 185%
 - Timeline: 3-6 months post-listing
+
+### Moderate Projection
+**Token price hits $0.001:**
+- Private sale investor: $10,000 → 37M HYPE
+- At $0.001: Portfolio value = $37,000
+- ROI: 270%
+- Timeline: 6-9 months
 
 ### Optimistic Projection (Bull Case)
 **Market Cap Growth to $10M:**
-- Token price: $0.01
-- Private sale investor: $10,000 → $80,000
-- ROI: 700%
+- Token price: $0.001 (conservative)
+- Private sale investor: $10,000 → $37,000
+- ROI: 270%
 - Timeline: 6-12 months
 
 ### Risk Factors
@@ -440,13 +448,21 @@ This plan is designed for **immediate implementation**. Key numbers:
 
 **Next Steps:**
 1. Review and approve this plan
-2. Set up smart contract with vesting
+2. Set up smart contract with vesting (10B supply)
 3. Configure payment gateway
 4. Launch marketing campaign
 5. GO LIVE TODAY
 
 ---
 
-*Document Version: 1.0*
-*Last Updated: 2025-10-16*
+**🔥 10B ТОКЕНОМИКА - ПСИХОЛОГИЧЕСКОЕ ПРЕИМУЩЕСТВО:**
+- За $100 получаешь 285,000 токенов вместо 66,667
+- "У меня миллион токенов!" звучит круче чем "у меня 100 тысяч"
+- Цена $0.00035 выглядит дешевле чем $0.0015
+- Больше room для роста: $0.00035 → $0.01 = 28x
+
+---
+
+*Document Version: 2.0 - UPDATED FOR 10B TOKENOMICS*
+*Last Updated: 2025-10-17*
 *Status: READY FOR IMPLEMENTATION*
