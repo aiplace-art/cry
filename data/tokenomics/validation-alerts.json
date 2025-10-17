@@ -1234,5 +1234,41 @@
       "accountedTokens": 0
     },
     "acknowledged": false
+  },
+  {
+    "id": 1760723176815,
+    "timestamp": "2025-10-17T17:46:16.815Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760723732104,
+    "timestamp": "2025-10-17T17:55:32.104Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
+  },
+  {
+    "id": 1760724032100,
+    "timestamp": "2025-10-17T18:00:32.100Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
   }
 ]

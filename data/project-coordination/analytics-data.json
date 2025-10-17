@@ -381,6 +381,11 @@
         "date": "2025-10-17",
         "value": 0,
         "growthRate": 0
+      },
+      {
+        "date": "2025-10-17",
+        "value": 0,
+        "growthRate": 0
       }
     ],
     "weekly": [],
@@ -392,5 +397,5 @@
     "direct": 0,
     "organic": 0
   },
-  "timestamp": "2025-10-17T17:37:03.746Z"
+  "timestamp": "2025-10-17T17:47:03.743Z"
 }
