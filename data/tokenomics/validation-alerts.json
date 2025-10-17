@@ -1582,5 +1582,17 @@
       "accountedTokens": 0
     },
     "acknowledged": false
+  },
+  {
+    "id": 1760735054907,
+    "timestamp": "2025-10-17T21:04:14.907Z",
+    "severity": "high",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "acknowledged": false
   }
 ]

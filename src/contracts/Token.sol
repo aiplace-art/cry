@@ -28,16 +28,11 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
     uint256 public maxWalletAmount = 200_000_000 * 10**18; // 2% of total supply
 
     // Fee structure (in basis points, 1% = 100)
-    uint256 public reflectionFee = 200; // 2%
-    uint256 public liquidityFee = 300; // 3%
-    uint256 public burnFee = 100; // 1%
-    uint256 public treasuryFee = 200; // 2%
-    uint256 public totalFees = 800; // 8% total
-
-    // AI-driven dynamic fee adjustment
-    uint256 public minFee = 500; // 5% minimum
-    uint256 public maxFee = 1500; // 15% maximum
-    bool public aiFeesEnabled = true;
+    uint256 public constant REFLECTION_FEE = 200; // 2%
+    uint256 public constant LIQUIDITY_FEE = 300; // 3%
+    uint256 public constant BURN_FEE = 100; // 1%
+    uint256 public constant TREASURY_FEE = 200; // 2%
+    uint256 public constant TOTAL_FEES = 800; // 8% total (fixed, no AI adjustment)
 
     // Addresses
     address public treasuryWallet;
@@ -51,13 +46,8 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
     mapping(address => bool) public isBlacklisted;
     mapping(address => bool) public automatedMarketMakerPairs;
 
-    // Reflection tracking
-    mapping(address => uint256) private _reflectionBalances;
-    mapping(address => bool) public isExcludedFromReflections;
-    address[] private _excludedFromReflections;
-    uint256 private constant MAX = ~uint256(0);
-    uint256 private _reflectionTotal = (MAX - (MAX % TOTAL_SUPPLY));
-    uint256 private _totalReflections;
+    // Reflection tracking (simplified - direct distribution to treasury for manual rewards)
+    uint256 private _totalReflectionsCollected;
 
     // Staking system
     struct Stake {
@@ -76,11 +66,6 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
     // Liquidity management
     uint256 public swapTokensAtAmount = 10_000_000 * 10**18; // 0.1% of supply
     bool private swapping;
-
-    // Volume tracking for AI fee adjustment
-    uint256 public dailyVolume;
-    uint256 public lastVolumeReset;
-    uint256 public constant VOLUME_RESET_PERIOD = 1 days;
 
     // Events
     event TradingEnabled();
@@ -112,13 +97,8 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
         isExcludedFromLimits[treasuryWallet] = true;
         isExcludedFromLimits[deadWallet] = true;
 
-        // Initialize reflection balances
-        _reflectionBalances[owner()] = _reflectionTotal;
-
         // Mint total supply to owner
         _mint(owner(), TOTAL_SUPPLY);
-
-        lastVolumeReset = block.timestamp;
     }
 
     receive() external payable {}
@@ -155,20 +135,11 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
     }
 
     function _handleFeesAndSwaps(address from, address to, uint256 amount) private {
-        // AI fee adjustment based on volume
-        if (aiFeesEnabled && block.timestamp >= lastVolumeReset + VOLUME_RESET_PERIOD) {
-            _adjustFeesBasedOnVolume();
-            dailyVolume = 0;
-            lastVolumeReset = block.timestamp;
-        }
-
-        dailyVolume += amount;
-
-        // Take fees
+        // Take fees (fixed 8%, no AI adjustment)
         bool takeFee = !swapping && !isExcludedFromFees[from] && !isExcludedFromFees[to];
 
         if (takeFee) {
-            uint256 fees = (amount * totalFees) / 10000;
+            uint256 fees = (amount * TOTAL_FEES) / 10000;
             _distributeFees(from, fees);
 
             // Auto-liquidity swap
@@ -185,17 +156,18 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
     }
 
     /**
-     * @dev Distribute collected fees
+     * @dev Distribute collected fees (simplified, no complex reflection math)
      */
     function _distributeFees(address from, uint256 totalFeeAmount) private {
-        uint256 reflectionAmount = (totalFeeAmount * reflectionFee) / totalFees;
-        uint256 liquidityAmount = (totalFeeAmount * liquidityFee) / totalFees;
-        uint256 burnAmount = (totalFeeAmount * burnFee) / totalFees;
+        uint256 reflectionAmount = (totalFeeAmount * REFLECTION_FEE) / TOTAL_FEES;
+        uint256 liquidityAmount = (totalFeeAmount * LIQUIDITY_FEE) / TOTAL_FEES;
+        uint256 burnAmount = (totalFeeAmount * BURN_FEE) / TOTAL_FEES;
         uint256 treasuryAmount = totalFeeAmount - reflectionAmount - liquidityAmount - burnAmount;
 
-        // Reflection to holders
+        // Reflection amount goes to treasury for manual holder rewards distribution
         if (reflectionAmount > 0) {
-            _totalReflections = _totalReflections + reflectionAmount;
+            _totalReflectionsCollected = _totalReflectionsCollected + reflectionAmount;
+            super._update(from, treasuryWallet, reflectionAmount);
             emit ReflectionDistributed(reflectionAmount);
         }
 
@@ -215,27 +187,6 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
         }
     }
 
-    /**
-     * @dev AI-driven fee adjustment based on trading volume
-     */
-    function _adjustFeesBasedOnVolume() private {
-        uint256 volumeRatio = (dailyVolume * 10000) / TOTAL_SUPPLY;
-
-        // High volume (>5% of supply): reduce fees
-        if (volumeRatio > 500) {
-            totalFees = minFee;
-        }
-        // Medium volume (2-5%): standard fees
-        else if (volumeRatio > 200) {
-            totalFees = 800; // 8%
-        }
-        // Low volume (<2%): increase fees to incentivize holding
-        else {
-            totalFees = maxFee;
-        }
-
-        emit AIFeesUpdated(totalFees);
-    }
 
     /**
      * @dev Swap tokens for ETH and add liquidity
@@ -306,41 +257,6 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
         emit Unstaked(msg.sender, userStake.amount, reward);
     }
 
-    /**
-     * @dev Get reflection balance
-     */
-    function balanceOf(address account) public view override returns (uint256) {
-        if (isExcludedFromReflections[account]) return super.balanceOf(account);
-        return _tokenFromReflection(_reflectionBalances[account]);
-    }
-
-    function _tokenFromReflection(uint256 rAmount) private view returns (uint256) {
-        require(rAmount <= _reflectionTotal, "Amount must be less than total reflections");
-        uint256 currentRate = _getRate();
-        return rAmount / currentRate;
-    }
-
-    function _getRate() private view returns (uint256) {
-        (uint256 rSupply, uint256 tSupply) = _getCurrentSupply();
-        return rSupply / tSupply;
-    }
-
-    function _getCurrentSupply() private view returns (uint256, uint256) {
-        uint256 rSupply = _reflectionTotal;
-        uint256 tSupply = TOTAL_SUPPLY;
-
-        for (uint256 i = 0; i < _excludedFromReflections.length; i++) {
-            if (_reflectionBalances[_excludedFromReflections[i]] > rSupply ||
-                super.balanceOf(_excludedFromReflections[i]) > tSupply) {
-                return (_reflectionTotal, TOTAL_SUPPLY);
-            }
-            rSupply = rSupply - _reflectionBalances[_excludedFromReflections[i]];
-            tSupply = tSupply - super.balanceOf(_excludedFromReflections[i]);
-        }
-
-        if (rSupply < _reflectionTotal / TOTAL_SUPPLY) return (_reflectionTotal, TOTAL_SUPPLY);
-        return (rSupply, tSupply);
-    }
 
     // Admin functions
     function enableTrading() external onlyOwner {
@@ -349,20 +265,8 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
         emit TradingEnabled();
     }
 
-    function setFees(
-        uint256 _reflectionFee,
-        uint256 _liquidityFee,
-        uint256 _burnFee,
-        uint256 _treasuryFee
-    ) external onlyOwner {
-        reflectionFee = _reflectionFee;
-        liquidityFee = _liquidityFee;
-        burnFee = _burnFee;
-        treasuryFee = _treasuryFee;
-        totalFees = _reflectionFee + _liquidityFee + _burnFee + _treasuryFee;
-        require(totalFees <= maxFee, "Total fees exceed maximum");
-        emit FeesUpdated(_reflectionFee, _liquidityFee, _burnFee, _treasuryFee);
-    }
+    // Fees are now constants (2/3/1/2) and cannot be changed
+    // This function removed for security - prevents owner from changing fees after launch
 
     function setMaxTransactionAmount(uint256 _maxTransactionAmount) external onlyOwner {
         require(_maxTransactionAmount >= TOTAL_SUPPLY / 1000, "Max transaction too low");
@@ -388,10 +292,6 @@ contract HypeAI is ERC20, Ownable, ReentrancyGuard {
 
     function excludeFromLimits(address account, bool excluded) external onlyOwner {
         isExcludedFromLimits[account] = excluded;
-    }
-
-    function setAIFeesEnabled(bool enabled) external onlyOwner {
-        aiFeesEnabled = enabled;
     }
 
     function updateTreasuryWallet(address newWallet) external onlyOwner {
