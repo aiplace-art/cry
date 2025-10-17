@@ -762,13 +762,46 @@
             font-size: 1.5rem;
         }
 
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
         @media (max-width: 768px) {
             .tokenomics-content {
                 grid-template-columns: 1fr;
             }
 
             nav {
-                display: none;
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 80px);
+                background: rgba(10, 14, 39, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: right 0.3s ease;
+                border-left: 1px solid rgba(157, 78, 221, 0.3);
+                z-index: 999;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
 
             header {
@@ -807,14 +840,15 @@
             <img src="logo-icon-only.svg" alt="HypeAI Logo" style="width: 70px; height: 70px; margin-right: 0.5rem;">
             HypeAI <span style="font-size: 1.2rem; margin-left: 0.3rem;">⚡</span>
         </div>
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#ai-agents">AI Team</a>
+        <nav id="mobileNav">
+            <a href="#services" onclick="closeMobileMenu()">Services</a>
+            <a href="#ai-agents" onclick="closeMobileMenu()">AI Team</a>
             <a href="agents-activity.html" class="live-agents-btn">Live (27/27)</a>
-            <a href="#tokenomics">Tokenomics</a>
+            <a href="#tokenomics" onclick="closeMobileMenu()">Tokenomics</a>
             <a href="proof.html" style="color: var(--accent-green);">✅ PROOF</a>
             <a href="docs.html">Docs</a>
         </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         <button class="cta-button" onclick="connectWallet()">Connect Wallet</button>
     </header>
 
@@ -1013,8 +1047,8 @@
 
         <!-- CTA Buttons -->
         <div class="cta-buttons">
-            <a href="/services" class="primary-button">📋 View All Services</a>
-            <a href="/contact" class="secondary-button">💬 Get Quote</a>
+            <a href="agents.html" class="primary-button">📋 View All AI Agents</a>
+            <a href="docs.html" class="secondary-button">📚 View Documentation</a>
         </div>
     </section>
 
@@ -1043,8 +1077,8 @@
         </div>
 
         <div class="cta-buttons">
-            <a href="/presale" class="primary-button">💰 Join Presale Now</a>
-            <a href="/tokenomics-details.pdf" class="secondary-button" rel="noopener noreferrer" target="_blank">📄 Download Tokenomics</a>
+            <a href="stake.html" class="primary-button">💰 Start Staking</a>
+            <a href="whitepaper.html" class="secondary-button">📄 Read Whitepaper</a>
         </div>
     </section>
 
@@ -1614,7 +1648,7 @@
             <p>© 2025 HypeAI. All rights reserved.</p>
             <p style="margin-top: 0.5rem;">Built with ❤️ by 27 Professional AI Agents</p>
             <p style="margin-top: 0.25rem; font-size: 0.9rem; color: var(--gray);">
-                8 Dev • 7 Business • 6 Marketing • 6 Operations
+                12 showcased on homepage • 15 working behind the scenes
             </p>
             <p style="margin-top: 0.5rem; font-size: 1.1rem; color: var(--accent-green);">
                 <strong>Achieve Financial Freedom with AI! 🚀</strong>
@@ -1647,6 +1681,26 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobileNav');
+            nav.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const nav = document.getElementById('mobileNav');
+            nav.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            if (nav.classList.contains('active') && !nav.contains(event.target) && !menuBtn.contains(event.target)) {
+                closeMobileMenu();
+            }
         });
     </script>
 </body>
