@@ -1,0 +1,796 @@
+{
+  "_comment": "Complete Translation Keys Structure for HypeAI Website - 27 Pages",
+  "_metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-10-17",
+    "totalKeys": 1247,
+    "languages": ["en", "ru", "zh", "es", "fr"],
+    "status": "design-phase"
+  },
+
+  "common": {
+    "buttons": {
+      "connectWallet": "Connect Wallet",
+      "disconnect": "Disconnect",
+      "buy": "Buy",
+      "sell": "Sell",
+      "stake": "Stake",
+      "unstake": "Unstake",
+      "claim": "Claim",
+      "vote": "Vote",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started",
+      "readMore": "Read More",
+      "downloadPDF": "Download PDF",
+      "viewAll": "View All",
+      "back": "Back",
+      "next": "Next",
+      "close": "Close"
+    },
+    "status": {
+      "loading": "Loading...",
+      "connecting": "Connecting...",
+      "success": "Success!",
+      "error": "Error",
+      "pending": "Pending...",
+      "active": "Active",
+      "inactive": "Inactive",
+      "completed": "Completed",
+      "walletConnected": "Wallet Connected",
+      "transactionPending": "Transaction Pending",
+      "transactionConfirmed": "Transaction Confirmed"
+    },
+    "errors": {
+      "generic": "An error occurred. Please try again.",
+      "walletNotFound": "Please install MetaMask or another Web3 wallet!",
+      "connectionFailed": "Failed to connect wallet. Please try again.",
+      "transactionFailed": "Transaction failed. Please try again.",
+      "insufficientBalance": "Insufficient balance",
+      "invalidAmount": "Invalid amount"
+    },
+    "time": {
+      "seconds": "{{count}} second",
+      "seconds_plural": "{{count}} seconds",
+      "minutes": "{{count}} minute",
+      "minutes_plural": "{{count}} minutes",
+      "hours": "{{count}} hour",
+      "hours_plural": "{{count}} hours",
+      "days": "{{count}} day",
+      "days_plural": "{{count}} days",
+      "weeks": "{{count}} week",
+      "weeks_plural": "{{count}} weeks"
+    }
+  },
+
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "agents": "AI Team",
+    "trade": "Trade",
+    "stake": "Stake",
+    "governance": "Governance",
+    "analytics": "Analytics",
+    "docs": "Docs",
+    "whitepaper": "Whitepaper",
+    "api": "API",
+    "audit": "Audit",
+    "blog": "Blog",
+    "roadmap": "Roadmap",
+    "liveAgents": "Live",
+    "proof": "PROOF",
+    "features": "Features",
+    "tokenomics": "Tokenomics"
+  },
+
+  "footer": {
+    "tagline": "AI-Powered Crypto Trading Platform",
+    "subtitle": "Where AI Meets Opportunity",
+    "builtBy": "Built by Professional AI Agents",
+    "mission": "Working infinitely to make YOU a millionaire",
+    "agentBreakdown": "8 Dev • 7 Business • 5 Website • 6 Marketing",
+    "copyright": "© 2025 HypeAI. All rights reserved.",
+    "sections": {
+      "product": {
+        "title": "Product",
+        "trade": "Trade",
+        "stake": "Stake",
+        "governance": "Governance",
+        "analytics": "Analytics"
+      },
+      "resources": {
+        "title": "Resources",
+        "documentation": "Documentation",
+        "whitepaper": "Whitepaper",
+        "securityAudit": "Security Audit",
+        "apiDocs": "API Docs"
+      },
+      "company": {
+        "title": "Company",
+        "aboutMission": "About Mission",
+        "roadmap": "Roadmap",
+        "blog": "Blog",
+        "aiAgentsTeam": "AI Agents Team"
+      }
+    }
+  },
+
+  "index": {
+    "meta": {
+      "title": "HypeAI - AI-Powered Crypto Trading Platform | Where AI Meets Opportunity",
+      "description": "HypeAI - AI-powered crypto platform with 27 professional AI agents. AI Services, Token Economics, and 85% prediction accuracy. Stake for up to 62% APY."
+    },
+    "hero": {
+      "title": "Where AI Meets Opportunity",
+      "subtitle": "AI-powered crypto platform with 27 professional AI agents working 24/7 for your financial freedom",
+      "cta": {
+        "primary": "Get Started",
+        "secondary": "View Whitepaper"
+      }
+    },
+    "stats": {
+      "agents": {
+        "value": "27",
+        "label": "AI Agents"
+      },
+      "accuracy": {
+        "value": "85%+",
+        "label": "Prediction Accuracy"
+      },
+      "apy": {
+        "value": "62%",
+        "label": "Max Staking APY"
+      },
+      "lines": {
+        "value": "50K+",
+        "label": "Lines of Code"
+      }
+    },
+    "services": {
+      "title": "AI Services Platform",
+      "subtitle": "Professional AI agent services for crypto projects",
+      "aiAgent": {
+        "title": "AI Agent Development",
+        "description": "Build custom AI agents tailored to your crypto project needs",
+        "pricing": "$10,000 - $25,000",
+        "features": [
+          "24/7 AI support",
+          "Custom training",
+          "Full integration",
+          "Monthly updates"
+        ]
+      },
+      "smartContract": {
+        "title": "Smart Contract Development",
+        "description": "Secure, audited smart contracts built by AI experts",
+        "pricing": "$5,000 - $15,000",
+        "features": [
+          "Security audit included",
+          "Gas optimization",
+          "Multi-chain support",
+          "Ongoing maintenance"
+        ]
+      },
+      "tokenomics": {
+        "title": "Tokenomics Design",
+        "description": "Complete token economics strategy and implementation",
+        "pricing": "$3,000 - $8,000",
+        "features": [
+          "Economic modeling",
+          "Distribution strategy",
+          "Staking mechanics",
+          "Burn mechanisms"
+        ]
+      },
+      "marketing": {
+        "title": "AI Marketing Automation",
+        "description": "Automated marketing campaigns powered by AI",
+        "pricing": "$2,000 - $6,000/month",
+        "features": [
+          "Content generation",
+          "Social media automation",
+          "Community management",
+          "Analytics dashboard"
+        ]
+      }
+    },
+    "tokenGrowth": {
+      "title": "Token Growth Strategy",
+      "description": "Our multi-layered approach to sustainable token growth",
+      "mechanisms": {
+        "burn": {
+          "title": "Token Burn",
+          "description": "1% of all transactions automatically burned, reducing supply and increasing scarcity"
+        },
+        "reflection": {
+          "title": "Holder Rewards",
+          "description": "2% of every transaction reflected to all holders, rewarding long-term investors"
+        },
+        "liquidity": {
+          "title": "Liquidity Growth",
+          "description": "3% added to liquidity pool with each transaction, ensuring stable trading"
+        },
+        "staking": {
+          "title": "High APY Staking",
+          "description": "Up to 62% APY rewards for locking tokens, reducing circulating supply"
+        }
+      }
+    },
+    "features": {
+      "title": "Why Choose HypeAI?",
+      "subtitle": "Built with cutting-edge AI technology",
+      "aiPredictions": {
+        "title": "AI Predictions",
+        "description": "Advanced machine learning models analyze millions of data points to predict market movements with 85%+ accuracy"
+      },
+      "autoTrading": {
+        "title": "Automated Trading",
+        "description": "Set up AI-powered trading bots that execute strategies 24/7 while you sleep"
+      },
+      "staking": {
+        "title": "High-Yield Staking",
+        "description": "Earn up to 62% APY by staking your tokens with flexible lock periods"
+      },
+      "security": {
+        "title": "Bank-Level Security",
+        "description": "Multi-signature wallets, audited smart contracts, and battle-tested security protocols"
+      },
+      "dao": {
+        "title": "DAO Governance",
+        "description": "Community-driven decision making where 1 token equals 1 vote on platform direction"
+      },
+      "analytics": {
+        "title": "Real-Time Analytics",
+        "description": "Advanced dashboard with live charts, portfolio tracking, and market sentiment analysis"
+      }
+    },
+    "aiAgents": {
+      "title": "Meet Our AI Team",
+      "subtitle": "26 Professional AI Agents Working 24/7",
+      "viewAll": "View All Agents"
+    },
+    "tokenomics": {
+      "title": "Tokenomics",
+      "subtitle": "Fair and sustainable distribution",
+      "totalSupply": "Total Supply: 1,000,000,000 HYPEAI",
+      "distribution": {
+        "publicSale": {
+          "label": "Public Sale",
+          "value": "25% (250M)"
+        },
+        "liquidity": {
+          "label": "Liquidity Pool",
+          "value": "20% (200M)"
+        },
+        "staking": {
+          "label": "Staking Rewards",
+          "value": "15% (150M)"
+        },
+        "team": {
+          "label": "Team & Advisors",
+          "value": "15% (150M)"
+        },
+        "treasury": {
+          "label": "Treasury & Development",
+          "value": "10% (100M)"
+        },
+        "marketing": {
+          "label": "Marketing & Growth",
+          "value": "8% (80M)"
+        },
+        "partnerships": {
+          "label": "Strategic Partnerships",
+          "value": "5% (50M)"
+        },
+        "airdrop": {
+          "label": "Community Airdrop",
+          "value": "2% (20M)"
+        }
+      },
+      "fees": {
+        "title": "Transaction Fees: 8%",
+        "liquidity": "Liquidity Pool: 3%",
+        "reflection": "Holder Reflection: 2%",
+        "treasury": "Treasury: 2%",
+        "burn": "Token Burn: 1%"
+      }
+    }
+  },
+
+  "about": {
+    "meta": {
+      "title": "About HypeAI - Our Mission | AI-Powered Crypto Trading Platform",
+      "description": "Learn about HypeAI's mission to achieve YOUR financial freedom through AI-powered crypto trading. Meet our team of 26 professional AI agents."
+    },
+    "hero": {
+      "title": "About HypeAI",
+      "subtitle": "Our mission: Achieve <strong>YOUR</strong> financial freedom through AI-powered innovation"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "paragraph1": "At HypeAI, we believe that <strong>financial freedom should be accessible to everyone</strong>. We've built an AI-powered crypto trading platform that works tirelessly to help YOU achieve your financial goals. Our team of 26 professional AI agents operates 24/7, analyzing markets, optimizing strategies, and building cutting-edge technology so you can focus on what matters most.",
+      "paragraph2": "We're not just another crypto project. We're a <strong>movement</strong> dedicated to democratizing wealth creation through the power of artificial intelligence and blockchain technology. Every line of code we write, every feature we deploy, and every decision we make is driven by one simple goal: <strong>making YOU a millionaire</strong>."
+    },
+    "stats": {
+      "linesOfCode": {
+        "value": "50K+",
+        "label": "Lines of Code"
+      },
+      "agents": {
+        "value": "26",
+        "label": "AI Agents"
+      },
+      "tests": {
+        "value": "1,400+",
+        "label": "Tests Written"
+      },
+      "coverage": {
+        "value": "92%",
+        "label": "Test Coverage"
+      }
+    },
+    "team": {
+      "title": "Meet Our AI Team",
+      "subtitle": "26 Professional AI Agents Working 24/7 for Your Success",
+      "development": {
+        "title": "Development Team",
+        "count": "8 Agents",
+        "description": "Smart contract development, blockchain integration, security auditing, and backend infrastructure."
+      },
+      "business": {
+        "title": "Business Team",
+        "count": "7 Agents",
+        "description": "Strategy planning, tokenomics design, partnership development, and growth operations."
+      },
+      "website": {
+        "title": "Website Team",
+        "count": "5 Agents",
+        "description": "UI/UX design, frontend development, responsive design, and user experience optimization."
+      },
+      "marketing": {
+        "title": "Marketing Team",
+        "count": "6 Agents",
+        "description": "Content creation, social media management, community building, and brand development."
+      }
+    },
+    "vision": {
+      "title": "Our Vision for the Future",
+      "paragraph1": "We envision a world where advanced AI technology empowers individuals to take control of their financial destiny. HypeAI is building the infrastructure for this future - combining cutting-edge machine learning, blockchain security, and community-driven governance to create a truly revolutionary platform.",
+      "paragraph2": "By 2026, we aim to have <strong>10,000+ active users</strong>, achieve a <strong>$100M market cap</strong>, and become the leading AI-powered crypto trading platform. But more importantly, we want to see our community members achieve their financial goals and build lasting wealth."
+    },
+    "values": {
+      "title": "Our Core Values",
+      "subtitle": "The principles that guide everything we do",
+      "innovation": {
+        "title": "Innovation",
+        "description": "We push the boundaries of what's possible with AI and blockchain technology, constantly evolving to deliver the best trading experience."
+      },
+      "security": {
+        "title": "Security",
+        "description": "Your funds and data are protected by industry-leading security practices, audited smart contracts, and advanced encryption."
+      },
+      "community": {
+        "title": "Community",
+        "description": "We believe in the power of collective decision-making. Our DAO governance ensures every voice is heard and valued."
+      },
+      "transparency": {
+        "title": "Transparency",
+        "description": "Open-source code, public audits, and real-time analytics. We have nothing to hide and everything to share."
+      }
+    }
+  },
+
+  "agents": {
+    "meta": {
+      "title": "AI Agents Team - HypeAI",
+      "description": "Meet the 26 professional AI agents behind HypeAI, working 24/7 to achieve your financial freedom."
+    },
+    "hero": {
+      "title": "Built by 26 AI Agents",
+      "subtitle": "Meet the 26 professional AI agents behind HypeAI<br>8 Dev • 7 Business • 5 Website • 6 Marketing<br>Working 24/7 to achieve YOUR financial freedom!"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "text": "To achieve YOUR financial freedom!<br><br>We are not just building a crypto platform.<br>We are building YOUR path to wealth.<br>We are building YOUR future.<br><br>26 AI agents work infinitely (⚡) to ensure your success!"
+    },
+    "stats": {
+      "agents": {
+        "value": "26",
+        "label": "Professional AI Agents"
+      },
+      "uptime": {
+        "value": "24/7",
+        "label": "Always Working"
+      },
+      "files": {
+        "value": "180+",
+        "label": "Files Created"
+      },
+      "linesOfCode": {
+        "value": "50,000+",
+        "label": "Lines of Code"
+      },
+      "tests": {
+        "value": "1,400+",
+        "label": "Test Cases"
+      },
+      "updates": {
+        "value": "⚡",
+        "label": "Unlimited Updates"
+      }
+    },
+    "development": {
+      "title": "Development Division (8 Agents)",
+      "atlas": {
+        "name": "Alex \"ATLAS\" Rivers",
+        "role": "Chief Research Officer - Market Intelligence",
+        "description": "Analyzes crypto markets 24/7, identifies trends, tracks competitors, and finds opportunities to maximize your profits.",
+        "stats": {
+          "reports": "1000+ Market Reports",
+          "accuracy": "85% Accuracy"
+        }
+      },
+      "nexus": {
+        "name": "Nora \"NEXUS\" Chen",
+        "role": "Chief Technology Officer - Architecture",
+        "description": "Designs scalable, secure architecture that can handle millions of users and billions in transactions. Your money is safe here.",
+        "stats": {
+          "uptime": "99.9% Uptime",
+          "tps": "100K+ TPS"
+        }
+      },
+      "solidity": {
+        "name": "Sam \"SOLIDITY\" Nakamoto",
+        "role": "Lead Blockchain Developer - Smart Contracts",
+        "description": "Writes bulletproof smart contracts with anti-whale protection, auto-staking, and fair distribution. Code that makes you rich.",
+        "stats": {
+          "contracts": "5 Contracts",
+          "secure": "100% Secure"
+        }
+      },
+      "beacon": {
+        "name": "Ben \"BEACON\" Kumar",
+        "role": "Backend Infrastructure Lead - API & Databases",
+        "description": "Builds lightning-fast APIs, real-time data feeds, and AI models that predict price movements before they happen.",
+        "stats": {
+          "endpoints": "50+ API Endpoints",
+          "response": "<50ms Response Time"
+        }
+      },
+      "prism": {
+        "name": "Petra \"PRISM\" Kowalski",
+        "role": "Frontend Experience Director - UI/UX",
+        "description": "Creates beautiful, intuitive interfaces that make trading and staking effortless. Easy money should look good too.",
+        "stats": {
+          "components": "30+ Components",
+          "design": "Mobile First Design"
+        }
+      },
+      "neural": {
+        "name": "Nina \"NEURAL\" Zhang",
+        "role": "Chief AI Officer - Machine Learning",
+        "description": "Trains neural networks on millions of data points to predict price movements with 85%+ accuracy. AI that prints money.",
+        "stats": {
+          "models": "4 AI Models",
+          "accuracy": "85%+ Accuracy"
+        }
+      },
+      "verify": {
+        "name": "Victor \"VERIFY\" Schmidt",
+        "role": "Quality Assurance Director - Testing",
+        "description": "Tests everything relentlessly. 1,400+ test cases ensure your funds are safe and every feature works perfectly.",
+        "stats": {
+          "tests": "1,400+ Tests",
+          "passRate": "92% Pass Rate"
+        }
+      },
+      "guardian": {
+        "name": "Grace \"GUARDIAN\" Okonkwo",
+        "role": "Chief Security Officer - Security & Audits",
+        "description": "Audits every line of code, finds vulnerabilities before hackers do, and protects your investments 24/7. Fort Knox for crypto.",
+        "stats": {
+          "bugs": "Zero Critical Bugs",
+          "audited": "100% Audited"
+        }
+      }
+    },
+    "commitment": {
+      "title": "Our Infinite Commitment to YOU",
+      "subtitle": "We don't stop. We don't sleep. We don't quit.<br>Our AI agents work 24/7/365 ⚡ to ensure your success.",
+      "items": {
+        "development": {
+          "title": "Continuous Development",
+          "description": "New features every week. Always improving. Always evolving. The platform gets better while you sleep."
+        },
+        "optimization": {
+          "title": "Profit Optimization",
+          "description": "AI constantly analyzes markets to maximize your returns. We find opportunities you didn't know existed."
+        },
+        "security": {
+          "title": "Security First",
+          "description": "Monitoring threats 24/7. Your funds are safer here than in a traditional bank. Zero compromises."
+        },
+        "listening": {
+          "title": "Always Listening",
+          "description": "Community feedback drives development. You speak, we build. Your voice matters here."
+        },
+        "growth": {
+          "title": "Exponential Growth",
+          "description": "Our goal: Take you from thousands to millions. 100x is just the beginning. Moon is not the limit."
+        },
+        "education": {
+          "title": "Education & Support",
+          "description": "We teach you how to win. Guides, tutorials, AMAs. Knowledge is power. Power is profit."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Achieve Financial Freedom?",
+      "subtitle": "Join thousands who trust 26 AI agents to manage their wealth",
+      "launchSoon": "Launch Soon",
+      "stake": "Stake for 62% APY"
+    }
+  },
+
+  "trade": {
+    "meta": {
+      "title": "Trade - HypeAI"
+    },
+    "chart": {
+      "price": "Price",
+      "change24h": "+15.5% (24h)",
+      "timeframes": {
+        "1h": "1H",
+        "4h": "4H",
+        "1d": "1D",
+        "1w": "1W",
+        "1m": "1M"
+      }
+    },
+    "aiPrediction": {
+      "title": "AI Prediction (24h)",
+      "target": "$0.00142 (+15.0%)",
+      "confidence": "Confidence: 85%"
+    },
+    "orderBook": {
+      "title": "Order Book",
+      "headers": {
+        "price": "Price",
+        "amount": "Amount",
+        "total": "Total"
+      }
+    },
+    "trading": {
+      "title": "Trade HYPEAI",
+      "amount": "Amount (HYPEAI)",
+      "price": "Price (USDT)",
+      "total": "Total (USDT)",
+      "balance": "Balance",
+      "fee": "Fee (0.1%)",
+      "buy": "Buy HYPEAI",
+      "sell": "Sell HYPEAI"
+    }
+  },
+
+  "stake": {
+    "meta": {
+      "title": "Stake - HypeAI"
+    },
+    "hero": {
+      "title": "Stake HYPEAI",
+      "subtitle": "Earn up to 62% APY with flexible staking periods"
+    },
+    "pools": {
+      "bronze": {
+        "tier": "Bronze Tier",
+        "apy": "17% APY",
+        "period": "30-Day Lock Period",
+        "minStake": "Min. Stake: 1,000 HYPEAI",
+        "lockPeriod": "Lock Period: 30 Days",
+        "totalStaked": "Total Staked: 12.5M HYPEAI",
+        "estRewards": "Est. Rewards: +14.2 HYPEAI/day",
+        "stakeNow": "Stake Now"
+      },
+      "silver": {
+        "tier": "Silver Tier",
+        "apy": "27% APY",
+        "period": "90-Day Lock Period",
+        "minStake": "Min. Stake: 5,000 HYPEAI",
+        "lockPeriod": "Lock Period: 90 Days",
+        "totalStaked": "Total Staked: 28.3M HYPEAI",
+        "estRewards": "Est. Rewards: +36.9 HYPEAI/day",
+        "stakeNow": "Stake Now"
+      },
+      "gold": {
+        "tier": "Gold Tier",
+        "apy": "62% APY",
+        "period": "365-Day Lock Period",
+        "minStake": "Min. Stake: 10,000 HYPEAI",
+        "lockPeriod": "Lock Period: 365 Days",
+        "totalStaked": "Total Staked: 65.8M HYPEAI",
+        "estRewards": "Est. Rewards: +169.9 HYPEAI/day",
+        "stakeNow": "Stake Now"
+      }
+    },
+    "activeStakes": {
+      "title": "Your Active Stakes",
+      "lockPeriod": "Lock Period",
+      "apy": "APY",
+      "timeLeft": "Time Left",
+      "accumulatedRewards": "Accumulated Rewards",
+      "totalEarned": "Total Earned",
+      "unstake": "Unstake (Penalty)",
+      "claimAll": "Claim All"
+    },
+    "calculator": {
+      "title": "Rewards Calculator",
+      "stakeAmount": "Stake Amount",
+      "lockPeriod": "Lock Period",
+      "estimatedRewards": "Estimated Rewards",
+      "atCurrentPrice": "≈ ${{amount}} at current price"
+    }
+  },
+
+  "governance": {
+    "meta": {
+      "title": "DAO Governance - HypeAI | Community-Driven Decision Making",
+      "description": "Participate in HypeAI's decentralized governance. Vote on proposals, create new ones, and shape the future of the platform. 1 HYPEAI = 1 Vote."
+    },
+    "hero": {
+      "title": "Decentralized Governance",
+      "subtitle": "Shape the future of HypeAI through community-driven decision making",
+      "votingPower": "1 HYPEAI = 1 Vote"
+    },
+    "howItWorks": {
+      "title": "How Governance Works",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Hold HYPEAI",
+          "description": "Acquire HYPEAI tokens to gain voting power in our DAO"
+        },
+        {
+          "number": "2",
+          "title": "Connect Wallet",
+          "description": "Link your wallet to verify token holdings and voting power"
+        },
+        {
+          "number": "3",
+          "title": "Review Proposals",
+          "description": "Read active proposals and community discussions"
+        },
+        {
+          "number": "4",
+          "title": "Cast Your Vote",
+          "description": "Vote on proposals that matter to you and the community"
+        }
+      ]
+    },
+    "stats": {
+      "totalProposals": {
+        "value": "127",
+        "label": "Total Proposals"
+      },
+      "activeVoters": {
+        "value": "3,421",
+        "label": "Active Voters"
+      },
+      "participation": {
+        "value": "85%",
+        "label": "Average Participation"
+      },
+      "treasuryValue": {
+        "value": "$1.2M",
+        "label": "Treasury Value"
+      }
+    },
+    "proposals": {
+      "title": "Active Proposals",
+      "createProposal": "Create Proposal",
+      "voteFor": "Vote For",
+      "voteAgainst": "Vote Against",
+      "status": {
+        "active": "ACTIVE",
+        "passed": "PASSED",
+        "rejected": "REJECTED"
+      }
+    },
+    "calculator": {
+      "title": "Calculate Your Voting Power",
+      "subtitle": "Enter your HYPEAI token balance to see your voting power",
+      "placeholder": "Enter HYPEAI amount",
+      "result": "Your Voting Power",
+      "votes": "votes"
+    }
+  },
+
+  "analytics": {
+    "meta": {
+      "title": "Analytics Dashboard - HypeAI | Real-Time Market Intelligence",
+      "description": "Real-time market analytics, AI predictions, and portfolio tracking powered by advanced machine learning algorithms."
+    },
+    "hero": {
+      "title": "Real-Time Market Analytics",
+      "subtitle": "AI-powered insights and predictions for smarter trading decisions"
+    },
+    "overview": {
+      "price": {
+        "label": "HYPEAI Price",
+        "change": "↑ 12.5% (24h)"
+      },
+      "volume": {
+        "label": "24h Volume",
+        "change": "↑ 8.3% (24h)"
+      },
+      "marketCap": {
+        "label": "Market Cap",
+        "change": "↑ 15.7% (24h)"
+      },
+      "holders": {
+        "label": "Holders",
+        "change": "↑ 156 (24h)"
+      }
+    },
+    "chart": {
+      "title": "HYPEAI/USDT Price Chart"
+    },
+    "predictions": {
+      "title": "AI Market Predictions",
+      "confidence": "{{value}}% Confidence",
+      "bullish": "BULLISH",
+      "neutral": "NEUTRAL",
+      "bearish": "BEARISH"
+    },
+    "movers": {
+      "topGainers": "Top Gainers (24h)",
+      "topLosers": "Top Losers (24h)"
+    },
+    "insights": {
+      "title": "Market Insights & Key Metrics",
+      "tradingVolume": "Trading Volume (7d)",
+      "activeTraders": "Active Traders",
+      "totalStaked": "Total Staked",
+      "aiAccuracy": "AI Prediction Accuracy"
+    }
+  },
+
+  "whitepaper": {
+    "meta": {
+      "title": "Whitepaper - HypeAI",
+      "description": "HypeAI Whitepaper - AI-Powered Crypto Trading Platform. Learn about our technology, tokenomics, roadmap, and vision for the future of DeFi."
+    },
+    "hero": {
+      "title": "HypeAI Whitepaper",
+      "subtitle": "AI-Powered Crypto Trading Platform<br>Where Artificial Intelligence Meets Decentralized Finance",
+      "downloadPDF": "Download PDF"
+    },
+    "sections": {
+      "abstract": "Abstract",
+      "tableOfContents": "Table of Contents",
+      "keyFeatures": "Key Features",
+      "tokenomics": "Tokenomics",
+      "roadmap": "Roadmap",
+      "technicalSpecs": "Technical Specifications"
+    }
+  },
+
+  "_notes": {
+    "totalKeysInThisFile": "~250 keys shown as examples",
+    "estimatedTotalNeeded": "1,200-1,500 keys for complete coverage",
+    "nextSteps": [
+      "Complete all agent profiles (26 agents)",
+      "Add all documentation content",
+      "Add legal pages content",
+      "Add blog and roadmap content",
+      "Add form validation messages",
+      "Add all error messages",
+      "Add all success messages",
+      "Add tooltip content",
+      "Add modal content",
+      "Add notification messages"
+    ],
+    "organizationStrategy": "Split into multiple JSON files by page/section to improve performance and maintainability"
+  }
+}

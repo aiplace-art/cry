@@ -1,0 +1,170 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "trade": "Trade",
+      "stake": "Stake",
+      "agents": "AI Agents",
+      "docs": "Docs",
+      "whitepaper": "Whitepaper",
+      "connectWallet": "Connect Wallet"
+    },
+    "hero": {
+      "title": "AI-Powered Crypto Trading",
+      "subtitle": "Smarter. Faster. Better.",
+      "description": "27 AI Agents working infinitely to empower your financial growth",
+      "ctaPrimary": "Start Trading Now",
+      "ctaSecondary": "View AI Agents",
+      "whySuccessButton": "🚀 Why 50x-100x-1000x is Inevitable"
+    },
+    "stats": {
+      "agents": "AI Agents",
+      "holders": "Token Holders",
+      "price": "Token Price (Demo)",
+      "trading": "Trading Active (Demo)"
+    },
+    "whySucceed": {
+      "title": "🚀 Why HypeAI is Destined to Succeed",
+      "subtitle": "Built on real revenue, utility, and AI innovation. Our success is inevitable."
+    },
+    "services": {
+      "title": "AI Services Platform",
+      "subtitle": "35+ professional AI services for crypto projects. From security audits to full-stack development."
+    },
+    "footer": {
+      "tagline": "27 AI Agents. Infinite Work. YOUR Success.",
+      "rights": "All rights reserved.",
+      "builtBy": "Built by AI Agents Team",
+      "disclaimer": "Cryptocurrency investments carry risk. Do your own research.",
+      "quickLinks": "Quick Links",
+      "resources": "Resources",
+      "community": "Community",
+      "legal": "Legal"
+    },
+    "buttons": {
+      "launchSoon": "🚀 Launch Soon",
+      "meetAgents": "👥 Meet All 27 Agents",
+      "viewActivity": "🔴 View Live Activity",
+      "buyNow": "💰 Buy $HYPE Now",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started"
+    }
+  },
+  "ru": {
+    "nav": {
+      "connectWallet": "Подключить кошелёк",
+      "home": "Главная",
+      "about": "О проекте",
+      "trade": "Торговля",
+      "stake": "Стейкинг",
+      "governance": "Управление",
+      "docs": "Документация",
+      "whitepaper": "White Paper",
+      "api": "API",
+      "audit": "Аудит",
+      "agents": "ИИ-Команда",
+      "analytics": "Аналитика",
+      "blog": "Блог",
+      "roadmap": "Дорожная карта",
+      "proof": "Доказательства",
+      "liveActivity": "Активность",
+      "builtByAI": "Создано 26 профессиональными ИИ-агентами",
+      "workingInfinitely": "Работаем бесконечно, чтобы сделать ВАС миллионером! 💰"
+    },
+    "hero": {
+      "title": "Где ИИ встречает возможности",
+      "subtitle": "Умнее. Быстрее. Лучше.",
+      "cta": "Начать торговлю",
+      "launchSoon": "Скоро запуск"
+    },
+    "stats": {
+      "marketCap": "Рыночная капитализация",
+      "holders": "Держатели",
+      "tvl": "Заблокированная стоимость",
+      "aiAccuracy": "Точность ИИ"
+    },
+    "whySucceed": {
+      "title": "Почему HypeAI обречен на успех",
+      "subtitle": ""
+    },
+    "services": {
+      "title": "Платформа ИИ-сервисов",
+      "subtitle": ""
+    },
+    "footer": {
+      "tagline": "Платформа криптотрейдинга на базе ИИ. Где ИИ встречает возможности.",
+      "builtBy": "Создано 26 профессиональными ИИ-агентами",
+      "achieveFinancialFreedom": "Достигните финансовой свободы с ИИ! 🚀",
+      "allRightsReserved": "Все права защищены",
+      "product": "Продукт",
+      "resources": "Ресурсы",
+      "company": "Компания",
+      "legal": "Юридическая информация",
+      "social": "Соцсети",
+      "riskDisclaimer": "Предупреждение о рисках: Торговля криптовалютой связана с существенными рисками. Прошлые результаты не гарантируют будущих результатов. Не является финансовым советом. DYOR (проводите собственное исследование)"
+    },
+    "buttons": {
+      "learnMore": "Узнать больше",
+      "getStarted": "Начать",
+      "viewDetails": "Смотреть детали",
+      "readMore": "Читать далее",
+      "backToHome": "Назад на главную",
+      "download": "Скачать",
+      "submit": "Отправить",
+      "cancel": "Отменить",
+      "confirm": "Подтвердить",
+      "close": "Закрыть"
+    }
+  },
+  "zh": {
+    "nav": {
+      "home": "首页",
+      "trade": "交易",
+      "stake": "质押",
+      "agents": "AI代理",
+      "docs": "文档",
+      "whitepaper": "白皮书",
+      "connectWallet": "连接钱包"
+    },
+    "hero": {
+      "title": "AI驱动的加密货币交易",
+      "subtitle": "更智能。更快速。更优秀。",
+      "description": "27个AI代理无限工作，助力您的财务增长",
+      "ctaPrimary": "立即开始交易",
+      "ctaSecondary": "查看AI代理",
+      "whySuccessButton": "🚀 为什么50倍-100倍-1000倍势不可挡"
+    },
+    "stats": {
+      "agents": "AI代理",
+      "holders": "代币持有者",
+      "price": "代币价格（演示）",
+      "trading": "交易激活中（演示）"
+    },
+    "whySucceed": {
+      "title": "🚀 为什么HypeAI注定成功",
+      "subtitle": "建立在真实收入、实用性和AI创新之上。我们的成功势不可挡。"
+    },
+    "services": {
+      "title": "AI服务平台",
+      "subtitle": "为加密货币项目提供35+专业AI服务。从安全审计到全栈开发。"
+    },
+    "footer": {
+      "tagline": "27个AI代理。无限工作。您的成功。",
+      "rights": "版权所有。",
+      "builtBy": "由AI代理团队构建",
+      "disclaimer": "加密货币投资存在风险。请自行研究。",
+      "quickLinks": "快速链接",
+      "resources": "资源",
+      "community": "社区",
+      "legal": "法律条款"
+    },
+    "buttons": {
+      "launchSoon": "🚀 即将推出",
+      "meetAgents": "👥 认识全部27个代理",
+      "viewActivity": "🔴 查看实时活动",
+      "buyNow": "💰 立即购买$HYPE",
+      "learnMore": "了解更多",
+      "getStarted": "开始使用"
+    }
+  }
+}
