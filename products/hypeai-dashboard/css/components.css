@@ -306,6 +306,20 @@
     .chart-card,
     .activity-feed {
         padding: var(--spacing-md);
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    /* CRITICAL FIX: Increase touch targets */
+    .agent-card,
+    .monitor-card {
+        min-height: 88px; /* Comfortable tap target */
+        touch-action: manipulation;
+    }
+
+    .agent-avatar {
+        width: 44px; /* CRITICAL FIX: Meet 44x44px minimum */
+        height: 44px;
     }
 
     .agent-stats {
@@ -317,11 +331,39 @@
     }
 
     .chart-card {
-        min-height: 300px;
+        min-height: 320px; /* CRITICAL FIX: Increased for better mobile visibility */
+    }
+
+    .chart-card canvas {
+        max-height: 200px !important; /* CRITICAL FIX: Larger charts on mobile */
+        min-height: 160px !important;
     }
 
     .activity-feed {
         max-height: 400px;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .activity-text {
+        font-size: 0.875rem; /* CRITICAL FIX: 14px minimum for readability */
+        word-wrap: break-word;
+    }
+
+    /* CRITICAL FIX: Better text wrapping */
+    .agent-name,
+    .monitor-title,
+    .chart-title {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    /* CRITICAL FIX: Increase label text size */
+    .metric-label,
+    .stat-label-small,
+    .progress-label {
+        font-size: 0.875rem !important; /* 14px minimum */
     }
 }
 

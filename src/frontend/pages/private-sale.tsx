@@ -37,9 +37,8 @@ export default function PrivateSalePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
       {/* Urgency Banner */}
-      <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 text-center font-semibold">
-        ⚡ LIMITED TIME: Only 100M tokens available at this price!
-        Already ${(config.currentAmount / 1000).toFixed(0)}K raised - Don&apos;t miss out!
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 text-center font-semibold">
+        ⚡ FAIR LAUNCH: Up to 30% Bonus Tokens • $500 Purchase Limit • Equal Opportunity for All
       </div>
 
       {/* Hero Section */}
@@ -64,24 +63,56 @@ export default function PrivateSalePage() {
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               Private Sale
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                70% Discount + 30% Bonus
+                Up to 30% Bonus Tokens
               </span>
             </h1>
 
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              🚀 Help us build the future of DeFi and get massive returns.<br/>
-              Early investors get the best price before public launch!
+            <p className="text-xl text-gray-300 mb-4 max-w-2xl mx-auto">
+              🤝 Community-First Fair Launch<br/>
+              Support innovation while everyone gets equal opportunity
             </p>
 
-            <div className="flex items-center justify-center gap-4 text-sm text-gray-300 mb-8">
+            {/* Vesting Notice */}
+            <div className="max-w-3xl mx-auto mb-8 bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/50 rounded-2xl p-6">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white mb-2">
+                  📅 Transparent Vesting Schedule
+                </div>
+                <div className="text-lg text-gray-200 space-y-1">
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-green-400 text-xl">✓</span>
+                    <span><strong>40% immediately</strong> at purchase</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-blue-400 text-xl">⏰</span>
+                    <span><strong>60% vested</strong> over 6 months (10% per month)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Purchase Limit Warning */}
+            <div className="max-w-2xl mx-auto mb-8 bg-orange-500/20 border border-orange-500/50 rounded-xl p-4">
+              <div className="text-center text-orange-200">
+                <span className="text-xl mr-2">⚠️</span>
+                <strong>$500 Maximum Purchase Limit</strong> - Ensuring fair distribution for all community members
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-300 mb-8">
               <div className="flex items-center gap-2">
-                <span className="text-green-400 text-2xl">💎</span>
-                <span>Your $1,000 today = $3,330 at public price</span>
+                <span className="text-blue-400 text-2xl">🎯</span>
+                <span>Fair Access for Everyone</span>
               </div>
               <div className="hidden md:block text-gray-600">•</div>
               <div className="flex items-center gap-2">
-                <span className="text-orange-400 text-2xl">📈</span>
-                <span>Only 100M tokens available</span>
+                <span className="text-purple-400 text-2xl">🔒</span>
+                <span>Transparent Vesting</span>
+              </div>
+              <div className="hidden md:block text-gray-600">•</div>
+              <div className="flex items-center gap-2">
+                <span className="text-green-400 text-2xl">💎</span>
+                <span>Up to 30% Bonus</span>
               </div>
             </div>
 
@@ -243,43 +274,88 @@ export default function PrivateSalePage() {
             </div>
           )}
 
-          {/* Why Private Sale */}
+          {/* Vesting Calculator */}
           <div className="max-w-4xl mx-auto mt-16 bg-gradient-to-br from-blue-900/50 to-purple-900/50 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/30">
             <h2 className="text-3xl font-bold text-white mb-6 text-center">
-              💡 Why Private Sale?
+              📊 Vesting Schedule Calculator
+            </h2>
+
+            <div className="bg-white/5 rounded-xl p-6 mb-6">
+              <div className="text-center mb-8">
+                <div className="text-lg text-gray-300 mb-2">Example: $500 Purchase</div>
+                <div className="text-4xl font-bold text-white mb-1">333,333 HYPE Tokens</div>
+                <div className="text-sm text-gray-400">(Base tokens at $0.0015 each)</div>
+                <div className="text-2xl font-bold text-green-400 mt-2">+ 100,000 Bonus (30%)</div>
+                <div className="text-3xl font-bold text-purple-400 mt-2">= 433,333 Total HYPE</div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-gradient-to-r from-green-500/20 to-green-500/10 border border-green-500/30 rounded-lg p-4">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <div className="text-white font-semibold">Immediate (At Purchase)</div>
+                      <div className="text-gray-400 text-sm">40% unlocked instantly</div>
+                    </div>
+                    <div className="text-2xl font-bold text-green-400">173,333 HYPE</div>
+                  </div>
+                </div>
+
+                <div className="bg-white/5 border border-white/20 rounded-lg p-4">
+                  <div className="text-white font-semibold mb-3">Monthly Vesting (10% per month)</div>
+                  <div className="space-y-2 text-sm">
+                    {[1, 2, 3, 4, 5, 6].map((month) => (
+                      <div key={month} className="flex justify-between items-center text-gray-300">
+                        <span>Month {month}</span>
+                        <span className="font-mono">43,333 HYPE</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-white/20 flex justify-between items-center text-blue-400 font-semibold">
+                    <span>Total Vested (60%)</span>
+                    <span>260,000 HYPE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Why Bonus Model */}
+          <div className="max-w-4xl mx-auto mt-12 bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-lg rounded-2xl p-8 border border-purple-500/30">
+            <h2 className="text-3xl font-bold text-white mb-6 text-center">
+              💡 Why Bonus Tokens Instead of Discounts?
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-bold text-blue-400 mb-4">For You (Investor)</h3>
+                <h3 className="text-xl font-bold text-blue-400 mb-4">Community Benefits</h3>
                 <ul className="space-y-3 text-gray-300">
-                  <li>✅ 70% discount from public price</li>
-                  <li>✅ Up to 30% bonus tokens</li>
-                  <li>✅ First access before everyone</li>
-                  <li>✅ Potential 233%+ ROI at launch</li>
-                  <li>✅ Support innovation, earn rewards</li>
+                  <li>✅ <strong>Fair pricing</strong> - Everyone pays the same base price</li>
+                  <li>✅ <strong>Bonus rewards</strong> - Extra tokens for early supporters</li>
+                  <li>✅ <strong>Purchase limit</strong> - $500 max ensures equal opportunity</li>
+                  <li>✅ <strong>Transparent vesting</strong> - Clear unlock schedule</li>
+                  <li>✅ <strong>Anti-whale protection</strong> - Prevents market manipulation</li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-purple-400 mb-4">For Project (Us)</h3>
+                <h3 className="text-xl font-bold text-purple-400 mb-4">Project Integrity</h3>
                 <ul className="space-y-3 text-gray-300">
-                  <li>💰 Fund product development</li>
-                  <li>💰 Smart contract audits</li>
-                  <li>💰 Marketing & community growth</li>
-                  <li>💰 DEX listing liquidity</li>
-                  <li>💰 Build the future together</li>
+                  <li>💰 <strong>Sustainable pricing</strong> - Maintains token value</li>
+                  <li>💰 <strong>Development funding</strong> - Build quality products</li>
+                  <li>💰 <strong>Community-first approach</strong> - Fair distribution</li>
+                  <li>💰 <strong>Long-term alignment</strong> - Vesting encourages holding</li>
+                  <li>💰 <strong>Market stability</strong> - Prevents pump and dump</li>
                 </ul>
               </div>
             </div>
 
             <div className="mt-8 p-6 bg-white/5 rounded-xl border border-white/10">
               <p className="text-center text-lg text-white font-semibold mb-2">
-                🤝 This is a WIN-WIN
+                🤝 Built on FAIRNESS
               </p>
               <p className="text-center text-gray-400">
-                You get massive discount. We get capital to build.
-                Together we create the next big DeFi project.
+                No massive discounts for whales. No unfair advantages.
+                Everyone gets the same price, bonus rewards for early support, and transparent vesting.
               </p>
             </div>
           </div>
@@ -315,51 +391,90 @@ export default function PrivateSalePage() {
             <div className="space-y-4">
               <details className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 group">
                 <summary className="text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
-                  <span>Why do you need private sale?</span>
-                  <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p className="mt-4 text-gray-300">
-                  We&apos;re building advanced DeFi infrastructure. Private sale funds go directly to:
-                  product development, smart contract audits, marketing, and DEX listing liquidity.
-                  This ensures we launch with quality and momentum.
-                </p>
-              </details>
-
-              <details className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 group">
-                <summary className="text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
-                  <span>What&apos;s my ROI potential?</span>
+                  <span>How does the bonus model work?</span>
                   <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="mt-4 text-gray-300">
-                  <p>Private Sale: $0.0015 per token</p>
-                  <p>Expected Public Price: $0.005 (233% ROI)</p>
-                  <p>With max bonuses: Effective price $0.00115 (335% ROI)</p>
-                  <p className="mt-2"><strong className="text-blue-400">Your $1,000 → $3,330+ at launch</strong></p>
+                  <p className="mb-2"><strong>Everyone pays the same base price: $0.0015 per token</strong></p>
+                  <p className="mb-2">Early supporters receive bonus tokens on top of their purchase:</p>
+                  <ul className="list-disc ml-6 space-y-1">
+                    <li>$50-$99: 5% bonus tokens</li>
+                    <li>$100-$249: 10% bonus tokens</li>
+                    <li>$250-$499: 20% bonus tokens</li>
+                    <li>$500 (maximum): 30% bonus tokens</li>
+                  </ul>
+                  <p className="mt-2 text-green-400"><strong>This ensures fair pricing while rewarding early supporters!</strong></p>
                 </div>
               </details>
 
               <details className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 group">
                 <summary className="text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
-                  <span>Is this safe?</span>
+                  <span>Why is there a $500 purchase limit?</span>
                   <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="mt-4 text-gray-300">
-                  <p>✅ Smart contracts audited by CertiK</p>
-                  <p>✅ Multi-sig wallet for funds</p>
-                  <p>✅ Transparent roadmap and milestones</p>
-                  <p>✅ Team doxxed on request for large investors</p>
+                  <p className="mb-2"><strong>Community-first approach:</strong></p>
+                  <ul className="list-disc ml-6 space-y-1">
+                    <li>Prevents whales from buying all tokens</li>
+                    <li>Ensures fair distribution across more community members</li>
+                    <li>Creates equal opportunity for all investors</li>
+                    <li>Reduces risk of market manipulation at launch</li>
+                    <li>Aligns with our mission of building a community-owned project</li>
+                  </ul>
+                  <p className="mt-2 text-blue-400"><strong>Fair launch means everyone gets a chance!</strong></p>
                 </div>
               </details>
 
               <details className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 group">
                 <summary className="text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
-                  <span>When do I get my tokens?</span>
+                  <span>How does the vesting schedule work?</span>
                   <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="mt-4 text-gray-300">
-                  <p>40% immediately after purchase</p>
-                  <p>60% vested over 3 months (20% per month)</p>
-                  <p>You can stake immediately and earn rewards!</p>
+                  <p className="mb-2"><strong>Transparent unlock schedule:</strong></p>
+                  <ul className="list-disc ml-6 space-y-1">
+                    <li><strong>40% immediately</strong> - Available right after purchase</li>
+                    <li><strong>60% vested</strong> - Unlocks monthly over 6 months</li>
+                    <li>Each month: 10% of total tokens unlock</li>
+                    <li>Example: If you buy 400,000 tokens, you get 160,000 immediately and 40,000 each month for 6 months</li>
+                  </ul>
+                  <p className="mt-2 text-purple-400"><strong>You can stake all tokens immediately to earn rewards!</strong></p>
+                </div>
+              </details>
+
+              <details className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 group">
+                <summary className="text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
+                  <span>Why use private sale funds?</span>
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="mt-4 text-gray-300">
+                  <p className="mb-2"><strong>Building the future of DeFi:</strong></p>
+                  <ul className="list-disc ml-6 space-y-1">
+                    <li>Product development and engineering</li>
+                    <li>Smart contract security audits (CertiK, etc.)</li>
+                    <li>Marketing and community growth</li>
+                    <li>DEX listing liquidity pools</li>
+                    <li>Infrastructure and operations</li>
+                  </ul>
+                  <p className="mt-2"><strong className="text-green-400">Full transparency on fund usage through monthly reports!</strong></p>
+                </div>
+              </details>
+
+              <details className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 group">
+                <summary className="text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
+                  <span>Is this investment safe?</span>
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="mt-4 text-gray-300">
+                  <p className="mb-2"><strong>Security measures in place:</strong></p>
+                  <ul className="list-disc ml-6 space-y-1">
+                    <li>✅ Smart contracts audited by CertiK</li>
+                    <li>✅ Multi-sig wallet for fund management</li>
+                    <li>✅ Transparent vesting built into smart contract</li>
+                    <li>✅ KYC verification for team members</li>
+                    <li>✅ Public roadmap with milestone tracking</li>
+                  </ul>
+                  <p className="mt-2 text-orange-400"><strong>Always DYOR and invest only what you can afford to lose!</strong></p>
                 </div>
               </details>
             </div>

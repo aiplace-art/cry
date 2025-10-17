@@ -47,19 +47,31 @@ export const PAYMENT_METHODS: PaymentMethod[] = [
 
 export const PRIVATE_SALE_CONFIG = {
   tokenSymbol: 'HYPE',
-  tokenPrice: 0.05, // USD per token
+  tokenPrice: 0.0015, // USD per token ($0.0015 - fair price, bonuses on top)
   bonusTiers: [
-    { minAmount: 10000, bonus: 30 }, // 30% bonus for $10k+
-    { minAmount: 5000, bonus: 20 },  // 20% bonus for $5k+
-    { minAmount: 1000, bonus: 15 },  // 15% bonus for $1k+
-    { minAmount: 500, bonus: 10 },   // 10% bonus for $500+
-    { minAmount: 100, bonus: 5 },    // 5% bonus for $100+
+    { minAmount: 500, bonus: 30 },   // 30% bonus for $500 (maximum purchase)
+    { minAmount: 100, bonus: 20 },   // 20% bonus for $100+
   ],
-  minPurchase: 50, // USD
-  maxPurchase: 100000, // USD
+  minPurchase: 10, // USD (low barrier to entry)
+  maxPurchase: 500, // USD ($500 HARD CAP per wallet - anti-whale)
   targetAmount: 5000000, // $5M target
   startDate: new Date('2025-10-01'),
   endDate: new Date('2025-12-31'),
+
+  // Vesting configuration
+  vesting: {
+    immediateUnlockPercent: 40, // 40% unlocked at purchase
+    vestingDurationMonths: 6,   // 6-month vesting period
+    vestingIntervalDays: 30,     // Monthly unlocks
+    monthlyUnlockPercent: 10,    // 10% per month (60% total / 6 months)
+  },
+
+  // Anti-whale protection
+  antiWhale: {
+    maxPurchasePerWallet: 500,   // $500 maximum
+    monitorLargeTransactions: true,
+    requireKYCAbove: 500,         // KYC required for max amount
+  },
 };
 
 export const EXPLORER_URLS = {

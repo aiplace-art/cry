@@ -57,6 +57,17 @@ export class PrivateSaleService {
         throw new Error('Sale has ended');
       }
 
+      // ANTI-WHALE PROTECTION: Check per-wallet purchase limit
+      const walletLimitCheck = await this.checkWalletPurchaseLimit(
+        client,
+        request.walletAddress,
+        request.amountUSD
+      );
+
+      if (!walletLimitCheck.canPurchase) {
+        throw new Error(walletLimitCheck.reason || 'Purchase limit exceeded');
+      }
+
       // Calculate tokens
       const tokensPurchased = BigInt(Math.floor(request.amountUSD / config.tokenPriceUsd));
       let bonusTokens = BigInt(0);
@@ -140,6 +151,9 @@ export class PrivateSaleService {
         }
       }
 
+      // Update wallet limits tracking
+      await this.updateWalletLimits(client, request.walletAddress, request.amountUSD);
+
       await client.query('COMMIT');
 
       // Send confirmation email
@@ -169,6 +183,152 @@ export class PrivateSaleService {
     } finally {
       client.release();
     }
+  }
+
+  /**
+   * Check if wallet can make a purchase without exceeding limits
+   * Anti-whale protection mechanism
+   */
+  private async checkWalletPurchaseLimit(
+    client: any,
+    walletAddress: string,
+    newPurchaseAmount: number
+  ): Promise<{ canPurchase: boolean; reason?: string; remaining?: number }> {
+    const normalizedAddress = walletAddress.toLowerCase();
+
+    // Check if wallet is blacklisted
+    const blacklistCheck = await client.query(
+      'SELECT is_blacklisted FROM private_sale_wallet_limits WHERE wallet_address = $1',
+      [normalizedAddress]
+    );
+
+    if (blacklistCheck.rows.length > 0 && blacklistCheck.rows[0].is_blacklisted) {
+      return {
+        canPurchase: false,
+        reason: 'Wallet address is blacklisted'
+      };
+    }
+
+    // Get total purchases for this wallet (completed + processing)
+    const totalPurchased = await this.getUserTotalPurchases(normalizedAddress);
+
+    // Get wallet-specific limit or default limit
+    const limitResult = await client.query(
+      `SELECT
+        COALESCE(wl.custom_limit_usd, c.max_purchase_per_wallet_usd) as wallet_limit
+      FROM private_sale_config c
+      LEFT JOIN private_sale_wallet_limits wl ON wl.wallet_address = $1
+      WHERE c.is_active = true
+      LIMIT 1`,
+      [normalizedAddress]
+    );
+
+    if (limitResult.rows.length === 0) {
+      return {
+        canPurchase: false,
+        reason: 'Sale configuration not found'
+      };
+    }
+
+    const walletLimit = parseFloat(limitResult.rows[0].wallet_limit);
+    const remaining = walletLimit - totalPurchased;
+
+    // Check if new purchase would exceed limit
+    if (totalPurchased + newPurchaseAmount > walletLimit) {
+      return {
+        canPurchase: false,
+        reason: `Exceeds $${walletLimit} limit per wallet. You have $${remaining.toFixed(2)} remaining.`,
+        remaining
+      };
+    }
+
+    return {
+      canPurchase: true,
+      remaining
+    };
+  }
+
+  /**
+   * Get total USD amount purchased by a wallet address
+   */
+  async getUserTotalPurchases(walletAddress: string): Promise<number> {
+    const result = await this.db.query(
+      `SELECT COALESCE(SUM(amount_usd), 0) as total
+      FROM private_sale_purchases
+      WHERE wallet_address = $1
+      AND status IN ($2, $3)`,
+      [walletAddress.toLowerCase(), PurchaseStatus.COMPLETED, PurchaseStatus.PROCESSING]
+    );
+
+    return parseFloat(result.rows[0].total);
+  }
+
+  /**
+   * Get remaining purchase limit for a wallet
+   */
+  async getRemainingLimit(walletAddress: string): Promise<{
+    totalPurchased: number;
+    walletLimit: number;
+    remaining: number;
+    purchaseCount: number;
+  }> {
+    if (!ethers.isAddress(walletAddress)) {
+      throw new Error('Invalid wallet address');
+    }
+
+    const normalizedAddress = walletAddress.toLowerCase();
+
+    // Get wallet limit and total purchased
+    const result = await this.db.query(
+      `SELECT
+        COALESCE(wl.total_purchased_usd, 0) as total_purchased,
+        COALESCE(wl.purchase_count, 0) as purchase_count,
+        COALESCE(wl.custom_limit_usd, c.max_purchase_per_wallet_usd) as wallet_limit
+      FROM private_sale_config c
+      LEFT JOIN private_sale_wallet_limits wl ON wl.wallet_address = $1
+      WHERE c.is_active = true
+      LIMIT 1`,
+      [normalizedAddress]
+    );
+
+    if (result.rows.length === 0) {
+      throw new Error('Sale configuration not found');
+    }
+
+    const data = result.rows[0];
+    const totalPurchased = parseFloat(data.total_purchased);
+    const walletLimit = parseFloat(data.wallet_limit);
+    const remaining = Math.max(0, walletLimit - totalPurchased);
+
+    return {
+      totalPurchased,
+      walletLimit,
+      remaining,
+      purchaseCount: parseInt(data.purchase_count) || 0
+    };
+  }
+
+  /**
+   * Update wallet limits tracking table
+   */
+  private async updateWalletLimits(
+    client: any,
+    walletAddress: string,
+    purchaseAmount: number
+  ): Promise<void> {
+    const normalizedAddress = walletAddress.toLowerCase();
+
+    await client.query(
+      `INSERT INTO private_sale_wallet_limits
+        (wallet_address, total_purchased_usd, purchase_count, first_purchase_at, last_purchase_at)
+      VALUES ($1, $2, 1, NOW(), NOW())
+      ON CONFLICT (wallet_address)
+      DO UPDATE SET
+        total_purchased_usd = private_sale_wallet_limits.total_purchased_usd + $2,
+        purchase_count = private_sale_wallet_limits.purchase_count + 1,
+        last_purchase_at = NOW()`,
+      [normalizedAddress, purchaseAmount]
+    );
   }
 
   async getSaleStatus(): Promise<SaleStatus> {

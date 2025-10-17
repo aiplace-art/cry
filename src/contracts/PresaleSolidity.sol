@@ -59,6 +59,13 @@ contract HYPEPresale is ReentrancyGuard, Pausable, Ownable {
         uint256 immediateRelease; // Percentage released immediately
     }
 
+    // 6-Month Vesting Configuration
+    uint256 public constant VESTING_IMMEDIATE_PERCENT = 40; // 40% unlocked immediately
+    uint256 public constant VESTING_LOCKED_PERCENT = 60; // 60% locked for vesting
+    uint256 public constant VESTING_DURATION = 180 days; // 6 months
+    uint256 public constant VESTING_MONTHLY_UNLOCK = 10; // 10% per month
+    uint256 public constant VESTING_MONTHS = 6; // 6 total months
+
     // ==================== STATE VARIABLES ====================
     IERC20 public hypeToken;
     IERC20 public usdtToken;
@@ -101,6 +108,8 @@ contract HYPEPresale is ReentrancyGuard, Pausable, Ownable {
         uint256 timestamp
     );
     event TokensClaimed(address indexed buyer, uint256 amount, uint256 timestamp);
+    event VestingUpdated(address indexed buyer, uint256 totalAmount, uint256 immediateRelease, uint256 timestamp);
+    event VestedTokensClaimed(address indexed buyer, uint256 amount, uint256 remaining, uint256 timestamp);
     event RefundIssued(address indexed buyer, uint256 amount, uint256 timestamp);
     event RoundChanged(Round oldRound, Round newRound, uint256 timestamp);
     event WhitelistUpdated(address indexed user, bool status);
@@ -364,23 +373,35 @@ contract HYPEPresale is ReentrancyGuard, Pausable, Ownable {
         }
     }
 
+    /**
+     * @dev Setup 6-month vesting schedule with 40% immediate unlock
+     * @param buyer Address of the token buyer
+     * @param amount Total tokens purchased
+     * @param config Round configuration (kept for compatibility but overridden)
+     */
     function _setupVesting(
         address buyer,
         uint256 amount,
         RoundConfig memory config
     ) private {
+        // Calculate immediate release (40%)
+        uint256 immediateAmount = amount.mul(VESTING_IMMEDIATE_PERCENT).div(100);
+
         if (vestingSchedules[buyer].totalAmount == 0) {
             vestingSchedules[buyer] = VestingSchedule({
                 totalAmount: amount,
                 releasedAmount: 0,
                 startTime: block.timestamp,
-                cliff: config.vestingCliff,
-                duration: config.vestingDuration,
-                immediateRelease: config.immediateRelease
+                cliff: 0, // No cliff - immediate 40% release
+                duration: VESTING_DURATION, // 6 months
+                immediateRelease: VESTING_IMMEDIATE_PERCENT // 40%
             });
         } else {
+            // Add to existing vesting schedule
             vestingSchedules[buyer].totalAmount = vestingSchedules[buyer].totalAmount.add(amount);
         }
+
+        emit VestingUpdated(buyer, vestingSchedules[buyer].totalAmount, immediateAmount, block.timestamp);
     }
 
     function _convertToUSD(uint256 amount, PaymentMethod method) private view returns (uint256) {
@@ -397,7 +418,7 @@ contract HYPEPresale is ReentrancyGuard, Pausable, Ownable {
 
     // ==================== CLAIM FUNCTIONS ====================
     /**
-     * @dev Claim vested tokens
+     * @dev Claim vested tokens (legacy function for backward compatibility)
      */
     function claimTokens() external nonReentrant whenNotPaused {
         require(presaleFinalized, "Presale not finalized");
@@ -415,42 +436,77 @@ contract HYPEPresale is ReentrancyGuard, Pausable, Ownable {
         emit TokensClaimed(msg.sender, claimable, block.timestamp);
     }
 
-    function _calculateClaimable(address user) private view returns (uint256) {
+    /**
+     * @dev Claim vested tokens according to 6-month schedule
+     * @notice 40% available immediately, remaining 60% vests linearly over 6 months (10% per month)
+     */
+    function claimVestedTokens() external nonReentrant whenNotPaused {
+        require(presaleFinalized, "Presale not finalized");
+
+        VestingSchedule storage schedule = vestingSchedules[msg.sender];
+        require(schedule.totalAmount > 0, "No tokens to claim");
+
+        uint256 claimable = calculateVestedAmount(msg.sender);
+        require(claimable > 0, "No tokens available to claim");
+
+        // Update released amount
+        schedule.releasedAmount = schedule.releasedAmount.add(claimable);
+
+        // Calculate remaining vested amount
+        uint256 remaining = schedule.totalAmount.sub(schedule.releasedAmount);
+
+        // Transfer tokens
+        hypeToken.safeTransfer(msg.sender, claimable);
+
+        emit VestedTokensClaimed(msg.sender, claimable, remaining, block.timestamp);
+    }
+
+    /**
+     * @dev Calculate vested amount according to 6-month linear schedule
+     * @param user Address to calculate vested amount for
+     * @return Amount of tokens that have vested and can be claimed
+     * @notice Vesting schedule:
+     *  - 40% unlocked immediately at purchase
+     *  - 60% locked and vested linearly over 6 months
+     *  - 10% unlocked per month (30 days)
+     */
+    function calculateVestedAmount(address user) public view returns (uint256) {
         VestingSchedule memory schedule = vestingSchedules[user];
 
         if (schedule.totalAmount == 0) {
             return 0;
         }
 
-        // Calculate immediate release
-        uint256 immediateAmount = schedule.totalAmount.mul(schedule.immediateRelease).div(100);
+        // Calculate immediate release (40%)
+        uint256 immediateAmount = schedule.totalAmount.mul(VESTING_IMMEDIATE_PERCENT).div(100);
 
-        // If no vesting, return all minus what's already released
-        if (schedule.duration == 0) {
-            return schedule.totalAmount.sub(schedule.releasedAmount);
-        }
+        // Calculate locked amount (60%)
+        uint256 lockedAmount = schedule.totalAmount.mul(VESTING_LOCKED_PERCENT).div(100);
 
-        // Check cliff
-        if (block.timestamp < schedule.startTime.add(schedule.cliff)) {
-            if (schedule.releasedAmount < immediateAmount) {
-                return immediateAmount.sub(schedule.releasedAmount);
-            }
-            return 0;
-        }
-
-        // Calculate vested amount (linear vesting)
+        // Calculate time elapsed since purchase
         uint256 timeElapsed = block.timestamp.sub(schedule.startTime);
+
         uint256 vestedAmount;
 
-        if (timeElapsed >= schedule.duration) {
+        if (timeElapsed >= VESTING_DURATION) {
+            // All tokens are vested after 6 months
             vestedAmount = schedule.totalAmount;
         } else {
-            uint256 vestingAmount = schedule.totalAmount.sub(immediateAmount);
-            uint256 vestedPortion = vestingAmount.mul(timeElapsed).div(schedule.duration);
-            vestedAmount = immediateAmount.add(vestedPortion);
+            // Linear vesting over 6 months
+            // Each month unlocks 10% of total (which is 1/6 of the 60% locked amount)
+            uint256 vestedFromLocked = lockedAmount.mul(timeElapsed).div(VESTING_DURATION);
+            vestedAmount = immediateAmount.add(vestedFromLocked);
         }
 
+        // Return only unclaimed vested tokens
         return vestedAmount.sub(schedule.releasedAmount);
+    }
+
+    /**
+     * @dev Legacy claimable calculation for backward compatibility
+     */
+    function _calculateClaimable(address user) private view returns (uint256) {
+        return calculateVestedAmount(user);
     }
 
     // ==================== REFUND FUNCTIONS ====================
@@ -606,8 +662,50 @@ contract HYPEPresale is ReentrancyGuard, Pausable, Ownable {
     }
 
     // ==================== VIEW FUNCTIONS ====================
-    function getClaimableAmount(address user) external view returns (uint256) {
-        return _calculateClaimable(user);
+    /**
+     * @dev Get claimable amount for a user
+     * @param user Address to check
+     * @return Amount of tokens available to claim
+     */
+    function getClaimableAmount(address user) public view returns (uint256) {
+        return calculateVestedAmount(user);
+    }
+
+    /**
+     * @dev Get detailed vesting information for a user
+     * @param user Address to check
+     * @return totalAmount Total tokens in vesting
+     * @return releasedAmount Tokens already claimed
+     * @return vestedAmount Total vested tokens (including claimed)
+     * @return claimableAmount Tokens available to claim now
+     * @return remainingAmount Tokens still locked
+     */
+    function getVestingInfo(address user) external view returns (
+        uint256 totalAmount,
+        uint256 releasedAmount,
+        uint256 vestedAmount,
+        uint256 claimableAmount,
+        uint256 remainingAmount
+    ) {
+        VestingSchedule memory schedule = vestingSchedules[user];
+
+        totalAmount = schedule.totalAmount;
+        releasedAmount = schedule.releasedAmount;
+
+        // Calculate total vested including claimed
+        uint256 immediateAmount = totalAmount.mul(VESTING_IMMEDIATE_PERCENT).div(100);
+        uint256 lockedAmount = totalAmount.mul(VESTING_LOCKED_PERCENT).div(100);
+        uint256 timeElapsed = block.timestamp.sub(schedule.startTime);
+
+        if (timeElapsed >= VESTING_DURATION) {
+            vestedAmount = totalAmount;
+        } else {
+            uint256 vestedFromLocked = lockedAmount.mul(timeElapsed).div(VESTING_DURATION);
+            vestedAmount = immediateAmount.add(vestedFromLocked);
+        }
+
+        claimableAmount = vestedAmount.sub(releasedAmount);
+        remainingAmount = totalAmount.sub(vestedAmount);
     }
 
     function getPurchaseCount(address user) external view returns (uint256) {

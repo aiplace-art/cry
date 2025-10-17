@@ -36,19 +36,32 @@ function updateCountdown() {
     const diff = CONFIG.countdownTarget - now;
 
     if (diff <= 0) {
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+
+        if (daysEl) daysEl.textContent = '00';
+        if (hoursEl) hoursEl.textContent = '00';
+        if (minutesEl) minutesEl.textContent = '00';
+        if (secondsEl) secondsEl.textContent = '00';
         return;
     }
 
-    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+    if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+    if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+    if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
 }
 
 // Update Agent Status
@@ -203,8 +216,6 @@ function addPulseEffects() {
 
 // Initialize Dashboard
 function init() {
-    console.log('🚀 HypeAI Dashboard initializing...');
-
     // Start countdown
     updateCountdown();
     setInterval(updateCountdown, 1000);
@@ -228,9 +239,7 @@ function init() {
 
     // Update timestamps
     updateActivityTimestamps();
-    setInterval(updateActivityTimestamps, 60000); // Update every minute
-
-    console.log('✅ HypeAI Dashboard ready!');
+    setInterval(updateActivityTimestamps, 60000);
 }
 
 // Add CSS for subtle glow animation

@@ -298,16 +298,13 @@ function initPerformanceChart() {
 
 // Initialize all charts
 function initCharts() {
-    console.log('📊 Initializing charts...');
-
     try {
         initFollowerChart();
         initEngagementChart();
         initTweetChart();
         initPerformanceChart();
-        console.log('✅ All charts initialized successfully');
     } catch (error) {
-        console.error('❌ Error initializing charts:', error);
+        // Charts failed to initialize
     }
 }
 

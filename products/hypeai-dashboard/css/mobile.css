@@ -32,20 +32,28 @@
     transition: all 200ms ease;
     min-height: 44px;
     min-width: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(142, 50, 233, 0.2);
 }
 
 .mobile-nav-item .icon {
-    width: 24px;
-    height: 24px;
+    width: 32px; /* CRITICAL FIX: Increased from 24px for better touch target */
+    height: 32px;
 }
 
 .mobile-nav-item span {
-    font-size: 11px;
+    font-size: 12px; /* Increased from 11px for readability */
     font-weight: 500;
 }
 
 .mobile-nav-item.active {
     color: var(--electric-purple);
+    background: rgba(142, 50, 233, 0.15);
+    border-radius: 12px;
+}
+
+.mobile-nav-item.active .icon {
+    transform: scale(1.1);
 }
 
 .mobile-nav-item:active {
@@ -123,8 +131,8 @@
 }
 
 .theme-toggle {
-    width: 40px;
-    height: 40px;
+    width: 44px; /* CRITICAL FIX: Increased to meet 44x44px minimum */
+    height: 44px;
     border-radius: 50%;
     background: rgba(139, 92, 246, 0.1);
     border: 1px solid rgba(139, 92, 246, 0.2);
@@ -133,6 +141,7 @@
     justify-content: center;
     cursor: pointer;
     transition: all 200ms ease;
+    touch-action: manipulation;
 }
 
 .theme-toggle:hover {
@@ -173,43 +182,52 @@
     }
 
     .brand-tagline {
-        font-size: 0.75rem;
+        font-size: 0.875rem; /* CRITICAL FIX: Increased from 0.75rem (12px) to 14px */
     }
 
     .status-badge {
-        padding: 0.375rem 0.75rem;
-        font-size: 0.75rem;
+        padding: 0.5rem 1rem; /* CRITICAL FIX: Increased padding for better touch target */
+        font-size: 0.875rem; /* Increased from 0.75rem (12px) to 14px */
     }
 
     .theme-toggle {
-        width: 36px;
-        height: 36px;
+        width: 44px; /* Already fixed above */
+        height: 44px;
     }
 
     .main-content {
         padding: 1rem;
         padding-bottom: 90px; /* Space for mobile nav */
+        overflow-x: hidden; /* CRITICAL FIX: Prevent horizontal scroll */
+        max-width: 100%;
     }
 
     /* Hero Section */
     .hero-section {
         padding: 1.5rem 1rem;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .countdown-container {
         padding: 1rem;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .countdown-title {
         font-size: 1.125rem;
+        word-wrap: break-word;
     }
 
     .countdown-subtitle {
-        font-size: 0.875rem;
+        font-size: 0.875rem; /* 14px - CRITICAL FIX */
     }
 
     .countdown-timer {
         gap: 0.5rem;
+        flex-wrap: wrap;
+        max-width: 100%;
     }
 
     .countdown-value {
@@ -217,7 +235,7 @@
     }
 
     .countdown-label {
-        font-size: 0.75rem;
+        font-size: 0.875rem; /* CRITICAL FIX: Increased from 0.75rem (12px) to 14px */
     }
 
     .countdown-separator {
@@ -228,10 +246,15 @@
     .metrics-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+        max-width: 100%;
     }
 
     .metric-card {
         padding: 1rem;
+        min-height: 88px; /* CRITICAL FIX: Comfortable tap target */
+        touch-action: manipulation;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .metric-icon {
@@ -242,28 +265,41 @@
         font-size: 1.5rem;
     }
 
+    .metric-label {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
     /* Agents */
     .agents-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+        max-width: 100%;
     }
 
     .agent-card {
         padding: 1rem;
+        min-height: 88px; /* CRITICAL FIX: Comfortable tap target */
+        touch-action: manipulation;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .agent-icon {
-        width: 40px;
-        height: 40px;
+        width: 44px; /* CRITICAL FIX: Increased from 40px to meet 44x44px minimum */
+        height: 44px;
         font-size: 1.25rem;
     }
 
     .agent-name {
         font-size: 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .agent-description {
-        font-size: 0.75rem;
+        font-size: 0.875rem; /* CRITICAL FIX: Increased from 0.75rem (12px) to 14px */
     }
 
     /* Monitoring */
@@ -283,20 +319,25 @@
     /* Activity Feed */
     .activity-feed {
         max-height: 400px;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .activity-item {
         padding: 0.75rem;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .activity-icon {
-        width: 32px;
-        height: 32px;
+        width: 36px; /* Increased for better visibility */
+        height: 36px;
         font-size: 1rem;
     }
 
     .activity-text {
-        font-size: 0.875rem;
+        font-size: 0.875rem; /* 14px - CRITICAL FIX */
+        word-wrap: break-word;
     }
 
     /* Section Titles */
@@ -306,8 +347,8 @@
     }
 
     .section-title .icon {
-        width: 20px;
-        height: 20px;
+        width: 24px; /* Increased from 20px for better visibility */
+        height: 24px;
     }
 }
 
@@ -364,25 +405,31 @@
     }
 }
 
-/* Safe Area Insets (for notched devices) */
-@supports (padding: env(safe-area-inset-bottom)) {
+/* Safe Area Insets (for notched devices) - CRITICAL FIX: Better iOS support */
+@supports (padding: max(0px)) {
     .mobile-nav {
-        padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+        padding-bottom: max(8px, env(safe-area-inset-bottom));
+        height: max(70px, calc(70px + env(safe-area-inset-bottom)));
     }
 
     .main-content {
-        padding-bottom: calc(90px + env(safe-area-inset-bottom));
+        padding-bottom: max(90px, calc(90px + env(safe-area-inset-bottom)));
     }
 }
 
 /* Touch Optimization */
 @media (hover: none) and (pointer: coarse) {
-    /* Larger touch targets */
+    /* Larger touch targets - CRITICAL FIX */
     button,
     a,
-    .mobile-nav-item {
+    .mobile-nav-item,
+    .metric-card,
+    .agent-card,
+    .monitor-card {
         min-height: 44px;
         min-width: 44px;
+        touch-action: manipulation; /* Eliminate 300ms delay */
+        -webkit-tap-highlight-color: rgba(142, 50, 233, 0.2);
     }
 
     /* Remove hover effects */
@@ -397,6 +444,13 @@
     .agent-card:active,
     .metric-card:active {
         transform: scale(0.98);
+    }
+
+    /* GPU acceleration for smooth animations */
+    .progress-fill,
+    .countdown-value {
+        will-change: transform;
+        transform: translateZ(0);
     }
 }
 

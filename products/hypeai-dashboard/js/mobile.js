@@ -136,8 +136,6 @@ function initMobile() {
     const isMobile = window.innerWidth < 768;
     if (!isMobile) return;
 
-    console.log('📱 Initializing mobile features...');
-
     initMobileNav();
     initTouchGestures();
     setVH();
@@ -154,8 +152,6 @@ function initMobile() {
     window.addEventListener('resize', () => {
         setVH();
     });
-
-    console.log('✅ Mobile features ready!');
 }
 
 // Initialize when DOM is ready

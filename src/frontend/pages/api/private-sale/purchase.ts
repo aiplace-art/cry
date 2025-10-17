@@ -1,10 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { ethers } from 'ethers';
+import { Pool } from 'pg';
+import { PrivateSaleService } from '../../../backend/services/privateSaleService';
+import { PurchaseRequest as ServicePurchaseRequest, PurchaseStatus } from '../../../backend/types/privateSale.types';
 
 interface PurchaseRequest {
   amount: number;
   paymentMethod: string;
   walletAddress: string;
+  email: string;
+  referralCode?: string;
   calculation: {
     usdAmount: number;
     baseTokens: number;
@@ -16,13 +21,35 @@ interface PurchaseRequest {
 
 interface PurchaseResponse {
   success: boolean;
-  purchaseId: string;
-  transactionHash: string;
+  purchaseId?: string;
+  paymentUrl?: string;
+  transactionHash?: string;
   error?: string;
+  limitInfo?: {
+    totalPurchased: number;
+    walletLimit: number;
+    remaining: number;
+  };
 }
 
-// This would integrate with actual payment gateway
-// For now, this is a mock implementation
+// Initialize database connection
+const dbPool = new Pool({
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT || '5432'),
+  database: process.env.DB_NAME || 'crypto_presale',
+  user: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASSWORD,
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
+});
+
+const privateSaleService = new PrivateSaleService(dbPool);
+
+/**
+ * API endpoint to process private sale purchases with $500 per wallet limit
+ * POST /api/private-sale/purchase
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<PurchaseResponse>
@@ -30,21 +57,17 @@ export default async function handler(
   if (req.method !== 'POST') {
     return res.status(405).json({
       success: false,
-      purchaseId: '',
-      transactionHash: '',
       error: 'Method not allowed',
     });
   }
 
   try {
-    const { amount, paymentMethod, walletAddress, calculation } = req.body as PurchaseRequest;
+    const { amount, paymentMethod, walletAddress, email, referralCode, calculation } = req.body as PurchaseRequest;
 
     // Validate input
-    if (!amount || !paymentMethod || !walletAddress || !calculation) {
+    if (!amount || !paymentMethod || !walletAddress || !email || !calculation) {
       return res.status(400).json({
         success: false,
-        purchaseId: '',
-        transactionHash: '',
         error: 'Missing required fields',
       });
     }
@@ -53,93 +76,119 @@ export default async function handler(
     if (!ethers.isAddress(walletAddress)) {
       return res.status(400).json({
         success: false,
-        purchaseId: '',
-        transactionHash: '',
         error: 'Invalid wallet address',
       });
     }
 
-    // Generate unique purchase ID
-    const purchaseId = `purchase_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid email address',
+      });
+    }
 
-    // In production, this would:
-    // 1. Create payment order in payment gateway (Coinbase Commerce, NOWPayments, etc.)
-    // 2. Wait for payment confirmation
-    // 3. Execute smart contract to allocate tokens
-    // 4. Store purchase in database
-    // 5. Send confirmation email
+    // Validate payment method
+    const validPaymentMethods = ['ETH', 'USDT', 'USDC', 'BTC', 'CARD'];
+    if (!validPaymentMethods.includes(paymentMethod.toUpperCase())) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid payment method',
+      });
+    }
 
-    // Mock transaction hash for demo
-    const transactionHash = `0x${Array.from({ length: 64 }, () =>
-      Math.floor(Math.random() * 16).toString(16)
-    ).join('')}`;
+    // Check remaining limit BEFORE attempting purchase
+    const limitInfo = await privateSaleService.getRemainingLimit(walletAddress);
 
-    // Here you would integrate with:
-    // - Coinbase Commerce API
-    // - NOWPayments API
-    // - CoinGate API
-    // - Smart contract to mint/transfer tokens
-    // - Database to store purchase record
-    // - Email service (SendGrid, AWS SES, etc.)
+    if (limitInfo.remaining <= 0) {
+      return res.status(403).json({
+        success: false,
+        error: `You have reached your purchase limit of $${limitInfo.walletLimit}`,
+        limitInfo: {
+          totalPurchased: limitInfo.totalPurchased,
+          walletLimit: limitInfo.walletLimit,
+          remaining: limitInfo.remaining,
+        },
+      });
+    }
 
-    // Example payment gateway integration:
-    /*
-    const paymentGateway = new NOWPayments(process.env.NOWPAYMENTS_API_KEY);
-    const payment = await paymentGateway.createPayment({
-      price_amount: amount,
-      price_currency: 'USD',
-      pay_currency: paymentMethod,
-      ipn_callback_url: `${process.env.BASE_URL}/api/webhooks/payment`,
-      order_id: purchaseId,
-      order_description: `HYPE Token Purchase - ${calculation.totalTokens} tokens`,
-    });
-    */
+    if (calculation.usdAmount > limitInfo.remaining) {
+      return res.status(403).json({
+        success: false,
+        error: `Purchase amount exceeds your remaining limit. You can purchase up to $${limitInfo.remaining.toFixed(2)} more.`,
+        limitInfo: {
+          totalPurchased: limitInfo.totalPurchased,
+          walletLimit: limitInfo.walletLimit,
+          remaining: limitInfo.remaining,
+        },
+      });
+    }
 
-    // Example smart contract interaction:
-    /*
-    const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
-    const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-    const contract = new ethers.Contract(
-      process.env.TOKEN_CONTRACT_ADDRESS,
-      CONTRACT_ABI,
-      wallet
-    );
+    // Create purchase request for service
+    const serviceRequest: ServicePurchaseRequest = {
+      walletAddress: walletAddress.toLowerCase(),
+      amountUSD: calculation.usdAmount,
+      paymentMethod: paymentMethod.toUpperCase(),
+      email,
+      referralCode,
+    };
 
-    const tx = await contract.allocateTokens(
-      walletAddress,
-      ethers.parseUnits(calculation.totalTokens.toString(), 18)
-    );
-    await tx.wait();
-    */
-
-    // Store in database
-    /*
-    await db.purchases.create({
-      id: purchaseId,
-      walletAddress,
-      amount,
-      currency: paymentMethod,
-      tokensBase: calculation.baseTokens,
-      tokensBonus: calculation.bonusTokens,
-      tokensTotal: calculation.totalTokens,
-      transactionHash,
-      status: 'pending',
-      createdAt: new Date(),
-    });
-    */
+    // Process purchase through service (includes limit validation)
+    const result = await privateSaleService.createPurchase(serviceRequest);
 
     return res.status(200).json({
       success: true,
-      purchaseId,
-      transactionHash,
+      purchaseId: result.purchase.id?.toString(),
+      paymentUrl: result.paymentUrl,
+      transactionHash: result.purchase.txHash || undefined,
     });
   } catch (error: any) {
     console.error('Purchase error:', error);
+
+    // Handle specific error types
+    if (error.message.includes('limit') || error.message.includes('Exceeds')) {
+      // Get current limit info for error response
+      try {
+        const limitInfo = await privateSaleService.getRemainingLimit(req.body.walletAddress);
+        return res.status(403).json({
+          success: false,
+          error: error.message,
+          limitInfo: {
+            totalPurchased: limitInfo.totalPurchased,
+            walletLimit: limitInfo.walletLimit,
+            remaining: limitInfo.remaining,
+          },
+        });
+      } catch (limitError) {
+        // If we can't get limit info, just return the error
+        return res.status(403).json({
+          success: false,
+          error: error.message,
+        });
+      }
+    }
+
+    // Handle blacklist errors
+    if (error.message.includes('blacklisted')) {
+      return res.status(403).json({
+        success: false,
+        error: 'This wallet address is not eligible for purchases',
+      });
+    }
+
+    // Handle sale status errors
+    if (error.message.includes('not active') || error.message.includes('ended')) {
+      return res.status(400).json({
+        success: false,
+        error: error.message,
+      });
+    }
+
+    // Generic error response
     return res.status(500).json({
       success: false,
-      purchaseId: '',
-      transactionHash: '',
-      error: error.message || 'Purchase failed',
+      error: error.message || 'Purchase failed. Please try again.',
     });
   }
 }

@@ -20,30 +20,6 @@ let twitterData = {
 // Load Twitter data from local files
 async function loadTwitterData() {
     try {
-        // Load analytics data
-        const analyticsRes = await fetch('/../../data/project-coordination/analytics-data.json');
-        if (analyticsRes.ok) {
-            const analytics = await analyticsRes.json();
-            console.log('📊 Analytics loaded:', analytics);
-        }
-
-        // Load posting history
-        const historyRes = await fetch('/../../data/project-coordination/posting-history.json');
-        if (historyRes.ok) {
-            const history = await historyRes.json();
-            console.log('📝 Posting history loaded:', history);
-            if (history.posted) {
-                twitterData.tweets = history.posted.length;
-            }
-        }
-
-        // Load marketing insights
-        const insightsRes = await fetch('/../../data/project-coordination/marketing-insights.json');
-        if (insightsRes.ok) {
-            const insights = await insightsRes.json();
-            console.log('🎯 Marketing insights loaded:', insights);
-        }
-
         // Update rate limit info from check script
         const rateLimitReset = new Date('2025-10-18T13:40:00+03:00');
         twitterData.rateLimitReset = rateLimitReset;
@@ -51,7 +27,6 @@ async function loadTwitterData() {
 
         updateDashboardWithRealData();
     } catch (error) {
-        console.error('❌ Error loading Twitter data:', error);
         // Use fallback data
         updateDashboardWithRealData();
     }
@@ -81,10 +56,16 @@ function updateDashboardWithRealData() {
     }
 
     // Update goal progress text
-    const goalTextEl = document.querySelector('#goalProgress').closest('.metric-card').querySelector('.metric-change');
-    if (goalTextEl) {
-        const remaining = 10000 - twitterData.followers;
-        goalTextEl.innerHTML = `${remaining.toLocaleString()} to 10K`;
+    const goalProgressElement = document.getElementById('goalProgress');
+    if (goalProgressElement) {
+        const goalCard = goalProgressElement.closest('.metric-card');
+        if (goalCard) {
+            const goalTextEl = goalCard.querySelector('.metric-change');
+            if (goalTextEl) {
+                const remaining = 10000 - twitterData.followers;
+                goalTextEl.innerHTML = `${remaining.toLocaleString()} to 10K`;
+            }
+        }
     }
 
     // Update growth rate
@@ -93,41 +74,17 @@ function updateDashboardWithRealData() {
         const growth = ((twitterData.followers - 101) / 101 * 100).toFixed(1);
         growthEl.textContent = `+${growth}%`;
     }
-
-    console.log('✅ Dashboard updated with real Twitter data:', twitterData);
-}
-
-// Check if Twitter automation is running
-async function checkAutomationStatus() {
-    try {
-        // Check if engagement bot is running
-        const response = await fetch('/../../scripts/check-engagement-status.sh');
-        // This would need actual implementation
-    } catch (error) {
-        console.log('ℹ️ Automation status check not available');
-    }
 }
 
 // Initialize Twitter connection
 function initTwitterIntegration() {
-    console.log('🐦 Initializing Twitter integration...');
-
     // Load initial data
     loadTwitterData();
 
     // Set up periodic updates
     setInterval(() => {
         loadTwitterData();
-        checkAutomationStatus();
     }, TWITTER_CONFIG.updateInterval);
-
-    // Check API status
-    if (twitterData.apiBlocked) {
-        console.log('⚠️ Twitter API is rate limited');
-        console.log('⏰ Reset time:', twitterData.rateLimitReset);
-    }
-
-    console.log('✅ Twitter integration initialized');
 }
 
 // Start when DOM is ready

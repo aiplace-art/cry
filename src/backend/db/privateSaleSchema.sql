@@ -46,11 +46,27 @@ CREATE TABLE IF NOT EXISTS private_sale_config (
     token_price_usd DECIMAL(10,6) NOT NULL,
     min_purchase_usd DECIMAL(10,2) DEFAULT 100,
     max_purchase_usd DECIMAL(12,2) DEFAULT 100000,
+    max_purchase_per_wallet_usd DECIMAL(10,2) DEFAULT 500,
     sale_start_date TIMESTAMP NOT NULL,
     sale_end_date TIMESTAMP NOT NULL,
     vesting_months INT DEFAULT 12,
     initial_unlock_percentage INT DEFAULT 10,
     is_active BOOLEAN DEFAULT true,
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Wallet purchase limits tracking (anti-whale protection)
+CREATE TABLE IF NOT EXISTS private_sale_wallet_limits (
+    id SERIAL PRIMARY KEY,
+    wallet_address VARCHAR(42) UNIQUE NOT NULL,
+    total_purchased_usd DECIMAL(12,2) DEFAULT 0,
+    purchase_count INT DEFAULT 0,
+    first_purchase_at TIMESTAMP,
+    last_purchase_at TIMESTAMP,
+    is_whitelisted BOOLEAN DEFAULT false,
+    is_blacklisted BOOLEAN DEFAULT false,
+    custom_limit_usd DECIMAL(12,2),
+    created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );
 
@@ -80,6 +96,8 @@ CREATE INDEX idx_referrals_code ON private_sale_referrals(referral_code);
 CREATE INDEX idx_referrals_referrer ON private_sale_referrals(referrer_wallet);
 CREATE INDEX idx_payments_purchase ON private_sale_payments(purchase_id);
 CREATE INDEX idx_payments_gateway ON private_sale_payments(payment_gateway);
+CREATE INDEX idx_wallet_limits_address ON private_sale_wallet_limits(wallet_address);
+CREATE INDEX idx_wallet_limits_blacklist ON private_sale_wallet_limits(is_blacklisted);
 
 -- Trigger to update timestamps
 CREATE OR REPLACE FUNCTION update_updated_at_column()
@@ -102,12 +120,17 @@ CREATE TRIGGER update_private_sale_payments_updated_at BEFORE UPDATE
     ON private_sale_payments FOR EACH ROW
     EXECUTE FUNCTION update_updated_at_column();
 
+CREATE TRIGGER update_private_sale_wallet_limits_updated_at BEFORE UPDATE
+    ON private_sale_wallet_limits FOR EACH ROW
+    EXECUTE FUNCTION update_updated_at_column();
+
 -- Insert default configuration
 INSERT INTO private_sale_config (
     total_tokens,
     token_price_usd,
     min_purchase_usd,
     max_purchase_usd,
+    max_purchase_per_wallet_usd,
     sale_start_date,
     sale_end_date,
     vesting_months,
@@ -117,8 +140,65 @@ INSERT INTO private_sale_config (
     0.0001, -- $0.0001 per token
     100, -- min $100
     100000, -- max $100,000
+    500, -- max $500 per wallet (anti-whale)
     NOW(),
     NOW() + INTERVAL '30 days',
     12, -- 12 months vesting
     10 -- 10% initial unlock
 ) ON CONFLICT DO NOTHING;
+
+-- Function to get total purchases for a wallet (completed purchases only)
+CREATE OR REPLACE FUNCTION get_wallet_total_purchases(wallet_addr VARCHAR(42))
+RETURNS DECIMAL(12,2) AS $$
+DECLARE
+    total DECIMAL(12,2);
+BEGIN
+    SELECT COALESCE(SUM(amount_usd), 0)
+    INTO total
+    FROM private_sale_purchases
+    WHERE wallet_address = LOWER(wallet_addr)
+    AND status IN ('completed', 'processing');
+
+    RETURN total;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Function to check if wallet can purchase amount
+CREATE OR REPLACE FUNCTION can_wallet_purchase(
+    wallet_addr VARCHAR(42),
+    purchase_amount DECIMAL(12,2)
+)
+RETURNS BOOLEAN AS $$
+DECLARE
+    total_purchased DECIMAL(12,2);
+    wallet_limit DECIMAL(12,2);
+    is_blacklisted BOOLEAN;
+    custom_limit DECIMAL(12,2);
+BEGIN
+    -- Check blacklist
+    SELECT wl.is_blacklisted, wl.custom_limit_usd
+    INTO is_blacklisted, custom_limit
+    FROM private_sale_wallet_limits wl
+    WHERE wl.wallet_address = LOWER(wallet_addr);
+
+    IF is_blacklisted = true THEN
+        RETURN false;
+    END IF;
+
+    -- Get total purchases
+    total_purchased := get_wallet_total_purchases(wallet_addr);
+
+    -- Determine limit (custom or default)
+    IF custom_limit IS NOT NULL AND custom_limit > 0 THEN
+        wallet_limit := custom_limit;
+    ELSE
+        SELECT max_purchase_per_wallet_usd INTO wallet_limit
+        FROM private_sale_config
+        WHERE is_active = true
+        LIMIT 1;
+    END IF;
+
+    -- Check if new purchase would exceed limit
+    RETURN (total_purchased + purchase_amount) <= wallet_limit;
+END;
+$$ LANGUAGE plpgsql;
