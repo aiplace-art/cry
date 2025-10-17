@@ -1,0 +1,265 @@
+/**
+ * Multi-Language Layout System
+ * Prevents layout shifts when switching between EN/RU/ZH
+ *
+ * Strategy:
+ * 1. Fixed heights for common elements
+ * 2. Flexible containers with min-height
+ * 3. Text overflow handling
+ * 4. Consistent spacing regardless of text length
+ */
+
+/* ===== HERO SECTION ===== */
+.hero h1[data-i18n="hero.title"] {
+    /* Fixed height to prevent shifts */
+    min-height: 80px;
+    max-height: 120px;
+
+    /* Handle overflow gracefully */
+    overflow: visible;
+
+    /* Center text vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Prevent text wrapping for short titles */
+    white-space: nowrap;
+}
+
+/* For mobile - allow wrapping but keep consistent height */
+@media (max-width: 768px) {
+    .hero h1[data-i18n="hero.title"] {
+        white-space: normal;
+        min-height: 60px;
+        text-align: center;
+    }
+}
+
+.hero [data-i18n^="hero."] {
+    /* Smooth transitions when text changes */
+    transition: none !important;
+}
+
+/* ===== STATS BAR ===== */
+.stats-bar .stat {
+    /* Fixed width for consistency */
+    min-width: 150px;
+    max-width: 200px;
+
+    /* Fixed height */
+    min-height: 80px;
+
+    /* Center content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats-bar .stat-label {
+    /* Fixed height for labels */
+    min-height: 40px;
+
+    /* Handle long translations */
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.4em;
+    max-height: 2.8em; /* 2 lines */
+}
+
+/* ===== FEATURE CARDS ===== */
+.feature-card {
+    /* Fixed minimum height */
+    min-height: 400px;
+
+    /* Flexible but consistent layout */
+    display: flex;
+    flex-direction: column;
+
+    /* Prevent content overflow */
+    overflow: hidden;
+}
+
+.feature-card h3 {
+    /* Fixed height for titles */
+    min-height: 60px;
+
+    /* Handle long titles */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.feature-card p,
+.feature-card .description {
+    /* Fixed height for descriptions */
+    min-height: 120px;
+
+    /* Handle overflow */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ===== SERVICE CARDS ===== */
+.service-card {
+    /* Consistent card heights */
+    min-height: 450px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card h3 {
+    min-height: 50px;
+    overflow: hidden;
+}
+
+.service-card .service-description {
+    /* Fixed description area */
+    min-height: 150px;
+    max-height: 200px;
+    overflow: hidden;
+
+    /* Show ellipsis for overflow */
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+
+.service-card ul {
+    /* Features list - fixed height */
+    min-height: 120px;
+}
+
+/* ===== BUTTONS ===== */
+button[data-i18n],
+a[data-i18n],
+.button[data-i18n] {
+    /* Fixed button dimensions */
+    min-width: 120px;
+    padding: 0.75rem 1.5rem;
+
+    /* Prevent text wrapping in buttons */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /* Center text */
+    text-align: center;
+}
+
+/* Exception for large CTA buttons */
+.primary-button[data-i18n],
+.cta-button[data-i18n] {
+    min-width: 160px;
+    padding: 1rem 2rem;
+}
+
+/* ===== NAVIGATION ===== */
+nav a[data-i18n] {
+    /* Fixed nav item width */
+    min-width: 80px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+
+    /* Prevent wrapping */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ===== FOOTER ===== */
+.footer [data-i18n] {
+    /* Consistent footer link heights */
+    min-height: 24px;
+    display: inline-block;
+}
+
+.footer .footer-section {
+    /* Fixed column widths */
+    min-width: 200px;
+}
+
+/* ===== GENERAL LAYOUT STABILITY ===== */
+[data-i18n] {
+    /* Disable animations on language switch */
+    animation: none !important;
+
+    /* Smooth content change without layout shift */
+    will-change: contents;
+}
+
+/* Prevent layout shift during translation load */
+.translating {
+    visibility: hidden;
+}
+
+.translated {
+    visibility: visible;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 1024px) {
+    .feature-card,
+    .service-card {
+        min-height: auto; /* Allow natural flow on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile - prioritize readability over fixed heights */
+    .hero h1[data-i18n="hero.title"] {
+        min-height: auto;
+        white-space: normal;
+    }
+
+    .stats-bar .stat {
+        min-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    button[data-i18n],
+    a[data-i18n] {
+        white-space: normal; /* Allow wrapping on mobile */
+        min-width: auto;
+    }
+}
+
+/* ===== CHINESE TEXT OPTIMIZATION ===== */
+html[lang="zh"] {
+    /* Chinese characters are wider - adjust spacing */
+    letter-spacing: 0.02em;
+}
+
+html[lang="zh"] .feature-card p,
+html[lang="zh"] .service-card .service-description {
+    /* Chinese text is more compact - may need more lines */
+    -webkit-line-clamp: 6;
+}
+
+/* ===== RUSSIAN TEXT OPTIMIZATION ===== */
+html[lang="ru"] {
+    /* Russian words are longer - may need more space */
+}
+
+html[lang="ru"] button[data-i18n],
+html[lang="ru"] a[data-i18n] {
+    /* Russian buttons may need more width */
+    min-width: 140px;
+}
+
+/* ===== PREVENT FLASH OF UNSTYLED CONTENT ===== */
+.language-loading [data-i18n] {
+    opacity: 0.7;
+    pointer-events: none;
+}

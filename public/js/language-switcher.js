@@ -123,6 +123,9 @@
                 return;
             }
 
+            // Prevent layout shift - add loading class
+            document.body.classList.add('language-loading');
+
             this.currentLang = lang;
             localStorage.setItem('hypeai_language', lang);
 
@@ -134,6 +137,11 @@
 
             // Close dropdown
             this.closeDropdown();
+
+            // Remove loading class after short delay
+            setTimeout(() => {
+                document.body.classList.remove('language-loading');
+            }, 50);
 
             console.log(`🌍 Language switched to: ${lang.toUpperCase()}`);
 
