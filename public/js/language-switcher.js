@@ -146,7 +146,7 @@
         // Create language switcher UI with dropdown
         createSwitcher: function() {
             // Check if nav exists
-            const nav = document.querySelector('nav .nav-links');
+            const nav = document.querySelector('nav');
             if (!nav) {
                 console.warn('Navigation not found, cannot create language switcher');
                 return;
@@ -210,13 +210,8 @@
             switcherContainer.appendChild(dropdownBtn);
             switcherContainer.appendChild(dropdownMenu);
 
-            // Insert before wallet button or at end
-            const walletBtn = nav.querySelector('.connect-wallet');
-            if (walletBtn) {
-                nav.insertBefore(switcherContainer, walletBtn);
-            } else {
-                nav.appendChild(switcherContainer);
-            }
+            // Insert at the end of nav (before wallet button which is outside nav)
+            nav.appendChild(switcherContainer);
 
             // Toggle dropdown
             dropdownBtn.addEventListener('click', (e) => {
