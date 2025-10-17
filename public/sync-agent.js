@@ -139,11 +139,13 @@ async function parseAgentsInfo() {
         if (!fs.existsSync(docsPath)) {
             log('⚠️  DEPLOYMENT_STATUS.md not found, using defaults', 'yellow');
             return {
-                total: 26,
+                total: 28,
                 development: 8,
                 business: 7,
                 website: 5,
                 marketing: 6,
+                documentation: 1,
+                translation: 1,
                 agents: []
             };
         }
@@ -157,6 +159,8 @@ async function parseAgentsInfo() {
             business: 0,
             website: 0,
             marketing: 0,
+            documentation: 0,
+            translation: 0,
             agents: []
         };
 
@@ -201,6 +205,24 @@ async function parseAgentsInfo() {
                 }
             }
 
+            // Найти секцию Documentation Division
+            if (line.includes('Documentation Division') && line.includes('Agent')) {
+                const match = line.match(/(\d+)\s+Agent/);
+                if (match) {
+                    agents.documentation = parseInt(match[1]);
+                    currentDivision = 'documentation';
+                }
+            }
+
+            // Найти секцию Translation Division
+            if (line.includes('Translation Division') && line.includes('Agent')) {
+                const match = line.match(/(\d+)\s+Agent/);
+                if (match) {
+                    agents.translation = parseInt(match[1]);
+                    currentDivision = 'translation';
+                }
+            }
+
             // Парсить агентов (формат: 1. **NAME** - Role - Description)
             const agentMatch = line.match(/^\d+\.\s+\*\*([A-Z]+)\*\*\s+-\s+(.+)/);
             if (agentMatch && currentDivision) {
@@ -212,20 +234,22 @@ async function parseAgentsInfo() {
             }
         }
 
-        agents.total = agents.development + agents.business + agents.website + agents.marketing;
+        agents.total = agents.development + agents.business + agents.website + agents.marketing + agents.documentation + agents.translation;
 
-        log(`✅ Parsed ${agents.total} agents (${agents.development} dev + ${agents.business} business + ${agents.website} website + ${agents.marketing} marketing)`, 'green');
+        log(`✅ Parsed ${agents.total} agents (${agents.development} dev + ${agents.business} business + ${agents.website} website + ${agents.marketing} marketing + ${agents.documentation} docs + ${agents.translation} i18n)`, 'green');
 
         return agents;
 
     } catch (error) {
         log(`⚠️  Error parsing agents: ${error.message}`, 'yellow');
         return {
-            total: 26,
+            total: 28,
             development: 8,
             business: 7,
             website: 5,
             marketing: 6,
+            documentation: 1,
+            translation: 1,
             agents: []
         };
     }
@@ -275,7 +299,9 @@ async function updateWebsiteStats() {
                 development: agentsInfo.development,
                 business: agentsInfo.business,
                 website: agentsInfo.website,
-                marketing: agentsInfo.marketing
+                marketing: agentsInfo.marketing,
+                documentation: agentsInfo.documentation || 1,
+                translation: agentsInfo.translation || 1
             },
             list: agentsInfo.agents,
             status: 'ACTIVE',
@@ -291,7 +317,7 @@ async function updateWebsiteStats() {
         },
 
         mission: {
-            goal: 'Make YOU a millionaire',
+            goal: 'Empower your financial growth with AI-driven tools',
             workingTime: '⚡ infinitely',
             userTarget: '10,000+ in 3 months',
             marketCapTarget: '$100M'
