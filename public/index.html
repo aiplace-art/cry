@@ -1234,7 +1234,7 @@
             <a href="docs.html">Docs</a>
         </nav>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-        <button class="cta-button" onclick="connectWallet()">Connect Wallet</button>
+        <button id="walletButton" class="cta-button" onclick="connectWallet()">Connect Wallet</button>
     </header>
 
     <!-- Hero Section -->
@@ -2091,27 +2091,27 @@
 
         // Update button UI
         function updateWalletButton(address) {
-            const buttons = document.querySelectorAll('.cta-button');
-            buttons.forEach(btn => {
-                if (btn.textContent.includes('Connect') || btn.textContent.includes('0x')) {
-                    const shortAddress = address.substring(0, 6) + '...' + address.substring(38);
-                    btn.innerHTML = '🟢 ' + shortAddress;
-                    btn.style.background = 'linear-gradient(135deg, var(--accent-green), #00D4FF)';
-                    btn.onclick = disconnectWallet;
-                }
-            });
-            connectedWallet = address;
+            const btn = document.getElementById('walletButton');
+            if (btn) {
+                const shortAddress = address.substring(0, 6) + '...' + address.substring(38);
+                btn.innerHTML = '🟢 ' + shortAddress;
+                btn.style.background = 'linear-gradient(135deg, var(--accent-green), #00D4FF)';
+                btn.onclick = disconnectWallet;
+                connectedWallet = address;
+                console.log('✅ Wallet connected:', shortAddress);
+            }
         }
 
         // Disconnect wallet
         function disconnectWallet() {
             connectedWallet = null;
-            const buttons = document.querySelectorAll('.cta-button');
-            buttons.forEach(btn => {
+            const btn = document.getElementById('walletButton');
+            if (btn) {
                 btn.textContent = 'Connect Wallet';
                 btn.style.background = 'linear-gradient(135deg, var(--primary-blue), var(--primary-purple))';
                 btn.onclick = connectWallet;
-            });
+                console.log('✅ Wallet disconnected');
+            }
         }
 
         // Show wallet modal
