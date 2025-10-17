@@ -92,6 +92,7 @@
             position: fixed;
             top: 0;
             width: 100%;
+            min-height: 80px; /* Fixed min-height to prevent layout shift */
             padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
@@ -104,8 +105,8 @@
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: 900;
+            font-size: 1.75rem;
+            font-weight: 700;
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -138,6 +139,8 @@
             display: flex;
             gap: 2rem;
             align-items: center;
+            flex-wrap: nowrap; /* Prevent wrapping when switching to longer Russian text */
+            white-space: nowrap; /* Prevent text wrapping */
         }
 
         nav a {
@@ -145,6 +148,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            white-space: nowrap; /* Ensure nav items don't wrap */
         }
 
         nav a:hover {
@@ -154,35 +158,37 @@
         /* Live Agents Button */
         .live-agents-btn {
             position: relative;
-            padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, rgba(57, 255, 20, 0.2), rgba(57, 255, 20, 0.4));
-            border: 2px solid var(--accent-green);
-            border-radius: 20px;
+            padding: 0.4rem 0.8rem;
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.15), rgba(57, 255, 20, 0.3));
+            border: 1.5px solid var(--accent-green);
+            border-radius: 16px;
             color: var(--accent-green) !important;
-            font-weight: 700;
+            font-weight: 600;
+            font-size: 0.9rem;
             animation: livePulseGreen 2s ease-in-out infinite;
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
         }
 
         .live-agents-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(57, 255, 20, 0.8);
-            background: linear-gradient(135deg, rgba(57, 255, 20, 0.3), rgba(57, 255, 20, 0.5));
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.2), rgba(57, 255, 20, 0.4));
         }
 
         .live-agents-btn::before {
             content: '🔴';
-            margin-right: 0.5rem;
+            margin-right: 0.4rem;
+            font-size: 0.7rem;
             animation: blinkRed 1.5s ease-in-out infinite;
         }
 
         @keyframes livePulseGreen {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+                box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
                 border-color: var(--accent-green);
             }
             50% {
-                box-shadow: 0 0 50px rgba(57, 255, 20, 0.9);
+                box-shadow: 0 0 30px rgba(57, 255, 20, 0.6);
                 border-color: #66FF44;
             }
         }
@@ -221,8 +227,8 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 700;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple), var(--accent-green));
             -webkit-background-clip: text;
@@ -252,12 +258,12 @@
 
         .primary-button {
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            padding: 1rem 2.5rem;
+            padding: 0.9rem 2rem;
             border-radius: 50px;
             border: none;
             color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
@@ -270,12 +276,12 @@
         }
 
         .secondary-button {
-            padding: 1rem 2.5rem;
+            padding: 0.9rem 2rem;
             border-radius: 50px;
             border: 2px solid var(--primary-purple);
             color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 500;
+            font-size: 1rem;
             cursor: pointer;
             background: transparent;
             transition: all 0.3s;
@@ -452,7 +458,8 @@
 
         .section-title {
             text-align: center;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
             margin-bottom: 1rem;
         }
 
@@ -1215,6 +1222,9 @@
             }
         }
     </style>
+
+    <!-- Language Switcher CSS -->
+    <link rel="stylesheet" href="css/language-switcher.css">
 </head>
 <body>
     <div class="animated-bg"></div>
@@ -1222,61 +1232,61 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="logo-icon-only.svg" alt="HypeAI Logo" style="width: 70px; height: 70px; margin-right: 0.5rem;">
+            <img src="logo-icon-only.svg" alt="HypeAI Logo" style="width: 55px; height: 55px; margin-right: 0.5rem;">
             HypeAI <span style="font-size: 1.2rem; margin-left: 0.3rem;">⚡</span>
         </div>
         <nav id="mobileNav">
-            <a href="#services" onclick="closeMobileMenu()">Services</a>
-            <a href="#ai-agents" onclick="closeMobileMenu()">AI Team</a>
-            <a href="agents-activity.html" class="live-agents-btn">Live (27/27)</a>
-            <a href="#tokenomics" onclick="closeMobileMenu()">Tokenomics</a>
-            <a href="proof.html" style="color: var(--accent-green);">✅ PROOF</a>
-            <a href="docs.html">Docs</a>
+            <a href="#services" onclick="closeMobileMenu()" data-i18n="nav.services">Services</a>
+            <a href="#ai-agents" onclick="closeMobileMenu()" data-i18n="nav.aiTeam">AI Team</a>
+            <a href="agents-activity.html" class="live-agents-btn" data-i18n="nav.live">Live (27/27)</a>
+            <a href="#tokenomics" onclick="closeMobileMenu()" data-i18n="nav.tokenomics">Tokenomics</a>
+            <a href="proof.html" style="color: var(--accent-green);" data-i18n="nav.proof">✅ PROOF</a>
+            <a href="docs.html" data-i18n="nav.docs">Docs</a>
         </nav>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-        <button id="walletButton" class="cta-button" onclick="connectWallet()">Connect Wallet</button>
+        <button id="walletButton" class="cta-button" onclick="connectWallet()" data-i18n="nav.connectWallet">Connect Wallet</button>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Where AI Meets Opportunity</h1>
+        <h1 data-i18n="hero.title">Where AI Meets Opportunity</h1>
 
-        <!-- GLOWING CTA BUTTON -->
+        <!-- PRESALE CTA BUTTON -->
         <div style="margin-bottom: 2rem;">
-            <a href="#why-succeed" style="
+            <a href="#presale" style="
                 display: inline-block;
-                padding: 1.5rem 3rem;
-                font-size: 1.3rem;
-                font-weight: 900;
+                padding: 1rem 2.5rem;
+                font-size: 1.1rem;
+                font-weight: 700;
                 background: linear-gradient(135deg, var(--accent-green), #2ECC71);
                 color: white;
                 text-decoration: none;
                 border-radius: 50px;
-                border: 3px solid var(--accent-green);
-                box-shadow: 0 0 40px rgba(57, 255, 20, 0.8), 0 0 80px rgba(57, 255, 20, 0.4);
+                border: 2px solid var(--accent-green);
+                box-shadow: 0 0 30px rgba(57, 255, 20, 0.6), 0 0 60px rgba(57, 255, 20, 0.3);
                 animation: glowPulse 2s ease-in-out infinite;
                 transition: all 0.3s;
-            " onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 0 60px rgba(57, 255, 20, 1), 0 0 120px rgba(57, 255, 20, 0.6)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 40px rgba(57, 255, 20, 0.8), 0 0 80px rgba(57, 255, 20, 0.4)';">
-                🚀 Why 50x-100x-1000x is Inevitable
+            " data-i18n="hero.ctaPrimary" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 40px rgba(57, 255, 20, 0.8), 0 0 80px rgba(57, 255, 20, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 30px rgba(57, 255, 20, 0.6), 0 0 60px rgba(57, 255, 20, 0.3)';">
+                💎 Join Presale
             </a>
         </div>
 
         <style>
             @keyframes glowPulse {
                 0%, 100% {
-                    box-shadow: 0 0 40px rgba(57, 255, 20, 0.8), 0 0 80px rgba(57, 255, 20, 0.4);
+                    box-shadow: 0 0 30px rgba(57, 255, 20, 0.6), 0 0 60px rgba(57, 255, 20, 0.3);
                     filter: brightness(1);
                 }
                 50% {
-                    box-shadow: 0 0 60px rgba(57, 255, 20, 1), 0 0 120px rgba(57, 255, 20, 0.6);
-                    filter: brightness(1.2);
+                    box-shadow: 0 0 40px rgba(57, 255, 20, 0.8), 0 0 80px rgba(57, 255, 20, 0.5);
+                    filter: brightness(1.1);
                 }
             }
         </style>
 
         <div class="hero-ctas">
-            <a href="#services" class="primary-button">🚀 Explore Services</a>
-            <a href="docs.html" class="secondary-button">View Docs</a>
+            <a href="#services" class="primary-button" data-i18n="hero.ctaSecondary">🚀 Explore Services</a>
+            <a href="docs.html" class="secondary-button" data-i18n="hero.ctaTertiary">View Docs</a>
         </div>
 
         <!-- Stats Bar -->

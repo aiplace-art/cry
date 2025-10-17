@@ -53,7 +53,15 @@
         // Load translations from JSON
         loadTranslations: async function() {
             try {
-                const response = await fetch('/i18n/translations.json');
+                // Try multiple path formats to support both file:// and http://
+                let response;
+                try {
+                    // Try relative path first (works with file:// and http://)
+                    response = await fetch('./i18n/translations.json');
+                } catch (e) {
+                    // Fallback to absolute path (works on servers)
+                    response = await fetch('/i18n/translations.json');
+                }
                 this.translations = await response.json();
                 console.log('✅ Translations loaded successfully');
             } catch (error) {
@@ -321,7 +329,8 @@
     // Load external CSS
     const cssLink = document.createElement('link');
     cssLink.rel = 'stylesheet';
-    cssLink.href = '/css/language-switcher.css';
+    // Use relative path to support both file:// and http://
+    cssLink.href = './css/language-switcher.css';
     document.head.appendChild(cssLink);
 
 })();
