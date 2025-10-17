@@ -155,41 +155,41 @@
         .live-agents-btn {
             position: relative;
             padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 100, 100, 0.3));
-            border: 2px solid #FF0000;
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.2), rgba(57, 255, 20, 0.4));
+            border: 2px solid var(--accent-green);
             border-radius: 20px;
-            color: #FF4444 !important;
+            color: var(--accent-green) !important;
             font-weight: 700;
-            animation: livePulse 2s ease-in-out infinite;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            animation: livePulseGreen 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
         }
 
         .live-agents-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
-            color: #FF0000 !important;
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.8);
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.3), rgba(57, 255, 20, 0.5));
         }
 
         .live-agents-btn::before {
             content: '🔴';
             margin-right: 0.5rem;
-            animation: blink 1.5s ease-in-out infinite;
+            animation: blinkRed 1.5s ease-in-out infinite;
         }
 
-        @keyframes livePulse {
+        @keyframes livePulseGreen {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-                border-color: #FF0000;
+                box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+                border-color: var(--accent-green);
             }
             50% {
-                box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
-                border-color: #FF4444;
+                box-shadow: 0 0 50px rgba(57, 255, 20, 0.9);
+                border-color: #66FF44;
             }
         }
 
-        @keyframes blink {
+        @keyframes blinkRed {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+            50% { opacity: 0.2; }
         }
 
         .cta-button {
