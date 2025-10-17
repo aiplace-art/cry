@@ -1,0 +1,47 @@
+{
+  "generated": "2025-10-17T05:47:14.540Z",
+  "reportNumber": 1,
+  "sections": {
+    "validation": {
+      "checksPerformed": 2,
+      "errorsFound": 0,
+      "warningsIssued": 2,
+      "lastCheck": "2025-10-17T05:47:09.521Z",
+      "status": "PASSED"
+    },
+    "staking": {
+      "status": "NO_DATA"
+    },
+    "distribution": {
+      "totalDistributed": 0,
+      "totalLocked": 1000000000,
+      "percentDistributed": "0.00",
+      "percentLocked": "100.00",
+      "byCategory": {
+        "presale": 0,
+        "liquidity": 0,
+        "staking": 0,
+        "team": 0,
+        "marketing": 0,
+        "treasury": 0
+      }
+    },
+    "audit": {
+      "auditsPerformed": 1,
+      "discrepanciesFound": 0,
+      "lastAudit": "2025-10-17T05:47:12.529Z",
+      "status": "PASSED",
+      "recentDiscrepancies": []
+    },
+    "reconciliation": {
+      "reconciliationsPerformed": 1,
+      "mismatchesFound": 0,
+      "lastReconciliation": "2025-10-17T05:47:13.524Z",
+      "status": "PASSED",
+      "recentMismatches": []
+    }
+  },
+  "healthScore": 100,
+  "healthStatus": "EXCELLENT",
+  "issues": []
+}

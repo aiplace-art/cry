@@ -117,10 +117,10 @@
     }
   ],
   "roi": 0,
-  "last_scan": "2025-10-16T19:19:39.049Z",
+  "last_scan": "2025-10-17T07:53:03.102Z",
   "opportunities": [
     {
-      "id": 1760638492309,
+      "id": 1760680028517,
       "type": "listing",
       "platform": "CoinGecko",
       "priority": "high",
@@ -128,10 +128,10 @@
       "effort": "medium",
       "description": "Submit CoinGecko listing application",
       "action": "Apply immediately after launch",
-      "deadline": "2025-10-23T18:14:52.309Z"
+      "deadline": "2025-10-24T05:47:08.517Z"
     },
     {
-      "id": 1760638492310,
+      "id": 1760680028518,
       "type": "partnership",
       "partner": "DeFi Pulse",
       "priority": "medium",
@@ -139,10 +139,10 @@
       "effort": "high",
       "description": "Partner with DeFi Pulse for visibility",
       "action": "Reach out to partnerships team",
-      "deadline": "2025-10-30T18:14:52.309Z"
+      "deadline": "2025-10-31T05:47:08.517Z"
     },
     {
-      "id": 1760638492311,
+      "id": 1760680028519,
       "type": "influencer",
       "influencer": "@CryptoBanter",
       "followers": 458000,
@@ -151,10 +151,10 @@
       "cost": "$2000-5000",
       "description": "Sponsored post with CryptoBanter",
       "action": "Contact for rate card",
-      "deadline": "2025-10-21T18:14:52.309Z"
+      "deadline": "2025-10-22T05:47:08.517Z"
     },
     {
-      "id": 1760638492312,
+      "id": 1760680028520,
       "type": "community",
       "platform": "Reddit r/CryptoMoonShots",
       "members": 1200000,
@@ -162,10 +162,10 @@
       "effort": "low",
       "description": "Create viral Reddit post",
       "action": "Craft compelling story + proof",
-      "deadline": "2025-10-18T18:14:52.309Z"
+      "deadline": "2025-10-19T05:47:08.517Z"
     },
     {
-      "id": 1760642379049,
+      "id": 1760687583102,
       "type": "listing",
       "platform": "CoinGecko",
       "priority": "high",
@@ -173,10 +173,10 @@
       "effort": "medium",
       "description": "Submit CoinGecko listing application",
       "action": "Apply immediately after launch",
-      "deadline": "2025-10-23T19:19:39.049Z"
+      "deadline": "2025-10-24T07:53:03.102Z"
     },
     {
-      "id": 1760642379050,
+      "id": 1760687583103,
       "type": "partnership",
       "partner": "DeFi Pulse",
       "priority": "medium",
@@ -184,10 +184,10 @@
       "effort": "high",
       "description": "Partner with DeFi Pulse for visibility",
       "action": "Reach out to partnerships team",
-      "deadline": "2025-10-30T19:19:39.049Z"
+      "deadline": "2025-10-31T07:53:03.102Z"
     },
     {
-      "id": 1760642379051,
+      "id": 1760687583104,
       "type": "influencer",
       "influencer": "@CryptoBanter",
       "followers": 458000,
@@ -196,10 +196,10 @@
       "cost": "$2000-5000",
       "description": "Sponsored post with CryptoBanter",
       "action": "Contact for rate card",
-      "deadline": "2025-10-21T19:19:39.049Z"
+      "deadline": "2025-10-22T07:53:03.102Z"
     },
     {
-      "id": 1760642379052,
+      "id": 1760687583105,
       "type": "community",
       "platform": "Reddit r/CryptoMoonShots",
       "members": 1200000,
@@ -207,7 +207,7 @@
       "effort": "low",
       "description": "Create viral Reddit post",
       "action": "Craft compelling story + proof",
-      "deadline": "2025-10-18T19:19:39.049Z"
+      "deadline": "2025-10-19T07:53:03.102Z"
     }
   ]
 }

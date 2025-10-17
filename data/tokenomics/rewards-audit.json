@@ -1,0 +1,18 @@
+{
+  "auditsPerformed": 2,
+  "discrepanciesFound": 0,
+  "totalRewardsAudited": 0,
+  "lastAudit": "2025-10-17T08:16:19.265Z",
+  "audits": [
+    {
+      "timestamp": "2025-10-17T05:47:12.529Z",
+      "totalAudited": 7,
+      "totalDiscrepancies": 0
+    },
+    {
+      "timestamp": "2025-10-17T08:16:19.265Z",
+      "totalAudited": 7,
+      "totalDiscrepancies": 0
+    }
+  ]
+}

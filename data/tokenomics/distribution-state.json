@@ -1,0 +1,21 @@
+{
+  "launchDate": "2025-11-15T00:00:00.000Z",
+  "flows": [],
+  "distributed": {
+    "presale": 0,
+    "liquidity": 0,
+    "staking": 0,
+    "team": 0,
+    "marketing": 0,
+    "treasury": 0
+  },
+  "locked": {
+    "presale": 300000000,
+    "liquidity": 200000000,
+    "staking": 250000000,
+    "team": 100000000,
+    "marketing": 100000000,
+    "treasury": 50000000
+  },
+  "lastUpdate": "2025-10-17T08:16:18.269Z"
+}
