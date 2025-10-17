@@ -14848,5 +14848,115 @@
       "warnings": []
     },
     "severity": "info"
+  },
+  {
+    "id": 1760735954894,
+    "timestamp": "2025-10-17T21:19:14.894Z",
+    "type": "validation",
+    "message": "Distribution validation completed",
+    "data": {
+      "valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    "severity": "info"
+  },
+  {
+    "id": 1760735954896,
+    "timestamp": "2025-10-17T21:19:14.896Z",
+    "type": "validation",
+    "message": "Staking validation completed",
+    "data": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "calculations": [
+        {
+          "tier": "bronze",
+          "apy": "17.00%",
+          "lockDays": 30,
+          "minAmount": 1000,
+          "annualReward": "170.00",
+          "dailyReward": "0.465753",
+          "lockPeriodReward": "13.97"
+        },
+        {
+          "tier": "silver",
+          "apy": "27.00%",
+          "lockDays": 90,
+          "minAmount": 10000,
+          "annualReward": "2700.00",
+          "dailyReward": "7.397260",
+          "lockPeriodReward": "665.75"
+        },
+        {
+          "tier": "gold",
+          "apy": "62.00%",
+          "lockDays": 180,
+          "minAmount": 50000,
+          "annualReward": "31000.00",
+          "dailyReward": "84.931507",
+          "lockPeriodReward": "15287.67"
+        }
+      ]
+    },
+    "severity": "info"
+  },
+  {
+    "id": 1760735954898,
+    "timestamp": "2025-10-17T21:19:14.898Z",
+    "type": "error",
+    "message": "Token accounting mismatch detected",
+    "data": {
+      "unaccountedTokens": 1000000000,
+      "totalSupply": 1000000000,
+      "accountedTokens": 0
+    },
+    "severity": "critical"
+  },
+  {
+    "id": 1760735954900,
+    "timestamp": "2025-10-17T21:19:14.900Z",
+    "type": "validation",
+    "message": "Supply validation completed",
+    "data": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        {
+          "code": "UNACCOUNTED_TOKENS",
+          "message": "Tokens not properly accounted for",
+          "unaccountedTokens": 1000000000,
+          "distributed": 0,
+          "burned": 0,
+          "staked": 0
+        }
+      ]
+    },
+    "severity": "info"
+  },
+  {
+    "id": 1760735954901,
+    "timestamp": "2025-10-17T21:19:14.901Z",
+    "type": "validation",
+    "message": "Burn mechanism validated",
+    "data": {
+      "valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    "severity": "info"
+  },
+  {
+    "id": 1760735954902,
+    "timestamp": "2025-10-17T21:19:14.902Z",
+    "type": "validation",
+    "message": "Anti-whale mechanism validated",
+    "data": {
+      "valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    "severity": "info"
   }
 ]
