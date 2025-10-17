@@ -239,7 +239,7 @@ Live Demo: [URL]
 
 This is just the beginning.
 
-#HypeAI #AIAgent #Solana #BuildInPublic
+#HypeAI #AIAgent #BNB #BuildInPublic
 ```
 
 ## Next Steps

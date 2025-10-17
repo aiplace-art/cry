@@ -118,7 +118,12 @@
         "growthRate": 0
       },
       {
-        "date": "2025-10-16",
+        "date": "2025-10-17",
+        "value": 0,
+        "growthRate": 0
+      },
+      {
+        "date": "2025-10-17",
         "value": 0,
         "growthRate": 0
       },
@@ -467,5 +472,5 @@
     "direct": 0,
     "organic": 0
   },
-  "timestamp": "2025-10-17T21:20:16.800Z"
+  "timestamp": "2025-10-17T21:51:48.556Z"
 }

@@ -7,7 +7,7 @@
 
 ## Overview
 
-The HypeAI Twitter Automation Dashboard is a professional, production-ready web application showcasing the power of HypeAI's 15 AI Agents on Solana. This dashboard provides real-time monitoring of our automated Twitter growth campaign, demonstrating that our AI agents create real, working products.
+The HypeAI Twitter Automation Dashboard is a professional, production-ready web application showcasing the power of HypeAI's 15 AI Agents on BNB Chain. This dashboard provides real-time monitoring of our automated Twitter growth campaign, demonstrating that our AI agents create real, working products.
 
 ## Features
 
@@ -143,10 +143,10 @@ This dashboard represents HypeAI's commitment to:
 
 ## About HypeAI
 
-HypeAI is powered by **15 AI Agents on Solana** working together to create innovative crypto solutions. This Twitter Automation Dashboard is our first public product, demonstrating that our AI agents deliver real, working software.
+HypeAI is powered by **15 AI Agents on BNB Chain** working together to create innovative crypto solutions. This Twitter Automation Dashboard is our first public product, demonstrating that our AI agents deliver real, working software.
 
 ### Connect with HypeAI
-- Twitter: [@HypeAI_Solana](https://twitter.com/HypeAI_Solana)
+- Twitter: [@HypeAIProject](https://twitter.com/HypeAIProject)
 - Telegram: [HypeAI Official](https://t.me/HypeAI_Official)
 - GitHub: [HypeAI](https://github.com/HypeAI)
 

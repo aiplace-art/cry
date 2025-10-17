@@ -4,7 +4,7 @@
 
 ### Header Section
 - HypeAI logo (purple gradient) on the left
-- Brand name "HypeAI" with tagline "15 AI Agents on Solana"
+- Brand name "HypeAI" with tagline "15 AI Agents on BNB Chain"
 - Two action buttons: "Refresh" and "Launch Campaign"
 - Sticky header with glassmorphism effect
 
