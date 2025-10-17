@@ -1,6 +1,6 @@
 {
-  "reportsGenerated": 14,
-  "lastReport": "2025-10-17T21:20:02.213Z",
+  "reportsGenerated": 15,
+  "lastReport": "2025-10-17T22:20:02.292Z",
   "reports": [
     {
       "timestamp": "2025-10-17T05:47:14.540Z",
@@ -83,6 +83,12 @@
     {
       "timestamp": "2025-10-17T21:20:02.213Z",
       "filename": "financial-report-1760736002218.json",
+      "healthScore": 75,
+      "healthStatus": "GOOD"
+    },
+    {
+      "timestamp": "2025-10-17T22:20:02.292Z",
+      "filename": "financial-report-1760739602292.json",
       "healthScore": 75,
       "healthStatus": "GOOD"
     }

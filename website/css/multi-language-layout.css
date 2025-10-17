@@ -1,30 +1,45 @@
 /**
- * Multi-Language Layout System
- * Prevents layout shifts when switching between EN/RU/ZH
+ * Multi-Language Layout System v2.0
+ * STRICT: Prevents ANY layout shifts when switching between EN/RU/ZH
  *
  * Strategy:
- * 1. Fixed heights for common elements
- * 2. Flexible containers with min-height
- * 3. Text overflow handling
- * 4. Consistent spacing regardless of text length
+ * 1. Fixed heights for ALL elements (not just data-i18n)
+ * 2. Strict max-width limits
+ * 3. Aggressive overflow handling
+ * 4. Lock all container sizes
  */
 
-/* ===== HERO SECTION ===== */
-.hero h1[data-i18n="hero.title"] {
-    /* Fixed height to prevent shifts */
-    min-height: 80px;
-    max-height: 120px;
+/* ===== GLOBAL LAYOUT LOCK ===== */
+* {
+    /* Prevent layout shift on text change */
+    box-sizing: border-box !important;
+}
 
-    /* Handle overflow gracefully */
-    overflow: visible;
+body {
+    /* Lock body width */
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+}
+
+/* ===== HERO SECTION ===== */
+.hero h1,
+.hero h1[data-i18n="hero.title"] {
+    /* STRICT fixed height */
+    min-height: 80px !important;
+    max-height: 80px !important;
+    height: 80px !important;
+
+    /* Prevent overflow */
+    overflow: hidden !important;
 
     /* Center text vertically */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 
-    /* Prevent text wrapping for short titles */
-    white-space: nowrap;
+    /* NO wrapping */
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
 }
 
 /* For mobile - allow wrapping but keep consistent height */
@@ -43,139 +58,194 @@
 
 /* ===== STATS BAR ===== */
 .stats-bar .stat {
-    /* Fixed width for consistency */
-    min-width: 150px;
-    max-width: 200px;
+    /* STRICT fixed dimensions */
+    min-width: 180px !important;
+    max-width: 180px !important;
+    width: 180px !important;
 
-    /* Fixed height */
-    min-height: 80px;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    height: 100px !important;
 
     /* Center content */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    /* Prevent overflow */
+    overflow: hidden !important;
 }
 
 .stats-bar .stat-label {
-    /* Fixed height for labels */
-    min-height: 40px;
+    /* STRICT fixed height for labels */
+    min-height: 42px !important;
+    max-height: 42px !important;
+    height: 42px !important;
 
-    /* Handle long translations */
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    line-height: 1.4em;
-    max-height: 2.8em; /* 2 lines */
+    /* Force text fit */
+    text-align: center !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    line-height: 1.4em !important;
+    font-size: 0.85rem !important;
 }
 
 /* ===== FEATURE CARDS ===== */
 .feature-card {
-    /* Fixed minimum height */
-    min-height: 400px;
+    /* STRICT fixed height */
+    min-height: 450px !important;
+    max-height: 450px !important;
 
-    /* Flexible but consistent layout */
-    display: flex;
-    flex-direction: column;
+    /* Lock layout */
+    display: flex !important;
+    flex-direction: column !important;
 
-    /* Prevent content overflow */
-    overflow: hidden;
+    /* NO overflow */
+    overflow: hidden !important;
 }
 
 .feature-card h3 {
-    /* Fixed height for titles */
-    min-height: 60px;
+    /* STRICT fixed height for titles */
+    min-height: 65px !important;
+    max-height: 65px !important;
+    height: 65px !important;
 
-    /* Handle long titles */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* Force text fit */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-size: 1.3rem !important;
+    line-height: 1.5em !important;
 }
 
 .feature-card p,
 .feature-card .description {
-    /* Fixed height for descriptions */
-    min-height: 120px;
+    /* STRICT fixed height for descriptions */
+    min-height: 140px !important;
+    max-height: 140px !important;
+    height: 140px !important;
 
-    /* Handle overflow */
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* Force text fit */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 5 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6em !important;
 }
 
 /* ===== SERVICE CARDS ===== */
 .service-card {
-    /* Consistent card heights */
-    min-height: 450px;
+    /* STRICT fixed height */
+    min-height: 480px !important;
+    max-height: 480px !important;
 
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
 }
 
 .service-card h3 {
-    min-height: 50px;
-    overflow: hidden;
+    /* STRICT fixed height */
+    min-height: 55px !important;
+    max-height: 55px !important;
+    height: 55px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
 }
 
 .service-card .service-description {
-    /* Fixed description area */
-    min-height: 150px;
-    max-height: 200px;
-    overflow: hidden;
+    /* STRICT fixed description area */
+    min-height: 160px !important;
+    max-height: 160px !important;
+    height: 160px !important;
+    overflow: hidden !important;
 
-    /* Show ellipsis for overflow */
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
+    /* Force ellipsis */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 6 !important;
+    -webkit-box-orient: vertical !important;
+    text-overflow: ellipsis !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5em !important;
 }
 
 .service-card ul {
-    /* Features list - fixed height */
-    min-height: 120px;
+    /* STRICT fixed list height */
+    min-height: 140px !important;
+    max-height: 140px !important;
+    overflow: hidden !important;
 }
 
-/* ===== BUTTONS ===== */
-button[data-i18n],
-a[data-i18n],
-.button[data-i18n] {
-    /* Fixed button dimensions */
-    min-width: 120px;
-    padding: 0.75rem 1.5rem;
+.service-card ul li {
+    /* Fixed line height */
+    min-height: 28px !important;
+    max-height: 28px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
 
-    /* Prevent text wrapping in buttons */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+/* ===== BUTTONS - STRICT LOCK ===== */
+button,
+a.button,
+.button,
+button[data-i18n],
+a[data-i18n] {
+    /* STRICT fixed button dimensions */
+    min-width: 140px !important;
+    padding: 0.75rem 1.5rem !important;
+    height: 42px !important;
+
+    /* NO wrapping */
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 
     /* Center text */
-    text-align: center;
+    text-align: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
-/* Exception for large CTA buttons */
+/* Large CTA buttons */
+.primary-button,
+.cta-button,
 .primary-button[data-i18n],
 .cta-button[data-i18n] {
-    min-width: 160px;
-    padding: 1rem 2rem;
+    min-width: 180px !important;
+    padding: 1rem 2rem !important;
+    height: 48px !important;
 }
 
-/* ===== NAVIGATION ===== */
+/* ===== NAVIGATION - STRICT LOCK ===== */
+nav a,
 nav a[data-i18n] {
-    /* Fixed nav item width */
-    min-width: 80px;
-    padding: 0.5rem 1rem;
-    text-align: center;
+    /* STRICT fixed nav item dimensions */
+    min-width: 100px !important;
+    max-width: 140px !important;
+    padding: 0.5rem 1rem !important;
+    height: 40px !important;
+    text-align: center !important;
 
-    /* Prevent wrapping */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* NO wrapping */
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+
+    /* Center vertically */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 /* ===== FOOTER ===== */
@@ -262,4 +332,150 @@ html[lang="ru"] a[data-i18n] {
 .language-loading [data-i18n] {
     opacity: 0.7;
     pointer-events: none;
+}
+
+/* ===== ULTRA-STRICT LAYOUT LOCK FOR ALL ELEMENTS ===== */
+/* Prevents ANY layout shift regardless of language */
+
+/* All headings - strict heights */
+h1 {
+    min-height: 60px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+h2 {
+    min-height: 50px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+h3 {
+    min-height: 40px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+h4, h5, h6 {
+    min-height: 32px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* All paragraphs */
+p {
+    min-height: 24px !important;
+    overflow: hidden !important;
+}
+
+/* All sections - prevent growth */
+section {
+    overflow: hidden !important;
+}
+
+/* All containers */
+.container,
+.grid,
+.flex {
+    overflow: hidden !important;
+}
+
+/* Cards in grid - lock size */
+.grid > div,
+.features-grid > div,
+.services-grid > div {
+    min-height: 400px !important;
+    max-height: 600px !important;
+    overflow: hidden !important;
+}
+
+/* Text elements - strict limits */
+span, label, small {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+}
+
+/* Lists */
+ul, ol {
+    overflow: hidden !important;
+}
+
+li {
+    min-height: 24px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* Links - prevent growth */
+a {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* Divs with content - limit size */
+div {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* CRITICAL: Lock ALL grid layouts */
+.grid-container,
+[class*="grid"] {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+}
+
+/* Flex containers - prevent wrapping issues */
+.flex-container,
+[class*="flex"] {
+    flex-wrap: nowrap !important;
+}
+
+/* Russian-specific: MORE strict limits */
+html[lang="ru"] h1,
+html[lang="ru"] h2,
+html[lang="ru"] h3 {
+    font-size: 0.95em !important;
+    letter-spacing: -0.02em !important;
+}
+
+html[lang="ru"] p,
+html[lang="ru"] span,
+html[lang="ru"] div {
+    font-size: 0.95em !important;
+}
+
+html[lang="ru"] button,
+html[lang="ru"] a.button {
+    font-size: 0.9em !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+/* Chinese-specific: Compact layout */
+html[lang="zh"] h1,
+html[lang="zh"] h2,
+html[lang="zh"] h3 {
+    letter-spacing: 0.05em !important;
+}
+
+html[lang="zh"] p,
+html[lang="zh"] span {
+    letter-spacing: 0.03em !important;
+}
+
+/* EMERGENCY LOCK: If nothing else works, force fixed widths */
+html[lang="ru"] *,
+html[lang="zh"] * {
+    max-width: 100% !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Prevent any element from causing horizontal scroll */
+html[lang="ru"] body *,
+html[lang="zh"] body * {
+    max-width: 100vw !important;
 }

@@ -1,7 +1,7 @@
 {
-  "reconciliationsPerformed": 45,
-  "mismatchesFound": 42,
-  "lastReconciliation": "2025-10-17T21:51:57.558Z",
+  "reconciliationsPerformed": 47,
+  "mismatchesFound": 49,
+  "lastReconciliation": "2025-10-17T22:21:57.581Z",
   "reconciliations": [
     {
       "timestamp": "2025-10-17T05:47:13.524Z",
@@ -227,6 +227,16 @@
       "timestamp": "2025-10-17T21:51:57.558Z",
       "allMatched": false,
       "mismatchesFound": true
+    },
+    {
+      "timestamp": "2025-10-17T22:06:57.572Z",
+      "allMatched": false,
+      "mismatchesFound": true
+    },
+    {
+      "timestamp": "2025-10-17T22:21:57.581Z",
+      "allMatched": true,
+      "mismatchesFound": false
     }
   ]
 }

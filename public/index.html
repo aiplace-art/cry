@@ -1225,6 +1225,7 @@
 
     <!-- Language Switcher CSS -->
     <link rel="stylesheet" href="css/language-switcher.css">
+    <link rel="stylesheet" href="css/multi-language-layout.css">
 </head>
 <body>
     <div class="animated-bg"></div>
@@ -1232,8 +1233,14 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="logo-icon-only.svg" alt="HypeAI Logo" style="width: 55px; height: 55px; margin-right: 0.5rem;">
-            HypeAI <span style="font-size: 1.2rem; margin-left: 0.3rem;">⚡</span>
+            <img src="logo-icon-only.svg" alt="HypeAI Logo" style="
+                width: 75px;
+                height: 75px;
+                margin-right: 0.5rem;
+                filter: drop-shadow(0 0 20px rgba(57, 255, 20, 0.5));
+                transition: all 0.3s ease;
+            " onmouseover="this.style.filter='drop-shadow(0 0 30px rgba(57, 255, 20, 0.8))'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='drop-shadow(0 0 20px rgba(57, 255, 20, 0.5))'; this.style.transform='scale(1)';">
+            <span style="font-size: 1.5rem; font-weight: 700; text-shadow: 0 0 15px rgba(57, 255, 20, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);">HypeAI</span> <span style="font-size: 1.4rem; margin-left: 0.3rem;">⚡</span>
         </div>
         <nav id="mobileNav">
             <a href="#services" onclick="closeMobileMenu()" data-i18n="nav.trade">Trade</a>
