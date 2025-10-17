@@ -151,6 +151,47 @@
             color: var(--primary-blue);
         }
 
+        /* Live Agents Button */
+        .live-agents-btn {
+            position: relative;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 100, 100, 0.3));
+            border: 2px solid #FF0000;
+            border-radius: 20px;
+            color: #FF4444 !important;
+            font-weight: 700;
+            animation: livePulse 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .live-agents-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+            color: #FF0000 !important;
+        }
+
+        .live-agents-btn::before {
+            content: '🔴';
+            margin-right: 0.5rem;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes livePulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+                border-color: #FF0000;
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
+                border-color: #FF4444;
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
         .cta-button {
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
             padding: 0.75rem 1.5rem;
@@ -769,6 +810,7 @@
         <nav>
             <a href="#services">Services</a>
             <a href="#ai-agents">AI Team</a>
+            <a href="agents-activity.html" class="live-agents-btn">Live (27/27)</a>
             <a href="#tokenomics">Tokenomics</a>
             <a href="proof.html" style="color: var(--accent-green);">✅ PROOF</a>
             <a href="docs.html">Docs</a>
