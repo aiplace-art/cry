@@ -865,18 +865,29 @@
             padding: 0.5rem;
         }
 
+        /* Responsive Design - Mobile First */
         @media (max-width: 768px) {
-            .tokenomics-content {
-                grid-template-columns: 1fr;
+            /* Header & Navigation */
+            header {
+                padding: 1rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                width: 50px !important;
+                height: 50px !important;
             }
 
             nav {
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 right: -100%;
                 width: 80%;
                 max-width: 300px;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 70px);
                 background: rgba(10, 14, 39, 0.98);
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
@@ -886,6 +897,7 @@
                 transition: right 0.3s ease;
                 border-left: 1px solid rgba(157, 78, 221, 0.3);
                 z-index: 999;
+                overflow-y: auto;
             }
 
             nav.active {
@@ -896,29 +908,310 @@
                 display: block;
             }
 
-            header {
-                padding: 1rem 5%;
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
             }
 
-            .services, .token-growth, .ai-agents {
-                padding: 4rem 5%;
+            /* Hero Section */
+            .hero {
+                padding: 6rem 1rem 3rem;
+                min-height: auto;
             }
 
+            .hero h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-ctas {
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .primary-button, .secondary-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                width: 100%;
+            }
+
+            /* Stats Bar */
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+            }
+
+            /* All Sections - Reduce Padding */
+            .services, .token-growth, .ai-agents, .features, .roadmap {
+                padding: 3rem 1rem;
+            }
+
+            .tokenomics {
+                padding: 3rem 1rem;
+            }
+
+            /* Section Titles */
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .subsection-title {
+                font-size: 1.5rem;
+            }
+
+            /* Service Cards */
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .service-icon {
+                font-size: 2.5rem;
+            }
+
+            .service-title {
+                font-size: 1.3rem;
+            }
+
+            .service-card p {
+                font-size: 0.9rem;
+            }
+
+            .services-benefits {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .benefit-item {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            /* Features */
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+
+            .feature-title {
+                font-size: 1.3rem;
+            }
+
+            .feature-desc {
+                font-size: 0.9rem;
+            }
+
+            /* Live Dashboard */
+            .live-dashboard {
+                padding: 1.5rem 1rem;
+            }
+
+            .dashboard-status {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .status-indicator {
+                font-size: 1.5rem;
+            }
+
+            .status-text {
+                font-size: 1.2rem;
+            }
+
+            .dashboard-stats {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+            }
+
+            .dashboard-stat .stat-value {
+                font-size: 2rem;
+            }
+
+            /* Agent Cards */
             .agents-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .agent-card {
+                padding: 1.5rem;
+            }
+
+            .agent-icon {
+                font-size: 2.5rem;
+            }
+
+            .agent-name {
+                font-size: 1.3rem;
+            }
+
+            .agent-stat-item .stat-number {
+                font-size: 1.3rem;
+            }
+
+            /* Tokenomics */
+            .tokenomics-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tokenomics-visual {
+                padding: 1.5rem;
+            }
+
+            .token-dist-item {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            /* Roadmap Timeline */
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .timeline-dot {
+                display: none;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .timeline-content ul {
+                font-size: 0.9rem;
+            }
+
+            /* Footer */
+            footer {
+                padding: 2rem 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-section h3 {
+                font-size: 1.2rem;
+            }
+
+            .footer-links {
+                font-size: 0.9rem;
+            }
+
+            .social-links {
+                font-size: 1.3rem;
+                justify-content: center;
+            }
+
+            /* CTA Buttons */
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-buttons a, .cta-buttons button {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Wallet Modal */
+            .wallet-modal-content {
+                padding: 1.5rem;
+                width: 95%;
+            }
+
+            .wallet-modal h3 {
+                font-size: 1.3rem;
+            }
+
+            .wallet-option {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .wallet-icon {
+                font-size: 1.5rem;
+            }
+
+            .wallet-info h4 {
+                font-size: 1rem;
+            }
+
+            .wallet-info p {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Extra Small Devices */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats {
                 grid-template-columns: 1fr;
             }
 
-            .cta-buttons {
-                flex-direction: column;
+            .logo {
+                font-size: 1.3rem;
             }
 
-            .cta-buttons a {
-                width: 100%;
-                text-align: center;
+            .logo img {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .service-card, .feature-card, .agent-card {
+                padding: 1.25rem;
+            }
+
+            .primary-button, .secondary-button {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.95rem;
             }
         }
     </style>
