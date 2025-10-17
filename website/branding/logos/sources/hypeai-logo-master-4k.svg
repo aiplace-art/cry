@@ -1,0 +1,141 @@
+<svg width="2000" height="2000" viewBox="0 0 2000 2000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Premium Gradients -->
+    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0088ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="lightningGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0088ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Premium Glow Filters -->
+    <filter id="hexGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feFlood flood-color="#00d4ff" flood-opacity="0.8"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="lightningGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feFlood flood-color="#00ffff" flood-opacity="0.9"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feFlood flood-color="#00d4ff" flood-opacity="0.6"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle Shadow -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="2000" height="2000" fill="#ffffff"/>
+
+  <!-- Hexagon with Premium Glow -->
+  <g filter="url(#hexGlow)">
+    <path d="M 1000 350 L 1230 490 L 1230 770 L 1000 910 L 770 770 L 770 490 Z"
+          fill="url(#hexGrad)"
+          stroke="url(#hexGrad)"
+          stroke-width="6"
+          filter="url(#shadow)"/>
+  </g>
+
+  <!-- Inner Hexagon Details -->
+  <path d="M 1000 400 L 1200 520 L 1200 740 L 1000 860 L 800 740 L 800 520 Z"
+        fill="none"
+        stroke="url(#hexGrad)"
+        stroke-width="3"
+        opacity="0.5"/>
+
+  <!-- 8 Lightning Bolts with Ultra Glow -->
+  <g filter="url(#lightningGlow)">
+    <!-- Top Lightning -->
+    <path d="M 1000 350 L 980 450 L 1010 450 L 990 550 L 1040 450 L 1010 450 Z"
+          fill="url(#lightningGrad)" stroke="none"/>
+
+    <!-- Top-Right Lightning -->
+    <path d="M 1230 490 L 1180 550 L 1210 560 L 1170 640 L 1230 570 L 1200 560 Z"
+          fill="url(#lightningGrad)" stroke="none"/>
+
+    <!-- Right Lightning -->
+    <path d="M 1230 630 L 1180 650 L 1200 670 L 1160 750 L 1220 680 L 1200 660 Z"
+          fill="url(#lightningGrad)" stroke="none"/>
+
+    <!-- Bottom-Right Lightning -->
+    <path d="M 1230 770 L 1180 810 L 1210 820 L 1170 900 L 1230 830 L 1200 820 Z"
+          fill="url(#lightningGrad)" stroke="none"/>
+
+    <!-- Bottom Lightning -->
+    <path d="M 1000 910 L 980 810 L 1010 810 L 990 710 L 1040 810 L 1010 810 Z"
+          fill="url(#lightningGrad)" stroke="none"/>
+
+    <!-- Bottom-Left Lightning -->
+    <path d="M 770 770 L 820 810 L 790 820 L 830 900 L 770 830 L 800 820 Z"
+          fill="url(#lightningGrad)" stroke="none"/>
+
+    <!-- Left Lightning -->
+    <path d="M 770 630 L 820 650 L 800 670 L 840 750 L 780 680 L 800 660 Z"
+          fill="url(#lightningGrad)" stroke="none"/>
+
+    <!-- Top-Left Lightning -->
+    <path d="M 770 490 L 820 550 L 790 560 L 830 640 L 770 570 L 800 560 Z"
+          fill="url(#lightningGrad)" stroke="none"/>
+  </g>
+
+  <!-- Central AI Core -->
+  <circle cx="1000" cy="630" r="80" fill="url(#hexGrad)" opacity="0.9" filter="url(#hexGlow)"/>
+  <circle cx="1000" cy="630" r="60" fill="none" stroke="url(#lightningGrad)" stroke-width="4"/>
+  <circle cx="1000" cy="630" r="40" fill="none" stroke="url(#lightningGrad)" stroke-width="2" opacity="0.6"/>
+
+  <!-- HYPEAI Text with Premium Glow -->
+  <g filter="url(#textGlow)">
+    <text x="1000" y="1150"
+          font-family="Arial, sans-serif"
+          font-size="180"
+          font-weight="900"
+          fill="url(#textGrad)"
+          text-anchor="middle"
+          letter-spacing="12">HYPEAI</text>
+  </g>
+
+  <!-- Tagline -->
+  <text x="1000" y="1250"
+        font-family="Arial, sans-serif"
+        font-size="48"
+        font-weight="400"
+        fill="url(#textGrad)"
+        text-anchor="middle"
+        letter-spacing="16"
+        opacity="0.9">INFINITE INTELLIGENCE</text>
+
+  <!-- Decorative Elements -->
+  <circle cx="850" cy="1150" r="6" fill="url(#lightningGrad)" opacity="0.8"/>
+  <circle cx="1150" cy="1150" r="6" fill="url(#lightningGrad)" opacity="0.8"/>
+</svg>

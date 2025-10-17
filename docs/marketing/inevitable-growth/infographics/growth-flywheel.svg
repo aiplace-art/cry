@@ -1,0 +1,144 @@
+<svg width="1080" height="1350" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgFlywheel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="wheelGlow">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#fbbf24" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1350" fill="url(#bgFlywheel)"/>
+
+  <!-- Title -->
+  <text x="540" y="100" font-family="Inter, sans-serif" font-size="46" font-weight="bold" fill="#fbbf24" text-anchor="middle">
+    THE HYPE GROWTH
+  </text>
+  <text x="540" y="160" font-family="Inter, sans-serif" font-size="46" font-weight="bold" fill="#10b981" text-anchor="middle">
+    FLYWHEEL ♾️
+  </text>
+
+  <!-- Center Glow -->
+  <circle cx="540" cy="620" r="380" fill="url(#wheelGlow)"/>
+
+  <!-- Circular Path (decorative) -->
+  <circle cx="540" cy="620" r="320" fill="none" stroke="#06b6d4" stroke-width="3" opacity="0.3"/>
+
+  <!-- Step 1 - Top -->
+  <g transform="translate(340, 260)">
+    <rect x="0" y="0" width="400" height="120" fill="#10b981" rx="15"/>
+    <text x="200" y="40" font-family="Inter, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      STEP 1
+    </text>
+    <text x="200" y="75" font-family="Inter, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">
+      Users Buy HYPE
+    </text>
+    <text x="200" y="105" font-family="Inter, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">
+      → Use Services
+    </text>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M 680 380 Q 750 500 680 620" fill="none" stroke="#fbbf24" stroke-width="6" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 2 - Right -->
+  <g transform="translate(720, 560)">
+    <rect x="0" y="0" width="320" height="120" fill="#fbbf24" rx="15"/>
+    <text x="160" y="40" font-family="Inter, sans-serif" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="middle">
+      STEP 2
+    </text>
+    <text x="160" y="75" font-family="Inter, sans-serif" font-size="22" fill="#0f172a" text-anchor="middle">
+      50% Burns →
+    </text>
+    <text x="160" y="105" font-family="Inter, sans-serif" font-size="22" fill="#0f172a" text-anchor="middle">
+      Supply Decreases
+    </text>
+  </g>
+
+  <!-- Arrow 2 to 3 -->
+  <path d="M 680 680 Q 750 800 680 920" fill="none" stroke="#fbbf24" stroke-width="6" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 3 - Bottom -->
+  <g transform="translate(340, 880)">
+    <rect x="0" y="0" width="400" height="120" fill="#06b6d4" rx="15"/>
+    <text x="200" y="40" font-family="Inter, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      STEP 3
+    </text>
+    <text x="200" y="75" font-family="Inter, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">
+      Price Rises →
+    </text>
+    <text x="200" y="105" font-family="Inter, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">
+      More Attention
+    </text>
+  </g>
+
+  <!-- Arrow 3 to 4 -->
+  <path d="M 400 880 Q 330 800 400 680" fill="none" stroke="#fbbf24" stroke-width="6" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 4 - Left -->
+  <g transform="translate(40, 560)">
+    <rect x="0" y="0" width="320" height="120" fill="#ef4444" rx="15"/>
+    <text x="160" y="40" font-family="Inter, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      STEP 4
+    </text>
+    <text x="160" y="75" font-family="Inter, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">
+      More Users
+    </text>
+    <text x="160" y="105" font-family="Inter, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">
+      Buy HYPE
+    </text>
+  </g>
+
+  <!-- Arrow 4 to 1 -->
+  <path d="M 400 560 Q 330 440 400 380" fill="none" stroke="#fbbf24" stroke-width="6" marker-end="url(#arrowhead)"/>
+
+  <!-- Center Icon -->
+  <circle cx="540" cy="620" r="80" fill="#1e293b" stroke="#fbbf24" stroke-width="4"/>
+  <text x="540" y="650" font-family="Inter, sans-serif" font-size="64" text-anchor="middle">
+    ♾️
+  </text>
+
+  <!-- Result Box -->
+  <g transform="translate(190, 1070)">
+    <rect x="0" y="0" width="700" height="100" fill="#10b981" rx="20"/>
+    <text x="350" y="45" font-family="Inter, sans-serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      RESULT:
+    </text>
+    <text x="350" y="80" font-family="Inter, sans-serif" font-size="36" font-weight="bold" fill="#fbbf24" text-anchor="middle">
+      Exponential Growth 🚀
+    </text>
+  </g>
+
+  <!-- Tagline -->
+  <text x="540" y="1220" font-family="Inter, sans-serif" font-size="32" font-weight="600" fill="#ffffff" text-anchor="middle">
+    Once started, unstoppable.
+  </text>
+  <text x="540" y="1265" font-family="Inter, sans-serif" font-size="28" fill="#06b6d4" text-anchor="middle">
+    Join early. Profit forever.
+  </text>
+
+  <!-- Logo -->
+  <text x="80" y="1320" font-family="Inter, sans-serif" font-size="24" font-weight="bold" fill="#fbbf24">
+    HYPE
+  </text>
+  <text x="140" y="1320" font-family="Inter, sans-serif" font-size="20" fill="#06b6d4">
+    AI
+  </text>
+
+  <!-- QR Code Placeholder -->
+  <g transform="translate(900, 1250)">
+    <rect x="0" y="0" width="120" height="120" fill="#ffffff" rx="10"/>
+    <text x="60" y="65" font-family="Inter, sans-serif" font-size="16" fill="#0f172a" text-anchor="middle" font-weight="bold">
+      SCAN
+    </text>
+    <text x="60" y="85" font-family="Inter, sans-serif" font-size="12" fill="#0f172a" text-anchor="middle">
+      TO BUY
+    </text>
+  </g>
+</svg>

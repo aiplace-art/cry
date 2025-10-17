@@ -1,0 +1,166 @@
+<svg width="4000" height="1333" viewBox="0 0 4000 1333" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Premium Gradients -->
+    <linearGradient id="hexGradBanner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0088ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="lightningGradBanner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0088ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="textGradBanner" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Premium Glow Filters -->
+    <filter id="hexGlowBanner" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feFlood flood-color="#00d4ff" flood-opacity="0.8"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="lightningGlowBanner" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feFlood flood-color="#00ffff" flood-opacity="0.9"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="textGlowBanner" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feFlood flood-color="#00d4ff" flood-opacity="0.6"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="shadowBanner">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="4000" height="1333" fill="#ffffff"/>
+
+  <!-- Left Icon: Hexagon with Premium Glow -->
+  <g filter="url(#hexGlowBanner)">
+    <path d="M 600 267 L 800 400 L 800 667 L 600 800 L 400 667 L 400 400 Z"
+          fill="url(#hexGradBanner)"
+          stroke="url(#hexGradBanner)"
+          stroke-width="6"
+          filter="url(#shadowBanner)"/>
+  </g>
+
+  <!-- Inner Hexagon -->
+  <path d="M 600 300 L 770 417 L 770 650 L 600 767 L 430 650 L 430 417 Z"
+        fill="none"
+        stroke="url(#hexGradBanner)"
+        stroke-width="3"
+        opacity="0.5"/>
+
+  <!-- Lightning Bolts on Left Icon -->
+  <g filter="url(#lightningGlowBanner)">
+    <path d="M 600 267 L 585 330 L 608 330 L 593 400 L 625 330 L 608 330 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 800 400 L 760 440 L 780 450 L 750 520 L 795 460 L 780 450 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 800 533 L 760 560 L 780 575 L 750 645 L 795 585 L 780 570 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 800 667 L 760 707 L 780 717 L 750 787 L 795 727 L 780 717 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 600 800 L 585 737 L 608 737 L 593 667 L 625 737 L 608 737 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 400 667 L 440 707 L 420 717 L 450 787 L 405 727 L 420 717 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 400 533 L 440 560 L 420 575 L 450 645 L 405 585 L 420 570 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 400 400 L 440 440 L 420 450 L 450 520 L 405 460 L 420 450 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+  </g>
+
+  <!-- Central AI Core -->
+  <circle cx="600" cy="533" r="60" fill="url(#hexGradBanner)" opacity="0.9" filter="url(#hexGlowBanner)"/>
+  <circle cx="600" cy="533" r="45" fill="none" stroke="url(#lightningGradBanner)" stroke-width="3"/>
+  <circle cx="600" cy="533" r="30" fill="none" stroke="url(#lightningGradBanner)" stroke-width="2" opacity="0.6"/>
+
+  <!-- HYPEAI Text (Centered) -->
+  <g filter="url(#textGlowBanner)">
+    <text x="2000" y="600"
+          font-family="Arial, sans-serif"
+          font-size="280"
+          font-weight="900"
+          fill="url(#textGradBanner)"
+          text-anchor="middle"
+          letter-spacing="20">HYPEAI</text>
+  </g>
+
+  <!-- Tagline -->
+  <text x="2000" y="750"
+        font-family="Arial, sans-serif"
+        font-size="70"
+        font-weight="400"
+        fill="url(#textGradBanner)"
+        text-anchor="middle"
+        letter-spacing="24"
+        opacity="0.9">INFINITE INTELLIGENCE</text>
+
+  <!-- Right Icon: Hexagon with Premium Glow (Mirrored) -->
+  <g filter="url(#hexGlowBanner)">
+    <path d="M 3400 267 L 3600 400 L 3600 667 L 3400 800 L 3200 667 L 3200 400 Z"
+          fill="url(#hexGradBanner)"
+          stroke="url(#hexGradBanner)"
+          stroke-width="6"
+          filter="url(#shadowBanner)"/>
+  </g>
+
+  <!-- Inner Hexagon Right -->
+  <path d="M 3400 300 L 3570 417 L 3570 650 L 3400 767 L 3230 650 L 3230 417 Z"
+        fill="none"
+        stroke="url(#hexGradBanner)"
+        stroke-width="3"
+        opacity="0.5"/>
+
+  <!-- Lightning Bolts on Right Icon -->
+  <g filter="url(#lightningGlowBanner)">
+    <path d="M 3400 267 L 3385 330 L 3408 330 L 3393 400 L 3425 330 L 3408 330 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 3600 400 L 3560 440 L 3580 450 L 3550 520 L 3595 460 L 3580 450 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 3600 533 L 3560 560 L 3580 575 L 3550 645 L 3595 585 L 3580 570 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 3600 667 L 3560 707 L 3580 717 L 3550 787 L 3595 727 L 3580 717 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 3400 800 L 3385 737 L 3408 737 L 3393 667 L 3425 737 L 3408 737 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 3200 667 L 3240 707 L 3220 717 L 3250 787 L 3205 727 L 3220 717 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 3200 533 L 3240 560 L 3220 575 L 3250 645 L 3205 585 L 3220 570 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+    <path d="M 3200 400 L 3240 440 L 3220 450 L 3250 520 L 3205 460 L 3220 450 Z"
+          fill="url(#lightningGradBanner)" stroke="none"/>
+  </g>
+
+  <!-- Central AI Core Right -->
+  <circle cx="3400" cy="533" r="60" fill="url(#hexGradBanner)" opacity="0.9" filter="url(#hexGlowBanner)"/>
+  <circle cx="3400" cy="533" r="45" fill="none" stroke="url(#lightningGradBanner)" stroke-width="3"/>
+  <circle cx="3400" cy="533" r="30" fill="none" stroke="url(#lightningGradBanner)" stroke-width="2" opacity="0.6"/>
+
+  <!-- Decorative Elements -->
+  <circle cx="1500" cy="600" r="8" fill="url(#lightningGradBanner)" opacity="0.8"/>
+  <circle cx="2500" cy="600" r="8" fill="url(#lightningGradBanner)" opacity="0.8"/>
+</svg>

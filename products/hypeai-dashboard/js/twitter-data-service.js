@@ -31,7 +31,7 @@ class TwitterDataService {
 
         if (isDevelopment) {
             // Use relative path from dashboard location to data folder
-            return '/data/project-coordination';
+            return '../../data/project-coordination';
         } else {
             // Production API endpoints
             return '/api/twitter';

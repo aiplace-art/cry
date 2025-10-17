@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | HypeAI - AI-Powered Crypto Platform</title>
+    <link rel="icon" type="image/svg+xml" href="logo-icon-only.svg">
+    <link rel="alternate icon" href="favicon.svg">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="HypeAI Privacy Policy - GDPR and CCPA compliant data protection information for our AI-powered crypto trading platform.">
+    <meta name="keywords" content="HypeAI privacy, data protection, GDPR, CCPA, crypto privacy">
+    <meta name="robots" content="index, follow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #00D4FF;
+            --primary-purple: #9D4EDD;
+            --accent-green: #39FF14;
+            --dark-bg: #0A0E27;
+            --dark-card: #1A1F3A;
+            --white: #FFFFFF;
+            --gray: #A0AEC0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0F1629 100%);
+            color: var(--white);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        a:focus, button:focus, input:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.8);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            animation: logoSpin 8s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+        }
+
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Main Content */
+        .privacy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 5% 4rem;
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .privacy-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .last-updated {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .compliance-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            padding: 0.75rem 1.5rem;
+            background: rgba(26, 31, 58, 0.6);
+            border-radius: 50px;
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .toc h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        .toc a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .toc a:hover {
+            color: var(--primary-blue);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Content Sections */
+        .privacy-section {
+            background: rgba(26, 31, 58, 0.4);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .privacy-section h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .privacy-section h3 {
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-section h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .privacy-section p {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .privacy-section ul, .privacy-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: rgba(57, 255, 20, 0.1);
+            border-left: 4px solid var(--accent-green);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 0, 0, 0.1);
+            border-left: 4px solid #FF3333;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .info-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(10, 14, 39, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: rgba(157, 78, 221, 0.3);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            color: var(--gray);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .contact-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            margin-top: 2rem;
+        }
+
+        .contact-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: rgba(10, 14, 39, 0.9);
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+            text-align: center;
+            color: var(--gray);
+        }
+
+        footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .privacy-container {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .privacy-section {
+                padding: 1.5rem;
+            }
+
+            .privacy-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .privacy-section h3 {
+                font-size: 1.2rem;
+            }
+
+            .toc {
+                padding: 1.5rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo-icon-only.svg" alt="HypeAI Logo" style="width: 70px; height: 70px;">
+            HypeAI <span style="font-size: 1.2rem;">⚡</span>
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="docs.html">Docs</a>
+            <a href="terms.html">Terms</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="index.html" class="back-button">Back to Home</a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="privacy-container">
+        <!-- Header -->
+        <div class="privacy-header">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: October 17, 2025</p>
+            <p style="color: var(--gray); max-width: 800px; margin: 0 auto;">
+                HypeAI is committed to protecting your privacy and ensuring transparency in how we collect, use, and protect your personal data. This Privacy Policy explains our practices in compliance with GDPR (EU) and CCPA (California).
+            </p>
+            <div class="compliance-badges">
+                <span class="badge">GDPR Compliant</span>
+                <span class="badge">CCPA Compliant</span>
+                <span class="badge">SSL Encrypted</span>
+                <span class="badge">Blockchain Secure</span>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#data-we-collect">2. Data We Collect</a></li>
+                <li><a href="#how-we-use-data">3. How We Use Your Data</a></li>
+                <li><a href="#data-sharing">4. Data Sharing and Disclosure</a></li>
+                <li><a href="#blockchain-data">5. Blockchain and Wallet Data</a></li>
+                <li><a href="#cookies">6. Cookies and Tracking Technologies</a></li>
+                <li><a href="#data-security">7. Data Security</a></li>
+                <li><a href="#data-retention">8. Data Retention</a></li>
+                <li><a href="#your-rights">9. Your Privacy Rights</a></li>
+                <li><a href="#gdpr-rights">10. GDPR Rights (EU Users)</a></li>
+                <li><a href="#ccpa-rights">11. CCPA Rights (California Users)</a></li>
+                <li><a href="#international-transfers">12. International Data Transfers</a></li>
+                <li><a href="#children-privacy">13. Children's Privacy</a></li>
+                <li><a href="#third-party-services">14. Third-Party Services</a></li>
+                <li><a href="#crypto-trading-data">15. Crypto Trading Data Privacy</a></li>
+                <li><a href="#changes">16. Changes to This Policy</a></li>
+                <li><a href="#contact">17. Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- 1. Introduction -->
+        <section id="introduction" class="privacy-section">
+            <h2>1. Introduction</h2>
+            <p>
+                Welcome to HypeAI ("we," "our," or "us"). This Privacy Policy describes how HypeAI, an AI-powered cryptocurrency trading platform, collects, uses, shares, and protects your personal information when you access our website, use our services, or interact with our AI agents.
+            </p>
+            <p>
+                By using HypeAI's platform, you consent to the data practices described in this policy. If you do not agree with this Privacy Policy, please do not use our services.
+            </p>
+            <div class="highlight-box">
+                <strong>Key Principle:</strong> We believe in data minimization. We only collect data that is necessary to provide our AI-powered services and improve your trading experience.
+            </div>
+            <p>
+                This policy applies to:
+            </p>
+            <ul>
+                <li>Our website at hypeai.io (the "Site")</li>
+                <li>Our AI services platform and trading tools</li>
+                <li>Our mobile applications (when available)</li>
+                <li>Communications between you and HypeAI</li>
+                <li>Interactions with our 27 AI agents</li>
+            </ul>
+        </section>
+
+        <!-- 2. Data We Collect -->
+        <section id="data-we-collect" class="privacy-section">
+            <h2>2. Data We Collect</h2>
+            <p>
+                We collect different types of information to provide and improve our services:
+            </p>
+
+            <h3>2.1 Information You Provide Directly</h3>
+            <h4>Account Registration Data</h4>
+            <ul>
+                <li><strong>Email address:</strong> For account creation, authentication, and communications</li>
+                <li><strong>Username:</strong> Your chosen display name on the platform</li>
+                <li><strong>Password:</strong> Encrypted and hashed, never stored in plain text</li>
+                <li><strong>Profile information:</strong> Optional data such as bio, avatar, social links</li>
+            </ul>
+
+            <h4>Wallet Connection Data</h4>
+            <ul>
+                <li><strong>Wallet addresses:</strong> Public blockchain addresses (Ethereum, Polygon, BSC, etc.)</li>
+                <li><strong>Transaction signatures:</strong> For authentication and verification</li>
+                <li><strong>Wallet type:</strong> MetaMask, Trust Wallet, WalletConnect, etc.</li>
+                <li><strong>Token balances:</strong> HYPEAI token holdings and other crypto assets (read from blockchain)</li>
+            </ul>
+
+            <h4>Communication Data</h4>
+            <ul>
+                <li><strong>Support inquiries:</strong> Questions, feedback, and support requests</li>
+                <li><strong>Community interactions:</strong> Discord, Telegram, Twitter communications</li>
+                <li><strong>AI agent conversations:</strong> Interactions with our 27 AI agents for service delivery</li>
+            </ul>
+
+            <h3>2.2 Information We Collect Automatically</h3>
+            <h4>Usage Data</h4>
+            <ul>
+                <li><strong>Pages visited:</strong> URLs, page views, time spent on pages</li>
+                <li><strong>Features used:</strong> AI services accessed, staking actions, trades</li>
+                <li><strong>Click patterns:</strong> Buttons clicked, navigation paths</li>
+                <li><strong>Session duration:</strong> Time spent on platform</li>
+            </ul>
+
+            <h4>Device and Technical Data</h4>
+            <ul>
+                <li><strong>IP address:</strong> For security, fraud prevention, and analytics</li>
+                <li><strong>Browser type and version:</strong> Chrome, Firefox, Safari, etc.</li>
+                <li><strong>Operating system:</strong> Windows, macOS, iOS, Android, Linux</li>
+                <li><strong>Device type:</strong> Desktop, mobile, tablet</li>
+                <li><strong>Screen resolution:</strong> For responsive design optimization</li>
+                <li><strong>Language preferences:</strong> Browser language settings</li>
+                <li><strong>Referrer URL:</strong> Website that directed you to HypeAI</li>
+            </ul>
+
+            <h4>Blockchain Data</h4>
+            <ul>
+                <li><strong>Transaction history:</strong> Public blockchain transactions involving HYPEAI tokens</li>
+                <li><strong>Token transfers:</strong> Sent and received tokens</li>
+                <li><strong>Staking records:</strong> Staking amounts, durations, rewards</li>
+                <li><strong>Smart contract interactions:</strong> Contract calls, gas fees</li>
+                <li><strong>NFT holdings:</strong> If applicable to future features</li>
+            </ul>
+
+            <h4>Analytics and Cookies</h4>
+            <ul>
+                <li><strong>Google Analytics:</strong> Anonymous usage statistics</li>
+                <li><strong>Performance metrics:</strong> Page load times, errors</li>
+                <li><strong>Marketing cookies:</strong> Campaign tracking, conversion data</li>
+                <li><strong>Social media pixels:</strong> Twitter, Facebook advertising pixels</li>
+            </ul>
+
+            <h3>2.3 Trading and Financial Data</h3>
+            <div class="warning-box">
+                <strong>Important:</strong> We do NOT store your private keys, seed phrases, or trading passwords. Your crypto assets remain in your custody at all times.
+            </div>
+            <ul>
+                <li><strong>Trade history:</strong> Buy/sell orders, executed trades (if applicable)</li>
+                <li><strong>AI predictions:</strong> Trading signals generated by our AI models</li>
+                <li><strong>Portfolio data:</strong> Asset allocation, holdings, performance</li>
+                <li><strong>Staking rewards:</strong> APY earned, claiming history</li>
+                <li><strong>Referral data:</strong> Referral codes, rewards earned</li>
+            </ul>
+
+            <h3>2.4 Information from Third Parties</h3>
+            <ul>
+                <li><strong>KYC providers:</strong> Identity verification data (if required by law)</li>
+                <li><strong>Blockchain explorers:</strong> Public transaction data (Etherscan, PolygonScan)</li>
+                <li><strong>Payment processors:</strong> Transaction confirmations (if fiat payments supported)</li>
+                <li><strong>Social media:</strong> Public profile data if you connect social accounts</li>
+                <li><strong>Analytics providers:</strong> Aggregated usage patterns</li>
+            </ul>
+        </section>
+
+        <!-- 3. How We Use Your Data -->
+        <section id="how-we-use-data" class="privacy-section">
+            <h2>3. How We Use Your Data</h2>
+            <p>
+                We use your personal data for the following purposes:
+            </p>
+
+            <h3>3.1 Service Delivery</h3>
+            <ul>
+                <li><strong>Account management:</strong> Creating and managing your HypeAI account</li>
+                <li><strong>Authentication:</strong> Verifying your identity when you log in</li>
+                <li><strong>Wallet connectivity:</strong> Connecting your crypto wallet to our platform</li>
+                <li><strong>AI services:</strong> Providing access to our 27 AI agents and their services</li>
+                <li><strong>Trading features:</strong> Executing trades, staking, DAO governance</li>
+                <li><strong>Transaction processing:</strong> Recording blockchain transactions</li>
+            </ul>
+
+            <h3>3.2 Platform Improvement</h3>
+            <ul>
+                <li><strong>AI model training:</strong> Improving prediction accuracy and service quality</li>
+                <li><strong>Performance optimization:</strong> Enhancing platform speed and reliability</li>
+                <li><strong>Bug fixes:</strong> Identifying and resolving technical issues</li>
+                <li><strong>Feature development:</strong> Building new tools based on user needs</li>
+                <li><strong>User experience:</strong> Personalizing content and recommendations</li>
+            </ul>
+
+            <h3>3.3 Communication</h3>
+            <ul>
+                <li><strong>Service updates:</strong> Platform changes, new features, maintenance</li>
+                <li><strong>Security alerts:</strong> Suspicious activity, password changes</li>
+                <li><strong>Transaction confirmations:</strong> Staking, trading, claiming rewards</li>
+                <li><strong>Marketing communications:</strong> Newsletters, promotions (with consent)</li>
+                <li><strong>Customer support:</strong> Responding to inquiries and resolving issues</li>
+            </ul>
+
+            <h3>3.4 Security and Fraud Prevention</h3>
+            <ul>
+                <li><strong>Fraud detection:</strong> Identifying suspicious patterns and activities</li>
+                <li><strong>Risk assessment:</strong> Evaluating transaction risks</li>
+                <li><strong>Account security:</strong> Two-factor authentication, login monitoring</li>
+                <li><strong>Compliance monitoring:</strong> Detecting money laundering or illegal activities</li>
+                <li><strong>Security audits:</strong> Regular security assessments</li>
+            </ul>
+
+            <h3>3.5 Legal and Regulatory Compliance</h3>
+            <ul>
+                <li><strong>Legal obligations:</strong> Complying with applicable laws and regulations</li>
+                <li><strong>Regulatory reporting:</strong> Submitting required reports to authorities</li>
+                <li><strong>KYC/AML:</strong> Know Your Customer and Anti-Money Laundering procedures (if required)</li>
+                <li><strong>Tax reporting:</strong> Providing tax documentation (if applicable)</li>
+                <li><strong>Legal proceedings:</strong> Responding to subpoenas, court orders</li>
+            </ul>
+
+            <h3>3.6 Analytics and Research</h3>
+            <ul>
+                <li><strong>Usage analytics:</strong> Understanding how users interact with our platform</li>
+                <li><strong>Market research:</strong> Analyzing trends in crypto trading</li>
+                <li><strong>Performance metrics:</strong> Measuring AI prediction accuracy</li>
+                <li><strong>A/B testing:</strong> Testing new features with user groups</li>
+                <li><strong>Benchmarking:</strong> Comparing platform performance</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>Legal Basis for Processing (GDPR):</strong>
+                <ul style="margin-bottom: 0;">
+                    <li><strong>Contract:</strong> Processing necessary to provide our services</li>
+                    <li><strong>Legitimate Interest:</strong> Fraud prevention, security, analytics</li>
+                    <li><strong>Consent:</strong> Marketing communications, optional features</li>
+                    <li><strong>Legal Obligation:</strong> Compliance with laws and regulations</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 4. Data Sharing and Disclosure -->
+        <section id="data-sharing" class="privacy-section">
+            <h2>4. Data Sharing and Disclosure</h2>
+            <p>
+                We respect your privacy and limit data sharing to essential parties only. We do NOT sell your personal data.
+            </p>
+
+            <h3>4.1 Service Providers</h3>
+            <p>We share data with trusted third-party service providers who help us operate our platform:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service Provider</th>
+                        <th>Purpose</th>
+                        <th>Data Shared</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cloud Hosting (AWS, Vercel)</td>
+                        <td>Platform infrastructure</td>
+                        <td>Technical data, usage logs</td>
+                    </tr>
+                    <tr>
+                        <td>Analytics (Google Analytics)</td>
+                        <td>Usage tracking</td>
+                        <td>Anonymized behavioral data</td>
+                    </tr>
+                    <tr>
+                        <td>Email Services (SendGrid)</td>
+                        <td>Communications</td>
+                        <td>Email addresses, message content</td>
+                    </tr>
+                    <tr>
+                        <td>Customer Support (Zendesk)</td>
+                        <td>Support tickets</td>
+                        <td>Support inquiries, account info</td>
+                    </tr>
+                    <tr>
+                        <td>KYC Providers (if required)</td>
+                        <td>Identity verification</td>
+                        <td>Government IDs, biometric data</td>
+                    </tr>
+                    <tr>
+                        <td>Payment Processors</td>
+                        <td>Fiat transactions</td>
+                        <td>Payment details, transaction data</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4.2 Blockchain Networks</h3>
+            <p>
+                When you use our platform, certain data is publicly recorded on blockchain networks:
+            </p>
+            <ul>
+                <li><strong>Public by nature:</strong> All blockchain transactions are permanently public</li>
+                <li><strong>Wallet addresses:</strong> Your public wallet address is visible on-chain</li>
+                <li><strong>Transaction history:</strong> All token transfers, stakes, and trades are public</li>
+                <li><strong>Smart contract interactions:</strong> Contract calls are recorded on-chain</li>
+            </ul>
+            <div class="warning-box">
+                <strong>Privacy Note:</strong> Blockchain data is immutable and cannot be deleted. Use pseudonymous addresses if privacy is a concern.
+            </div>
+
+            <h3>4.3 Legal Requirements</h3>
+            <p>We may disclose your data if required by law:</p>
+            <ul>
+                <li><strong>Law enforcement:</strong> Responding to valid legal requests</li>
+                <li><strong>Court orders:</strong> Complying with subpoenas and warrants</li>
+                <li><strong>Regulatory agencies:</strong> Financial regulators, tax authorities</li>
+                <li><strong>National security:</strong> Responding to national security requests</li>
+                <li><strong>Legal disputes:</strong> Defending against legal claims</li>
+            </ul>
+
+            <h3>4.4 Business Transfers</h3>
+            <p>
+                In the event of a merger, acquisition, or sale of assets, your data may be transferred to the new entity. We will notify you via email and provide options to manage your data.
+            </p>
+
+            <h3>4.5 With Your Consent</h3>
+            <p>
+                We may share your data with other parties when you explicitly consent, such as:
+            </p>
+            <ul>
+                <li>Social media integrations (Twitter, Discord sharing)</li>
+                <li>Third-party applications you authorize</li>
+                <li>Partner services you opt into</li>
+            </ul>
+
+            <h3>4.6 Aggregated and Anonymized Data</h3>
+            <p>
+                We may share aggregated, anonymized data that does not identify you:
+            </p>
+            <ul>
+                <li>Platform statistics (total users, trading volume)</li>
+                <li>Market research and trends</li>
+                <li>AI model performance metrics</li>
+                <li>Public dashboards and reports</li>
+            </ul>
+        </section>
+
+        <!-- 5. Blockchain and Wallet Data -->
+        <section id="blockchain-data" class="privacy-section">
+            <h2>5. Blockchain and Wallet Data</h2>
+
+            <h3>5.1 Wallet Connection</h3>
+            <p>
+                When you connect your crypto wallet to HypeAI:
+            </p>
+            <ul>
+                <li>We access your <strong>public wallet address</strong> to identify your account</li>
+                <li>We read your <strong>token balances</strong> from the blockchain (public data)</li>
+                <li>We request <strong>transaction signatures</strong> for authentication</li>
+                <li>We <strong>DO NOT</strong> have access to your private keys or seed phrases</li>
+                <li>You remain in <strong>full custody</strong> of your crypto assets</li>
+            </ul>
+
+            <h3>5.2 On-Chain Transactions</h3>
+            <p>
+                All blockchain transactions are public and permanent:
+            </p>
+            <div class="info-box">
+                <strong>Public Data:</strong> Anyone can view your wallet address, token balances, transaction history, and smart contract interactions on blockchain explorers (Etherscan, PolygonScan, etc.).
+            </div>
+            <ul>
+                <li>Token transfers to/from HypeAI contracts</li>
+                <li>Staking deposits and withdrawals</li>
+                <li>Reward claims and distributions</li>
+                <li>DAO governance votes</li>
+                <li>DEX trades and liquidity provisions</li>
+            </ul>
+
+            <h3>5.3 Smart Contract Interactions</h3>
+            <p>
+                When you interact with HypeAI smart contracts:
+            </p>
+            <ul>
+                <li>We request your approval for specific contract functions</li>
+                <li>You sign transactions in your wallet (MetaMask, Trust Wallet, etc.)</li>
+                <li>Gas fees are paid by you to the blockchain network</li>
+                <li>Transactions are irreversible once confirmed</li>
+                <li>We do not control the blockchain and cannot reverse transactions</li>
+            </ul>
+
+            <h3>5.4 Wallet Privacy Best Practices</h3>
+            <div class="highlight-box">
+                <strong>Recommendations:</strong>
+                <ul style="margin-bottom: 0;">
+                    <li>Use a separate wallet for DeFi interactions (not your main wallet)</li>
+                    <li>Consider using privacy-focused wallets or mixers if anonymity is important</li>
+                    <li>Be aware that blockchain data is permanent and public</li>
+                    <li>Never share your private keys or seed phrases with anyone</li>
+                    <li>Enable two-factor authentication on your wallet if available</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 6. Cookies and Tracking Technologies -->
+        <section id="cookies" class="privacy-section">
+            <h2>6. Cookies and Tracking Technologies</h2>
+
+            <h3>6.1 What Are Cookies?</h3>
+            <p>
+                Cookies are small text files stored on your device that help websites function and track usage. HypeAI uses cookies to improve your experience and analyze platform performance.
+            </p>
+
+            <h3>6.2 Types of Cookies We Use</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cookie Type</th>
+                        <th>Purpose</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Essential Cookies</strong></td>
+                        <td>Required for platform functionality (login, session management)</td>
+                        <td>Session or 30 days</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analytics Cookies</strong></td>
+                        <td>Google Analytics, usage tracking, performance monitoring</td>
+                        <td>2 years</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Preference Cookies</strong></td>
+                        <td>Remember your settings (language, theme, wallet preference)</td>
+                        <td>1 year</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing Cookies</strong></td>
+                        <td>Ad campaigns, conversion tracking, social media pixels</td>
+                        <td>90 days</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>6.3 Third-Party Tracking</h3>
+            <p>We use third-party analytics and advertising services:</p>
+            <ul>
+                <li><strong>Google Analytics:</strong> Anonymous usage statistics</li>
+                <li><strong>Facebook Pixel:</strong> Ad conversion tracking</li>
+                <li><strong>Twitter Pixel:</strong> Campaign performance</li>
+                <li><strong>Hotjar:</strong> Heatmaps and user behavior (optional)</li>
+            </ul>
+
+            <h3>6.4 Managing Cookies</h3>
+            <p>You can control cookies through:</p>
+            <ul>
+                <li><strong>Browser settings:</strong> Block or delete cookies in Chrome, Firefox, Safari</li>
+                <li><strong>Cookie consent banner:</strong> Accept or decline non-essential cookies</li>
+                <li><strong>Opt-out links:</strong> Google Analytics opt-out, Do Not Track browser settings</li>
+                <li><strong>Privacy extensions:</strong> Privacy Badger, uBlock Origin, Ghostery</li>
+            </ul>
+            <div class="warning-box">
+                <strong>Note:</strong> Disabling essential cookies may prevent you from using certain platform features, such as logging in or connecting your wallet.
+            </div>
+
+            <h3>6.5 Do Not Track (DNT)</h3>
+            <p>
+                We respect Do Not Track (DNT) browser signals. If DNT is enabled, we will not use marketing cookies or third-party tracking pixels.
+            </p>
+
+            <p>
+                For more details, see our <a href="cookies.html" style="color: var(--primary-blue); text-decoration: underline;">Cookie Policy</a>.
+            </p>
+        </section>
+
+        <!-- 7. Data Security -->
+        <section id="data-security" class="privacy-section">
+            <h2>7. Data Security</h2>
+
+            <h3>7.1 Security Measures</h3>
+            <p>
+                We implement industry-standard security practices to protect your data:
+            </p>
+            <ul>
+                <li><strong>Encryption:</strong> SSL/TLS encryption for all data in transit (HTTPS)</li>
+                <li><strong>Database encryption:</strong> AES-256 encryption for data at rest</li>
+                <li><strong>Password hashing:</strong> Bcrypt hashing with salt (never stored in plain text)</li>
+                <li><strong>Access controls:</strong> Role-based access, principle of least privilege</li>
+                <li><strong>Firewall protection:</strong> Network-level security and intrusion detection</li>
+                <li><strong>DDoS protection:</strong> Cloudflare and AWS Shield</li>
+                <li><strong>Regular audits:</strong> Third-party security audits and penetration testing</li>
+                <li><strong>Bug bounty program:</strong> Rewards for responsible disclosure</li>
+            </ul>
+
+            <h3>7.2 Smart Contract Security</h3>
+            <ul>
+                <li>Audited by reputable firms (CertiK, Quantstamp, etc.)</li>
+                <li>ReentrancyGuard to prevent reentrancy attacks</li>
+                <li>SafeMath for overflow protection</li>
+                <li>Emergency pause functionality</li>
+                <li>Multi-signature wallets for treasury management</li>
+                <li>Time-locked upgrades and governance</li>
+            </ul>
+
+            <h3>7.3 Account Security</h3>
+            <p>We provide tools to secure your account:</p>
+            <ul>
+                <li><strong>Two-Factor Authentication (2FA):</strong> TOTP-based 2FA (Google Authenticator, Authy)</li>
+                <li><strong>Email verification:</strong> Confirm email address during registration</li>
+                <li><strong>Login alerts:</strong> Notifications for new device logins</li>
+                <li><strong>Session management:</strong> Automatic logout after inactivity</li>
+                <li><strong>Password requirements:</strong> Strong password enforcement</li>
+            </ul>
+
+            <h3>7.4 Data Breach Protocol</h3>
+            <p>
+                In the unlikely event of a data breach:
+            </p>
+            <ul>
+                <li>We will notify affected users within <strong>72 hours</strong> (GDPR requirement)</li>
+                <li>We will report the breach to relevant authorities</li>
+                <li>We will provide details about the breach and affected data</li>
+                <li>We will offer remediation steps (password reset, 2FA setup)</li>
+                <li>We will publish a public incident report (if required)</li>
+            </ul>
+
+            <h3>7.5 Your Responsibilities</h3>
+            <div class="highlight-box">
+                <strong>Protect Your Account:</strong>
+                <ul style="margin-bottom: 0;">
+                    <li>Use a strong, unique password</li>
+                    <li>Enable two-factor authentication (2FA)</li>
+                    <li>Never share your password, private keys, or seed phrases</li>
+                    <li>Be cautious of phishing emails and fake websites</li>
+                    <li>Use official HypeAI domains (hypeai.io) only</li>
+                    <li>Report suspicious activity immediately</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 8. Data Retention -->
+        <section id="data-retention" class="privacy-section">
+            <h2>8. Data Retention</h2>
+
+            <h3>8.1 How Long We Keep Your Data</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Retention Period</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Account data</td>
+                        <td>Until account deletion</td>
+                        <td>Service delivery</td>
+                    </tr>
+                    <tr>
+                        <td>Transaction history</td>
+                        <td>7 years</td>
+                        <td>Legal compliance (tax, AML)</td>
+                    </tr>
+                    <tr>
+                        <td>Support tickets</td>
+                        <td>3 years</td>
+                        <td>Customer service, legal</td>
+                    </tr>
+                    <tr>
+                        <td>Analytics data</td>
+                        <td>2 years</td>
+                        <td>Platform improvement</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing data</td>
+                        <td>Until consent withdrawn</td>
+                        <td>Communications</td>
+                    </tr>
+                    <tr>
+                        <td>Blockchain data</td>
+                        <td>Permanent (immutable)</td>
+                        <td>Blockchain nature</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>8.2 Account Deletion</h3>
+            <p>
+                When you delete your HypeAI account:
+            </p>
+            <ul>
+                <li>Personal data (email, username, profile) is deleted within <strong>30 days</strong></li>
+                <li>Backups containing your data are purged within <strong>90 days</strong></li>
+                <li>Transaction history is retained for legal compliance (7 years)</li>
+                <li>Blockchain data remains public and immutable (cannot be deleted)</li>
+                <li>Anonymized analytics data may be retained indefinitely</li>
+            </ul>
+
+            <h3>8.3 Inactive Accounts</h3>
+            <p>
+                Accounts inactive for <strong>3 years</strong> may be automatically deleted after email notification. We will:
+            </p>
+            <ul>
+                <li>Send 3 email reminders over 90 days</li>
+                <li>Provide a reactivation link</li>
+                <li>Delete the account if no response</li>
+            </ul>
+        </section>
+
+        <!-- 9. Your Privacy Rights -->
+        <section id="your-rights" class="privacy-section">
+            <h2>9. Your Privacy Rights</h2>
+
+            <p>You have the following rights regarding your personal data:</p>
+
+            <h3>9.1 Right to Access</h3>
+            <p>
+                You can request a copy of all personal data we hold about you. We will provide this data in a structured, machine-readable format (JSON, CSV) within <strong>30 days</strong>.
+            </p>
+
+            <h3>9.2 Right to Rectification</h3>
+            <p>
+                You can update or correct inaccurate personal data through your account settings or by contacting us.
+            </p>
+
+            <h3>9.3 Right to Deletion ("Right to be Forgotten")</h3>
+            <p>
+                You can request deletion of your personal data, subject to legal retention requirements. Blockchain data cannot be deleted.
+            </p>
+
+            <h3>9.4 Right to Data Portability</h3>
+            <p>
+                You can export your data in a portable format (JSON, CSV) to transfer to another service.
+            </p>
+
+            <h3>9.5 Right to Restrict Processing</h3>
+            <p>
+                You can request that we limit how we use your data while a dispute is resolved.
+            </p>
+
+            <h3>9.6 Right to Object</h3>
+            <p>
+                You can object to processing based on legitimate interests or for marketing purposes.
+            </p>
+
+            <h3>9.7 Right to Withdraw Consent</h3>
+            <p>
+                You can withdraw consent for marketing, analytics, or optional features at any time.
+            </p>
+
+            <h3>9.8 How to Exercise Your Rights</h3>
+            <div class="highlight-box">
+                <strong>To exercise any privacy right:</strong>
+                <ol style="margin-bottom: 0;">
+                    <li>Email us at <a href="mailto:privacy@hypeai.io" style="color: var(--primary-blue);">privacy@hypeai.io</a></li>
+                    <li>Include your account email and specific request</li>
+                    <li>We will verify your identity and respond within <strong>30 days</strong></li>
+                    <li>No fee for the first request (reasonable fee for excessive requests)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 10. GDPR Rights (EU Users) -->
+        <section id="gdpr-rights" class="privacy-section">
+            <h2>10. GDPR Rights (EU Users)</h2>
+
+            <p>
+                If you are located in the European Economic Area (EEA), UK, or Switzerland, you have additional rights under the General Data Protection Regulation (GDPR):
+            </p>
+
+            <h3>10.1 Legal Basis for Processing</h3>
+            <ul>
+                <li><strong>Contract:</strong> Providing our services requires processing your data</li>
+                <li><strong>Legitimate Interest:</strong> Fraud prevention, security, analytics</li>
+                <li><strong>Consent:</strong> Marketing, optional features (you can withdraw anytime)</li>
+                <li><strong>Legal Obligation:</strong> Compliance with EU laws and regulations</li>
+            </ul>
+
+            <h3>10.2 Data Protection Officer (DPO)</h3>
+            <p>
+                Our Data Protection Officer can be reached at:
+            </p>
+            <div class="contact-card">
+                <h4>Data Protection Officer</h4>
+                <p>Email: <a href="mailto:dpo@hypeai.io">dpo@hypeai.io</a></p>
+                <p>Response time: Within 30 days</p>
+            </div>
+
+            <h3>10.3 Right to Lodge a Complaint</h3>
+            <p>
+                You have the right to lodge a complaint with your local data protection authority if you believe we have violated GDPR:
+            </p>
+            <ul>
+                <li><strong>EU:</strong> Contact your national data protection authority</li>
+                <li><strong>UK:</strong> Information Commissioner's Office (ICO) - <a href="https://ico.org.uk" style="color: var(--primary-blue);" target="_blank" rel="noopener noreferrer">ico.org.uk</a></li>
+                <li><strong>List of authorities:</strong> <a href="https://edpb.europa.eu/about-edpb/board/members_en" style="color: var(--primary-blue);" target="_blank" rel="noopener noreferrer">EDPB Member List</a></li>
+            </ul>
+
+            <h3>10.4 International Data Transfers</h3>
+            <p>
+                If we transfer your data outside the EEA, we ensure adequate protection through:
+            </p>
+            <ul>
+                <li><strong>Standard Contractual Clauses (SCCs):</strong> EU-approved data transfer agreements</li>
+                <li><strong>Adequacy decisions:</strong> Transfers to countries with adequate data protection</li>
+                <li><strong>Privacy Shield alternatives:</strong> Additional safeguards for US transfers</li>
+            </ul>
+
+            <h3>10.5 Automated Decision-Making</h3>
+            <p>
+                Our AI models may make automated decisions (e.g., trading signals, risk assessments). You have the right to:
+            </p>
+            <ul>
+                <li>Request human review of automated decisions</li>
+                <li>Understand the logic behind AI predictions</li>
+                <li>Contest decisions that significantly affect you</li>
+            </ul>
+        </section>
+
+        <!-- 11. CCPA Rights (California Users) -->
+        <section id="ccpa-rights" class="privacy-section">
+            <h2>11. CCPA Rights (California Users)</h2>
+
+            <p>
+                If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA):
+            </p>
+
+            <h3>11.1 Right to Know</h3>
+            <p>
+                You can request disclosure of:
+            </p>
+            <ul>
+                <li>Categories of personal information collected</li>
+                <li>Sources of personal information</li>
+                <li>Business purposes for collecting data</li>
+                <li>Categories of third parties we share data with</li>
+                <li>Specific pieces of personal information we hold</li>
+            </ul>
+
+            <h3>11.2 Right to Delete</h3>
+            <p>
+                You can request deletion of your personal information, subject to legal exceptions (e.g., transaction records for tax compliance).
+            </p>
+
+            <h3>11.3 Right to Opt-Out of Sale</h3>
+            <div class="highlight-box">
+                <strong>We DO NOT sell your personal information.</strong> HypeAI has never sold user data and will not do so in the future.
+            </div>
+
+            <h3>11.4 Right to Non-Discrimination</h3>
+            <p>
+                We will not discriminate against you for exercising your CCPA rights. You will receive the same service quality regardless of your privacy choices.
+            </p>
+
+            <h3>11.5 Authorized Agent</h3>
+            <p>
+                You can designate an authorized agent to make CCPA requests on your behalf. The agent must provide proof of authorization.
+            </p>
+
+            <h3>11.6 CCPA Request Process</h3>
+            <ol>
+                <li>Email <a href="mailto:privacy@hypeai.io" style="color: var(--primary-blue);">privacy@hypeai.io</a> with "CCPA Request" in the subject line</li>
+                <li>Include your name, email, and specific request type</li>
+                <li>We will verify your identity (may request additional information)</li>
+                <li>We will respond within <strong>45 days</strong> (may extend to 90 days if complex)</li>
+                <li>No charge for up to 2 requests per 12 months</li>
+            </ol>
+
+            <h3>11.7 California "Shine the Light" Law</h3>
+            <p>
+                California residents can request information about personal data shared with third parties for marketing purposes (once per year). Contact us at <a href="mailto:privacy@hypeai.io" style="color: var(--primary-blue);">privacy@hypeai.io</a>.
+            </p>
+        </section>
+
+        <!-- 12. International Data Transfers -->
+        <section id="international-transfers" class="privacy-section">
+            <h2>12. International Data Transfers</h2>
+
+            <p>
+                HypeAI operates globally. Your data may be transferred to and processed in countries outside your residence, including the United States, EU, and other jurisdictions.
+            </p>
+
+            <h3>12.1 Data Transfer Safeguards</h3>
+            <ul>
+                <li><strong>Standard Contractual Clauses (SCCs):</strong> EU-approved contracts for data transfers</li>
+                <li><strong>Adequacy decisions:</strong> Transfers to countries with GDPR-equivalent protection</li>
+                <li><strong>Data Processing Agreements (DPAs):</strong> Contracts with all service providers</li>
+                <li><strong>Encryption:</strong> All data encrypted in transit and at rest</li>
+            </ul>
+
+            <h3>12.2 Jurisdictions Where Data is Processed</h3>
+            <ul>
+                <li><strong>United States:</strong> AWS cloud infrastructure, analytics services</li>
+                <li><strong>European Union:</strong> GDPR-compliant data centers</li>
+                <li><strong>Singapore:</strong> Asia-Pacific server locations</li>
+                <li><strong>Canada:</strong> Backup and disaster recovery</li>
+            </ul>
+
+            <h3>12.3 Blockchain Data Transfers</h3>
+            <p>
+                Blockchain data is distributed globally across thousands of nodes. By using blockchain-based services, you acknowledge that your transaction data will be replicated worldwide.
+            </p>
+        </section>
+
+        <!-- 13. Children's Privacy -->
+        <section id="children-privacy" class="privacy-section">
+            <h2>13. Children's Privacy</h2>
+
+            <div class="warning-box">
+                <strong>Age Restriction:</strong> HypeAI is NOT intended for users under 18 years old. We do not knowingly collect data from minors.
+            </div>
+
+            <p>
+                Cryptocurrency trading involves financial risk and is restricted to adults. If you are under 18, do not use HypeAI.
+            </p>
+
+            <h3>13.1 Parental Discovery</h3>
+            <p>
+                If we discover that a user under 18 has created an account:
+            </p>
+            <ul>
+                <li>We will immediately suspend the account</li>
+                <li>We will delete all personal data within 30 days</li>
+                <li>We will notify the email address associated with the account</li>
+            </ul>
+
+            <h3>13.2 Reporting Underage Users</h3>
+            <p>
+                If you believe a minor is using HypeAI, please report it to <a href="mailto:privacy@hypeai.io" style="color: var(--primary-blue);">privacy@hypeai.io</a> immediately.
+            </p>
+        </section>
+
+        <!-- 14. Third-Party Services -->
+        <section id="third-party-services" class="privacy-section">
+            <h2>14. Third-Party Services</h2>
+
+            <h3>14.1 External Links</h3>
+            <p>
+                Our platform may contain links to third-party websites (DEXs, blockchain explorers, social media). We are not responsible for the privacy practices of external sites.
+            </p>
+
+            <h3>14.2 Third-Party Wallets</h3>
+            <p>
+                When you connect a wallet (MetaMask, Trust Wallet, WalletConnect), you are subject to their privacy policies:
+            </p>
+            <ul>
+                <li><strong>MetaMask:</strong> <a href="https://metamask.io/privacy.html" style="color: var(--primary-blue);" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                <li><strong>Trust Wallet:</strong> <a href="https://trustwallet.com/privacy-policy" style="color: var(--primary-blue);" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                <li><strong>WalletConnect:</strong> <a href="https://walletconnect.com/privacy" style="color: var(--primary-blue);" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+            </ul>
+
+            <h3>14.3 DEX and DeFi Protocols</h3>
+            <p>
+                When you trade on decentralized exchanges (Uniswap, PancakeSwap) or use DeFi protocols, you interact directly with smart contracts. We do not control these protocols.
+            </p>
+
+            <h3>14.4 Analytics and Advertising</h3>
+            <ul>
+                <li><strong>Google Analytics:</strong> <a href="https://policies.google.com/privacy" style="color: var(--primary-blue);" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                <li><strong>Facebook:</strong> <a href="https://www.facebook.com/privacy" style="color: var(--primary-blue);" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                <li><strong>Twitter:</strong> <a href="https://twitter.com/privacy" style="color: var(--primary-blue);" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+            </ul>
+        </section>
+
+        <!-- 15. Crypto Trading Data Privacy -->
+        <section id="crypto-trading-data" class="privacy-section">
+            <h2>15. Crypto Trading Data Privacy</h2>
+
+            <h3>15.1 Trading Risks and Privacy</h3>
+            <div class="warning-box">
+                <strong>High-Risk Disclaimer:</strong> Cryptocurrency trading is highly volatile and involves substantial risk of loss. Your trading activity is recorded on public blockchains and cannot be made private retroactively.
+            </div>
+
+            <h3>15.2 AI Trading Signals</h3>
+            <p>
+                Our AI models generate trading predictions based on:
+            </p>
+            <ul>
+                <li>Market data (price, volume, sentiment)</li>
+                <li>On-chain metrics (whale movements, gas fees)</li>
+                <li>Technical indicators (RSI, MACD, moving averages)</li>
+                <li>News sentiment analysis</li>
+            </ul>
+            <p>
+                <strong>AI signals are NOT financial advice.</strong> You are responsible for your own trading decisions.
+            </p>
+
+            <h3>15.3 Staking and Rewards</h3>
+            <p>
+                When you stake HYPEAI tokens:
+            </p>
+            <ul>
+                <li>Staking transactions are recorded on-chain (public)</li>
+                <li>Reward distributions are automatic via smart contracts</li>
+                <li>Unstaking may have lockup periods (30, 90, 365 days)</li>
+                <li>APY rates are estimates and may change</li>
+            </ul>
+
+            <h3>15.4 DAO Governance Voting</h3>
+            <p>
+                DAO votes are public and transparent:
+            </p>
+            <ul>
+                <li>Your wallet address and vote choice are public on-chain</li>
+                <li>Voting power is proportional to token holdings</li>
+                <li>Proposals and results are publicly viewable</li>
+            </ul>
+
+            <h3>15.5 Tax Reporting</h3>
+            <p>
+                You are responsible for reporting crypto transactions to tax authorities. We may provide:
+            </p>
+            <ul>
+                <li>Transaction history export (CSV)</li>
+                <li>Staking reward records</li>
+                <li>Form 1099 (US users, if applicable)</li>
+            </ul>
+            <p>
+                Consult a tax professional for guidance.
+            </p>
+        </section>
+
+        <!-- 16. Changes to This Policy -->
+        <section id="changes" class="privacy-section">
+            <h2>16. Changes to This Policy</h2>
+
+            <p>
+                We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or platform features.
+            </p>
+
+            <h3>16.1 Notification of Changes</h3>
+            <p>
+                When we make material changes, we will:
+            </p>
+            <ul>
+                <li>Update the "Last Updated" date at the top of this page</li>
+                <li>Send an email notification to registered users</li>
+                <li>Display a banner on the platform for 30 days</li>
+                <li>For significant changes, require re-acceptance of the policy</li>
+            </ul>
+
+            <h3>16.2 Version History</h3>
+            <p>
+                Previous versions of this Privacy Policy are available upon request. Contact <a href="mailto:privacy@hypeai.io" style="color: var(--primary-blue);">privacy@hypeai.io</a>.
+            </p>
+
+            <h3>16.3 Continued Use</h3>
+            <p>
+                By continuing to use HypeAI after policy changes, you accept the updated terms. If you disagree, you may delete your account.
+            </p>
+        </section>
+
+        <!-- 17. Contact Us -->
+        <section id="contact" class="privacy-section">
+            <h2>17. Contact Us</h2>
+
+            <p>
+                If you have questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:
+            </p>
+
+            <div class="contact-card">
+                <h3>Privacy Inquiries</h3>
+                <p><strong>Email:</strong> <a href="mailto:privacy@hypeai.io">privacy@hypeai.io</a></p>
+                <p><strong>Data Protection Officer:</strong> <a href="mailto:dpo@hypeai.io">dpo@hypeai.io</a></p>
+                <p><strong>Response Time:</strong> Within 30 days (GDPR/CCPA compliance)</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>General Support</h3>
+                <p><strong>Email:</strong> <a href="mailto:support@hypeai.io">support@hypeai.io</a></p>
+                <p><strong>Discord:</strong> <a href="https://discord.gg/hypeai" target="_blank" rel="noopener noreferrer">discord.gg/hypeai</a></p>
+                <p><strong>Telegram:</strong> <a href="https://t.me/hypeai" target="_blank" rel="noopener noreferrer">t.me/hypeai</a></p>
+                <p><strong>Twitter:</strong> <a href="https://twitter.com/HypeAI_official" target="_blank" rel="noopener noreferrer">@HypeAI_official</a></p>
+            </div>
+
+            <div class="contact-card">
+                <h3>Mailing Address</h3>
+                <p>HypeAI Team</p>
+                <p>AI-Powered Crypto Platform</p>
+                <p>Decentralized, Blockchain-First</p>
+                <p style="margin-top: 1rem; font-style: italic; color: var(--gray);">
+                    (Physical address available upon request for legal correspondence)
+                </p>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 2rem;">
+                <strong>Your Privacy Matters:</strong>
+                <p style="margin-bottom: 0; margin-top: 0.5rem;">
+                    At HypeAI, we are committed to transparency and respect for your personal data. If you have any concerns about how we handle your information, please don't hesitate to reach out. We're here to help.
+                </p>
+            </div>
+        </section>
+
+        <!-- Final Disclaimer -->
+        <div class="privacy-section" style="border: 2px solid rgba(255, 0, 0, 0.5); background: rgba(255, 0, 0, 0.05);">
+            <h2 style="color: #FF6666;">Legal Disclaimer</h2>
+            <p>
+                <strong>This Privacy Policy is for informational purposes only and does not constitute legal advice.</strong> Cryptocurrency trading is highly speculative and involves substantial risk of loss. You should consult with legal and financial professionals before using HypeAI.
+            </p>
+            <p>
+                By using HypeAI, you acknowledge and accept the risks associated with cryptocurrency trading and blockchain technology. We are not responsible for losses resulting from market volatility, smart contract vulnerabilities, or user error.
+            </p>
+            <p>
+                <strong>NOT FINANCIAL ADVICE. DYOR (Do Your Own Research). TRADE AT YOUR OWN RISK.</strong>
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <p style="margin-bottom: 1rem;">
+                <strong style="color: var(--white);">HypeAI - Where AI Meets Opportunity</strong>
+            </p>
+            <p style="margin-bottom: 1rem;">
+                AI-Powered Crypto Trading Platform | Built by 27 Professional AI Agents
+            </p>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="index.html">Home</a>
+                <a href="docs.html">Documentation</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="privacy.html" style="color: var(--accent-green);">Privacy Policy</a>
+                <a href="cookies.html">Cookie Policy</a>
+                <a href="security.html">Security</a>
+            </div>
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2);">
+                <p style="font-size: 0.85rem;">
+                    © 2025 HypeAI. All rights reserved. | GDPR & CCPA Compliant
+                </p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--gray);">
+                    Risk Disclaimer: Cryptocurrency trading involves substantial risk. Past performance does not guarantee future results.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add active state to TOC links based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.privacy-section');
+            const tocLinks = document.querySelectorAll('.toc a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.style.color = '';
+                link.style.background = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--primary-blue)';
+                    link.style.background = 'rgba(0, 212, 255, 0.1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

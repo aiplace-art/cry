@@ -1,0 +1,183 @@
+<!-- HypeAI Navigation Updates -->
+<!-- Add these links to the header nav section (around line 467-476 in index.html) -->
+
+<!-- Updated Navigation Menu -->
+<nav id="main-nav">
+    <!-- Existing Links -->
+    <a href="trade-enhanced.html" style="color: var(--primary-blue); font-weight: 700;">💎 Trade</a>
+    <a href="#features">Features</a>
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#roadmap">Roadmap</a>
+
+    <!-- NEW LINKS - Add these 3 links -->
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#token-growth" class="nav-link">Token Growth</a>
+    <a href="#ai-agents" class="nav-link">AI Team</a>
+
+    <!-- Existing Links Continued -->
+    <a href="proof.html" style="color: var(--accent-green);">✅ PROOF</a>
+    <a href="agents.html">AI Team</a>
+    <a href="agents-activity.html" style="color: var(--primary-purple);">🔴 Live</a>
+    <a href="docs.html">Docs</a>
+</nav>
+
+<!-- Mobile Navigation Toggle -->
+<button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+</button>
+
+<!-- Mobile Navigation Menu -->
+<div class="mobile-nav-menu" id="mobileNavMenu">
+    <a href="trade-enhanced.html" style="color: var(--primary-blue); font-weight: 700;">💎 Trade</a>
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#tokenomics" class="nav-link">Tokenomics</a>
+    <a href="#roadmap" class="nav-link">Roadmap</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#token-growth" class="nav-link">Token Growth</a>
+    <a href="#ai-agents" class="nav-link">AI Team</a>
+    <a href="proof.html" style="color: var(--accent-green);">✅ PROOF</a>
+    <a href="agents.html">AI Team</a>
+    <a href="agents-activity.html" style="color: var(--primary-purple);">🔴 Live</a>
+    <a href="docs.html">Docs</a>
+</div>
+
+<!-- Additional CSS for Navigation -->
+<style>
+    /* Active link highlighting */
+    nav a.active {
+        color: var(--primary-blue);
+        position: relative;
+    }
+
+    nav a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    /* Mobile Navigation Toggle */
+    .mobile-nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 1001;
+    }
+
+    .hamburger-line {
+        width: 25px;
+        height: 3px;
+        background: var(--primary-blue);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-nav-toggle.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .mobile-nav-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-nav-toggle.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Mobile Navigation Menu */
+    .mobile-nav-menu {
+        display: none;
+        position: fixed;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        max-width: 300px;
+        background: rgba(10, 14, 39, 0.98);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid rgba(157, 78, 221, 0.2);
+        border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+        padding: 2rem;
+        z-index: 999;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        transform: translateX(0);
+    }
+
+    .mobile-nav-menu a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        padding: 0.75rem;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+    .mobile-nav-menu a:hover,
+    .mobile-nav-menu a.active {
+        background: rgba(0, 212, 255, 0.1);
+        color: var(--primary-blue);
+    }
+
+    /* Smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Offset for fixed header */
+    section[id] {
+        scroll-margin-top: 100px;
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            display: none !important;
+        }
+
+        .mobile-nav-toggle {
+            display: flex;
+        }
+    }
+</style>
+
+<!-- Footer Navigation Updates -->
+<!-- Add to footer "Product" section -->
+<div class="footer-section">
+    <h3>Product</h3>
+    <ul class="footer-links">
+        <li><a href="trade-enhanced.html" style="color: var(--primary-blue); font-weight: 700;">💎 Trade (Pro)</a></li>
+        <li><a href="trade.html">Trade (Basic)</a></li>
+        <li><a href="stake.html">Stake</a></li>
+        <li><a href="governance.html">Governance</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <!-- NEW FOOTER LINKS -->
+        <li><a href="#services">Services</a></li>
+        <li><a href="#token-growth">Token Growth</a></li>
+        <li><a href="#ai-agents">AI Agents</a></li>
+    </ul>
+</div>

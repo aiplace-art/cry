@@ -1,0 +1,163 @@
+<svg width="2000" height="2000" viewBox="0 0 2000 2000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Premium Gradients for Dark Theme -->
+    <linearGradient id="hexGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0088ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="lightningGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#66ffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="textGradDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- ULTRA Premium Glow Filters for Dark Theme -->
+    <filter id="hexGlowDark" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feFlood flood-color="#00ffff" flood-opacity="1"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="lightningGlowDark" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="25" result="coloredBlur"/>
+      <feFlood flood-color="#00ffff" flood-opacity="1"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="textGlowDark" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feFlood flood-color="#00ffff" flood-opacity="0.9"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Enhanced Shadow for Dark Theme -->
+    <filter id="shadowDark">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#00ffff" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Dark Premium Background -->
+  <rect width="2000" height="2000" fill="#0a0a15"/>
+
+  <!-- Ambient Glow Background -->
+  <circle cx="1000" cy="630" r="600" fill="url(#hexGradDark)" opacity="0.05"/>
+
+  <!-- Hexagon with ULTRA Glow -->
+  <g filter="url(#hexGlowDark)">
+    <path d="M 1000 350 L 1230 490 L 1230 770 L 1000 910 L 770 770 L 770 490 Z"
+          fill="url(#hexGradDark)"
+          stroke="url(#hexGradDark)"
+          stroke-width="8"
+          filter="url(#shadowDark)"/>
+  </g>
+
+  <!-- Inner Hexagon Details -->
+  <path d="M 1000 400 L 1200 520 L 1200 740 L 1000 860 L 800 740 L 800 520 Z"
+        fill="none"
+        stroke="url(#hexGradDark)"
+        stroke-width="4"
+        opacity="0.7"/>
+
+  <!-- Additional Inner Ring -->
+  <path d="M 1000 420 L 1180 530 L 1180 730 L 1000 840 L 820 730 L 820 530 Z"
+        fill="none"
+        stroke="url(#lightningGradDark)"
+        stroke-width="2"
+        opacity="0.4"/>
+
+  <!-- 8 Lightning Bolts with MEGA Glow -->
+  <g filter="url(#lightningGlowDark)">
+    <!-- Top Lightning -->
+    <path d="M 1000 350 L 980 450 L 1010 450 L 990 550 L 1040 450 L 1010 450 Z"
+          fill="url(#lightningGradDark)" stroke="none"/>
+
+    <!-- Top-Right Lightning -->
+    <path d="M 1230 490 L 1180 550 L 1210 560 L 1170 640 L 1230 570 L 1200 560 Z"
+          fill="url(#lightningGradDark)" stroke="none"/>
+
+    <!-- Right Lightning -->
+    <path d="M 1230 630 L 1180 650 L 1200 670 L 1160 750 L 1220 680 L 1200 660 Z"
+          fill="url(#lightningGradDark)" stroke="none"/>
+
+    <!-- Bottom-Right Lightning -->
+    <path d="M 1230 770 L 1180 810 L 1210 820 L 1170 900 L 1230 830 L 1200 820 Z"
+          fill="url(#lightningGradDark)" stroke="none"/>
+
+    <!-- Bottom Lightning -->
+    <path d="M 1000 910 L 980 810 L 1010 810 L 990 710 L 1040 810 L 1010 810 Z"
+          fill="url(#lightningGradDark)" stroke="none"/>
+
+    <!-- Bottom-Left Lightning -->
+    <path d="M 770 770 L 820 810 L 790 820 L 830 900 L 770 830 L 800 820 Z"
+          fill="url(#lightningGradDark)" stroke="none"/>
+
+    <!-- Left Lightning -->
+    <path d="M 770 630 L 820 650 L 800 670 L 840 750 L 780 680 L 800 660 Z"
+          fill="url(#lightningGradDark)" stroke="none"/>
+
+    <!-- Top-Left Lightning -->
+    <path d="M 770 490 L 820 550 L 790 560 L 830 640 L 770 570 L 800 560 Z"
+          fill="url(#lightningGradDark)" stroke="none"/>
+  </g>
+
+  <!-- Central AI Core with Enhanced Glow -->
+  <circle cx="1000" cy="630" r="80" fill="url(#hexGradDark)" filter="url(#hexGlowDark)"/>
+  <circle cx="1000" cy="630" r="60" fill="none" stroke="url(#lightningGradDark)" stroke-width="5"/>
+  <circle cx="1000" cy="630" r="40" fill="none" stroke="url(#lightningGradDark)" stroke-width="3" opacity="0.8"/>
+  <circle cx="1000" cy="630" r="20" fill="url(#lightningGradDark)" opacity="0.9"/>
+
+  <!-- HYPEAI Text with ULTRA Glow -->
+  <g filter="url(#textGlowDark)">
+    <text x="1000" y="1150"
+          font-family="Arial, sans-serif"
+          font-size="180"
+          font-weight="900"
+          fill="url(#textGradDark)"
+          text-anchor="middle"
+          letter-spacing="12">HYPEAI</text>
+  </g>
+
+  <!-- Tagline with Glow -->
+  <text x="1000" y="1250"
+        font-family="Arial, sans-serif"
+        font-size="48"
+        font-weight="400"
+        fill="url(#textGradDark)"
+        text-anchor="middle"
+        letter-spacing="16"
+        opacity="0.95"
+        filter="url(#textGlowDark)">INFINITE INTELLIGENCE</text>
+
+  <!-- Enhanced Decorative Elements -->
+  <circle cx="850" cy="1150" r="8" fill="url(#lightningGradDark)" filter="url(#lightningGlowDark)"/>
+  <circle cx="1150" cy="1150" r="8" fill="url(#lightningGradDark)" filter="url(#lightningGlowDark)"/>
+
+  <!-- Additional Sparkles -->
+  <circle cx="900" cy="1120" r="4" fill="#00ffff" opacity="0.8"/>
+  <circle cx="1100" cy="1120" r="4" fill="#00ffff" opacity="0.8"/>
+  <circle cx="920" cy="1180" r="3" fill="#00d4ff" opacity="0.6"/>
+  <circle cx="1080" cy="1180" r="3" fill="#00d4ff" opacity="0.6"/>
+</svg>

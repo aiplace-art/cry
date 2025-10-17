@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/agents-status",
+      "dest": "/api/agents-status.js"
+    },
+    {
+      "src": "/api/services-inquiry",
+      "dest": "/api/services-inquiry.js",
+      "methods": ["POST"]
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "EMAIL_FROM": "@email_from",
+    "EMAIL_TO": "@email_to",
+    "EMAIL_SERVICE_API_KEY": "@email_service_api_key"
+  }
+}

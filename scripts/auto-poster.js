@@ -73,6 +73,40 @@ function formatTweet(tweet) {
   return text;
 }
 
+// Upload media to Twitter
+async function uploadMedia(client, tweetData) {
+  try {
+    // Dynamic import of media generator
+    const { getMediaForTweet } = await import('./media-generator.js');
+
+    // Get AI-generated or downloaded media
+    const mediaPath = await getMediaForTweet(tweetData);
+
+    if (!mediaPath) {
+      console.log(`   ⚠️  No media generated, using default logo`);
+      const defaultPath = './website/branding/logos/twitter/hypeai-logo-1024.png';
+      const mediaId = await client.v1.uploadMedia(defaultPath);
+      return mediaId;
+    }
+
+    console.log(`   📷 Uploading media: ${mediaPath}`);
+
+    const mediaId = await client.v1.uploadMedia(mediaPath);
+
+    console.log(`   ✅ Media uploaded: ${mediaId}`);
+    return mediaId;
+  } catch (error) {
+    console.error(`   ⚠️  Media upload failed: ${error.message}`);
+    // Fallback to logo
+    try {
+      const defaultPath = './website/branding/logos/twitter/hypeai-logo-1024.png';
+      return await client.v1.uploadMedia(defaultPath);
+    } catch (fallbackError) {
+      return null;
+    }
+  }
+}
+
 // Post tweet
 async function postTweet(client, tweetData) {
   try {
@@ -83,9 +117,18 @@ async function postTweet(client, tweetData) {
     console.log(`Category: ${tweetData.category}`);
     console.log(`Text: ${tweetText.substring(0, 100)}...`);
 
-    const result = await rwClient.v2.tweet({
-      text: tweetText
-    });
+    // Upload media with tweet context
+    const mediaId = await uploadMedia(client, tweetData);
+
+    // Build tweet payload
+    const tweetPayload = { text: tweetText };
+
+    if (mediaId) {
+      tweetPayload.media = { media_ids: [mediaId] };
+      console.log(`   🖼️  Media attached to tweet`);
+    }
+
+    const result = await rwClient.v2.tweet(tweetPayload);
 
     console.log(`✅ Posted successfully!`);
     console.log(`   Tweet ID: ${result.data.id}`);

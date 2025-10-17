@@ -1,0 +1,925 @@
+/* =========================================
+   NEW SECTIONS CSS - AI SERVICES, TOKEN GROWTH, AI AGENTS
+   ========================================= */
+
+/* Common Section Styles */
+.services, .token-growth, .ai-agents {
+    padding: 6rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gray);
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+}
+
+.subsection-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   AI SERVICES SECTION
+   ======================================== */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.service-card {
+    background: rgba(26, 31, 58, 0.6);
+    padding: 2.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.service-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.service-features li {
+    color: var(--gray);
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.service-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-weight: bold;
+}
+
+.service-pricing {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-green);
+    margin-bottom: 1rem;
+}
+
+.service-cta {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.service-cta:hover {
+    color: var(--white);
+}
+
+.services-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-green);
+}
+
+.benefit-icon {
+    font-size: 1.5rem;
+}
+
+/* ========================================
+   TOKEN GROWTH SECTION
+   ======================================== */
+
+.token-growth {
+    background: rgba(26, 31, 58, 0.3);
+}
+
+/* The Formula Box */
+.formula-box {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(157, 78, 221, 0.1));
+    padding: 3rem;
+    border-radius: 20px;
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.formula-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.formula-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.3rem;
+}
+
+.formula-numerator, .formula-denominator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.formula-numerator .arrow {
+    font-size: 2rem;
+}
+
+.formula-numerator span:nth-child(2),
+.formula-denominator span:nth-child(2) {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.formula-numerator small,
+.formula-denominator small {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.formula-divider {
+    width: 80%;
+    max-width: 400px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-purple), transparent);
+    margin: 1rem 0;
+}
+
+.formula-equals {
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+.formula-equals .result {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 0.5rem;
+}
+
+.formula-tagline {
+    margin-top: 2rem;
+    color: var(--gray);
+    font-size: 1.1rem;
+}
+
+/* Burn Mechanism */
+.burn-mechanism {
+    margin-bottom: 4rem;
+}
+
+.burn-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.burn-visual {
+    background: rgba(26, 31, 58, 0.6);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 71, 87, 0.2);
+}
+
+.burn-chart {
+    margin-bottom: 2rem;
+    height: 200px;
+}
+
+.burn-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.burn-stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.stat-label {
+    color: var(--gray);
+}
+
+.stat-value {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.stat-change {
+    color: var(--accent-green);
+    margin-left: 0.5rem;
+}
+
+.stat-value.critical {
+    color: var(--accent-green);
+    font-size: 1.1rem;
+}
+
+.burn-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.burn-rule {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 71, 87, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid #FF4757;
+}
+
+.rule-icon {
+    font-size: 1.5rem;
+}
+
+/* Price Projections */
+.price-projections {
+    margin-bottom: 4rem;
+}
+
+.projections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.projection-card {
+    background: rgba(26, 31, 58, 0.6);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 2px solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.projection-card.conservative {
+    border-color: rgba(57, 255, 20, 0.3);
+}
+
+.projection-card.moderate {
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.projection-card.optimistic {
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.projection-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 212, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.projection-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.projection-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.timeline-item .time {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.timeline-item .price {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent-green);
+}
+
+.timeline-item .multiplier {
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+}
+
+.projection-label {
+    text-align: center;
+    font-weight: 700;
+    color: var(--accent-green);
+    font-size: 1.1rem;
+}
+
+/* Investment Calculator */
+.investment-calculator {
+    background: rgba(26, 31, 58, 0.6);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    margin-bottom: 4rem;
+}
+
+.calculator-input {
+    margin-bottom: 2rem;
+}
+
+.calculator-input label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.calculator-input input[type="range"] {
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 1rem;
+}
+
+.calculator-input input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.input-display {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.calculator-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.result-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid;
+}
+
+.result-card.conservative-result {
+    border-color: rgba(57, 255, 20, 0.3);
+}
+
+.result-card.moderate-result {
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.result-card.optimistic-result {
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.result-scenario {
+    display: block;
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-value {
+    display: block;
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
+}
+
+.result-profit {
+    display: block;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.calculator-cta {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* 5 Reasons */
+.inevitable-reasons {
+    margin-bottom: 4rem;
+}
+
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.reason-card {
+    background: rgba(26, 31, 58, 0.6);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    transition: transform 0.3s;
+}
+
+.reason-card:hover {
+    transform: translateY(-5px);
+}
+
+.reason-number {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.reason-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-blue);
+}
+
+.reason-desc {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+/* ========================================
+   AI AGENTS SECTION
+   ======================================== */
+
+/* Live Dashboard */
+.live-dashboard {
+    background: rgba(26, 31, 58, 0.6);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    margin-bottom: 4rem;
+}
+
+.dashboard-status {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.status-indicator {
+    font-size: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-green);
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+}
+
+.dashboard-stat {
+    text-align: center;
+}
+
+.dashboard-stat .stat-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dashboard-stat .stat-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Agent Cards */
+.agents-section {
+    margin-bottom: 3rem;
+}
+
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.agent-card {
+    background: rgba(26, 31, 58, 0.6);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.agent-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(0, 212, 255, 0.3);
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
+.agent-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.agent-name {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: var(--primary-blue);
+}
+
+.agent-role {
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.agent-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-green);
+}
+
+.status-dot.active {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.agent-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.agent-stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.agent-stat-item .stat-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-green);
+}
+
+.agent-stat-item .stat-text {
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.show-more-section {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+/* Coordination Diagram */
+.coordination-diagram {
+    margin-bottom: 4rem;
+}
+
+.diagram-container {
+    background: rgba(26, 31, 58, 0.6);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    position: relative;
+}
+
+.coordinator-node {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.coordinator-node .node-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.coordinator-node .node-name {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.coordinator-node .node-desc {
+    color: var(--gray);
+    margin-top: 0.5rem;
+}
+
+.coordination-lines {
+    margin-bottom: 2rem;
+}
+
+.connection-svg {
+    display: block;
+}
+
+.division-nodes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.division-node {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+}
+
+.division-node .division-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.division-node .division-name {
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.division-node .division-count {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.coordination-note {
+    text-align: center;
+    color: var(--gray);
+}
+
+.coordination-note strong {
+    color: var(--primary-blue);
+}
+
+/* Competitive Advantage */
+.competitive-advantage {
+    margin-bottom: 3rem;
+}
+
+.comparison-table {
+    background: rgba(26, 31, 58, 0.6);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    margin-top: 2rem;
+}
+
+.comparison-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(157, 78, 221, 0.1);
+}
+
+.comparison-row:last-child {
+    border-bottom: none;
+}
+
+.comparison-label {
+    font-weight: 600;
+    color: var(--white);
+}
+
+.comparison-value {
+    color: var(--gray);
+    text-align: center;
+}
+
+.comparison-value.highlight {
+    color: var(--accent-green);
+    font-weight: 700;
+}
+
+.comparison-column.highlight {
+    color: var(--primary-blue);
+}
+
+.advantage-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.summary-item {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(57, 255, 20, 0.1));
+    border-radius: 12px;
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent-green);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .services, .token-growth, .ai-agents {
+        padding: 4rem 5%;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .burn-content {
+        grid-template-columns: 1fr;
+    }
+
+    .projections-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator-results {
+        grid-template-columns: 1fr;
+    }
+
+    .reasons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .agents-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-header,
+    .comparison-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .comparison-value {
+        text-align: left;
+        padding-left: 1rem;
+    }
+
+    .division-nodes {
+        grid-template-columns: 1fr;
+    }
+
+    .formula-visual {
+        font-size: 1.1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .subsection-title {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+}

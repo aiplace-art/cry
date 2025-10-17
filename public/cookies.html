@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - HypeAI | How We Use Cookies</title>
+    <link rel="icon" type="image/svg+xml" href="logo-icon-only.svg">
+    <link rel="alternate icon" href="favicon.svg">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="HypeAI Cookie Policy - Learn how we use cookies and similar tracking technologies to enhance your experience on our platform.">
+    <meta name="keywords" content="cookie policy, cookies, privacy, tracking, HypeAI, GDPR, CCPA">
+    <meta name="author" content="HypeAI Team">
+    <meta name="robots" content="index, follow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary-blue: #00D4FF;
+            --primary-purple: #9D4EDD;
+            --accent-green: #39FF14;
+            --dark-bg: #0A0E27;
+            --dark-card: #1A1F3A;
+            --white: #FFFFFF;
+            --gray: #A0AEC0;
+            --light-gray: #E2E8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0F1629 100%);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* Accessibility */
+        a:focus, button:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.8);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            animation: logoSpin 8s linear infinite, logoPulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+        }
+
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6)); }
+            50% { filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.8)); }
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 5% 4rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            font-size: 0.95rem;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .toc h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .toc li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+        }
+
+        .toc a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .toc a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: rgba(26, 31, 58, 0.4);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(157, 78, 221, 0.15);
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-purple);
+        }
+
+        .content-section p {
+            margin-bottom: 1.25rem;
+            color: var(--light-gray);
+            line-height: 1.8;
+        }
+
+        .content-section ul, .content-section ol {
+            margin-bottom: 1.25rem;
+            margin-left: 1.5rem;
+            color: var(--light-gray);
+        }
+
+        .content-section li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        /* Cookie Table */
+        .cookie-table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(10, 14, 39, 0.6);
+        }
+
+        .cookie-table th {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(157, 78, 221, 0.2));
+            color: var(--white);
+            font-weight: 700;
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .cookie-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.1);
+            color: var(--light-gray);
+        }
+
+        .cookie-table tr:hover {
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .cookie-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .cookie-type.necessary {
+            background: rgba(57, 255, 20, 0.2);
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+        }
+
+        .cookie-type.analytics {
+            background: rgba(0, 212, 255, 0.2);
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+        }
+
+        .cookie-type.marketing {
+            background: rgba(157, 78, 221, 0.2);
+            color: var(--primary-purple);
+            border: 1px solid var(--primary-purple);
+        }
+
+        .cookie-type.functional {
+            background: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+            border: 1px solid #FFC107;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .info-box.warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-left-color: #FFC107;
+        }
+
+        .info-box.success {
+            background: rgba(57, 255, 20, 0.1);
+            border-left-color: var(--accent-green);
+        }
+
+        .info-box h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box.warning h4 {
+            color: #FFC107;
+        }
+
+        .info-box.success h4 {
+            color: var(--accent-green);
+        }
+
+        /* Browser Instructions */
+        .browser-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .browser-card {
+            background: rgba(26, 31, 58, 0.6);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .browser-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+            border-color: var(--primary-blue);
+        }
+
+        .browser-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .browser-card ol {
+            margin-left: 1.25rem;
+            color: var(--light-gray);
+        }
+
+        .browser-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Links */
+        .content-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .content-link:hover {
+            border-bottom-color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: rgba(10, 14, 39, 0.9);
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            main {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .toc, .info-box {
+                padding: 1.25rem;
+            }
+
+            .cookie-table {
+                font-size: 0.85rem;
+            }
+
+            .cookie-table th,
+            .cookie-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .browser-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            .back-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo-icon-only.svg" alt="HypeAI Logo" style="width: 70px; height: 70px;">
+            HypeAI
+        </a>
+        <a href="index.html" class="back-button">← Back to Home</a>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">Cookie Policy</h1>
+            <p class="page-subtitle">How HypeAI uses cookies and similar tracking technologies</p>
+            <p class="last-updated">Last Updated: January 17, 2025</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#what-are-cookies">1. What Are Cookies?</a></li>
+                <li><a href="#why-we-use">2. Why We Use Cookies</a></li>
+                <li><a href="#types-of-cookies">3. Types of Cookies We Use</a></li>
+                <li><a href="#cookie-details">4. Detailed Cookie Information</a></li>
+                <li><a href="#third-party">5. Third-Party Cookies</a></li>
+                <li><a href="#control-cookies">6. How to Control Cookies</a></li>
+                <li><a href="#your-rights">7. Your Choices and Rights</a></li>
+                <li><a href="#updates">8. Updates to This Policy</a></li>
+                <li><a href="#contact">9. Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 1: What Are Cookies -->
+        <section id="what-are-cookies" class="content-section">
+            <h2>🍪 1. What Are Cookies?</h2>
+            <p>
+                Cookies are small text files that are placed on your computer, smartphone, or other device when you visit a website. They are widely used to make websites work more efficiently, provide a better user experience, and provide information to website owners.
+            </p>
+            <p>
+                Cookies contain information that is transferred to your device's hard drive. They help us recognize your device and store some information about your preferences or past actions on our platform.
+            </p>
+
+            <div class="info-box">
+                <h4>Key Points About Cookies:</h4>
+                <ul>
+                    <li>Cookies do not contain viruses or malware</li>
+                    <li>They cannot access other data on your device</li>
+                    <li>They help improve your browsing experience</li>
+                    <li>You can control or delete cookies at any time</li>
+                    <li>Some cookies are essential for website functionality</li>
+                </ul>
+            </div>
+
+            <h3>Types of Technologies We Use</h3>
+            <p>In addition to cookies, we use similar tracking technologies including:</p>
+            <ul>
+                <li><strong>Web Beacons (Pixels):</strong> Small graphic images that allow us to monitor user activity and site traffic patterns</li>
+                <li><strong>Local Storage:</strong> HTML5 local storage that allows websites to store data locally in your browser</li>
+                <li><strong>Session Storage:</strong> Temporary storage that is cleared when you close your browser</li>
+                <li><strong>SDKs:</strong> Software development kits that collect information about how you interact with our mobile applications</li>
+            </ul>
+        </section>
+
+        <!-- Section 2: Why We Use Cookies -->
+        <section id="why-we-use" class="content-section">
+            <h2>🎯 2. Why We Use Cookies</h2>
+            <p>
+                HypeAI uses cookies and similar technologies for several important purposes to enhance your experience and improve our services:
+            </p>
+
+            <h3>Essential Operations</h3>
+            <ul>
+                <li><strong>Authentication:</strong> Remember your login status and wallet connections</li>
+                <li><strong>Security:</strong> Protect against fraud, abuse, and security threats</li>
+                <li><strong>Load Balancing:</strong> Distribute traffic across our servers efficiently</li>
+                <li><strong>Session Management:</strong> Maintain your session state across pages</li>
+            </ul>
+
+            <h3>Performance and Analytics</h3>
+            <ul>
+                <li><strong>Usage Analytics:</strong> Understand how visitors use our platform</li>
+                <li><strong>Error Tracking:</strong> Identify and fix technical issues</li>
+                <li><strong>Performance Monitoring:</strong> Optimize page load times and responsiveness</li>
+                <li><strong>A/B Testing:</strong> Test new features and improvements</li>
+            </ul>
+
+            <h3>Personalization</h3>
+            <ul>
+                <li><strong>User Preferences:</strong> Remember your settings, language, and display preferences</li>
+                <li><strong>Content Customization:</strong> Show relevant content based on your interests</li>
+                <li><strong>Trading Preferences:</strong> Save your trading pairs and dashboard layout</li>
+            </ul>
+
+            <h3>Marketing and Advertising</h3>
+            <ul>
+                <li><strong>Campaign Tracking:</strong> Measure the effectiveness of our marketing campaigns</li>
+                <li><strong>Retargeting:</strong> Show relevant ads to visitors who have shown interest in our platform</li>
+                <li><strong>Conversion Tracking:</strong> Understand which channels drive user acquisition</li>
+            </ul>
+        </section>
+
+        <!-- Section 3: Types of Cookies -->
+        <section id="types-of-cookies" class="content-section">
+            <h2>📊 3. Types of Cookies We Use</h2>
+
+            <h3>By Duration</h3>
+            <p>
+                <strong>Session Cookies:</strong> These are temporary cookies that expire when you close your browser. They help us maintain your session as you navigate through our platform.
+            </p>
+            <p>
+                <strong>Persistent Cookies:</strong> These cookies remain on your device for a set period or until you delete them. They help us remember your preferences and settings across multiple visits.
+            </p>
+
+            <h3>By Category</h3>
+
+            <div class="info-box success">
+                <h4>Strictly Necessary Cookies</h4>
+                <p>
+                    These cookies are essential for our platform to function properly. Without these cookies, services like wallet connection, account authentication, and basic navigation cannot be provided. These cookies do not store any personally identifiable information.
+                </p>
+                <p><strong>These cookies cannot be disabled as they are critical for platform security and functionality.</strong></p>
+            </div>
+
+            <div class="info-box">
+                <h4>Analytics and Performance Cookies</h4>
+                <p>
+                    These cookies help us understand how visitors interact with our platform by collecting and reporting information anonymously. This data helps us improve our services, identify technical issues, and optimize user experience.
+                </p>
+                <p><strong>You can opt-out of analytics cookies through our cookie consent manager.</strong></p>
+            </div>
+
+            <div class="info-box">
+                <h4>Functional Cookies</h4>
+                <p>
+                    These cookies enable enhanced functionality and personalization, such as remembering your preferences, language settings, and customizations you've made to the platform interface.
+                </p>
+                <p><strong>You can disable these cookies, but some features may not work as intended.</strong></p>
+            </div>
+
+            <div class="info-box warning">
+                <h4>Marketing and Advertising Cookies</h4>
+                <p>
+                    These cookies are used to deliver advertisements that are relevant to you and your interests. They also help us measure the effectiveness of our advertising campaigns and limit the number of times you see an advertisement.
+                </p>
+                <p><strong>You can opt-out of marketing cookies at any time.</strong></p>
+            </div>
+        </section>
+
+        <!-- Section 4: Cookie Details Table -->
+        <section id="cookie-details" class="content-section">
+            <h2>📋 4. Detailed Cookie Information</h2>
+            <p>Below is a comprehensive list of cookies used on the HypeAI platform:</p>
+
+            <h3>Strictly Necessary Cookies</h3>
+            <div class="cookie-table-wrapper">
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie Name</th>
+                            <th>Purpose</th>
+                            <th>Duration</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>hypeai_session</code></td>
+                            <td>Maintains user session state and authentication status across the platform</td>
+                            <td>Session (expires on browser close)</td>
+                            <td><span class="cookie-type necessary">Necessary</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>csrf_token</code></td>
+                            <td>Security token to prevent Cross-Site Request Forgery (CSRF) attacks</td>
+                            <td>Session</td>
+                            <td><span class="cookie-type necessary">Necessary</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>wallet_connected</code></td>
+                            <td>Remembers wallet connection status (MetaMask, Trust Wallet, etc.)</td>
+                            <td>7 days</td>
+                            <td><span class="cookie-type necessary">Necessary</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>load_balancer</code></td>
+                            <td>Routes user requests to the appropriate server for optimal performance</td>
+                            <td>Session</td>
+                            <td><span class="cookie-type necessary">Necessary</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>cookie_consent</code></td>
+                            <td>Stores your cookie preferences and consent choices</td>
+                            <td>365 days</td>
+                            <td><span class="cookie-type necessary">Necessary</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Analytics and Performance Cookies</h3>
+            <div class="cookie-table-wrapper">
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie Name</th>
+                            <th>Purpose</th>
+                            <th>Duration</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>_ga</code></td>
+                            <td>Google Analytics - distinguishes unique users and tracks behavior</td>
+                            <td>2 years</td>
+                            <td><span class="cookie-type analytics">Analytics</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>_gid</code></td>
+                            <td>Google Analytics - distinguishes users for 24-hour period</td>
+                            <td>24 hours</td>
+                            <td><span class="cookie-type analytics">Analytics</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>_gat</code></td>
+                            <td>Google Analytics - throttles request rate to prevent server overload</td>
+                            <td>1 minute</td>
+                            <td><span class="cookie-type analytics">Analytics</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>hypeai_analytics</code></td>
+                            <td>First-party analytics for tracking platform usage and user behavior</td>
+                            <td>90 days</td>
+                            <td><span class="cookie-type analytics">Analytics</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>performance_metrics</code></td>
+                            <td>Monitors page load times, errors, and technical performance</td>
+                            <td>30 days</td>
+                            <td><span class="cookie-type analytics">Analytics</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Functional Cookies</h3>
+            <div class="cookie-table-wrapper">
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie Name</th>
+                            <th>Purpose</th>
+                            <th>Duration</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>user_preferences</code></td>
+                            <td>Stores user preferences including theme, language, and display settings</td>
+                            <td>365 days</td>
+                            <td><span class="cookie-type functional">Functional</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>trading_pairs</code></td>
+                            <td>Remembers your favorite trading pairs and watchlist</td>
+                            <td>90 days</td>
+                            <td><span class="cookie-type functional">Functional</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>dashboard_layout</code></td>
+                            <td>Saves your customized dashboard widget arrangement</td>
+                            <td>180 days</td>
+                            <td><span class="cookie-type functional">Functional</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>notifications_prefs</code></td>
+                            <td>Stores notification preferences and alert settings</td>
+                            <td>365 days</td>
+                            <td><span class="cookie-type functional">Functional</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Marketing and Advertising Cookies</h3>
+            <div class="cookie-table-wrapper">
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie Name</th>
+                            <th>Purpose</th>
+                            <th>Duration</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>_fbp</code></td>
+                            <td>Facebook Pixel - tracks conversions and measures ad campaign effectiveness</td>
+                            <td>90 days</td>
+                            <td><span class="cookie-type marketing">Marketing</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>_gcl_au</code></td>
+                            <td>Google AdSense - tracks conversions and ad performance</td>
+                            <td>90 days</td>
+                            <td><span class="cookie-type marketing">Marketing</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>utm_source</code></td>
+                            <td>Tracks marketing campaign source for attribution analysis</td>
+                            <td>30 days</td>
+                            <td><span class="cookie-type marketing">Marketing</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>referral_code</code></td>
+                            <td>Tracks referral links for affiliate and partnership programs</td>
+                            <td>60 days</td>
+                            <td><span class="cookie-type marketing">Marketing</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>twitter_pixel</code></td>
+                            <td>Twitter/X conversion tracking for measuring ad campaign success</td>
+                            <td>90 days</td>
+                            <td><span class="cookie-type marketing">Marketing</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 5: Third-Party Cookies -->
+        <section id="third-party" class="content-section">
+            <h2>🔗 5. Third-Party Cookies</h2>
+            <p>
+                In addition to our own cookies, we use third-party services that may set cookies on your device when you visit our platform. We do not control how these third parties use cookies, and we recommend reviewing their privacy policies.
+            </p>
+
+            <h3>Google Analytics</h3>
+            <p>
+                We use Google Analytics to analyze how visitors use our platform. Google Analytics collects information anonymously and reports website trends without identifying individual visitors.
+            </p>
+            <ul>
+                <li><strong>Purpose:</strong> Track website usage, user behavior, and performance metrics</li>
+                <li><strong>Data Collected:</strong> Pages visited, time spent, browser type, device information, geographic location</li>
+                <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="content-link">Google Privacy Policy</a></li>
+                <li><strong>Opt-Out:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="content-link">Google Analytics Opt-out Browser Add-on</a></li>
+            </ul>
+
+            <h3>Social Media Pixels</h3>
+            <p>We use pixels from social media platforms to measure advertising effectiveness and show relevant ads:</p>
+
+            <h4>Facebook Pixel</h4>
+            <ul>
+                <li><strong>Purpose:</strong> Track conversions, optimize ads, build targeted audiences</li>
+                <li><strong>Privacy Policy:</strong> <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer" class="content-link">Meta Privacy Policy</a></li>
+                <li><strong>Opt-Out:</strong> Adjust settings in your <a href="https://www.facebook.com/ads/preferences" target="_blank" rel="noopener noreferrer" class="content-link">Facebook Ad Preferences</a></li>
+            </ul>
+
+            <h4>Twitter/X Pixel</h4>
+            <ul>
+                <li><strong>Purpose:</strong> Measure ad campaign performance and conversions</li>
+                <li><strong>Privacy Policy:</strong> <a href="https://twitter.com/privacy" target="_blank" rel="noopener noreferrer" class="content-link">Twitter Privacy Policy</a></li>
+                <li><strong>Opt-Out:</strong> Manage settings in your <a href="https://twitter.com/settings/privacy" target="_blank" rel="noopener noreferrer" class="content-link">Twitter Privacy Settings</a></li>
+            </ul>
+
+            <h3>Blockchain and Web3 Services</h3>
+            <p>
+                When you connect your wallet or interact with blockchain features, third-party services may set cookies:
+            </p>
+            <ul>
+                <li><strong>MetaMask:</strong> Wallet connection and transaction signing</li>
+                <li><strong>WalletConnect:</strong> Multi-wallet connection protocol</li>
+                <li><strong>Ethereum/Polygon Networks:</strong> Blockchain interaction and transaction processing</li>
+                <li><strong>DEX Aggregators:</strong> Trading and liquidity services (Uniswap, PancakeSwap)</li>
+            </ul>
+
+            <div class="info-box warning">
+                <h4>Important Note About Wallet Privacy:</h4>
+                <p>
+                    Blockchain transactions are public and permanent. Your wallet address and transaction history can be viewed by anyone on the blockchain explorer. We do not control this data as it is inherent to blockchain technology.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 6: Control Cookies -->
+        <section id="control-cookies" class="content-section">
+            <h2>🛠️ 6. How to Control Cookies</h2>
+            <p>
+                You have the right to decide whether to accept or reject cookies. You can manage your cookie preferences through several methods:
+            </p>
+
+            <h3>Cookie Consent Manager</h3>
+            <p>
+                When you first visit HypeAI, you'll see a cookie banner that allows you to accept or customize your cookie preferences. You can change these preferences at any time by clicking the "Cookie Settings" link in our footer.
+            </p>
+
+            <h3>Browser Settings</h3>
+            <p>
+                Most web browsers allow you to control cookies through their settings. Below are instructions for popular browsers:
+            </p>
+
+            <div class="browser-grid">
+                <div class="browser-card">
+                    <h4>🌐 Google Chrome</h4>
+                    <ol>
+                        <li>Click the three dots menu (⋮) in the top right</li>
+                        <li>Select "Settings"</li>
+                        <li>Click "Privacy and security"</li>
+                        <li>Select "Cookies and other site data"</li>
+                        <li>Choose your preferred cookie settings</li>
+                    </ol>
+                </div>
+
+                <div class="browser-card">
+                    <h4>🦊 Mozilla Firefox</h4>
+                    <ol>
+                        <li>Click the menu button (≡) in the top right</li>
+                        <li>Select "Settings" or "Options"</li>
+                        <li>Click "Privacy & Security"</li>
+                        <li>Under "Cookies and Site Data", adjust settings</li>
+                        <li>Click "Manage Data" to remove specific cookies</li>
+                    </ol>
+                </div>
+
+                <div class="browser-card">
+                    <h4>🧭 Safari</h4>
+                    <ol>
+                        <li>Click "Safari" in the menu bar</li>
+                        <li>Select "Preferences"</li>
+                        <li>Click the "Privacy" tab</li>
+                        <li>Adjust cookie and tracking settings</li>
+                        <li>Click "Manage Website Data" to remove cookies</li>
+                    </ol>
+                </div>
+
+                <div class="browser-card">
+                    <h4>🔷 Microsoft Edge</h4>
+                    <ol>
+                        <li>Click the three dots menu (…) in the top right</li>
+                        <li>Select "Settings"</li>
+                        <li>Click "Cookies and site permissions"</li>
+                        <li>Select "Cookies and site data"</li>
+                        <li>Choose your cookie preferences</li>
+                    </ol>
+                </div>
+
+                <div class="browser-card">
+                    <h4>🎭 Brave Browser</h4>
+                    <ol>
+                        <li>Click the menu button in the top right</li>
+                        <li>Select "Settings"</li>
+                        <li>Click "Shields"</li>
+                        <li>Adjust "Cookies" blocking settings</li>
+                        <li>Manage site-specific permissions</li>
+                    </ol>
+                </div>
+
+                <div class="browser-card">
+                    <h4>📱 Mobile Safari (iOS)</h4>
+                    <ol>
+                        <li>Open iPhone/iPad Settings</li>
+                        <li>Scroll down and tap "Safari"</li>
+                        <li>Under "Privacy & Security", adjust settings</li>
+                        <li>Toggle "Block All Cookies" or "Prevent Cross-Site Tracking"</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="info-box warning">
+                <h4>⚠️ Impact of Disabling Cookies</h4>
+                <p>
+                    If you disable all cookies, some features of HypeAI may not function properly. Specifically:
+                </p>
+                <ul>
+                    <li>You may not be able to connect your wallet or maintain login sessions</li>
+                    <li>Your preferences and settings will not be saved</li>
+                    <li>Some security features may not work correctly</li>
+                    <li>You may need to re-enter information on each visit</li>
+                </ul>
+            </div>
+
+            <h3>Do Not Track (DNT) Signals</h3>
+            <p>
+                Some browsers include a "Do Not Track" (DNT) feature that signals to websites that you do not want to be tracked. Currently, there is no industry standard for how websites should respond to DNT signals. HypeAI honors DNT signals for optional cookies (analytics, marketing) but continues to use strictly necessary cookies for platform functionality and security.
+            </p>
+        </section>
+
+        <!-- Section 7: Your Rights -->
+        <section id="your-rights" class="content-section">
+            <h2>⚖️ 7. Your Choices and Rights</h2>
+            <p>
+                Depending on your location, you may have specific rights regarding cookies and personal data under regulations like GDPR (Europe) and CCPA (California).
+            </p>
+
+            <h3>GDPR Rights (European Users)</h3>
+            <p>If you are located in the European Economic Area (EEA), you have the following rights:</p>
+            <ul>
+                <li><strong>Right to Access:</strong> Request information about cookies and data we've collected</li>
+                <li><strong>Right to Rectification:</strong> Request correction of inaccurate personal data</li>
+                <li><strong>Right to Erasure:</strong> Request deletion of your personal data ("right to be forgotten")</li>
+                <li><strong>Right to Restrict Processing:</strong> Limit how we process your data</li>
+                <li><strong>Right to Data Portability:</strong> Receive your data in a portable format</li>
+                <li><strong>Right to Object:</strong> Object to processing for marketing purposes</li>
+                <li><strong>Right to Withdraw Consent:</strong> Withdraw cookie consent at any time</li>
+            </ul>
+
+            <h3>CCPA Rights (California Users)</h3>
+            <p>If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA):</p>
+            <ul>
+                <li><strong>Right to Know:</strong> Request disclosure of data collection and sharing practices</li>
+                <li><strong>Right to Delete:</strong> Request deletion of personal information</li>
+                <li><strong>Right to Opt-Out:</strong> Opt-out of the "sale" of personal information</li>
+                <li><strong>Right to Non-Discrimination:</strong> Equal service regardless of privacy choices</li>
+            </ul>
+
+            <div class="info-box success">
+                <h4>✅ HypeAI Does NOT Sell Personal Data</h4>
+                <p>
+                    We want to be clear: HypeAI does not sell, rent, or trade your personal information to third parties. While we use third-party analytics and advertising services, this does not constitute a "sale" under most privacy regulations.
+                </p>
+            </div>
+
+            <h3>Exercising Your Rights</h3>
+            <p>To exercise any of these rights, please contact us using the information in the Contact section below. We will respond to verified requests within:</p>
+            <ul>
+                <li>30 days for GDPR requests</li>
+                <li>45 days for CCPA requests (with possible 45-day extension)</li>
+            </ul>
+
+            <h3>Opt-Out Options</h3>
+            <p>You can opt-out of specific tracking technologies:</p>
+            <ul>
+                <li><strong>Google Analytics:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="content-link">Install Google Analytics Opt-out Browser Add-on</a></li>
+                <li><strong>Interest-Based Advertising:</strong> <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" class="content-link">Digital Advertising Alliance Opt-Out</a></li>
+                <li><strong>Network Advertising Initiative:</strong> <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener noreferrer" class="content-link">NAI Opt-Out</a></li>
+            </ul>
+        </section>
+
+        <!-- Section 8: Updates -->
+        <section id="updates" class="content-section">
+            <h2>🔄 8. Updates to This Cookie Policy</h2>
+            <p>
+                We may update this Cookie Policy from time to time to reflect changes in our practices, technologies, legal requirements, or for other operational reasons.
+            </p>
+
+            <h3>How We Notify You of Changes</h3>
+            <ul>
+                <li>We will update the "Last Updated" date at the top of this policy</li>
+                <li>For material changes, we will display a prominent notice on our platform</li>
+                <li>We may send email notifications to registered users</li>
+                <li>Continued use of our platform after changes constitutes acceptance of the updated policy</li>
+            </ul>
+
+            <h3>Version History</h3>
+            <div class="info-box">
+                <p><strong>Version 1.0 - January 17, 2025</strong></p>
+                <p>Initial publication of HypeAI Cookie Policy</p>
+            </div>
+
+            <p>
+                We encourage you to review this Cookie Policy periodically to stay informed about how we use cookies and protect your privacy.
+            </p>
+        </section>
+
+        <!-- Section 9: Contact -->
+        <section id="contact" class="content-section">
+            <h2>📧 9. Contact Us</h2>
+            <p>
+                If you have any questions about this Cookie Policy, our use of cookies, or wish to exercise your privacy rights, please contact us:
+            </p>
+
+            <div class="info-box">
+                <h4>HypeAI Privacy Team</h4>
+                <ul style="list-style: none; margin-left: 0;">
+                    <li><strong>Email:</strong> <a href="mailto:privacy@hypeai.io" class="content-link">privacy@hypeai.io</a></li>
+                    <li><strong>Cookie Concerns:</strong> <a href="mailto:cookies@hypeai.io" class="content-link">cookies@hypeai.io</a></li>
+                    <li><strong>Data Protection Officer:</strong> <a href="mailto:dpo@hypeai.io" class="content-link">dpo@hypeai.io</a></li>
+                    <li><strong>Support:</strong> <a href="mailto:support@hypeai.io" class="content-link">support@hypeai.io</a></li>
+                </ul>
+            </div>
+
+            <h3>Response Time</h3>
+            <p>We aim to respond to all privacy-related inquiries within:</p>
+            <ul>
+                <li>General inquiries: 3-5 business days</li>
+                <li>GDPR requests: 30 days</li>
+                <li>CCPA requests: 45 days</li>
+                <li>Urgent security concerns: 24-48 hours</li>
+            </ul>
+
+            <h3>Additional Resources</h3>
+            <p>For more information about privacy and data protection:</p>
+            <ul>
+                <li><a href="privacy.html" class="content-link">Privacy Policy</a> - Our complete privacy practices</li>
+                <li><a href="terms.html" class="content-link">Terms of Service</a> - Platform usage terms and conditions</li>
+                <li><a href="docs.html" class="content-link">Documentation</a> - Technical documentation and guides</li>
+                <li><a href="security.html" class="content-link">Security Policy</a> - Our security practices and commitments</li>
+            </ul>
+
+            <div class="info-box success">
+                <h4>🛡️ Your Privacy Matters</h4>
+                <p>
+                    At HypeAI, we are committed to transparency and giving you control over your data. We use cookies to provide you with the best possible experience while respecting your privacy choices. Thank you for trusting HypeAI with your data.
+                </p>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="content-section">
+            <h2>🔗 Related Policies</h2>
+            <div class="browser-grid">
+                <div class="browser-card">
+                    <h4>🔒 Privacy Policy</h4>
+                    <p>Learn how we collect, use, and protect your personal information.</p>
+                    <a href="privacy.html" class="content-link">Read Privacy Policy →</a>
+                </div>
+                <div class="browser-card">
+                    <h4>📜 Terms of Service</h4>
+                    <p>Understand the terms and conditions for using HypeAI platform.</p>
+                    <a href="terms.html" class="content-link">Read Terms →</a>
+                </div>
+                <div class="browser-card">
+                    <h4>🛡️ Security Policy</h4>
+                    <p>Discover our security measures and best practices.</p>
+                    <a href="security.html" class="content-link">Read Security Policy →</a>
+                </div>
+                <div class="browser-card">
+                    <h4>📚 Documentation</h4>
+                    <p>Access comprehensive guides and technical documentation.</p>
+                    <a href="docs.html" class="content-link">View Docs →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HypeAI</h3>
+                <p style="color: var(--gray); line-height: 1.6;">
+                    AI-Powered Crypto Trading Platform.<br>
+                    Where AI Meets Opportunity.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="cookies.html">Cookie Policy</a></li>
+                    <li><a href="disclaimer.html">Risk Disclaimer</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="whitepaper.html">Whitepaper</a></li>
+                    <li><a href="audit.html">Security Audit</a></li>
+                    <li><a href="api.html">API Docs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:privacy@hypeai.io">Privacy Inquiries</a></li>
+                    <li><a href="mailto:support@hypeai.io">Support</a></li>
+                    <li><a href="mailto:dpo@hypeai.io">Data Protection Officer</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(157, 78, 221, 0.2); color: var(--gray);">
+            <p>© 2025 HypeAI. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                This Cookie Policy was last updated on January 17, 2025
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Highlight current section in TOC
+        const sections = document.querySelectorAll('.content-section');
+        const tocLinks = document.querySelectorAll('.toc a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--primary-blue)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

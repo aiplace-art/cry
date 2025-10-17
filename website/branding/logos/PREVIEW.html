@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypeAI Logo Package Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #0a0a15 0%, #1a1a2e 100%);
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            background: linear-gradient(90deg, #00ffff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #00d4ff;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            letter-spacing: 8px;
+            opacity: 0.9;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #00d4ff;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 5px;
+            height: 40px;
+            background: linear-gradient(180deg, #00ffff, #00d4ff);
+            border-radius: 3px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .card-title {
+            color: #00ffff;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card-meta {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .preview-box {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            margin-bottom: 15px;
+        }
+
+        .preview-box.dark {
+            background: #0a0a15;
+        }
+
+        .preview-box img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .banner-preview {
+            min-height: 300px;
+        }
+
+        .file-path {
+            color: #00d4ff;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.85em;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+            word-break: break-all;
+        }
+
+        .theme-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .theme-btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            border: 2px solid #00d4ff;
+            background: transparent;
+            color: #00d4ff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-btn.active {
+            background: #00d4ff;
+            color: #0a0a15;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 136, 255, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-value {
+            font-size: 2em;
+            color: #00ffff;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .quality-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(90deg, #00ffff, #00d4ff);
+            color: #0a0a15;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HYPEAI LOGO PACKAGE</h1>
+        <p class="subtitle">INFINITE INTELLIGENCE</p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">22</div>
+                <div class="stat-label">Total Files</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Master SVGs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">4K-8K</div>
+                <div class="stat-label">Resolution</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2</div>
+                <div class="stat-label">Themes</div>
+            </div>
+        </div>
+
+        <!-- Master SVG Sources -->
+        <div class="section">
+            <h2 class="section-title">📁 Master SVG Sources <span class="quality-badge">ULTRA HD</span></h2>
+
+            <h3 style="color: #00ffff; margin: 30px 0 20px 0;">Light Theme</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Full Logo (Light)</div>
+                    <div class="card-meta">2000x2000 px | SVG</div>
+                    <div class="preview-box">
+                        <img src="sources/hypeai-logo-master-4k.svg" alt="Logo Light">
+                    </div>
+                    <div class="file-path">sources/hypeai-logo-master-4k.svg</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Icon Only (Light)</div>
+                    <div class="card-meta">2000x2000 px | SVG</div>
+                    <div class="preview-box">
+                        <img src="sources/hypeai-icon-master-4k.svg" alt="Icon Light">
+                    </div>
+                    <div class="file-path">sources/hypeai-icon-master-4k.svg</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Banner (Light)</div>
+                    <div class="card-meta">4000x1333 px | SVG | 3:1</div>
+                    <div class="preview-box banner-preview">
+                        <img src="sources/hypeai-banner-master-8k.svg" alt="Banner Light">
+                    </div>
+                    <div class="file-path">sources/hypeai-banner-master-8k.svg</div>
+                </div>
+            </div>
+
+            <h3 style="color: #00ffff; margin: 40px 0 20px 0;">Dark Theme (PREMIUM)</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Full Logo (Dark) ⚡</div>
+                    <div class="card-meta">2000x2000 px | SVG | ULTRA Glow</div>
+                    <div class="preview-box dark">
+                        <img src="sources/hypeai-logo-master-4k-dark.svg" alt="Logo Dark">
+                    </div>
+                    <div class="file-path">sources/hypeai-logo-master-4k-dark.svg</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Icon Only (Dark) ⚡</div>
+                    <div class="card-meta">2000x2000 px | SVG | MEGA Glow</div>
+                    <div class="preview-box dark">
+                        <img src="sources/hypeai-icon-master-4k-dark.svg" alt="Icon Dark">
+                    </div>
+                    <div class="file-path">sources/hypeai-icon-master-4k-dark.svg</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Banner (Dark) ⚡</div>
+                    <div class="card-meta">4000x1333 px | SVG | 3:1 | Enhanced Glow</div>
+                    <div class="preview-box dark banner-preview">
+                        <img src="sources/hypeai-banner-master-8k-dark.svg" alt="Banner Dark">
+                    </div>
+                    <div class="file-path">sources/hypeai-banner-master-8k-dark.svg</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Twitter -->
+        <div class="section">
+            <h2 class="section-title">🐦 Twitter (X) Assets</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Avatar (Dark) - RECOMMENDED</div>
+                    <div class="card-meta">400x400 px | PNG</div>
+                    <div class="preview-box dark">
+                        <img src="twitter/hypeai-avatar-dark-400.png" alt="Twitter Avatar Dark" style="max-width: 200px;">
+                    </div>
+                    <div class="file-path">twitter/hypeai-avatar-dark-400.png</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Banner (Dark) - RECOMMENDED</div>
+                    <div class="card-meta">3000x1000 px | PNG | Retina</div>
+                    <div class="preview-box dark banner-preview">
+                        <img src="twitter/hypeai-banner-dark-3000x1000.png" alt="Twitter Banner Dark">
+                    </div>
+                    <div class="file-path">twitter/hypeai-banner-dark-3000x1000.png</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">High-Res Logo (Dark)</div>
+                    <div class="card-meta">2048x2048 px | PNG | Retina</div>
+                    <div class="preview-box dark">
+                        <img src="twitter/hypeai-logo-dark-2048.png" alt="Twitter Logo Dark" style="max-width: 300px;">
+                    </div>
+                    <div class="file-path">twitter/hypeai-logo-dark-2048.png</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Telegram -->
+        <div class="section">
+            <h2 class="section-title">✈️ Telegram Assets</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Channel Icon - RECOMMENDED</div>
+                    <div class="card-meta">1024x1024 px | PNG | Retina</div>
+                    <div class="preview-box dark">
+                        <img src="telegram/hypeai-icon-dark-1024.png" alt="Telegram Icon Dark" style="max-width: 250px;">
+                    </div>
+                    <div class="file-path">telegram/hypeai-icon-dark-1024.png</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Channel Icon (Standard)</div>
+                    <div class="card-meta">512x512 px | PNG</div>
+                    <div class="preview-box dark">
+                        <img src="telegram/hypeai-icon-dark-512.png" alt="Telegram Icon Dark 512" style="max-width: 200px;">
+                    </div>
+                    <div class="file-path">telegram/hypeai-icon-dark-512.png</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram -->
+        <div class="section">
+            <h2 class="section-title">📷 Instagram Assets</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Profile Picture (Retina)</div>
+                    <div class="card-meta">640x640 px | PNG</div>
+                    <div class="preview-box dark">
+                        <img src="instagram/hypeai-profile-640.png" alt="Instagram Profile" style="max-width: 200px;">
+                    </div>
+                    <div class="file-path">instagram/hypeai-profile-640.png</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Square Post (Retina)</div>
+                    <div class="card-meta">2160x2160 px | PNG</div>
+                    <div class="preview-box dark">
+                        <img src="instagram/hypeai-post-2160.png" alt="Instagram Post Retina" style="max-width: 300px;">
+                    </div>
+                    <div class="file-path">instagram/hypeai-post-2160.png</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Square Post (Standard)</div>
+                    <div class="card-meta">1080x1080 px | PNG</div>
+                    <div class="preview-box dark">
+                        <img src="instagram/hypeai-post-1080.png" alt="Instagram Post" style="max-width: 250px;">
+                    </div>
+                    <div class="file-path">instagram/hypeai-post-1080.png</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design Info -->
+        <div class="section">
+            <h2 class="section-title">🎨 Design Specifications</h2>
+            <div style="line-height: 2; color: #ccc;">
+                <p><strong style="color: #00ffff;">Core Elements:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Hexagon - AI Core Symbol</li>
+                    <li>8 Lightning Bolts - Infinite Energy ⚡</li>
+                    <li>Gradient: Cyan (#00d4ff) → Blue (#0061ff)</li>
+                    <li>Typography: HYPEAI + "INFINITE INTELLIGENCE"</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong style="color: #00ffff;">Quality Features:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Ultra-smooth gradients (no banding)</li>
+                    <li>Professional glow & shadow effects</li>
+                    <li>Pixel-perfect alignment</li>
+                    <li>Optimized SVG code</li>
+                    <li>Dark theme with 3x stronger glow</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong style="color: #00ffff;">Recommended Usage:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>✅ Use Dark theme for 90% of applications</li>
+                    <li>✅ Twitter/X: Dark avatar + Dark banner</li>
+                    <li>✅ Telegram: Dark icon (1024px retina)</li>
+                    <li>✅ Instagram: Dark profile + Dark posts</li>
+                    <li>💡 Light theme for printed materials only</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 136, 255, 0.1)); border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.2);">
+            <h2 style="color: #00ffff; margin-bottom: 15px;">HYPEAI</h2>
+            <p style="color: #00d4ff; font-size: 1.2em; letter-spacing: 8px;">INFINITE INTELLIGENCE</p>
+            <p style="color: #888; margin-top: 20px;">Premium Quality | Professional Design | Ready to Use</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -5,7 +5,7 @@
 
 // Configuration
 const CONFIG = {
-    countdownTarget: new Date('2025-10-18T13:40:00+03:00'), // Tomorrow 13:40 MSK
+    countdownTarget: new Date('2025-10-20T13:40:00+03:00'), // Oct 20 13:40 MSK (proper future date)
     updateInterval: 5000, // 5 seconds
     activityFeedLimit: 10,
     animationDuration: 300,
@@ -214,8 +214,59 @@ function addPulseEffects() {
     });
 }
 
+// Populate Agents Grid
+function populateAgentsGrid() {
+    const agentsGrid = document.getElementById('agentsGrid');
+    if (!agentsGrid) return;
+
+    agentsGrid.innerHTML = ''; // Clear existing
+
+    state.agents.forEach(agent => {
+        const card = createAgentCard(agent);
+        agentsGrid.appendChild(card);
+    });
+}
+
+function createAgentCard(agent) {
+    const card = document.createElement('div');
+    card.className = 'agent-card glass';
+    card.setAttribute('data-agent', agent.id);
+
+    const statusClass = agent.status === 'active' ? 'status-active' : 'status-idle';
+    const statusDot = agent.status === 'active'
+        ? '<span class="status-dot status-active animate-pulse"></span>'
+        : '<span class="status-dot status-idle"></span>';
+
+    card.innerHTML = `
+        <div class="agent-header">
+            <h3 class="agent-name">${agent.name}</h3>
+            <span class="agent-status ${statusClass}">
+                ${statusDot}
+                ${agent.status}
+            </span>
+        </div>
+        <div class="agent-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: ${agent.progress}%"></div>
+            </div>
+            <span class="progress-text">${agent.progress}%</span>
+        </div>
+        <div class="agent-stats">
+            <div class="stat-item">
+                <span class="stat-value-small">${agent.generated || agent.interactions || agent.reports || agent.scheduled || agent.campaigns || agent.reviewed || 0}</span>
+                <span class="stat-label-small">${agent.generated !== undefined ? 'Generated' : agent.interactions !== undefined ? 'Interactions' : agent.reports !== undefined ? 'Reports' : agent.scheduled !== undefined ? 'Scheduled' : agent.campaigns !== undefined ? 'Campaigns' : 'Reviewed'}</span>
+            </div>
+        </div>
+    `;
+
+    return card;
+}
+
 // Initialize Dashboard
 function init() {
+    // Populate agents grid first
+    populateAgentsGrid();
+
     // Start countdown
     updateCountdown();
     setInterval(updateCountdown, 1000);
@@ -243,8 +294,8 @@ function init() {
 }
 
 // Add CSS for subtle glow animation
-const style = document.createElement('style');
-style.textContent = `
+const glowStyle = document.createElement('style');
+glowStyle.textContent = `
     @keyframes subtleGlow {
         0%, 100% {
             box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
@@ -254,7 +305,7 @@ style.textContent = `
         }
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(glowStyle);
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
@@ -267,5 +318,6 @@ if (document.readyState === 'loading') {
 window.HypeAIDashboard = {
     addActivity,
     updateAgentStatus,
+    populateAgentsGrid,
     state,
 };

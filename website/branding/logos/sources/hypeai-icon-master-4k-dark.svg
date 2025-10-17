@@ -1,0 +1,122 @@
+<svg width="2000" height="2000" viewBox="0 0 2000 2000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Premium Gradients for Dark Theme -->
+    <linearGradient id="hexGradIconDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0088ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="lightningGradIconDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#66ffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- ULTRA Premium Glow Filters for Dark Theme -->
+    <filter id="hexGlowIconDark" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="25" result="coloredBlur"/>
+      <feFlood flood-color="#00ffff" flood-opacity="1"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="lightningGlowIconDark" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="30" result="coloredBlur"/>
+      <feFlood flood-color="#00ffff" flood-opacity="1"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="shadowIconDark">
+      <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="#00ffff" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Dark Premium Background -->
+  <rect width="2000" height="2000" fill="#0a0a15"/>
+
+  <!-- Ambient Glow Background -->
+  <circle cx="1000" cy="760" r="800" fill="url(#hexGradIconDark)" opacity="0.08"/>
+
+  <!-- Hexagon with ULTRA Glow (Centered and Scaled) -->
+  <g filter="url(#hexGlowIconDark)">
+    <path d="M 1000 300 L 1350 530 L 1350 990 L 1000 1220 L 650 990 L 650 530 Z"
+          fill="url(#hexGradIconDark)"
+          stroke="url(#hexGradIconDark)"
+          stroke-width="12"
+          filter="url(#shadowIconDark)"/>
+  </g>
+
+  <!-- Inner Hexagon Details -->
+  <path d="M 1000 370 L 1300 570 L 1300 950 L 1000 1150 L 700 950 L 700 570 Z"
+        fill="none"
+        stroke="url(#hexGradIconDark)"
+        stroke-width="8"
+        opacity="0.7"/>
+
+  <!-- Additional Inner Ring -->
+  <path d="M 1000 410 L 1270 590 L 1270 930 L 1000 1110 L 730 930 L 730 590 Z"
+        fill="none"
+        stroke="url(#lightningGradIconDark)"
+        stroke-width="4"
+        opacity="0.5"/>
+
+  <!-- 8 Lightning Bolts with MEGA Glow -->
+  <g filter="url(#lightningGlowIconDark)">
+    <!-- Top Lightning -->
+    <path d="M 1000 300 L 970 450 L 1015 450 L 980 600 L 1060 450 L 1015 450 Z"
+          fill="url(#lightningGradIconDark)" stroke="none"/>
+
+    <!-- Top-Right Lightning -->
+    <path d="M 1350 530 L 1280 620 L 1320 640 L 1260 770 L 1360 660 L 1320 640 Z"
+          fill="url(#lightningGradIconDark)" stroke="none"/>
+
+    <!-- Right Lightning -->
+    <path d="M 1350 760 L 1280 800 L 1320 830 L 1260 960 L 1360 850 L 1320 820 Z"
+          fill="url(#lightningGradIconDark)" stroke="none"/>
+
+    <!-- Bottom-Right Lightning -->
+    <path d="M 1350 990 L 1280 1080 L 1320 1100 L 1260 1230 L 1360 1120 L 1320 1100 Z"
+          fill="url(#lightningGradIconDark)" stroke="none"/>
+
+    <!-- Bottom Lightning -->
+    <path d="M 1000 1220 L 970 1070 L 1015 1070 L 980 920 L 1060 1070 L 1015 1070 Z"
+          fill="url(#lightningGradIconDark)" stroke="none"/>
+
+    <!-- Bottom-Left Lightning -->
+    <path d="M 650 990 L 720 1080 L 680 1100 L 740 1230 L 640 1120 L 680 1100 Z"
+          fill="url(#lightningGradIconDark)" stroke="none"/>
+
+    <!-- Left Lightning -->
+    <path d="M 650 760 L 720 800 L 680 830 L 740 960 L 640 850 L 680 820 Z"
+          fill="url(#lightningGradIconDark)" stroke="none"/>
+
+    <!-- Top-Left Lightning -->
+    <path d="M 650 530 L 720 620 L 680 640 L 740 770 L 640 660 L 680 640 Z"
+          fill="url(#lightningGradIconDark)" stroke="none"/>
+  </g>
+
+  <!-- Central AI Core with Enhanced Glow -->
+  <circle cx="1000" cy="760" r="120" fill="url(#hexGradIconDark)" filter="url(#hexGlowIconDark)"/>
+  <circle cx="1000" cy="760" r="90" fill="none" stroke="url(#lightningGradIconDark)" stroke-width="8"/>
+  <circle cx="1000" cy="760" r="60" fill="none" stroke="url(#lightningGradIconDark)" stroke-width="5" opacity="0.8"/>
+  <circle cx="1000" cy="760" r="30" fill="url(#lightningGradIconDark)"/>
+
+  <!-- Energy Particles -->
+  <circle cx="900" cy="660" r="6" fill="#00ffff" opacity="0.9"/>
+  <circle cx="1100" cy="660" r="6" fill="#00ffff" opacity="0.9"/>
+  <circle cx="900" cy="860" r="6" fill="#00d4ff" opacity="0.8"/>
+  <circle cx="1100" cy="860" r="6" fill="#00d4ff" opacity="0.8"/>
+  <circle cx="1000" cy="620" r="5" fill="#00ffff" opacity="0.7"/>
+  <circle cx="1000" cy="900" r="5" fill="#00ffff" opacity="0.7"/>
+</svg>

@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - HypeAI | Legal Agreement</title>
+    <link rel="icon" type="image/svg+xml" href="logo-icon-only.svg">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="HypeAI Terms of Service - Legal agreement governing the use of our AI-powered crypto trading platform, staking services, and governance features.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #00D4FF;
+            --primary-purple: #9D4EDD;
+            --accent-green: #39FF14;
+            --accent-red: #FF3B3B;
+            --dark-bg: #0A0E27;
+            --dark-card: #1A1F3A;
+            --white: #FFFFFF;
+            --gray: #A0AEC0;
+            --light-gray: #CBD5E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0F1629 100%);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.95);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Main Content */
+        .terms-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .terms-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(157, 78, 221, 0.3);
+        }
+
+        .terms-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .last-updated {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .important-notice {
+            background: rgba(255, 59, 59, 0.1);
+            border: 2px solid var(--accent-red);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .important-notice h3 {
+            color: var(--accent-red);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .important-notice p {
+            color: var(--white);
+            line-height: 1.8;
+        }
+
+        .info-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-content {
+            background: rgba(26, 31, 58, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .terms-section {
+            margin-bottom: 3rem;
+        }
+
+        .terms-section h2 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .terms-section h3 {
+            font-size: 1.5rem;
+            color: var(--primary-purple);
+            margin: 2rem 0 1rem;
+        }
+
+        .terms-section h4 {
+            font-size: 1.2rem;
+            color: var(--accent-green);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .terms-section p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .terms-section ul, .terms-section ol {
+            color: var(--light-gray);
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .terms-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .terms-section strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .warning {
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+
+        .table-of-contents {
+            background: rgba(26, 31, 58, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .table-of-contents h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .table-of-contents ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 0.5rem;
+        }
+
+        .table-of-contents a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .table-of-contents a:hover {
+            color: var(--primary-blue);
+            background: rgba(0, 212, 255, 0.1);
+            padding-left: 1rem;
+        }
+
+        .acceptance-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(157, 78, 221, 0.2));
+            border: 2px solid var(--primary-blue);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .acceptance-box h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            background: rgba(26, 31, 58, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .contact-section h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: var(--light-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-section a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-section a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+            background: rgba(10, 14, 39, 0.9);
+            color: var(--gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .terms-container {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .terms-content {
+                padding: 1.5rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .terms-section h3 {
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            .back-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section Anchors */
+        .terms-section {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo-icon-only.svg" alt="HypeAI Logo" style="width: 70px; height: 70px;">
+            HypeAI
+        </a>
+        <a href="index.html" class="back-button">← Back to Home</a>
+    </header>
+
+    <!-- Terms Content -->
+    <div class="terms-container">
+        <div class="terms-header">
+            <h1>Terms of Service</h1>
+            <p class="last-updated">Last Updated: January 17, 2025</p>
+            <p class="last-updated">Effective Date: January 17, 2025</p>
+        </div>
+
+        <div class="important-notice">
+            <h3>⚠️ IMPORTANT LEGAL NOTICE</h3>
+            <p>
+                <strong>READ THESE TERMS CAREFULLY BEFORE USING THE HYPEAI PLATFORM.</strong> By accessing or using HypeAI services, you agree to be bound by these Terms of Service. If you do not agree to these terms, you must not access or use our platform. These terms constitute a legally binding agreement between you and HypeAI.
+            </p>
+            <p style="margin-top: 1rem;">
+                <strong class="warning">CRYPTOCURRENCY TRADING INVOLVES SUBSTANTIAL RISK OF LOSS.</strong> You may lose some or all of your invested capital. Never invest more than you can afford to lose.
+            </p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="table-of-contents">
+            <h3>📋 Table of Contents</h3>
+            <ul>
+                <li><a href="#agreement">1. Agreement to Terms</a></li>
+                <li><a href="#eligibility">2. Eligibility Requirements</a></li>
+                <li><a href="#account">3. Account Registration and Security</a></li>
+                <li><a href="#services">4. Platform Services</a></li>
+                <li><a href="#trading">5. Trading Terms and Conditions</a></li>
+                <li><a href="#staking">6. Staking Services</a></li>
+                <li><a href="#governance">7. DAO Governance</a></li>
+                <li><a href="#ai-services">8. AI Services and Predictions</a></li>
+                <li><a href="#tokens">9. HYPEAI Token</a></li>
+                <li><a href="#fees">10. Fees and Payments</a></li>
+                <li><a href="#risks">11. Risk Disclosures</a></li>
+                <li><a href="#disclaimers">12. Disclaimers and No Financial Advice</a></li>
+                <li><a href="#prohibited">13. Prohibited Activities</a></li>
+                <li><a href="#intellectual-property">14. Intellectual Property Rights</a></li>
+                <li><a href="#privacy">15. Privacy and Data Protection</a></li>
+                <li><a href="#liability">16. Limitation of Liability</a></li>
+                <li><a href="#indemnification">17. Indemnification</a></li>
+                <li><a href="#termination">18. Termination and Suspension</a></li>
+                <li><a href="#disputes">19. Dispute Resolution and Arbitration</a></li>
+                <li><a href="#regulatory">20. Regulatory Compliance</a></li>
+                <li><a href="#changes">21. Changes to Terms</a></li>
+                <li><a href="#miscellaneous">22. Miscellaneous Provisions</a></li>
+                <li><a href="#contact">23. Contact Information</a></li>
+            </ul>
+        </div>
+
+        <!-- Terms Content -->
+        <div class="terms-content">
+
+            <!-- Section 1: Agreement to Terms -->
+            <div class="terms-section" id="agreement">
+                <h2>1. Agreement to Terms</h2>
+
+                <h3>1.1 Acceptance of Terms</h3>
+                <p>
+                    By accessing, browsing, or using the HypeAI platform (the "Platform"), including our website, mobile applications, smart contracts, and any associated services (collectively, the "Services"), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service (the "Terms"), along with our Privacy Policy and any additional guidelines, rules, or policies we may publish from time to time.
+                </p>
+
+                <h3>1.2 Legal Agreement</h3>
+                <p>
+                    These Terms constitute a legally binding agreement between you ("User," "you," or "your") and HypeAI ("Company," "we," "us," or "our"). This agreement governs your access to and use of our Services, including any content, functionality, AI services, trading features, staking mechanisms, governance participation, and technology offered on or through the Platform.
+                </p>
+
+                <h3>1.3 Supplemental Terms</h3>
+                <p>
+                    Certain features of the Services may be subject to additional terms and conditions, which will be presented to you in connection with such features. All such additional terms are incorporated by reference into these Terms.
+                </p>
+
+                <h3>1.4 Entire Agreement</h3>
+                <p>
+                    These Terms, together with our Privacy Policy and any supplemental terms, constitute the entire agreement between you and HypeAI concerning the Services and supersede any prior agreements or understandings.
+                </p>
+            </div>
+
+            <!-- Section 2: Eligibility Requirements -->
+            <div class="terms-section" id="eligibility">
+                <h2>2. Eligibility Requirements</h2>
+
+                <h3>2.1 Age Requirements</h3>
+                <p>
+                    You must be at least 18 years of age (or the age of legal majority in your jurisdiction, whichever is greater) to access or use the Platform. By using our Services, you represent and warrant that you meet these age requirements.
+                </p>
+
+                <h3>2.2 Legal Capacity</h3>
+                <p>
+                    You must have the legal capacity to enter into binding contracts under applicable law. If you are accessing the Services on behalf of a company, organization, or other legal entity, you represent and warrant that you have the authority to bind that entity to these Terms.
+                </p>
+
+                <h3>2.3 Jurisdictional Restrictions</h3>
+                <p>
+                    The Services are not available to persons or entities in jurisdictions where such services would be illegal, restricted, or prohibited. <strong class="warning">You are prohibited from using our Services if you are located in, or a resident of:</strong>
+                </p>
+                <ul>
+                    <li>The United States of America and its territories</li>
+                    <li>Countries subject to comprehensive U.S. sanctions (including but not limited to Cuba, Iran, North Korea, Syria, and the Crimea region)</li>
+                    <li>Any jurisdiction where cryptocurrency trading or DeFi activities are prohibited</li>
+                    <li>Any jurisdiction where we are not licensed to provide services</li>
+                </ul>
+                <p>
+                    You represent and warrant that you are not located in, ordinarily resident in, or organized under the laws of any such restricted jurisdiction. It is your sole responsibility to ensure that your use of the Services is lawful in your jurisdiction.
+                </p>
+
+                <h3>2.4 Sanctions and Restricted Persons</h3>
+                <p>
+                    You represent and warrant that you are not, and do not act on behalf of, any person or entity that is:
+                </p>
+                <ul>
+                    <li>Subject to economic or trade sanctions administered by any governmental authority</li>
+                    <li>Listed on any government prohibited or restricted party list (including OFAC SDN list, EU consolidated list, UK HM Treasury list)</li>
+                    <li>Controlled by or acting on behalf of a sanctioned person or entity</li>
+                    <li>Engaged in activities that facilitate money laundering, terrorist financing, or other illegal activities</li>
+                </ul>
+
+                <h3>2.5 Technical Requirements</h3>
+                <p>
+                    To use our Services, you must have access to a compatible web browser, cryptocurrency wallet (such as MetaMask), and an internet connection. You are responsible for ensuring that your equipment and software are compatible with our Services.
+                </p>
+            </div>
+
+            <!-- Section 3: Account Registration and Security -->
+            <div class="terms-section" id="account">
+                <h2>3. Account Registration and Security</h2>
+
+                <h3>3.1 Wallet Connection</h3>
+                <p>
+                    To access certain features of the Platform, you must connect a compatible cryptocurrency wallet. You are responsible for maintaining the security and confidentiality of your wallet's private keys, seed phrases, passwords, and any other authentication credentials.
+                </p>
+
+                <h3>3.2 Account Responsibility</h3>
+                <p>
+                    You are fully responsible for all activities that occur through your connected wallet and account. You agree to:
+                </p>
+                <ul>
+                    <li>Maintain the security of your wallet credentials at all times</li>
+                    <li>Immediately notify us of any unauthorized access or security breach</li>
+                    <li>Accept full responsibility for any transactions conducted through your wallet</li>
+                    <li>Ensure that all information you provide is accurate, current, and complete</li>
+                </ul>
+
+                <h3>3.3 No Recovery of Private Keys</h3>
+                <p class="warning">
+                    <strong>IMPORTANT:</strong> HypeAI does not store, have access to, or control your wallet's private keys or seed phrases. We cannot recover, reset, or provide access to your wallet if you lose your credentials. <strong>The loss of your private keys will result in permanent loss of access to your funds.</strong>
+                </p>
+
+                <h3>3.4 Account Security Obligations</h3>
+                <p>
+                    You agree to take reasonable precautions to protect your account, including but not limited to:
+                </p>
+                <ul>
+                    <li>Using strong, unique passwords</li>
+                    <li>Enabling two-factor authentication (2FA) when available</li>
+                    <li>Not sharing your credentials with third parties</li>
+                    <li>Using secure internet connections when accessing the Platform</li>
+                    <li>Keeping your wallet software and browser updated</li>
+                    <li>Being vigilant against phishing attempts and fraudulent communications</li>
+                </ul>
+
+                <h3>3.5 Verification Requirements</h3>
+                <p>
+                    We may require additional identity verification (KYC/AML) for certain features or transaction thresholds as required by applicable law. Your failure to provide required verification may result in restricted access to certain Services.
+                </p>
+            </div>
+
+            <!-- Section 4: Platform Services -->
+            <div class="terms-section" id="services">
+                <h2>4. Platform Services</h2>
+
+                <h3>4.1 Services Description</h3>
+                <p>
+                    HypeAI provides a decentralized platform offering various cryptocurrency-related services, including but not limited to:
+                </p>
+                <ul>
+                    <li><strong>AI-Powered Trading Insights:</strong> Machine learning algorithms that analyze market data and provide trading predictions</li>
+                    <li><strong>Token Trading:</strong> Ability to buy, sell, and exchange HYPEAI tokens and other supported cryptocurrencies</li>
+                    <li><strong>Staking Services:</strong> Lock tokens to earn rewards with various APY rates based on lock periods</li>
+                    <li><strong>DAO Governance:</strong> Participate in protocol governance through token-weighted voting</li>
+                    <li><strong>Professional AI Services:</strong> Access to 27+ AI agents providing services such as smart contract development, security audits, marketing, design, and more</li>
+                    <li><strong>Analytics Dashboard:</strong> Real-time data, charts, portfolio tracking, and performance metrics</li>
+                </ul>
+
+                <h3>4.2 Service Availability</h3>
+                <p>
+                    We strive to provide continuous service availability, but we do not guarantee that the Services will be available at all times without interruption. The Platform may be temporarily unavailable due to maintenance, updates, technical issues, or circumstances beyond our control.
+                </p>
+
+                <h3>4.3 Service Modifications</h3>
+                <p>
+                    We reserve the right to modify, suspend, or discontinue any aspect of the Services at any time, with or without notice. We will not be liable to you or any third party for any modification, suspension, or discontinuance of the Services.
+                </p>
+
+                <h3>4.4 Beta Features</h3>
+                <p>
+                    Certain features may be offered as beta or experimental versions. These features are provided "as is" and may contain bugs, errors, or performance issues. We do not guarantee the functionality or availability of beta features.
+                </p>
+            </div>
+
+            <!-- Section 5: Trading Terms and Conditions -->
+            <div class="terms-section" id="trading">
+                <h2>5. Trading Terms and Conditions</h2>
+
+                <h3>5.1 Trading Risks</h3>
+                <p class="warning">
+                    <strong>CRYPTOCURRENCY TRADING INVOLVES SUBSTANTIAL RISK.</strong> Prices are highly volatile and can fluctuate dramatically in short periods. You may lose some or all of your invested capital. You should only trade with funds you can afford to lose entirely.
+                </p>
+
+                <h3>5.2 Self-Directed Trading</h3>
+                <p>
+                    All trading decisions are made solely by you. HypeAI provides tools and information, but you are solely responsible for evaluating and making your own investment decisions. We do not provide investment advice, recommendations, or guidance regarding the purchase, sale, or holding of any assets.
+                </p>
+
+                <h3>5.3 Transaction Execution</h3>
+                <p>
+                    When you initiate a transaction on the Platform:
+                </p>
+                <ul>
+                    <li>You authorize us to execute the transaction on your behalf through smart contracts</li>
+                    <li>Transactions are recorded on the blockchain and are irreversible once confirmed</li>
+                    <li>Transaction fees (gas fees) are determined by the blockchain network and are separate from our service fees</li>
+                    <li>Transaction timing depends on blockchain network conditions and is not guaranteed</li>
+                    <li>You are responsible for ensuring sufficient funds (including gas fees) before initiating transactions</li>
+                </ul>
+
+                <h3>5.4 Market Conditions</h3>
+                <p>
+                    You acknowledge that:
+                </p>
+                <ul>
+                    <li>Cryptocurrency markets operate 24/7 and prices change constantly</li>
+                    <li>Order execution prices may differ from displayed prices due to market volatility</li>
+                    <li>Slippage may occur, especially during periods of high volatility or low liquidity</li>
+                    <li>Large transactions may significantly impact market prices</li>
+                </ul>
+
+                <h3>5.5 Transaction Limits</h3>
+                <p>
+                    We may impose transaction limits for security, regulatory compliance, or risk management purposes. These limits may be adjusted at our discretion without prior notice.
+                </p>
+
+                <h3>5.6 Anti-Whale Mechanisms</h3>
+                <p>
+                    To prevent market manipulation, our smart contracts may include anti-whale mechanisms that limit the maximum transaction size or impose additional fees on large transactions. These mechanisms are designed to protect the ecosystem and all token holders.
+                </p>
+
+                <h3>5.7 No Reversal of Transactions</h3>
+                <p class="warning">
+                    <strong>Blockchain transactions are irreversible.</strong> Once a transaction is confirmed on the blockchain, it cannot be reversed, canceled, or refunded by HypeAI. You are responsible for verifying all transaction details before confirmation.
+                </p>
+            </div>
+
+            <!-- Section 6: Staking Services -->
+            <div class="terms-section" id="staking">
+                <h2>6. Staking Services</h2>
+
+                <h3>6.1 Staking Overview</h3>
+                <p>
+                    HypeAI offers staking services that allow you to lock your HYPEAI tokens for specified periods in exchange for potential rewards. Staking involves significant risks and you should carefully review all terms before participating.
+                </p>
+
+                <h3>6.2 Staking Tiers and APY</h3>
+                <p>
+                    Current staking tiers (subject to change):
+                </p>
+                <ul>
+                    <li><strong>30-Day Lock:</strong> Up to 17% APY</li>
+                    <li><strong>90-Day Lock:</strong> Up to 27% APY</li>
+                    <li><strong>365-Day Lock:</strong> Up to 62% APY</li>
+                </ul>
+                <p class="warning">
+                    <strong>APY rates are variable and not guaranteed.</strong> Actual returns may vary based on protocol performance, market conditions, token supply, and other factors. Past performance does not guarantee future results.
+                </p>
+
+                <h3>6.3 Lock Period</h3>
+                <p>
+                    When you stake tokens:
+                </p>
+                <ul>
+                    <li>Tokens are locked for the selected period and cannot be withdrawn early</li>
+                    <li>Attempting to withdraw before the lock period expires will result in forfeiture of rewards and may incur early withdrawal penalties</li>
+                    <li>Lock periods begin at the time of transaction confirmation on the blockchain</li>
+                    <li>Upon lock period expiration, you must manually withdraw your staked tokens and rewards</li>
+                </ul>
+
+                <h3>6.4 Staking Risks</h3>
+                <p>
+                    Staking involves significant risks, including but not limited to:
+                </p>
+                <ul>
+                    <li><strong>Smart Contract Risk:</strong> Bugs or vulnerabilities in smart contracts could result in loss of staked funds</li>
+                    <li><strong>Impermanent Loss:</strong> Token price may decrease during the lock period, resulting in lower USD value upon withdrawal</li>
+                    <li><strong>Liquidity Risk:</strong> Staked tokens are illiquid and cannot be accessed during the lock period, even in emergencies</li>
+                    <li><strong>Reward Variability:</strong> Actual rewards may be lower than projected APY due to protocol changes or market conditions</li>
+                    <li><strong>Protocol Risk:</strong> Changes to the protocol or economic model may affect staking rewards</li>
+                </ul>
+
+                <h3>6.5 Reward Distribution</h3>
+                <p>
+                    Staking rewards are calculated based on:
+                </p>
+                <ul>
+                    <li>The amount of tokens staked</li>
+                    <li>The duration of the stake</li>
+                    <li>Current APY rate (which may fluctuate)</li>
+                    <li>Protocol performance and treasury funds</li>
+                    <li>Total tokens staked in the protocol (reward pool dilution)</li>
+                </ul>
+                <p>
+                    Rewards may be distributed daily, automatically compounded, or made available at the end of the lock period, depending on the staking tier and protocol settings.
+                </p>
+
+                <h3>6.6 Staking Modifications</h3>
+                <p>
+                    We reserve the right to modify staking terms, including APY rates, lock periods, minimum/maximum stake amounts, and reward mechanisms, at any time to ensure protocol sustainability. Changes may be implemented through DAO governance or by the protocol team in response to market conditions or regulatory requirements.
+                </p>
+
+                <h3>6.7 Tax Implications</h3>
+                <p>
+                    Staking rewards may be subject to taxation in your jurisdiction. You are solely responsible for determining and complying with all applicable tax obligations related to staking activities. We recommend consulting with a tax professional.
+                </p>
+            </div>
+
+            <!-- Section 7: DAO Governance -->
+            <div class="terms-section" id="governance">
+                <h2>7. DAO Governance</h2>
+
+                <h3>7.1 Governance Rights</h3>
+                <p>
+                    HYPEAI token holders may participate in decentralized governance of the protocol through the HypeAI DAO (Decentralized Autonomous Organization). Governance rights are proportional to the number of tokens held (1 HYPEAI = 1 vote).
+                </p>
+
+                <h3>7.2 Governance Scope</h3>
+                <p>
+                    Governance participants may vote on proposals related to:
+                </p>
+                <ul>
+                    <li>Protocol parameter changes (fees, APY rates, transaction limits)</li>
+                    <li>Smart contract upgrades and feature additions</li>
+                    <li>Treasury fund allocation and spending</li>
+                    <li>Strategic partnerships and integrations</li>
+                    <li>Token economic model adjustments</li>
+                    <li>Protocol development priorities</li>
+                </ul>
+
+                <h3>7.3 Voting Process</h3>
+                <p>
+                    To participate in governance:
+                </p>
+                <ul>
+                    <li>You must hold HYPEAI tokens in your connected wallet</li>
+                    <li>Voting power is determined by token balance at the time of proposal snapshot</li>
+                    <li>You may delegate your voting power to another address</li>
+                    <li>Votes are recorded on-chain and are permanent and public</li>
+                    <li>Proposals must meet minimum quorum requirements to be valid</li>
+                </ul>
+
+                <h3>7.4 Proposal Submission</h3>
+                <p>
+                    To submit governance proposals, users typically must:
+                </p>
+                <ul>
+                    <li>Hold a minimum threshold of HYPEAI tokens</li>
+                    <li>Submit proposals following specified formatting and content requirements</li>
+                    <li>Allow for a discussion period before voting begins</li>
+                    <li>Provide technical specifications for implementation (if applicable)</li>
+                </ul>
+
+                <h3>7.5 Governance Limitations</h3>
+                <p>
+                    You acknowledge that:
+                </p>
+                <ul>
+                    <li>Governance outcomes are binding and final once executed</li>
+                    <li>Not all protocol aspects may be subject to governance (security-critical functions may be reserved)</li>
+                    <li>Large token holders have proportionally greater influence on governance outcomes</li>
+                    <li>Governance decisions may adversely affect token value or your interests</li>
+                    <li>Emergency actions may be taken by protocol administrators to protect the system, potentially bypassing standard governance</li>
+                </ul>
+
+                <h3>7.6 No Obligation to Participate</h3>
+                <p>
+                    Participation in governance is entirely voluntary. You are not required to vote on proposals or participate in governance activities. Failure to vote does not affect your token ownership or other platform rights.
+                </p>
+            </div>
+
+            <!-- Section 8: AI Services and Predictions -->
+            <div class="terms-section" id="ai-services">
+                <h2>8. AI Services and Predictions</h2>
+
+                <h3>8.1 AI-Powered Features</h3>
+                <p>
+                    HypeAI utilizes artificial intelligence and machine learning algorithms to provide:
+                </p>
+                <ul>
+                    <li>Market analysis and price predictions</li>
+                    <li>Trading signal generation</li>
+                    <li>Portfolio optimization recommendations</li>
+                    <li>Sentiment analysis of crypto markets</li>
+                    <li>Risk assessment and scoring</li>
+                    <li>Professional AI agent services (development, security, marketing, etc.)</li>
+                </ul>
+
+                <h3>8.2 No Guarantee of Accuracy</h3>
+                <p class="warning">
+                    <strong>AI PREDICTIONS ARE NOT GUARANTEED TO BE ACCURATE.</strong> While we claim historical accuracy rates (e.g., 85% prediction accuracy), past performance does not guarantee future results. AI models:
+                </p>
+                <ul>
+                    <li>May produce incorrect or misleading predictions</li>
+                    <li>Are based on historical data and may not account for unprecedented events</li>
+                    <li>Can be affected by market manipulation, black swan events, or data quality issues</li>
+                    <li>Should not be relied upon as the sole basis for investment decisions</li>
+                </ul>
+
+                <h3>8.3 AI Agent Services</h3>
+                <p>
+                    Our AI agent services (smart contract development, security audits, marketing, etc.) are provided by automated AI systems and may contain errors, omissions, or defects. While our agents are designed to professional standards:
+                </p>
+                <ul>
+                    <li>AI-generated code requires human review and testing before production use</li>
+                    <li>AI security audits may not identify all vulnerabilities</li>
+                    <li>AI-generated content may require editing for accuracy and appropriateness</li>
+                    <li>Service quality may vary depending on task complexity</li>
+                </ul>
+
+                <h3>8.4 Human Oversight Recommendation</h3>
+                <p>
+                    We strongly recommend that all AI-generated outputs (code, audits, strategies, content) be reviewed by qualified human professionals before implementation or reliance. You assume full responsibility for any use of AI-generated outputs.
+                </p>
+
+                <h3>8.5 Model Updates and Changes</h3>
+                <p>
+                    We continuously update and improve our AI models. Changes to algorithms may affect prediction accuracy, service quality, and outputs without prior notice. Historical performance of previous model versions does not guarantee performance of updated models.
+                </p>
+
+                <h3>8.6 No Liability for AI Errors</h3>
+                <p>
+                    To the maximum extent permitted by law, we disclaim all liability for losses arising from reliance on AI predictions, recommendations, or outputs. You acknowledge that AI systems can make mistakes and agree to use AI features at your own risk.
+                </p>
+            </div>
+
+            <!-- Section 9: HYPEAI Token -->
+            <div class="terms-section" id="tokens">
+                <h2>9. HYPEAI Token</h2>
+
+                <h3>9.1 Token Utility</h3>
+                <p>
+                    HYPEAI is a utility token designed for use within the HypeAI ecosystem. Token utilities include:
+                </p>
+                <ul>
+                    <li>Payment for AI services and platform fees</li>
+                    <li>Staking to earn rewards</li>
+                    <li>Governance participation (voting rights)</li>
+                    <li>Access to premium features and services</li>
+                    <li>Liquidity provision and yield farming</li>
+                    <li>Transaction fee discounts</li>
+                </ul>
+
+                <h3>9.2 Not a Security or Investment</h3>
+                <p>
+                    <strong>HYPEAI tokens are utility tokens, not securities or investment contracts.</strong> Tokens do not represent:
+                </p>
+                <ul>
+                    <li>Equity ownership or shares in HypeAI or any affiliated entity</li>
+                    <li>Debt obligations or loans</li>
+                    <li>Rights to profits, dividends, or distributions</li>
+                    <li>Investment in a common enterprise with expectation of profit solely from the efforts of others</li>
+                </ul>
+                <p>
+                    You should not purchase tokens with the expectation of profit or financial return.
+                </p>
+
+                <h3>9.3 Token Economics</h3>
+                <p>
+                    Total Supply: 1,000,000,000 HYPEAI tokens
+                </p>
+                <p>
+                    Transaction fees: 8% (subject to change via governance)
+                </p>
+                <ul>
+                    <li>3% Liquidity addition</li>
+                    <li>2% Reflection to holders</li>
+                    <li>2% Treasury</li>
+                    <li>1% Token burn (deflationary)</li>
+                </ul>
+                <p>
+                    Token distribution, transaction fees, and economic mechanisms may be modified through DAO governance or protocol updates.
+                </p>
+
+                <h3>9.4 No Guaranteed Value</h3>
+                <p class="warning">
+                    <strong>TOKENS HAVE NO GUARANTEED OR INTRINSIC VALUE.</strong> Token price is determined by market forces and may:
+                </p>
+                <ul>
+                    <li>Fluctuate dramatically and without warning</li>
+                    <li>Decrease to zero value</li>
+                    <li>Become illiquid with no available buyers</li>
+                    <li>Be affected by regulatory actions, technical failures, or market manipulation</li>
+                </ul>
+
+                <h3>9.5 Token Sale Terms</h3>
+                <p>
+                    If you participate in token sales, pre-sales, or initial distributions:
+                </p>
+                <ul>
+                    <li>All sales are final and non-refundable</li>
+                    <li>Token delivery timelines are estimates and may be delayed</li>
+                    <li>Vesting schedules (if applicable) are enforced by smart contracts and cannot be accelerated</li>
+                    <li>You acknowledge full understanding of purchase terms and tokenomics</li>
+                </ul>
+
+                <h3>9.6 Smart Contract Risks</h3>
+                <p>
+                    HYPEAI tokens are managed by smart contracts deployed on blockchain networks. Smart contract risks include:
+                </p>
+                <ul>
+                    <li>Code vulnerabilities that could be exploited</li>
+                    <li>Bugs or errors affecting token functionality</li>
+                    <li>Potential for permanent loss of tokens due to contract failures</li>
+                    <li>Inability to reverse transactions or recover lost tokens</li>
+                </ul>
+                <p>
+                    While our smart contracts undergo security audits, no audit can guarantee complete security or absence of vulnerabilities.
+                </p>
+            </div>
+
+            <!-- Section 10: Fees and Payments -->
+            <div class="terms-section" id="fees">
+                <h2>10. Fees and Payments</h2>
+
+                <h3>10.1 Platform Fees</h3>
+                <p>
+                    Use of the Platform and Services may incur various fees, including:
+                </p>
+                <ul>
+                    <li><strong>Transaction Fees:</strong> 8% on HYPEAI token transactions (subject to change)</li>
+                    <li><strong>Service Fees:</strong> Fees for AI services, audits, development, and consulting</li>
+                    <li><strong>Staking Fees:</strong> Potential early withdrawal penalties</li>
+                    <li><strong>Governance Fees:</strong> Potential fees for proposal submission</li>
+                    <li><strong>Network Fees:</strong> Blockchain gas fees (paid directly to network validators)</li>
+                </ul>
+
+                <h3>10.2 Fee Changes</h3>
+                <p>
+                    We reserve the right to modify fees at any time. Fee changes may be implemented:
+                </p>
+                <ul>
+                    <li>Through DAO governance voting</li>
+                    <li>By protocol administrators for operational necessities</li>
+                    <li>With or without prior notice, depending on urgency</li>
+                </ul>
+                <p>
+                    Continued use of the Services after fee changes constitutes acceptance of the new fee structure.
+                </p>
+
+                <h3>10.3 Payment Processing</h3>
+                <p>
+                    All payments on the Platform are processed through smart contracts and blockchain transactions. Payments are:
+                </p>
+                <ul>
+                    <li>Irreversible once confirmed on the blockchain</li>
+                    <li>Subject to network congestion and variable confirmation times</li>
+                    <li>Subject to gas fees determined by the blockchain network</li>
+                    <li>Non-refundable unless explicitly stated otherwise</li>
+                </ul>
+
+                <h3>10.4 Taxes</h3>
+                <p>
+                    All fees are exclusive of taxes. You are responsible for determining and paying all applicable taxes (including sales tax, VAT, income tax, capital gains tax) arising from your use of the Services. We do not provide tax advice and recommend consulting with a qualified tax professional.
+                </p>
+
+                <h3>10.5 Third-Party Fees</h3>
+                <p>
+                    You may incur additional fees charged by third parties, including:
+                </p>
+                <ul>
+                    <li>Cryptocurrency exchange fees</li>
+                    <li>Wallet provider fees</li>
+                    <li>Bank or payment processor fees</li>
+                    <li>Network transaction fees (gas)</li>
+                </ul>
+                <p>
+                    These fees are separate from our platform fees and are not controlled by HypeAI.
+                </p>
+            </div>
+
+            <!-- Section 11: Risk Disclosures -->
+            <div class="terms-section" id="risks">
+                <h2>11. Risk Disclosures</h2>
+
+                <div class="important-notice">
+                    <h3>⚠️ COMPREHENSIVE RISK WARNING</h3>
+                    <p>
+                        <strong>CRYPTOCURRENCY AND DEFI ACTIVITIES INVOLVE SUBSTANTIAL RISK OF LOSS.</strong> You should carefully consider whether such activities are suitable for you in light of your financial condition and risk tolerance. You may lose some or all of your invested capital and should never invest more than you can afford to lose entirely.
+                    </p>
+                </div>
+
+                <h3>11.1 Market Risk</h3>
+                <ul>
+                    <li><strong>Volatility:</strong> Cryptocurrency prices are extremely volatile and can fluctuate dramatically within short periods</li>
+                    <li><strong>Liquidity:</strong> Markets may experience insufficient liquidity, making it difficult or impossible to execute trades at desired prices</li>
+                    <li><strong>Market Manipulation:</strong> Crypto markets are susceptible to manipulation, including pump-and-dump schemes, spoofing, and wash trading</li>
+                    <li><strong>Black Swan Events:</strong> Unprecedented events can cause sudden and severe market crashes</li>
+                </ul>
+
+                <h3>11.2 Technology Risk</h3>
+                <ul>
+                    <li><strong>Smart Contract Vulnerabilities:</strong> Bugs, exploits, or design flaws in smart contracts could result in loss of funds</li>
+                    <li><strong>Blockchain Network Risks:</strong> Network congestion, forks, or failures can affect transaction processing</li>
+                    <li><strong>Wallet Security:</strong> Loss or theft of private keys results in permanent and irreversible loss of funds</li>
+                    <li><strong>Hacking:</strong> Despite security measures, platforms and wallets can be targeted by hackers</li>
+                    <li><strong>Technology Obsolescence:</strong> Rapid technological changes may render current solutions obsolete</li>
+                </ul>
+
+                <h3>11.3 Regulatory Risk</h3>
+                <ul>
+                    <li><strong>Regulatory Uncertainty:</strong> Cryptocurrency regulations are evolving and unclear in many jurisdictions</li>
+                    <li><strong>Compliance Changes:</strong> New laws or regulations may restrict or prohibit cryptocurrency activities</li>
+                    <li><strong>Government Actions:</strong> Governments may ban, restrict, or heavily regulate crypto platforms</li>
+                    <li><strong>Tax Implications:</strong> Tax treatment of cryptocurrencies is complex and subject to change</li>
+                    <li><strong>Enforcement Actions:</strong> Regulatory bodies may take enforcement actions against platforms or token issuers</li>
+                </ul>
+
+                <h3>11.4 Operational Risk</h3>
+                <ul>
+                    <li><strong>Platform Downtime:</strong> Technical issues, maintenance, or attacks may render the Platform inaccessible</li>
+                    <li><strong>Service Interruption:</strong> Services may be suspended or terminated at any time</li>
+                    <li><strong>Human Error:</strong> Mistakes by users or platform operators can result in loss of funds</li>
+                    <li><strong>Fraud:</strong> Phishing, scams, and fraudulent schemes targeting cryptocurrency users</li>
+                </ul>
+
+                <h3>11.5 Economic Risk</h3>
+                <ul>
+                    <li><strong>Inflation/Deflation:</strong> Token supply dynamics may lead to inflationary or deflationary pressures</li>
+                    <li><strong>Reward Variability:</strong> Staking rewards are not guaranteed and may decrease or cease entirely</li>
+                    <li><strong>Impermanent Loss:</strong> Providing liquidity may result in loss compared to holding assets</li>
+                    <li><strong>Token Devaluation:</strong> Market forces, governance decisions, or protocol changes may significantly decrease token value</li>
+                </ul>
+
+                <h3>11.6 Legal Risk</h3>
+                <ul>
+                    <li><strong>Jurisdictional Disputes:</strong> Legal uncertainty regarding applicable laws and jurisdiction</li>
+                    <li><strong>Enforceability:</strong> Smart contracts may not be legally enforceable in all jurisdictions</li>
+                    <li><strong>Litigation:</strong> The protocol or token may become subject to legal actions or disputes</li>
+                    <li><strong>Criminal Activity:</strong> Cryptocurrencies may be used for illegal activities, potentially affecting platform reputation or viability</li>
+                </ul>
+
+                <h3>11.7 Acknowledgment of Risks</h3>
+                <p>
+                    By using the Platform, you acknowledge that you have read, understood, and accepted all risks described herein and any additional risks inherent in cryptocurrency and DeFi activities. You agree that you are solely responsible for assessing and managing these risks.
+                </p>
+            </div>
+
+            <!-- Section 12: Disclaimers and No Financial Advice -->
+            <div class="terms-section" id="disclaimers">
+                <h2>12. Disclaimers and No Financial Advice</h2>
+
+                <h3>12.1 No Financial Advice</h3>
+                <p class="warning">
+                    <strong>HYPEAI DOES NOT PROVIDE FINANCIAL, INVESTMENT, TAX, OR LEGAL ADVICE.</strong> Nothing on the Platform, including AI predictions, analytics, market data, or any other information, constitutes:
+                </p>
+                <ul>
+                    <li>Investment advice or recommendations</li>
+                    <li>Financial planning or wealth management services</li>
+                    <li>Tax advice or tax planning services</li>
+                    <li>Legal advice or legal counsel</li>
+                    <li>Solicitation to buy or sell securities or commodities</li>
+                </ul>
+
+                <h3>12.2 Do Your Own Research (DYOR)</h3>
+                <p>
+                    <strong>You must conduct your own research and due diligence</strong> before making any investment or financial decisions. You should:
+                </p>
+                <ul>
+                    <li>Independently verify all information presented on the Platform</li>
+                    <li>Consult with qualified financial, tax, and legal professionals</li>
+                    <li>Understand the technology, risks, and economics of cryptocurrency investments</li>
+                    <li>Make decisions based on your own analysis, not solely on Platform information</li>
+                </ul>
+
+                <h3>12.3 Past Performance Disclaimer</h3>
+                <p>
+                    <strong>PAST PERFORMANCE IS NOT INDICATIVE OF FUTURE RESULTS.</strong> Historical data, backtests, and performance metrics:
+                </p>
+                <ul>
+                    <li>Do not guarantee future performance</li>
+                    <li>May not reflect actual future results</li>
+                    <li>May be based on simulated or hypothetical scenarios</li>
+                    <li>Do not account for all possible market conditions or black swan events</li>
+                </ul>
+
+                <h3>12.4 Forward-Looking Statements</h3>
+                <p>
+                    The Platform may contain forward-looking statements regarding future developments, features, token price projections, or growth expectations. These statements:
+                </p>
+                <ul>
+                    <li>Are based on current expectations and assumptions</li>
+                    <li>Are subject to significant risks and uncertainties</li>
+                    <li>May prove to be incorrect or fail to materialize</li>
+                    <li>Should not be relied upon as guarantees of future performance</li>
+                </ul>
+
+                <h3>12.5 No Professional Relationship</h3>
+                <p>
+                    Your use of the Platform does not create any professional relationship (attorney-client, accountant-client, financial advisor-client, etc.) between you and HypeAI or any of its affiliates, employees, or representatives.
+                </p>
+
+                <h3>12.6 "As Is" Service</h3>
+                <p>
+                    THE PLATFORM AND SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
+                </p>
+                <ul>
+                    <li>Warranties of merchantability</li>
+                    <li>Fitness for a particular purpose</li>
+                    <li>Non-infringement</li>
+                    <li>Accuracy, reliability, or completeness of information</li>
+                    <li>Uninterrupted or error-free operation</li>
+                    <li>Security or freedom from viruses or malicious code</li>
+                </ul>
+
+                <h3>12.7 Third-Party Information</h3>
+                <p>
+                    The Platform may display information from third-party sources (market data providers, blockchain explorers, news aggregators). We do not verify, endorse, or guarantee the accuracy of third-party information and disclaim all responsibility for such information.
+                </p>
+
+                <h3>12.8 Demo/Simulated Data Disclaimer</h3>
+                <p>
+                    Certain statistics on the Platform (TVL, holders, trading volume) may be marked as "Demo" or simulated data for demonstration purposes. Demo data does not reflect actual platform metrics and should not be relied upon for investment decisions.
+                </p>
+            </div>
+
+            <!-- Section 13: Prohibited Activities -->
+            <div class="terms-section" id="prohibited">
+                <h2>13. Prohibited Activities</h2>
+
+                <h3>13.1 Illegal Activities</h3>
+                <p>
+                    You agree not to use the Platform for any illegal purposes or in violation of any laws, including but not limited to:
+                </p>
+                <ul>
+                    <li><strong>Money Laundering:</strong> Using the Platform to launder proceeds of criminal activity</li>
+                    <li><strong>Terrorist Financing:</strong> Facilitating financing of terrorist activities</li>
+                    <li><strong>Sanctions Evasion:</strong> Circumventing economic or trade sanctions</li>
+                    <li><strong>Tax Evasion:</strong> Using cryptocurrency to evade tax obligations</li>
+                    <li><strong>Fraud:</strong> Engaging in fraudulent schemes or misrepresentation</li>
+                    <li><strong>Theft:</strong> Using stolen funds or laundering stolen cryptocurrency</li>
+                </ul>
+
+                <h3>13.2 Market Manipulation</h3>
+                <p>
+                    You agree not to engage in market manipulation activities, including:
+                </p>
+                <ul>
+                    <li>Pump-and-dump schemes</li>
+                    <li>Wash trading or fake volume generation</li>
+                    <li>Spoofing or layering orders</li>
+                    <li>Front-running or back-running trades</li>
+                    <li>Spreading false or misleading information to influence prices</li>
+                    <li>Coordinating with others to manipulate markets</li>
+                </ul>
+
+                <h3>13.3 Technical Abuse</h3>
+                <p>
+                    You agree not to:
+                </p>
+                <ul>
+                    <li>Attempt to gain unauthorized access to the Platform or other users' accounts</li>
+                    <li>Exploit bugs, vulnerabilities, or design flaws for personal gain</li>
+                    <li>Use automated tools (bots) to manipulate Platform features or markets</li>
+                    <li>Overload or disrupt Platform infrastructure (DDoS attacks)</li>
+                    <li>Reverse engineer, decompile, or disassemble Platform code</li>
+                    <li>Circumvent security measures or access controls</li>
+                    <li>Interfere with other users' use of the Platform</li>
+                </ul>
+
+                <h3>13.4 Fraudulent Schemes</h3>
+                <p>
+                    You agree not to:
+                </p>
+                <ul>
+                    <li>Create multiple accounts to abuse promotions or rewards</li>
+                    <li>Engage in Sybil attacks or identity fraud</li>
+                    <li>Phish, scam, or defraud other users</li>
+                    <li>Impersonate HypeAI team members, moderators, or other users</li>
+                    <li>Create fake websites or applications mimicking the Platform</li>
+                </ul>
+
+                <h3>13.5 Intellectual Property Violations</h3>
+                <p>
+                    You agree not to:
+                </p>
+                <ul>
+                    <li>Infringe on HypeAI's trademarks, copyrights, or other intellectual property</li>
+                    <li>Use the Platform's brand, logo, or name without permission</li>
+                    <li>Copy, redistribute, or republish Platform content without authorization</li>
+                </ul>
+
+                <h3>13.6 Consequences of Prohibited Activities</h3>
+                <p>
+                    Engaging in prohibited activities may result in:
+                </p>
+                <ul>
+                    <li>Immediate termination of your account and access</li>
+                    <li>Forfeiture of staked tokens and rewards</li>
+                    <li>Reporting to law enforcement or regulatory authorities</li>
+                    <li>Legal action to recover damages</li>
+                    <li>Permanent ban from the Platform</li>
+                </ul>
+            </div>
+
+            <!-- Section 14: Intellectual Property Rights -->
+            <div class="terms-section" id="intellectual-property">
+                <h2>14. Intellectual Property Rights</h2>
+
+                <h3>14.1 Platform Ownership</h3>
+                <p>
+                    All content, features, and functionality on the Platform, including but not limited to text, graphics, logos, icons, images, audio clips, video clips, data compilations, software code, and the compilation thereof (collectively, the "Content"), are the exclusive property of HypeAI or its licensors and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
+                </p>
+
+                <h3>14.2 Trademarks</h3>
+                <p>
+                    "HypeAI," the HypeAI logo, and all related names, logos, product and service names, designs, and slogans are trademarks of HypeAI. You may not use these marks without our prior written permission. Other names, logos, and brands are the property of their respective owners.
+                </p>
+
+                <h3>14.3 Limited License</h3>
+                <p>
+                    Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to:
+                </p>
+                <ul>
+                    <li>Access and use the Platform for personal, non-commercial purposes</li>
+                    <li>View and interact with Content through your web browser or approved applications</li>
+                </ul>
+                <p>
+                    This license does not permit you to download, copy, modify, distribute, or create derivative works based on Platform Content without express permission.
+                </p>
+
+                <h3>14.4 Open Source Components</h3>
+                <p>
+                    Certain components of the Platform may be subject to open source licenses. Open source software is governed by the applicable open source license terms, which may grant you broader rights than these Terms. We will make open source license information available as required.
+                </p>
+
+                <h3>14.5 User-Generated Content</h3>
+                <p>
+                    If you submit or post content to the Platform (comments, proposals, feedback), you grant HypeAI a worldwide, non-exclusive, royalty-free, perpetual, irrevocable license to use, reproduce, modify, adapt, publish, distribute, and display such content in connection with operating and promoting the Platform.
+                </p>
+
+                <h3>14.6 Feedback</h3>
+                <p>
+                    If you provide feedback, suggestions, or ideas regarding the Platform ("Feedback"), you grant HypeAI the right to use such Feedback without compensation or attribution. All Feedback becomes the sole property of HypeAI.
+                </p>
+
+                <h3>14.7 DMCA Compliance</h3>
+                <p>
+                    We respect intellectual property rights. If you believe that content on the Platform infringes your copyright, please contact us with details of the alleged infringement in accordance with the Digital Millennium Copyright Act (DMCA).
+                </p>
+            </div>
+
+            <!-- Section 15: Privacy and Data Protection -->
+            <div class="terms-section" id="privacy">
+                <h2>15. Privacy and Data Protection</h2>
+
+                <h3>15.1 Privacy Policy</h3>
+                <p>
+                    Our collection, use, and protection of your personal data is governed by our Privacy Policy, which is incorporated into these Terms by reference. By using the Platform, you consent to our data practices as described in the Privacy Policy.
+                </p>
+
+                <h3>15.2 Data We Collect</h3>
+                <p>
+                    We may collect:
+                </p>
+                <ul>
+                    <li>Wallet addresses and transaction data (publicly available on blockchain)</li>
+                    <li>Usage data and analytics (pages visited, features used, time spent)</li>
+                    <li>Device information (IP address, browser type, operating system)</li>
+                    <li>KYC/AML verification data (if required for regulatory compliance)</li>
+                    <li>Communications with support or community channels</li>
+                </ul>
+
+                <h3>15.3 Blockchain Transparency</h3>
+                <p>
+                    <strong>Important:</strong> Blockchain transactions are public and permanent. Your wallet address and transaction history are publicly visible on the blockchain and cannot be deleted or made private. By using the Platform, you acknowledge and accept the public nature of blockchain transactions.
+                </p>
+
+                <h3>15.4 Data Security</h3>
+                <p>
+                    We implement reasonable security measures to protect your data, but no system is completely secure. You acknowledge that:
+                </p>
+                <ul>
+                    <li>Data transmission over the internet carries inherent risks</li>
+                    <li>We cannot guarantee absolute security of your data</li>
+                    <li>You are responsible for maintaining the security of your wallet and credentials</li>
+                </ul>
+
+                <h3>15.5 Third-Party Services</h3>
+                <p>
+                    The Platform may integrate with third-party services (wallets, exchanges, analytics providers). These third parties have their own privacy policies and we are not responsible for their data practices. We encourage you to review third-party privacy policies before using their services.
+                </p>
+
+                <h3>15.6 Cookies and Tracking</h3>
+                <p>
+                    We use cookies and similar tracking technologies to improve user experience, analyze usage patterns, and deliver personalized content. You can control cookie preferences through your browser settings, but disabling cookies may limit certain Platform features.
+                </p>
+            </div>
+
+            <!-- Section 16: Limitation of Liability -->
+            <div class="terms-section" id="liability">
+                <h2>16. Limitation of Liability</h2>
+
+                <h3>16.1 Maximum Liability Disclaimer</h3>
+                <p class="warning">
+                    <strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, HYPEAI AND ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND LICENSORS (COLLECTIVELY, THE "HYPEAI PARTIES") SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, REVENUE, DATA, OR USE, INCURRED BY YOU OR ANY THIRD PARTY, WHETHER IN AN ACTION IN CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, ARISING FROM:</strong>
+                </p>
+                <ul>
+                    <li>Your access to or use of (or inability to access or use) the Platform or Services</li>
+                    <li>Any conduct or content of any third party on the Platform</li>
+                    <li>Any content obtained from the Platform</li>
+                    <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+                    <li>Errors, mistakes, or inaccuracies in Platform content or AI predictions</li>
+                    <li>Smart contract vulnerabilities, bugs, or exploits</li>
+                    <li>Loss, theft, or unauthorized access to cryptocurrency or tokens</li>
+                    <li>Market volatility or changes in token value</li>
+                    <li>Regulatory actions or changes in applicable law</li>
+                    <li>Platform downtime, service interruptions, or technical failures</li>
+                </ul>
+
+                <h3>16.2 Cap on Liability</h3>
+                <p>
+                    <strong>IN NO EVENT SHALL THE AGGREGATE LIABILITY OF THE HYPEAI PARTIES ARISING OUT OF OR RELATED TO THESE TERMS OR YOUR USE OF THE PLATFORM EXCEED THE GREATER OF: (A) THE AMOUNT YOU HAVE PAID TO HYPEAI IN FEES IN THE 12 MONTHS PRECEDING THE EVENT GIVING RISE TO LIABILITY; OR (B) $100 USD.</strong>
+                </p>
+
+                <h3>16.3 Basis of the Bargain</h3>
+                <p>
+                    You acknowledge and agree that these limitations of liability are fundamental elements of the agreement between you and HypeAI, and that we would not provide the Services without these limitations. These limitations shall apply even if any limited remedy fails of its essential purpose.
+                </p>
+
+                <h3>16.4 No Liability for Third Parties</h3>
+                <p>
+                    We are not liable for:
+                </p>
+                <ul>
+                    <li>Actions or omissions of third-party service providers (wallet providers, exchanges, blockchain networks)</li>
+                    <li>Security breaches or hacks of third-party services</li>
+                    <li>Market manipulation by third parties</li>
+                    <li>Fraudulent schemes or scams perpetrated by third parties</li>
+                </ul>
+
+                <h3>16.5 Force Majeure</h3>
+                <p>
+                    We shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to:
+                </p>
+                <ul>
+                    <li>Acts of God, natural disasters, or extreme weather</li>
+                    <li>War, terrorism, riots, or civil unrest</li>
+                    <li>Government actions, laws, regulations, or orders</li>
+                    <li>Strikes, labor disputes, or supply chain disruptions</li>
+                    <li>Cyberattacks, hacking, or technical failures of third-party infrastructure</li>
+                    <li>Blockchain network failures or forks</li>
+                    <li>Pandemics or public health emergencies</li>
+                </ul>
+
+                <h3>16.6 Jurisdictional Variations</h3>
+                <p>
+                    Some jurisdictions do not allow the exclusion or limitation of certain damages. In such jurisdictions, our liability shall be limited to the maximum extent permitted by law.
+                </p>
+            </div>
+
+            <!-- Section 17: Indemnification -->
+            <div class="terms-section" id="indemnification">
+                <h2>17. Indemnification</h2>
+
+                <h3>17.1 Your Indemnification Obligations</h3>
+                <p>
+                    You agree to indemnify, defend, and hold harmless the HypeAI Parties from and against any and all claims, liabilities, damages, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising from or related to:
+                </p>
+                <ul>
+                    <li>Your access to or use of the Platform or Services</li>
+                    <li>Your violation of these Terms</li>
+                    <li>Your violation of any applicable laws or regulations</li>
+                    <li>Your violation of any third-party rights, including intellectual property rights</li>
+                    <li>Your fraudulent, illegal, or abusive activities</li>
+                    <li>Your negligence or willful misconduct</li>
+                    <li>Any inaccurate or false information you provide to us</li>
+                    <li>Your participation in governance or voting on proposals</li>
+                    <li>Your use of AI services or reliance on AI predictions</li>
+                </ul>
+
+                <h3>17.2 Defense and Settlement</h3>
+                <p>
+                    We reserve the right to assume the exclusive defense and control of any matter subject to indemnification by you, in which case you agree to cooperate with our defense of such claims. You may not settle any claim that affects our rights or obligations without our prior written consent.
+                </p>
+
+                <h3>17.3 Notice of Claims</h3>
+                <p>
+                    You agree to promptly notify us of any third-party claims that may trigger your indemnification obligations under these Terms.
+                </p>
+            </div>
+
+            <!-- Section 18: Termination and Suspension -->
+            <div class="terms-section" id="termination">
+                <h2>18. Termination and Suspension</h2>
+
+                <h3>18.1 Termination by You</h3>
+                <p>
+                    You may cease using the Platform at any time by disconnecting your wallet and discontinuing access. Note that certain obligations (staking lock periods, governance votes) may remain in effect on-chain even after you stop using the Platform.
+                </p>
+
+                <h3>18.2 Termination or Suspension by Us</h3>
+                <p>
+                    We reserve the right to suspend or terminate your access to the Platform, with or without cause and with or without notice, for any reason, including but not limited to:
+                </p>
+                <ul>
+                    <li>Violation of these Terms</li>
+                    <li>Engagement in prohibited activities</li>
+                    <li>Suspected fraudulent, illegal, or abusive activity</li>
+                    <li>Regulatory or legal requirements</li>
+                    <li>Risk management or security concerns</li>
+                    <li>Failure to complete required verification (KYC/AML)</li>
+                    <li>Violation of applicable laws or regulations</li>
+                </ul>
+
+                <h3>18.3 Effect of Termination</h3>
+                <p>
+                    Upon termination:
+                </p>
+                <ul>
+                    <li>Your right to access and use the Platform immediately ceases</li>
+                    <li>We may (but are not obligated to) delete your account data</li>
+                    <li>You remain responsible for all obligations incurred prior to termination</li>
+                    <li>Sections of these Terms that by their nature should survive termination shall survive (including indemnification, liability limitations, dispute resolution)</li>
+                    <li>Tokens held in your wallet remain yours (we do not have custody), but platform access is terminated</li>
+                </ul>
+
+                <h3>18.4 No Liability for Termination</h3>
+                <p>
+                    We shall not be liable to you or any third party for termination or suspension of your access to the Platform, except to the extent required by applicable law.
+                </p>
+
+                <h3>18.5 Discontinuation of Services</h3>
+                <p>
+                    We reserve the right to discontinue the Platform or Services entirely at any time. We will make reasonable efforts to provide advance notice, but are not required to do so. In the event of service discontinuation:
+                </p>
+                <ul>
+                    <li>We will provide instructions for accessing your tokens (if held in smart contracts)</li>
+                    <li>Staked tokens may become immediately withdrawable (subject to smart contract functionality)</li>
+                    <li>We are not liable for any losses arising from service discontinuation</li>
+                </ul>
+            </div>
+
+            <!-- Section 19: Dispute Resolution and Arbitration -->
+            <div class="terms-section" id="disputes">
+                <h2>19. Dispute Resolution and Arbitration</h2>
+
+                <h3>19.1 Informal Dispute Resolution</h3>
+                <p>
+                    Before initiating formal legal proceedings, you agree to first attempt to resolve any dispute, claim, or controversy arising out of or relating to these Terms or the Platform (collectively, "Disputes") informally by contacting us at legal@hypeai.io. We will attempt to resolve Disputes through good-faith negotiations within 60 days.
+                </p>
+
+                <h3>19.2 Binding Arbitration</h3>
+                <p class="warning">
+                    <strong>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS, INCLUDING YOUR RIGHT TO FILE A LAWSUIT IN COURT.</strong>
+                </p>
+                <p>
+                    If informal resolution is unsuccessful, you agree that all Disputes shall be resolved by binding arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules, rather than in court. The arbitration shall be conducted by a single arbitrator and shall take place remotely via videoconference or, if the parties agree, in person at a mutually convenient location.
+                </p>
+
+                <h3>19.3 Arbitration Procedures</h3>
+                <ul>
+                    <li><strong>Location:</strong> Arbitration shall be conducted in English and governed by the laws specified in Section 19.7</li>
+                    <li><strong>Costs:</strong> Each party shall bear its own arbitration costs, except that we will pay your arbitration filing fees if your claim is for less than $10,000</li>
+                    <li><strong>Discovery:</strong> Discovery shall be limited to expedite the arbitration process and reduce costs</li>
+                    <li><strong>Decision:</strong> The arbitrator's decision shall be final and binding, with limited rights to appeal</li>
+                    <li><strong>Enforcement:</strong> Judgment on the arbitration award may be entered in any court with jurisdiction</li>
+                </ul>
+
+                <h3>19.4 Class Action Waiver</h3>
+                <p class="warning">
+                    <strong>YOU AND HYPEAI AGREE THAT EACH PARTY MAY BRING DISPUTES AGAINST THE OTHER ONLY IN AN INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, CONSOLIDATED, OR REPRESENTATIVE PROCEEDING.</strong> Arbitrations may not be consolidated without the consent of all parties. The arbitrator may not preside over any class, consolidated, or representative proceeding.
+                </p>
+
+                <h3>19.5 Exceptions to Arbitration</h3>
+                <p>
+                    Either party may seek injunctive or equitable relief in court to protect intellectual property rights or confidential information without first engaging in arbitration.
+                </p>
+
+                <h3>19.6 Opt-Out Right</h3>
+                <p>
+                    You may opt out of this arbitration agreement by sending written notice to legal@hypeai.io within 30 days of first accepting these Terms. Your notice must include your name, wallet address, and a clear statement that you wish to opt out of the arbitration agreement. If you opt out, all other terms of this agreement remain in effect, but disputes will be resolved in court rather than through arbitration.
+                </p>
+
+                <h3>19.7 Governing Law</h3>
+                <p>
+                    These Terms and any Disputes shall be governed by and construed in accordance with the laws of [JURISDICTION TO BE DETERMINED BASED ON COMPANY INCORPORATION], without regard to its conflict of law provisions. If the arbitration agreement is found to be unenforceable or if you opt out, you agree to submit to the personal jurisdiction of courts located in [JURISDICTION TO BE DETERMINED].
+                </p>
+            </div>
+
+            <!-- Section 20: Regulatory Compliance -->
+            <div class="terms-section" id="regulatory">
+                <h2>20. Regulatory Compliance</h2>
+
+                <h3>20.1 Compliance Obligations</h3>
+                <p>
+                    You are solely responsible for complying with all applicable laws and regulations in your jurisdiction, including but not limited to:
+                </p>
+                <ul>
+                    <li>Securities laws and regulations</li>
+                    <li>Tax laws and reporting requirements</li>
+                    <li>Anti-money laundering (AML) laws</li>
+                    <li>Counter-terrorism financing (CTF) regulations</li>
+                    <li>Know Your Customer (KYC) requirements</li>
+                    <li>Data protection and privacy laws</li>
+                    <li>Consumer protection laws</li>
+                </ul>
+
+                <h3>20.2 KYC/AML Procedures</h3>
+                <p>
+                    We reserve the right to require identity verification (KYC) and conduct anti-money laundering (AML) checks at any time. You agree to provide accurate information and documentation as requested. Failure to complete verification may result in account suspension or termination.
+                </p>
+
+                <h3>20.3 Sanctions Screening</h3>
+                <p>
+                    We may screen users against sanctions lists and prohibited party databases. If you are identified as a sanctioned individual or entity, we will immediately terminate your access and may report your activity to relevant authorities.
+                </p>
+
+                <h3>20.4 Reporting Requirements</h3>
+                <p>
+                    We may be required to report certain transactions or activities to regulatory authorities, law enforcement, or tax agencies. You consent to such reporting as required by law.
+                </p>
+
+                <h3>20.5 Regulatory Changes</h3>
+                <p>
+                    Cryptocurrency regulations are rapidly evolving. We may modify the Platform, Services, or these Terms at any time to comply with new or changed regulations. Such changes may include:
+                </p>
+                <ul>
+                    <li>Restricting services in certain jurisdictions</li>
+                    <li>Implementing additional verification requirements</li>
+                    <li>Limiting transaction amounts or frequencies</li>
+                    <li>Removing or modifying features</li>
+                    <li>Changing fee structures</li>
+                </ul>
+
+                <h3>20.6 Cooperation with Authorities</h3>
+                <p>
+                    We will cooperate with law enforcement, regulatory agencies, and legal processes. We may disclose user information, transaction data, or other records in response to valid legal requests, subpoenas, or court orders.
+                </p>
+            </div>
+
+            <!-- Section 21: Changes to Terms -->
+            <div class="terms-section" id="changes">
+                <h2>21. Changes to Terms</h2>
+
+                <h3>21.1 Right to Modify</h3>
+                <p>
+                    We reserve the right to modify, amend, or update these Terms at any time at our sole discretion. Changes may be made to:
+                </p>
+                <ul>
+                    <li>Reflect changes in our Services or business practices</li>
+                    <li>Comply with legal or regulatory requirements</li>
+                    <li>Improve clarity or fix errors</li>
+                    <li>Address security concerns or protect users</li>
+                    <li>Update fee structures or payment terms</li>
+                </ul>
+
+                <h3>21.2 Notice of Changes</h3>
+                <p>
+                    When we make material changes to these Terms, we will:
+                </p>
+                <ul>
+                    <li>Update the "Last Updated" date at the top of this page</li>
+                    <li>Provide notice through the Platform (banner notification, email, or pop-up)</li>
+                    <li>For significant changes, provide at least 30 days' advance notice</li>
+                </ul>
+
+                <h3>21.3 Acceptance of Changes</h3>
+                <p>
+                    Your continued use of the Platform after changes to these Terms constitutes your acceptance of the modified Terms. If you do not agree to the changes, you must discontinue using the Platform.
+                </p>
+
+                <h3>21.4 Reviewing Terms</h3>
+                <p>
+                    It is your responsibility to review these Terms periodically for changes. We recommend checking this page regularly to stay informed of any updates.
+                </p>
+            </div>
+
+            <!-- Section 22: Miscellaneous Provisions -->
+            <div class="terms-section" id="miscellaneous">
+                <h2>22. Miscellaneous Provisions</h2>
+
+                <h3>22.1 Entire Agreement</h3>
+                <p>
+                    These Terms, together with our Privacy Policy and any supplemental terms, constitute the entire agreement between you and HypeAI regarding the Platform and supersede all prior or contemporaneous communications, agreements, or understandings, whether written or oral.
+                </p>
+
+                <h3>22.2 Severability</h3>
+                <p>
+                    If any provision of these Terms is found to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect. The invalid provision shall be modified to the minimum extent necessary to make it valid and enforceable while preserving its intent.
+                </p>
+
+                <h3>22.3 No Waiver</h3>
+                <p>
+                    Our failure to enforce any right or provision of these Terms shall not constitute a waiver of such right or provision. Any waiver must be in writing and signed by an authorized representative of HypeAI.
+                </p>
+
+                <h3>22.4 Assignment</h3>
+                <p>
+                    You may not assign, transfer, or delegate your rights or obligations under these Terms without our prior written consent. We may assign or transfer our rights and obligations under these Terms without restriction, including to affiliates, successors, or acquirers.
+                </p>
+
+                <h3>22.5 Third-Party Beneficiaries</h3>
+                <p>
+                    These Terms do not create any third-party beneficiary rights except as expressly stated herein.
+                </p>
+
+                <h3>22.6 Relationship of Parties</h3>
+                <p>
+                    Nothing in these Terms creates a partnership, joint venture, agency, employment, or fiduciary relationship between you and HypeAI. You are an independent user of the Platform with no authority to bind HypeAI.
+                </p>
+
+                <h3>22.7 Interpretation</h3>
+                <p>
+                    Headings and section titles are for convenience only and do not affect the interpretation of these Terms. The words "including" and "include" mean "including but not limited to."
+                </p>
+
+                <h3>22.8 Language</h3>
+                <p>
+                    These Terms are provided in English. Any translations are provided for convenience only. In the event of conflicts between English and translated versions, the English version shall prevail.
+                </p>
+
+                <h3>22.9 Electronic Communications</h3>
+                <p>
+                    You consent to receive communications from us electronically, including via email, Platform notifications, or postings on our website. You agree that electronic communications satisfy any legal requirement that communications be in writing.
+                </p>
+
+                <h3>22.10 Export Controls</h3>
+                <p>
+                    The Platform may be subject to export control laws and regulations. You agree to comply with all applicable export and import laws and will not export, re-export, or transfer the Platform or related technology in violation of such laws.
+                </p>
+
+                <h3>22.11 Survival</h3>
+                <p>
+                    Sections that by their nature should survive termination of these Terms shall survive, including but not limited to: Disclaimers, Limitation of Liability, Indemnification, Dispute Resolution, Intellectual Property Rights, and Miscellaneous Provisions.
+                </p>
+            </div>
+
+            <!-- Section 23: Contact Information -->
+            <div class="terms-section" id="contact">
+                <h2>23. Contact Information</h2>
+
+                <h3>23.1 General Inquiries</h3>
+                <p>
+                    For questions about these Terms or the Platform, please contact us:
+                </p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:legal@hypeai.io">legal@hypeai.io</a></li>
+                    <li><strong>Support:</strong> <a href="mailto:support@hypeai.io">support@hypeai.io</a></li>
+                    <li><strong>Discord:</strong> <a href="https://discord.gg/hypeai" target="_blank" rel="noopener noreferrer">discord.gg/hypeai</a></li>
+                    <li><strong>Telegram:</strong> <a href="https://t.me/hypeai" target="_blank" rel="noopener noreferrer">t.me/hypeai</a></li>
+                </ul>
+
+                <h3>23.2 Legal Notices</h3>
+                <p>
+                    Legal notices, including service of process, must be sent to:
+                </p>
+                <p style="margin-left: 2rem;">
+                    HypeAI Legal Department<br>
+                    Email: legal@hypeai.io
+                </p>
+
+                <h3>23.3 DMCA Agent</h3>
+                <p>
+                    For copyright infringement claims under the DMCA, contact:
+                </p>
+                <p style="margin-left: 2rem;">
+                    DMCA Agent<br>
+                    Email: dmca@hypeai.io
+                </p>
+
+                <h3>23.4 Response Time</h3>
+                <p>
+                    We strive to respond to inquiries within 5-7 business days, but response times may vary depending on volume and complexity. For urgent security issues, please use the priority email: security@hypeai.io
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Final Acceptance Box -->
+        <div class="acceptance-box">
+            <h3>✅ Acceptance and Agreement</h3>
+            <p>
+                By clicking "Connect Wallet," "I Agree," or by accessing or using the HypeAI Platform, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service in their entirety.
+            </p>
+            <p style="margin-top: 1rem;">
+                <strong>If you do not agree to these Terms, you must not access or use the Platform.</strong>
+            </p>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h3>📞 Need Help?</h3>
+            <p>
+                If you have questions about these Terms of Service, please contact our legal team:
+            </p>
+            <p>
+                <strong>Email:</strong> <a href="mailto:legal@hypeai.io">legal@hypeai.io</a><br>
+                <strong>Support:</strong> <a href="mailto:support@hypeai.io">support@hypeai.io</a>
+            </p>
+            <p style="margin-top: 1rem;">
+                <a href="index.html" class="back-button">← Return to Platform</a>
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 HypeAI. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="privacy.html" style="color: var(--primary-blue); text-decoration: none;">Privacy Policy</a> |
+            <a href="terms.html" style="color: var(--primary-blue); text-decoration: none;">Terms of Service</a> |
+            <a href="docs.html" style="color: var(--primary-blue); text-decoration: none;">Documentation</a>
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            <strong>Risk Warning:</strong> Cryptocurrency trading involves substantial risk of loss. Not financial advice. DYOR.
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add active state to table of contents links
+        const sections = document.querySelectorAll('.terms-section');
+        const tocLinks = document.querySelectorAll('.table-of-contents a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.style.color = '';
+                link.style.background = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--primary-blue)';
+                    link.style.background = 'rgba(0, 212, 255, 0.1)';
+                    link.style.paddingLeft = '1rem';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

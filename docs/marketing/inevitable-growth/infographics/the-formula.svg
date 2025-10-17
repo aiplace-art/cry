@@ -1,0 +1,98 @@
+<svg width="1080" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgFormula" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="centerGlow">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bgFormula)"/>
+  <circle cx="540" cy="540" r="450" fill="url(#centerGlow)"/>
+
+  <!-- Title -->
+  <text x="540" y="120" font-family="Inter, sans-serif" font-size="48" font-weight="bold" fill="#fbbf24" text-anchor="middle">
+    THE INEVITABLE FORMULA
+  </text>
+
+  <!-- Main Formula Box -->
+  <g transform="translate(140, 200)">
+    <rect x="0" y="0" width="800" height="280" fill="#1e293b" stroke="#06b6d4" stroke-width="3" rx="20"/>
+
+    <!-- Demand -->
+    <text x="400" y="80" font-family="Inter, sans-serif" font-size="42" font-weight="bold" fill="#10b981" text-anchor="middle">
+      ↗️ DEMAND
+    </text>
+    <text x="400" y="120" font-family="Inter, sans-serif" font-size="24" fill="#ffffff" text-anchor="middle">
+      (Rising Daily)
+    </text>
+
+    <!-- Division Line -->
+    <line x1="100" y1="150" x2="700" y2="150" stroke="#fbbf24" stroke-width="4"/>
+
+    <!-- Supply -->
+    <text x="400" y="200" font-family="Inter, sans-serif" font-size="42" font-weight="bold" fill="#ef4444" text-anchor="middle">
+      ↘️ SUPPLY
+    </text>
+    <text x="400" y="240" font-family="Inter, sans-serif" font-size="24" fill="#ffffff" text-anchor="middle">
+      (Falling Daily)
+    </text>
+  </g>
+
+  <!-- Equals Sign -->
+  <text x="540" y="560" font-family="Inter, sans-serif" font-size="72" font-weight="bold" fill="#06b6d4" text-anchor="middle">
+    =
+  </text>
+
+  <!-- Result -->
+  <g transform="translate(240, 590)">
+    <rect x="0" y="0" width="600" height="100" fill="#10b981" rx="50"/>
+    <text x="300" y="70" font-family="Inter, sans-serif" font-size="54" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      🚀 PRICE
+    </text>
+  </g>
+
+  <!-- Explanation -->
+  <g transform="translate(90, 750)">
+    <text x="450" y="30" font-family="Inter, sans-serif" font-size="28" fill="#ffffff" text-anchor="middle">
+      Every day:
+    </text>
+    <text x="450" y="75" font-family="Inter, sans-serif" font-size="24" fill="#ffffff" text-anchor="middle">
+      • More users → More demand
+      <tspan fill="#10b981" font-weight="bold">↗️</tspan>
+    </text>
+    <text x="450" y="115" font-family="Inter, sans-serif" font-size="24" fill="#ffffff" text-anchor="middle">
+      • More burns → Less supply
+      <tspan fill="#ef4444" font-weight="bold">↘️</tspan>
+    </text>
+    <text x="450" y="155" font-family="Inter, sans-serif" font-size="24" fill="#ffffff" text-anchor="middle">
+      • Result → Higher price
+      <tspan fill="#fbbf24" font-weight="bold">🚀</tspan>
+    </text>
+  </g>
+
+  <!-- Tagline -->
+  <text x="540" y="970" font-family="Inter, sans-serif" font-size="32" font-weight="600" fill="#06b6d4" text-anchor="middle">
+    This is Economics 101.
+  </text>
+  <text x="540" y="1010" font-family="Inter, sans-serif" font-size="32" font-weight="600" fill="#fbbf24" text-anchor="middle">
+    Not speculation. INEVITABLE.
+  </text>
+
+  <!-- Logo -->
+  <text x="90" y="1050" font-family="Inter, sans-serif" font-size="24" font-weight="bold" fill="#fbbf24">
+    HYPE
+  </text>
+  <text x="150" y="1050" font-family="Inter, sans-serif" font-size="20" fill="#06b6d4">
+    AI
+  </text>
+
+  <!-- Hashtags -->
+  <text x="990" y="1050" font-family="Inter, sans-serif" font-size="18" fill="#06b6d4" text-anchor="end">
+    #CryptoMath
+  </text>
+</svg>

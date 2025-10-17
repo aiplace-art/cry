@@ -1,6 +1,20 @@
 {
-  "posted": [],
-  "lastIndex": 0,
-  "lastPosted": null,
+  "posted": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "lastIndex": 7,
+  "lastPosted": {
+    "tweetId": "1979200735234383975",
+    "contentId": 7,
+    "category": "engagement",
+    "timestamp": "2025-10-17T15:00:01.922Z",
+    "url": "https://twitter.com/HypeAIProject/status/1979200735234383975"
+  },
   "startedAt": "2025-10-16T18:16:00.000Z"
 }

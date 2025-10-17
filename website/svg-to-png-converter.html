@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HypeAI Logo PNG Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #00d4ff;
+        }
+        button {
+            background: #00d4ff;
+            color: #1a1a2e;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #0095ff;
+        }
+        #preview {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .info {
+            background: #16213e;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 HypeAI Logo PNG Generator</h1>
+
+        <div class="info">
+            <h3>Выберите размер для Twitter:</h3>
+            <button onclick="generatePNG(400, 400, 'profile')">Аватар 400x400</button>
+            <button onclick="generatePNG(1024, 1024, 'profile-hd')">Аватар HD 1024x1024</button>
+            <button onclick="generatePNG(1500, 500, 'banner')">Баннер 1500x500</button>
+        </div>
+
+        <div id="preview"></div>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        async function generatePNG(width, height, type) {
+            const status = document.getElementById('status');
+            const preview = document.getElementById('preview');
+
+            status.innerHTML = '<p>🔄 Загрузка SVG...</p>';
+
+            try {
+                // Determine which SVG to use
+                const svgFile = type === 'banner' ? 'logo-official.svg' : 'logo-icon-only.svg';
+
+                // Load SVG
+                const response = await fetch(svgFile);
+                const svgText = await response.text();
+
+                // Create canvas
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+
+                // Fill white background
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, width, height);
+
+                // Create image from SVG
+                const img = new Image();
+                const svgBlob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+                const url = URL.createObjectURL(svgBlob);
+
+                img.onload = function() {
+                    // Calculate scaling to fit
+                    const scale = Math.min(width / img.width, height / img.height);
+                    const x = (width - img.width * scale) / 2;
+                    const y = (height - img.height * scale) / 2;
+
+                    // Draw image
+                    ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+
+                    // Convert to PNG
+                    canvas.toBlob(function(blob) {
+                        const pngUrl = URL.createObjectURL(blob);
+
+                        // Show preview
+                        preview.innerHTML = `
+                            <img src="${pngUrl}" style="max-width: 400px; border: 2px solid #00d4ff;">
+                            <p>Размер: ${width}x${height}px</p>
+                        `;
+
+                        // Create download link
+                        const link = document.createElement('a');
+                        link.download = `hypeai-logo-${type}-${width}x${height}.png`;
+                        link.href = pngUrl;
+                        link.textContent = '💾 Скачать PNG';
+                        link.style.cssText = 'display: inline-block; background: #00d4ff; color: #1a1a2e; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin: 10px;';
+
+                        status.innerHTML = '<p style="color: #00ff88;">✅ PNG готов!</p>';
+                        status.appendChild(link);
+
+                        URL.revokeObjectURL(url);
+                    });
+                };
+
+                img.onerror = function() {
+                    status.innerHTML = '<p style="color: #ff4444;">❌ Ошибка загрузки SVG</p>';
+                };
+
+                img.src = url;
+
+            } catch (error) {
+                status.innerHTML = '<p style="color: #ff4444;">❌ Ошибка: ' + error.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

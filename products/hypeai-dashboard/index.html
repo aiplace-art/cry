@@ -58,7 +58,7 @@
     </nav>
 
     <!-- Desktop Header -->
-    <header class="desktop-header">
+    <header class="dashboard-header">
         <div class="header-content">
             <div class="header-left">
                 <img src="logo.svg" alt="HypeAI Logo" class="logo">
@@ -83,6 +83,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
+        <div class="dashboard-content">
         <!-- Hero Section with Countdown -->
         <section class="hero-section">
             <div class="countdown-container glass">
@@ -150,7 +151,17 @@
                     </div>
                 </div>
                 <div class="metric-card glass">
-                    <div class="metric-icon gradient-success"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>
+                    <div class="metric-icon gradient-success"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg></div>
+                    <div class="metric-content">
+                        <p class="metric-label">Total Tweets</p>
+                        <p class="metric-value" data-metric="tweets">0</p>
+                        <p class="metric-change positive">
+                            <span>↑</span> Active posting
+                        </p>
+                    </div>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-icon gradient-info"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>
                     <div class="metric-content">
                         <p class="metric-label">Engagement</p>
                         <p class="metric-value" id="engagementRate">4.2%</p>
@@ -195,12 +206,16 @@
             </h2>
             <div class="monitoring-grid">
                 <div class="monitor-card glass">
-                    <h3 class="monitor-title">Growth Trends</h3>
-                    <canvas id="growthChart"></canvas>
+                    <h3 class="monitor-title">Follower Growth</h3>
+                    <canvas id="followerChart"></canvas>
+                </div>
+                <div class="monitor-card glass">
+                    <h3 class="monitor-title">Tweet Distribution</h3>
+                    <canvas id="tweetChart"></canvas>
                 </div>
                 <div class="monitor-card glass">
                     <h3 class="monitor-title">Agent Performance</h3>
-                    <canvas id="agentChart"></canvas>
+                    <canvas id="performanceChart"></canvas>
                 </div>
                 <div class="monitor-card glass">
                     <h3 class="monitor-title">Engagement Analytics</h3>
@@ -254,6 +269,7 @@
                 <!-- Activity items will be injected by JavaScript -->
             </div>
         </section>
+        </div><!-- End dashboard-content -->
     </main>
 
     <!-- Footer -->
@@ -279,20 +295,23 @@
     </footer>
 
     <!-- Scripts -->
+    <!-- UI Helpers (must load first) -->
+    <script src="js/ui-helpers.js?v=20251017"></script>
+
     <!-- Twitter Integration Dependencies -->
-    <script src="js/twitter-validators.js"></script>
-    <script src="js/retry-manager.js"></script>
-    <script src="js/loading-state-manager.js"></script>
-    <script src="js/twitter-data-service.js"></script>
-    
+    <script src="js/twitter-validators.js?v=20251017"></script>
+    <script src="js/retry-manager.js?v=20251017"></script>
+    <script src="js/loading-state-manager.js?v=20251017"></script>
+    <script src="js/twitter-data-service.js?v=20251017"></script>
+
     <!-- Twitter Integration v2 (Production Ready) -->
-    <script src="js/twitter-connect-v2.js"></script>
-    
+    <script src="js/twitter-connect-v2.js?v=20251017"></script>
+
     <!-- Dashboard Scripts -->
-    <script src="js/app.js"></script>
-    <script src="js/charts.js"></script>
-    <script src="js/realtime.js"></script>
-    <script src="js/mobile.js"></script>
+    <script src="js/app.js?v=20251017"></script>
+    <script src="js/charts.js?v=20251017"></script>
+    <script src="js/realtime.js?v=20251017"></script>
+    <script src="js/mobile.js?v=20251017"></script>
     
 </body>
 </html>

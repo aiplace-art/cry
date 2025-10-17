@@ -1,0 +1,61 @@
+<svg width="1200" height="675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad2)"/>
+
+  <!-- Timeline Badge -->
+  <text x="600" y="100" font-family="Inter, sans-serif" font-size="36" font-weight="600" fill="#06b6d4" text-anchor="middle">
+    MONTH 1 PROJECTION
+  </text>
+
+  <!-- Main Price -->
+  <text x="600" y="250" font-family="Inter, sans-serif" font-size="120" font-weight="bold" fill="#fbbf24" text-anchor="middle">
+    $0.005
+  </text>
+
+  <!-- Multiplier Badge -->
+  <g transform="translate(480, 280)">
+    <rect x="0" y="0" width="240" height="70" fill="#10b981" rx="35"/>
+    <text x="120" y="50" font-family="Inter, sans-serif" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      5x ✅
+    </text>
+  </g>
+
+  <!-- Stats -->
+  <g transform="translate(200, 400)">
+    <text x="400" y="40" font-family="Inter, sans-serif" font-size="28" fill="#ffffff" text-anchor="middle">
+      Supply burned:
+      <tspan font-weight="bold" fill="#fbbf24">150M (15%)</tspan>
+    </text>
+    <text x="400" y="90" font-family="Inter, sans-serif" font-size="28" fill="#ffffff" text-anchor="middle">
+      Your $1,000 →
+      <tspan font-weight="bold" fill="#10b981">$5,000</tspan>
+    </text>
+  </g>
+
+  <!-- Probability -->
+  <g transform="translate(350, 530)">
+    <rect x="0" y="0" width="500" height="80" fill="#06b6d4" opacity="0.2" rx="15"/>
+    <text x="250" y="55" font-family="Inter, sans-serif" font-size="36" font-weight="bold" fill="#06b6d4" text-anchor="middle">
+      Probability: 99.9% 💎
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="100" y="650" font-family="Inter, sans-serif" font-size="22" font-weight="bold" fill="#fbbf24">
+    HYPE
+  </text>
+  <text x="160" y="650" font-family="Inter, sans-serif" font-size="18" fill="#06b6d4">
+    AI
+  </text>
+
+  <text x="1100" y="650" font-family="Inter, sans-serif" font-size="18" fill="#ffffff" text-anchor="end">
+    2 / 4
+  </text>
+</svg>

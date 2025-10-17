@@ -24,7 +24,7 @@ readFileSync(envPath, 'utf8').split('\n').forEach(line => {
 });
 
 const TELEGRAM_TOKEN = env.TELEGRAM_BOT_TOKEN || process.env.TELEGRAM_BOT_TOKEN;
-const CLAUDE_API_KEY = process.env.ANTHROPIC_API_KEY || '';
+const CLAUDE_API_KEY = env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_API_KEY || '';
 
 if (!TELEGRAM_TOKEN || TELEGRAM_TOKEN === 'YOUR_TOKEN_HERE') {
   console.error('❌ TELEGRAM_BOT_TOKEN не настроен!');

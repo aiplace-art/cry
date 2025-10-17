@@ -1,5 +1,5 @@
 {
-  "opportunities_found": 16,
+  "opportunities_found": 32,
   "partnerships_initiated": 0,
   "influencers_contacted": 0,
   "viral_strategies": [
@@ -117,7 +117,7 @@
     }
   ],
   "roi": 0,
-  "last_scan": "2025-10-17T10:15:41.433Z",
+  "last_scan": "2025-10-17T14:15:41.535Z",
   "opportunities": [
     {
       "id": 1760680028517,
@@ -298,6 +298,186 @@
       "description": "Create viral Reddit post",
       "action": "Craft compelling story + proof",
       "deadline": "2025-10-19T10:15:41.433Z"
+    },
+    {
+      "id": 1760699741541,
+      "type": "listing",
+      "platform": "CoinGecko",
+      "priority": "high",
+      "potential_reach": 2000000,
+      "effort": "medium",
+      "description": "Submit CoinGecko listing application",
+      "action": "Apply immediately after launch",
+      "deadline": "2025-10-24T11:15:41.541Z"
+    },
+    {
+      "id": 1760699741542,
+      "type": "partnership",
+      "partner": "DeFi Pulse",
+      "priority": "medium",
+      "potential_reach": 500000,
+      "effort": "high",
+      "description": "Partner with DeFi Pulse for visibility",
+      "action": "Reach out to partnerships team",
+      "deadline": "2025-10-31T11:15:41.541Z"
+    },
+    {
+      "id": 1760699741543,
+      "type": "influencer",
+      "influencer": "@CryptoBanter",
+      "followers": 458000,
+      "priority": "high",
+      "engagement": "3.2%",
+      "cost": "$2000-5000",
+      "description": "Sponsored post with CryptoBanter",
+      "action": "Contact for rate card",
+      "deadline": "2025-10-22T11:15:41.541Z"
+    },
+    {
+      "id": 1760699741544,
+      "type": "community",
+      "platform": "Reddit r/CryptoMoonShots",
+      "members": 1200000,
+      "priority": "high",
+      "effort": "low",
+      "description": "Create viral Reddit post",
+      "action": "Craft compelling story + proof",
+      "deadline": "2025-10-19T11:15:41.541Z"
+    },
+    {
+      "id": 1760703341527,
+      "type": "listing",
+      "platform": "CoinGecko",
+      "priority": "high",
+      "potential_reach": 2000000,
+      "effort": "medium",
+      "description": "Submit CoinGecko listing application",
+      "action": "Apply immediately after launch",
+      "deadline": "2025-10-24T12:15:41.527Z"
+    },
+    {
+      "id": 1760703341528,
+      "type": "partnership",
+      "partner": "DeFi Pulse",
+      "priority": "medium",
+      "potential_reach": 500000,
+      "effort": "high",
+      "description": "Partner with DeFi Pulse for visibility",
+      "action": "Reach out to partnerships team",
+      "deadline": "2025-10-31T12:15:41.527Z"
+    },
+    {
+      "id": 1760703341529,
+      "type": "influencer",
+      "influencer": "@CryptoBanter",
+      "followers": 458000,
+      "priority": "high",
+      "engagement": "3.2%",
+      "cost": "$2000-5000",
+      "description": "Sponsored post with CryptoBanter",
+      "action": "Contact for rate card",
+      "deadline": "2025-10-22T12:15:41.527Z"
+    },
+    {
+      "id": 1760703341530,
+      "type": "community",
+      "platform": "Reddit r/CryptoMoonShots",
+      "members": 1200000,
+      "priority": "high",
+      "effort": "low",
+      "description": "Create viral Reddit post",
+      "action": "Craft compelling story + proof",
+      "deadline": "2025-10-19T12:15:41.527Z"
+    },
+    {
+      "id": 1760706941496,
+      "type": "listing",
+      "platform": "CoinGecko",
+      "priority": "high",
+      "potential_reach": 2000000,
+      "effort": "medium",
+      "description": "Submit CoinGecko listing application",
+      "action": "Apply immediately after launch",
+      "deadline": "2025-10-24T13:15:41.496Z"
+    },
+    {
+      "id": 1760706941497,
+      "type": "partnership",
+      "partner": "DeFi Pulse",
+      "priority": "medium",
+      "potential_reach": 500000,
+      "effort": "high",
+      "description": "Partner with DeFi Pulse for visibility",
+      "action": "Reach out to partnerships team",
+      "deadline": "2025-10-31T13:15:41.496Z"
+    },
+    {
+      "id": 1760706941498,
+      "type": "influencer",
+      "influencer": "@CryptoBanter",
+      "followers": 458000,
+      "priority": "high",
+      "engagement": "3.2%",
+      "cost": "$2000-5000",
+      "description": "Sponsored post with CryptoBanter",
+      "action": "Contact for rate card",
+      "deadline": "2025-10-22T13:15:41.496Z"
+    },
+    {
+      "id": 1760706941499,
+      "type": "community",
+      "platform": "Reddit r/CryptoMoonShots",
+      "members": 1200000,
+      "priority": "high",
+      "effort": "low",
+      "description": "Create viral Reddit post",
+      "action": "Craft compelling story + proof",
+      "deadline": "2025-10-19T13:15:41.496Z"
+    },
+    {
+      "id": 1760710541535,
+      "type": "listing",
+      "platform": "CoinGecko",
+      "priority": "high",
+      "potential_reach": 2000000,
+      "effort": "medium",
+      "description": "Submit CoinGecko listing application",
+      "action": "Apply immediately after launch",
+      "deadline": "2025-10-24T14:15:41.535Z"
+    },
+    {
+      "id": 1760710541536,
+      "type": "partnership",
+      "partner": "DeFi Pulse",
+      "priority": "medium",
+      "potential_reach": 500000,
+      "effort": "high",
+      "description": "Partner with DeFi Pulse for visibility",
+      "action": "Reach out to partnerships team",
+      "deadline": "2025-10-31T14:15:41.535Z"
+    },
+    {
+      "id": 1760710541537,
+      "type": "influencer",
+      "influencer": "@CryptoBanter",
+      "followers": 458000,
+      "priority": "high",
+      "engagement": "3.2%",
+      "cost": "$2000-5000",
+      "description": "Sponsored post with CryptoBanter",
+      "action": "Contact for rate card",
+      "deadline": "2025-10-22T14:15:41.535Z"
+    },
+    {
+      "id": 1760710541538,
+      "type": "community",
+      "platform": "Reddit r/CryptoMoonShots",
+      "members": 1200000,
+      "priority": "high",
+      "effort": "low",
+      "description": "Create viral Reddit post",
+      "action": "Craft compelling story + proof",
+      "deadline": "2025-10-19T14:15:41.535Z"
     }
   ]
 }

@@ -1,0 +1,101 @@
+<svg width="2000" height="2000" viewBox="0 0 2000 2000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Premium Gradients -->
+    <linearGradient id="hexGradIcon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0088ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="lightningGradIcon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0088ff;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Premium Glow Filters -->
+    <filter id="hexGlowIcon" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feFlood flood-color="#00d4ff" flood-opacity="0.8"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="lightningGlowIcon" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feFlood flood-color="#00ffff" flood-opacity="0.9"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="shadowIcon">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="2000" height="2000" fill="#ffffff"/>
+
+  <!-- Hexagon with Premium Glow (Centered and Scaled) -->
+  <g filter="url(#hexGlowIcon)">
+    <path d="M 1000 300 L 1350 530 L 1350 990 L 1000 1220 L 650 990 L 650 530 Z"
+          fill="url(#hexGradIcon)"
+          stroke="url(#hexGradIcon)"
+          stroke-width="10"
+          filter="url(#shadowIcon)"/>
+  </g>
+
+  <!-- Inner Hexagon Details -->
+  <path d="M 1000 370 L 1300 570 L 1300 950 L 1000 1150 L 700 950 L 700 570 Z"
+        fill="none"
+        stroke="url(#hexGradIcon)"
+        stroke-width="6"
+        opacity="0.5"/>
+
+  <!-- 8 Lightning Bolts with Ultra Glow -->
+  <g filter="url(#lightningGlowIcon)">
+    <!-- Top Lightning -->
+    <path d="M 1000 300 L 970 450 L 1015 450 L 980 600 L 1060 450 L 1015 450 Z"
+          fill="url(#lightningGradIcon)" stroke="none"/>
+
+    <!-- Top-Right Lightning -->
+    <path d="M 1350 530 L 1280 620 L 1320 640 L 1260 770 L 1360 660 L 1320 640 Z"
+          fill="url(#lightningGradIcon)" stroke="none"/>
+
+    <!-- Right Lightning -->
+    <path d="M 1350 760 L 1280 800 L 1320 830 L 1260 960 L 1360 850 L 1320 820 Z"
+          fill="url(#lightningGradIcon)" stroke="none"/>
+
+    <!-- Bottom-Right Lightning -->
+    <path d="M 1350 990 L 1280 1080 L 1320 1100 L 1260 1230 L 1360 1120 L 1320 1100 Z"
+          fill="url(#lightningGradIcon)" stroke="none"/>
+
+    <!-- Bottom Lightning -->
+    <path d="M 1000 1220 L 970 1070 L 1015 1070 L 980 920 L 1060 1070 L 1015 1070 Z"
+          fill="url(#lightningGradIcon)" stroke="none"/>
+
+    <!-- Bottom-Left Lightning -->
+    <path d="M 650 990 L 720 1080 L 680 1100 L 740 1230 L 640 1120 L 680 1100 Z"
+          fill="url(#lightningGradIcon)" stroke="none"/>
+
+    <!-- Left Lightning -->
+    <path d="M 650 760 L 720 800 L 680 830 L 740 960 L 640 850 L 680 820 Z"
+          fill="url(#lightningGradIcon)" stroke="none"/>
+
+    <!-- Top-Left Lightning -->
+    <path d="M 650 530 L 720 620 L 680 640 L 740 770 L 640 660 L 680 640 Z"
+          fill="url(#lightningGradIcon)" stroke="none"/>
+  </g>
+
+  <!-- Central AI Core -->
+  <circle cx="1000" cy="760" r="120" fill="url(#hexGradIcon)" opacity="0.9" filter="url(#hexGlowIcon)"/>
+  <circle cx="1000" cy="760" r="90" fill="none" stroke="url(#lightningGradIcon)" stroke-width="6"/>
+  <circle cx="1000" cy="760" r="60" fill="none" stroke="url(#lightningGradIcon)" stroke-width="4" opacity="0.6"/>
+  <circle cx="1000" cy="760" r="30" fill="url(#lightningGradIcon)" opacity="0.8"/>
+</svg>

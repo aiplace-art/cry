@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
+  <defs>
+    <linearGradient id="premiumMetalBanner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0f3460;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#533483;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="electricAccentBanner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0095ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="lightningBanner" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:0.85" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:0.75" />
+    </linearGradient>
+
+    <filter id="premiumGlowBanner">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <radialGradient id="spotlightGlow" cx="30%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#0095ff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#0061ff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Dark gradient background -->
+  <rect width="1500" height="500" fill="#0a0a15"/>
+
+  <!-- Spotlight effect on left -->
+  <ellipse cx="450" cy="250" rx="600" ry="300" fill="url(#spotlightGlow)" opacity="0.6"/>
+
+  <!-- Logo icon on left -->
+  <g transform="translate(300, 250)" filter="url(#premiumGlowBanner)">
+    <!-- Hexagon -->
+    <path d="M 0 -80 L 70 -40 L 70 40 L 0 80 L -70 40 L -70 -40 Z"
+          fill="url(#premiumMetalBanner)"
+          stroke="url(#electricAccentBanner)"
+          stroke-width="3"
+          opacity="0.95"/>
+
+    <!-- Central core -->
+    <circle cx="0" cy="0" r="35"
+            fill="url(#electricAccentBanner)"
+            opacity="0.95"/>
+
+    <circle cx="0" cy="0" r="25"
+            fill="#ffffff"
+            opacity="0.2"/>
+
+    <!-- Lightning bolts -->
+    <g opacity="0.9">
+      <path d="M 0 0 L -2 -35 L 3 -35 L 0 -55 L -3 -55 L 0 -75 L 2 -45 L -2 -45 Z"
+            fill="url(#lightningBanner)" stroke="#ffffff" stroke-width="0.5"/>
+      <path d="M 0 0 L 30 -25 L 33 -22 L 50 -40 L 47 -43 L 65 -55 L 35 -27 L 32 -30 Z"
+            fill="url(#lightningBanner)" stroke="#ffffff" stroke-width="0.5"/>
+      <path d="M 0 0 L 45 -2 L 45 2 L 70 0 L 70 -4 L 90 0 L 60 2 L 60 -2 Z"
+            fill="url(#lightningBanner)" stroke="#ffffff" stroke-width="0.5"/>
+      <path d="M 0 0 L 30 25 L 33 22 L 50 40 L 47 43 L 65 55 L 35 27 L 32 30 Z"
+            fill="url(#lightningBanner)" stroke="#ffffff" stroke-width="0.5"/>
+      <path d="M 0 0 L -2 35 L 3 35 L 0 55 L -3 55 L 0 75 L 2 45 L -2 45 Z"
+            fill="url(#lightningBanner)" stroke="#ffffff" stroke-width="0.5"/>
+      <path d="M 0 0 L -30 25 L -33 22 L -50 40 L -47 43 L -65 55 L -35 27 L -32 30 Z"
+            fill="url(#lightningBanner)" stroke="#ffffff" stroke-width="0.5"/>
+      <path d="M 0 0 L -45 -2 L -45 2 L -70 0 L -70 -4 L -90 0 L -60 2 L -60 -2 Z"
+            fill="url(#lightningBanner)" stroke="#ffffff" stroke-width="0.5"/>
+      <path d="M 0 0 L -30 -25 L -33 -22 L -50 -40 L -47 -43 L -65 -55 L -35 -27 L -32 -30 Z"
+            fill="url(#lightningBanner)" stroke="#ffffff" stroke-width="0.5"/>
+    </g>
+  </g>
+
+  <!-- HYPEAI text -->
+  <g transform="translate(750, 250)" filter="url(#premiumGlowBanner)">
+    <text x="0" y="35"
+          font-family="'Helvetica Neue', Arial, sans-serif"
+          font-size="120"
+          font-weight="800"
+          fill="url(#electricAccentBanner)"
+          text-anchor="middle"
+          letter-spacing="15"
+          opacity="0.98">HYPEAI</text>
+    <text x="0" y="35"
+          font-family="'Helvetica Neue', Arial, sans-serif"
+          font-size="120"
+          font-weight="800"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="1"
+          text-anchor="middle"
+          letter-spacing="15"
+          opacity="0.5">HYPEAI</text>
+  </g>
+
+  <!-- Tagline -->
+  <g transform="translate(750, 330)">
+    <text x="0" y="0"
+          font-family="'Helvetica Neue', Arial, sans-serif"
+          font-size="28"
+          font-weight="400"
+          fill="#00d4ff"
+          text-anchor="middle"
+          letter-spacing="8"
+          opacity="0.75">INFINITE INTELLIGENCE</text>
+  </g>
+
+  <!-- Power indicator -->
+  <g transform="translate(1350, 280)" filter="url(#premiumGlowBanner)">
+    <text x="0" y="0"
+          font-family="Arial, sans-serif"
+          font-size="48"
+          font-weight="600"
+          fill="#00d4ff"
+          text-anchor="middle"
+          opacity="0.95">⚡</text>
+  </g>
+
+  <!-- Decorative lines -->
+  <g opacity="0.3" stroke="url(#electricAccentBanner)" stroke-width="2">
+    <line x1="550" y1="250" x2="600" y2="250"/>
+    <line x1="900" y1="250" x2="950" y2="250"/>
+  </g>
+</svg>

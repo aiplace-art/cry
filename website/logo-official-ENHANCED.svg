@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <!-- Enhanced metallic gradient with more depth -->
+    <linearGradient id="premiumMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#0d1528;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0a2850;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#3d1f6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d1528;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Vibrant electric accent gradient - MUCH BRIGHTER -->
+    <linearGradient id="electricAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00b8ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0080ff;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Ultra bright lightning bolt gradient -->
+    <linearGradient id="lightningPremium" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0080ff;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Enhanced glow with more intensity -->
+    <radialGradient id="subtleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:0.6" />
+      <stop offset="50%" style="stop-color:#00b8ff;stop-opacity:0.35" />
+      <stop offset="100%" style="stop-color:#0080ff;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Stronger premium glow filter -->
+    <filter id="premiumGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Intense glow for core elements -->
+    <filter id="intenseGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Sharp precision filter -->
+    <filter id="sharpEdge">
+      <feGaussianBlur stdDeviation="0.3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Enhanced drop shadow -->
+    <filter id="dropShadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Enhanced background glow -->
+  <circle cx="250" cy="250" r="220" fill="url(#subtleGlow)" opacity="0.7"/>
+  <circle cx="250" cy="250" r="160" fill="url(#subtleGlow)" opacity="0.5"/>
+
+  <!-- Main geometric shape: Hexagonal AI core -->
+  <g filter="url(#sharpEdge)">
+    <!-- Outer hexagon ring with glow -->
+    <path d="M 250 120 L 340 170 L 340 270 L 250 320 L 160 270 L 160 170 Z"
+          fill="none"
+          stroke="url(#electricAccent)"
+          stroke-width="4"
+          opacity="1"
+          filter="url(#premiumGlow)"/>
+
+    <!-- Middle hexagon ring -->
+    <path d="M 250 135 L 330 180 L 330 260 L 250 305 L 170 260 L 170 180 Z"
+          fill="none"
+          stroke="url(#electricAccent)"
+          stroke-width="2.5"
+          opacity="0.8"
+          filter="url(#premiumGlow)"/>
+
+    <!-- Inner hexagon with enhanced fill -->
+    <path d="M 250 150 L 320 190 L 320 250 L 250 290 L 180 250 L 180 190 Z"
+          fill="url(#premiumMetal)"
+          stroke="url(#electricAccent)"
+          stroke-width="3"
+          opacity="1"
+          filter="url(#dropShadow)"/>
+
+    <!-- Central power core with intense glow -->
+    <circle cx="250" cy="220" r="40"
+            fill="url(#electricAccent)"
+            opacity="1"
+            filter="url(#intenseGlow)"/>
+
+    <!-- Inner core bright layer -->
+    <circle cx="250" cy="220" r="30"
+            fill="#ffffff"
+            opacity="0.4"/>
+
+    <!-- Core highlight -->
+    <circle cx="250" cy="220" r="20"
+            fill="#ffffff"
+            opacity="0.6"/>
+  </g>
+
+  <!-- Lightning bolts with enhanced visibility -->
+  <g filter="url(#intenseGlow)" opacity="1">
+    <!-- Top lightning -->
+    <path d="M 250 220 L 248 165 L 255 165 L 250 140 L 245 140 L 250 110 L 252 150 L 248 150 Z"
+          fill="url(#lightningPremium)"
+          stroke="#ffffff"
+          stroke-width="1"
+          opacity="1"/>
+
+    <!-- Top-right lightning -->
+    <path d="M 250 220 L 285 180 L 290 185 L 310 160 L 305 155 L 325 135 L 295 175 L 290 170 Z"
+          fill="url(#lightningPremium)"
+          stroke="#ffffff"
+          stroke-width="1"
+          opacity="1"/>
+
+    <!-- Right lightning -->
+    <path d="M 250 220 L 305 218 L 305 222 L 330 220 L 330 216 L 360 220 L 320 222 L 320 218 Z"
+          fill="url(#lightningPremium)"
+          stroke="#ffffff"
+          stroke-width="1"
+          opacity="1"/>
+
+    <!-- Bottom-right lightning -->
+    <path d="M 250 220 L 285 260 L 290 255 L 310 280 L 305 285 L 325 305 L 295 265 L 290 270 Z"
+          fill="url(#lightningPremium)"
+          stroke="#ffffff"
+          stroke-width="1"
+          opacity="1"/>
+
+    <!-- Bottom lightning -->
+    <path d="M 250 220 L 248 275 L 255 275 L 250 300 L 245 300 L 250 330 L 252 290 L 248 290 Z"
+          fill="url(#lightningPremium)"
+          stroke="#ffffff"
+          stroke-width="1"
+          opacity="1"/>
+
+    <!-- Bottom-left lightning -->
+    <path d="M 250 220 L 215 260 L 210 255 L 190 280 L 195 285 L 175 305 L 205 265 L 210 270 Z"
+          fill="url(#lightningPremium)"
+          stroke="#ffffff"
+          stroke-width="1"
+          opacity="1"/>
+
+    <!-- Left lightning -->
+    <path d="M 250 220 L 195 218 L 195 222 L 170 220 L 170 216 L 140 220 L 180 222 L 180 218 Z"
+          fill="url(#lightningPremium)"
+          stroke="#ffffff"
+          stroke-width="1"
+          opacity="1"/>
+
+    <!-- Top-left lightning -->
+    <path d="M 250 220 L 215 180 L 210 185 L 190 160 L 195 155 L 175 135 L 205 175 L 210 170 Z"
+          fill="url(#lightningPremium)"
+          stroke="#ffffff"
+          stroke-width="1"
+          opacity="1"/>
+  </g>
+
+  <!-- Enhanced neural network connections -->
+  <g opacity="0.7" stroke="url(#electricAccent)" stroke-width="2.5" fill="none" filter="url(#premiumGlow)">
+    <line x1="180" y1="190" x2="220" y2="205"/>
+    <line x1="280" y1="205" x2="320" y2="190"/>
+    <line x1="180" y1="250" x2="220" y2="235"/>
+    <line x1="280" y1="235" x2="320" y2="250"/>
+    <line x1="200" y1="190" x2="210" y2="220"/>
+    <line x1="290" y1="220" x2="300" y2="190"/>
+    <line x1="200" y1="250" x2="210" y2="220"/>
+    <line x1="290" y1="220" x2="300" y2="250"/>
+  </g>
+
+  <!-- Neural nodes with enhanced glow -->
+  <g filter="url(#intenseGlow)">
+    <circle cx="180" cy="190" r="5" fill="#00ffff" opacity="1"/>
+    <circle cx="220" cy="205" r="4" fill="#00b8ff" opacity="1"/>
+    <circle cx="180" cy="250" r="5" fill="#0080ff" opacity="1"/>
+    <circle cx="210" cy="220" r="4.5" fill="#00ffff" opacity="1"/>
+    <circle cx="320" cy="190" r="5" fill="#00ffff" opacity="1"/>
+    <circle cx="280" cy="205" r="4" fill="#00b8ff" opacity="1"/>
+    <circle cx="320" cy="250" r="5" fill="#0080ff" opacity="1"/>
+    <circle cx="290" cy="220" r="4.5" fill="#00ffff" opacity="1"/>
+    <circle cx="200" cy="190" r="3.5" fill="#00ffff" opacity="1"/>
+    <circle cx="300" cy="190" r="3.5" fill="#00ffff" opacity="1"/>
+    <circle cx="200" cy="250" r="3.5" fill="#00b8ff" opacity="1"/>
+    <circle cx="300" cy="250" r="3.5" fill="#00b8ff" opacity="1"/>
+  </g>
+
+  <!-- Enhanced energy rings -->
+  <g opacity="0.5" stroke="url(#electricAccent)" stroke-width="2" fill="none" filter="url(#premiumGlow)">
+    <circle cx="250" cy="220" r="50"/>
+    <circle cx="250" cy="220" r="70"/>
+    <circle cx="250" cy="220" r="90"/>
+    <circle cx="250" cy="220" r="110"/>
+  </g>
+
+  <!-- Wordmark: HYPEAI with enhanced effects -->
+  <g transform="translate(250, 410)" filter="url(#intenseGlow)">
+    <text x="0" y="0"
+          font-family="'Helvetica Neue', Arial, sans-serif"
+          font-size="48"
+          font-weight="700"
+          fill="url(#electricAccent)"
+          text-anchor="middle"
+          letter-spacing="8"
+          opacity="1">HYPEAI</text>
+    <text x="0" y="0"
+          font-family="'Helvetica Neue', Arial, sans-serif"
+          font-size="48"
+          font-weight="700"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="1"
+          text-anchor="middle"
+          letter-spacing="8"
+          opacity="0.7">HYPEAI</text>
+  </g>
+
+  <!-- Enhanced tagline -->
+  <g transform="translate(250, 445)" filter="url(#premiumGlow)">
+    <text x="0" y="0"
+          font-family="'Helvetica Neue', Arial, sans-serif"
+          font-size="12"
+          font-weight="400"
+          fill="#00ffff"
+          text-anchor="middle"
+          letter-spacing="3"
+          opacity="0.9">INFINITE INTELLIGENCE</text>
+  </g>
+
+  <!-- Enhanced power indicator -->
+  <g transform="translate(420, 425)" filter="url(#intenseGlow)">
+    <text x="0" y="0"
+          font-family="Arial, sans-serif"
+          font-size="18"
+          font-weight="600"
+          fill="#00ffff"
+          text-anchor="middle"
+          opacity="1">⚡</text>
+  </g>
+</svg>
