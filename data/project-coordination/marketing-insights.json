@@ -1,29 +1,29 @@
 {
-  "timestamp": "2025-10-17T15:00:10.240Z",
+  "timestamp": "2025-10-17T16:50:08.631Z",
   "hashtags": [],
   "competitors": [
     {
       "username": "solana",
-      "followers": 3565895,
-      "following": 2914,
-      "tweets": 19409,
-      "engagementRate": "18372.38",
+      "followers": 3566322,
+      "following": 2915,
+      "tweets": 19418,
+      "engagementRate": "18366.06",
       "strategy": "Established player"
     },
     {
       "username": "pumpdotfun",
-      "followers": 597156,
+      "followers": 597244,
       "following": 0,
       "tweets": 3027,
-      "engagementRate": "19727.65",
+      "engagementRate": "19730.56",
       "strategy": "Established player"
     },
     {
       "username": "RaydiumProtocol",
-      "followers": 443545,
-      "following": 874,
-      "tweets": 6678,
-      "engagementRate": "6641.88",
+      "followers": 443599,
+      "following": 873,
+      "tweets": 6681,
+      "engagementRate": "6639.71",
       "strategy": "Established player"
     }
   ],
@@ -79,5 +79,5 @@
       "expectedImpact": "+50-100 followers/week"
     }
   ],
-  "previousRun": "2025-10-17T14:03:03.568Z"
+  "previousRun": "2025-10-17T15:00:10.240Z"
 }

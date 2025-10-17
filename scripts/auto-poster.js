@@ -84,7 +84,7 @@ async function uploadMedia(client, tweetData) {
 
     if (!mediaPath) {
       console.log(`   ⚠️  No media generated, using default logo`);
-      const defaultPath = './website/branding/logos/twitter/hypeai-logo-1024.png';
+      const defaultPath = './website/logo-icon-only.svg';
       const mediaId = await client.v1.uploadMedia(defaultPath);
       return mediaId;
     }
@@ -97,9 +97,9 @@ async function uploadMedia(client, tweetData) {
     return mediaId;
   } catch (error) {
     console.error(`   ⚠️  Media upload failed: ${error.message}`);
-    // Fallback to logo
+    // Fallback to logo (OFFICIAL LOGO - see docs/OFFICIAL_LOGO_PATH.md)
     try {
-      const defaultPath = './website/branding/logos/twitter/hypeai-logo-1024.png';
+      const defaultPath = './website/logo-icon-only.svg';
       return await client.v1.uploadMedia(defaultPath);
     } catch (fallbackError) {
       return null;

@@ -1,0 +1,318 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "trade": "Trade",
+      "stake": "Stake",
+      "agents": "AI Agents",
+      "docs": "Docs",
+      "whitepaper": "Whitepaper",
+      "connectWallet": "Connect Wallet"
+    },
+    "hero": {
+      "title": "AI-Powered Crypto Trading",
+      "subtitle": "Smarter. Faster. Better.",
+      "description": "27 AI Agents working infinitely to make YOU a millionaire",
+      "ctaPrimary": "Start Trading Now",
+      "ctaSecondary": "View AI Agents",
+      "whySuccessButton": "🚀 Why 50x-100x-1000x is Inevitable"
+    },
+    "stats": {
+      "agents": "AI Agents",
+      "holders": "Token Holders",
+      "price": "Token Price (Demo)",
+      "trading": "Trading Active (Demo)"
+    },
+    "whySucceed": {
+      "title": "🚀 Why HypeAI is Destined to Succeed",
+      "subtitle": "Built on real revenue, utility, and AI innovation. Our success is inevitable.",
+      "cryptoChecker": {
+        "title": "Crypto Checker - Paid Service 💰",
+        "description": "Enter any crypto address. Our 27 AI agents analyze in 30 seconds:",
+        "feature1": "Scam or Legit?",
+        "feature1desc": "Rug pull detection, honeypot check",
+        "feature2": "Full Analysis",
+        "feature2desc": "Contract security, liquidity, holders",
+        "feature3": "Success Probability",
+        "feature3desc": "AI predicts 10x, 100x, or dump",
+        "feature4": "Complete Report",
+        "feature4desc": "Tokenomics, team, marketing, roadmap",
+        "pricing": "💵 Pricing: $9.99 per check",
+        "paidIn": "Paid in HYPE tokens. 50% of fees burned forever. 🔥",
+        "coming": "🎯 Coming Q2 2025: Save investors from scams, earn revenue, burn tokens. Win-win-win."
+      },
+      "oracle": {
+        "title": "AI Oracle - Price Predictions",
+        "description": "Our neural network analyzes 1000+ data points every second to predict crypto price movements with 85%+ accuracy. Uses LSTM, Transformer models, and on-chain analytics.",
+        "feature1": "Real-time market analysis",
+        "feature2": "AI-powered predictions",
+        "feature3": "85%+ accuracy rate",
+        "feature4": "Updates every 60 seconds"
+      },
+      "revenue": {
+        "title": "Real B2B Revenue",
+        "description": "Unlike memecoins, we have real paying customers. Crypto projects pay us $2,500-$10,000 for security audits, tokenomics, marketing, and development.",
+        "feature1": "35+ paid AI services",
+        "feature2": "Growing client base",
+        "feature3": "50% of revenue → token burns",
+        "feature4": "Sustainable growth model"
+      },
+      "burns": {
+        "title": "Aggressive Token Burns",
+        "description": "50% of ALL service fees get burned permanently. As usage grows, supply shrinks. Simple economics: decreasing supply + increasing demand = price goes up. 📈",
+        "expected": "Expected: 100M+ tokens burned in Year 1"
+      },
+      "staking": {
+        "title": "62% APY Staking = Supply Shock",
+        "description": "When 40-60% of tokens are locked in staking (365-day lock), circulating supply drops dramatically. Less available tokens = higher prices. Diamond hands get rewarded massively.",
+        "projected": "Projected: 500M+ tokens locked by Q4 2025"
+      },
+      "agents": {
+        "title": "27 Agents Work Infinitely",
+        "description": "Our AI agents never sleep, never quit, never take vacations. They work ⚡ infinitely to build features, acquire users, create content, and grow the ecosystem. Zero labor costs.",
+        "result": "Result: Faster development than any competitor"
+      },
+      "successFormula": {
+        "title": "📈 100% Success Formula",
+        "revenue": "Monthly B2B Revenue (Year 1)",
+        "burned": "Tokens Burned (Year 1)",
+        "staked": "Tokens Staked & Locked",
+        "formula": "Real revenue + token burns + staking lockup + AI automation = Inevitable Price Growth 🚀",
+        "notHopium": "This isn't hopium. This is math. 📊"
+      },
+      "longTerm": {
+        "title": "♾️ Long-Term Commitment: We NEVER Stop",
+        "question": "Will HYPE grow 50x? 100x? 1000x?",
+        "answer": "Nobody knows. Markets are unpredictable.",
+        "butWeKnow": "But here's what we DO KNOW:",
+        "agentsNeverStop": "AI Agents NEVER Stop Working & Promoting",
+        "agentsDesc": "Our 27 AI agents work infinitely. They don't quit, don't sleep, don't take breaks. No matter what the price is - $0.001 or $1 - they keep building, keep improving, keep delivering services.",
+        "butNotAll": "But that's not all:",
+        "marketing": "Marketing 24/7:",
+        "marketingDesc": "Posting news, articles, updates across Twitter, Telegram, Discord, Reddit, Medium",
+        "content": "Content Creation:",
+        "contentDesc": "Writing SEO-optimized blog posts, press releases, technical articles everywhere on the internet",
+        "community": "Community Engagement:",
+        "communityDesc": "Responding to every question, building relationships, growing followers",
+        "realWork": "Real Work:",
+        "realWorkDesc": "Not just promises - agents actually deliver services, write code, audit contracts, design brands",
+        "professional": "Professional Level:",
+        "professionalDesc": "Every task executed at enterprise quality standards",
+        "whileOthers": "→ While other projects sleep, we're working. While they quit, we're growing. ⚡",
+        "honest": "✅ Services Delivered Honestly",
+        "honestDesc": "Every service is delivered professionally. No scams, no rug pulls, no exit. We build real products, earn real revenue, and reinvest in the ecosystem. This is a long-term business.",
+        "payment": "💰 Payment in HYPE Tokens",
+        "paymentDesc": "All services are paid in HYPE tokens. Clients must buy HYPE to use our AI services. This creates constant buying pressure.",
+        "guaranteed": "🔥 Guaranteed Token Burns",
+        "guaranteedDesc": "If clients pay in HYPE: 50% of fees burned immediately.\nIf clients pay in USD/USDT: We buy HYPE tokens from the market and burn 50%. Either way, supply decreases.",
+        "moreBurns": "More revenue = More burns = Less supply = Higher price 📈",
+        "destined": "This project is DESTINED FOR SUCCESS.",
+        "notBecause": "Not because we promise 1000x.",
+        "because": "But because we NEVER. STOP. BUILDING. ⚡",
+        "notIf": "The question isn't \"if\" HYPE will succeed.",
+        "howBig": "The question is: \"How big will it get?\"",
+        "timeWillTell": "50x? 100x? 1000x? Time will tell. ⏰"
+      },
+      "ctaStaking": "💎 Start Staking Now",
+      "ctaWhitepaper": "📄 Read Full Analysis"
+    },
+    "services": {
+      "title": "AI Services Platform",
+      "subtitle": "35+ professional AI services for crypto projects. From security audits to full-stack development.",
+      "security": {
+        "title": "Security & Auditing",
+        "description": "Professional smart contract audits and security assessments by ATLAS, our blockchain security specialist. We identify vulnerabilities, ensure code safety, and protect your project from exploits with military-grade security protocols.",
+        "feature1": "Smart Contract Audits",
+        "feature2": "Penetration Testing",
+        "feature3": "24/7 Security Monitoring",
+        "feature4": "Incident Response",
+        "pricing": "From $2,500"
+      },
+      "tokenomics": {
+        "title": "Tokenomics Design",
+        "description": "Data-driven tokenomics models crafted by MOMENTUM, our economics specialist. We design sustainable token economies with proven burn mechanisms, staking rewards, and deflationary strategies that ensure long-term growth and value appreciation.",
+        "feature1": "Economic Modeling",
+        "feature2": "Token Distribution",
+        "feature3": "Vesting Schedules",
+        "feature4": "Burn Mechanisms",
+        "pricing": "From $1,200"
+      }
+    },
+    "footer": {
+      "tagline": "27 AI Agents. Infinite Work. YOUR Success.",
+      "rights": "All rights reserved.",
+      "builtBy": "Built by AI Agents Team",
+      "disclaimer": "Cryptocurrency investments carry risk. Do your own research.",
+      "quickLinks": "Quick Links",
+      "resources": "Resources",
+      "community": "Community",
+      "legal": "Legal"
+    },
+    "buttons": {
+      "launchSoon": "🚀 Launch Soon",
+      "meetAgents": "👥 Meet All 27 Agents",
+      "viewActivity": "🔴 View Live Activity",
+      "buyNow": "💰 Buy $HYPE Now",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started"
+    }
+  },
+  "ru": {
+    "nav": {
+      "home": "Главная",
+      "trade": "Торговля",
+      "stake": "Стейкинг",
+      "agents": "ИИ Агенты",
+      "docs": "Документация",
+      "whitepaper": "Whitepaper",
+      "connectWallet": "Подключить кошелек"
+    },
+    "hero": {
+      "title": "Крипто-трейдинг на основе ИИ",
+      "subtitle": "Умнее. Быстрее. Лучше.",
+      "description": "27 ИИ-агентов работают бесконечно, чтобы сделать ВАС миллионером",
+      "ctaPrimary": "Начать торговлю",
+      "ctaSecondary": "Посмотреть ИИ-агентов",
+      "whySuccessButton": "🚀 Почему 50x-100x-1000x неизбежны"
+    },
+    "stats": {
+      "agents": "ИИ Агентов",
+      "holders": "Держателей токенов",
+      "price": "Цена токена (Демо)",
+      "trading": "Торговля активна (Демо)"
+    },
+    "whySucceed": {
+      "title": "🚀 Почему HypeAI обречен на успех",
+      "subtitle": "Построено на реальной выручке, полезности и инновациях ИИ. Наш успех неизбежен.",
+      "cryptoChecker": {
+        "title": "Crypto Checker - Платный сервис 💰",
+        "description": "Введите любой крипто-адрес. Наши 27 ИИ-агентов проанализируют за 30 секунд:",
+        "feature1": "Скам или легит?",
+        "feature1desc": "Обнаружение rug pull, проверка на honeypot",
+        "feature2": "Полный анализ",
+        "feature2desc": "Безопасность контракта, ликвидность, держатели",
+        "feature3": "Вероятность успеха",
+        "feature3desc": "ИИ предсказывает 10x, 100x или слив",
+        "feature4": "Полный отчет",
+        "feature4desc": "Токеномика, команда, маркетинг, роадмап",
+        "pricing": "💵 Цена: $9.99 за проверку",
+        "paidIn": "Оплата в токенах HYPE. 50% комиссии сжигается навсегда. 🔥",
+        "coming": "🎯 Выход Q2 2025: Спасаем инвесторов от скамов, зарабатываем, сжигаем токены. Все выигрывают."
+      },
+      "oracle": {
+        "title": "AI Oracle - Предсказания цен",
+        "description": "Наша нейросеть анализирует 1000+ точек данных каждую секунду для предсказания движения цен криптовалют с точностью 85%+. Используем LSTM, Transformer модели и on-chain аналитику.",
+        "feature1": "Анализ рынка в реальном времени",
+        "feature2": "Предсказания на основе ИИ",
+        "feature3": "Точность 85%+",
+        "feature4": "Обновление каждые 60 секунд"
+      },
+      "revenue": {
+        "title": "Реальная B2B выручка",
+        "description": "В отличие от мемкоинов, у нас есть реальные платящие клиенты. Крипто-проекты платят нам $2 500-$10 000 за аудит безопасности, токеномику, маркетинг и разработку.",
+        "feature1": "35+ платных ИИ-сервисов",
+        "feature2": "Растущая клиентская база",
+        "feature3": "50% выручки → сжигание токенов",
+        "feature4": "Устойчивая модель роста"
+      },
+      "burns": {
+        "title": "Агрессивное сжигание токенов",
+        "description": "50% ВСЕХ комиссий за сервисы сжигаются навсегда. По мере роста использования, предложение сокращается. Простая экономика: уменьшение предложения + рост спроса = рост цены. 📈",
+        "expected": "Ожидается: 100M+ токенов сожжено за 1-й год"
+      },
+      "staking": {
+        "title": "62% годовых по стейкингу = Дефицит предложения",
+        "description": "Когда 40-60% токенов заблокированы в стейкинге (блокировка на 365 дней), циркулирующее предложение резко падает. Меньше доступных токенов = выше цены. Алмазные руки получают массивные награды.",
+        "projected": "Прогноз: 500M+ токенов заблокировано к Q4 2025"
+      },
+      "agents": {
+        "title": "27 агентов работают бесконечно",
+        "description": "Наши ИИ-агенты никогда не спят, не уходят, не берут отпуск. Они работают ⚡ бесконечно, создавая функции, привлекая пользователей, создавая контент и развивая экосистему. Нулевые затраты на труд.",
+        "result": "Результат: Быстрее разработка, чем у любого конкурента"
+      },
+      "successFormula": {
+        "title": "📈 100% формула успеха",
+        "revenue": "Ежемесячная B2B выручка (1-й год)",
+        "burned": "Токенов сожжено (1-й год)",
+        "staked": "Токенов в стейкинге",
+        "formula": "Реальная выручка + сжигание токенов + блокировка в стейкинге + ИИ-автоматизация = Неизбежный рост цены 🚀",
+        "notHopium": "Это не надежды. Это математика. 📊"
+      },
+      "longTerm": {
+        "title": "♾️ Долгосрочное обязательство: Мы НИКОГДА не останавливаемся",
+        "question": "Вырастет ли HYPE в 50x? 100x? 1000x?",
+        "answer": "Никто не знает. Рынки непредсказуемы.",
+        "butWeKnow": "Но вот что мы ТОЧНО ЗНАЕМ:",
+        "agentsNeverStop": "ИИ-агенты НИКОГДА не прекращают работу и продвижение",
+        "agentsDesc": "Наши 27 ИИ-агентов работают бесконечно. Они не уходят, не спят, не делают перерывы. Неважно, какая цена - $0.001 или $1 - они продолжают строить, улучшать, предоставлять услуги.",
+        "butNotAll": "Но это еще не все:",
+        "marketing": "Маркетинг 24/7:",
+        "marketingDesc": "Публикация новостей, статей, обновлений в Twitter, Telegram, Discord, Reddit, Medium",
+        "content": "Создание контента:",
+        "contentDesc": "Написание SEO-оптимизированных статей, пресс-релизов, технических материалов по всему интернету",
+        "community": "Работа с сообществом:",
+        "communityDesc": "Ответы на каждый вопрос, построение отношений, рост подписчиков",
+        "realWork": "Реальная работа:",
+        "realWorkDesc": "Не только обещания - агенты реально предоставляют услуги, пишут код, проводят аудит контрактов, разрабатывают бренды",
+        "professional": "Профессиональный уровень:",
+        "professionalDesc": "Каждая задача выполняется на уровне корпоративных стандартов",
+        "whileOthers": "→ Пока другие проекты спят, мы работаем. Пока они сдаются, мы растем. ⚡",
+        "honest": "✅ Услуги предоставляются честно",
+        "honestDesc": "Каждая услуга предоставляется профессионально. Никаких скамов, rug pull'ов, выходов. Мы создаем реальные продукты, зарабатываем реальную выручку и реинвестируем в экосистему. Это долгосрочный бизнес.",
+        "payment": "💰 Оплата токенами HYPE",
+        "paymentDesc": "Все услуги оплачиваются токенами HYPE. Клиенты должны покупать HYPE, чтобы использовать наши ИИ-сервисы. Это создает постоянное давление покупателей.",
+        "guaranteed": "🔥 Гарантированное сжигание токенов",
+        "guaranteedDesc": "Если клиенты платят в HYPE: 50% комиссии сжигается немедленно.\nЕсли клиенты платят в USD/USDT: Мы покупаем токены HYPE на рынке и сжигаем 50%. В любом случае, предложение уменьшается.",
+        "moreBurns": "Больше выручки = Больше сжигания = Меньше предложения = Выше цена 📈",
+        "destined": "Этот проект ОБРЕЧЕН НА УСПЕХ.",
+        "notBecause": "Не потому, что мы обещаем 1000x.",
+        "because": "А потому, что мы НИКОГДА. НЕ. ОСТАНАВЛИВАЕМСЯ. ⚡",
+        "notIf": "Вопрос не в том, \"будет ли\" HYPE успешен.",
+        "howBig": "Вопрос в том: \"Насколько большим он станет?\"",
+        "timeWillTell": "50x? 100x? 1000x? Время покажет. ⏰"
+      },
+      "ctaStaking": "💎 Начать стейкинг",
+      "ctaWhitepaper": "📄 Читать полный анализ"
+    },
+    "services": {
+      "title": "Платформа ИИ-сервисов",
+      "subtitle": "35+ профессиональных ИИ-сервисов для крипто-проектов. От аудита безопасности до full-stack разработки.",
+      "security": {
+        "title": "Безопасность и аудит",
+        "description": "Профессиональный аудит смарт-контрактов и оценка безопасности от ATLAS, нашего специалиста по безопасности блокчейн. Мы выявляем уязвимости, обеспечиваем безопасность кода и защищаем ваш проект от эксплойтов с помощью военных протоколов безопасности.",
+        "feature1": "Аудит смарт-контрактов",
+        "feature2": "Тестирование на проникновение",
+        "feature3": "Мониторинг безопасности 24/7",
+        "feature4": "Реагирование на инциденты",
+        "pricing": "От $2 500"
+      },
+      "tokenomics": {
+        "title": "Дизайн токеномики",
+        "description": "Модели токеномики на основе данных от MOMENTUM, нашего специалиста по экономике. Мы разрабатываем устойчивые токен-экономики с проверенными механизмами сжигания, наградами за стейкинг и дефляционными стратегиями, обеспечивающими долгосрочный рост и рост стоимости.",
+        "feature1": "Экономическое моделирование",
+        "feature2": "Распределение токенов",
+        "feature3": "График вестинга",
+        "feature4": "Механизмы сжигания",
+        "pricing": "От $1 200"
+      }
+    },
+    "footer": {
+      "tagline": "27 ИИ-агентов. Бесконечная работа. ВАШ успех.",
+      "rights": "Все права защищены.",
+      "builtBy": "Создано командой ИИ-агентов",
+      "disclaimer": "Инвестиции в криптовалюту несут риски. Проводите собственное исследование.",
+      "quickLinks": "Быстрые ссылки",
+      "resources": "Ресурсы",
+      "community": "Сообщество",
+      "legal": "Юридическая информация"
+    },
+    "buttons": {
+      "launchSoon": "🚀 Скоро запуск",
+      "meetAgents": "👥 Все 27 агентов",
+      "viewActivity": "🔴 Живая активность",
+      "buyNow": "💰 Купить $HYPE",
+      "learnMore": "Узнать больше",
+      "getStarted": "Начать"
+    }
+  }
+}

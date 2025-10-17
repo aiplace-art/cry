@@ -1,0 +1,159 @@
+{
+  "version": "2.0.0",
+  "lastUpdate": "2025-10-17T00:00:00.000Z",
+  "launchDate": "2025-11-15T00:00:00.000Z",
+  "totalSupply": 1000000000,
+  "allocations": {
+    "privateSale": {
+      "tokens": 120000000,
+      "percentage": 12,
+      "maxSellable": 110000000,
+      "bonus": 10,
+      "notes": "Includes 10% bonus. Max possible: 110M (100M base + 10M bonus)"
+    },
+    "liquidity": {
+      "tokens": 150000000,
+      "percentage": 15,
+      "initial": 130000000,
+      "reserves": 20000000,
+      "targetTVL": 200000,
+      "notes": "130M initial + 20M reserves. TVL target: $200k"
+    },
+    "stakingRewards": {
+      "tokens": 280000000,
+      "percentage": 28,
+      "duration": "3 years",
+      "yearlyEstimate": {
+        "year1": 95250000,
+        "year2": 76200000,
+        "year3": 60960000
+      },
+      "tiers": {
+        "tier0": {
+          "lockPeriod": "30 days",
+          "apy": 17,
+          "estimatedStaked": 120000000
+        },
+        "tier1": {
+          "lockPeriod": "90 days",
+          "apy": 27,
+          "estimatedStaked": 105000000
+        },
+        "tier2": {
+          "lockPeriod": "365 days",
+          "apy": 62,
+          "estimatedStaked": 75000000
+        }
+      },
+      "notes": "Conservative model with 20% buffer. Based on Staking.sol APY rates"
+    },
+    "team": {
+      "tokens": 100000000,
+      "percentage": 10,
+      "vesting": {
+        "cliff": "6 months",
+        "duration": "24 months",
+        "type": "linear"
+      },
+      "notes": "6-month cliff, then 24-month linear vesting"
+    },
+    "marketing": {
+      "tokens": 120000000,
+      "percentage": 12,
+      "vesting": {
+        "duration": "12 months",
+        "type": "linear"
+      },
+      "allocation": {
+        "campaigns": 50000000,
+        "partnerships": 30000000,
+        "airdrops": 20000000,
+        "influencers": 20000000
+      },
+      "notes": "12-month linear distribution for growth initiatives"
+    },
+    "development": {
+      "tokens": 80000000,
+      "percentage": 8,
+      "vesting": {
+        "duration": "18 months",
+        "type": "linear"
+      },
+      "allocation": {
+        "infrastructure": 30000000,
+        "audits": 15000000,
+        "exchanges": 20000000,
+        "ecosystem": 15000000
+      },
+      "notes": "Technical operations and infrastructure"
+    },
+    "treasury": {
+      "tokens": 100000000,
+      "percentage": 10,
+      "governance": "DAO",
+      "multisig": true,
+      "allocation": {
+        "emergency": 40000000,
+        "futureGrowth": 30000000,
+        "strategicReserve": 30000000
+      },
+      "notes": "DAO-controlled reserve for long-term sustainability"
+    },
+    "community": {
+      "tokens": 50000000,
+      "percentage": 5,
+      "allocation": {
+        "bugBounties": 15000000,
+        "grants": 20000000,
+        "contests": 10000000,
+        "misc": 5000000
+      },
+      "notes": "Community-driven initiatives and incentives"
+    }
+  },
+  "distributed": {
+    "privateSale": 0,
+    "liquidity": 0,
+    "staking": 0,
+    "team": 0,
+    "marketing": 0,
+    "development": 0,
+    "treasury": 0,
+    "community": 0
+  },
+  "locked": {
+    "privateSale": 120000000,
+    "liquidity": 150000000,
+    "staking": 280000000,
+    "team": 100000000,
+    "marketing": 120000000,
+    "development": 80000000,
+    "treasury": 100000000,
+    "community": 50000000
+  },
+  "validation": {
+    "totalAllocated": 1000000000,
+    "totalPercentage": 100,
+    "checksumValid": true,
+    "contractsMatched": true
+  },
+  "contractReferences": {
+    "privateSale": "src/contracts/PrivateSale.sol",
+    "staking": "src/contracts/Staking.sol",
+    "token": "src/contracts/Token.sol"
+  },
+  "changes": {
+    "from": "1.0.0",
+    "date": "2025-10-17",
+    "summary": "Corrected allocation based on actual contract math",
+    "keyChanges": [
+      "Private Sale: 300M → 120M (realistic with 10% bonus)",
+      "Liquidity: 200M → 150M (sufficient for $200k TVL)",
+      "Staking: 250M → 280M (covers 3-year APY payouts)",
+      "Added Development category: 80M (8%)",
+      "Added Community category: 50M (5%)",
+      "Increased Treasury: 50M → 100M",
+      "Increased Marketing: 100M → 120M"
+    ]
+  }
+}

@@ -94,9 +94,9 @@ async function generateAIImage(tweetData) {
     ctx.stroke();
   }
 
-  // Add HypeAI logo
+  // Add HypeAI logo (OFFICIAL LOGO - see docs/OFFICIAL_LOGO_PATH.md)
   try {
-    const logo = await loadImage('./website/branding/logos/twitter/hypeai-logo-1024.png');
+    const logo = await loadImage('./website/logo-icon-only.svg');
     const logoSize = 200;
     ctx.drawImage(logo, 50, 50, logoSize, logoSize);
   } catch (error) {

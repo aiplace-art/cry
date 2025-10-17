@@ -1,7 +1,7 @@
 {
-  "reconciliationsPerformed": 26,
+  "reconciliationsPerformed": 34,
   "mismatchesFound": 0,
-  "lastReconciliation": "2025-10-17T14:53:22.389Z",
+  "lastReconciliation": "2025-10-17T17:42:12.754Z",
   "reconciliations": [
     {
       "timestamp": "2025-10-17T05:47:13.524Z",
@@ -130,6 +130,46 @@
     },
     {
       "timestamp": "2025-10-17T14:53:22.389Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-17T15:08:22.410Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-17T15:23:22.419Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-17T15:38:22.394Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-17T16:36:57.409Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-17T16:51:57.415Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-17T17:09:50.695Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-17T17:25:49.624Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-17T17:42:12.754Z",
       "allMatched": true,
       "mismatchesFound": false
     }
