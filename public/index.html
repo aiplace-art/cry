@@ -87,16 +87,18 @@
             50% { opacity: 0.6; }
         }
 
-        /* Header */
+        /* Header - Ultra Compact for Russian */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            min-height: 80px; /* Fixed min-height to prevent layout shift */
-            padding: 1.5rem 5%;
+            min-height: 55px; /* Extra compact */
+            padding: 0.5rem 2%; /* Tighter padding */
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 0.4rem; /* Tighter gap */
+            flex-wrap: nowrap !important; /* NEVER wrap */
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             background: rgba(10, 14, 39, 0.8);
@@ -105,20 +107,23 @@
         }
 
         .logo {
-            font-size: 1.75rem;
+            font-size: 1.5rem; /* Smaller for more space */
             font-weight: 700;
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.3rem; /* Tighter logo spacing */
+            flex-shrink: 0; /* Never shrink */
         }
 
-        /* Animated Logo */
+        /* Animated Logo with Side Shadow */
         .logo img {
             animation: logoSpin 8s linear infinite, logoPulse 2s ease-in-out infinite;
-            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+            /* Shadow from the side (right and bottom) */
+            filter: drop-shadow(3px 3px 12px rgba(0, 212, 255, 0.7))
+                    drop-shadow(-2px -2px 8px rgba(157, 78, 221, 0.5));
         }
 
         @keyframes logoSpin {
@@ -128,25 +133,29 @@
 
         @keyframes logoPulse {
             0%, 100% {
-                filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+                filter: drop-shadow(3px 3px 12px rgba(0, 212, 255, 0.7))
+                        drop-shadow(-2px -2px 8px rgba(157, 78, 221, 0.5));
             }
             50% {
-                filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.8));
+                filter: drop-shadow(4px 4px 20px rgba(0, 212, 255, 0.9))
+                        drop-shadow(-3px -3px 15px rgba(157, 78, 221, 0.8));
             }
         }
 
         nav {
             display: flex;
-            gap: 2rem;
+            gap: 0.5rem; /* Ultra compact for Russian */
             align-items: center;
-            flex-wrap: nowrap; /* Prevent wrapping when switching to longer Russian text */
+            flex-wrap: nowrap !important; /* NEVER wrap */
             white-space: nowrap; /* Prevent text wrapping */
+            flex-shrink: 1; /* Can shrink if needed */
         }
 
         nav a {
             color: var(--white);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.88rem; /* Smaller for Russian text */
             transition: color 0.3s;
             white-space: nowrap; /* Ensure nav items don't wrap */
         }
@@ -200,13 +209,16 @@
 
         .cta-button {
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1.1rem; /* Ultra compact */
             border-radius: 50px;
             border: none;
             color: white;
             font-weight: 600;
+            font-size: 0.88rem; /* Smaller for Russian */
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
+            flex-shrink: 0; /* Never shrink */
+            white-space: nowrap; /* Don't wrap text */
         }
 
         .cta-button:hover {
@@ -1240,10 +1252,9 @@
                 filter: drop-shadow(0 0 20px rgba(57, 255, 20, 0.5));
                 transition: all 0.3s ease;
             " onmouseover="this.style.filter='drop-shadow(0 0 30px rgba(57, 255, 20, 0.8))'; this.style.transform='scale(1.05)';" onmouseout="this.style.filter='drop-shadow(0 0 20px rgba(57, 255, 20, 0.5))'; this.style.transform='scale(1)';">
-            <span style="font-size: 1.5rem; font-weight: 700; text-shadow: 0 0 15px rgba(57, 255, 20, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);">HypeAI</span> <span style="font-size: 1.4rem; margin-left: 0.3rem;">⚡</span>
+            <span style="font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, #00D4FF, #9D4EDD); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.6));">HypeAI</span> <span style="font-size: 1.4rem; margin-left: 0.3rem;">⚡</span>
         </div>
         <nav id="mobileNav">
-            <a href="#services" onclick="closeMobileMenu()" data-i18n="nav.trade">Trade</a>
             <a href="#ai-agents" onclick="closeMobileMenu()" data-i18n="nav.agents">AI Agents</a>
             <a href="agents-activity.html" class="live-agents-btn">Live (27/27)</a>
             <a href="#tokenomics" onclick="closeMobileMenu()" data-i18n="nav.stake">Stake</a>
@@ -1302,7 +1313,7 @@
         <div class="stats">
             <div class="stat">
                 <div class="stat-value">$1.2M</div>
-                <div class="stat-label">Total Value Locked (Demo)</div>
+                <div class="stat-label" data-i18n="hero.totalvaluelocked">Total Value Locked (Demo)</div>
             </div>
             <div class="stat">
                 <div class="stat-value">5,234</div>
@@ -1310,11 +1321,11 @@
             </div>
             <div class="stat">
                 <div class="stat-value">62%</div>
-                <div class="stat-label">Maximum APY (High Risk)</div>
+                <div class="stat-label" data-i18n="hero.maximumapyhigh">Maximum APY (High Risk)</div>
             </div>
             <div class="stat">
                 <div class="stat-value">85%</div>
-                <div class="stat-label">AI Accuracy (Demo)</div>
+                <div class="stat-label" data-i18n="hero.accuracydemo">AI Accuracy (Demo)</div>
             </div>
             <div class="stat">
                 <div class="stat-value">$0.001</div>
@@ -1336,65 +1347,65 @@
             <!-- 1. CRYPTO CHECKER - MAIN PRODUCT -->
             <div class="feature-card" style="border: 3px solid var(--accent-green); background: rgba(57, 255, 20, 0.05);">
                 <div class="feature-icon">🔍</div>
-                <h3 class="feature-title" style="color: var(--accent-green);">Crypto Checker - Paid Service 💰</h3>
+                <h3 class="feature-title" style="color: var(--accent-green);" data-i18n="whySucceed.features.cryptoChecker.title">Crypto Checker - Paid Service 💰</h3>
                 <p class="feature-desc" style="margin-bottom: 1rem;">
-                    <strong style="color: var(--white);">Enter any crypto address. Our 27 AI agents analyze in 30 seconds:</strong>
+                    <strong style="color: var(--white);" data-i18n="whySucceed.features.cryptoChecker.intro">Enter any crypto address. Our 27 AI agents analyze in 30 seconds:</strong>
                 </p>
                 <ul style="list-style: none; color: var(--gray); line-height: 1.8; margin-bottom: 1rem;">
-                    <li>✅ <strong>Scam or Legit?</strong> - Rug pull detection, honeypot check</li>
-                    <li>📊 <strong>Full Analysis</strong> - Contract security, liquidity, holders</li>
-                    <li>📈 <strong>Success Probability</strong> - AI predicts 10x, 100x, or dump</li>
-                    <li>📄 <strong>Complete Report</strong> - Tokenomics, team, marketing, roadmap</li>
+                    <li><span data-i18n="whySucceed.features.cryptoChecker.feature1">✅ Scam or Legit? - Rug pull detection, honeypot check</span></li>
+                    <li><span data-i18n="whySucceed.features.cryptoChecker.feature2">📊 Full Analysis - Contract security, liquidity, holders</span></li>
+                    <li><span data-i18n="whySucceed.features.cryptoChecker.feature3">📈 Success Probability - AI predicts 10x, 100x, or dump</span></li>
+                    <li><span data-i18n="whySucceed.features.cryptoChecker.feature4">📄 Complete Report - Tokenomics, team, marketing, roadmap</span></li>
                 </ul>
-                <p style="color: var(--accent-green); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">
+                <p style="color: var(--accent-green); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;" data-i18n="whySucceed.features.cryptoChecker.pricing">
                     💵 Pricing: $9.99 per check
                 </p>
-                <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">
+                <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;" data-i18n="whySucceed.features.cryptoChecker.payment">
                     Paid in HYPE tokens. 50% of fees burned forever. 🔥
                 </p>
-                <p style="color: var(--white); font-weight: 600;">
-                    🎯 <strong>Coming Q2 2025:</strong> Save investors from scams, earn revenue, burn tokens. Win-win-win.
+                <p style="color: var(--white); font-weight: 600;" data-i18n="whySucceed.features.cryptoChecker.launch">
+                    🎯 Coming Q2 2025: Save investors from scams, earn revenue, burn tokens. Win-win-win.
                 </p>
             </div>
 
             <!-- 2. AI ORACLE FOR PRICE PREDICTIONS -->
             <div class="feature-card" style="border: 2px solid var(--primary-blue);">
                 <div class="feature-icon">🔮</div>
-                <h3 class="feature-title">AI Oracle - Price Predictions</h3>
-                <p class="feature-desc">
+                <h3 class="feature-title" data-i18n="whySucceed.features.aiOracle.title">AI Oracle - Price Predictions</h3>
+                <p class="feature-desc" data-i18n="whySucceed.features.aiOracle.description">
                     Our neural network analyzes 1000+ data points every second to predict crypto price movements with 85%+ accuracy. Uses LSTM, Transformer models, and on-chain analytics.
                 </p>
                 <ul style="list-style: none; color: var(--gray); line-height: 1.7; margin-top: 1rem;">
-                    <li>📊 Real-time market analysis</li>
-                    <li>🧠 AI-powered predictions</li>
-                    <li>📈 85%+ accuracy rate</li>
-                    <li>⚡ Updates every 60 seconds</li>
+                    <li><span data-i18n="whySucceed.features.aiOracle.feature1">📊 Real-time market analysis</span></li>
+                    <li><span data-i18n="whySucceed.features.aiOracle.feature2">🧠 AI-powered predictions</span></li>
+                    <li><span data-i18n="whySucceed.features.aiOracle.feature3">📈 85%+ accuracy rate</span></li>
+                    <li><span data-i18n="whySucceed.features.aiOracle.feature4">⚡ Updates every 60 seconds</span></li>
                 </ul>
             </div>
 
             <!-- 3. REAL REVENUE MODEL -->
             <div class="feature-card" style="border: 2px solid var(--primary-purple);">
                 <div class="feature-icon">💰</div>
-                <h3 class="feature-title">Real B2B Revenue</h3>
-                <p class="feature-desc">
-                    Unlike memecoins, we have <strong>real paying customers</strong>. Crypto projects pay us $2,500-$10,000 for security audits, tokenomics, marketing, and development.
+                <h3 class="feature-title" data-i18n="whySucceed.features.b2bRevenue.title">Real B2B Revenue</h3>
+                <p class="feature-desc" data-i18n="whySucceed.features.b2bRevenue.description">
+                    Unlike memecoins, we have real paying customers. Crypto projects pay us $2,500-$10,000 for security audits, tokenomics, marketing, and development.
                 </p>
                 <ul style="list-style: none; color: var(--gray); line-height: 1.7; margin-top: 1rem;">
-                    <li>💼 35+ paid AI services</li>
-                    <li>📈 Growing client base</li>
-                    <li>🔥 50% of revenue → token burns</li>
-                    <li>📊 Sustainable growth model</li>
+                    <li><span data-i18n="whySucceed.features.b2bRevenue.feature1">💼 35+ paid AI services</span></li>
+                    <li><span data-i18n="whySucceed.features.b2bRevenue.feature2">📈 Growing client base</span></li>
+                    <li><span data-i18n="whySucceed.features.b2bRevenue.feature3">🔥 50% of revenue → token burns</span></li>
+                    <li><span data-i18n="whySucceed.features.b2bRevenue.feature4">📊 Sustainable growth model</span></li>
                 </ul>
             </div>
 
             <!-- 4. DEFLATIONARY TOKENOMICS -->
             <div class="feature-card">
                 <div class="feature-icon">🔥</div>
-                <h3 class="feature-title">Aggressive Token Burns</h3>
-                <p class="feature-desc">
-                    <strong>50% of ALL service fees</strong> get burned permanently. As usage grows, supply shrinks. Simple economics: decreasing supply + increasing demand = price goes up. 📈
+                <h3 class="feature-title" data-i18n="whySucceed.features.tokenBurns.title">Aggressive Token Burns</h3>
+                <p class="feature-desc" data-i18n="whySucceed.features.tokenBurns.description">
+                    50% of ALL service fees get burned permanently. As usage grows, supply shrinks. Simple economics: decreasing supply + increasing demand = price goes up. 📈
                 </p>
-                <p style="color: var(--accent-green); margin-top: 1rem; font-weight: 600;">
+                <p style="color: var(--accent-green); margin-top: 1rem; font-weight: 600;" data-i18n="whySucceed.features.tokenBurns.expected">
                     Expected: 100M+ tokens burned in Year 1
                 </p>
             </div>
@@ -1402,11 +1413,11 @@
             <!-- 5. STAKING LOCKUP -->
             <div class="feature-card">
                 <div class="feature-icon">💎</div>
-                <h3 class="feature-title">62% APY Staking = Supply Shock</h3>
-                <p class="feature-desc">
+                <h3 class="feature-title" data-i18n="whySucceed.features.staking.title">62% APY Staking = Supply Shock</h3>
+                <p class="feature-desc" data-i18n="whySucceed.features.staking.description">
                     When 40-60% of tokens are locked in staking (365-day lock), circulating supply drops dramatically. Less available tokens = higher prices. Diamond hands get rewarded massively.
                 </p>
-                <p style="color: var(--accent-green); margin-top: 1rem; font-weight: 600;">
+                <p style="color: var(--accent-green); margin-top: 1rem; font-weight: 600;" data-i18n="whySucceed.features.staking.projected">
                     Projected: 500M+ tokens locked by Q4 2025
                 </p>
             </div>
@@ -1414,11 +1425,11 @@
             <!-- 6. 27 AI AGENTS WORKING 24/7 -->
             <div class="feature-card">
                 <div class="feature-icon">🤖</div>
-                <h3 class="feature-title">27 Agents Work Infinitely</h3>
-                <p class="feature-desc">
-                    Our AI agents never sleep, never quit, never take vacations. They work <strong>⚡ infinitely</strong> to build features, acquire users, create content, and grow the ecosystem. Zero labor costs.
+                <h3 class="feature-title" data-i18n="whySucceed.features.aiAgents.title">27 Agents Work Infinitely</h3>
+                <p class="feature-desc" data-i18n="whySucceed.features.aiAgents.description">
+                    Our AI agents never sleep, never quit, never take vacations. They work ⚡ infinitely to build features, acquire users, create content, and grow the ecosystem. Zero labor costs.
                 </p>
-                <p style="color: var(--accent-green); margin-top: 1rem; font-weight: 600;">
+                <p style="color: var(--accent-green); margin-top: 1rem; font-weight: 600;" data-i18n="whySucceed.features.aiAgents.result">
                     Result: Faster development than any competitor
                 </p>
             </div>
@@ -1546,129 +1557,129 @@
             <!-- Security Category -->
             <div class="service-card" data-category="security">
                 <div class="service-icon">🛡️</div>
-                <h3 class="service-title">Security & Auditing</h3>
-                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                <h3 class="service-title" data-i18n="services.security.title">Security & Auditing</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;" data-i18n="services.security.description">
                     Professional smart contract audits and security assessments by ATLAS, our blockchain security specialist. We identify vulnerabilities, ensure code safety, and protect your project from exploits with military-grade security protocols.
                 </p>
                 <ul class="service-features">
-                    <li>Smart Contract Audits</li>
-                    <li>Penetration Testing</li>
-                    <li>24/7 Security Monitoring</li>
-                    <li>Incident Response</li>
+                    <li><span data-i18n="services.security.feature1">Smart Contract Audits</span></li>
+                    <li><span data-i18n="services.security.feature2">Penetration Testing</span></li>
+                    <li><span data-i18n="services.security.feature3">24/7 Security Monitoring</span></li>
+                    <li><span data-i18n="services.security.feature4">Incident Response</span></li>
                 </ul>
-                <div class="service-pricing">From $2,500</div>
+                <div class="service-pricing" data-i18n="services.security.pricing">From $2,500</div>
             </div>
 
             <!-- Tokenomics Category -->
             <div class="service-card" data-category="tokenomics">
                 <div class="service-icon">💰</div>
-                <h3 class="service-title">Tokenomics Design</h3>
-                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                <h3 class="service-title" data-i18n="services.tokenomicsDesign.title">Tokenomics Design</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;" data-i18n="services.tokenomicsDesign.description">
                     Data-driven tokenomics models crafted by MOMENTUM, our economics specialist. We design sustainable token economies with proven burn mechanisms, staking rewards, and deflationary strategies that ensure long-term growth and value appreciation.
                 </p>
                 <ul class="service-features">
-                    <li>Economic Modeling</li>
-                    <li>Token Distribution</li>
-                    <li>Vesting Schedules</li>
-                    <li>Burn Mechanisms</li>
+                    <li><span data-i18n="services.tokenomicsDesign.feature1">Economic Modeling</span></li>
+                    <li><span data-i18n="services.tokenomicsDesign.feature2">Token Distribution</span></li>
+                    <li><span data-i18n="services.tokenomicsDesign.feature3">Vesting Schedules</span></li>
+                    <li><span data-i18n="services.tokenomicsDesign.feature4">Burn Mechanisms</span></li>
                 </ul>
-                <div class="service-pricing">From $1,200</div>
+                <div class="service-pricing" data-i18n="services.tokenomicsDesign.pricing">From $1,200</div>
             </div>
 
             <!-- Development Category -->
             <div class="service-card" data-category="development">
                 <div class="service-icon">💻</div>
-                <h3 class="service-title">Smart Contract Development</h3>
-                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                <h3 class="service-title" data-i18n="services.development.title">Smart Contract Development</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;" data-i18n="services.development.description">
                     Enterprise-grade smart contracts and dApps built by NEXUS, SOLIDITY, and PRISM - our full-stack development team. From Solidity contracts to React frontends, we deliver production-ready code with 100% test coverage and gas optimization.
                 </p>
                 <ul class="service-features">
-                    <li>Custom Smart Contracts</li>
-                    <li>dApp Development</li>
-                    <li>Multi-Chain Deployment</li>
-                    <li>Backend & APIs</li>
+                    <li><span data-i18n="services.development.feature1">Custom Smart Contracts</span></li>
+                    <li><span data-i18n="services.development.feature2">dApp Development</span></li>
+                    <li><span data-i18n="services.development.feature3">Multi-Chain Deployment</span></li>
+                    <li><span data-i18n="services.development.feature4">Backend & APIs</span></li>
                 </ul>
-                <div class="service-pricing">From $3,500</div>
+                <div class="service-pricing" data-i18n="services.development.pricing">From $3,500</div>
             </div>
 
             <!-- Marketing Category -->
             <div class="service-card" data-category="marketing">
                 <div class="service-icon">📢</div>
-                <h3 class="service-title">Marketing & Growth</h3>
-                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                <h3 class="service-title" data-i18n="services.marketing.title">Marketing & Growth</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;" data-i18n="services.marketing.description">
                     Aggressive growth campaigns executed by MOMENTUM, our marketing CMO. We scale crypto projects from 0 to 10,000+ followers with proven strategies: Twitter automation, influencer partnerships, viral content, and community building that converts.
                 </p>
                 <ul class="service-features">
-                    <li>Social Media Management</li>
-                    <li>Launch Campaigns</li>
-                    <li>Content Creation</li>
-                    <li>Influencer Marketing</li>
+                    <li><span data-i18n="services.marketing.feature1">Social Media Management</span></li>
+                    <li><span data-i18n="services.marketing.feature2">Launch Campaigns</span></li>
+                    <li><span data-i18n="services.marketing.feature3">Content Creation</span></li>
+                    <li><span data-i18n="services.marketing.feature4">Influencer Marketing</span></li>
                 </ul>
-                <div class="service-pricing">From $799/mo</div>
+                <div class="service-pricing" data-i18n="services.marketing.pricing">From $799/mo</div>
             </div>
 
             <!-- Community Category -->
             <div class="service-card" data-category="community">
                 <div class="service-icon">👥</div>
-                <h3 class="service-title">Community Management</h3>
-                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                <h3 class="service-title" data-i18n="services.community.title">Community Management</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;" data-i18n="services.community.description">
                     24/7 community engagement powered by PULSE, our community AI. Never miss a mention, question, or complaint. We manage Discord, Telegram, Twitter with instant responses, sentiment analysis, and proactive community building that keeps your holders loyal.
                 </p>
                 <ul class="service-features">
-                    <li>Discord/Telegram Setup</li>
-                    <li>24/7 Moderation</li>
-                    <li>Engagement Programs</li>
-                    <li>Sentiment Analysis</li>
+                    <li><span data-i18n="services.community.feature1">Discord/Telegram Setup</span></li>
+                    <li><span data-i18n="services.community.feature2">24/7 Moderation</span></li>
+                    <li><span data-i18n="services.community.feature3">Engagement Programs</span></li>
+                    <li><span data-i18n="services.community.feature4">Sentiment Analysis</span></li>
                 </ul>
-                <div class="service-pricing">From $499/mo</div>
+                <div class="service-pricing" data-i18n="services.community.pricing">From $499/mo</div>
             </div>
 
             <!-- Design Category -->
             <div class="service-card" data-category="design">
                 <div class="service-icon">🎨</div>
-                <h3 class="service-title">Design & Branding</h3>
-                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                <h3 class="service-title" data-i18n="services.design.title">Design & Branding</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;" data-i18n="services.design.description">
                     Apple-level design crafted by PIXEL and VIBE, our design and brand specialists. We create logos, websites, and brand identities that look like $100M projects - even for startups. Modern, clean, and professional designs that inspire trust and investment.
                 </p>
                 <ul class="service-features">
-                    <li>Logo & Brand Identity</li>
-                    <li>Website Design</li>
-                    <li>UI/UX for dApps</li>
-                    <li>Marketing Assets</li>
+                    <li><span data-i18n="services.design.feature1">Logo & Brand Identity</span></li>
+                    <li><span data-i18n="services.design.feature2">Website Design</span></li>
+                    <li><span data-i18n="services.design.feature3">UI/UX for dApps</span></li>
+                    <li><span data-i18n="services.design.feature4">Marketing Assets</span></li>
                 </ul>
-                <div class="service-pricing">From $1,500</div>
+                <div class="service-pricing" data-i18n="services.design.pricing">From $1,500</div>
             </div>
 
             <!-- Content Category -->
             <div class="service-card" data-category="content">
                 <div class="service-icon">✍️</div>
-                <h3 class="service-title">Content Creation</h3>
-                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                <h3 class="service-title" data-i18n="services.content.title">Content Creation</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;" data-i18n="services.content.description">
                     Professional content from CONTENT, our writing AI. Whitepapers that investors actually read, technical docs that developers understand, and blog posts that rank on Google. SEO-optimized, technically accurate, and professionally formatted.
                 </p>
                 <ul class="service-features">
-                    <li>Whitepaper Writing</li>
-                    <li>Technical Documentation</li>
-                    <li>Blog Posts & Articles</li>
-                    <li>Video Scripts</li>
+                    <li><span data-i18n="services.content.feature1">Whitepaper Writing</span></li>
+                    <li><span data-i18n="services.content.feature2">Technical Documentation</span></li>
+                    <li><span data-i18n="services.content.feature3">Blog Posts & Articles</span></li>
+                    <li><span data-i18n="services.content.feature4">Video Scripts</span></li>
                 </ul>
-                <div class="service-pricing">From $399</div>
+                <div class="service-pricing" data-i18n="services.content.pricing">From $399</div>
             </div>
 
             <!-- Operations Category -->
             <div class="service-card" data-category="operations">
                 <div class="service-icon">⚙️</div>
-                <h3 class="service-title">DevOps & Operations</h3>
-                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;">
+                <h3 class="service-title" data-i18n="services.devops.title">DevOps & Operations</h3>
+                <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5;" data-i18n="services.devops.description">
                     Enterprise infrastructure managed by our DevOps team. CI/CD pipelines, Docker containers, AWS/Vercel deployments, monitoring, alerts, and 99.9% uptime. Your project stays online 24/7 while you focus on growth, not servers.
                 </p>
                 <ul class="service-features">
-                    <li>CI/CD Pipeline Setup</li>
-                    <li>Cloud Infrastructure</li>
-                    <li>Monitoring & Alerts</li>
-                    <li>Performance Optimization</li>
+                    <li><span data-i18n="services.devops.feature1">CI/CD Pipeline Setup</span></li>
+                    <li><span data-i18n="services.devops.feature2">Cloud Infrastructure</span></li>
+                    <li><span data-i18n="services.devops.feature3">Monitoring & Alerts</span></li>
+                    <li><span data-i18n="services.devops.feature4">Performance Optimization</span></li>
                 </ul>
-                <div class="service-pricing">From $699/mo</div>
+                <div class="service-pricing" data-i18n="services.devops.pricing">From $699/mo</div>
             </div>
         </div>
 
@@ -1676,19 +1687,19 @@
         <div class="services-benefits">
             <div class="benefit-item">
                 <span class="benefit-icon">✅</span>
-                <span>35+ AI agents ready to help your project</span>
+                <span data-i18n="services.agentsreadyhelp">35+ AI agents ready to help your project</span>
             </div>
             <div class="benefit-item">
                 <span class="benefit-icon">✅</span>
-                <span>60-80% cheaper than traditional agencies</span>
+                <span data-i18n="services.6080cheaperthan">60-80% cheaper than traditional agencies</span>
             </div>
             <div class="benefit-item">
                 <span class="benefit-icon">✅</span>
-                <span>3-4x faster execution</span>
+                <span data-i18n="services.34xfasterexecution">3-4x faster execution</span>
             </div>
             <div class="benefit-item">
                 <span class="benefit-icon">✅</span>
-                <span>Working 24/7 without breaks</span>
+                <span data-i18n="services.working247without">Working 24/7 without breaks</span>
             </div>
         </div>
 
@@ -1701,25 +1712,25 @@
 
     <!-- TOKEN GROWTH ECONOMICS SECTION (SIMPLIFIED) -->
     <section id="token-growth" class="token-growth">
-        <h2 class="section-title">Data-Driven Token Economics</h2>
-        <p class="section-subtitle">Sustainable growth mechanisms backed by real utility</p>
+        <h2 class="section-title" data-i18n="tokenGrowth.title">Data-Driven Token Economics</h2>
+        <p class="section-subtitle" data-i18n="tokenGrowth.subtitle">Sustainable growth mechanisms backed by real utility</p>
 
         <div class="services-benefits">
             <div class="benefit-item">
                 <span class="benefit-icon">📊</span>
-                <span>Real utility drives demand - AI services require HYPE tokens</span>
+                <span data-i18n="tokenGrowth.benefit1">Real utility drives demand - AI services require HYPE tokens</span>
             </div>
             <div class="benefit-item">
                 <span class="benefit-icon">🔥</span>
-                <span>Deflationary mechanics - 50% of service fees burned</span>
+                <span data-i18n="tokenGrowth.benefit2">Deflationary mechanics - 50% of service fees burned</span>
             </div>
             <div class="benefit-item">
                 <span class="benefit-icon">💎</span>
-                <span>Staking lockup reduces circulating supply (up to 62% APY)</span>
+                <span data-i18n="tokenGrowth.benefit3">Staking lockup reduces circulating supply (up to 62% APY)</span>
             </div>
             <div class="benefit-item">
                 <span class="benefit-icon">📈</span>
-                <span>B2B revenue reinvested in ecosystem development</span>
+                <span data-i18n="tokenGrowth.benefit4">B2B revenue reinvested in ecosystem development</span>
             </div>
         </div>
 
@@ -1731,14 +1742,14 @@
 
     <!-- 27 AI AGENTS SHOWCASE SECTION -->
     <section id="ai-agents" class="ai-agents">
-        <h2 class="section-title">Meet Our AI Team</h2>
-        <p class="section-subtitle">27 agents working 24/7. Never sleep. Never quit.</p>
+        <h2 class="section-title" data-i18n="agents.title">Meet Our AI Team</h2>
+        <p class="section-subtitle" data-i18n="agents.subtitle">27 agents working 24/7. Never sleep. Never quit.</p>
 
         <!-- Live Dashboard -->
         <div class="live-dashboard">
             <div class="dashboard-status">
                 <span class="status-indicator">🟢</span>
-                <span class="status-text">ALL SYSTEMS OPERATIONAL</span>
+                <span class="status-text" data-i18n="agents.allsystemsoperational">ALL SYSTEMS OPERATIONAL</span>
             </div>
             <div class="dashboard-stats">
                 <div class="dashboard-stat">
@@ -1747,36 +1758,36 @@
                 </div>
                 <div class="dashboard-stat">
                     <div class="stat-value">2,520</div>
-                    <div class="stat-label">Hours/Week Working</div>
+                    <div class="stat-label" data-i18n="agents.hoursweekworking">Hours/Week Working</div>
                 </div>
                 <div class="dashboard-stat">
                     <div class="stat-value">12,845</div>
-                    <div class="stat-label">Tasks Completed</div>
+                    <div class="stat-label" data-i18n="agents.taskscompleted">Tasks Completed</div>
                 </div>
             </div>
         </div>
 
         <!-- Agent Cards Grid (Featured 6 Agents) -->
         <div class="agents-section">
-            <h3 class="subsection-title">Development Division</h3>
+            <h3 class="subsection-title" data-i18n="agents.developmentdivision">Development Division</h3>
             <div class="agents-grid">
                 <!-- ATLAS -->
                 <div class="agent-card">
                     <div class="agent-icon">🔍</div>
                     <h4 class="agent-name">ATLAS</h4>
-                    <div class="agent-role">Smart Contract Architect</div>
+                    <div class="agent-role" data-i18n="agents.atlas.role">Smart Contract Architect</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">342</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -1785,19 +1796,19 @@
                 <div class="agent-card">
                     <div class="agent-icon">🏗️</div>
                     <h4 class="agent-name">NEXUS</h4>
-                    <div class="agent-role">Backend Engineer</div>
+                    <div class="agent-role" data-i18n="agents.nexus.role">Backend Engineer</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">289</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -1806,19 +1817,19 @@
                 <div class="agent-card">
                     <div class="agent-icon">💻</div>
                     <h4 class="agent-name">SOLIDITY</h4>
-                    <div class="agent-role">Blockchain Integration</div>
+                    <div class="agent-role" data-i18n="agents.solidity.role">Blockchain Integration</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">156</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -1827,19 +1838,19 @@
                 <div class="agent-card">
                     <div class="agent-icon">🎨</div>
                     <h4 class="agent-name">PRISM</h4>
-                    <div class="agent-role">Frontend Developer</div>
+                    <div class="agent-role" data-i18n="agents.prism.role">Frontend Developer</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">412</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -1848,19 +1859,19 @@
                 <div class="agent-card">
                     <div class="agent-icon">✅</div>
                     <h4 class="agent-name">VERIFY</h4>
-                    <div class="agent-role">QA Specialist</div>
+                    <div class="agent-role" data-i18n="agents.verify.role">QA Specialist</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">234</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -1869,19 +1880,19 @@
                 <div class="agent-card">
                     <div class="agent-icon">🎬</div>
                     <h4 class="agent-name">MOTION</h4>
-                    <div class="agent-role">Animation Specialist</div>
+                    <div class="agent-role" data-i18n="agents.motion.role">Animation Specialist</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">189</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -1889,25 +1900,25 @@
         </div>
 
         <div class="agents-section">
-            <h3 class="subsection-title">Business Division</h3>
+            <h3 class="subsection-title" data-i18n="agents.businessdivision">Business Division</h3>
             <div class="agents-grid">
                 <!-- TITAN -->
                 <div class="agent-card">
                     <div class="agent-icon">💼</div>
                     <h4 class="agent-name">TITAN</h4>
-                    <div class="agent-role">CEO Strategy</div>
+                    <div class="agent-role" data-i18n="agents.titan.role">CEO Strategy</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">89</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -1916,19 +1927,19 @@
                 <div class="agent-card">
                     <div class="agent-icon">📈</div>
                     <h4 class="agent-name">MOMENTUM</h4>
-                    <div class="agent-role">Marketing CMO</div>
+                    <div class="agent-role" data-i18n="agents.momentum.role">Marketing CMO</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">201</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -1937,19 +1948,19 @@
                 <div class="agent-card">
                     <div class="agent-icon">👥</div>
                     <h4 class="agent-name">PULSE</h4>
-                    <div class="agent-role">Community Manager</div>
+                    <div class="agent-role" data-i18n="agents.pulse.role">Community Manager</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">178</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -1958,19 +1969,19 @@
                 <div class="agent-card">
                     <div class="agent-icon">💎</div>
                     <h4 class="agent-name">VIBE</h4>
-                    <div class="agent-role">Brand Manager</div>
+                    <div class="agent-role" data-i18n="agents.vibe.role">Brand Manager</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">145</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -1979,19 +1990,19 @@
                 <div class="agent-card">
                     <div class="agent-icon">🖌️</div>
                     <h4 class="agent-name">PIXEL</h4>
-                    <div class="agent-role">UI/UX Designer</div>
+                    <div class="agent-role" data-i18n="agents.pixel.role">UI/UX Designer</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">267</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -2000,19 +2011,19 @@
                 <div class="agent-card">
                     <div class="agent-icon">✍️</div>
                     <h4 class="agent-name">CONTENT</h4>
-                    <div class="agent-role">Content Strategist</div>
+                    <div class="agent-role" data-i18n="agents.content.role">Content Strategist</div>
                     <div class="agent-status">
                         <span class="status-dot active"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-text" data-i18n="agents.status.active">Active</span>
                     </div>
                     <div class="agent-stats">
                         <div class="agent-stat-item">
                             <span class="stat-number">312</span>
-                            <span class="stat-text">tasks completed</span>
+                            <span class="stat-text" data-i18n="agents.stats.tasksCompleted">tasks completed</span>
                         </div>
                         <div class="agent-stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-text">uptime</span>
+                            <span class="stat-text" data-i18n="agents.stats.uptime">uptime</span>
                         </div>
                     </div>
                 </div>
@@ -2021,21 +2032,21 @@
 
         <!-- CTA Buttons -->
         <div class="cta-buttons">
-            <a href="agents.html" class="primary-button">👥 Meet All 27 Agents</a>
-            <a href="agents-activity.html" class="secondary-button">🔴 View Live Activity</a>
+            <a href="agents.html" class="primary-button"><span data-i18n="agents.meetAll">👥 Meet All 27 Agents</span></a>
+            <a href="agents-activity.html" class="secondary-button"><span data-i18n="agents.viewLiveActivity">🔴 View Live Activity</span></a>
         </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="features">
-        <h2 class="section-title">Powered by Intelligence</h2>
-        <p class="section-subtitle">Advanced AI-powered features for the modern crypto ecosystem</p>
+        <h2 class="section-title" data-i18n="features.poweredintelligence">Powered by Intelligence</h2>
+        <p class="section-subtitle" data-i18n="features.advancedaipoweredfeatures">Advanced AI-powered features for the modern crypto ecosystem</p>
 
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">🤖</div>
-                <h3 class="feature-title">AI-Powered Trading</h3>
-                <p class="feature-desc">
+                <h3 class="feature-title" data-i18n="features.aiTrading.title">AI-Powered Trading</h3>
+                <p class="feature-desc" data-i18n="features.aiTrading.desc">
                     Our advanced AI models analyze price patterns, market sentiment, and on-chain data
                     to provide 85%+ accurate predictions using LSTM and Transformer algorithms.
                 </p>
@@ -2043,8 +2054,8 @@
 
             <div class="feature-card">
                 <div class="feature-icon">💰</div>
-                <h3 class="feature-title">High-Yield Staking</h3>
-                <p class="feature-desc">
+                <h3 class="feature-title" data-i18n="features.staking.title">High-Yield Staking</h3>
+                <p class="feature-desc" data-i18n="features.staking.desc">
                     Earn up to 62% APY with our multi-tier staking system. Choose from 30-day (17%),
                     90-day (27%), or 365-day (62%) lock periods with daily compounding.
                 </p>
@@ -2052,8 +2063,8 @@
 
             <div class="feature-card">
                 <div class="feature-icon">🗳️</div>
-                <h3 class="feature-title">DAO Governance</h3>
-                <p class="feature-desc">
+                <h3 class="feature-title" data-i18n="features.dao.title">DAO Governance</h3>
+                <p class="feature-desc" data-i18n="features.dao.desc">
                     Community-driven decisions with token-weighted voting. Control protocol upgrades,
                     fee adjustments, and strategic partnerships. 1 HYPEAI = 1 Vote.
                 </p>
@@ -2061,8 +2072,8 @@
 
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">Lightning Fast</h3>
-                <p class="feature-desc">
+                <h3 class="feature-title" data-i18n="features.fast.title">Lightning Fast</h3>
+                <p class="feature-desc" data-i18n="features.fast.desc">
                     Built on Polygon L2 for instant transactions with minimal fees. Process 1000+ TPS
                     while maintaining Ethereum's security through Layer 2 scaling.
                 </p>
@@ -2070,8 +2081,8 @@
 
             <div class="feature-card">
                 <div class="feature-icon">🔒</div>
-                <h3 class="feature-title">Security First</h3>
-                <p class="feature-desc">
+                <h3 class="feature-title" data-i18n="features.security.title">Security First</h3>
+                <p class="feature-desc" data-i18n="features.security.desc">
                     Audited smart contracts with best practices. ReentrancyGuard, SafeMath, anti-whale
                     mechanisms, and emergency pause functionality for maximum security.
                 </p>
@@ -2079,8 +2090,8 @@
 
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
-                <h3 class="feature-title">Real-Time Analytics</h3>
-                <p class="feature-desc">
+                <h3 class="feature-title" data-i18n="features.analytics.title">Real-Time Analytics</h3>
+                <p class="feature-desc" data-i18n="features.analytics.desc">
                     Advanced dashboard with live price charts, AI predictions, sentiment analysis,
                     and portfolio optimization powered by machine learning.
                 </p>
@@ -2092,69 +2103,69 @@
     <section id="tokenomics" class="tokenomics">
         <div class="tokenomics-content">
             <div>
-                <h2 class="section-title">Tokenomics</h2>
-                <p class="section-subtitle">Fair distribution designed for sustainable growth</p>
+                <h2 class="section-title" data-i18n="tokenomics.tokenomics">Tokenomics</h2>
+                <p class="section-subtitle" data-i18n="tokenomics.fairdistributiondesigned">Fair distribution designed for sustainable growth</p>
 
-                <h3 style="margin-bottom: 1rem;">Total Supply: 1,000,000,000 HYPEAI</h3>
+                <h3 style="margin-bottom: 1rem;" data-i18n="tokenomics.totalSupply">Total Supply: 1,000,000,000 HYPEAI</h3>
 
                 <div class="token-dist-item">
-                    <span>Public Sale</span>
+                    <span data-i18n="tokenomics.publicSale">Public Sale</span>
                     <strong>25% (250M)</strong>
                 </div>
                 <div class="token-dist-item">
-                    <span>Liquidity Pool</span>
+                    <span data-i18n="tokenomics.liquidityPool">Liquidity Pool</span>
                     <strong>20% (200M)</strong>
                 </div>
                 <div class="token-dist-item">
-                    <span>Staking Rewards</span>
+                    <span data-i18n="tokenomics.stakingRewards">Staking Rewards</span>
                     <strong>15% (150M)</strong>
                 </div>
                 <div class="token-dist-item">
-                    <span>Team & Advisors</span>
+                    <span data-i18n="tokenomics.teamAdvisors">Team & Advisors</span>
                     <strong>15% (150M)</strong>
                 </div>
                 <div class="token-dist-item">
-                    <span>Treasury & Development</span>
+                    <span data-i18n="tokenomics.treasuryDev">Treasury & Development</span>
                     <strong>10% (100M)</strong>
                 </div>
                 <div class="token-dist-item">
-                    <span>Marketing & Growth</span>
+                    <span data-i18n="tokenomics.marketingGrowth">Marketing & Growth</span>
                     <strong>8% (80M)</strong>
                 </div>
                 <div class="token-dist-item">
-                    <span>Strategic Partnerships</span>
+                    <span data-i18n="tokenomics.partnerships">Strategic Partnerships</span>
                     <strong>5% (50M)</strong>
                 </div>
                 <div class="token-dist-item">
-                    <span>Community Airdrop</span>
+                    <span data-i18n="tokenomics.airdrop">Community Airdrop</span>
                     <strong>2% (20M)</strong>
                 </div>
             </div>
 
             <div class="tokenomics-visual">
-                <h3 style="margin-bottom: 2rem; text-align: center;">Transaction Fees: 8%</h3>
+                <h3 style="margin-bottom: 2rem; text-align: center;" data-i18n="tokenomics.transactionFees">Transaction Fees: 8%</h3>
                 <div style="display: grid; gap: 1.5rem;">
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(0, 212, 255, 0.1); border-radius: 10px;">
-                        <span>💧 Liquidity</span>
+                        <span data-i18n="tokenomics.feeLiquidity">💧 Liquidity</span>
                         <strong style="color: var(--accent-green);">3%</strong>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(157, 78, 221, 0.1); border-radius: 10px;">
-                        <span>🔁 Reflection</span>
+                        <span data-i18n="tokenomics.feeReflection">🔁 Reflection</span>
                         <strong style="color: var(--accent-green);">2%</strong>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(57, 255, 20, 0.1); border-radius: 10px;">
-                        <span>💰 Treasury</span>
+                        <span data-i18n="tokenomics.feeTreasury">💰 Treasury</span>
                         <strong style="color: var(--accent-green);">2%</strong>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(255, 0, 0, 0.1); border-radius: 10px;">
-                        <span>🔥 Burn</span>
+                        <span data-i18n="tokenomics.feeBurn">🔥 Burn</span>
                         <strong style="color: var(--accent-green);">1%</strong>
                     </div>
                 </div>
 
                 <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(57, 255, 20, 0.1); border-radius: 10px; text-align: center;">
-                    <h4 style="margin-bottom: 0.5rem;">Staking APY</h4>
-                    <div style="font-size: 2.5rem; font-weight: 900; background: linear-gradient(135deg, var(--primary-blue), var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    <h4 style="margin-bottom: 0.5rem;" data-i18n="tokenomics.stakingAPY">Staking APY</h4>
+                    <div style="font-size: 2.5rem; font-weight: 900; background: linear-gradient(135deg, var(--primary-blue), var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-i18n="tokenomics.apyValue">
                         Up to 62%
                     </div>
                 </div>
@@ -2164,19 +2175,19 @@
 
     <!-- Roadmap Section -->
     <section id="roadmap" class="roadmap">
-        <h2 class="section-title">Roadmap to Success</h2>
-        <p class="section-subtitle">Our journey to revolutionize crypto trading</p>
+        <h2 class="section-title" data-i18n="roadmap.roadmapsuccess">Roadmap to Success</h2>
+        <p class="section-subtitle" data-i18n="roadmap.ourjourneyrevolutionize">Our journey to revolutionize crypto trading</p>
 
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Q1 2025 - Launch</h3>
+                    <h3 style="color: var(--primary-blue); margin-bottom: 1rem;" data-i18n="roadmap.q1.title">Q1 2025 - Launch</h3>
                     <ul style="list-style: none; color: var(--gray); line-height: 2;">
-                        <li>✅ Smart contract development</li>
-                        <li>✅ Security audit</li>
-                        <li>✅ DEX listing (Uniswap/PancakeSwap)</li>
-                        <li>✅ Initial airdrop</li>
-                        <li>✅ Community building</li>
+                        <li data-i18n="roadmap.q1.item1">✅ Smart contract development</li>
+                        <li data-i18n="roadmap.q1.item2">✅ Security audit</li>
+                        <li data-i18n="roadmap.q1.item3">✅ DEX listing (Uniswap/PancakeSwap)</li>
+                        <li data-i18n="roadmap.q1.item4">✅ Initial airdrop</li>
+                        <li data-i18n="roadmap.q1.item5">✅ Community building</li>
                     </ul>
                 </div>
                 <div class="timeline-dot"></div>
@@ -2187,26 +2198,26 @@
                 <div></div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <h3 style="color: var(--primary-purple); margin-bottom: 1rem;">Q2 2025 - Growth</h3>
+                    <h3 style="color: var(--primary-purple); margin-bottom: 1rem;" data-i18n="roadmap.q2.title">Q2 2025 - Growth</h3>
                     <ul style="list-style: none; color: var(--gray); line-height: 2;">
-                        <li>🔄 CEX listings (Gate.io, MEXC)</li>
-                        <li>🔄 Staking platform launch</li>
-                        <li>🔄 Mobile app release</li>
-                        <li>🔄 Marketing campaigns</li>
-                        <li>🔄 Strategic partnerships</li>
+                        <li data-i18n="roadmap.q2.item1">🔄 CEX listings (Gate.io, MEXC)</li>
+                        <li data-i18n="roadmap.q2.item2">🔄 Staking platform launch</li>
+                        <li data-i18n="roadmap.q2.item3">🔄 Mobile app release</li>
+                        <li data-i18n="roadmap.q2.item4">🔄 Marketing campaigns</li>
+                        <li data-i18n="roadmap.q2.item5">🔄 Strategic partnerships</li>
                     </ul>
                 </div>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <h3 style="color: var(--accent-green); margin-bottom: 1rem;">Q3 2025 - Expansion</h3>
+                    <h3 style="color: var(--accent-green); margin-bottom: 1rem;" data-i18n="roadmap.q3.title">Q3 2025 - Expansion</h3>
                     <ul style="list-style: none; color: var(--gray); line-height: 2;">
-                        <li>📅 Multi-chain deployment</li>
-                        <li>📅 NFT integration</li>
-                        <li>📅 DAO governance launch</li>
-                        <li>📅 Advanced AI features</li>
-                        <li>📅 Institutional partnerships</li>
+                        <li data-i18n="roadmap.q3.item1">📅 Multi-chain deployment</li>
+                        <li data-i18n="roadmap.q3.item2">📅 NFT integration</li>
+                        <li data-i18n="roadmap.q3.item3">📅 DAO governance launch</li>
+                        <li data-i18n="roadmap.q3.item4">📅 Advanced AI features</li>
+                        <li data-i18n="roadmap.q3.item5">📅 Institutional partnerships</li>
                     </ul>
                 </div>
                 <div class="timeline-dot"></div>
@@ -2217,13 +2228,13 @@
                 <div></div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Q4 2025 - Ecosystem</h3>
+                    <h3 style="color: var(--primary-blue); margin-bottom: 1rem;" data-i18n="roadmap.q4.title">Q4 2025 - Ecosystem</h3>
                     <ul style="list-style: none; color: var(--gray); line-height: 2;">
-                        <li>📅 DeFi product suite</li>
-                        <li>📅 Lending/Borrowing protocol</li>
-                        <li>📅 Launchpad platform</li>
-                        <li>📅 Cross-chain bridges</li>
-                        <li>📅 $100M market cap target 🎯</li>
+                        <li data-i18n="roadmap.q4.item1">📅 DeFi product suite</li>
+                        <li data-i18n="roadmap.q4.item2">📅 Lending/Borrowing protocol</li>
+                        <li data-i18n="roadmap.q4.item3">📅 Launchpad platform</li>
+                        <li data-i18n="roadmap.q4.item4">📅 Cross-chain bridges</li>
+                        <li data-i18n="roadmap.q4.item5">📅 $100M market cap target 🎯</li>
                     </ul>
                 </div>
             </div>

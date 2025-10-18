@@ -194,58 +194,30 @@ body {
     white-space: nowrap !important;
 }
 
-/* ===== BUTTONS - STRICT LOCK ===== */
-button,
-a.button,
-.button,
+/* ===== BUTTONS - GENTLE LOCK ===== */
 button[data-i18n],
-a[data-i18n] {
-    /* STRICT fixed button dimensions */
-    min-width: 140px !important;
-    padding: 0.75rem 1.5rem !important;
-    height: 42px !important;
-
-    /* NO wrapping */
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-
-    /* Center text */
-    text-align: center !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+.button[data-i18n] {
+    /* Soft limits for translated buttons only */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Large CTA buttons */
-.primary-button,
-.cta-button,
+/* Large CTA buttons with i18n */
 .primary-button[data-i18n],
 .cta-button[data-i18n] {
-    min-width: 180px !important;
-    padding: 1rem 2rem !important;
-    height: 48px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* ===== NAVIGATION - STRICT LOCK ===== */
-nav a,
+/* ===== NAVIGATION - GENTLE LOCK ===== */
 nav a[data-i18n] {
-    /* STRICT fixed nav item dimensions */
-    min-width: 100px !important;
-    max-width: 140px !important;
-    padding: 0.5rem 1rem !important;
-    height: 40px !important;
-    text-align: center !important;
-
-    /* NO wrapping */
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-
-    /* Center vertically */
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    /* Soft limits, not forcing dimensions */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
 }
 
 /* ===== FOOTER ===== */
@@ -282,7 +254,7 @@ nav a[data-i18n] {
 @media (max-width: 1024px) {
     .feature-card,
     .service-card {
-        min-height: auto; /* Allow natural flow on tablets */
+        min-height: auto !important; /* Allow natural flow on tablets */
     }
 }
 
@@ -300,8 +272,8 @@ nav a[data-i18n] {
 
     button[data-i18n],
     a[data-i18n] {
-        white-space: normal; /* Allow wrapping on mobile */
-        min-width: auto;
+        white-space: normal !important; /* Allow wrapping on mobile */
+        min-width: auto !important;
     }
 }
 
@@ -337,47 +309,25 @@ html[lang="ru"] a[data-i18n] {
 /* ===== ULTRA-STRICT LAYOUT LOCK FOR ALL ELEMENTS ===== */
 /* Prevents ANY layout shift regardless of language */
 
-/* All headings - strict heights */
-h1 {
-    min-height: 60px !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+/* Headings - ONLY with i18n */
+h1[data-i18n] {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-h2 {
-    min-height: 50px !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+h2[data-i18n] {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-h3 {
-    min-height: 40px !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+h3[data-i18n] {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-h4, h5, h6 {
-    min-height: 32px !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-}
-
-/* All paragraphs */
-p {
-    min-height: 24px !important;
-    overflow: hidden !important;
-}
-
-/* All sections - prevent growth */
-section {
-    overflow: hidden !important;
-}
-
-/* All containers */
-.container,
-.grid,
-.flex {
-    overflow: hidden !important;
+/* Paragraphs - ONLY with i18n */
+p[data-i18n] {
+    overflow: hidden;
 }
 
 /* Cards in grid - lock size */
@@ -389,69 +339,65 @@ section {
     overflow: hidden !important;
 }
 
-/* Text elements - strict limits */
-span, label, small {
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+/* Text elements - ONLY for translated elements */
+span[data-i18n],
+label[data-i18n],
+small[data-i18n] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Lists - ONLY for translated elements */
+ul[data-i18n],
+ol[data-i18n] {
+    overflow: hidden;
+}
+
+li[data-i18n] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Links - ONLY for translated nav links */
+a[data-i18n] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Grid layouts - gentle constraints */
+.features-grid,
+.services-grid {
+    /* Let grid breathe, don't force columns */
+}
+
+/* Flex containers - allow natural wrapping */
+header {
+    /* Header should flex naturally */
+    flex-wrap: wrap;
+}
+
+/* ===== RUSSIAN-SPECIFIC: PROFESSIONAL FIX ===== */
+/* Strategy: Same sizes, smart constraints, elegant overflow handling */
+
+html[lang="ru"] {
+    /* NO font size changes - keep it beautiful like English */
+    /* Russian text is longer, but we handle it gracefully */
+}
+
+/* Container-level overflow prevention */
+html[lang="ru"] section,
+html[lang="ru"] .container {
+    overflow-x: hidden !important; /* Prevent horizontal scroll */
     max-width: 100% !important;
 }
 
-/* Lists */
-ul, ol {
+/* Cards - keep same height but handle overflow gracefully */
+html[lang="ru"] .card,
+html[lang="ru"] .feature-card,
+html[lang="ru"] .service-card {
     overflow: hidden !important;
-}
-
-li {
-    min-height: 24px !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-}
-
-/* Links - prevent growth */
-a {
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-}
-
-/* Divs with content - limit size */
-div {
-    max-width: 100% !important;
+    width: 100% !important;
     box-sizing: border-box !important;
-}
-
-/* CRITICAL: Lock ALL grid layouts */
-.grid-container,
-[class*="grid"] {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-}
-
-/* Flex containers - prevent wrapping issues */
-.flex-container,
-[class*="flex"] {
-    flex-wrap: nowrap !important;
-}
-
-/* Russian-specific: MORE strict limits */
-html[lang="ru"] h1,
-html[lang="ru"] h2,
-html[lang="ru"] h3 {
-    font-size: 0.95em !important;
-    letter-spacing: -0.02em !important;
-}
-
-html[lang="ru"] p,
-html[lang="ru"] span,
-html[lang="ru"] div {
-    font-size: 0.95em !important;
-}
-
-html[lang="ru"] button,
-html[lang="ru"] a.button {
-    font-size: 0.9em !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
 }
 
 /* Chinese-specific: Compact layout */
@@ -466,16 +412,138 @@ html[lang="zh"] span {
     letter-spacing: 0.03em !important;
 }
 
-/* EMERGENCY LOCK: If nothing else works, force fixed widths */
-html[lang="ru"] *,
-html[lang="zh"] * {
-    max-width: 100% !important;
+/* ===== CRITICAL: Word Breaking for Long Russian Words ===== */
+/* Russian words can be VERY long (like "криптотрейдинга"), need smart breaking */
+html[lang="ru"] p,
+html[lang="ru"] span,
+html[lang="ru"] div,
+html[lang="ru"] a,
+html[lang="ru"] button,
+html[lang="ru"] li,
+html[lang="ru"] h1,
+html[lang="ru"] h2,
+html[lang="ru"] h3,
+html[lang="ru"] h4 {
     word-break: break-word !important;
     overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
 }
 
-/* Prevent any element from causing horizontal scroll */
-html[lang="ru"] body *,
-html[lang="zh"] body * {
-    max-width: 100vw !important;
+/* Chinese word breaking */
+html[lang="zh"] p[data-i18n],
+html[lang="zh"] span[data-i18n] {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* ===== HEADER BEAUTIFICATION ===== */
+/* Ensure header stays beautiful on all languages */
+
+header {
+    /* Ensure proper spacing */
+    gap: 2rem;
+    align-items: center !important;
+}
+
+header .logo {
+    /* Keep logo compact and beautiful */
+    flex-shrink: 0;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem;
+}
+
+header nav {
+    /* Nav should flex nicely */
+    display: flex !important;
+    gap: 1.5rem;
+    align-items: center !important;
+}
+
+header nav a {
+    /* Nav links should not wrap */
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Language switcher - keep compact */
+.language-switcher-dropdown {
+    flex-shrink: 0;
+}
+
+/* Wallet button - keep visible */
+#walletButton {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* ===== CLEAN RUSSIAN FIX: BEAUTIFUL LIKE ENGLISH ===== */
+/* Same font sizes, same spacing - just prevent overflow */
+
+html[lang="ru"] body {
+    overflow-x: hidden !important;
+}
+
+/* Grid - same as English, FLEXIBLE columns to prevent overflow */
+html[lang="ru"] .grid,
+html[lang="ru"] .features-grid,
+html[lang="ru"] .services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; /* Slightly smaller min for Russian */
+    gap: 2rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Cards - beautiful with ellipsis for overflow */
+html[lang="ru"] .feature-card h3,
+html[lang="ru"] .service-card h3 {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+}
+
+html[lang="ru"] .feature-card p,
+html[lang="ru"] .service-card p,
+html[lang="ru"] .feature-card .description,
+html[lang="ru"] .service-card .description {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 5 !important;
+    -webkit-box-orient: vertical !important;
+}
+
+/* Navigation - SMART wrapping for long Russian words */
+html[lang="ru"] nav {
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important; /* Slightly tighter for Russian */
+    justify-content: center !important; /* Center items when they wrap */
+}
+
+html[lang="ru"] nav a {
+    max-width: 200px !important; /* Prevent super-wide nav links */
+    text-align: center !important;
+}
+
+/* Stats bar - prevent overflow with smart truncation */
+html[lang="ru"] .stats-bar {
+    gap: 1rem !important; /* Tighter spacing */
+    justify-content: center !important;
+}
+
+html[lang="ru"] .stats-bar .stat {
+    min-width: 160px !important; /* Slightly smaller for Russian */
+    max-width: 200px !important;
+}
+
+html[lang="ru"] .stats-bar .stat-label {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    hyphens: auto !important;
+    word-break: break-word !important;
 }
