@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect, useCallback } from 'react';
-import { ethers } from 'ethers';
+import { BrowserProvider, Contract } from 'ethers';
 import { getCurrentNetworkConfig, CONTRACTS, ERC20_ABI, formatters, ERROR_MESSAGES, isCorrectNetwork } from '../lib/contracts';
 
 export interface WalletState {
@@ -15,7 +15,7 @@ export interface WalletState {
   bnbBalance: string;
   usdtBalance: string;
   hypeaiBalance: string;
-  provider: ethers.BrowserProvider | null;
+  provider: BrowserProvider | null;
 }
 
 export interface WalletError {
@@ -48,24 +48,24 @@ export const useWallet = () => {
   /**
    * Get provider instance
    */
-  const getProvider = useCallback((): ethers.BrowserProvider | null => {
+  const getProvider = useCallback((): BrowserProvider | null => {
     if (!isMetaMaskInstalled()) {
       return null;
     }
-    return new ethers.BrowserProvider(window.ethereum as any);
+    return new BrowserProvider(window.ethereum as any);
   }, [isMetaMaskInstalled]);
 
   /**
    * Fetch user balances
    */
-  const fetchBalances = useCallback(async (address: string, provider: ethers.BrowserProvider) => {
+  const fetchBalances = useCallback(async (address: string, provider: BrowserProvider) => {
     try {
       // Fetch BNB balance
       const bnbBalanceWei = await provider.getBalance(address);
       const bnbBalance = formatters.formatToken(bnbBalanceWei);
 
       // Fetch USDT balance
-      const usdtContract = new ethers.Contract(CONTRACTS.USDT_TOKEN, ERC20_ABI, provider);
+      const usdtContract = new Contract(CONTRACTS.USDT_TOKEN, ERC20_ABI, provider);
       const usdtBalanceWei = await usdtContract.balanceOf(address);
       const usdtBalance = formatters.formatToken(usdtBalanceWei);
 
@@ -73,7 +73,7 @@ export const useWallet = () => {
       let hypeaiBalance = '0';
       if (CONTRACTS.HYPEAI_TOKEN) {
         try {
-          const hypeaiContract = new ethers.Contract(CONTRACTS.HYPEAI_TOKEN, ERC20_ABI, provider);
+          const hypeaiContract = new Contract(CONTRACTS.HYPEAI_TOKEN, ERC20_ABI, provider);
           const hypeaiBalanceWei = await hypeaiContract.balanceOf(address);
           hypeaiBalance = formatters.formatToken(hypeaiBalanceWei);
         } catch (err) {
@@ -95,7 +95,7 @@ export const useWallet = () => {
   /**
    * Update wallet state
    */
-  const updateWalletState = useCallback(async (provider: ethers.BrowserProvider) => {
+  const updateWalletState = useCallback(async (provider: BrowserProvider) => {
     try {
       const network = await provider.getNetwork();
       const chainId = Number(network.chainId);
@@ -331,9 +331,18 @@ export const useWallet = () => {
 
   return {
     ...walletState,
+    // Legacy aliases for backward compatibility
+    wallet: walletState.address,
+    connecting: isLoading,
+    // Modern properties
     isLoading,
     error,
     isMetaMaskInstalled: isMetaMaskInstalled(),
+    // Function aliases for backward compatibility
+    connectMetaMask: connectWallet,
+    connectWalletConnect: connectWallet, // Fallback to MetaMask for now
+    connectPhantom: connectWallet, // Fallback to MetaMask for now
+    // Modern function names
     connectWallet,
     disconnectWallet,
     switchToBSC,

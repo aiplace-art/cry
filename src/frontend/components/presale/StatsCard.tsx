@@ -27,7 +27,7 @@ interface StatsCardProps {
  * @param prefix - Optional prefix (e.g., '$', '+')
  * @param suffix - Optional suffix (e.g., '%', 'K', 'M')
  * @param decimals - Number of decimal places (default: 0)
- * @param gradient - Tailwind gradient classes (default: 'from-blue-500 to-purple-500')
+ * @param gradient - Tailwind gradient classes (default: 'from-bnb-primary500 to-bnb-primary500')
  * @param glowColor - Glow color on hover (default: 'blue')
  * @param animationDuration - Duration of count animation in seconds (default: 2)
  * @param className - Optional additional CSS classes
@@ -39,7 +39,7 @@ export const StatsCard: React.FC<StatsCardProps> = ({
   prefix = '',
   suffix = '',
   decimals = 0,
-  gradient = 'from-blue-500 to-purple-500',
+  gradient = 'from-bnb-primary500 to-bnb-primary500',
   glowColor = 'blue',
   animationDuration = 2,
   className = '',
@@ -77,8 +77,8 @@ export const StatsCard: React.FC<StatsCardProps> = ({
 
   // Glow colors mapping
   const glowColors: Record<string, string> = {
-    blue: 'shadow-blue-500/50',
-    purple: 'shadow-purple-500/50',
+    blue: 'shadow-bnb-primary500/50',
+    purple: 'shadow-bnb-secondary500/50',
     pink: 'shadow-pink-500/50',
     green: 'shadow-green-500/50',
     yellow: 'shadow-yellow-500/50',
@@ -283,7 +283,7 @@ export const StatsCard: React.FC<StatsCardProps> = ({
  *   icon="📈"
  *   suffix="%"
  *   decimals={1}
- *   gradient="from-blue-500 to-cyan-500"
+ *   gradient="from-bnb-primary500 to-cyan-500"
  *   glowColor="cyan"
  * />
  *
@@ -291,7 +291,7 @@ export const StatsCard: React.FC<StatsCardProps> = ({
  *   value={5420}
  *   label="Contributors"
  *   icon="👥"
- *   gradient="from-purple-500 to-pink-500"
+ *   gradient="from-bnb-secondary500 to-pink-500"
  *   glowColor="purple"
  * />
  */

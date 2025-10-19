@@ -14,7 +14,7 @@ export const PrivateSaleWidget: React.FC = () => {
   const [txHash, setTxHash] = useState<string>('');
 
   const { calculateTokens, processPurchase, loading, config } = usePrivateSale();
-  const { wallet, connecting, connectMetaMask, connectWalletConnect, connectPhantom } = useWallet();
+  const { address: wallet, isLoading: connecting, connectWallet: connectMetaMask, connectWallet: connectWalletConnect, connectWallet: connectPhantom } = useWallet();
 
   // Calculate tokens when amount changes
   const calculation = usdAmount ? calculateTokens(parseFloat(usdAmount) || 0) : null;
@@ -23,7 +23,7 @@ export const PrivateSaleWidget: React.FC = () => {
     if (!wallet || !selectedMethod || !usdAmount) return;
 
     const amount = parseFloat(usdAmount);
-    const result = await processPurchase(amount, selectedMethod, wallet.address);
+    const result = await processPurchase(amount, selectedMethod, wallet || '');
 
     if (result.success && result.transactionHash) {
       setTxHash(result.transactionHash);
@@ -43,7 +43,7 @@ export const PrivateSaleWidget: React.FC = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          walletAddress: wallet?.address,
+          walletAddress: wallet,
           amount,
           tokens,
           transactionHash: txHash,
@@ -93,7 +93,7 @@ export const PrivateSaleWidget: React.FC = () => {
                 href={getExplorerUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 text-blue-600 dark:text-blue-400 hover:underline"
+                className="flex items-center justify-center gap-2 text-bnb-primary dark:text-bnb-primary hover:underline"
               >
                 <span>View on Explorer</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -116,13 +116,15 @@ export const PrivateSaleWidget: React.FC = () => {
                 // This would integrate with calendar API
                 alert('Calendar reminder would be added here');
               }}
-              className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition"
+              aria-label="Add token unlock date to calendar"
+              className="w-full py-3 px-4 bg-bnb-primary hover:bg-bnb-dark text-white rounded-xl font-semibold transition"
             >
               📅 Add Unlock Date to Calendar
             </button>
 
             <button
               onClick={() => setShowSuccess(false)}
+              aria-label="Make another token purchase"
               className="w-full py-3 px-4 border-2 border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600 text-gray-900 dark:text-white rounded-xl font-semibold transition"
             >
               Make Another Purchase
@@ -150,6 +152,8 @@ export const PrivateSaleWidget: React.FC = () => {
           <button
             onClick={connectMetaMask}
             disabled={connecting}
+            aria-label="Connect MetaMask wallet"
+            aria-busy={connecting}
             className="w-full py-4 px-6 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-semibold transition flex items-center justify-center gap-3"
           >
             <span className="text-2xl">🦊</span>
@@ -159,7 +163,9 @@ export const PrivateSaleWidget: React.FC = () => {
           <button
             onClick={connectWalletConnect}
             disabled={connecting}
-            className="w-full py-4 px-6 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-semibold transition flex items-center justify-center gap-3"
+            aria-label="Connect WalletConnect wallet"
+            aria-busy={connecting}
+            className="w-full py-4 px-6 bg-bnb-primary/50 hover:bg-bnb-primary text-white rounded-xl font-semibold transition flex items-center justify-center gap-3"
           >
             <span className="text-2xl">🔗</span>
             <span>WalletConnect</span>
@@ -168,7 +174,9 @@ export const PrivateSaleWidget: React.FC = () => {
           <button
             onClick={connectPhantom}
             disabled={connecting}
-            className="w-full py-4 px-6 bg-purple-500 hover:bg-purple-600 text-white rounded-xl font-semibold transition flex items-center justify-center gap-3"
+            aria-label="Connect Phantom wallet"
+            aria-busy={connecting}
+            className="w-full py-4 px-6 bg-bnb-secondary/50 hover:bg-bnb-secondary text-white rounded-xl font-semibold transition flex items-center justify-center gap-3"
           >
             <span className="text-2xl">👻</span>
             <span>Phantom Wallet</span>
@@ -181,7 +189,7 @@ export const PrivateSaleWidget: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <span className="text-sm font-medium text-gray-900 dark:text-white">
-                {wallet.address.slice(0, 6)}...{wallet.address.slice(-4)}
+                {wallet?.slice(0, 6)}...{wallet?.slice(-4)}
               </span>
             </div>
             <span className="text-xs text-green-600 dark:text-green-400">Connected</span>
@@ -196,29 +204,32 @@ export const PrivateSaleWidget: React.FC = () => {
 
           {/* Amount Input */}
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label htmlFor="usd-amount-input" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Amount in USD
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg" aria-hidden="true">$</span>
               <input
+                id="usd-amount-input"
                 type="number"
                 value={usdAmount}
                 onChange={(e) => setUsdAmount(e.target.value)}
                 placeholder="0.00"
                 min={config.minPurchase}
                 max={config.maxPurchase}
-                className="w-full pl-10 pr-4 py-4 border-2 border-gray-300 dark:border-gray-700 rounded-xl text-lg font-semibold text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 outline-none transition"
+                aria-label="Purchase amount in USD"
+                aria-describedby="amount-helper-text"
+                className="w-full pl-10 pr-4 py-4 border-2 border-gray-300 dark:border-gray-700 rounded-xl text-lg font-semibold text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:border-bnb-border0 dark:focus:border-bnb-primary/40 focus:ring-2 focus:ring-bnb-primary200 dark:focus:ring-bnb-primary900 outline-none transition"
               />
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p id="amount-helper-text" className="text-xs text-gray-500 dark:text-gray-400">
               Min: ${config.minPurchase} • Max: ${config.maxPurchase.toLocaleString()}
             </p>
           </div>
 
           {/* Token Calculator */}
           {calculation && calculation.usdAmount > 0 && (
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-6 space-y-3 border border-blue-200 dark:border-blue-800">
+            <div className="bg-gradient-to-r from-bnb-primary50 to-bnb-primary50 dark:from-bnb-primary900/20 dark:to-bnb-primary900/20 rounded-xl p-6 space-y-3 border border-bnb-border dark:border-bnb-border">
               <div className="flex justify-between">
                 <span className="text-gray-600 dark:text-gray-400">Base Tokens:</span>
                 <span className="font-bold text-gray-900 dark:text-white">
@@ -237,9 +248,9 @@ export const PrivateSaleWidget: React.FC = () => {
                 </div>
               )}
 
-              <div className="pt-3 border-t border-blue-200 dark:border-blue-800 flex justify-between">
+              <div className="pt-3 border-t border-bnb-border dark:border-bnb-border flex justify-between">
                 <span className="text-lg font-semibold text-gray-900 dark:text-white">Total:</span>
-                <span className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                <span className="text-lg font-bold text-bnb-primary dark:text-bnb-primary">
                   {calculation.totalTokens.toLocaleString(undefined, { maximumFractionDigits: 2 })} HYPE
                 </span>
               </div>
@@ -250,7 +261,10 @@ export const PrivateSaleWidget: React.FC = () => {
           <button
             onClick={handlePurchase}
             disabled={!selectedMethod || !usdAmount || loading || parseFloat(usdAmount) < config.minPurchase}
-            className="w-full py-5 px-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white rounded-xl font-bold text-lg transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+            aria-label="Purchase HYPE tokens"
+            aria-busy={loading}
+            aria-disabled={!selectedMethod || !usdAmount || loading || parseFloat(usdAmount) < config.minPurchase}
+            className="w-full py-5 px-6 bg-gradient-to-r from-bnb-primary600 to-bnb-primary600 hover:from-bnb-primary700 hover:to-bnb-primary700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white rounded-xl font-bold text-lg transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
           >
             {loading ? (
               <>

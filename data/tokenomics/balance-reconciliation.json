@@ -1,7 +1,7 @@
 {
-  "reconciliationsPerformed": 47,
+  "reconciliationsPerformed": 64,
   "mismatchesFound": 49,
-  "lastReconciliation": "2025-10-17T22:21:57.581Z",
+  "lastReconciliation": "2025-10-19T15:35:37.828Z",
   "reconciliations": [
     {
       "timestamp": "2025-10-17T05:47:13.524Z",
@@ -235,6 +235,91 @@
     },
     {
       "timestamp": "2025-10-17T22:21:57.581Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-17T22:39:05.731Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-17T22:54:05.740Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T07:00:41.166Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T11:06:13.805Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T11:21:13.807Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T11:36:13.783Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T11:54:42.736Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T12:28:05.231Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T12:43:05.228Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T13:52:10.887Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T14:09:36.723Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T14:24:36.726Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T16:50:23.399Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T17:23:29.940Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-18T17:44:22.361Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-19T06:15:20.738Z",
+      "allMatched": true,
+      "mismatchesFound": false
+    },
+    {
+      "timestamp": "2025-10-19T15:35:37.828Z",
       "allMatched": true,
       "mismatchesFound": false
     }

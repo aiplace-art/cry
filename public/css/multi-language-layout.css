@@ -1,5 +1,5 @@
 /**
- * Multi-Language Layout System v2.0
+ * Multi-Language Layout System v3.0
  * STRICT: Prevents ANY layout shifts when switching between EN/RU/ZH
  *
  * Strategy:
@@ -7,7 +7,11 @@
  * 2. Strict max-width limits
  * 3. Aggressive overflow handling
  * 4. Lock all container sizes
+ * 5. Professional CSS Variables Integration
  */
+
+/* Import Professional Theme */
+@import url('professional-theme.css');
 
 /* ===== GLOBAL LAYOUT LOCK ===== */
 * {
@@ -19,6 +23,10 @@ body {
     /* Lock body width */
     overflow-x: hidden !important;
     max-width: 100vw !important;
+
+    /* Professional typography from theme */
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    line-height: var(--leading-normal, 1.5);
 }
 
 /* ===== HERO SECTION ===== */

@@ -61,7 +61,7 @@ export const TokenCalculator: React.FC<TokenCalculatorProps> = ({
             onChange={(e) => setInvestment(e.target.value)}
             min="0.01"
             step="0.01"
-            className="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-10 py-4 text-white text-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+            className="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-10 py-4 text-white text-lg focus:outline-none focus:ring-2 focus:ring-bnb-secondary500 focus:border-transparent transition-all"
             placeholder="1.00"
           />
         </div>
@@ -77,20 +77,20 @@ export const TokenCalculator: React.FC<TokenCalculatorProps> = ({
           <div className="text-xs text-gray-500 mt-1">HYPE</div>
         </div>
 
-        <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl p-4 border border-purple-500/50">
-          <div className="text-sm text-purple-300 mb-1">Bonus Tokens</div>
-          <div className="text-xl font-bold text-purple-100">
+        <div className="bg-gradient-to-br from-bnb-secondary900/30 to-pink-900/30 rounded-xl p-4 border border-bnb-border0/50">
+          <div className="text-sm text-bnb-secondary mb-1">Bonus Tokens</div>
+          <div className="text-xl font-bold text-bnb-text">
             +{formatNumber(calculations.bonusTokens)}
           </div>
-          <div className="text-xs text-purple-400 mt-1">{bonus}% Bonus</div>
+          <div className="text-xs text-bnb-secondary mt-1">{bonus}% Bonus</div>
         </div>
 
-        <div className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl p-4 border border-blue-500/50">
-          <div className="text-sm text-blue-300 mb-1">Total Tokens</div>
-          <div className="text-2xl font-bold text-blue-100">
+        <div className="bg-gradient-to-br from-bnb-primary900/30 to-cyan-900/30 rounded-xl p-4 border border-bnb-border0/50">
+          <div className="text-sm text-bnb-primary mb-1">Total Tokens</div>
+          <div className="text-2xl font-bold text-bnb-text">
             {formatNumber(calculations.tokens)}
           </div>
-          <div className="text-xs text-blue-400 mt-1">HYPE</div>
+          <div className="text-xs text-bnb-primary mt-1">HYPE</div>
         </div>
 
         <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl p-4 border border-green-500/50">
@@ -105,18 +105,18 @@ export const TokenCalculator: React.FC<TokenCalculatorProps> = ({
       </div>
 
       {/* ROI Display */}
-      <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-xl p-6 border border-purple-500/30 mb-4">
+      <div className="bg-gradient-to-r from-bnb-secondary600/20 to-pink-600/20 rounded-xl p-6 border border-bnb-border0/30 mb-4">
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-sm text-purple-300 mb-1">Potential ROI</div>
-            <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+            <div className="text-sm text-bnb-secondary mb-1">Potential ROI</div>
+            <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-bnb-secondary400 to-pink-400">
               {calculations.roi > 0 ? '+' : ''}
               {formatNumber(calculations.roi)}%
             </div>
           </div>
           <div className="text-right">
-            <div className="text-sm text-purple-300 mb-1">Multiplier</div>
-            <div className="text-3xl font-bold text-purple-300">
+            <div className="text-sm text-bnb-secondary mb-1">Multiplier</div>
+            <div className="text-3xl font-bold text-bnb-secondary">
               {calculations.multiplier.toFixed(2)}x
             </div>
           </div>

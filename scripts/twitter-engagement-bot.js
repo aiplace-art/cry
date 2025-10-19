@@ -95,7 +95,7 @@ class TwitterEngagementBot {
         maxFollowsPerHour: 5
       },
       targeting: {
-        keywords: ['solana', 'ai', 'defi', 'crypto', 'web3', 'blockchain'],
+        keywords: ['bnb', 'bnbchain', 'bsc', 'ai', 'defi', 'crypto', 'web3', 'blockchain'],
         influencerMinFollowers: 1000,
         projectMinFollowers: 500,
         languages: ['en']
@@ -117,8 +117,8 @@ class TwitterEngagementBot {
       ],
       questions: {
         whatIsHypeAI: [
-          "HypeAI is a revolutionary AI agent ecosystem on Solana! We're building 15 autonomous agents for DeFi, trading, and community management. Learn more: https://hypeai.io",
-          "Great question! HypeAI brings autonomous AI agents to Solana - think automated trading, smart governance, and intelligent community tools. Check out our docs: https://hypeai.io"
+          "HypeAI is a revolutionary AI agent ecosystem on BNB Chain! We're building 15 autonomous agents for DeFi, trading, and community management. Learn more: https://hypeai.io",
+          "Great question! HypeAI brings autonomous AI agents to BNB Chain - think automated trading, smart governance, and intelligent community tools. Check out our docs: https://hypeai.io"
         ],
         tokenInfo: [
           "$HYPE is our utility token powering the AI agent ecosystem. Launch is scheduled for Nov 2025. Join our Telegram for updates: {telegram}",
@@ -147,7 +147,7 @@ class TwitterEngagementBot {
         ]
       },
       autoResponses: {
-        mention: "Thanks for mentioning HypeAI! We're building the future of AI on Solana. 🤖⚡",
+        mention: "Thanks for mentioning HypeAI! We're building the future of AI on BNB Chain. 🤖⚡",
         tag: "Hey there! Thanks for tagging us! Check out what we're building: {website}",
         question: "Great question! For detailed info, visit {website} or join our community: {telegram}"
       }
@@ -475,7 +475,7 @@ class TwitterEngagementBot {
     try {
       console.log('🌟 Engaging with influencers...');
 
-      const targetAccounts = (process.env.TARGET_ACCOUNTS || 'solana,pumpdotfun').split(',');
+      const targetAccounts = (process.env.TARGET_ACCOUNTS || 'bnbchain,pancakeswap,binance').split(',');
 
       for (const username of targetAccounts) {
         await this.engageWithAccount(username.trim());

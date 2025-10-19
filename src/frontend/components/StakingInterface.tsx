@@ -243,8 +243,8 @@ export const StakingInterface: React.FC<StakingInterfaceProps> = ({
                 Unstake All
               </Button>
 
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                <p className="text-sm text-blue-800 dark:text-blue-300">
+              <div className="p-4 bg-bnb-primary/5 dark:bg-bnb-darker/20 rounded-lg border border-bnb-border dark:border-bnb-border">
+                <p className="text-sm text-bnb-textSecondary dark:text-bnb-primary">
                   Total Staked in Pool: {formatTokenAmount(stakingData.totalStaked)} {tokenSymbol}
                 </p>
               </div>

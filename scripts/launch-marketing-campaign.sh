@@ -87,7 +87,7 @@ cat > marketing/README.md << 'EOF'
 
 ## 🔥 Hashtags
 
-Always use: #HypeAI #DeFi #Crypto #AI #Solana
+Always use: #HypeAI #DeFi #Crypto #AI #BNB
 
 Rotate: #CryptoTrading #Staking #PassiveIncome #Web3 #Altcoin
 EOF

@@ -32,8 +32,8 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({
               border-2 transition-all duration-200
               ${
                 selectedMethod?.id === method.id
-                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
-                  : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600'
+                  ? 'border-bnb-border0 bg-bnb-primary/5 dark:bg-bnb-darker/20'
+                  : 'border-gray-200 dark:border-gray-700 hover:border-bnb-primary/30 dark:hover:border-bnb-primary'
               }
               ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
             `}
@@ -53,7 +53,7 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({
 
             {/* Selected indicator */}
             {selectedMethod?.id === method.id && (
-              <div className="absolute top-2 right-2 w-2 h-2 bg-blue-500 rounded-full" />
+              <div className="absolute top-2 right-2 w-2 h-2 bg-bnb-primary/50 rounded-full" />
             )}
           </button>
         ))}

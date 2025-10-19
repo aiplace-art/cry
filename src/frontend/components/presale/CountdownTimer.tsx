@@ -119,7 +119,7 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({ endDate, classNa
                     bg-gradient-to-br ${
                       isUrgent
                         ? 'from-red-400 via-orange-400 to-yellow-400'
-                        : 'from-blue-400 via-purple-400 to-pink-400'
+                        : 'from-bnb-primary400 via-bnb-secondary400 to-pink-400'
                     }
                     bg-clip-text text-transparent
                   `}

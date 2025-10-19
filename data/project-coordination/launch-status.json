@@ -1,6 +1,6 @@
 {
   "targetDate": "2025-11-15T00:00:00.000Z",
-  "daysRemaining": 29,
+  "daysRemaining": 27,
   "readinessScore": 12,
   "milestones": [
     {
@@ -57,5 +57,5 @@
     }
   ],
   "blockers": [],
-  "lastCheck": "2025-10-17T22:19:54.253Z"
+  "lastCheck": "2025-10-19T15:35:04.711Z"
 }

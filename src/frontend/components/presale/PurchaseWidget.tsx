@@ -112,7 +112,7 @@ export const PurchaseWidget: React.FC<PurchaseWidgetProps> = ({
       >
         {/* Header */}
         <div className="mb-6">
-          <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+          <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-bnb-primary400 to-bnb-primary400 bg-clip-text text-transparent mb-2">
             Purchase Tokens
           </h3>
           <p className="text-sm text-gray-400">
@@ -136,7 +136,7 @@ export const PurchaseWidget: React.FC<PurchaseWidgetProps> = ({
                   relative p-4 rounded-xl border-2 transition-all duration-300
                   ${
                     selectedMethod === option.method
-                      ? 'border-purple-500 bg-purple-500/20 shadow-lg shadow-purple-500/50'
+                      ? 'border-bnb-border0 bg-bnb-secondary/50/20 shadow-lg shadow-bnb-secondary500/50'
                       : 'border-white/10 bg-white/5 hover:border-white/30'
                   }
                 `}
@@ -150,7 +150,7 @@ export const PurchaseWidget: React.FC<PurchaseWidgetProps> = ({
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center"
+                      className="w-6 h-6 rounded-full bg-bnb-secondary/50 flex items-center justify-center"
                     >
                       <span className="text-white text-sm">✓</span>
                     </motion.div>
@@ -186,7 +186,7 @@ export const PurchaseWidget: React.FC<PurchaseWidgetProps> = ({
                 w-full pl-12 pr-4 py-4 text-2xl font-bold
                 bg-black/30 border-2 rounded-xl
                 text-white placeholder-gray-600
-                focus:outline-none focus:border-purple-500
+                focus:outline-none focus:border-bnb-border0
                 transition-colors duration-300
                 ${!isValidAmount && amount ? 'border-red-500' : 'border-white/10'}
               `}
@@ -219,7 +219,7 @@ export const PurchaseWidget: React.FC<PurchaseWidgetProps> = ({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: amount ? 1 : 0 }}
-          className="mb-6 p-4 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl border border-purple-500/30"
+          className="mb-6 p-4 bg-gradient-to-r from-bnb-secondary500/20 to-bnb-secondary500/20 rounded-xl border border-bnb-border0/30"
         >
           <div className="flex justify-between items-center">
             <span className="text-gray-300">You will receive:</span>
@@ -258,7 +258,7 @@ export const PurchaseWidget: React.FC<PurchaseWidgetProps> = ({
             disabled={transactionStatus === 'connecting'}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold text-lg rounded-xl shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+            className="w-full py-4 bg-gradient-to-r from-bnb-primary600 to-bnb-primary600 hover:from-bnb-primary500 hover:to-bnb-primary500 text-white font-bold text-lg rounded-xl shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
           >
             {transactionStatus === 'connecting' ? (
               <span className="flex items-center justify-center gap-2">

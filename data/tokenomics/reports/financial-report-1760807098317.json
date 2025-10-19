@@ -1,0 +1,115 @@
+{
+  "generated": "2025-10-18T17:04:58.315Z",
+  "reportNumber": 21,
+  "sections": {
+    "validation": {
+      "checksPerformed": 229,
+      "errorsFound": 0,
+      "warningsIssued": 229,
+      "lastCheck": "2025-10-18T17:00:22.608Z",
+      "status": "PASSED"
+    },
+    "staking": {
+      "status": "NO_DATA"
+    },
+    "distribution": {
+      "totalDistributed": 0,
+      "totalLocked": 1000000000,
+      "percentDistributed": "0.00",
+      "percentLocked": "100.00",
+      "byCategory": {
+        "presale": 0,
+        "liquidity": 0,
+        "staking": 0,
+        "team": 0,
+        "marketing": 0,
+        "treasury": 0
+      }
+    },
+    "audit": {
+      "auditsPerformed": 31,
+      "discrepanciesFound": 0,
+      "lastAudit": "2025-10-18T16:57:44.210Z",
+      "status": "PASSED",
+      "recentDiscrepancies": []
+    },
+    "reconciliation": {
+      "reconciliationsPerformed": 60,
+      "mismatchesFound": 49,
+      "lastReconciliation": "2025-10-18T16:50:23.399Z",
+      "status": "FAILED",
+      "recentMismatches": [
+        {
+          "id": 1760738817574,
+          "timestamp": "2025-10-17T22:06:57.574Z",
+          "type": "allocation",
+          "description": "liquidity allocation mismatch",
+          "source1": "Expected Allocation",
+          "source2": "Distributed + Locked",
+          "value1": 200000000,
+          "value2": 2000000000,
+          "difference": 1800000000,
+          "percentDiff": 900,
+          "severity": "critical"
+        },
+        {
+          "id": 1760738817574,
+          "timestamp": "2025-10-17T22:06:57.574Z",
+          "type": "allocation",
+          "description": "staking allocation mismatch",
+          "source1": "Expected Allocation",
+          "source2": "Distributed + Locked",
+          "value1": 250000000,
+          "value2": 2500000000,
+          "difference": 2250000000,
+          "percentDiff": 900,
+          "severity": "critical"
+        },
+        {
+          "id": 1760738817575,
+          "timestamp": "2025-10-17T22:06:57.575Z",
+          "type": "allocation",
+          "description": "team allocation mismatch",
+          "source1": "Expected Allocation",
+          "source2": "Distributed + Locked",
+          "value1": 100000000,
+          "value2": 1000000000,
+          "difference": 900000000,
+          "percentDiff": 900,
+          "severity": "critical"
+        },
+        {
+          "id": 1760738817576,
+          "timestamp": "2025-10-17T22:06:57.576Z",
+          "type": "allocation",
+          "description": "marketing allocation mismatch",
+          "source1": "Expected Allocation",
+          "source2": "Distributed + Locked",
+          "value1": 100000000,
+          "value2": 1000000000,
+          "difference": 900000000,
+          "percentDiff": 900,
+          "severity": "critical"
+        },
+        {
+          "id": 1760738817576,
+          "timestamp": "2025-10-17T22:06:57.576Z",
+          "type": "allocation",
+          "description": "treasury allocation mismatch",
+          "source1": "Expected Allocation",
+          "source2": "Distributed + Locked",
+          "value1": 50000000,
+          "value2": 400000000,
+          "difference": 350000000,
+          "percentDiff": 700,
+          "severity": "critical"
+        }
+      ]
+    }
+  },
+  "healthScore": 75,
+  "healthStatus": "GOOD",
+  "issues": [
+    "Balance mismatches detected"
+  ]
+}

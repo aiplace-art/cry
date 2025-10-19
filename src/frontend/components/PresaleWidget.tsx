@@ -2,21 +2,26 @@
 
 import React, { useState, useEffect } from 'react';
 import { usePresale } from '../hooks/usePresale';
+import { useWallet } from '../hooks/useWallet';
 import { PAYMENT_METHODS, PRESALE_CONFIG } from '../lib/constants';
 import type { PaymentMethod } from '../types/presale';
-import { presaleContract } from '../utils/presaleContract';
 
 export const PresaleWidget: React.FC = () => {
   const {
-    walletState,
-    presaleState,
+    saleStats,
+    userEligibility,
+    transactionState,
     isLoading,
-    error,
+    purchaseWithBNB,
+    purchaseWithUSDT,
+  } = usePresale();
+
+  const {
+    address,
+    isConnected,
     connectWallet,
     disconnectWallet,
-    buyTokens,
-    generateReferralCode,
-  } = usePresale();
+  } = useWallet();
 
   const [selectedPayment, setSelectedPayment] = useState<PaymentMethod>('ETH');
   const [amount, setAmount] = useState<string>('');
@@ -24,54 +29,40 @@ export const PresaleWidget: React.FC = () => {
   const [gasEstimate, setGasEstimate] = useState<string>('--');
   const [showAdvanced, setShowAdvanced] = useState(false);
 
-  const currentRound = presaleState.currentRound;
+  const currentRound = PRESALE_CONFIG.currentRound;
 
   // Calculate tokens received
-  const tokensReceived = amount
-    ? presaleContract.calculateTokens(
-        parseFloat(amount),
-        currentRound.price,
-        currentRound.bonus
-      )
-    : 0;
-
-  // Estimate gas
-  useEffect(() => {
-    if (!amount || !walletState.isConnected) {
-      setGasEstimate('--');
-      return;
-    }
-
-    const estimateGas = async () => {
-      try {
-        const estimate = await presaleContract.estimateGas(
-          selectedPayment,
-          parseFloat(amount)
-        );
-        setGasEstimate(estimate.gasPriceGwei);
-      } catch {
-        setGasEstimate('--');
-      }
-    };
-
-    const debounce = setTimeout(estimateGas, 500);
-    return () => clearTimeout(debounce);
-  }, [amount, selectedPayment, walletState.isConnected]);
+  const usdValue = parseFloat(amount) || 0;
+  const tokensReceived = usdValue / currentRound.price;
+  const bonusTokens = tokensReceived * (currentRound.bonus / 100);
+  const totalTokens = tokensReceived + bonusTokens;
 
   // Handle buy
   const handleBuy = async () => {
     if (!amount || parseFloat(amount) <= 0) return;
 
-    const validation = presaleContract.validateAmount(parseFloat(amount));
-    if (!validation.valid) {
-      alert(validation.error);
+    const usdAmount = parseFloat(amount);
+
+    if (usdAmount < PRESALE_CONFIG.minPurchase) {
+      alert(`Minimum purchase is $${PRESALE_CONFIG.minPurchase}`);
       return;
     }
 
-    const txHash = await buyTokens(selectedPayment, parseFloat(amount));
-    if (txHash) {
+    if (usdAmount > PRESALE_CONFIG.maxPurchase) {
+      alert(`Maximum purchase is $${PRESALE_CONFIG.maxPurchase}`);
+      return;
+    }
+
+    try {
+      if (selectedPayment === 'BNB' || selectedPayment === 'ETH') {
+        await purchaseWithBNB(usdAmount);
+      } else {
+        await purchaseWithUSDT(usdAmount);
+      }
       setAmount('');
-      alert(`Transaction submitted! Hash: ${txHash.slice(0, 10)}...`);
+      alert('Purchase successful!');
+    } catch (error: any) {
+      alert(`Purchase failed: ${error.message}`);
     }
   };
 
@@ -86,13 +77,13 @@ export const PresaleWidget: React.FC = () => {
       </div>
 
       {/* Wallet Connection */}
-      {!walletState.isConnected ? (
+      {!isConnected ? (
         <button
           onClick={connectWallet}
-          disabled={walletState.isConnecting}
-          className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+          disabled={isLoading}
+          className="w-full bg-gradient-to-r from-bnb-secondary600 to-pink-600 hover:from-bnb-secondary700 hover:to-pink-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
         >
-          {walletState.isConnecting ? (
+          {isLoading ? (
             <span className="flex items-center justify-center gap-2">
               <span className="animate-spin">⏳</span>
               Connecting...
@@ -119,10 +110,10 @@ export const PresaleWidget: React.FC = () => {
             </div>
             <div className="flex items-center justify-between">
               <span className="text-white font-mono text-sm">
-                {walletState.address?.slice(0, 6)}...{walletState.address?.slice(-4)}
+                {address?.slice(0, 6)}...{address?.slice(-4)}
               </span>
               <span className="text-gray-400 text-sm">
-                {parseFloat(walletState.balance).toFixed(4)} ETH
+                {saleStats ? `${saleStats.progressPercentage.toFixed(1)}% funded` : 'Loading...'}
               </span>
             </div>
           </div>
@@ -139,7 +130,7 @@ export const PresaleWidget: React.FC = () => {
                   onClick={() => setSelectedPayment(method.id as PaymentMethod)}
                   className={`py-3 px-2 rounded-lg font-medium transition-all ${
                     selectedPayment === method.id
-                      ? 'bg-purple-600 text-white border-2 border-purple-400 shadow-lg transform scale-105'
+                      ? 'bg-bnb-secondary text-white border-2 border-bnb-secondary/40 shadow-lg transform scale-105'
                       : 'bg-gray-800/50 text-gray-400 border border-gray-700 hover:border-gray-600'
                   }`}
                 >
@@ -164,7 +155,7 @@ export const PresaleWidget: React.FC = () => {
                 max={PRESALE_CONFIG.maxPurchase}
                 step="0.01"
                 placeholder={`Min: ${PRESALE_CONFIG.minPurchase} ${selectedPayment}`}
-                className="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-4 text-white text-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                className="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-4 text-white text-lg focus:outline-none focus:ring-2 focus:ring-bnb-secondary500 focus:border-transparent transition-all"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">
                 {selectedPayment}
@@ -180,54 +171,24 @@ export const PresaleWidget: React.FC = () => {
 
           {/* Tokens Received Display */}
           {amount && parseFloat(amount) > 0 && (
-            <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-xl p-4 mb-6 border border-purple-500/30">
+            <div className="bg-gradient-to-r from-bnb-secondary900/30 to-pink-900/30 rounded-xl p-4 mb-6 border border-bnb-border0/30">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-purple-300">You will receive</span>
-                <span className="text-xs text-purple-400">{currentRound.bonus}% bonus</span>
+                <span className="text-sm text-bnb-secondary">You will receive</span>
+                <span className="text-xs text-bnb-secondary">{currentRound.bonus}% bonus</span>
               </div>
-              <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-                {tokensReceived.toLocaleString()} HYPE
+              <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-bnb-secondary400 to-pink-400">
+                {totalTokens.toLocaleString()} HYPE
               </div>
               <div className="text-xs text-gray-400 mt-1">
-                Base: {(tokensReceived / (1 + currentRound.bonus / 100)).toFixed(2)} + Bonus:{' '}
-                {(tokensReceived - tokensReceived / (1 + currentRound.bonus / 100)).toFixed(2)}
+                Base: {tokensReceived.toFixed(2)} + Bonus: {bonusTokens.toFixed(2)}
               </div>
             </div>
           )}
 
-          {/* Advanced Settings */}
-          <div className="mb-6">
-            <button
-              onClick={() => setShowAdvanced(!showAdvanced)}
-              className="text-sm text-gray-400 hover:text-gray-300 flex items-center gap-1"
-            >
-              <span className={`transition-transform ${showAdvanced ? 'rotate-90' : ''}`}>
-                ▶
-              </span>
-              Advanced Settings
-            </button>
-            {showAdvanced && (
-              <div className="mt-3 bg-gray-800/30 rounded-lg p-4">
-                <label className="block text-sm text-gray-400 mb-2">
-                  Slippage Tolerance: {slippage}%
-                </label>
-                <input
-                  type="range"
-                  min="0.1"
-                  max="5"
-                  step="0.1"
-                  value={slippage}
-                  onChange={(e) => setSlippage(parseFloat(e.target.value))}
-                  className="w-full"
-                />
-              </div>
-            )}
-          </div>
-
           {/* Error Display */}
-          {error && (
+          {transactionState.error && (
             <div className="mb-4 bg-red-900/30 border border-red-500/50 rounded-lg p-3 text-red-300 text-sm">
-              ⚠️ {error}
+              ⚠️ {transactionState.error}
             </div>
           )}
 
@@ -240,7 +201,7 @@ export const PresaleWidget: React.FC = () => {
               parseFloat(amount) <= 0 ||
               parseFloat(amount) < PRESALE_CONFIG.minPurchase
             }
-            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
+            className="w-full bg-gradient-to-r from-bnb-secondary600 to-pink-600 hover:from-bnb-secondary700 hover:to-pink-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
           >
             {isLoading ? (
               <span className="flex items-center justify-center gap-2">
@@ -255,21 +216,14 @@ export const PresaleWidget: React.FC = () => {
             )}
           </button>
 
-          {/* Referral Section */}
-          <div className="mt-6 pt-6 border-t border-gray-700/50">
-            <button
-              onClick={generateReferralCode}
-              className="w-full bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 py-3 px-4 rounded-lg text-sm transition-all"
-            >
-              {presaleState.referralCode ? (
-                <span>
-                  🎁 Your Referral Code: <span className="font-mono">{presaleState.referralCode}</span>
-                </span>
-              ) : (
-                <span>🎁 Generate Referral Link (5% Bonus)</span>
-              )}
-            </button>
-          </div>
+          {/* Sale Stats */}
+          {saleStats && (
+            <div className="mt-6 pt-6 border-t border-gray-700/50 text-center text-sm text-gray-400">
+              <div>Total Raised: ${saleStats.totalUSDRaised.toLocaleString()}</div>
+              <div>Tokens Sold: {saleStats.totalTokensSold} HYPE</div>
+              <div>Founding Members: {saleStats.foundingMembersCount}</div>
+            </div>
+          )}
         </>
       )}
     </div>

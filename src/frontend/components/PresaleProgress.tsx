@@ -27,14 +27,14 @@ export const PresaleProgress: React.FC<PresaleProgressProps> = ({
           <span className="text-sm font-medium text-gray-300">
             {currentRound.name} Progress
           </span>
-          <span className="text-sm font-bold text-purple-400">
+          <span className="text-sm font-bold text-bnb-secondary">
             {roundProgress.toFixed(1)}%
           </span>
         </div>
 
         <div className="relative w-full h-4 bg-gray-800 rounded-full overflow-hidden">
           <div
-            className="absolute top-0 left-0 h-full bg-gradient-to-r from-purple-600 to-pink-600 rounded-full transition-all duration-500 ease-out"
+            className="absolute top-0 left-0 h-full bg-gradient-to-r from-bnb-secondary600 to-pink-600 rounded-full transition-all duration-500 ease-out"
             style={{ width: `${Math.min(roundProgress, 100)}%` }}
           >
             <div className="absolute inset-0 bg-white/20 animate-shimmer"></div>
@@ -81,7 +81,7 @@ export const PresaleProgress: React.FC<PresaleProgressProps> = ({
         </div>
         <div className="bg-gray-800/50 rounded-lg p-4">
           <div className="text-xs text-gray-400 mb-1">Bonus</div>
-          <div className="text-xl font-bold text-purple-400">{currentRound.bonus}%</div>
+          <div className="text-xl font-bold text-bnb-secondary">{currentRound.bonus}%</div>
         </div>
       </div>
 

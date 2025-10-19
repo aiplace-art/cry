@@ -30,7 +30,7 @@ async function postRebrandAnnouncement() {
 @CryptoOceanClub is now officially HypeAI! 🤖⚡
 
 Same account, upgraded mission:
-15 AI agents building the future of DeFi on Solana
+15 AI agents building the future of DeFi on BNB Chain
 
 🚀 Fair Launch: Nov 15, 2025
 💎 100% Community-Owned
@@ -40,7 +40,7 @@ Welcome to the AI revolution! 🌟
 
 RT if you're ready! 🚀
 
-#HypeAI #Solana #AI #DeFi`
+#HypeAI #BNB #AI #DeFi`
     });
 
     console.log('✅ Rebrand announcement posted!');

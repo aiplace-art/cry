@@ -1,609 +1,609 @@
 {
-  "lastCheck": "2025-10-17T22:24:10.133Z",
-  "checksPerformed": 148,
+  "lastCheck": "2025-10-19T15:38:10.863Z",
+  "checksPerformed": 300,
   "errorsFound": 0,
-  "warningsIssued": 148,
+  "warningsIssued": 300,
   "currentSupply": 1000000000,
   "distributedTokens": 0,
   "burnedTokens": 0,
   "stakedTokens": 0,
   "validationResults": [
     {
-      "timestamp": "2025-10-17T12:30:36.115Z",
+      "timestamp": "2025-10-18T11:52:32.949Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T12:35:36.091Z",
+      "timestamp": "2025-10-18T11:57:32.947Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T12:40:36.091Z",
+      "timestamp": "2025-10-18T12:02:32.945Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T12:45:36.090Z",
+      "timestamp": "2025-10-18T12:18:39.675Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T12:50:36.089Z",
+      "timestamp": "2025-10-18T12:27:11.316Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T12:55:36.089Z",
+      "timestamp": "2025-10-18T12:32:11.312Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:00:36.088Z",
+      "timestamp": "2025-10-18T12:37:11.311Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:05:36.088Z",
+      "timestamp": "2025-10-18T12:42:11.311Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:10:36.088Z",
+      "timestamp": "2025-10-18T12:47:11.309Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:15:36.089Z",
+      "timestamp": "2025-10-18T12:52:11.359Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:20:36.117Z",
+      "timestamp": "2025-10-18T13:10:59.906Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:25:36.119Z",
+      "timestamp": "2025-10-18T13:46:36.338Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:32:50.337Z",
+      "timestamp": "2025-10-18T13:51:36.330Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:37:50.344Z",
+      "timestamp": "2025-10-18T13:56:36.333Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:43:18.424Z",
+      "timestamp": "2025-10-18T14:04:21.570Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:48:18.428Z",
+      "timestamp": "2025-10-18T14:09:21.569Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:53:18.432Z",
+      "timestamp": "2025-10-18T14:14:21.570Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T13:58:18.435Z",
+      "timestamp": "2025-10-18T14:19:21.571Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:03:18.439Z",
+      "timestamp": "2025-10-18T14:24:21.572Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:08:18.416Z",
+      "timestamp": "2025-10-18T14:29:21.575Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:13:18.417Z",
+      "timestamp": "2025-10-18T14:34:21.577Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:18:18.419Z",
+      "timestamp": "2025-10-18T14:56:51.860Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:23:18.419Z",
+      "timestamp": "2025-10-18T15:29:08.274Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:28:18.420Z",
+      "timestamp": "2025-10-18T15:44:24.038Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:33:18.420Z",
+      "timestamp": "2025-10-18T16:19:20.445Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:38:18.430Z",
+      "timestamp": "2025-10-18T16:37:03.162Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:43:18.432Z",
+      "timestamp": "2025-10-18T16:50:22.615Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:48:18.433Z",
+      "timestamp": "2025-10-18T16:55:22.609Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:53:18.435Z",
+      "timestamp": "2025-10-18T17:00:22.608Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T14:58:18.437Z",
+      "timestamp": "2025-10-18T17:18:01.059Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T15:03:18.457Z",
+      "timestamp": "2025-10-18T17:23:28.377Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T15:08:18.461Z",
+      "timestamp": "2025-10-18T17:29:28.910Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T15:13:18.464Z",
+      "timestamp": "2025-10-18T17:34:28.919Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T15:18:18.467Z",
+      "timestamp": "2025-10-18T17:39:28.923Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T15:23:18.471Z",
+      "timestamp": "2025-10-18T17:44:28.925Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T15:28:18.474Z",
+      "timestamp": "2025-10-18T17:55:04.998Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T15:33:18.447Z",
+      "timestamp": "2025-10-18T18:00:04.999Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T15:38:18.447Z",
+      "timestamp": "2025-10-18T18:33:34.056Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T15:43:18.448Z",
+      "timestamp": "2025-10-18T18:51:11.807Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T15:48:18.447Z",
+      "timestamp": "2025-10-18T19:23:29.231Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T16:06:01.228Z",
+      "timestamp": "2025-10-18T19:39:45.006Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T16:21:48.678Z",
+      "timestamp": "2025-10-18T19:45:52.791Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T16:36:14.721Z",
+      "timestamp": "2025-10-18T20:16:40.117Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T16:41:14.723Z",
+      "timestamp": "2025-10-18T20:33:55.918Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T16:46:14.726Z",
+      "timestamp": "2025-10-18T21:12:39.090Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T16:51:14.729Z",
+      "timestamp": "2025-10-18T21:30:00.833Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T16:56:16.835Z",
+      "timestamp": "2025-10-18T22:03:30.302Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:01:16.834Z",
+      "timestamp": "2025-10-18T22:21:22.089Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:06:16.836Z",
+      "timestamp": "2025-10-18T22:55:29.544Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:11:16.839Z",
+      "timestamp": "2025-10-18T23:12:51.297Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:16:16.841Z",
+      "timestamp": "2025-10-18T23:38:38.661Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:21:16.843Z",
+      "timestamp": "2025-10-18T23:56:24.313Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:26:16.843Z",
+      "timestamp": "2025-10-19T00:28:57.730Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:31:16.846Z",
+      "timestamp": "2025-10-19T00:44:09.587Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:36:16.815Z",
+      "timestamp": "2025-10-19T01:16:59.233Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:41:16.814Z",
+      "timestamp": "2025-10-19T01:32:27.997Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:46:16.814Z",
+      "timestamp": "2025-10-19T02:05:54.346Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T17:55:32.100Z",
+      "timestamp": "2025-10-19T02:21:17.102Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T18:00:32.098Z",
+      "timestamp": "2025-10-19T02:52:09.586Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T18:05:32.097Z",
+      "timestamp": "2025-10-19T03:08:43.368Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T18:13:10.016Z",
+      "timestamp": "2025-10-19T03:32:27.840Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T18:32:32.590Z",
+      "timestamp": "2025-10-19T03:47:50.357Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:04:36.028Z",
+      "timestamp": "2025-10-19T03:58:50.136Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:09:36.021Z",
+      "timestamp": "2025-10-19T04:15:15.828Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:14:36.019Z",
+      "timestamp": "2025-10-19T04:48:07.965Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:19:36.019Z",
+      "timestamp": "2025-10-19T05:05:49.604Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:24:36.019Z",
+      "timestamp": "2025-10-19T05:33:28.058Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:29:36.019Z",
+      "timestamp": "2025-10-19T05:49:19.600Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:34:36.019Z",
+      "timestamp": "2025-10-19T06:04:33.389Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:39:36.019Z",
+      "timestamp": "2025-10-19T06:11:39.869Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:44:36.020Z",
+      "timestamp": "2025-10-19T06:22:37.393Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:49:36.020Z",
+      "timestamp": "2025-10-19T06:41:07.498Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:54:36.049Z",
+      "timestamp": "2025-10-19T07:13:26.926Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T19:59:36.052Z",
+      "timestamp": "2025-10-19T07:29:41.814Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:04:36.056Z",
+      "timestamp": "2025-10-19T08:02:28.080Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:12:19.672Z",
+      "timestamp": "2025-10-19T08:18:48.880Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:17:19.681Z",
+      "timestamp": "2025-10-19T08:25:59.624Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:22:19.685Z",
+      "timestamp": "2025-10-19T08:59:13.861Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:27:19.688Z",
+      "timestamp": "2025-10-19T09:17:07.627Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:32:19.692Z",
+      "timestamp": "2025-10-19T09:27:01.384Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:37:19.696Z",
+      "timestamp": "2025-10-19T09:44:07.768Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:42:19.660Z",
+      "timestamp": "2025-10-19T10:16:40.230Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:47:19.660Z",
+      "timestamp": "2025-10-19T10:27:59.016Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:52:19.660Z",
+      "timestamp": "2025-10-19T10:44:26.556Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T20:59:14.912Z",
+      "timestamp": "2025-10-19T11:04:06.317Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T21:04:14.899Z",
+      "timestamp": "2025-10-19T11:20:46.827Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T21:09:14.897Z",
+      "timestamp": "2025-10-19T11:38:25.571Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T21:14:14.895Z",
+      "timestamp": "2025-10-19T12:10:52.954Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T21:19:14.894Z",
+      "timestamp": "2025-10-19T12:28:26.273Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T21:24:14.892Z",
+      "timestamp": "2025-10-19T13:03:13.690Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T21:39:10.076Z",
+      "timestamp": "2025-10-19T13:20:34.465Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T21:44:10.100Z",
+      "timestamp": "2025-10-19T13:52:05.996Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T21:49:10.104Z",
+      "timestamp": "2025-10-19T14:06:09.795Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T21:54:10.108Z",
+      "timestamp": "2025-10-19T14:21:31.058Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T21:59:10.111Z",
+      "timestamp": "2025-10-19T14:55:06.532Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T22:04:10.118Z",
+      "timestamp": "2025-10-19T15:07:10.299Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T22:09:10.122Z",
+      "timestamp": "2025-10-19T15:23:10.865Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T22:14:10.125Z",
+      "timestamp": "2025-10-19T15:28:10.862Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T22:19:10.129Z",
+      "timestamp": "2025-10-19T15:33:10.863Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1
     },
     {
-      "timestamp": "2025-10-17T22:24:10.133Z",
+      "timestamp": "2025-10-19T15:38:10.863Z",
       "allValid": true,
       "totalErrors": 0,
       "totalWarnings": 1

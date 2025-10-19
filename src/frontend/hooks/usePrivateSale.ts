@@ -8,6 +8,43 @@ import {
 } from '../types/private-sale';
 import { PRIVATE_SALE_CONFIG } from '../lib/payment-config';
 
+// Rate limiter for API calls
+const rateLimiter = {
+  lastRequest: 0,
+  minInterval: 1000, // 1 second between requests
+  canMakeRequest(): boolean {
+    const now = Date.now();
+    if (now - this.lastRequest < this.minInterval) {
+      return false;
+    }
+    this.lastRequest = now;
+    return true;
+  },
+  waitTime(): number {
+    const now = Date.now();
+    const elapsed = now - this.lastRequest;
+    return Math.max(0, this.minInterval - elapsed);
+  }
+};
+
+// Sign request with wallet signature for security
+const signRequest = async (data: any, walletAddress: string): Promise<any> => {
+  try {
+    if (typeof window !== 'undefined' && window.ethereum) {
+      const message = JSON.stringify(data);
+      const signature = await window.ethereum.request({
+        method: 'personal_sign',
+        params: [message, walletAddress],
+      });
+      return { ...data, signature, wallet: walletAddress, timestamp: Date.now() };
+    }
+    return data;
+  } catch (error) {
+    console.error('Failed to sign request:', error);
+    return data;
+  }
+};
+
 export const usePrivateSale = () => {
   const [config, setConfig] = useState<PrivateSaleConfig>({
     startDate: PRIVATE_SALE_CONFIG.startDate,
@@ -81,6 +118,12 @@ export const usePrivateSale = () => {
     setLoading(true);
 
     try {
+      // Check rate limiting
+      if (!rateLimiter.canMakeRequest()) {
+        const waitTime = rateLimiter.waitTime();
+        throw new Error(`Please wait ${Math.ceil(waitTime / 1000)} seconds before making another request`);
+      }
+
       // Validate amount
       if (amount < config.minPurchase) {
         throw new Error(`Minimum purchase is $${config.minPurchase}`);
@@ -92,16 +135,22 @@ export const usePrivateSale = () => {
       // Calculate tokens
       const calculation = calculateTokens(amount);
 
-      // Simulate API call to payment gateway
+      // Prepare request data
+      const requestData = {
+        amount,
+        paymentMethod: paymentMethod.id,
+        walletAddress,
+        calculation,
+      };
+
+      // Sign request for security
+      const signedData = await signRequest(requestData, walletAddress);
+
+      // API call to payment gateway with signature
       const response = await fetch('/api/private-sale/purchase', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          amount,
-          paymentMethod: paymentMethod.id,
-          walletAddress,
-          calculation,
-        }),
+        body: JSON.stringify(signedData),
       });
 
       if (!response.ok) {
@@ -156,6 +205,12 @@ export const usePrivateSale = () => {
   // Load user purchases
   const loadPurchases = useCallback(async (walletAddress: string) => {
     try {
+      // Check rate limiting
+      if (!rateLimiter.canMakeRequest()) {
+        console.warn('Rate limit exceeded, skipping purchases load');
+        return;
+      }
+
       const response = await fetch(`/api/private-sale/purchases?wallet=${walletAddress}`);
       if (response.ok) {
         const data = await response.json();
@@ -170,6 +225,11 @@ export const usePrivateSale = () => {
   useEffect(() => {
     const loadStats = async () => {
       try {
+        // Check rate limiting for stats endpoint
+        if (!rateLimiter.canMakeRequest()) {
+          return; // Skip this update if rate limited
+        }
+
         const response = await fetch('/api/private-sale/stats');
         if (response.ok) {
           const data = await response.json();

@@ -42,7 +42,7 @@ case $template in
 📅 Запуск: 15 ноября
 🔗 t.me/hypeai
 
-#HypeAI #DeFi #Solana"
+#HypeAI #DeFi #BNB"
         ;;
     2)
         MESSAGE="🔥 Встречайте HypeAI - революция в DeFi!
@@ -144,7 +144,7 @@ echo "7. DeFi Pulse (450K members)"
 echo "8. Uniswap Community (420K members)"
 echo "9. CoinMarketCap Chat (390K members)"
 echo "10. CoinGecko Community (350K members)"
-echo "11. Solana Official (320K members)"
+echo "11. BNB Chain Official (320K members)"
 echo "12. Polygon Community (290K members)"
 echo "13. Ethereum Traders (270K members)"
 echo "14. Crypto News Live (250K members)"

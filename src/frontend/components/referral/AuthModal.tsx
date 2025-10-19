@@ -125,7 +125,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
             onClick={() => setMode('web3')}
             className={`flex-1 py-2 px-4 rounded-md font-medium transition-all ${
               mode === 'web3'
-                ? 'bg-white text-purple-600 shadow-sm'
+                ? 'bg-white text-bnb-secondary shadow-sm'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -135,7 +135,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
             onClick={() => setMode('login')}
             className={`flex-1 py-2 px-4 rounded-md font-medium transition-all ${
               mode === 'login'
-                ? 'bg-white text-purple-600 shadow-sm'
+                ? 'bg-white text-bnb-secondary shadow-sm'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -145,7 +145,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
             onClick={() => setMode('register')}
             className={`flex-1 py-2 px-4 rounded-md font-medium transition-all ${
               mode === 'register'
-                ? 'bg-white text-purple-600 shadow-sm'
+                ? 'bg-white text-bnb-secondary shadow-sm'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -187,7 +187,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
             <button
               onClick={handleWeb3Login}
               disabled={isConnecting || loading}
-              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+              className="w-full bg-gradient-to-r from-bnb-primary500 to-cyan-500 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
@@ -196,7 +196,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
             </button>
 
             <div className="text-center text-sm text-gray-500 mt-4">
-              Don't have a wallet? <a href="https://metamask.io" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:underline">Install MetaMask</a>
+              Don't have a wallet? <a href="https://metamask.io" target="_blank" rel="noopener noreferrer" className="text-bnb-secondary hover:underline">Install MetaMask</a>
             </div>
           </div>
         ) : (
@@ -210,7 +210,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bnb-secondary500 focus:border-transparent outline-none"
                   placeholder="John Doe"
                   required
                 />
@@ -225,7 +225,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bnb-secondary500 focus:border-transparent outline-none"
                 placeholder="you@example.com"
                 required
               />
@@ -239,7 +239,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bnb-secondary500 focus:border-transparent outline-none"
                 placeholder="••••••••"
                 required
               />
@@ -248,7 +248,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-bnb-secondary600 to-pink-600 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
@@ -267,7 +267,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
 
             {mode === 'login' && (
               <div className="text-center">
-                <a href="#" className="text-sm text-purple-600 hover:underline">
+                <a href="#" className="text-sm text-bnb-secondary hover:underline">
                   Forgot password?
                 </a>
               </div>

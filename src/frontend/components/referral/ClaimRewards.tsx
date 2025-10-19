@@ -56,15 +56,15 @@ export const ClaimRewards: React.FC<ClaimRewardsProps> = ({ userId, settings }) 
       <h1 className="text-3xl font-bold text-gray-900">Claim Rewards</h1>
 
       {/* Pending Rewards Card */}
-      <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl shadow-xl p-8 text-white">
+      <div className="bg-gradient-to-br from-bnb-secondary600 to-pink-600 rounded-2xl shadow-xl p-8 text-white">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <p className="text-purple-100 text-sm font-medium mb-2">Available to Claim</p>
+            <p className="text-bnb-text text-sm font-medium mb-2">Available to Claim</p>
             <h2 className="text-5xl font-bold">
               {formatCurrency(stats?.pendingRewards || 0)}
             </h2>
             {settings?.rewardType === 'HYPE' && stats && (
-              <p className="text-purple-100 mt-2">
+              <p className="text-bnb-text mt-2">
                 ≈ {formatNumber(stats.pendingRewards * 1250, 0)} HYPE tokens
               </p>
             )}
@@ -98,7 +98,7 @@ export const ClaimRewards: React.FC<ClaimRewardsProps> = ({ userId, settings }) 
           <button
             onClick={handleClaim}
             disabled={!canClaim || claiming || (stats?.pendingRewards || 0) < minClaimAmount}
-            className="flex-1 bg-white text-purple-600 py-4 px-8 rounded-xl font-bold text-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex-1 bg-white text-bnb-secondary py-4 px-8 rounded-xl font-bold text-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {claiming ? (
               <span className="flex items-center justify-center gap-2">
@@ -124,7 +124,7 @@ export const ClaimRewards: React.FC<ClaimRewardsProps> = ({ userId, settings }) 
         </div>
 
         {stats && stats.pendingRewards < minClaimAmount && stats.pendingRewards > 0 && (
-          <p className="mt-4 text-purple-100 text-sm">
+          <p className="mt-4 text-bnb-text text-sm">
             Minimum claim amount is {formatCurrency(minClaimAmount)}. Keep referring to reach the minimum!
           </p>
         )}
@@ -170,7 +170,7 @@ export const ClaimRewards: React.FC<ClaimRewardsProps> = ({ userId, settings }) 
 
         {loading ? (
           <div className="p-12 text-center">
-            <svg className="animate-spin h-12 w-12 text-purple-600 mx-auto mb-4" viewBox="0 0 24 24">
+            <svg className="animate-spin h-12 w-12 text-bnb-secondary mx-auto mb-4" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
             </svg>
@@ -244,7 +244,7 @@ export const ClaimRewards: React.FC<ClaimRewardsProps> = ({ userId, settings }) 
                           href={`https://etherscan.io/tx/${claim.txHash}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-purple-600 hover:text-purple-800 font-mono flex items-center gap-1"
+                          className="text-sm text-bnb-secondary hover:text-bnb-textSecondary font-mono flex items-center gap-1"
                         >
                           {claim.txHash.slice(0, 8)}...{claim.txHash.slice(-6)}
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -272,32 +272,32 @@ export const ClaimRewards: React.FC<ClaimRewardsProps> = ({ userId, settings }) 
       </div>
 
       {/* Important Notes */}
-      <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-        <h4 className="font-bold text-blue-900 mb-3 flex items-center gap-2">
+      <div className="bg-bnb-primary/5 border border-bnb-border rounded-xl p-6">
+        <h4 className="font-bold text-bnb-textSecondary mb-3 flex items-center gap-2">
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           Important Information
         </h4>
-        <ul className="space-y-2 text-sm text-blue-800">
+        <ul className="space-y-2 text-sm text-bnb-textSecondary">
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-bnb-primary mt-0.5">•</span>
             <span>Minimum claim amount is {formatCurrency(minClaimAmount)}</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-bnb-primary mt-0.5">•</span>
             <span>Claims are processed within 24-48 hours</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-bnb-primary mt-0.5">•</span>
             <span>You will receive a notification when your claim is processed</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-bnb-primary mt-0.5">•</span>
             <span>For HYPE token claims, tokens will be sent to your connected wallet</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-blue-600 mt-0.5">•</span>
+            <span className="text-bnb-primary mt-0.5">•</span>
             <span>For USDT claims, payment will be sent to your configured payout wallet</span>
           </li>
         </ul>

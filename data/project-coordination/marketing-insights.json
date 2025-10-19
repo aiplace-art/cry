@@ -1,29 +1,37 @@
 {
-  "timestamp": "2025-10-17T21:00:10.384Z",
+  "timestamp": "2025-10-19T15:27:35.645Z",
   "hashtags": [],
   "competitors": [
     {
       "username": "binance",
-      "followers": 14885942,
+      "followers": 14887006,
       "following": 577,
       "tweets": 40280,
-      "engagementRate": "36956.16",
+      "engagementRate": "36958.80",
       "strategy": "Established player"
     },
     {
       "username": "BNBCHAIN",
-      "followers": 3897081,
+      "followers": 3897969,
       "following": 638,
-      "tweets": 30519,
-      "engagementRate": "12769.36",
+      "tweets": 30533,
+      "engagementRate": "12766.41",
       "strategy": "Established player"
     },
     {
       "username": "PancakeSwap",
-      "followers": 2136588,
+      "followers": 2137065,
       "following": 209,
-      "tweets": 17254,
-      "engagementRate": "12383.15",
+      "tweets": 17266,
+      "engagementRate": "12377.30",
+      "strategy": "Established player"
+    },
+    {
+      "username": "VenusProtocol",
+      "followers": 224827,
+      "following": 567,
+      "tweets": 3511,
+      "engagementRate": "6403.50",
       "strategy": "Established player"
     }
   ],
@@ -69,7 +77,7 @@
       "priority": "HIGH",
       "action": "Implement rapid growth tactics",
       "tactics": [
-        "Quote-tweet trending Solana posts with insights",
+        "Quote-tweet trending BNB Chain posts with insights",
         "Reply-guy strategy on major crypto accounts (first 5 mins)",
         "Cross-promote with Telegram (mutual growth)",
         "Run small giveaway ($50-100) for follows + retweets",
@@ -79,5 +87,5 @@
       "expectedImpact": "+50-100 followers/week"
     }
   ],
-  "previousRun": "2025-10-17T20:04:06.844Z"
+  "previousRun": "2025-10-19T10:27:59.764Z"
 }

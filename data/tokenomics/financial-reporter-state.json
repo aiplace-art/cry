@@ -1,6 +1,6 @@
 {
-  "reportsGenerated": 15,
-  "lastReport": "2025-10-17T22:20:02.292Z",
+  "reportsGenerated": 23,
+  "lastReport": "2025-10-19T15:35:12.751Z",
   "reports": [
     {
       "timestamp": "2025-10-17T05:47:14.540Z",
@@ -89,6 +89,54 @@
     {
       "timestamp": "2025-10-17T22:20:02.292Z",
       "filename": "financial-report-1760739602292.json",
+      "healthScore": 75,
+      "healthStatus": "GOOD"
+    },
+    {
+      "timestamp": "2025-10-18T06:59:19.030Z",
+      "filename": "financial-report-1760770759033.json",
+      "healthScore": 75,
+      "healthStatus": "GOOD"
+    },
+    {
+      "timestamp": "2025-10-18T11:04:51.668Z",
+      "filename": "financial-report-1760785491671.json",
+      "healthScore": 75,
+      "healthStatus": "GOOD"
+    },
+    {
+      "timestamp": "2025-10-18T12:04:51.628Z",
+      "filename": "financial-report-1760789091630.json",
+      "healthScore": 75,
+      "healthStatus": "GOOD"
+    },
+    {
+      "timestamp": "2025-10-18T13:50:48.749Z",
+      "filename": "financial-report-1760795448752.json",
+      "healthScore": 75,
+      "healthStatus": "GOOD"
+    },
+    {
+      "timestamp": "2025-10-18T15:44:24.072Z",
+      "filename": "financial-report-1760802264073.json",
+      "healthScore": 75,
+      "healthStatus": "GOOD"
+    },
+    {
+      "timestamp": "2025-10-18T17:04:58.315Z",
+      "filename": "financial-report-1760807098317.json",
+      "healthScore": 75,
+      "healthStatus": "GOOD"
+    },
+    {
+      "timestamp": "2025-10-19T06:14:55.660Z",
+      "filename": "financial-report-1760854495661.json",
+      "healthScore": 75,
+      "healthStatus": "GOOD"
+    },
+    {
+      "timestamp": "2025-10-19T15:35:12.751Z",
+      "filename": "financial-report-1760888112755.json",
       "healthScore": 75,
       "healthStatus": "GOOD"
     }

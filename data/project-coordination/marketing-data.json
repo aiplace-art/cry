@@ -2,18 +2,18 @@
   "campaigns": [],
   "posts": {
     "scheduled": 0,
-    "published": 0,
+    "published": 1,
     "failed": 0
   },
   "engagement": {
-    "likes": 0,
-    "shares": 0,
-    "comments": 0,
+    "likes": 33,
+    "shares": 16,
+    "comments": 17,
     "clicks": 0
   },
   "reach": {
-    "total": 0,
-    "organic": 0,
+    "total": 915,
+    "organic": 915,
     "paid": 0
   },
   "roi": {
@@ -21,6 +21,18 @@
     "return": 0,
     "ratio": 0
   },
-  "contentQueue": [],
-  "lastUpdate": "2025-10-17T20:36:18.386Z"
+  "contentQueue": [
+    {
+      "type": "countdown",
+      "content": "🚀 28 days until HypeAI launches on Solana!\n\n💎 Join 0+ community members\n📊 AI-powered predictions ready\n🎯 Fair launch on pump.fun\n\n#HypeAI #Solana #AI #Crypto",
+      "scheduledFor": "2025-10-18T13:52:04.838Z",
+      "platforms": [
+        "twitter",
+        "telegram"
+      ],
+      "status": "published",
+      "publishedAt": "2025-10-18T13:52:04.840Z"
+    }
+  ],
+  "lastUpdate": "2025-10-18T13:52:04.838Z"
 }

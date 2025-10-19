@@ -43,3 +43,63 @@ export const STAKING_LOCK_PERIODS = [
   { days: 180, multiplier: 2.0 },
   { days: 365, multiplier: 3.0 },
 ];
+
+// Presale configuration
+export const PRESALE_CONFIG = {
+  minPurchase: 0.01,
+  maxPurchase: 100,
+  tokenPrice: 0.001,
+  startDate: new Date('2025-01-01'),
+  endDate: new Date('2025-03-31'),
+  targetAmount: 1000000,
+  currentRound: {
+    id: 1,
+    name: 'Private Sale',
+    price: 0.001,
+    bonus: 30,
+  }
+};
+
+// Payment methods for presale
+export const PAYMENT_METHODS = [
+  {
+    id: 'ETH',
+    name: 'Ethereum',
+    symbol: 'ETH',
+    icon: '⟠',
+    network: 'ethereum' as const,
+    decimals: 18,
+  },
+  {
+    id: 'BNB',
+    name: 'BNB',
+    symbol: 'BNB',
+    icon: '💰',
+    network: 'bsc' as const,
+    decimals: 18,
+  },
+  {
+    id: 'USDT',
+    name: 'Tether',
+    symbol: 'USDT',
+    icon: '💵',
+    network: 'ethereum' as const,
+    decimals: 6,
+  },
+  {
+    id: 'USDC',
+    name: 'USD Coin',
+    symbol: 'USDC',
+    icon: '💲',
+    network: 'ethereum' as const,
+    decimals: 6,
+  },
+  {
+    id: 'SOL',
+    name: 'Solana',
+    symbol: 'SOL',
+    icon: '◎',
+    network: 'solana' as const,
+    decimals: 9,
+  },
+];

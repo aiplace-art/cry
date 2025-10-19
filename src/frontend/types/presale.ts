@@ -73,3 +73,48 @@ export interface PresaleProgress {
   remaining: number;
   timeLeft: number;
 }
+
+export interface PresaleRound {
+  id: number;
+  name: string;
+  startDate: Date;
+  endDate: Date;
+  targetAmount: number;
+  hardCap: number; // Maximum amount that can be raised
+  currentAmount: number;
+  collected: number; // Amount collected so far
+  tokenPrice: number;
+  price: number; // Alias for tokenPrice
+  bonusPercentage: number;
+  bonus: number; // Alias for bonusPercentage
+  minPurchase: number;
+  maxPurchase: number;
+  isActive: boolean;
+}
+
+export type PaymentMethod = 'ETH' | 'BNB' | 'USDT' | 'USDC' | 'SOL';
+
+export interface TokenPurchase {
+  id: string;
+  buyer: string;
+  amount: number;
+  tokenAmount: number;
+  timestamp: number;
+  txHash: string;
+  status: 'pending' | 'completed' | 'failed';
+}
+
+export interface VestingSchedule {
+  totalAmount: number;
+  released: number;
+  startTime: number;
+  duration: number;
+  cliffDuration: number;
+  intervals: VestingInterval[];
+}
+
+export interface VestingInterval {
+  releaseTime: number;
+  amount: number;
+  released: boolean;
+}

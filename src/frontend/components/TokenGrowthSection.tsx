@@ -44,7 +44,6 @@ const fadeInUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
   },
 };
 
@@ -63,7 +62,6 @@ const scaleIn = {
   visible: {
     scale: 1,
     opacity: 1,
-    transition: { duration: 0.5, ease: 'easeOut' },
   },
 };
 
@@ -612,7 +610,7 @@ const CalculatorSection: React.FC = () => {
           {/* Tokens received */}
           <motion.div
             variants={fadeInUp}
-            className="mb-12 p-6 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/30"
+            className="mb-12 p-6 bg-gradient-to-r from-cyan-500/10 to-bnb-secondary500/10 rounded-xl border border-cyan-500/30"
           >
             <div className="text-gray-400 mb-2">You will receive</div>
             <div className="text-4xl md:text-5xl font-bold text-cyan-400">

@@ -88,7 +88,7 @@ export const FAQ: React.FC = () => {
             >
               <span className="font-semibold text-white pr-4">{item.question}</span>
               <span
-                className={`text-purple-400 text-2xl flex-shrink-0 transition-transform ${
+                className={`text-bnb-secondary text-2xl flex-shrink-0 transition-transform ${
                   openIndex === index ? 'rotate-45' : ''
                 }`}
               >
@@ -108,7 +108,7 @@ export const FAQ: React.FC = () => {
       </div>
 
       {/* Contact Support */}
-      <div className="mt-8 p-6 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+      <div className="mt-8 p-6 bg-gradient-to-r from-bnb-secondary900/30 to-pink-900/30 rounded-xl border border-bnb-border0/30">
         <h4 className="text-lg font-bold text-white mb-2 text-center">Still have questions?</h4>
         <p className="text-gray-300 text-center mb-4">
           Join our community or contact our support team
@@ -118,7 +118,7 @@ export const FAQ: React.FC = () => {
             href="https://t.me/hype_community"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-lg transition-all text-center"
+            className="bg-bnb-secondary hover:bg-bnb-secondary text-white font-semibold py-2 px-6 rounded-lg transition-all text-center"
           >
             Join Telegram
           </a>

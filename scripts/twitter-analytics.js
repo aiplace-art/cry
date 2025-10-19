@@ -235,11 +235,11 @@ class TwitterAnalytics {
    */
   async trackCompetitors(competitors = []) {
     const defaultCompetitors = [
-      'SolanaAI',
-      'PhantomWallet',
-      'SolanaFloor',
-      'MagicEden',
-      'JupiterExchange'
+      'BNBCHAIN',
+      'PancakeSwap',
+      'BinanceChain',
+      'TrustWallet',
+      'BiswapDEX'
     ];
 
     const competitorList = competitors.length > 0 ? competitors : defaultCompetitors;
@@ -374,14 +374,14 @@ class TwitterAnalytics {
   getDemoTweetMetrics() {
     return Array.from({ length: 20 }, (_, i) => ({
       id: `demo-${i}`,
-      text: `Demo tweet ${i} #HypeAI #Solana #AI`,
+      text: `Demo tweet ${i} #HypeAI #BNB #AI`,
       created_at: new Date(Date.now() - i * 86400000).toISOString(),
       likes: Math.floor(Math.random() * 100),
       retweets: Math.floor(Math.random() * 30),
       replies: Math.floor(Math.random() * 20),
       impressions: Math.floor(Math.random() * 5000),
       engagementRate: Math.random() * 5,
-      hashtags: ['HypeAI', 'Solana', 'AI'],
+      hashtags: ['HypeAI', 'BNB', 'AI'],
       isReply: Math.random() > 0.7,
       isRetweet: Math.random() > 0.8
     }));

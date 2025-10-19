@@ -1256,9 +1256,9 @@
         </div>
         <nav id="mobileNav">
             <a href="#ai-agents" onclick="closeMobileMenu()" data-i18n="nav.agents">AI Agents</a>
-            <a href="agents-activity.html" class="live-agents-btn">Live (27/27)</a>
+            <a href="agents-activity.html" class="live-agents-btn" data-i18n="nav.liveAgents">🔴Онлайн (27/27)</a>
             <a href="#tokenomics" onclick="closeMobileMenu()" data-i18n="nav.stake">Stake</a>
-            <a href="proof.html" style="color: var(--accent-green);">✅ PROOF</a>
+            <a href="proof.html" style="color: var(--accent-green);" data-i18n="nav.proof">✅ ДОКАЗАТЕЛЬСТВА</a>
             <a href="docs.html" data-i18n="nav.docs">Docs</a>
         </nav>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -1287,7 +1287,7 @@
                 animation: glowPulse 2s ease-in-out infinite;
                 transition: all 0.3s;
             " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 40px rgba(57, 255, 20, 0.8), 0 0 80px rgba(57, 255, 20, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 30px rgba(57, 255, 20, 0.6), 0 0 60px rgba(57, 255, 20, 0.3)';">
-                💎 Join Private Sale
+                <span data-i18n="hero.joinPrivateSale">💎 Присоединиться к закрытой продаже</span>
             </a>
         </div>
 
@@ -1437,103 +1437,103 @@
 
         <!-- Inevitable Success Summary -->
         <div style="margin-top: 4rem; padding: 3rem; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(157, 78, 221, 0.1)); border-radius: 30px; border: 2px solid var(--accent-green); text-align: center;">
-            <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent-green);">
+            <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent-green);" data-i18n="success.formula.title">
                 📈 100% Success Formula
             </h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
                 <div>
                     <div style="font-size: 2rem; margin-bottom: 0.5rem;">💰</div>
-                    <div style="font-size: 1.8rem; font-weight: 900; color: var(--primary-blue);">$50K-$200K</div>
-                    <div style="color: var(--gray);">Monthly B2B Revenue (Year 1)</div>
+                    <div style="font-size: 1.8rem; font-weight: 900; color: var(--primary-blue);" data-i18n="success.formula.revenue.amount">$50K-$200K</div>
+                    <div style="color: var(--gray);" data-i18n="success.formula.revenue.description">Monthly B2B Revenue (Year 1)</div>
                 </div>
                 <div>
                     <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔥</div>
-                    <div style="font-size: 1.8rem; font-weight: 900; color: var(--primary-blue);">100M+</div>
-                    <div style="color: var(--gray);">Tokens Burned (Year 1)</div>
+                    <div style="font-size: 1.8rem; font-weight: 900; color: var(--primary-blue);" data-i18n="success.formula.burned.amount">100M+</div>
+                    <div style="color: var(--gray);" data-i18n="success.formula.burned.description">Tokens Burned (Year 1)</div>
                 </div>
                 <div>
                     <div style="font-size: 2rem; margin-bottom: 0.5rem;">💎</div>
-                    <div style="font-size: 1.8rem; font-weight: 900; color: var(--primary-blue);">500M+</div>
-                    <div style="color: var(--gray);">Tokens Staked & Locked</div>
+                    <div style="font-size: 1.8rem; font-weight: 900; color: var(--primary-blue);" data-i18n="success.formula.staked.amount">500M+</div>
+                    <div style="color: var(--gray);" data-i18n="success.formula.staked.description">Tokens Staked & Locked</div>
                 </div>
             </div>
-            <p style="font-size: 1.3rem; color: var(--white); line-height: 1.8;">
+            <p style="font-size: 1.3rem; color: var(--white); line-height: 1.8;" data-i18n="success.formula.equation">
                 <strong>Real revenue</strong> + <strong>token burns</strong> + <strong>staking lockup</strong> + <strong>AI automation</strong> = <strong style="color: var(--accent-green);">Inevitable Price Growth 🚀</strong>
             </p>
-            <p style="font-size: 1rem; color: var(--gray); margin-top: 1rem;">
+            <p style="font-size: 1rem; color: var(--gray); margin-top: 1rem;" data-i18n="success.formula.conclusion">
                 This isn't hopium. This is math. 📊
             </p>
         </div>
 
         <!-- LONG-TERM GUARANTEE BOX -->
         <div style="margin-top: 3rem; padding: 3rem; background: linear-gradient(135deg, rgba(57, 255, 20, 0.15), rgba(0, 212, 255, 0.15)); border-radius: 30px; border: 3px solid var(--accent-green); text-align: center;">
-            <h3 style="font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--accent-green);">
+            <h3 style="font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--accent-green);" data-i18n="commitment.title">
                 ♾️ Long-Term Commitment: We NEVER Stop
             </h3>
-            <p style="font-size: 1.3rem; color: var(--white); line-height: 2; margin-bottom: 2rem;">
+            <p style="font-size: 1.3rem; color: var(--white); line-height: 2; margin-bottom: 2rem;" data-i18n="commitment.question">
                 <strong>Will HYPE grow 50x? 100x? 1000x?</strong><br>
                 <span style="color: var(--gray);">Nobody knows. Markets are unpredictable.</span>
             </p>
-            <p style="font-size: 1.4rem; color: var(--white); line-height: 2; margin-bottom: 2rem;">
+            <p style="font-size: 1.4rem; color: var(--white); line-height: 2; margin-bottom: 2rem;" data-i18n="commitment.whatWeKnow">
                 <strong style="color: var(--accent-green);">But here's what we DO KNOW:</strong>
             </p>
 
             <div style="text-align: left; max-width: 800px; margin: 0 auto;">
                 <div style="margin-bottom: 1.5rem; padding: 1.5rem; background: rgba(57, 255, 20, 0.1); border-radius: 15px; border-left: 5px solid var(--accent-green);">
-                    <h4 style="font-size: 1.3rem; color: var(--accent-green); margin-bottom: 0.75rem;">⚡ AI Agents NEVER Stop Working & Promoting</h4>
-                    <p style="color: var(--white); line-height: 1.8; margin-bottom: 1rem;">
+                    <h4 style="font-size: 1.3rem; color: var(--accent-green); margin-bottom: 0.75rem;" data-i18n="commitment.agents.title">⚡ AI Agents NEVER Stop Working & Promoting</h4>
+                    <p style="color: var(--white); line-height: 1.8; margin-bottom: 1rem;" data-i18n="commitment.agents.description">
                         Our 27 AI agents work <strong>infinitely</strong>. They don't quit, don't sleep, don't take breaks. No matter what the price is - $0.001 or $1 - they keep building, keep improving, keep delivering services.
                     </p>
-                    <p style="color: var(--white); line-height: 1.8; margin-bottom: 1rem;">
+                    <p style="color: var(--white); line-height: 1.8; margin-bottom: 1rem;" data-i18n="commitment.agents.notAll">
                         <strong>But that's not all:</strong>
                     </p>
                     <ul style="list-style: none; color: var(--gray); line-height: 2; padding-left: 0;">
-                        <li>📢 <strong style="color: var(--white);">Marketing 24/7:</strong> Posting news, articles, updates across Twitter, Telegram, Discord, Reddit, Medium</li>
-                        <li>✍️ <strong style="color: var(--white);">Content Creation:</strong> Writing SEO-optimized blog posts, press releases, technical articles everywhere on the internet</li>
-                        <li>🤝 <strong style="color: var(--white);">Community Engagement:</strong> Responding to every question, building relationships, growing followers</li>
-                        <li>📊 <strong style="color: var(--white);">Real Work:</strong> Not just promises - agents actually deliver services, write code, audit contracts, design brands</li>
-                        <li>🏆 <strong style="color: var(--white);">Professional Level:</strong> Every task executed at enterprise quality standards</li>
+                        <li data-i18n="commitment.agents.feature1">📢 <strong style="color: var(--white);">Marketing 24/7:</strong> Posting news, articles, updates across Twitter, Telegram, Discord, Reddit, Medium</li>
+                        <li data-i18n="commitment.agents.feature2">✍️ <strong style="color: var(--white);">Content Creation:</strong> Writing SEO-optimized blog posts, press releases, technical articles everywhere on the internet</li>
+                        <li data-i18n="commitment.agents.feature3">🤝 <strong style="color: var(--white);">Community Engagement:</strong> Responding to every question, building relationships, growing followers</li>
+                        <li data-i18n="commitment.agents.feature4">📊 <strong style="color: var(--white);">Real Work:</strong> Not just promises - agents actually deliver services, write code, audit contracts, design brands</li>
+                        <li data-i18n="commitment.agents.feature5">🏆 <strong style="color: var(--white);">Professional Level:</strong> Every task executed at enterprise quality standards</li>
                     </ul>
-                    <p style="color: var(--accent-green); margin-top: 1rem; font-weight: 700; font-size: 1.1rem;">
+                    <p style="color: var(--accent-green); margin-top: 1rem; font-weight: 700; font-size: 1.1rem;" data-i18n="commitment.agents.conclusion">
                         → While other projects sleep, we're working. While they quit, we're growing. ⚡
                     </p>
                 </div>
 
                 <div style="margin-bottom: 1.5rem; padding: 1.5rem; background: rgba(0, 212, 255, 0.1); border-radius: 15px; border-left: 5px solid var(--primary-blue);">
-                    <h4 style="font-size: 1.3rem; color: var(--primary-blue); margin-bottom: 0.75rem;">✅ Services Delivered Honestly</h4>
-                    <p style="color: var(--white); line-height: 1.8;">
+                    <h4 style="font-size: 1.3rem; color: var(--primary-blue); margin-bottom: 0.75rem;" data-i18n="commitment.services.title">✅ Services Delivered Honestly</h4>
+                    <p style="color: var(--white); line-height: 1.8;" data-i18n="commitment.services.description">
                         Every service is delivered professionally. No scams, no rug pulls, no exit. We build real products, earn real revenue, and reinvest in the ecosystem. This is a <strong>long-term business</strong>.
                     </p>
                 </div>
 
                 <div style="margin-bottom: 1.5rem; padding: 1.5rem; background: rgba(157, 78, 221, 0.1); border-radius: 15px; border-left: 5px solid var(--primary-purple);">
-                    <h4 style="font-size: 1.3rem; color: var(--primary-purple); margin-bottom: 0.75rem;">💰 Payment in HYPE Tokens</h4>
-                    <p style="color: var(--white); line-height: 1.8;">
+                    <h4 style="font-size: 1.3rem; color: var(--primary-purple); margin-bottom: 0.75rem;" data-i18n="commitment.payment.title">💰 Payment in HYPE Tokens</h4>
+                    <p style="color: var(--white); line-height: 1.8;" data-i18n="commitment.payment.description">
                         All services are paid in HYPE tokens. Clients must buy HYPE to use our AI services. This creates constant buying pressure.
                     </p>
                 </div>
 
                 <div style="margin-bottom: 1.5rem; padding: 1.5rem; background: rgba(255, 0, 0, 0.1); border-radius: 15px; border-left: 5px solid #FF3333);">
-                    <h4 style="font-size: 1.3rem; color: #FF3333; margin-bottom: 0.75rem;">🔥 Guaranteed Token Burns</h4>
-                    <p style="color: var(--white); line-height: 1.8; margin-bottom: 1rem;">
+                    <h4 style="font-size: 1.3rem; color: #FF3333; margin-bottom: 0.75rem;" data-i18n="commitment.burns.title">🔥 Guaranteed Token Burns</h4>
+                    <p style="color: var(--white); line-height: 1.8; margin-bottom: 1rem;" data-i18n="commitment.burns.description">
                         <strong>If clients pay in HYPE:</strong> 50% of fees burned immediately.<br>
                         <strong>If clients pay in USD/USDT:</strong> We buy HYPE tokens from the market and burn 50%. Either way, supply decreases.
                     </p>
-                    <p style="color: var(--accent-green); font-size: 1.1rem; font-weight: 700;">
+                    <p style="color: var(--accent-green); font-size: 1.1rem; font-weight: 700;" data-i18n="commitment.burns.conclusion">
                         More revenue = More burns = Less supply = Higher price 📈
                     </p>
                 </div>
             </div>
 
             <div style="margin-top: 2.5rem; padding: 2rem; background: rgba(0, 0, 0, 0.3); border-radius: 20px; border: 2px solid var(--accent-green);">
-                <p style="font-size: 1.5rem; color: var(--white); font-weight: 700; line-height: 1.8;">
+                <p style="font-size: 1.5rem; color: var(--white); font-weight: 700; line-height: 1.8;" data-i18n="commitment.destined">
                     This project is <strong style="color: var(--accent-green);">DESTINED FOR SUCCESS</strong>.<br>
                     Not because we promise 1000x.<br>
                     But because we <strong>NEVER. STOP. BUILDING.</strong> ⚡
                 </p>
             </div>
 
-            <p style="font-size: 1rem; color: var(--gray); margin-top: 2rem; line-height: 1.8;">
+            <p style="font-size: 1rem; color: var(--gray); margin-top: 2rem; line-height: 1.8;" data-i18n="commitment.finalQuestion">
                 <strong>The question isn't "if" HYPE will succeed.</strong><br>
                 The question is: <strong style="color: var(--accent-green);">"How big will it get?"</strong><br>
                 50x? 100x? 1000x? Time will tell. ⏰

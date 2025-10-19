@@ -98,8 +98,8 @@ export const AIInsights: React.FC = () => {
       <Card gradient>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-              <Brain className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+            <div className="p-2 bg-bnb-secondary/10 dark:bg-bnb-darker/30 rounded-lg">
+              <Brain className="h-5 w-5 text-bnb-secondary dark:text-bnb-secondary" />
             </div>
             AI-Powered Market Insights
             <Sparkles className="h-4 w-4 text-yellow-500 animate-pulse" />
@@ -159,11 +159,11 @@ export const AIInsights: React.FC = () => {
         ))}
       </div>
 
-      <Card className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border-purple-500/20">
+      <Card className="bg-gradient-to-br from-bnb-secondary500/10 to-bnb-secondary500/10 border-bnb-border0/20">
         <CardContent>
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-              <Sparkles className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+            <div className="p-3 bg-bnb-secondary/10 dark:bg-bnb-darker/30 rounded-lg">
+              <Sparkles className="h-6 w-6 text-bnb-secondary dark:text-bnb-secondary" />
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-1">

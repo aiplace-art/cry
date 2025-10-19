@@ -40,28 +40,31 @@ async function generateAIImage(tweetData) {
   const canvas = createCanvas(1200, 675);
   const ctx = canvas.getContext('2d');
 
-  // HypeAI Brand Colors (from website/branding)
+  // BNB Chain Brand Colors (Official BNB/Binance Palette)
   const BRAND_COLORS = {
-    blue: '#00D4FF',      // Primary Blue (Electric Blue)
-    purple: '#9D4EDD',    // Primary Purple
-    green: '#39FF14',     // Accent Green
-    darkBg: '#0A0E27',    // Dark Background
-    darkCard: '#1A1F3A'   // Dark Card
+    gold: '#F3BA2F',      // PRIMARY: Binance/BNB Yellow Gold
+    black: '#000000',     // SECONDARY: Pure Black
+    white: '#FFFFFF',     // TERTIARY: Pure White
+    darkBg: '#1E2329',    // Dark Gray Background
+    darkCard: '#0B0E11',  // Deeper Black
+    lightGray: '#EAECEF', // Light Gray Text
+    darkGold: '#F0B90B',  // Darker Gold (Hover)
+    lightGold: '#FCD535'  // Lighter Gold (Highlights)
   };
 
-  // Background gradient based on category - using ONLY brand colors
+  // Background gradient based on category - BNB Chain Gold/Black theme
   const gradients = {
-    introduction: [BRAND_COLORS.blue, BRAND_COLORS.purple],           // Blue → Purple
-    features: [BRAND_COLORS.purple, BRAND_COLORS.blue],                // Purple → Blue
-    community: [BRAND_COLORS.blue, BRAND_COLORS.green],                // Blue → Green
-    education: [BRAND_COLORS.green, BRAND_COLORS.blue],                // Green → Blue
-    launch: [BRAND_COLORS.purple, BRAND_COLORS.green],                 // Purple → Green
-    technical: [BRAND_COLORS.darkCard, BRAND_COLORS.blue],             // Dark → Blue
-    engagement: [BRAND_COLORS.blue, BRAND_COLORS.purple],              // Blue → Purple
-    viral: [BRAND_COLORS.green, BRAND_COLORS.purple]                   // Green → Purple
+    introduction: [BRAND_COLORS.gold, BRAND_COLORS.black],           // Gold → Black
+    features: [BRAND_COLORS.black, BRAND_COLORS.gold],               // Black → Gold
+    community: [BRAND_COLORS.darkBg, BRAND_COLORS.gold],             // Dark Gray → Gold
+    education: [BRAND_COLORS.darkBg, BRAND_COLORS.black],            // Dark Gray → Black
+    launch: [BRAND_COLORS.gold, BRAND_COLORS.darkGold],              // Gold → Dark Gold
+    technical: [BRAND_COLORS.darkCard, BRAND_COLORS.darkBg],         // Deep Black → Dark Gray
+    engagement: [BRAND_COLORS.gold, BRAND_COLORS.black],             // Gold → Black
+    viral: [BRAND_COLORS.lightGold, BRAND_COLORS.gold]               // Light Gold → Gold
   };
 
-  const colors = gradients[tweetData.category] || [BRAND_COLORS.blue, BRAND_COLORS.purple];
+  const colors = gradients[tweetData.category] || [BRAND_COLORS.gold, BRAND_COLORS.black];
   const gradient = ctx.createLinearGradient(0, 0, 1200, 675);
   gradient.addColorStop(0, colors[0]);
   gradient.addColorStop(1, colors[1]);
@@ -69,28 +72,41 @@ async function generateAIImage(tweetData) {
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, 1200, 675);
 
-  // Add tech pattern overlay with brand colors
-  ctx.strokeStyle = `rgba(0, 212, 255, 0.15)`; // Brand blue with transparency
+  // Add tech pattern overlay with BNB Chain colors
+  ctx.strokeStyle = `rgba(243, 186, 47, 0.12)`; // BNB Gold with transparency
   ctx.lineWidth = 2;
+
+  // Hexagonal blockchain pattern (BNB Chain aesthetic)
   for (let i = 0; i < 15; i++) {
     const x = Math.random() * 1200;
     const y = Math.random() * 675;
     const size = Math.random() * 100 + 50;
 
     ctx.beginPath();
-    ctx.arc(x, y, size, 0, Math.PI * 2);
+    // Draw hexagon instead of circle for blockchain feel
+    for (let j = 0; j < 6; j++) {
+      const angle = (Math.PI / 3) * j;
+      const hx = x + size * Math.cos(angle);
+      const hy = y + size * Math.sin(angle);
+      if (j === 0) ctx.moveTo(hx, hy);
+      else ctx.lineTo(hx, hy);
+    }
+    ctx.closePath();
     ctx.stroke();
   }
 
-  // Add purple accents
-  ctx.strokeStyle = `rgba(157, 78, 221, 0.15)`; // Brand purple
-  for (let i = 0; i < 10; i++) {
-    const x = Math.random() * 1200;
-    const y = Math.random() * 675;
-    const size = Math.random() * 80 + 40;
+  // Add circuit lines (tech aesthetic)
+  ctx.strokeStyle = `rgba(243, 186, 47, 0.08)`; // Lighter BNB Gold
+  ctx.lineWidth = 1;
+  for (let i = 0; i < 20; i++) {
+    const x1 = Math.random() * 1200;
+    const y1 = Math.random() * 675;
+    const x2 = x1 + (Math.random() * 200 - 100);
+    const y2 = y1 + (Math.random() * 200 - 100);
 
     ctx.beginPath();
-    ctx.arc(x, y, size, 0, Math.PI * 2);
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
     ctx.stroke();
   }
 
@@ -109,53 +125,61 @@ async function generateAIImage(tweetData) {
   ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
   ctx.shadowBlur = 20;
 
-  // Category badge with brand styling
+  // Category badge with BNB Chain styling
   const categoryText = tweetData.category.toUpperCase();
   ctx.fillStyle = BRAND_COLORS.darkCard;
   ctx.globalAlpha = 0.95;
   ctx.fillRect(50, 550, 300, 80);
   ctx.globalAlpha = 1.0;
 
-  // Gradient text for category
-  const catGradient = ctx.createLinearGradient(70, 580, 320, 600);
-  catGradient.addColorStop(0, BRAND_COLORS.blue);
-  catGradient.addColorStop(1, BRAND_COLORS.purple);
-  ctx.fillStyle = catGradient;
+  // BNB Gold text for category
+  ctx.fillStyle = BRAND_COLORS.gold;
   ctx.font = 'bold 40px sans-serif';
   ctx.fillText(categoryText, 70, 600);
 
-  // HypeAI watermark with brand gradient
-  const logoGradient = ctx.createLinearGradient(50, 280, 250, 320);
-  logoGradient.addColorStop(0, BRAND_COLORS.blue);
-  logoGradient.addColorStop(1, BRAND_COLORS.purple);
-  ctx.fillStyle = logoGradient;
+  // HypeAI watermark with BNB Chain branding
+  ctx.fillStyle = BRAND_COLORS.gold;
   ctx.font = 'bold 60px sans-serif';
   ctx.fillText('HypeAI', 50, 320);
 
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+  ctx.fillStyle = BRAND_COLORS.lightGray;
   ctx.font = '28px sans-serif';
-  ctx.fillText('Where Hype Meets Intelligence', 50, 360);
+  ctx.fillText('Built on BNB Chain', 50, 360);
 
-  // Add AI-themed icons/elements
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+  // Add BNB Chain themed elements
+  ctx.strokeStyle = `rgba(243, 186, 47, 0.3)`; // BNB Gold
   ctx.lineWidth = 3;
 
-  // Neural network visualization
-  for (let i = 0; i < 10; i++) {
-    const x1 = 900 + Math.random() * 200;
-    const y1 = 100 + Math.random() * 400;
-    const x2 = 900 + Math.random() * 200;
-    const y2 = 100 + Math.random() * 400;
+  // Blockchain network visualization (nodes and connections)
+  const nodes = [];
+  for (let i = 0; i < 8; i++) {
+    nodes.push({
+      x: 900 + Math.random() * 250,
+      y: 100 + Math.random() * 500
+    });
+  }
 
+  // Draw connections between nodes
+  for (let i = 0; i < nodes.length - 1; i++) {
     ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
+    ctx.moveTo(nodes[i].x, nodes[i].y);
+    ctx.lineTo(nodes[i + 1].x, nodes[i + 1].y);
     ctx.stroke();
+  }
 
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+  // Draw nodes with BNB gold
+  for (const node of nodes) {
+    ctx.fillStyle = BRAND_COLORS.gold;
     ctx.beginPath();
-    ctx.arc(x1, y1, 8, 0, Math.PI * 2);
+    ctx.arc(node.x, node.y, 6, 0, Math.PI * 2);
     ctx.fill();
+
+    // Add glow effect
+    ctx.strokeStyle = `rgba(243, 186, 47, 0.4)`;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, 12, 0, Math.PI * 2);
+    ctx.stroke();
   }
 
   // Save image
@@ -167,10 +191,13 @@ async function generateAIImage(tweetData) {
 }
 
 /**
- * Download AI-related image from Unsplash
+ * Download BNB Chain themed image from Unsplash
+ * Enhanced with color filters to match BNB Chain aesthetic
  */
 async function downloadFromUnsplash(query, tweetId) {
-  console.log(`📥 Downloading from Unsplash: "${query}"`);
+  // Enhance query with BNB Chain keywords
+  const bnbEnhancedQuery = `${query} blockchain technology gold black`;
+  console.log(`📥 Downloading from Unsplash: "${bnbEnhancedQuery}"`);
 
   const filename = `${MEDIA_DIR}/tweet-${tweetId}-unsplash.jpg`;
 
@@ -181,7 +208,7 @@ async function downloadFromUnsplash(query, tweetId) {
   }
 
   try {
-    const searchUrl = `https://api.unsplash.com/photos/random?query=${encodeURIComponent(query)}&orientation=landscape&client_id=${UNSPLASH_ACCESS_KEY}`;
+    const searchUrl = `https://api.unsplash.com/photos/random?query=${encodeURIComponent(bnbEnhancedQuery)}&orientation=landscape&color=yellow&client_id=${UNSPLASH_ACCESS_KEY}`;
 
     const imageUrl = await new Promise((resolve, reject) => {
       https.get(searchUrl, (res) => {
@@ -225,16 +252,16 @@ async function downloadFromUnsplash(query, tweetId) {
 export async function getMediaForTweet(tweetData) {
   console.log(`\n🎬 Getting media for tweet #${tweetData.id}...`);
 
-  // Media strategy based on category
+  // Media strategy based on category - BNB Chain themed
   const strategies = {
-    introduction: { type: 'generate', query: 'artificial intelligence technology' },
-    features: { type: 'unsplash', query: 'AI neural network abstract' },
-    community: { type: 'unsplash', query: 'community people together' },
-    education: { type: 'generate', query: 'AI learning education' },
-    launch: { type: 'generate', query: 'rocket launch success' },
-    technical: { type: 'unsplash', query: 'code programming technology' },
-    engagement: { type: 'generate', query: 'social media engagement' },
-    viral: { type: 'generate', query: 'viral trending social' }
+    introduction: { type: 'generate', query: 'BNB Chain blockchain technology gold' },
+    features: { type: 'generate', query: 'BNB Chain DeFi features blockchain' },
+    community: { type: 'generate', query: 'blockchain community BNB ecosystem' },
+    education: { type: 'generate', query: 'blockchain education DeFi learning' },
+    launch: { type: 'generate', query: 'BNB Chain launch announcement gold' },
+    technical: { type: 'generate', query: 'blockchain technology smart contracts' },
+    engagement: { type: 'generate', query: 'BNB Chain community engagement' },
+    viral: { type: 'generate', query: 'crypto meme professional BNB Chain' }
   };
 
   const strategy = strategies[tweetData.category] || { type: 'generate' };

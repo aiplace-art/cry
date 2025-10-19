@@ -22,11 +22,11 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = 'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
 
   const variants = {
-    primary: 'bg-gradient-primary text-white hover:opacity-90 focus:ring-primary-500 shadow-lg hover:shadow-xl',
-    secondary: 'bg-gradient-secondary text-white hover:opacity-90 focus:ring-secondary-500 shadow-lg hover:shadow-xl',
-    outline: 'border-2 border-primary-500 text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20 focus:ring-primary-500',
-    ghost: 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:ring-gray-500',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-lg hover:shadow-xl',
+    primary: 'bg-gradient-to-r from-bnb-primary to-bnb-secondary text-bnb-darker hover:opacity-90 focus:ring-bnb-primary shadow-lg hover:shadow-xl hover:shadow-bnb-primary/50',
+    secondary: 'bg-bnb-dark text-bnb-text hover:bg-bnb-dark/80 border border-bnb-border focus:ring-bnb-primary shadow-md hover:shadow-lg',
+    outline: 'border-2 border-bnb-primary text-bnb-primary hover:bg-bnb-primary/10 focus:ring-bnb-primary',
+    ghost: 'text-bnb-text hover:bg-bnb-dark/50 focus:ring-bnb-border',
+    danger: 'bg-bnb-error text-white hover:bg-bnb-error/90 focus:ring-bnb-error shadow-lg hover:shadow-xl',
   };
 
   const sizes = {

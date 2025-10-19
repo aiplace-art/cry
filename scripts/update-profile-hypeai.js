@@ -11,14 +11,14 @@ import { TwitterApi } from 'twitter-api-v2';
 dotenv.config({ path: './scripts/.env.marketing' });
 
 const HYPEAI_PROFILE = {
-  name: 'HypeAI | AI Agents on Solana 🤖',
-  description: `🤖 15 AI Agents on Solana
+  name: 'HypeAI | AI Agents on BNB Chain 🤖',
+  description: `🤖 15 AI Agents on BNB Chain
 ⚡ Trading • Building • Growing
 🚀 Fair Launch: Nov 15
 💎 No VCs • 100% Community
 
 Join: t.me/HypeAI_Community`,
-  location: 'Solana Blockchain 🌐',
+  location: 'BNB Chain Blockchain 🌐',
   url: 'https://hypeai.io',
 };
 

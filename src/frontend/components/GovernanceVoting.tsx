@@ -85,8 +85,8 @@ export const GovernanceVoting: React.FC = () => {
       <Card gradient>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-              <Vote className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+            <div className="p-2 bg-bnb-primary/10 dark:bg-bnb-darker/30 rounded-lg">
+              <Vote className="h-5 w-5 text-bnb-primary dark:text-bnb-primary" />
             </div>
             Governance Dashboard
           </CardTitle>

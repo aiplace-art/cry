@@ -73,20 +73,43 @@ function formatTweet(tweet) {
   return text;
 }
 
+// Map tweet categories to BNB Chain templates
+const BNB_TEMPLATE_MAP = {
+  technical: './scripts/twitter-media/bnb-templates/technical.png',
+  features: './scripts/twitter-media/bnb-templates/features.png',
+  community: './scripts/twitter-media/bnb-templates/community.png',
+  education: './scripts/twitter-media/bnb-templates/education.png',
+  launch: './scripts/twitter-media/bnb-templates/launch.png',
+  engagement: './scripts/twitter-media/bnb-templates/engagement.png',
+  viral: './scripts/twitter-media/bnb-templates/viral.png',
+  introduction: './scripts/twitter-media/bnb-templates/introduction.png'
+};
+
 // Upload media to Twitter
 async function uploadMedia(client, tweetData) {
   try {
-    // Dynamic import of media generator
-    const { getMediaForTweet } = await import('./media-generator.js');
+    let mediaPath = null;
 
-    // Get AI-generated or downloaded media
-    const mediaPath = await getMediaForTweet(tweetData);
+    // Try to use BNB Chain template first
+    const templatePath = BNB_TEMPLATE_MAP[tweetData.category];
+    if (templatePath && fs.existsSync(templatePath)) {
+      console.log(`   🎨 Using BNB Chain template: ${tweetData.category}`);
+      mediaPath = templatePath;
+    } else {
+      // Fallback to dynamic generation
+      console.log(`   🎨 Template not found, generating image...`);
+      const { getMediaForTweet } = await import('./media-generator.js');
+      mediaPath = await getMediaForTweet(tweetData);
+    }
 
-    if (!mediaPath) {
-      console.log(`   ⚠️  No media generated, using default logo`);
+    if (!mediaPath || !fs.existsSync(mediaPath)) {
+      console.log(`   ⚠️  No media available, using default logo`);
       const defaultPath = './website/logo-icon-only.svg';
-      const mediaId = await client.v1.uploadMedia(defaultPath);
-      return mediaId;
+      if (fs.existsSync(defaultPath)) {
+        const mediaId = await client.v1.uploadMedia(defaultPath);
+        return mediaId;
+      }
+      return null;
     }
 
     console.log(`   📷 Uploading media: ${mediaPath}`);
@@ -100,10 +123,13 @@ async function uploadMedia(client, tweetData) {
     // Fallback to logo (OFFICIAL LOGO - see docs/OFFICIAL_LOGO_PATH.md)
     try {
       const defaultPath = './website/logo-icon-only.svg';
-      return await client.v1.uploadMedia(defaultPath);
+      if (fs.existsSync(defaultPath)) {
+        return await client.v1.uploadMedia(defaultPath);
+      }
     } catch (fallbackError) {
-      return null;
+      console.error(`   ⚠️  Fallback failed: ${fallbackError.message}`);
     }
+    return null;
   }
 }
 

@@ -34,7 +34,7 @@ function loadInsights() {
 }
 
 /**
- * Monitor trending hashtags in crypto/Solana space
+ * Monitor trending hashtags in crypto/BNB Chain space
  */
 async function monitorTrendingHashtags(client, config) {
   console.log('\n📊 Monitoring Trending Hashtags...\n');
@@ -133,7 +133,7 @@ async function findInfluencers(client, config) {
   console.log('\n🎯 Finding Key Influencers...\n');
 
   const influencers = [];
-  const keywords = ['#Solana', '#SolanaAI', '#DeFi'];
+  const keywords = ['#BNB', '#BNBChain', '#BSC', '#DeFi'];
 
   try {
     // Search for high-engagement tweets in our niche
@@ -257,7 +257,7 @@ function generateRecommendations(hashtags, competitors, influencers) {
     priority: 'HIGH',
     action: 'Implement rapid growth tactics',
     tactics: [
-      'Quote-tweet trending Solana posts with insights',
+      'Quote-tweet trending BNB Chain posts with insights',
       'Reply-guy strategy on major crypto accounts (first 5 mins)',
       'Cross-promote with Telegram (mutual growth)',
       'Run small giveaway ($50-100) for follows + retweets',

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Theme - Examples</title>
+    <link rel="stylesheet" href="../../public/css/professional-theme.css">
+    <style>
+        .demo-section {
+            margin-bottom: var(--space-8);
+            padding: var(--space-6);
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+        }
+        .demo-title {
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-2);
+            border-bottom: 2px solid var(--color-primary);
+        }
+        .color-swatch {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-md);
+            margin: var(--space-2);
+            box-shadow: var(--shadow-md);
+        }
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-4);
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 1400px; margin: 0 auto; padding: var(--space-6);">
+
+        <!-- Header -->
+        <header class="mb-4">
+            <h1 class="text-6xl font-black mb-2">Professional Theme</h1>
+            <p class="text-xl text-secondary">Design system based on Ethereum.org, Coinbase, and Solana best practices</p>
+        </header>
+
+        <!-- Color System -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title text-4xl font-bold">Color System</h2>
+
+            <h3 class="text-2xl font-semibold mt-4 mb-3">Primary Colors</h3>
+            <div class="flex gap-3 flex-wrap">
+                <div>
+                    <div class="color-swatch" style="background: var(--color-primary);"></div>
+                    <p class="text-sm text-center">Primary</p>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: var(--color-primary-light);"></div>
+                    <p class="text-sm text-center">Light</p>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: var(--color-primary-dark);"></div>
+                    <p class="text-sm text-center">Dark</p>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: var(--color-accent);"></div>
+                    <p class="text-sm text-center">Accent</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold mt-4 mb-3">Semantic Colors</h3>
+            <div class="flex gap-3 flex-wrap">
+                <div>
+                    <div class="color-swatch" style="background: var(--color-success);"></div>
+                    <p class="text-sm text-center">Success</p>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: var(--color-error);"></div>
+                    <p class="text-sm text-center">Error</p>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: var(--color-warning);"></div>
+                    <p class="text-sm text-center">Warning</p>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: var(--color-info);"></div>
+                    <p class="text-sm text-center">Info</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title text-4xl font-bold">Typography</h2>
+
+            <h1 class="text-6xl font-black mb-2">Heading 1 - 60px</h1>
+            <h2 class="text-5xl font-extrabold mb-2">Heading 2 - 48px</h2>
+            <h3 class="text-4xl font-bold mb-2">Heading 3 - 36px</h3>
+            <h4 class="text-3xl font-bold mb-2">Heading 4 - 30px</h4>
+            <h5 class="text-2xl font-semibold mb-2">Heading 5 - 24px</h5>
+            <h6 class="text-xl font-semibold mb-2">Heading 6 - 20px</h6>
+
+            <p class="text-lg mt-4 mb-2">Large paragraph - 18px</p>
+            <p class="text-base mb-2">Base paragraph - 16px (default)</p>
+            <p class="text-sm mb-2">Small paragraph - 14px</p>
+            <p class="text-xs mb-2">Extra small paragraph - 12px</p>
+        </section>
+
+        <!-- Buttons -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title text-4xl font-bold">Buttons</h2>
+
+            <div class="flex gap-3 flex-wrap items-center mb-4">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-outline">Outline Button</button>
+                <button class="btn btn-ghost">Ghost Button</button>
+            </div>
+
+            <h3 class="text-2xl font-semibold mt-4 mb-3">Button Sizes</h3>
+            <div class="flex gap-3 flex-wrap items-center">
+                <button class="btn btn-primary btn-sm">Small</button>
+                <button class="btn btn-primary">Medium (default)</button>
+                <button class="btn btn-primary btn-lg">Large</button>
+            </div>
+
+            <h3 class="text-2xl font-semibold mt-4 mb-3">Button States</h3>
+            <div class="flex gap-3 flex-wrap items-center">
+                <button class="btn btn-primary">Normal</button>
+                <button class="btn btn-primary hover-lift">Hover Lift</button>
+                <button class="btn btn-primary" disabled>Disabled</button>
+            </div>
+        </section>
+
+        <!-- Cards -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title text-4xl font-bold">Cards</h2>
+
+            <div class="example-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Basic Card</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-secondary">Simple card with header and body content.</p>
+                    </div>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="card-header">
+                        <h3 class="card-title">Hover Lift Card</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-secondary">Card with lift effect on hover.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary btn-sm">Action</button>
+                    </div>
+                </div>
+
+                <div class="card animate-scale-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Animated Card</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-secondary">Card with scale-in animation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animations -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title text-4xl font-bold">Animations</h2>
+
+            <div class="example-grid">
+                <div class="card animate-fade-in">
+                    <p class="font-semibold">Fade In</p>
+                </div>
+                <div class="card animate-fade-in-up">
+                    <p class="font-semibold">Fade In Up</p>
+                </div>
+                <div class="card animate-slide-in-left">
+                    <p class="font-semibold">Slide In Left</p>
+                </div>
+                <div class="card animate-slide-in-right">
+                    <p class="font-semibold">Slide In Right</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold mt-4 mb-3">Hover Effects</h3>
+            <div class="flex gap-4 flex-wrap">
+                <div class="card hover-lift" style="width: 200px; height: 150px;">
+                    <p class="font-semibold text-center">Hover Lift</p>
+                </div>
+                <div class="card hover-scale" style="width: 200px; height: 150px;">
+                    <p class="font-semibold text-center">Hover Scale</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacing System -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title text-4xl font-bold">Spacing System (8px Base)</h2>
+
+            <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-3">
+                    <div style="width: 8px; height: 32px; background: var(--color-primary);"></div>
+                    <span>--space-1: 8px</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div style="width: 16px; height: 32px; background: var(--color-primary);"></div>
+                    <span>--space-2: 16px</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div style="width: 24px; height: 32px; background: var(--color-primary);"></div>
+                    <span>--space-3: 24px</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div style="width: 32px; height: 32px; background: var(--color-primary);"></div>
+                    <span>--space-4: 32px</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div style="width: 48px; height: 32px; background: var(--color-primary);"></div>
+                    <span>--space-6: 48px</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div style="width: 64px; height: 32px; background: var(--color-primary);"></div>
+                    <span>--space-7: 64px</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shadow Examples -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title text-4xl font-bold">Shadows</h2>
+
+            <div class="example-grid">
+                <div class="card" style="box-shadow: var(--shadow-sm);">
+                    <p class="font-semibold">Shadow SM</p>
+                </div>
+                <div class="card" style="box-shadow: var(--shadow-md);">
+                    <p class="font-semibold">Shadow MD</p>
+                </div>
+                <div class="card" style="box-shadow: var(--shadow-lg);">
+                    <p class="font-semibold">Shadow LG</p>
+                </div>
+                <div class="card" style="box-shadow: var(--shadow-xl);">
+                    <p class="font-semibold">Shadow XL</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold mt-4 mb-3">Colored Shadows</h3>
+            <div class="flex gap-4 flex-wrap">
+                <div class="card" style="box-shadow: var(--shadow-primary);">
+                    <p class="font-semibold">Primary Shadow</p>
+                </div>
+                <div class="card" style="box-shadow: var(--shadow-accent);">
+                    <p class="font-semibold">Accent Shadow</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Utility Classes -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title text-4xl font-bold">Utility Classes</h2>
+
+            <h3 class="text-2xl font-semibold mt-4 mb-3">Flexbox</h3>
+            <div class="card">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                    <span class="font-medium">Label 1</span>
+                    <span class="text-primary font-bold">Value 1</span>
+                </div>
+                <div class="flex items-center justify-between gap-3 mb-3">
+                    <span class="font-medium">Label 2</span>
+                    <span class="text-success font-bold">Value 2</span>
+                </div>
+                <div class="flex items-center justify-center gap-3">
+                    <button class="btn btn-primary btn-sm">Button 1</button>
+                    <button class="btn btn-secondary btn-sm">Button 2</button>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold mt-4 mb-3">Grid</h3>
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-3);">
+                <div class="card text-center p-3">Grid 1</div>
+                <div class="card text-center p-3">Grid 2</div>
+                <div class="card text-center p-3">Grid 3</div>
+            </div>
+        </section>
+
+        <!-- Loading States -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title text-4xl font-bold">Loading States</h2>
+
+            <div class="flex gap-4 items-center flex-wrap">
+                <div class="loading"></div>
+                <div class="skeleton" style="width: 200px; height: 20px;"></div>
+                <div class="skeleton" style="width: 150px; height: 40px;"></div>
+            </div>
+        </section>
+
+        <!-- Accessibility -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title text-4xl font-bold">Accessibility Features</h2>
+
+            <ul class="text-lg">
+                <li class="mb-2">✅ WCAG AAA Contrast Ratios (7:1+)</li>
+                <li class="mb-2">✅ Focus Visible States (try tabbing)</li>
+                <li class="mb-2">✅ Keyboard Navigation Support</li>
+                <li class="mb-2">✅ Reduced Motion Support</li>
+                <li class="mb-2">✅ High Contrast Mode Compatible</li>
+                <li class="mb-2">✅ Screen Reader Optimized</li>
+            </ul>
+
+            <div class="mt-4">
+                <button class="btn btn-primary">Tab to focus</button>
+                <button class="btn btn-secondary">Try keyboard navigation</button>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

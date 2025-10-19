@@ -50,8 +50,8 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     smoothProgress,
     [0, 50, 75, 100],
     [
-      'from-blue-500 via-blue-600 to-blue-700',
-      'from-purple-500 via-purple-600 to-purple-700',
+      'from-bnb-primary500 via-bnb-primary600 to-bnb-secondary700',
+      'from-bnb-secondary500 via-bnb-secondary600 to-bnb-primary700',
       'from-pink-500 via-pink-600 to-pink-700',
       'from-green-500 via-green-600 to-green-700',
     ]
@@ -90,7 +90,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
           className="flex flex-col"
         >
           <span className="text-sm text-gray-400 uppercase tracking-wide mb-1">Raised</span>
-          <motion.span className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <motion.span className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-bnb-primary400 to-bnb-primary400 bg-clip-text text-transparent">
             {mounted && (
               <motion.span>
                 {currency}
@@ -129,7 +129,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
             }}
           >
             {/* Gradient Fill */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+            <div className="absolute inset-0 bg-gradient-to-r from-bnb-primary500 via-bnb-secondary500 to-pink-500">
               {/* Shimmer Effect */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"

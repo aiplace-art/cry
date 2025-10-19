@@ -63,12 +63,12 @@ export const VestingSchedule: React.FC<VestingScheduleProps> = ({ schedule, onCl
           <div className="text-xs text-green-400 mt-1">HYPE</div>
         </div>
 
-        <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl p-4 border border-purple-500/50">
-          <div className="text-sm text-purple-300 mb-1">Available</div>
-          <div className="text-2xl font-bold text-purple-100">
+        <div className="bg-gradient-to-br from-bnb-secondary900/30 to-pink-900/30 rounded-xl p-4 border border-bnb-border0/50">
+          <div className="text-sm text-bnb-secondary mb-1">Available</div>
+          <div className="text-2xl font-bold text-bnb-text">
             {availableToClaim.toLocaleString()}
           </div>
-          <div className="text-xs text-purple-400 mt-1">HYPE</div>
+          <div className="text-xs text-bnb-secondary mt-1">HYPE</div>
         </div>
       </div>
 
@@ -85,7 +85,7 @@ export const VestingSchedule: React.FC<VestingScheduleProps> = ({ schedule, onCl
                 vest.claimed
                   ? 'border-green-500/30 opacity-60'
                   : claimable
-                  ? 'border-purple-500/50 shadow-lg shadow-purple-500/20'
+                  ? 'border-bnb-border0/50 shadow-lg shadow-bnb-secondary500/20'
                   : 'border-gray-700/50'
               }`}
             >
@@ -97,7 +97,7 @@ export const VestingSchedule: React.FC<VestingScheduleProps> = ({ schedule, onCl
                         vest.claimed
                           ? 'bg-green-500/20 text-green-400'
                           : claimable
-                          ? 'bg-purple-500/20 text-purple-400'
+                          ? 'bg-bnb-secondary/50/20 text-bnb-secondary'
                           : 'bg-gray-700/50 text-gray-400'
                       }`}
                     >
@@ -117,7 +117,7 @@ export const VestingSchedule: React.FC<VestingScheduleProps> = ({ schedule, onCl
                         ✓ Claimed
                       </span>
                     ) : claimable ? (
-                      <span className="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full border border-purple-500/30 animate-pulse">
+                      <span className="px-2 py-1 bg-bnb-secondary/50/20 text-bnb-secondary rounded-full border border-bnb-border0/30 animate-pulse">
                         🎁 Ready to Claim
                       </span>
                     ) : (
@@ -132,7 +132,7 @@ export const VestingSchedule: React.FC<VestingScheduleProps> = ({ schedule, onCl
                   <button
                     onClick={() => handleClaim(vest.id)}
                     disabled={claiming}
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold py-2 px-6 rounded-lg transition-all transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="bg-gradient-to-r from-bnb-secondary600 to-pink-600 hover:from-bnb-secondary700 hover:to-pink-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold py-2 px-6 rounded-lg transition-all transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     {claiming ? (
                       <span className="flex items-center gap-2">
@@ -151,7 +151,7 @@ export const VestingSchedule: React.FC<VestingScheduleProps> = ({ schedule, onCl
                 <div className="mt-3">
                   <div className="h-1 bg-gray-700 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-500"
+                      className="h-full bg-gradient-to-r from-bnb-secondary600 to-pink-600 transition-all duration-500"
                       style={{
                         width: `${Math.min(
                           ((new Date().getTime() - new Date(vest.releaseDate).getTime()) /

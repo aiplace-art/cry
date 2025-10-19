@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Load Test Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .result {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .success { border-left: 4px solid #4CAF50; }
+        .error { border-left: 4px solid #f44336; }
+        .info { border-left: 4px solid #2196F3; }
+        h1 { color: #333; }
+        h2 { color: #666; margin-top: 30px; }
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .status { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Site Load Test - http://localhost:8082</h1>
+
+    <h2>📄 Resource Loading Tests</h2>
+
+    <div class="result info">
+        <h3>✅ Test 1: Main Page (index.html)</h3>
+        <p><span class="status">Status:</span> <code id="test1">Testing...</code></p>
+        <p><span class="status">Size:</span> <span id="test1-size">-</span></p>
+    </div>
+
+    <div class="result info">
+        <h3>🎨 Test 2: CSS Files</h3>
+        <p><code>css/language-switcher.css</code>: <span id="css1">Testing...</span></p>
+        <p><code>css/multi-language-layout.css</code>: <span id="css2">Testing...</span></p>
+    </div>
+
+    <div class="result info">
+        <h3>⚡ Test 3: JavaScript Files</h3>
+        <p><code>js/cookie-consent.js</code>: <span id="js1">Testing...</span></p>
+        <p><code>js/language-switcher.js</code>: <span id="js2">Testing...</span></p>
+    </div>
+
+    <div class="result info">
+        <h3>🔍 Test 4: Console Errors</h3>
+        <div id="console-errors">Checking...</div>
+    </div>
+
+    <div class="result info">
+        <h3>🌍 Test 5: Language Switcher</h3>
+        <p><span class="status">Current Language:</span> <span id="current-lang">-</span></p>
+        <p><span class="status">Available Languages:</span> <span id="available-langs">-</span></p>
+        <button id="test-switch" style="padding: 10px 20px; cursor: pointer; margin-top: 10px;">
+            🇷🇺 Test Switch to Russian
+        </button>
+        <p id="switch-result" style="margin-top: 10px;"></p>
+    </div>
+
+    <h2>📊 Summary</h2>
+    <div id="summary" class="result"></div>
+
+    <script>
+        const results = {
+            passed: 0,
+            failed: 0,
+            errors: []
+        };
+
+        // Test 1: Main page
+        fetch('/')
+            .then(r => {
+                document.getElementById('test1').textContent = `HTTP ${r.status}`;
+                document.getElementById('test1').parentElement.parentElement.className =
+                    r.ok ? 'result success' : 'result error';
+                r.ok ? results.passed++ : results.failed++;
+                return r.text();
+            })
+            .then(html => {
+                document.getElementById('test1-size').textContent = `${(html.length / 1024).toFixed(2)} KB`;
+            });
+
+        // Test 2: CSS files
+        const cssFiles = [
+            {url: '/css/language-switcher.css', id: 'css1'},
+            {url: '/css/multi-language-layout.css', id: 'css2'}
+        ];
+
+        cssFiles.forEach(({url, id}) => {
+            fetch(url)
+                .then(r => {
+                    const status = `HTTP ${r.status} ${r.ok ? '✅' : '❌'}`;
+                    document.getElementById(id).textContent = status;
+                    r.ok ? results.passed++ : results.failed++;
+                });
+        });
+
+        // Test 3: JS files
+        const jsFiles = [
+            {url: '/js/cookie-consent.js', id: 'js1'},
+            {url: '/js/language-switcher.js', id: 'js2'}
+        ];
+
+        jsFiles.forEach(({url, id}) => {
+            fetch(url)
+                .then(r => {
+                    const status = `HTTP ${r.status} ${r.ok ? '✅' : '❌'}`;
+                    document.getElementById(id).textContent = status;
+                    r.ok ? results.passed++ : results.failed++;
+                });
+        });
+
+        // Test 4: Console errors
+        const originalConsoleError = console.error;
+        console.error = function(...args) {
+            results.errors.push(args.join(' '));
+            originalConsoleError.apply(console, args);
+        };
+
+        setTimeout(() => {
+            const errorDiv = document.getElementById('console-errors');
+            if (results.errors.length === 0) {
+                errorDiv.innerHTML = '<span style="color: green;">✅ No console errors detected</span>';
+                results.passed++;
+            } else {
+                errorDiv.innerHTML = '<span style="color: red;">❌ Errors found:</span><ul>' +
+                    results.errors.map(e => `<li><code>${e}</code></li>`).join('') +
+                    '</ul>';
+                results.failed++;
+            }
+        }, 3000);
+
+        // Test 5: Language info
+        setTimeout(() => {
+            const htmlLang = document.documentElement.lang;
+            document.getElementById('current-lang').textContent = htmlLang || 'Not set';
+
+            // Check if language switcher exists
+            const langSwitcher = document.querySelector('[data-lang]') ||
+                                document.querySelector('.language-switcher');
+            if (langSwitcher) {
+                document.getElementById('available-langs').textContent = 'Detected ✅';
+                results.passed++;
+            } else {
+                document.getElementById('available-langs').textContent = 'Not found ❌';
+                results.failed++;
+            }
+        }, 2000);
+
+        // Test language switch button
+        document.getElementById('test-switch').addEventListener('click', function() {
+            const resultEl = document.getElementById('switch-result');
+            resultEl.textContent = '🔄 Testing language switch...';
+
+            // Try to find and click Russian language option
+            setTimeout(() => {
+                resultEl.innerHTML = '<span style="color: blue;">ℹ️ Manual test: Click language switcher in header and verify Russian translation works</span>';
+            }, 500);
+        });
+
+        // Summary
+        setTimeout(() => {
+            const summary = document.getElementById('summary');
+            const total = results.passed + results.failed;
+            const percentage = ((results.passed / total) * 100).toFixed(1);
+
+            summary.className = results.failed === 0 ? 'result success' : 'result error';
+            summary.innerHTML = `
+                <h3>Test Results</h3>
+                <p><strong>Total Tests:</strong> ${total}</p>
+                <p><strong>Passed:</strong> ${results.passed} ✅</p>
+                <p><strong>Failed:</strong> ${results.failed} ❌</p>
+                <p><strong>Success Rate:</strong> ${percentage}%</p>
+                <p><strong>Overall Status:</strong> ${results.failed === 0 ? '🎉 ALL TESTS PASSED' : '⚠️ SOME TESTS FAILED'}</p>
+            `;
+        }, 4000);
+    </script>
+</body>
+</html>

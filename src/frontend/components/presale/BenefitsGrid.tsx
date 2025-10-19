@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 interface Benefit {
   icon: string;
@@ -18,13 +18,13 @@ const defaultBenefits: Benefit[] = [
     icon: '🚀',
     title: 'Early Access',
     description: 'Be among the first to access exclusive features and tools before public launch',
-    gradient: 'from-blue-500 to-cyan-500',
+    gradient: 'from-bnb-primary500 to-cyan-500',
   },
   {
     icon: '💎',
     title: 'Bonus Tokens',
     description: 'Receive up to 30% bonus tokens during presale with special tier multipliers',
-    gradient: 'from-purple-500 to-pink-500',
+    gradient: 'from-bnb-secondary500 to-pink-500',
   },
   {
     icon: '🔒',
@@ -48,7 +48,7 @@ const defaultBenefits: Benefit[] = [
     icon: '🌟',
     title: 'VIP Community',
     description: 'Join exclusive VIP channels with direct access to the core development team',
-    gradient: 'from-indigo-500 to-purple-500',
+    gradient: 'from-bnb-primary500 to-bnb-primary500',
   },
 ];
 
@@ -65,7 +65,7 @@ export const BenefitsGrid: React.FC<BenefitsGridProps> = ({
   benefits = defaultBenefits,
   className = '',
 }) => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -75,14 +75,13 @@ export const BenefitsGrid: React.FC<BenefitsGridProps> = ({
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.5,
-        ease: 'easeOut',
       },
     },
   };

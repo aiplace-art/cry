@@ -109,7 +109,7 @@ export const TransactionsFeed: React.FC<TransactionsFeedProps> = ({ transactions
                   </div>
                   <div>
                     <div className="text-gray-400 text-xs mb-1">Tokens</div>
-                    <div className="text-purple-400 font-semibold">
+                    <div className="text-bnb-secondary font-semibold">
                       {tx.tokens.toLocaleString()} HYPE
                     </div>
                   </div>
@@ -119,7 +119,7 @@ export const TransactionsFeed: React.FC<TransactionsFeedProps> = ({ transactions
                       href={`https://etherscan.io/tx/${tx.txHash}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-400 hover:text-blue-300 font-mono flex items-center gap-1"
+                      className="text-bnb-primary hover:text-bnb-primary font-mono flex items-center gap-1"
                     >
                       {truncateAddress(tx.txHash)}
                       <span className="text-xs">↗</span>

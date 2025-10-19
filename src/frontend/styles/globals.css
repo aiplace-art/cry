@@ -5,11 +5,33 @@
 /* CSS Variables for shadcn/ui compatibility */
 @layer base {
   :root {
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* BNB Chain Theme Variables */
+    --border: 40 11% 18%;        /* BNB border color */
+    --input: 40 11% 18%;         /* BNB border color for inputs */
+    --ring: 45 100% 57%;         /* BNB primary for focus rings */
+    --background: 220 13% 9%;    /* BNB darker background */
+    --foreground: 218 11% 92%;   /* BNB text light */
+
+    --primary: 45 93% 57%;       /* BNB primary gold */
+    --primary-foreground: 220 13% 9%;
+
+    --secondary: 48 100% 60%;    /* BNB secondary light gold */
+    --secondary-foreground: 220 13% 9%;
+
+    --accent: 159 81% 44%;       /* BNB success green */
+    --accent-foreground: 218 11% 92%;
+
+    --destructive: 351 95% 64%;  /* BNB error red */
+    --destructive-foreground: 218 11% 92%;
+
+    --muted: 210 8% 28%;
+    --muted-foreground: 217 10% 55%;
+
+    --card: 222 13% 11%;
+    --card-foreground: 218 11% 92%;
+
+    --popover: 222 13% 11%;
+    --popover-foreground: 218 11% 92%;
   }
 }
 
@@ -18,6 +40,16 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
+
+  /* BNB Brand Colors - Official Binance Color Palette */
+  --bnb-primary: #F3BA2F;
+  --bnb-secondary: #FCD535;
+  --bnb-dark: #1E2026;
+  --bnb-darker: #14151A;
+  --bnb-success: #0ECB81;
+  --bnb-text-primary: #EAECEF;
+  --bnb-text-secondary: #848E9C;
+  --bnb-border: rgba(132, 142, 156, 0.2);
 }
 
 * {
@@ -104,22 +136,22 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling - BNB Theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: var(--bnb-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: var(--bnb-primary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: var(--bnb-secondary);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

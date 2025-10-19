@@ -17,18 +17,18 @@ const MAX_ROUNDS = 15; // Up to 15 rounds (120 unfollows max per run)
 
 // Important accounts to KEEP following
 const KEEP_FOLLOWING = [
-  'solana',
-  'pumpdotfun',
-  'raydiumprotocol',
-  'JupiterExchange',
-  'phantom',
-  'SolanaFloor',
-  'SolanaMobile',
-  'SolanaFndn',
-  'SolanaSpaces',
-  'metaplex',
-  'ProjectSerum',
-  'MagicEden',
+  'bnbchain',
+  'BNBCHAIN',
+  'PancakeSwap',
+  'TrustWallet',
+  'BiswapDEX',
+  'BinanceChain',
+  'BNBChainDev',
+  'VenusProtocol',
+  'bakeryswap',
+  'BakeryTools',
+  'alpacafinance',
+  'autofarmnetwork',
   'OKXWeb3',
   'Bybit_Official',
   'cryptocom',
@@ -53,8 +53,10 @@ const KEEP_FOLLOWING = [
 ];
 
 const KEEP_KEYWORDS = [
-  'solana',
-  'sol',
+  'bnb',
+  'bnbchain',
+  'bsc',
+  'binance',
   'defi',
   'crypto',
   'blockchain',

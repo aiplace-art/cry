@@ -1,5 +1,7 @@
 // Referral System Types
 
+export type BadgeLevel = 'Bronze' | 'Silver' | 'Gold' | 'Platinum';
+
 export interface User {
   id: string;
   wallet?: string;
@@ -7,6 +9,7 @@ export interface User {
   name?: string;
   referralCode: string;
   createdAt: string;
+  level?: BadgeLevel;
 }
 
 export interface ReferralStats {
@@ -16,6 +19,13 @@ export interface ReferralStats {
   totalEarnedHYPE: number;
   pendingRewards: number;
   paidRewards: number;
+  totalVolume: number;
+  level: BadgeLevel;
+  levelProgress: number;
+  nextLevelThreshold: number;
+  bonusMultiplier: number;
+  milestoneRewards: number;
+  unclaimedMilestones: number[];
 }
 
 export interface Referral {
@@ -59,6 +69,53 @@ export interface ReferralLink {
   qrCode: string;
   clicks: number;
   conversions: number;
+  conversionRate?: number;
+}
+
+export interface Achievement {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  level: BadgeLevel;
+  requirement: string;
+  earned: boolean;
+  earnedAt?: string;
+  progress?: number;
+  total?: number;
+}
+
+export interface LeaderboardEntry {
+  rank: number;
+  address: string;
+  name?: string;
+  totalVolume: number;
+  totalReferrals: number;
+  totalEarned: number;
+  level: BadgeLevel;
+  badges: string[];
+}
+
+export interface MilestoneData {
+  index: number;
+  threshold: number;
+  reward: number;
+  reached: boolean;
+  claimed: boolean;
+  progress: number;
+}
+
+export type NotificationType = 'new_referral' | 'milestone' | 'level_up' | 'reward' | 'achievement' | 'system';
+
+export interface Notification {
+  id: string;
+  type: NotificationType;
+  title: string;
+  message: string;
+  timestamp: string;
+  read: boolean;
+  data?: any;
+  icon?: string;
 }
 
 export interface FilterOptions {

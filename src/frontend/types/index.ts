@@ -1,4 +1,4 @@
-import { ethers } from 'ethers';
+import { BrowserProvider, JsonRpcSigner } from 'ethers';
 
 export interface TokenData {
   address: string;
@@ -62,8 +62,8 @@ export interface WalletState {
   balance: string;
   chainId: number | null;
   isConnected: boolean;
-  provider: ethers.BrowserProvider | null;
-  signer: ethers.JsonRpcSigner | null;
+  provider: BrowserProvider | null;
+  signer: JsonRpcSigner | null;
 }
 
 export interface NotificationData {
@@ -73,3 +73,33 @@ export interface NotificationData {
   message: string;
   timestamp: number;
 }
+
+// Presale types
+export interface Purchase {
+  id: string;
+  amount: number;
+  tokenAmount: number;
+  bonusPercentage: number;
+  timestamp: number;
+  txHash: string;
+  email?: string;
+}
+
+export interface ReferralStats {
+  code: string;
+  totalReferrals: number;
+  totalEarnings: number;
+  directReferrals: number;
+  secondTierReferrals: number;
+  thirdTierReferrals: number;
+}
+
+export interface WalletConnection {
+  address: string;
+  chainId: number;
+  isConnected: boolean;
+}
+
+// Export all presale types
+export type { PaymentMethod, PrivateSaleConfig, CalculatorResult, TransactionResult } from './private-sale';
+export type { PresaleRound, PresaleProgress } from './presale';

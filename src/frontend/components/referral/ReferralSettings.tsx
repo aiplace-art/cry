@@ -112,7 +112,7 @@ export const ReferralSettings: React.FC<ReferralSettingsProps> = ({ userId }) =>
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <svg className="animate-spin h-12 w-12 text-purple-600 mx-auto mb-4" viewBox="0 0 24 24">
+          <svg className="animate-spin h-12 w-12 text-bnb-secondary mx-auto mb-4" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
           </svg>
@@ -159,15 +159,15 @@ export const ReferralSettings: React.FC<ReferralSettingsProps> = ({ userId }) =>
                 onClick={() => setRewardType('HYPE')}
                 className={`p-6 border-2 rounded-xl transition-all ${
                   rewardType === 'HYPE'
-                    ? 'border-purple-600 bg-purple-50'
-                    : 'border-gray-200 hover:border-purple-300'
+                    ? 'border-bnb-secondary bg-bnb-secondary/5'
+                    : 'border-gray-200 hover:border-bnb-secondary/30'
                 }`}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div
                     className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
                       rewardType === 'HYPE'
-                        ? 'border-purple-600 bg-purple-600'
+                        ? 'border-bnb-secondary bg-bnb-secondary'
                         : 'border-gray-300'
                     }`}
                   >
@@ -182,7 +182,7 @@ export const ReferralSettings: React.FC<ReferralSettingsProps> = ({ userId }) =>
                 <p className="text-sm text-gray-600 mb-2">
                   Receive rewards in HYPE tokens with potential for growth
                 </p>
-                <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold inline-block">
+                <div className="bg-bnb-secondary/10 text-bnb-textSecondary px-3 py-1 rounded-full text-xs font-semibold inline-block">
                   +20% Bonus
                 </div>
               </button>
@@ -237,7 +237,7 @@ export const ReferralSettings: React.FC<ReferralSettingsProps> = ({ userId }) =>
               value={payoutWallet}
               onChange={(e) => handleWalletChange(e.target.value)}
               placeholder="0x..."
-              className={`w-full px-4 py-3 border rounded-lg font-mono focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none ${
+              className={`w-full px-4 py-3 border rounded-lg font-mono focus:ring-2 focus:ring-bnb-secondary500 focus:border-transparent outline-none ${
                 walletError ? 'border-red-500' : 'border-gray-300'
               }`}
             />
@@ -267,7 +267,7 @@ export const ReferralSettings: React.FC<ReferralSettingsProps> = ({ userId }) =>
               type="checkbox"
               checked={emailNotifications}
               onChange={(e) => setEmailNotifications(e.target.checked)}
-              className="w-5 h-5 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+              className="w-5 h-5 text-bnb-secondary focus:ring-bnb-secondary500 border-gray-300 rounded"
             />
           </label>
 
@@ -282,7 +282,7 @@ export const ReferralSettings: React.FC<ReferralSettingsProps> = ({ userId }) =>
               type="checkbox"
               checked={telegramNotifications}
               onChange={(e) => setTelegramNotifications(e.target.checked)}
-              className="w-5 h-5 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+              className="w-5 h-5 text-bnb-secondary focus:ring-bnb-secondary500 border-gray-300 rounded"
             />
           </label>
         </div>
@@ -293,11 +293,11 @@ export const ReferralSettings: React.FC<ReferralSettingsProps> = ({ userId }) =>
         <h2 className="text-xl font-bold text-gray-900 mb-4">KYC Verification</h2>
 
         <div className="space-y-4">
-          <div className="flex items-center gap-3 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-            <svg className="w-6 h-6 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="flex items-center gap-3 p-4 bg-bnb-primary/5 border border-bnb-border rounded-lg">
+            <svg className="w-6 h-6 text-bnb-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <p className="text-sm text-blue-800">
+            <p className="text-sm text-bnb-textSecondary">
               KYC verification is required for withdrawals over $1,000
             </p>
           </div>
@@ -331,7 +331,7 @@ export const ReferralSettings: React.FC<ReferralSettingsProps> = ({ userId }) =>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Upload KYC Document
               </label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-400 transition-colors">
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-bnb-secondary/40 transition-colors">
                 <input
                   type="file"
                   accept="image/*,.pdf"
@@ -361,7 +361,7 @@ export const ReferralSettings: React.FC<ReferralSettingsProps> = ({ userId }) =>
         <button
           onClick={handleSave}
           disabled={saving || !!walletError}
-          className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-8 py-3 bg-gradient-to-r from-bnb-secondary600 to-pink-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {saving ? (
             <span className="flex items-center gap-2">
