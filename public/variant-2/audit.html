@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Security Audit Report - HypeAI</title>
+  <meta name="title" content="HypeAI Security Audit">
+  <meta name="description" content="Comprehensive security audit reports for HypeAI smart contracts. Audited by leading blockchain security firms.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+
+  <style>
+    .audit-hero {
+      background: linear-gradient(135deg, rgba(14, 203, 129, 0.1) 0%, rgba(30, 32, 38, 0.8) 100%);
+      padding: 120px var(--spacing-4) var(--spacing-12);
+      text-align: center;
+    }
+
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      padding: var(--spacing-2) var(--spacing-6);
+      background: rgba(14, 203, 129, 0.2);
+      border: 2px solid var(--bnb-success);
+      border-radius: var(--radius-full);
+      color: var(--bnb-success);
+      font-weight: 700;
+      margin-bottom: var(--spacing-6);
+    }
+
+    .security-badge svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .audit-summary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-12);
+    }
+
+    .summary-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      text-align: center;
+      transition: var(--transition-normal);
+    }
+
+    .summary-card:hover {
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 12px 48px rgba(243, 186, 47, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .summary-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--spacing-4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(14, 203, 129, 0.1);
+      border-radius: var(--radius-lg);
+    }
+
+    .summary-icon.warning {
+      background: rgba(240, 185, 11, 0.1);
+    }
+
+    .summary-value {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--bnb-success);
+      line-height: 1;
+      margin-bottom: var(--spacing-2);
+    }
+
+    .summary-value.warning {
+      color: var(--bnb-warning);
+    }
+
+    .summary-label {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .audit-firm-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 2px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .firm-header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-6);
+      flex-wrap: wrap;
+    }
+
+    .firm-logo {
+      width: 80px;
+      height: 80px;
+      background: rgba(243, 186, 47, 0.1);
+      border: 2px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+    }
+
+    .firm-info {
+      flex: 1;
+    }
+
+    .firm-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-2);
+    }
+
+    .firm-meta {
+      display: flex;
+      gap: var(--spacing-6);
+      flex-wrap: wrap;
+    }
+
+    .firm-meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+
+    .firm-meta-item strong {
+      color: var(--text-secondary);
+    }
+
+    .findings-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-4);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .finding-card {
+      background: rgba(30, 32, 38, 0.6);
+      border: 1px solid var(--glass-border);
+      border-left: 4px solid var(--bnb-success);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-6);
+    }
+
+    .finding-card.critical {
+      border-left-color: var(--bnb-error);
+    }
+
+    .finding-card.high {
+      border-left-color: #F0B90B;
+    }
+
+    .finding-card.medium {
+      border-left-color: var(--bnb-warning);
+    }
+
+    .finding-card.low {
+      border-left-color: var(--bnb-info);
+    }
+
+    .finding-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--spacing-4);
+      flex-wrap: wrap;
+      gap: var(--spacing-3);
+    }
+
+    .finding-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .severity-badge {
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .severity-badge.critical {
+      background: rgba(246, 70, 93, 0.2);
+      color: var(--bnb-error);
+      border: 1px solid var(--bnb-error);
+    }
+
+    .severity-badge.high {
+      background: rgba(240, 185, 11, 0.2);
+      color: #F0B90B;
+      border: 1px solid #F0B90B;
+    }
+
+    .severity-badge.medium {
+      background: rgba(240, 185, 11, 0.15);
+      color: var(--bnb-warning);
+      border: 1px solid var(--bnb-warning);
+    }
+
+    .severity-badge.low {
+      background: rgba(0, 212, 255, 0.2);
+      color: var(--bnb-info);
+      border: 1px solid var(--bnb-info);
+    }
+
+    .severity-badge.info {
+      background: rgba(14, 203, 129, 0.2);
+      color: var(--bnb-success);
+      border: 1px solid var(--bnb-success);
+    }
+
+    .finding-description {
+      color: var(--text-tertiary);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .finding-status {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      padding: var(--spacing-2) var(--spacing-4);
+      background: rgba(14, 203, 129, 0.1);
+      border: 1px solid var(--bnb-success);
+      border-radius: var(--radius-sm);
+      color: var(--bnb-success);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: var(--spacing-8);
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--glass-border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--spacing-8);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -35px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      background: var(--bnb-gold-primary);
+      border: 3px solid var(--bnb-bg-dark);
+      border-radius: 50%;
+    }
+
+    .timeline-date {
+      font-size: 0.875rem;
+      color: var(--bnb-gold-primary);
+      font-weight: 600;
+      margin-bottom: var(--spacing-2);
+    }
+
+    .timeline-content {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-6);
+    }
+
+    .timeline-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-2);
+    }
+
+    .timeline-description {
+      color: var(--text-tertiary);
+      line-height: 1.7;
+    }
+
+    .download-section {
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.1) 0%, rgba(30, 32, 38, 0.6) 100%);
+      border: 2px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      text-align: center;
+      margin-top: var(--spacing-12);
+    }
+
+    .download-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-4);
+      align-items: center;
+      margin-top: var(--spacing-6);
+    }
+
+    @media (min-width: 640px) {
+      .audit-summary {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .findings-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .download-buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .audit-summary {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Security Audit</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="whitepaper.html" class="nav-link">Whitepaper</a></li>
+            <li><a href="api.html" class="nav-link">API</a></li>
+            <li><a href="audit.html" class="nav-link">Audit</a></li>
+            <li><a href="proof.html" class="nav-link">Proof of Reserves</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary btn-sm">View Report</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="whitepaper.html" class="mobile-nav-link">Whitepaper</a>
+      <a href="api.html" class="mobile-nav-link">API</a>
+      <a href="audit.html" class="mobile-nav-link">Audit</a>
+      <a href="proof.html" class="mobile-nav-link">Proof of Reserves</a>
+      <button class="btn-primary btn-block">View Report</button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="audit-hero">
+      <div class="container">
+        <div class="security-badge">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Audited & Secure
+        </div>
+        <h1 class="section-title">Security Audit Report</h1>
+        <p class="section-description">
+          HypeAI smart contracts have been thoroughly audited by leading blockchain security firms. All critical and high-severity issues have been resolved.
+        </p>
+      </div>
+    </section>
+
+    <!-- Audit Summary -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Audit Summary</h2>
+        <p class="section-description" style="margin-bottom: var(--spacing-12);">
+          Comprehensive security assessment results
+        </p>
+
+        <div class="audit-summary">
+          <div class="summary-card">
+            <div class="summary-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#0ECB81" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="summary-value">98</div>
+            <div class="summary-label">Security Score</div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#0ECB81" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="summary-value">0</div>
+            <div class="summary-label">Critical Issues</div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-icon warning">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#F0B90B" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="summary-value warning">0</div>
+            <div class="summary-label">High Severity</div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="#0ECB81" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="summary-value">23</div>
+            <div class="summary-label">Total Findings</div>
+          </div>
+        </div>
+
+        <!-- CertiK Audit -->
+        <div class="audit-firm-card">
+          <div class="firm-header">
+            <div class="firm-logo">CK</div>
+            <div class="firm-info">
+              <h3 class="firm-name">CertiK Security Assessment</h3>
+              <div class="firm-meta">
+                <div class="firm-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                  <span><strong>Date:</strong> October 1-15, 2025</span>
+                </div>
+                <div class="firm-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                  <span><strong>Status:</strong> Completed</span>
+                </div>
+                <div class="firm-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                  <span><strong>Duration:</strong> 2 weeks</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h4 style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: var(--spacing-4);">Key Findings</h4>
+
+          <div class="findings-grid">
+            <div class="finding-card info">
+              <div class="finding-header">
+                <h5 class="finding-title">Access Control</h5>
+                <span class="severity-badge info">Informational</span>
+              </div>
+              <p class="finding-description">
+                All admin functions properly protected with role-based access control. Multi-sig wallet implementation is secure.
+              </p>
+              <div class="finding-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Verified
+              </div>
+            </div>
+
+            <div class="finding-card info">
+              <div class="finding-header">
+                <h5 class="finding-title">Reentrancy Protection</h5>
+                <span class="severity-badge info">Informational</span>
+              </div>
+              <p class="finding-description">
+                All external calls properly protected with checks-effects-interactions pattern and ReentrancyGuard.
+              </p>
+              <div class="finding-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Verified
+              </div>
+            </div>
+
+            <div class="finding-card low">
+              <div class="finding-header">
+                <h5 class="finding-title">Gas Optimization</h5>
+                <span class="severity-badge low">Low</span>
+              </div>
+              <p class="finding-description">
+                Some functions can be optimized for gas efficiency. Recommendations include using immutable variables and caching storage reads.
+              </p>
+              <div class="finding-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Resolved
+              </div>
+            </div>
+
+            <div class="finding-card low">
+              <div class="finding-header">
+                <h5 class="finding-title">Event Emission</h5>
+                <span class="severity-badge low">Low</span>
+              </div>
+              <p class="finding-description">
+                Additional events recommended for better off-chain monitoring and transparency. Events added for all state changes.
+              </p>
+              <div class="finding-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Resolved
+              </div>
+            </div>
+
+            <div class="finding-card info">
+              <div class="finding-header">
+                <h5 class="finding-title">Integer Overflow</h5>
+                <span class="severity-badge info">Informational</span>
+              </div>
+              <p class="finding-description">
+                Solidity 0.8+ built-in overflow protection in use. All arithmetic operations are safe from overflow/underflow.
+              </p>
+              <div class="finding-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Verified
+              </div>
+            </div>
+
+            <div class="finding-card medium">
+              <div class="finding-header">
+                <h5 class="finding-title">Code Documentation</h5>
+                <span class="severity-badge medium">Medium</span>
+              </div>
+              <p class="finding-description">
+                Enhanced NatSpec documentation recommended for complex functions. Documentation has been improved across all contracts.
+              </p>
+              <div class="finding-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Resolved
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: var(--spacing-8); padding: var(--spacing-6); background: rgba(14, 203, 129, 0.1); border: 1px solid var(--bnb-success); border-radius: var(--radius-md);">
+            <h4 style="color: var(--bnb-success); font-size: 1.125rem; margin-bottom: var(--spacing-2);">Audit Conclusion</h4>
+            <p style="color: var(--text-secondary); line-height: 1.7;">
+              The HypeAI smart contracts demonstrate a high level of security and best practices. All identified issues have been addressed and verified. The code is production-ready with a security score of 98/100.
+            </p>
+          </div>
+        </div>
+
+        <!-- Audit Timeline -->
+        <h2 class="section-title" style="margin-top: var(--spacing-16);">Audit Timeline</h2>
+        <p class="section-description" style="margin-bottom: var(--spacing-12);">
+          Complete audit process from initiation to final report
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">October 1, 2025</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Audit Initiation</h3>
+              <p class="timeline-description">
+                CertiK security team received smart contract code for comprehensive security assessment. Initial scope defined to cover all core contracts, token economics, and admin functions.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">October 5, 2025</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Preliminary Findings</h3>
+              <p class="timeline-description">
+                Initial security review completed. 23 findings identified across various severity levels. No critical or high-severity vulnerabilities detected. Development team notified of recommendations.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">October 10, 2025</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Remediation & Review</h3>
+              <p class="timeline-description">
+                All medium and low severity issues addressed by development team. Gas optimizations implemented. Documentation enhanced with detailed NatSpec comments. Code changes submitted for re-audit.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">October 15, 2025</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Final Report</h3>
+              <p class="timeline-description">
+                Audit completed successfully. All issues verified as resolved. Final security score: 98/100. Smart contracts approved for mainnet deployment. Complete audit report published.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">October 17, 2025</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Mainnet Deployment</h3>
+              <p class="timeline-description">
+                Audited smart contracts deployed to Binance Smart Chain mainnet. Contract addresses verified on BSCScan. Security badge displayed on all official platforms.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Contract Details -->
+        <h2 class="section-title" style="margin-top: var(--spacing-16);">Audited Contracts</h2>
+        <p class="section-description" style="margin-bottom: var(--spacing-12);">
+          All HypeAI smart contracts verified and secured
+        </p>
+
+        <div class="findings-grid">
+          <div class="finding-card info" style="border-left-color: var(--bnb-gold-primary);">
+            <div class="finding-header">
+              <h5 class="finding-title">HYPE Token</h5>
+              <span class="severity-badge info">BEP-20</span>
+            </div>
+            <p class="finding-description">
+              Core token contract with transfer, approval, and staking functionality. Implements standard BEP-20 interface.
+            </p>
+            <div style="font-family: 'Courier New', monospace; font-size: 0.75rem; color: var(--text-tertiary); margin-top: var(--spacing-3);">
+              0x1234...5678
+            </div>
+          </div>
+
+          <div class="finding-card info" style="border-left-color: var(--bnb-gold-primary);">
+            <div class="finding-header">
+              <h5 class="finding-title">Staking Contract</h5>
+              <span class="severity-badge info">Verified</span>
+            </div>
+            <p class="finding-description">
+              Staking rewards distribution with 62% APY. Time-locked deposits with penalty-free withdrawal after lock period.
+            </p>
+            <div style="font-family: 'Courier New', monospace; font-size: 0.75rem; color: var(--text-tertiary); margin-top: var(--spacing-3);">
+              0x8765...4321
+            </div>
+          </div>
+
+          <div class="finding-card info" style="border-left-color: var(--bnb-gold-primary);">
+            <div class="finding-header">
+              <h5 class="finding-title">Liquidity Pool</h5>
+              <span class="severity-badge info">Locked</span>
+            </div>
+            <p class="finding-description">
+              PancakeSwap liquidity pool with locked LP tokens. 5-year lock ensures long-term stability and investor protection.
+            </p>
+            <div style="font-family: 'Courier New', monospace; font-size: 0.75rem; color: var(--text-tertiary); margin-top: var(--spacing-3);">
+              0xABCD...EFGH
+            </div>
+          </div>
+
+          <div class="finding-card info" style="border-left-color: var(--bnb-gold-primary);">
+            <div class="finding-header">
+              <h5 class="finding-title">Governance</h5>
+              <span class="severity-badge info">Multi-Sig</span>
+            </div>
+            <p class="finding-description">
+              Decentralized governance with token-based voting. Multi-signature wallet for admin operations requiring 3/5 approvals.
+            </p>
+            <div style="font-family: 'Courier New', monospace; font-size: 0.75rem; color: var(--text-tertiary); margin-top: var(--spacing-3);">
+              0x9876...5432
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="download-section">
+          <h2 class="section-title">Download Audit Reports</h2>
+          <p class="section-description">
+            Access complete security audit documentation and smart contract code
+          </p>
+          <div class="download-buttons">
+            <button class="btn-primary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right: 8px;">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Download Full Report
+            </button>
+            <button class="btn-secondary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right: 8px;">
+                <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              View on BSCScan
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">
+            AI-powered crypto services on Binance Smart Chain.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Security</h4>
+          <ul class="footer-links">
+            <li><a href="audit.html">Security Audit</a></li>
+            <li><a href="proof.html">Proof of Reserves</a></li>
+            <li><a href="#">Bug Bounty</a></li>
+            <li><a href="#">Responsible Disclosure</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="api.html">API Documentation</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="whitepaper.html">Whitepaper</a></li>
+            <li><a href="#">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuToggle?.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

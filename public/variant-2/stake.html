@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stake HYPE - Earn up to 62% APY</title>
+  <meta name="description" content="Stake your HYPE tokens and earn up to 62% APY on Binance Smart Chain">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-logo">
+        <a href="index.html">
+          <img src="assets/logo-bnb.svg" alt="HypeAI" height="40">
+        </a>
+      </div>
+
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="agents.html">AI Agents</a>
+        <a href="about.html">About</a>
+        <a href="trade.html">Trade</a>
+        <a href="stake.html" class="active">Stake</a>
+        <a href="whitepaper.html">Whitepaper</a>
+      </nav>
+
+      <div class="header-cta">
+        <button class="btn-bnb-primary">Connect Wallet</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <div class="bsc-badge">
+      <span>Powered by Binance Smart Chain</span>
+    </div>
+    <h1>Stake HYPE Tokens</h1>
+    <p>Earn up to 62% APY by staking your HYPE tokens on Binance Chain</p>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="section-spacing">
+    <div class="stake-calculator">
+      <div class="calculator glass-card">
+        <h3 class="text-gradient text-center">Staking Calculator</h3>
+        <p class="text-center" style="margin-bottom: var(--spacing-lg); color: var(--text-secondary);">
+          Calculate your potential earnings
+        </p>
+
+        <!-- Amount Input -->
+        <div>
+          <label style="display: block; margin-bottom: var(--spacing-sm); color: var(--text-secondary); font-size: 0.875rem;">
+            Amount to Stake (HYPE)
+          </label>
+          <input
+            type="range"
+            id="stake-amount"
+            min="0"
+            max="1000000"
+            value="10000"
+            step="1000"
+          >
+          <div style="text-align: center; margin-top: var(--spacing-sm);">
+            <span id="stake-amount-display" style="font-size: 1.5rem; font-weight: 700; color: var(--bnb-gold);">
+              10,000 HYPE
+            </span>
+          </div>
+        </div>
+
+        <!-- Rewards Display -->
+        <div class="rewards-display">
+          <span class="apy">62% APY</span>
+          <span class="earnings" id="earnings-display">$15,808 / year</span>
+          <div style="margin-top: var(--spacing-md); font-size: 0.875rem; color: var(--text-tertiary);">
+            That's <strong style="color: var(--bnb-gold);" id="monthly-display">$1,317/month</strong> or
+            <strong style="color: var(--bnb-gold);" id="daily-display">$43.32/day</strong>
+          </div>
+        </div>
+
+        <!-- Stake Button -->
+        <button class="btn-bnb-primary btn-large" style="width: 100%;">
+          Connect Wallet to Stake
+        </button>
+
+        <!-- Info -->
+        <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(243, 186, 47, 0.05); border-radius: var(--radius-md);">
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm); color: var(--text-secondary);">
+              <span style="color: var(--bnb-gold);">✓</span>
+              Auto-compounding rewards daily
+            </li>
+            <li style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm); color: var(--text-secondary);">
+              <span style="color: var(--bnb-gold);">✓</span>
+              Unstake anytime (no lockup)
+            </li>
+            <li style="display: flex; align-items: center; gap: var(--spacing-sm); color: var(--text-secondary);">
+              <span style="color: var(--bnb-gold);">✓</span>
+              Earn governance rights
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Staking Pools -->
+  <section class="section-spacing" style="background: var(--bnb-dark);">
+    <div class="container">
+      <h2 class="text-center text-gradient">Staking Pools</h2>
+      <p class="text-center" style="margin-bottom: var(--spacing-2xl); max-width: 700px; margin-left: auto; margin-right: auto;">
+        Choose the pool that matches your investment strategy
+      </p>
+
+      <div class="pools-grid">
+        <!-- Flexible Pool -->
+        <div class="pool-card glass-card">
+          <div style="display: inline-block; padding: var(--spacing-xs) var(--spacing-md); background: rgba(243, 186, 47, 0.1); border: 1px solid var(--bnb-gold); border-radius: 50px; font-size: 0.75rem; font-weight: 700; color: var(--bnb-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--spacing-md);">
+            Most Popular
+          </div>
+          <h3>Flexible</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">Stake and unstake anytime</p>
+
+          <div class="apy-badge">24% APY</div>
+
+          <div style="background: rgba(243, 186, 47, 0.05); padding: var(--spacing-md); border-radius: var(--radius-md); margin-bottom: var(--spacing-lg);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+              <span style="color: var(--text-tertiary); font-size: 0.875rem;">Lock Period</span>
+              <span style="color: var(--text-primary); font-weight: 600;">None</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+              <span style="color: var(--text-tertiary); font-size: 0.875rem;">Minimum</span>
+              <span style="color: var(--text-primary); font-weight: 600;">100 HYPE</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-tertiary); font-size: 0.875rem;">Compound</span>
+              <span style="color: var(--text-primary); font-weight: 600;">Daily</span>
+            </div>
+          </div>
+
+          <button class="btn-bnb-primary" style="width: 100%;">Stake Now</button>
+        </div>
+
+        <!-- 3 Month Pool -->
+        <div class="pool-card glass-card">
+          <h3>3 Months</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">Higher rewards for commitment</p>
+
+          <div class="apy-badge">42% APY</div>
+
+          <div style="background: rgba(243, 186, 47, 0.05); padding: var(--spacing-md); border-radius: var(--radius-md); margin-bottom: var(--spacing-lg);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+              <span style="color: var(--text-tertiary); font-size: 0.875rem;">Lock Period</span>
+              <span style="color: var(--text-primary); font-weight: 600;">90 Days</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+              <span style="color: var(--text-tertiary); font-size: 0.875rem;">Minimum</span>
+              <span style="color: var(--text-primary); font-weight: 600;">500 HYPE</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-tertiary); font-size: 0.875rem;">Compound</span>
+              <span style="color: var(--text-primary); font-weight: 600;">Daily</span>
+            </div>
+          </div>
+
+          <button class="btn-bnb-secondary" style="width: 100%;">Stake Now</button>
+        </div>
+
+        <!-- 6 Month Pool -->
+        <div class="pool-card glass-card">
+          <div style="display: inline-block; padding: var(--spacing-xs) var(--spacing-md); background: rgba(243, 186, 47, 0.1); border: 1px solid var(--bnb-gold); border-radius: 50px; font-size: 0.75rem; font-weight: 700; color: var(--bnb-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--spacing-md);">
+            Highest APY
+          </div>
+          <h3>6 Months</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">Maximum rewards</p>
+
+          <div class="apy-badge">62% APY</div>
+
+          <div style="background: rgba(243, 186, 47, 0.05); padding: var(--spacing-md); border-radius: var(--radius-md); margin-bottom: var(--spacing-lg);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+              <span style="color: var(--text-tertiary); font-size: 0.875rem;">Lock Period</span>
+              <span style="color: var(--text-primary); font-weight: 600;">180 Days</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+              <span style="color: var(--text-tertiary); font-size: 0.875rem;">Minimum</span>
+              <span style="color: var(--text-primary); font-weight: 600;">1,000 HYPE</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-tertiary); font-size: 0.875rem;">Compound</span>
+              <span style="color: var(--text-primary); font-weight: 600;">Daily</span>
+            </div>
+          </div>
+
+          <button class="btn-bnb-primary" style="width: 100%;">Stake Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section-spacing">
+    <div class="container">
+      <h2 class="text-center text-gradient">Why Stake with HypeAI?</h2>
+      <div class="content-grid" style="margin-top: var(--spacing-2xl);">
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            🔄
+          </div>
+          <h3>Auto-Compounding</h3>
+          <p>Your rewards are automatically reinvested daily, maximizing your returns through compound interest.</p>
+        </div>
+
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            🔒
+          </div>
+          <h3>Audited Contracts</h3>
+          <p>Our staking contracts have been audited by leading security firms. Your funds are protected.</p>
+        </div>
+
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            🗳️
+          </div>
+          <h3>Governance Rights</h3>
+          <p>Staked HYPE tokens give you voting power in the DAO. Help shape the future of the platform.</p>
+        </div>
+
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            💰
+          </div>
+          <h3>Low Fees</h3>
+          <p>Staking and unstaking costs less than $0.50 in gas fees thanks to Binance Chain efficiency.</p>
+        </div>
+
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            📊
+          </div>
+          <h3>Real-Time Stats</h3>
+          <p>Track your staking performance in real-time with detailed analytics and projections.</p>
+        </div>
+
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            🎁
+          </div>
+          <h3>Bonus Rewards</h3>
+          <p>Early stakers receive bonus multipliers and exclusive access to new AI agent features.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section-spacing" style="background: var(--bnb-dark);">
+    <div class="container">
+      <h2 class="text-center text-gradient">Staking Statistics</h2>
+      <div class="content-grid" style="margin-top: var(--spacing-2xl);">
+        <div class="glass-card text-center">
+          <div style="font-size: 3rem; font-weight: 700; background: var(--gradient-bnb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: var(--spacing-sm);">
+            $5.2M
+          </div>
+          <div style="color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem;">
+            Total Value Staked
+          </div>
+        </div>
+
+        <div class="glass-card text-center">
+          <div style="font-size: 3rem; font-weight: 700; background: var(--gradient-bnb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: var(--spacing-sm);">
+            4,824
+          </div>
+          <div style="color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem;">
+            Active Stakers
+          </div>
+        </div>
+
+        <div class="glass-card text-center">
+          <div style="font-size: 3rem; font-weight: 700; background: var(--gradient-bnb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: var(--spacing-sm);">
+            $124K
+          </div>
+          <div style="color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem;">
+            Rewards Distributed (24h)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/logo-bnb.svg" alt="HypeAI" height="50">
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="agents.html">AI Agents</a>
+        <a href="about.html">About</a>
+        <a href="trade.html">Trade</a>
+        <a href="stake.html">Stake</a>
+        <a href="whitepaper.html">Whitepaper</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="#" class="social-icon">𝕏</a>
+        <a href="#" class="social-icon">T</a>
+        <a href="#" class="social-icon">D</a>
+        <a href="#" class="social-icon">G</a>
+      </div>
+
+      <div class="footer-bnb">
+        <span>Built on</span>
+        <strong style="color: var(--bnb-gold);">Binance Smart Chain</strong>
+        <span>⚡</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/interactions.js"></script>
+  <script>
+    // Simple calculator functionality
+    const stakeAmount = document.getElementById('stake-amount');
+    const stakeAmountDisplay = document.getElementById('stake-amount-display');
+    const earningsDisplay = document.getElementById('earnings-display');
+    const monthlyDisplay = document.getElementById('monthly-display');
+    const dailyDisplay = document.getElementById('daily-display');
+
+    stakeAmount.addEventListener('input', (e) => {
+      const amount = parseInt(e.target.value);
+      const hypePrice = 0.2564;
+      const apy = 0.62;
+
+      const valueUSD = amount * hypePrice;
+      const yearlyEarnings = valueUSD * apy;
+      const monthlyEarnings = yearlyEarnings / 12;
+      const dailyEarnings = yearlyEarnings / 365;
+
+      stakeAmountDisplay.textContent = `${amount.toLocaleString()} HYPE`;
+      earningsDisplay.textContent = `$${yearlyEarnings.toLocaleString(undefined, {maximumFractionDigits: 0})} / year`;
+      monthlyDisplay.textContent = `$${monthlyEarnings.toLocaleString(undefined, {maximumFractionDigits: 0})}/month`;
+      dailyDisplay.textContent = `$${dailyEarnings.toFixed(2)}/day`;
+    });
+  </script>
+</body>
+</html>

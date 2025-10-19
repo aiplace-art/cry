@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade - HypeAI Platform</title>
+  <meta name="description" content="Trade HYPE tokens on Binance Smart Chain with low fees and instant execution">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-logo">
+        <a href="index.html">
+          <img src="assets/logo-bnb.svg" alt="HypeAI" height="40">
+        </a>
+      </div>
+
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="agents.html">AI Agents</a>
+        <a href="about.html">About</a>
+        <a href="trade.html" class="active">Trade</a>
+        <a href="stake.html">Stake</a>
+        <a href="whitepaper.html">Whitepaper</a>
+      </nav>
+
+      <div class="header-cta">
+        <button class="btn-bnb-primary">Connect Wallet</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <div class="bsc-badge">
+      <span>Powered by Binance Smart Chain</span>
+    </div>
+    <h1>Trade on Binance Chain</h1>
+    <p>Fast, secure, and low-cost trading for HYPE tokens</p>
+
+    <div class="network-indicator">
+      <span class="dot"></span>
+      <span>BSC Testnet Connected</span>
+    </div>
+  </section>
+
+  <!-- Trading Interface -->
+  <section class="section-spacing">
+    <div class="trade-container">
+      <!-- Trade Panel -->
+      <div class="trade-panel glass-card">
+        <h2 class="text-gradient" style="margin-bottom: var(--spacing-lg);">Swap Tokens</h2>
+
+        <!-- From Token -->
+        <div class="token-selector">
+          <label style="display: block; margin-bottom: var(--spacing-xs); color: var(--text-secondary); font-size: 0.875rem;">From</label>
+          <select id="from-token">
+            <option value="BNB">BNB - Binance Coin</option>
+            <option value="BUSD">BUSD - Binance USD</option>
+            <option value="USDT">USDT - Tether USD</option>
+          </select>
+        </div>
+
+        <!-- From Amount -->
+        <div class="amount-input">
+          <input type="number" id="from-amount" placeholder="0.0" step="0.01">
+          <button class="btn-max">MAX</button>
+        </div>
+
+        <!-- Swap Direction -->
+        <div style="text-align: center; margin: var(--spacing-md) 0;">
+          <button style="background: rgba(243, 186, 47, 0.1); border: 1px solid var(--bnb-gold); border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; color: var(--bnb-gold); cursor: pointer; transition: all 0.3s ease;">
+            ⇅
+          </button>
+        </div>
+
+        <!-- To Token -->
+        <div class="token-selector">
+          <label style="display: block; margin-bottom: var(--spacing-xs); color: var(--text-secondary); font-size: 0.875rem;">To</label>
+          <select id="to-token">
+            <option value="HYPE">HYPE - HypeAI Token</option>
+            <option value="BNB">BNB - Binance Coin</option>
+            <option value="BUSD">BUSD - Binance USD</option>
+          </select>
+        </div>
+
+        <!-- To Amount -->
+        <div class="amount-input">
+          <input type="number" id="to-amount" placeholder="0.0" readonly>
+        </div>
+
+        <!-- Trade Info -->
+        <div style="background: rgba(243, 186, 47, 0.05); padding: var(--spacing-md); border-radius: var(--radius-md); margin: var(--spacing-lg) 0;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-xs);">
+            <span style="color: var(--text-tertiary); font-size: 0.875rem;">Exchange Rate</span>
+            <span style="color: var(--text-primary); font-weight: 600;">1 BNB = 1,234 HYPE</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-xs);">
+            <span style="color: var(--text-tertiary); font-size: 0.875rem;">Slippage</span>
+            <span style="color: var(--text-primary); font-weight: 600;">0.5%</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-xs);">
+            <span style="color: var(--text-tertiary); font-size: 0.875rem;">Network Fee</span>
+            <span style="color: var(--text-primary); font-weight: 600;">~$0.15</span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--text-tertiary); font-size: 0.875rem;">Minimum Received</span>
+            <span style="color: var(--bnb-gold); font-weight: 600;">1,227.83 HYPE</span>
+          </div>
+        </div>
+
+        <!-- Connect Wallet Button -->
+        <button class="btn-bnb-primary btn-large" style="width: 100%;">
+          Connect Wallet to Trade
+        </button>
+
+        <!-- Warning -->
+        <p style="font-size: 0.75rem; color: var(--text-tertiary); text-align: center; margin-top: var(--spacing-md); line-height: 1.6;">
+          By connecting your wallet, you agree to our Terms of Service and acknowledge that you have read and understood the risks.
+        </p>
+      </div>
+
+      <!-- Stats Panel -->
+      <div class="trade-stats glass-card">
+        <h3 class="text-gradient" style="margin-bottom: var(--spacing-lg);">24h Trading Stats</h3>
+
+        <div class="stat">
+          <div>
+            <div style="color: var(--text-tertiary); font-size: 0.875rem; margin-bottom: var(--spacing-xs);">24h Volume</div>
+            <strong>$2,847,234</strong>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <div style="color: var(--text-tertiary); font-size: 0.875rem; margin-bottom: var(--spacing-xs);">Total Value Locked</div>
+            <strong>$12,543,891</strong>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <div style="color: var(--text-tertiary); font-size: 0.875rem; margin-bottom: var(--spacing-xs);">HYPE Price</div>
+            <strong>$0.2564</strong>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <div style="color: var(--text-tertiary); font-size: 0.875rem; margin-bottom: var(--spacing-xs);">24h Change</div>
+            <strong style="color: #0ECB81;">+8.24%</strong>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <div style="color: var(--text-tertiary); font-size: 0.875rem; margin-bottom: var(--spacing-xs);">Liquidity (HYPE/BNB)</div>
+            <strong>$4,892,156</strong>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <div style="color: var(--text-tertiary); font-size: 0.875rem; margin-bottom: var(--spacing-xs);">Market Cap</div>
+            <strong>$25,640,000</strong>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div style="margin-top: var(--spacing-xl); padding-top: var(--spacing-lg); border-top: 1px solid rgba(243, 186, 47, 0.2);">
+          <h4 style="color: var(--bnb-gold); margin-bottom: var(--spacing-md); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;">Quick Links</h4>
+
+          <a href="#" style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm); background: rgba(243, 186, 47, 0.05); border-radius: var(--radius-sm); margin-bottom: var(--spacing-xs); transition: all 0.3s ease;">
+            <span>View on BSCScan</span>
+            <span>→</span>
+          </a>
+
+          <a href="#" style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm); background: rgba(243, 186, 47, 0.05); border-radius: var(--radius-sm); margin-bottom: var(--spacing-xs); transition: all 0.3s ease;">
+            <span>Add to MetaMask</span>
+            <span>→</span>
+          </a>
+
+          <a href="stake.html" style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm); background: rgba(243, 186, 47, 0.05); border-radius: var(--radius-sm); transition: all 0.3s ease;">
+            <span>Stake HYPE (62% APY)</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section-spacing" style="background: var(--bnb-dark);">
+    <div class="container">
+      <h2 class="text-center text-gradient">Why Trade on Binance Chain?</h2>
+      <p class="text-center" style="margin-bottom: var(--spacing-2xl); max-width: 700px; margin-left: auto; margin-right: auto;">
+        Experience the benefits of trading on one of the world's most efficient blockchains
+      </p>
+
+      <div class="content-grid">
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            ⚡
+          </div>
+          <h3>Lightning Fast</h3>
+          <p>3-second block times mean your trades execute almost instantly. No more waiting minutes for confirmations.</p>
+        </div>
+
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            💰
+          </div>
+          <h3>Ultra-Low Fees</h3>
+          <p>Gas fees typically under $0.50. Trade as often as you want without worrying about expensive transaction costs.</p>
+        </div>
+
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            🔒
+          </div>
+          <h3>Highly Secure</h3>
+          <p>Binance Chain's security model has protected billions in assets. Your funds are safe with battle-tested infrastructure.</p>
+        </div>
+
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            🌊
+          </div>
+          <h3>Deep Liquidity</h3>
+          <p>Trade with minimal slippage thanks to deep liquidity pools across multiple DEXs on Binance Chain.</p>
+        </div>
+
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            🤖
+          </div>
+          <h3>AI-Powered</h3>
+          <p>Our AI agents can execute trades for you automatically based on your strategy and risk tolerance.</p>
+        </div>
+
+        <div class="glass-card">
+          <div style="width: 60px; height: 60px; background: var(--gradient-bnb); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: var(--spacing-md);">
+            🔄
+          </div>
+          <h3>MEV Protection</h3>
+          <p>Advanced routing and MEV protection ensure you get the best possible price on every trade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/logo-bnb.svg" alt="HypeAI" height="50">
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="agents.html">AI Agents</a>
+        <a href="about.html">About</a>
+        <a href="trade.html">Trade</a>
+        <a href="stake.html">Stake</a>
+        <a href="whitepaper.html">Whitepaper</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="#" class="social-icon">𝕏</a>
+        <a href="#" class="social-icon">T</a>
+        <a href="#" class="social-icon">D</a>
+        <a href="#" class="social-icon">G</a>
+      </div>
+
+      <div class="footer-bnb">
+        <span>Built on</span>
+        <strong style="color: var(--bnb-gold);">Binance Smart Chain</strong>
+        <span>⚡</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/interactions.js"></script>
+</body>
+</html>

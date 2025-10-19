@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HypeAI Leaderboard - Top Traders & Users</title>
+  <meta name="description" content="View the top HypeAI traders, stakers, and community members. Track rankings, rewards, and achievements.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    .leaderboard-hero {
+      padding: calc(80px + var(--spacing-8)) var(--spacing-4) var(--spacing-8);
+      background: radial-gradient(circle at 50% 50%, rgba(243, 186, 47, 0.1) 0%, transparent 70%);
+      text-align: center;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: var(--spacing-2);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--spacing-8);
+    }
+
+    .filter-tab {
+      padding: var(--spacing-3) var(--spacing-6);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .filter-tab:hover,
+    .filter-tab.active {
+      background: rgba(243, 186, 47, 0.1);
+      border-color: var(--bnb-gold-primary);
+      color: var(--bnb-gold-primary);
+    }
+
+    .top-three {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-12);
+    }
+
+    .podium-card {
+      position: relative;
+      padding: var(--spacing-8);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 2px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: var(--transition-normal);
+    }
+
+    .podium-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(243, 186, 47, 0.3);
+    }
+
+    .podium-card.first {
+      border-color: var(--bnb-gold-primary);
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.15) 0%, var(--glass-bg) 100%);
+    }
+
+    .podium-card.second {
+      border-color: #C0C0C0;
+    }
+
+    .podium-card.third {
+      border-color: #CD7F32;
+    }
+
+    .rank-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border: 3px solid var(--bnb-bg-dark);
+    }
+
+    .rank-badge.first {
+      background: var(--gradient-gold);
+      color: #000;
+    }
+
+    .rank-badge.second {
+      background: linear-gradient(135deg, #C0C0C0, #E8E8E8);
+      color: #000;
+    }
+
+    .rank-badge.third {
+      background: linear-gradient(135deg, #CD7F32, #E5A76F);
+      color: #000;
+    }
+
+    .podium-avatar {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto var(--spacing-4);
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #000;
+      border: 4px solid var(--bnb-bg-dark);
+    }
+
+    .podium-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-2);
+    }
+
+    .podium-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-4);
+      margin-top: var(--spacing-6);
+      padding-top: var(--spacing-6);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .podium-stat {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-1);
+    }
+
+    .stat-value-large {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+    }
+
+    .stat-label-small {
+      font-size: 0.75rem;
+      color: var(--text-quaternary);
+      text-transform: uppercase;
+    }
+
+    .leaderboard-table {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .table-header {
+      display: grid;
+      grid-template-columns: 80px 1fr 120px 120px 120px;
+      gap: var(--spacing-4);
+      padding: var(--spacing-6);
+      background: rgba(243, 186, 47, 0.1);
+      border-bottom: 1px solid var(--glass-border);
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 120px 120px 120px;
+      gap: var(--spacing-4);
+      padding: var(--spacing-6);
+      border-bottom: 1px solid var(--glass-border);
+      transition: var(--transition-fast);
+      align-items: center;
+    }
+
+    .table-row:last-child {
+      border-bottom: none;
+    }
+
+    .table-row:hover {
+      background: rgba(243, 186, 47, 0.05);
+    }
+
+    .rank-cell {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-tertiary);
+    }
+
+    .user-cell {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+    }
+
+    .user-avatar-small {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .user-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .user-address {
+      font-size: 0.75rem;
+      color: var(--text-quaternary);
+      font-family: monospace;
+    }
+
+    .value-cell {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .value-positive {
+      color: var(--bnb-success);
+    }
+
+    .badges-row {
+      display: flex;
+      gap: var(--spacing-2);
+      flex-wrap: wrap;
+      margin-top: var(--spacing-2);
+    }
+
+    .badge {
+      padding: var(--spacing-1) var(--spacing-2);
+      background: rgba(243, 186, 47, 0.1);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      font-size: 0.7rem;
+      color: var(--bnb-gold-primary);
+      font-weight: 600;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-2);
+      margin-top: var(--spacing-8);
+    }
+
+    .pagination-btn {
+      padding: var(--spacing-2) var(--spacing-4);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .pagination-btn:hover,
+    .pagination-btn.active {
+      background: rgba(243, 186, 47, 0.1);
+      border-color: var(--bnb-gold-primary);
+      color: var(--bnb-gold-primary);
+    }
+
+    .rewards-banner {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 2px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      text-align: center;
+      margin-bottom: var(--spacing-8);
+    }
+
+    .rewards-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .rewards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--spacing-4);
+    }
+
+    .reward-item {
+      padding: var(--spacing-4);
+      background: rgba(243, 186, 47, 0.05);
+      border-radius: var(--radius-md);
+    }
+
+    .reward-rank {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      margin-bottom: var(--spacing-2);
+    }
+
+    .reward-amount {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+    }
+
+    @media (min-width: 768px) {
+      .top-three {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .top-three .podium-card.first {
+        order: 2;
+        transform: scale(1.05);
+      }
+
+      .top-three .podium-card.second {
+        order: 1;
+      }
+
+      .top-three .podium-card.third {
+        order: 3;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .table-header,
+      .table-row {
+        grid-template-columns: 60px 1fr 80px;
+      }
+
+      .table-header .hide-mobile,
+      .table-row .hide-mobile {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="index.html#features" class="nav-link">Features</a></li>
+            <li><a href="agents.html" class="nav-link">AI Agents</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="leaderboard.html" class="nav-link">Leaderboard</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary">Connect Wallet</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html#features" class="mobile-nav-link">Features</a>
+      <a href="agents.html" class="mobile-nav-link">AI Agents</a>
+      <a href="community.html" class="mobile-nav-link">Community</a>
+      <a href="leaderboard.html" class="mobile-nav-link">Leaderboard</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Leaderboard Hero -->
+    <section class="leaderboard-hero">
+      <div class="container">
+        <h1 class="section-title">HypeAI Leaderboard</h1>
+        <p class="section-description">
+          Top traders, stakers, and community champions competing for glory and rewards
+        </p>
+
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All Time</button>
+          <button class="filter-tab" data-filter="monthly">This Month</button>
+          <button class="filter-tab" data-filter="weekly">This Week</button>
+          <button class="filter-tab" data-filter="daily">Today</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rewards Banner -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="rewards-banner">
+          <h3 class="rewards-title">Monthly Leaderboard Rewards</h3>
+          <div class="rewards-grid">
+            <div class="reward-item">
+              <div class="reward-rank">🥇 1st Place</div>
+              <div class="reward-amount">50,000 HYPE</div>
+            </div>
+            <div class="reward-item">
+              <div class="reward-rank">🥈 2nd Place</div>
+              <div class="reward-amount">30,000 HYPE</div>
+            </div>
+            <div class="reward-item">
+              <div class="reward-rank">🥉 3rd Place</div>
+              <div class="reward-amount">20,000 HYPE</div>
+            </div>
+            <div class="reward-item">
+              <div class="reward-rank">🏅 4th-10th</div>
+              <div class="reward-amount">5,000 HYPE</div>
+            </div>
+            <div class="reward-item">
+              <div class="reward-rank">⭐ 11th-50th</div>
+              <div class="reward-amount">1,000 HYPE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top 3 Podium -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="top-three">
+          <!-- First Place -->
+          <div class="podium-card first">
+            <div class="rank-badge first">1</div>
+            <div class="podium-avatar">CK</div>
+            <h3 class="podium-name">@cryptoking</h3>
+            <p class="user-address">0x742d...35Bf</p>
+            <div class="badges-row" style="justify-content: center;">
+              <span class="badge">🏆 Champion</span>
+              <span class="badge">💎 Diamond Staker</span>
+            </div>
+            <div class="podium-stats">
+              <div class="podium-stat">
+                <div class="stat-value-large">$2.4M</div>
+                <div class="stat-label-small">Total Volume</div>
+              </div>
+              <div class="podium-stat">
+                <div class="stat-value-large">+847%</div>
+                <div class="stat-label-small">ROI</div>
+              </div>
+              <div class="podium-stat">
+                <div class="stat-value-large">1,247</div>
+                <div class="stat-label-small">Trades</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Place -->
+          <div class="podium-card second">
+            <div class="rank-badge second">2</div>
+            <div class="podium-avatar">DW</div>
+            <h3 class="podium-name">@defiwhale</h3>
+            <p class="user-address">0x8a91...42Cd</p>
+            <div class="badges-row" style="justify-content: center;">
+              <span class="badge">🥈 Runner-up</span>
+              <span class="badge">🔥 Hot Streak</span>
+            </div>
+            <div class="podium-stats">
+              <div class="podium-stat">
+                <div class="stat-value-large">$1.8M</div>
+                <div class="stat-label-small">Total Volume</div>
+              </div>
+              <div class="podium-stat">
+                <div class="stat-value-large">+692%</div>
+                <div class="stat-label-small">ROI</div>
+              </div>
+              <div class="podium-stat">
+                <div class="stat-value-large">983</div>
+                <div class="stat-label-small">Trades</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Third Place -->
+          <div class="podium-card third">
+            <div class="rank-badge third">3</div>
+            <div class="podium-avatar">AM</div>
+            <h3 class="podium-name">@aimaven</h3>
+            <p class="user-address">0x5c23...89Ef</p>
+            <div class="badges-row" style="justify-content: center;">
+              <span class="badge">🥉 Bronze</span>
+              <span class="badge">📈 Rising Star</span>
+            </div>
+            <div class="podium-stats">
+              <div class="podium-stat">
+                <div class="stat-value-large">$1.5M</div>
+                <div class="stat-label-small">Total Volume</div>
+              </div>
+              <div class="podium-stat">
+                <div class="stat-value-large">+578%</div>
+                <div class="stat-label-small">ROI</div>
+              </div>
+              <div class="podium-stat">
+                <div class="stat-value-large">856</div>
+                <div class="stat-label-small">Trades</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboard Table -->
+    <section class="section" style="background: var(--bnb-bg-dark);">
+      <div class="container">
+        <div class="leaderboard-table">
+          <div class="table-header">
+            <div>Rank</div>
+            <div>User</div>
+            <div>Volume</div>
+            <div class="hide-mobile">ROI</div>
+            <div class="hide-mobile">Trades</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">4</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">TB</div>
+              <div class="user-info">
+                <div class="user-name">@traderbob</div>
+                <div class="user-address">0x1f45...67Ab</div>
+              </div>
+            </div>
+            <div class="value-cell">$1.2M</div>
+            <div class="value-cell value-positive hide-mobile">+456%</div>
+            <div class="value-cell hide-mobile">742</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">5</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">NP</div>
+              <div class="user-info">
+                <div class="user-name">@nftpro</div>
+                <div class="user-address">0x9d82...34Bc</div>
+              </div>
+            </div>
+            <div class="value-cell">$980K</div>
+            <div class="value-cell value-positive hide-mobile">+423%</div>
+            <div class="value-cell hide-mobile">689</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">6</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">SH</div>
+              <div class="user-info">
+                <div class="user-name">@stakeholder</div>
+                <div class="user-address">0x7b34...91De</div>
+              </div>
+            </div>
+            <div class="value-cell">$875K</div>
+            <div class="value-cell value-positive hide-mobile">+389%</div>
+            <div class="value-cell hide-mobile">621</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">7</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">MG</div>
+              <div class="user-info">
+                <div class="user-name">@moongirl</div>
+                <div class="user-address">0x2e67...45Fg</div>
+              </div>
+            </div>
+            <div class="value-cell">$756K</div>
+            <div class="value-cell value-positive hide-mobile">+367%</div>
+            <div class="value-cell hide-mobile">578</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">8</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">LP</div>
+              <div class="user-info">
+                <div class="user-name">@liquiditypro</div>
+                <div class="user-address">0x4a89...23Hi</div>
+              </div>
+            </div>
+            <div class="value-cell">$698K</div>
+            <div class="value-cell value-positive hide-mobile">+334%</div>
+            <div class="value-cell hide-mobile">534</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">9</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">YF</div>
+              <div class="user-info">
+                <div class="user-name">@yieldfarmer</div>
+                <div class="user-address">0x6c12...78Jk</div>
+              </div>
+            </div>
+            <div class="value-cell">$634K</div>
+            <div class="value-cell value-positive hide-mobile">+312%</div>
+            <div class="value-cell hide-mobile">489</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">10</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">BN</div>
+              <div class="user-info">
+                <div class="user-name">@bnbninja</div>
+                <div class="user-address">0x3d45...56Lm</div>
+              </div>
+            </div>
+            <div class="value-cell">$589K</div>
+            <div class="value-cell value-positive hide-mobile">+298%</div>
+            <div class="value-cell hide-mobile">456</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">11</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">CT</div>
+              <div class="user-info">
+                <div class="user-name">@cryptotitan</div>
+                <div class="user-address">0x8e76...89Mn</div>
+              </div>
+            </div>
+            <div class="value-cell">$523K</div>
+            <div class="value-cell value-positive hide-mobile">+276%</div>
+            <div class="value-cell hide-mobile">423</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">12</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">DH</div>
+              <div class="user-info">
+                <div class="user-name">@defihunter</div>
+                <div class="user-address">0x1a23...45No</div>
+              </div>
+            </div>
+            <div class="value-cell">$487K</div>
+            <div class="value-cell value-positive hide-mobile">+254%</div>
+            <div class="value-cell hide-mobile">398</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">13</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">AP</div>
+              <div class="user-info">
+                <div class="user-name">@aipowered</div>
+                <div class="user-address">0x5b67...12Pq</div>
+              </div>
+            </div>
+            <div class="value-cell">$445K</div>
+            <div class="value-cell value-positive hide-mobile">+239%</div>
+            <div class="value-cell hide-mobile">367</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">14</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">SM</div>
+              <div class="user-info">
+                <div class="user-name">@smartmoney</div>
+                <div class="user-address">0x9c34...78Rs</div>
+              </div>
+            </div>
+            <div class="value-cell">$412K</div>
+            <div class="value-cell value-positive hide-mobile">+223%</div>
+            <div class="value-cell hide-mobile">342</div>
+          </div>
+
+          <div class="table-row">
+            <div class="rank-cell">15</div>
+            <div class="user-cell">
+              <div class="user-avatar-small">WB</div>
+              <div class="user-info">
+                <div class="user-name">@walletbeast</div>
+                <div class="user-address">0x2f89...34Tu</div>
+              </div>
+            </div>
+            <div class="value-cell">$378K</div>
+            <div class="value-cell value-positive hide-mobile">+207%</div>
+            <div class="value-cell hide-mobile">318</div>
+          </div>
+        </div>
+
+        <div class="pagination">
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <button class="pagination-btn">4</button>
+          <button class="pagination-btn">5</button>
+          <button class="pagination-btn">...</button>
+          <button class="pagination-btn">10</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">
+            AI-powered crypto services on Binance Smart Chain.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="agents.html">AI Agents</a></li>
+            <li><a href="trade.html">Trade</a></li>
+            <li><a href="stake.html">Stake</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Community</h4>
+          <ul class="footer-links">
+            <li><a href="community.html">Community Hub</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="referral.html">Referral</a></li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/mobile.js"></script>
+  <script>
+    // Filter tabs
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    // Pagination
+    document.querySelectorAll('.pagination-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (!btn.textContent.includes('...')) {
+          document.querySelectorAll('.pagination-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

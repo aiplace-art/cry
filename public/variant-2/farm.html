@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Yield Farming | HypeAI - Maximize Your Rewards on BSC</title>
+  <meta name="title" content="Yield Farming | HypeAI">
+  <meta name="description" content="Stake LP tokens and earn HYPE rewards. High APY farms with daily compound options on Binance Smart Chain.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="trade-enhanced.html" class="nav-link">Trade</a></li>
+            <li><a href="pools.html" class="nav-link">Pools</a></li>
+            <li><a href="farm.html" class="nav-link">Farm</a></li>
+            <li><a href="bridge.html" class="nav-link">Bridge</a></li>
+            <li><a href="stake.html" class="nav-link">Stake</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary" id="connectWallet">
+            <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M17.5 6.66667H2.5C1.83696 6.66667 1.20107 6.93006 0.732233 7.39889C0.263392 7.86773 0 8.50363 0 9.16667V15.8333C0 16.4964 0.263392 17.1323 0.732233 17.6011C1.20107 18.0699 1.83696 18.3333 2.5 18.3333H17.5C18.163 18.3333 18.7989 18.0699 19.2678 17.6011C19.7366 17.1323 20 16.4964 20 15.8333V9.16667C20 8.50363 19.7366 7.86773 19.2678 7.39889C18.7989 6.93006 18.163 6.66667 17.5 6.66667Z" fill="currentColor"/>
+            </svg>
+            Connect Wallet
+          </button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="trade-enhanced.html" class="mobile-nav-link">Trade</a>
+      <a href="pools.html" class="mobile-nav-link">Pools</a>
+      <a href="farm.html" class="mobile-nav-link">Farm</a>
+      <a href="bridge.html" class="mobile-nav-link">Bridge</a>
+      <a href="stake.html" class="mobile-nav-link">Stake</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="farm-hero">
+      <div class="container">
+        <div class="hero-content-center">
+          <h1 class="page-title">Yield Farms</h1>
+          <p class="page-description">
+            Stake your LP tokens and earn HYPE rewards with industry-leading APYs
+          </p>
+
+          <div class="farm-stats-banner">
+            <div class="farm-stat-item">
+              <div class="stat-icon">🌾</div>
+              <div class="stat-content">
+                <div class="stat-value">$4.2M</div>
+                <div class="stat-label">Total Value Locked</div>
+              </div>
+            </div>
+            <div class="farm-stat-item">
+              <div class="stat-icon">💰</div>
+              <div class="stat-content">
+                <div class="stat-value">245,890</div>
+                <div class="stat-label">HYPE Distributed/Day</div>
+              </div>
+            </div>
+            <div class="farm-stat-item">
+              <div class="stat-icon">👥</div>
+              <div class="stat-content">
+                <div class="stat-value">1,842</div>
+                <div class="stat-label">Active Farmers</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Farms Section -->
+    <section class="farms-section">
+      <div class="container">
+
+        <!-- Farm Controls -->
+        <div class="farm-controls">
+          <div class="control-group">
+            <button class="control-btn active" data-filter="all">
+              All Farms
+            </button>
+            <button class="control-btn" data-filter="active">
+              My Farms
+            </button>
+            <button class="control-btn" data-filter="finished">
+              Finished
+            </button>
+          </div>
+
+          <div class="control-group">
+            <label class="toggle-label">
+              <input type="checkbox" id="stakedOnly">
+              <span class="toggle-switch"></span>
+              <span>Staked Only</span>
+            </label>
+          </div>
+
+          <div class="control-group">
+            <select id="sortFarms" class="farm-sort">
+              <option value="apr">Sort by APR</option>
+              <option value="liquidity">Sort by Liquidity</option>
+              <option value="earned">Sort by Earned</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Farms Grid -->
+        <div class="farms-grid">
+
+          <!-- Farm Card 1 - HYPE/USDT (Active) -->
+          <div class="farm-card active-farm">
+            <div class="farm-header">
+              <div class="farm-tokens">
+                <div class="token-pair-icons">
+                  <span class="token-icon">HYPE</span>
+                  <span class="token-icon">USDT</span>
+                </div>
+                <div class="farm-info">
+                  <h3 class="farm-name">HYPE-USDT LP</h3>
+                  <div class="farm-badges">
+                    <span class="farm-badge core">CORE</span>
+                    <span class="farm-badge boosted">2X</span>
+                  </div>
+                </div>
+              </div>
+              <div class="farm-apr">
+                <div class="apr-value">158.4%</div>
+                <div class="apr-label">APR</div>
+              </div>
+            </div>
+
+            <div class="farm-details">
+              <div class="detail-row">
+                <span class="detail-label">Earn</span>
+                <span class="detail-value">HYPE</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Multiplier</span>
+                <span class="detail-value multiplier">2.0x</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Liquidity</span>
+                <span class="detail-value">$2.1M</span>
+              </div>
+            </div>
+
+            <div class="farm-earned-section">
+              <div class="earned-header">
+                <span class="earned-label">HYPE Earned</span>
+                <button class="info-btn" title="Harvest your HYPE rewards">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 8V12M12 16H12.01" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="earned-amount">
+                <div class="amount-display">
+                  <span class="amount-value">1,245.67</span>
+                  <span class="amount-usd">≈ $109.12</span>
+                </div>
+                <button class="btn-harvest">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  Harvest
+                </button>
+              </div>
+            </div>
+
+            <div class="farm-staked-section">
+              <div class="staked-header">
+                <span class="staked-label">LP Staked</span>
+                <button class="get-lp-btn">Get LP →</button>
+              </div>
+              <div class="staked-amount">
+                <span class="amount-value">24.5 LP</span>
+                <span class="amount-usd">≈ $2,145.89</span>
+              </div>
+            </div>
+
+            <div class="farm-actions">
+              <button class="btn-secondary btn-block">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Unstake
+              </button>
+              <button class="btn-primary btn-block">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Stake LP
+              </button>
+            </div>
+
+            <div class="farm-details-toggle">
+              <button class="details-btn">
+                <span>Details</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Farm Card 2 - HYPE/BNB -->
+          <div class="farm-card">
+            <div class="farm-header">
+              <div class="farm-tokens">
+                <div class="token-pair-icons">
+                  <span class="token-icon">HYPE</span>
+                  <span class="token-icon bnb">BNB</span>
+                </div>
+                <div class="farm-info">
+                  <h3 class="farm-name">HYPE-BNB LP</h3>
+                  <div class="farm-badges">
+                    <span class="farm-badge core">CORE</span>
+                    <span class="farm-badge boosted">1.5X</span>
+                  </div>
+                </div>
+              </div>
+              <div class="farm-apr">
+                <div class="apr-value">124.8%</div>
+                <div class="apr-label">APR</div>
+              </div>
+            </div>
+
+            <div class="farm-details">
+              <div class="detail-row">
+                <span class="detail-label">Earn</span>
+                <span class="detail-value">HYPE</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Multiplier</span>
+                <span class="detail-value multiplier">1.5x</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Liquidity</span>
+                <span class="detail-value">$1.5M</span>
+              </div>
+            </div>
+
+            <div class="farm-no-stake">
+              <div class="no-stake-content">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#F3BA2F" stroke-width="2"/>
+                  <path d="M2 17L12 22L22 17" stroke="#F3BA2F" stroke-width="2"/>
+                  <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+                </svg>
+                <p>Start farming to earn HYPE rewards</p>
+              </div>
+            </div>
+
+            <div class="farm-actions">
+              <button class="btn-primary btn-block">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Stake LP Tokens
+              </button>
+            </div>
+
+            <div class="farm-details-toggle">
+              <button class="details-btn">
+                <span>Details</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Farm Card 3 - HYPE/BUSD -->
+          <div class="farm-card">
+            <div class="farm-header">
+              <div class="farm-tokens">
+                <div class="token-pair-icons">
+                  <span class="token-icon">HYPE</span>
+                  <span class="token-icon">BUSD</span>
+                </div>
+                <div class="farm-info">
+                  <h3 class="farm-name">HYPE-BUSD LP</h3>
+                  <div class="farm-badges">
+                    <span class="farm-badge">1X</span>
+                  </div>
+                </div>
+              </div>
+              <div class="farm-apr">
+                <div class="apr-value">89.2%</div>
+                <div class="apr-label">APR</div>
+              </div>
+            </div>
+
+            <div class="farm-details">
+              <div class="detail-row">
+                <span class="detail-label">Earn</span>
+                <span class="detail-value">HYPE</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Multiplier</span>
+                <span class="detail-value">1.0x</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Liquidity</span>
+                <span class="detail-value">$890K</span>
+              </div>
+            </div>
+
+            <div class="farm-no-stake">
+              <div class="no-stake-content">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#F3BA2F" stroke-width="2"/>
+                  <path d="M2 17L12 22L22 17" stroke="#F3BA2F" stroke-width="2"/>
+                  <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+                </svg>
+                <p>Start farming to earn HYPE rewards</p>
+              </div>
+            </div>
+
+            <div class="farm-actions">
+              <button class="btn-primary btn-block">
+                Stake LP Tokens
+              </button>
+            </div>
+
+            <div class="farm-details-toggle">
+              <button class="details-btn">
+                <span>Details</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Farm Card 4 - Single Stake HYPE -->
+          <div class="farm-card single-stake">
+            <div class="farm-header">
+              <div class="farm-tokens">
+                <div class="token-pair-icons single">
+                  <span class="token-icon large">HYPE</span>
+                </div>
+                <div class="farm-info">
+                  <h3 class="farm-name">HYPE Staking</h3>
+                  <div class="farm-badges">
+                    <span class="farm-badge auto">AUTO</span>
+                    <span class="farm-badge core">CORE</span>
+                  </div>
+                </div>
+              </div>
+              <div class="farm-apr">
+                <div class="apr-value">62.0%</div>
+                <div class="apr-label">APY</div>
+              </div>
+            </div>
+
+            <div class="farm-details">
+              <div class="detail-row">
+                <span class="detail-label">Earn</span>
+                <span class="detail-value">HYPE</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Auto-Compound</span>
+                <span class="detail-value text-success">Yes</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Total Staked</span>
+                <span class="detail-value">$1.2M</span>
+              </div>
+            </div>
+
+            <div class="farm-info-banner auto-compound">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M4 4V9H9M20 20V15H15M20.49 9A9 9 0 005.64 5.64L4 9M4 15L5.64 18.36A9 9 0 0020.49 15" stroke="#0ECB81" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Auto-compounding every 6 hours</span>
+            </div>
+
+            <div class="farm-no-stake">
+              <div class="no-stake-content">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="#F3BA2F" stroke-width="2"/>
+                  <path d="M12 6V12L16 14" stroke="#F3BA2F" stroke-width="2"/>
+                </svg>
+                <p>Stake HYPE and earn with auto-compound</p>
+              </div>
+            </div>
+
+            <div class="farm-actions">
+              <button class="btn-primary btn-block">
+                Stake HYPE
+              </button>
+            </div>
+
+            <div class="farm-details-toggle">
+              <button class="details-btn">
+                <span>Details</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Farm Card 5 - BNB/BUSD -->
+          <div class="farm-card">
+            <div class="farm-header">
+              <div class="farm-tokens">
+                <div class="token-pair-icons">
+                  <span class="token-icon bnb">BNB</span>
+                  <span class="token-icon">BUSD</span>
+                </div>
+                <div class="farm-info">
+                  <h3 class="farm-name">BNB-BUSD LP</h3>
+                  <div class="farm-badges">
+                    <span class="farm-badge">0.5X</span>
+                  </div>
+                </div>
+              </div>
+              <div class="farm-apr">
+                <div class="apr-value">45.6%</div>
+                <div class="apr-label">APR</div>
+              </div>
+            </div>
+
+            <div class="farm-details">
+              <div class="detail-row">
+                <span class="detail-label">Earn</span>
+                <span class="detail-value">HYPE</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Multiplier</span>
+                <span class="detail-value">0.5x</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Liquidity</span>
+                <span class="detail-value">$450K</span>
+              </div>
+            </div>
+
+            <div class="farm-no-stake">
+              <div class="no-stake-content">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#F3BA2F" stroke-width="2"/>
+                  <path d="M2 17L12 22L22 17" stroke="#F3BA2F" stroke-width="2"/>
+                  <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+                </svg>
+                <p>Start farming to earn HYPE rewards</p>
+              </div>
+            </div>
+
+            <div class="farm-actions">
+              <button class="btn-primary btn-block">
+                Stake LP Tokens
+              </button>
+            </div>
+
+            <div class="farm-details-toggle">
+              <button class="details-btn">
+                <span>Details</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Farm Card 6 - Finished Farm -->
+          <div class="farm-card finished-farm">
+            <div class="farm-header">
+              <div class="farm-tokens">
+                <div class="token-pair-icons">
+                  <span class="token-icon">ETH</span>
+                  <span class="token-icon">USDT</span>
+                </div>
+                <div class="farm-info">
+                  <h3 class="farm-name">ETH-USDT LP</h3>
+                  <div class="farm-badges">
+                    <span class="farm-badge finished">FINISHED</span>
+                  </div>
+                </div>
+              </div>
+              <div class="farm-apr">
+                <div class="apr-value">0.0%</div>
+                <div class="apr-label">APR</div>
+              </div>
+            </div>
+
+            <div class="farm-details">
+              <div class="detail-row">
+                <span class="detail-label">Earn</span>
+                <span class="detail-value">HYPE</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Status</span>
+                <span class="detail-value text-muted">Ended</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Liquidity</span>
+                <span class="detail-value">$0</span>
+              </div>
+            </div>
+
+            <div class="farm-finished-notice">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#848E9C" stroke-width="2"/>
+                <path d="M12 8V12M12 16H12.01" stroke="#848E9C" stroke-width="2"/>
+              </svg>
+              <p>This farm has ended. Please unstake your LP tokens.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Farming Info Section -->
+    <section class="farming-info-section">
+      <div class="container">
+        <h2 class="section-title-center">How to Start Farming</h2>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-icon">💧</div>
+            <h3 class="step-title">Add Liquidity</h3>
+            <p class="step-description">
+              Go to the Pools page and provide liquidity to receive LP tokens
+            </p>
+            <a href="pools.html" class="step-link">
+              Add Liquidity →
+            </a>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-icon">🌾</div>
+            <h3 class="step-title">Stake LP Tokens</h3>
+            <p class="step-description">
+              Select a farm and stake your LP tokens to start earning HYPE
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-icon">💰</div>
+            <h3 class="step-title">Harvest Rewards</h3>
+            <p class="step-description">
+              Claim your HYPE rewards anytime or enable auto-compound
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <div class="step-icon">🔄</div>
+            <h3 class="step-title">Compound & Grow</h3>
+            <p class="step-description">
+              Reinvest rewards to maximize your returns through compounding
+            </p>
+          </div>
+        </div>
+
+        <div class="farming-features">
+          <div class="feature-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#0ECB81" stroke-width="2"/>
+            </svg>
+            <div>
+              <h4>Auto-Compound Available</h4>
+              <p>Select farms auto-compound rewards every 6 hours</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#0ECB81" stroke-width="2"/>
+            </svg>
+            <div>
+              <h4>No Deposit Fees</h4>
+              <p>Start farming without any deposit fees</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#0ECB81" stroke-width="2"/>
+            </svg>
+            <div>
+              <h4>Flexible Unstaking</h4>
+              <p>Withdraw your LP tokens anytime with no lock period</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <p class="footer-description">
+            Yield farming on Binance Smart Chain
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © 2025 HypeAI. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Farm Specific Styles */
+    .farm-hero {
+      padding: calc(80px + 4rem) 1rem 4rem;
+      background: linear-gradient(180deg, rgba(243, 186, 47, 0.1) 0%, transparent 100%);
+    }
+
+    .hero-content-center {
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .page-description {
+      font-size: 1.25rem;
+      color: var(--text-tertiary);
+      margin-bottom: 3rem;
+    }
+
+    .farm-stats-banner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .farm-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .stat-icon {
+      font-size: 3rem;
+    }
+
+    .farms-section {
+      padding: 4rem 1rem;
+      background: var(--bnb-bg-darker);
+    }
+
+    .farm-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .control-group {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .control-btn {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .control-btn.active {
+      background: var(--gradient-gold);
+      color: #000;
+      border-color: var(--bnb-gold-primary);
+    }
+
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .toggle-label input {
+      display: none;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 24px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-full);
+      transition: var(--transition-fast);
+    }
+
+    .toggle-switch::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      background: var(--text-tertiary);
+      border-radius: 50%;
+      transition: var(--transition-fast);
+    }
+
+    .toggle-label input:checked + .toggle-switch {
+      background: var(--gradient-gold);
+      border-color: var(--bnb-gold-primary);
+    }
+
+    .toggle-label input:checked + .toggle-switch::before {
+      left: calc(100% - 20px);
+      background: #000;
+    }
+
+    .farm-sort {
+      padding: 0.75rem 1.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .farms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .farm-card {
+      padding: 1.5rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      transition: var(--transition-normal);
+    }
+
+    .farm-card:hover {
+      border-color: rgba(243, 186, 47, 0.4);
+      box-shadow: 0 12px 48px rgba(243, 186, 47, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .farm-card.active-farm {
+      border: 2px solid var(--bnb-gold-primary);
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.1), var(--glass-bg));
+    }
+
+    .farm-card.finished-farm {
+      opacity: 0.6;
+      border-color: var(--text-quaternary);
+    }
+
+    .farm-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .farm-tokens {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .token-pair-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    .token-pair-icons.single {
+      justify-content: center;
+    }
+
+    .token-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.75rem;
+      border-radius: 50%;
+      margin-left: -10px;
+      border: 2px solid var(--bnb-bg-darker);
+    }
+
+    .token-icon:first-child {
+      margin-left: 0;
+    }
+
+    .token-icon.large {
+      width: 56px;
+      height: 56px;
+      font-size: 1rem;
+    }
+
+    .token-icon.bnb {
+      background: linear-gradient(135deg, #F3BA2F, #FCD535);
+    }
+
+    .farm-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .farm-badges {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .farm-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: rgba(243, 186, 47, 0.2);
+      color: var(--bnb-gold-primary);
+    }
+
+    .farm-badge.core {
+      background: linear-gradient(135deg, #F3BA2F, #FCD535);
+      color: #000;
+    }
+
+    .farm-badge.boosted {
+      background: linear-gradient(135deg, #F6465D, #FF6B6B);
+      color: #fff;
+    }
+
+    .farm-badge.auto {
+      background: linear-gradient(135deg, #0ECB81, #00D4FF);
+      color: #000;
+    }
+
+    .farm-badge.finished {
+      background: var(--text-quaternary);
+      color: var(--bnb-bg-darker);
+    }
+
+    .farm-apr {
+      text-align: right;
+    }
+
+    .apr-value {
+      font-size: 2rem;
+      font-weight: 800;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+
+    .apr-label {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      margin-top: 0.25rem;
+    }
+
+    .farm-details {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: rgba(243, 186, 47, 0.05);
+      border-radius: var(--radius-md);
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+    }
+
+    .detail-label {
+      color: var(--text-tertiary);
+    }
+
+    .detail-value {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .detail-value.multiplier {
+      color: var(--bnb-gold-primary);
+    }
+
+    .farm-earned-section {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, rgba(14, 203, 129, 0.1), rgba(0, 212, 255, 0.1));
+      border: 1px solid rgba(14, 203, 129, 0.3);
+      border-radius: var(--radius-lg);
+      margin-bottom: 1.5rem;
+    }
+
+    .earned-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .earned-label {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      font-weight: 600;
+    }
+
+    .info-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-tertiary);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .earned-amount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .amount-display {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .amount-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--bnb-success);
+      line-height: 1;
+    }
+
+    .amount-usd {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+    }
+
+    .btn-harvest {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--gradient-gold);
+      color: #000;
+      border: none;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .btn-harvest:hover {
+      box-shadow: 0 6px 24px rgba(243, 186, 47, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .farm-staked-section {
+      padding: 1rem;
+      background: rgba(243, 186, 47, 0.05);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+    }
+
+    .staked-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .staked-label {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      font-weight: 600;
+    }
+
+    .get-lp-btn {
+      padding: 0.25rem 0.75rem;
+      background: transparent;
+      border: 1px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-sm);
+      color: var(--bnb-gold-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .get-lp-btn:hover {
+      background: rgba(243, 186, 47, 0.1);
+    }
+
+    .staked-amount {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .farm-no-stake {
+      padding: 2rem;
+      background: rgba(243, 186, 47, 0.05);
+      border: 1px dashed var(--glass-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+    }
+
+    .no-stake-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .no-stake-content p {
+      color: var(--text-tertiary);
+    }
+
+    .farm-info-banner {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: rgba(14, 203, 129, 0.1);
+      border: 1px solid rgba(14, 203, 129, 0.3);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+      color: var(--bnb-success);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .farm-finished-notice {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(132, 142, 156, 0.1);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+    }
+
+    .farm-finished-notice p {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+
+    .farm-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .farm-actions .btn-block {
+      grid-column: span 2;
+    }
+
+    .farm-details-toggle {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .details-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: none;
+      color: var(--bnb-gold-primary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .details-btn:hover {
+      color: var(--bnb-gold-secondary);
+    }
+
+    /* Farming Info Section */
+    .farming-info-section {
+      padding: 4rem 1rem;
+      background: var(--bnb-bg-dark);
+    }
+
+    .section-title-center {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 3rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .step-card {
+      position: relative;
+      padding: 2rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .step-number {
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-gold);
+      color: #000;
+      font-weight: 800;
+      border-radius: 50%;
+    }
+
+    .step-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .step-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .step-description {
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .step-link {
+      color: var(--bnb-gold-primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+
+    .step-link:hover {
+      color: var(--bnb-gold-secondary);
+    }
+
+    .farming-features {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .feature-item svg {
+      flex-shrink: 0;
+    }
+
+    .feature-item h4 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item p {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+
+    .text-success { color: var(--bnb-success); }
+    .text-muted { color: var(--text-quaternary); }
+  </style>
+
+  <script>
+    // Mobile menu
+    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('mobileMenu').classList.toggle('active');
+    });
+
+    // Filter controls
+    document.querySelectorAll('.control-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.control-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Details toggle
+    document.querySelectorAll('.details-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const svg = this.querySelector('svg');
+        svg.style.transform = svg.style.transform === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    });
+  </script>
+
+</body>
+</html>

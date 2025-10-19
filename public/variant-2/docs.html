@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Documentation - HypeAI | Developer Hub</title>
+  <meta name="description" content="Complete documentation for HypeAI platform. API references, integration guides, and developer resources.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    .docs-hero {
+      padding: calc(80px + var(--spacing-12)) var(--spacing-4) var(--spacing-16);
+      background: linear-gradient(180deg, var(--bnb-bg-darker) 0%, var(--bnb-bg-dark) 100%);
+      text-align: center;
+    }
+
+    .docs-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: var(--spacing-8) var(--spacing-4);
+    }
+
+    .docs-sidebar {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+    }
+
+    .docs-nav-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-4);
+      padding-bottom: var(--spacing-3);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .docs-nav-list {
+      list-style: none;
+      margin-bottom: var(--spacing-6);
+    }
+
+    .docs-nav-list li {
+      margin-bottom: var(--spacing-2);
+    }
+
+    .docs-nav-link {
+      display: block;
+      padding: var(--spacing-2) var(--spacing-3);
+      color: var(--text-tertiary);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      font-size: 0.875rem;
+    }
+
+    .docs-nav-link:hover,
+    .docs-nav-link.active {
+      background: rgba(243, 186, 47, 0.1);
+      color: var(--bnb-gold-primary);
+    }
+
+    .docs-content {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+    }
+
+    .docs-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      margin-bottom: var(--spacing-6);
+      font-size: 0.875rem;
+      color: var(--text-quaternary);
+    }
+
+    .docs-breadcrumb a {
+      color: var(--bnb-gold-primary);
+      text-decoration: none;
+    }
+
+    .doc-card {
+      padding: var(--spacing-6);
+      background: rgba(243, 186, 47, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-6);
+      transition: var(--transition-normal);
+      cursor: pointer;
+    }
+
+    .doc-card:hover {
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 8px 32px rgba(243, 186, 47, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .doc-card-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient-gold);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .doc-card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-2);
+    }
+
+    .doc-card-description {
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+
+    .code-block {
+      background: #14151A;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-4);
+      margin: var(--spacing-4) 0;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .code-block code {
+      color: #0ECB81;
+    }
+
+    .api-endpoint {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+      padding: var(--spacing-4);
+      background: rgba(243, 186, 47, 0.05);
+      border-left: 3px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-sm);
+      margin: var(--spacing-4) 0;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .api-method {
+      padding: var(--spacing-1) var(--spacing-3);
+      background: var(--bnb-success);
+      color: #000;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+
+    .api-method.post { background: #F0B90B; }
+    .api-method.delete { background: #F6465D; }
+
+    .param-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--spacing-4) 0;
+    }
+
+    .param-table th,
+    .param-table td {
+      padding: var(--spacing-3);
+      text-align: left;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .param-table th {
+      color: var(--bnb-gold-primary);
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    .param-table td {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+
+    .param-table code {
+      background: rgba(243, 186, 47, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--bnb-gold-primary);
+    }
+
+    .quick-start-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
+      margin-top: var(--spacing-8);
+    }
+
+    @media (min-width: 1024px) {
+      .docs-container {
+        grid-template-columns: 280px 1fr;
+      }
+
+      .quick-start-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="agents.html" class="nav-link">AI Agents</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="docs.html" class="nav-link">Docs</a></li>
+            <li><a href="governance.html" class="nav-link">Governance</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary">Connect Wallet</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="agents.html" class="mobile-nav-link">AI Agents</a>
+      <a href="blog.html" class="mobile-nav-link">Blog</a>
+      <a href="docs.html" class="mobile-nav-link">Docs</a>
+      <a href="governance.html" class="mobile-nav-link">Governance</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="docs-hero">
+      <div class="container">
+        <div class="hero-badge">
+          <svg class="badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+          </svg>
+          <span>Developer Resources</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-title-main">Documentation</span>
+          <span class="hero-title-gradient">Build on HypeAI</span>
+        </h1>
+
+        <p class="hero-description">
+          Everything you need to integrate with HypeAI's AI-powered crypto platform. API references, guides, and code examples.
+        </p>
+      </div>
+    </section>
+
+    <!-- Docs Content -->
+    <div class="docs-container">
+      <!-- Sidebar -->
+      <aside class="docs-sidebar">
+        <div>
+          <h3 class="docs-nav-title">Getting Started</h3>
+          <ul class="docs-nav-list">
+            <li><a href="#introduction" class="docs-nav-link active">Introduction</a></li>
+            <li><a href="#quick-start" class="docs-nav-link">Quick Start</a></li>
+            <li><a href="#authentication" class="docs-nav-link">Authentication</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="docs-nav-title">API Reference</h3>
+          <ul class="docs-nav-list">
+            <li><a href="#ai-agents" class="docs-nav-link">AI Agents</a></li>
+            <li><a href="#trading" class="docs-nav-link">Trading</a></li>
+            <li><a href="#staking" class="docs-nav-link">Staking</a></li>
+            <li><a href="#governance" class="docs-nav-link">Governance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="docs-nav-title">Smart Contracts</h3>
+          <ul class="docs-nav-list">
+            <li><a href="#token-contract" class="docs-nav-link">HYPE Token</a></li>
+            <li><a href="#staking-contract" class="docs-nav-link">Staking Pool</a></li>
+            <li><a href="#governance-contract" class="docs-nav-link">Governance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="docs-nav-title">SDKs & Tools</h3>
+          <ul class="docs-nav-list">
+            <li><a href="#javascript-sdk" class="docs-nav-link">JavaScript SDK</a></li>
+            <li><a href="#python-sdk" class="docs-nav-link">Python SDK</a></li>
+            <li><a href="#cli-tools" class="docs-nav-link">CLI Tools</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="docs-content">
+        <div class="docs-breadcrumb">
+          <a href="docs.html">Documentation</a>
+          <span>/</span>
+          <span>Getting Started</span>
+        </div>
+
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--spacing-6);">Introduction</h1>
+
+        <p style="font-size: 1.125rem; color: var(--text-tertiary); line-height: 1.7; margin-bottom: var(--spacing-8);">
+          Welcome to the HypeAI developer documentation. This guide will help you integrate with our AI-powered crypto platform, access our APIs, and build innovative applications on Binance Smart Chain.
+        </p>
+
+        <!-- Quick Start Cards -->
+        <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--spacing-6);">Quick Start</h2>
+
+        <div class="quick-start-grid">
+          <div class="doc-card">
+            <div class="doc-card-icon">🚀</div>
+            <h3 class="doc-card-title">API Quick Start</h3>
+            <p class="doc-card-description">
+              Get up and running in 5 minutes. Connect to HypeAI APIs, authenticate, and make your first request.
+            </p>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">🤖</div>
+            <h3 class="doc-card-title">AI Agents</h3>
+            <p class="doc-card-description">
+              Access 27 specialized AI agents via REST API. Market analysis, trading signals, and portfolio optimization.
+            </p>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">📜</div>
+            <h3 class="doc-card-title">Smart Contracts</h3>
+            <p class="doc-card-description">
+              Interact directly with HypeAI smart contracts on BSC. Audited, secure, and fully documented.
+            </p>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">🛠️</div>
+            <h3 class="doc-card-title">SDKs & Tools</h3>
+            <p class="doc-card-description">
+              Official SDKs for JavaScript, Python, and more. CLI tools for developers and traders.
+            </p>
+          </div>
+        </div>
+
+        <!-- Authentication -->
+        <h2 id="authentication" style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin: var(--spacing-12) 0 var(--spacing-6);">Authentication</h2>
+
+        <p style="color: var(--text-tertiary); line-height: 1.7; margin-bottom: var(--spacing-4);">
+          HypeAI uses API keys for authentication. You can generate an API key from your dashboard.
+        </p>
+
+        <div class="code-block">
+<code>// JavaScript Example
+const HypeAI = require('@hypeai/sdk');
+
+const client = new HypeAI({
+  apiKey: 'your_api_key_here',
+  network: 'bsc-mainnet'
+});
+
+// Verify connection
+await client.ping();</code>
+        </div>
+
+        <!-- API Endpoints -->
+        <h2 id="ai-agents" style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin: var(--spacing-12) 0 var(--spacing-6);">AI Agents API</h2>
+
+        <div class="api-endpoint">
+          <span class="api-method">GET</span>
+          <code>/api/v1/agents</code>
+        </div>
+        <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-4);">Get list of all available AI agents.</p>
+
+        <div class="api-endpoint">
+          <span class="api-method">GET</span>
+          <code>/api/v1/agents/{agentId}/analyze</code>
+        </div>
+        <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-4);">Request analysis from a specific AI agent.</p>
+
+        <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin: var(--spacing-6) 0 var(--spacing-4);">Request Parameters</h3>
+
+        <table class="param-table">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>agentId</code></td>
+              <td>string</td>
+              <td>Yes</td>
+              <td>Unique identifier for the AI agent</td>
+            </tr>
+            <tr>
+              <td><code>symbol</code></td>
+              <td>string</td>
+              <td>Yes</td>
+              <td>Trading pair symbol (e.g., BNB/USDT)</td>
+            </tr>
+            <tr>
+              <td><code>timeframe</code></td>
+              <td>string</td>
+              <td>No</td>
+              <td>Analysis timeframe (1h, 4h, 1d)</td>
+            </tr>
+            <tr>
+              <td><code>indicators</code></td>
+              <td>array</td>
+              <td>No</td>
+              <td>Technical indicators to include</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin: var(--spacing-6) 0 var(--spacing-4);">Example Response</h3>
+
+        <div class="code-block">
+<code>{
+  "agentId": "market-analyzer",
+  "symbol": "BNB/USDT",
+  "timestamp": 1706198400,
+  "analysis": {
+    "trend": "bullish",
+    "confidence": 0.87,
+    "signal": "BUY",
+    "priceTarget": 520.00,
+    "stopLoss": 480.00
+  },
+  "indicators": {
+    "RSI": 62.4,
+    "MACD": "bullish",
+    "volume": "increasing"
+  }
+}</code>
+        </div>
+
+        <!-- Trading API -->
+        <h2 id="trading" style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin: var(--spacing-12) 0 var(--spacing-6);">Trading API</h2>
+
+        <div class="api-endpoint">
+          <span class="api-method post">POST</span>
+          <code>/api/v1/orders</code>
+        </div>
+        <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-4);">Place a new trading order.</p>
+
+        <div class="code-block">
+<code>// Place Market Order
+const order = await client.trading.createOrder({
+  symbol: 'BNB/USDT',
+  side: 'buy',
+  type: 'market',
+  quantity: 10
+});
+
+console.log(order.orderId);</code>
+        </div>
+
+        <!-- Smart Contracts -->
+        <h2 id="token-contract" style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin: var(--spacing-12) 0 var(--spacing-6);">Smart Contracts</h2>
+
+        <p style="color: var(--text-tertiary); line-height: 1.7; margin-bottom: var(--spacing-4);">
+          HypeAI smart contracts are deployed on Binance Smart Chain. All contracts are verified and audited by CertiK.
+        </p>
+
+        <table class="param-table">
+          <thead>
+            <tr>
+              <th>Contract</th>
+              <th>Address</th>
+              <th>Network</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HYPE Token</td>
+              <td><code>0x1234...5678</code></td>
+              <td>BSC Mainnet</td>
+            </tr>
+            <tr>
+              <td>Staking Pool</td>
+              <td><code>0x8765...4321</code></td>
+              <td>BSC Mainnet</td>
+            </tr>
+            <tr>
+              <td>Governance</td>
+              <td><code>0xABCD...EFAB</code></td>
+              <td>BSC Mainnet</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- JavaScript SDK -->
+        <h2 id="javascript-sdk" style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin: var(--spacing-12) 0 var(--spacing-6);">JavaScript SDK</h2>
+
+        <p style="color: var(--text-tertiary); line-height: 1.7; margin-bottom: var(--spacing-4);">
+          Install the official HypeAI JavaScript SDK via npm:
+        </p>
+
+        <div class="code-block">
+<code>npm install @hypeai/sdk
+
+# or with yarn
+yarn add @hypeai/sdk</code>
+        </div>
+
+        <div class="code-block">
+<code>import { HypeAI } from '@hypeai/sdk';
+
+const hypeai = new HypeAI({
+  apiKey: process.env.HYPEAI_API_KEY
+});
+
+// Get AI analysis
+const analysis = await hypeai.agents.analyze('market-analyzer', {
+  symbol: 'BNB/USDT',
+  timeframe: '1h'
+});
+
+console.log(analysis.signal); // BUY, SELL, or HOLD</code>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">AI-powered crypto on BSC.</p>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Developers</h4>
+          <ul class="footer-links">
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="#api">API Reference</a></li>
+            <li><a href="#sdk">SDKs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="mobile.js"></script>
+  <script>
+    // Smooth scroll for navigation
+    document.querySelectorAll('.docs-nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('.docs-nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

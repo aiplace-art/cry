@@ -1,0 +1,69 @@
+<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bnb-gold-icon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3BA2F"/>
+      <stop offset="50%" stop-color="#FCD535"/>
+      <stop offset="100%" stop-color="#F3BA2F"/>
+    </linearGradient>
+    <radialGradient id="center-glow-icon">
+      <stop offset="0%" stop-color="#FCD535" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#F3BA2F" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow-icon">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer diamond (Binance-inspired) -->
+  <path d="M25,5 L45,25 L25,45 L5,25 Z"
+        stroke="url(#bnb-gold-icon)"
+        stroke-width="2.5"
+        fill="none"
+        filter="url(#glow-icon)"/>
+
+  <!-- Inner diamond -->
+  <path d="M25,12 L38,25 L25,38 L12,25 Z"
+        stroke="url(#bnb-gold-icon)"
+        stroke-width="1.5"
+        fill="url(#center-glow-icon)"
+        opacity="0.3"/>
+
+  <!-- Neural network nodes -->
+  <g id="neural-nodes">
+    <!-- Outer nodes -->
+    <circle cx="25" cy="5" r="2.5" fill="#F3BA2F" filter="url(#glow-icon)"/>
+    <circle cx="45" cy="25" r="2.5" fill="#F3BA2F" filter="url(#glow-icon)"/>
+    <circle cx="25" cy="45" r="2.5" fill="#F3BA2F" filter="url(#glow-icon)"/>
+    <circle cx="5" cy="25" r="2.5" fill="#F3BA2F" filter="url(#glow-icon)"/>
+
+    <!-- Inner nodes -->
+    <circle cx="25" cy="12" r="2" fill="#FCD535"/>
+    <circle cx="38" cy="25" r="2" fill="#FCD535"/>
+    <circle cx="25" cy="38" r="2" fill="#FCD535"/>
+    <circle cx="12" cy="25" r="2" fill="#FCD535"/>
+
+    <!-- Center AI core -->
+    <circle cx="25" cy="25" r="3.5" fill="url(#bnb-gold-icon)" filter="url(#glow-icon)"/>
+    <circle cx="25" cy="25" r="1.5" fill="#1E2026"/>
+  </g>
+
+  <!-- Neural connections -->
+  <g stroke="url(#bnb-gold-icon)" stroke-width="1" opacity="0.6">
+    <line x1="25" y1="12" x2="25" y2="25"/>
+    <line x1="38" y1="25" x2="25" y2="25"/>
+    <line x1="25" y1="38" x2="25" y2="25"/>
+    <line x1="12" y1="25" x2="25" y2="25"/>
+  </g>
+
+  <!-- Cross connections -->
+  <g stroke="url(#bnb-gold-icon)" stroke-width="0.5" opacity="0.3">
+    <line x1="25" y1="12" x2="38" y2="25"/>
+    <line x1="38" y1="25" x2="25" y2="38"/>
+    <line x1="25" y1="38" x2="12" y2="25"/>
+    <line x1="12" y1="25" x2="25" y2="12"/>
+  </g>
+</svg>

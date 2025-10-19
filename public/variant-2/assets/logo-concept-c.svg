@@ -1,0 +1,118 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bnb-gold-c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3BA2F"/>
+      <stop offset="100%" stop-color="#FCD535"/>
+    </linearGradient>
+    <linearGradient id="reverse-gold-c" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F3BA2F"/>
+      <stop offset="100%" stop-color="#FCD535"/>
+    </linearGradient>
+    <filter id="glow-c">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="strong-glow-c">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Binance-style geometric frame -->
+  <g id="bnb-frame">
+    <!-- Main hexagon -->
+    <path d="M50,12 L75,28 L75,56 L50,72 L25,56 L25,28 Z"
+          stroke="url(#bnb-gold-c)"
+          stroke-width="2.5"
+          fill="none"
+          filter="url(#glow-c)"/>
+
+    <!-- Inner geometric accents -->
+    <path d="M50,18 L68,30 L68,54 L50,66 L32,54 L32,30 Z"
+          stroke="url(#bnb-gold-c)"
+          stroke-width="1"
+          fill="none"
+          opacity="0.5"/>
+  </g>
+
+  <!-- Brain/Neural pattern (fusion with Binance geometry) -->
+  <g id="brain-pattern">
+    <!-- Left hemisphere -->
+    <path d="M35,35 Q30,40 35,45 Q40,42 35,35"
+          stroke="url(#bnb-gold-c)"
+          stroke-width="2"
+          fill="url(#bnb-gold-c)"
+          opacity="0.7"
+          filter="url(#glow-c)"/>
+
+    <!-- Right hemisphere -->
+    <path d="M65,35 Q70,40 65,45 Q60,42 65,35"
+          stroke="url(#bnb-gold-c)"
+          stroke-width="2"
+          fill="url(#reverse-gold-c)"
+          opacity="0.7"
+          filter="url(#glow-c)"/>
+
+    <!-- Central connection -->
+    <ellipse cx="50" cy="40" rx="6" ry="8"
+             fill="url(#bnb-gold-c)"
+             opacity="0.8"
+             filter="url(#strong-glow-c)"/>
+
+    <!-- Neural pathways -->
+    <g stroke="url(#bnb-gold-c)" stroke-width="1.5" fill="none" opacity="0.6">
+      <path d="M35,38 Q42,36 50,38"/>
+      <path d="M35,42 Q42,44 50,42"/>
+      <path d="M65,38 Q58,36 50,38"/>
+      <path d="M65,42 Q58,44 50,42"/>
+    </g>
+  </g>
+
+  <!-- Neural nodes -->
+  <g id="nodes">
+    <!-- Top nodes -->
+    <circle cx="50" cy="25" r="2" fill="#FCD535" filter="url(#glow-c)"/>
+    <circle cx="40" cy="30" r="1.5" fill="#FCD535"/>
+    <circle cx="60" cy="30" r="1.5" fill="#FCD535"/>
+
+    <!-- Middle nodes -->
+    <circle cx="35" cy="40" r="2.5" fill="url(#bnb-gold-c)" filter="url(#glow-c)"/>
+    <circle cx="50" cy="40" r="3" fill="#F3BA2F" filter="url(#strong-glow-c)"/>
+    <circle cx="65" cy="40" r="2.5" fill="url(#bnb-gold-c)" filter="url(#glow-c)"/>
+
+    <!-- Bottom nodes -->
+    <circle cx="40" cy="50" r="1.5" fill="#FCD535"/>
+    <circle cx="60" cy="50" r="1.5" fill="#FCD535"/>
+    <circle cx="50" cy="55" r="2" fill="#FCD535" filter="url(#glow-c)"/>
+  </g>
+
+  <!-- Connection lines -->
+  <g stroke="#FCD535" stroke-width="0.5" opacity="0.4">
+    <line x1="40" y1="30" x2="35" y2="40"/>
+    <line x1="60" y1="30" x2="65" y2="40"/>
+    <line x1="50" y1="25" x2="50" y2="40"/>
+    <line x1="35" y1="40" x2="40" y2="50"/>
+    <line x1="65" y1="40" x2="60" y2="50"/>
+    <line x1="50" y1="40" x2="50" y2="55"/>
+  </g>
+
+  <!-- Premium accent corners (Binance diamond style) -->
+  <g fill="url(#bnb-gold-c)" opacity="0.8">
+    <path d="M50,12 L52,14 L50,16 L48,14 Z"/>
+    <path d="M75,28 L77,30 L75,32 L73,30 Z"/>
+    <path d="M75,56 L77,58 L75,60 L73,58 Z"/>
+    <path d="M50,72 L52,74 L50,76 L48,74 Z"/>
+    <path d="M25,56 L27,58 L25,60 L23,58 Z"/>
+    <path d="M25,28 L27,30 L25,32 L23,30 Z"/>
+  </g>
+
+  <!-- Bottom branding -->
+  <text x="50" y="85" font-family="Orbitron, sans-serif" font-size="7" font-weight="700"
+        text-anchor="middle" fill="url(#bnb-gold-c)" letter-spacing="1.5">AI HYPE</text>
+</svg>

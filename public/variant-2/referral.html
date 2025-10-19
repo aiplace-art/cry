@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HypeAI Referral Program - Earn 500 HYPE per Referral</title>
+  <meta name="description" content="Join the HypeAI referral program and earn HYPE tokens for every friend you invite. Multi-tier rewards and exclusive bonuses.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    .referral-hero {
+      padding: calc(80px + var(--spacing-12)) var(--spacing-4) var(--spacing-12);
+      background: radial-gradient(circle at 50% 50%, rgba(243, 186, 47, 0.15) 0%, transparent 70%);
+      text-align: center;
+    }
+
+    .hero-reward {
+      display: inline-block;
+      padding: var(--spacing-4) var(--spacing-8);
+      background: var(--gradient-gold);
+      border-radius: var(--radius-full);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #000;
+      margin: var(--spacing-6) 0;
+      box-shadow: 0 8px 32px rgba(243, 186, 47, 0.4);
+    }
+
+    .referral-link-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 2px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      margin-bottom: var(--spacing-12);
+    }
+
+    .link-section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-6);
+      text-align: center;
+    }
+
+    .link-input-group {
+      display: flex;
+      gap: var(--spacing-2);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .link-input {
+      flex: 1;
+      padding: var(--spacing-4);
+      background: rgba(30, 32, 38, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: monospace;
+      font-size: 0.875rem;
+    }
+
+    .copy-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      padding: var(--spacing-4) var(--spacing-6);
+      background: var(--gradient-gold);
+      border: none;
+      border-radius: var(--radius-md);
+      color: #000;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .copy-btn:hover {
+      box-shadow: 0 4px 16px rgba(243, 186, 47, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: var(--spacing-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      padding: var(--spacing-3) var(--spacing-6);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .share-btn:hover {
+      background: rgba(243, 186, 47, 0.1);
+      border-color: var(--bnb-gold-primary);
+      color: var(--bnb-gold-primary);
+    }
+
+    .tier-system {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-12);
+    }
+
+    .tier-card {
+      position: relative;
+      padding: var(--spacing-8);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 2px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: var(--transition-normal);
+      overflow: hidden;
+    }
+
+    .tier-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, transparent, var(--tier-color), transparent);
+      opacity: 0;
+      transition: var(--transition-normal);
+    }
+
+    .tier-card:hover::before {
+      opacity: 1;
+    }
+
+    .tier-card:hover {
+      border-color: var(--tier-color);
+      box-shadow: 0 8px 32px rgba(243, 186, 47, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .tier-card.bronze { --tier-color: #CD7F32; }
+    .tier-card.silver { --tier-color: #C0C0C0; }
+    .tier-card.gold { --tier-color: #F3BA2F; }
+    .tier-card.platinum { --tier-color: #E5E4E2; }
+
+    .tier-icon {
+      font-size: 3rem;
+      margin-bottom: var(--spacing-3);
+    }
+
+    .tier-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-2);
+    }
+
+    .tier-requirement {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .tier-benefits {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tier-benefits li {
+      padding: var(--spacing-2) 0;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .tier-benefits li:last-child {
+      border-bottom: none;
+    }
+
+    .tier-reward {
+      margin-top: var(--spacing-6);
+      padding-top: var(--spacing-6);
+      border-top: 2px solid var(--glass-border);
+    }
+
+    .tier-reward-amount {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+      margin-bottom: var(--spacing-1);
+    }
+
+    .tier-reward-label {
+      font-size: 0.75rem;
+      color: var(--text-quaternary);
+      text-transform: uppercase;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-6);
+    }
+
+    .stat-card-large {
+      padding: var(--spacing-8);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: var(--transition-normal);
+    }
+
+    .stat-card-large:hover {
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 0 30px rgba(243, 186, 47, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .stat-icon-large {
+      font-size: 3rem;
+      margin-bottom: var(--spacing-3);
+    }
+
+    .stat-value-huge {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+      line-height: 1;
+      margin-bottom: var(--spacing-2);
+    }
+
+    .calculator-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+    }
+
+    .calculator-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-6);
+      text-align: center;
+    }
+
+    .calc-input-group {
+      margin-bottom: var(--spacing-6);
+    }
+
+    .calc-label {
+      display: block;
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin-bottom: var(--spacing-2);
+    }
+
+    .calc-input {
+      width: 100%;
+      padding: var(--spacing-4);
+      background: rgba(30, 32, 38, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .calc-results {
+      padding: var(--spacing-6);
+      background: rgba(243, 186, 47, 0.05);
+      border: 2px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .calc-result-value {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--bnb-gold-primary);
+      line-height: 1;
+      margin-bottom: var(--spacing-2);
+    }
+
+    .calc-result-label {
+      font-size: 1rem;
+      color: var(--text-tertiary);
+    }
+
+    .calc-breakdown {
+      display: grid;
+      gap: var(--spacing-3);
+      margin-top: var(--spacing-6);
+    }
+
+    .calc-breakdown-item {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--spacing-3);
+      background: rgba(30, 32, 38, 0.4);
+      border-radius: var(--radius-md);
+    }
+
+    .breakdown-label {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+
+    .breakdown-value {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .hero-reward {
+        font-size: 2rem;
+      }
+
+      .link-input-group {
+        flex-direction: column;
+      }
+
+      .share-buttons {
+        flex-direction: column;
+      }
+
+      .share-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="index.html#features" class="nav-link">Features</a></li>
+            <li><a href="agents.html" class="nav-link">AI Agents</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="referral.html" class="nav-link">Referral</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary">Connect Wallet</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html#features" class="mobile-nav-link">Features</a>
+      <a href="agents.html" class="mobile-nav-link">AI Agents</a>
+      <a href="community.html" class="mobile-nav-link">Community</a>
+      <a href="referral.html" class="mobile-nav-link">Referral</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Referral Hero -->
+    <section class="referral-hero">
+      <div class="container">
+        <h1 class="section-title">Refer Friends, Earn Rewards</h1>
+        <p class="section-description">
+          Share HypeAI with your network and earn HYPE tokens for every successful referral
+        </p>
+
+        <div class="hero-reward">500 HYPE per Referral</div>
+
+        <p class="section-description" style="margin-top: var(--spacing-4);">
+          Plus unlock higher tiers for even bigger rewards
+        </p>
+      </div>
+    </section>
+
+    <!-- Referral Link -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="referral-link-card">
+          <h3 class="link-section-title">Your Referral Link</h3>
+          <div class="link-input-group">
+            <input
+              type="text"
+              class="link-input"
+              value="https://hypeai.io/ref/0x742d35Bf"
+              readonly
+              id="referralLink"
+            >
+            <button class="copy-btn" onclick="copyReferralLink()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Link
+            </button>
+          </div>
+
+          <h4 class="link-section-title" style="margin-top: var(--spacing-8); margin-bottom: var(--spacing-4); font-size: 1rem;">Share on Social Media</h4>
+          <div class="share-buttons">
+            <button class="share-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+              </svg>
+              Twitter
+            </button>
+            <button class="share-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+              Telegram
+            </button>
+            <button class="share-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+              Discord
+            </button>
+            <button class="share-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Email
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tier System -->
+    <section class="section" style="background: var(--bnb-bg-dark);">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Referral Tier System</h2>
+          <p class="section-description">Unlock higher tiers and earn bigger rewards</p>
+        </div>
+
+        <div class="tier-system">
+          <!-- Bronze Tier -->
+          <div class="tier-card bronze">
+            <div class="tier-icon">🥉</div>
+            <h3 class="tier-name">Bronze</h3>
+            <p class="tier-requirement">1-9 Referrals</p>
+            <ul class="tier-benefits">
+              <li>500 HYPE per referral</li>
+              <li>Access to community</li>
+              <li>Basic support</li>
+              <li>Referral dashboard</li>
+            </ul>
+            <div class="tier-reward">
+              <div class="tier-reward-amount">500</div>
+              <div class="tier-reward-label">HYPE per Referral</div>
+            </div>
+          </div>
+
+          <!-- Silver Tier -->
+          <div class="tier-card silver">
+            <div class="tier-icon">🥈</div>
+            <h3 class="tier-name">Silver</h3>
+            <p class="tier-requirement">10-24 Referrals</p>
+            <ul class="tier-benefits">
+              <li>650 HYPE per referral</li>
+              <li>Priority support</li>
+              <li>Silver badge</li>
+              <li>Early feature access</li>
+              <li>Monthly bonus: 2,000 HYPE</li>
+            </ul>
+            <div class="tier-reward">
+              <div class="tier-reward-amount">650</div>
+              <div class="tier-reward-label">HYPE per Referral</div>
+            </div>
+          </div>
+
+          <!-- Gold Tier -->
+          <div class="tier-card gold">
+            <div class="tier-icon">🥇</div>
+            <h3 class="tier-name">Gold</h3>
+            <p class="tier-requirement">25-49 Referrals</p>
+            <ul class="tier-benefits">
+              <li>800 HYPE per referral</li>
+              <li>VIP support</li>
+              <li>Gold badge</li>
+              <li>Exclusive events access</li>
+              <li>Monthly bonus: 5,000 HYPE</li>
+              <li>Featured on website</li>
+            </ul>
+            <div class="tier-reward">
+              <div class="tier-reward-amount">800</div>
+              <div class="tier-reward-label">HYPE per Referral</div>
+            </div>
+          </div>
+
+          <!-- Platinum Tier -->
+          <div class="tier-card platinum">
+            <div class="tier-icon">💎</div>
+            <h3 class="tier-name">Platinum</h3>
+            <p class="tier-requirement">50+ Referrals</p>
+            <ul class="tier-benefits">
+              <li>1,000 HYPE per referral</li>
+              <li>Dedicated account manager</li>
+              <li>Platinum badge</li>
+              <li>Ambassador status</li>
+              <li>Monthly bonus: 10,000 HYPE</li>
+              <li>Revenue sharing: 0.5%</li>
+              <li>Team AMA invitations</li>
+            </ul>
+            <div class="tier-reward">
+              <div class="tier-reward-amount">1,000</div>
+              <div class="tier-reward-label">HYPE per Referral</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Your Referral Stats</h2>
+          <p class="section-description">Track your performance and earnings</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card-large">
+            <div class="stat-icon-large">👥</div>
+            <div class="stat-value-huge">47</div>
+            <div class="stat-text">Total Referrals</div>
+          </div>
+
+          <div class="stat-card-large">
+            <div class="stat-icon-large">💰</div>
+            <div class="stat-value-huge">35,200</div>
+            <div class="stat-text">HYPE Earned</div>
+          </div>
+
+          <div class="stat-card-large">
+            <div class="stat-icon-large">🏆</div>
+            <div class="stat-value-huge">Gold</div>
+            <div class="stat-text">Current Tier</div>
+          </div>
+
+          <div class="stat-card-large">
+            <div class="stat-icon-large">📈</div>
+            <div class="stat-value-huge">12</div>
+            <div class="stat-text">Active This Month</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Earnings Calculator -->
+    <section class="section" style="background: var(--bnb-bg-dark);">
+      <div class="container">
+        <div class="calculator-card">
+          <h3 class="calculator-title">Earnings Calculator</h3>
+
+          <div class="calc-input-group">
+            <label class="calc-label" for="referralCount">Number of Referrals</label>
+            <input
+              type="number"
+              id="referralCount"
+              class="calc-input"
+              value="10"
+              min="1"
+              max="1000"
+              oninput="calculateEarnings()"
+            >
+          </div>
+
+          <div class="calc-results">
+            <div class="calc-result-value" id="totalEarnings">6,500</div>
+            <div class="calc-result-label">Total HYPE Earned</div>
+          </div>
+
+          <div class="calc-breakdown">
+            <div class="calc-breakdown-item">
+              <span class="breakdown-label">Referral Rewards</span>
+              <span class="breakdown-value" id="referralRewards">6,500 HYPE</span>
+            </div>
+            <div class="calc-breakdown-item">
+              <span class="breakdown-label">Monthly Bonus</span>
+              <span class="breakdown-value" id="monthlyBonus">2,000 HYPE</span>
+            </div>
+            <div class="calc-breakdown-item">
+              <span class="breakdown-label">Your Tier</span>
+              <span class="breakdown-value" id="calculatedTier">🥈 Silver</span>
+            </div>
+            <div class="calc-breakdown-item">
+              <span class="breakdown-label">Reward Per Referral</span>
+              <span class="breakdown-value" id="rewardRate">650 HYPE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-description">Start earning in 3 simple steps</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="20" stroke="url(#grad1)" stroke-width="2"/>
+                <text x="24" y="32" text-anchor="middle" fill="#F3BA2F" font-size="24" font-weight="700">1</text>
+                <defs>
+                  <linearGradient id="grad1" x1="4" y1="4" x2="44" y2="44">
+                    <stop stop-color="#F3BA2F"/>
+                    <stop offset="1" stop-color="#FCD535"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h3 class="feature-title">Get Your Link</h3>
+            <p class="feature-description">
+              Connect your wallet and generate your unique referral link instantly.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="20" stroke="url(#grad2)" stroke-width="2"/>
+                <text x="24" y="32" text-anchor="middle" fill="#F3BA2F" font-size="24" font-weight="700">2</text>
+                <defs>
+                  <linearGradient id="grad2" x1="4" y1="4" x2="44" y2="44">
+                    <stop stop-color="#F3BA2F"/>
+                    <stop offset="1" stop-color="#FCD535"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h3 class="feature-title">Share With Friends</h3>
+            <p class="feature-description">
+              Share your link on social media, Discord, Telegram, or directly with friends.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="20" stroke="url(#grad3)" stroke-width="2"/>
+                <text x="24" y="32" text-anchor="middle" fill="#F3BA2F" font-size="24" font-weight="700">3</text>
+                <defs>
+                  <linearGradient id="grad3" x1="4" y1="4" x2="44" y2="44">
+                    <stop stop-color="#F3BA2F"/>
+                    <stop offset="1" stop-color="#FCD535"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h3 class="feature-title">Earn Rewards</h3>
+            <p class="feature-description">
+              Receive HYPE tokens automatically when your referrals join and stake.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">
+            AI-powered crypto services on Binance Smart Chain.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="agents.html">AI Agents</a></li>
+            <li><a href="trade.html">Trade</a></li>
+            <li><a href="stake.html">Stake</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Community</h4>
+          <ul class="footer-links">
+            <li><a href="community.html">Community</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="referral.html">Referral</a></li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/mobile.js"></script>
+  <script>
+    function copyReferralLink() {
+      const linkInput = document.getElementById('referralLink');
+      linkInput.select();
+      document.execCommand('copy');
+
+      const btn = event.target.closest('.copy-btn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+      }, 2000);
+    }
+
+    function calculateEarnings() {
+      const count = parseInt(document.getElementById('referralCount').value) || 0;
+
+      let tier = 'Bronze';
+      let rate = 500;
+      let bonus = 0;
+      let tierEmoji = '🥉';
+
+      if (count >= 50) {
+        tier = 'Platinum';
+        rate = 1000;
+        bonus = 10000;
+        tierEmoji = '💎';
+      } else if (count >= 25) {
+        tier = 'Gold';
+        rate = 800;
+        bonus = 5000;
+        tierEmoji = '🥇';
+      } else if (count >= 10) {
+        tier = 'Silver';
+        rate = 650;
+        bonus = 2000;
+        tierEmoji = '🥈';
+      }
+
+      const referralRewards = count * rate;
+      const total = referralRewards + bonus;
+
+      document.getElementById('totalEarnings').textContent = total.toLocaleString();
+      document.getElementById('referralRewards').textContent = referralRewards.toLocaleString() + ' HYPE';
+      document.getElementById('monthlyBonus').textContent = bonus.toLocaleString() + ' HYPE';
+      document.getElementById('calculatedTier').textContent = tierEmoji + ' ' + tier;
+      document.getElementById('rewardRate').textContent = rate + ' HYPE';
+    }
+
+    // Initialize calculator
+    calculateEarnings();
+  </script>
+</body>
+</html>

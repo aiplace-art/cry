@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HypeAI Ambassador Program - Represent the Future of AI & Crypto</title>
+  <meta name="description" content="Join the HypeAI Ambassador Program. Earn rewards, exclusive benefits, and help grow the community worldwide.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    .ambassadors-hero {
+      padding: calc(80px + var(--spacing-12)) var(--spacing-4) var(--spacing-12);
+      background: radial-gradient(circle at 50% 50%, rgba(243, 186, 47, 0.15) 0%, transparent 70%);
+      text-align: center;
+    }
+
+    .hero-badge-large {
+      font-size: 5rem;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-6);
+    }
+
+    .benefit-card-large {
+      padding: var(--spacing-8);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      transition: var(--transition-normal);
+      text-align: center;
+    }
+
+    .benefit-card-large:hover {
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 8px 32px rgba(243, 186, 47, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .benefit-icon-large {
+      font-size: 3.5rem;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .benefit-title-large {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-3);
+    }
+
+    .benefit-description-large {
+      color: var(--text-tertiary);
+      line-height: 1.7;
+    }
+
+    .ambassador-levels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-8);
+    }
+
+    .level-card {
+      position: relative;
+      padding: var(--spacing-10);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 2px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      transition: var(--transition-normal);
+      overflow: hidden;
+    }
+
+    .level-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: var(--level-gradient);
+    }
+
+    .level-card:hover {
+      border-color: var(--level-color);
+      box-shadow: 0 12px 48px rgba(243, 186, 47, 0.4);
+      transform: translateY(-6px);
+    }
+
+    .level-card.starter {
+      --level-color: #4A90E2;
+      --level-gradient: linear-gradient(90deg, #4A90E2, #67B2E8);
+    }
+
+    .level-card.elite {
+      --level-color: #9B59B6;
+      --level-gradient: linear-gradient(90deg, #9B59B6, #C27ECB);
+    }
+
+    .level-card.legendary {
+      --level-color: #F3BA2F;
+      --level-gradient: linear-gradient(90deg, #F3BA2F, #FCD535);
+    }
+
+    .level-icon {
+      font-size: 4rem;
+      margin-bottom: var(--spacing-4);
+      text-align: center;
+    }
+
+    .level-name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-2);
+      text-align: center;
+    }
+
+    .level-subtitle {
+      color: var(--text-tertiary);
+      text-align: center;
+      margin-bottom: var(--spacing-6);
+    }
+
+    .level-rewards {
+      background: rgba(243, 186, 47, 0.05);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      margin-bottom: var(--spacing-6);
+      text-align: center;
+    }
+
+    .level-reward-amount {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--bnb-gold-primary);
+      line-height: 1;
+      margin-bottom: var(--spacing-2);
+    }
+
+    .level-reward-label {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+
+    .level-perks {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .level-perks li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-3);
+      padding: var(--spacing-3) 0;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .level-perks li:last-child {
+      border-bottom: none;
+    }
+
+    .perk-icon {
+      flex-shrink: 0;
+      color: var(--bnb-success);
+      font-size: 1.25rem;
+    }
+
+    .perk-text {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .current-ambassadors {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: var(--spacing-6);
+    }
+
+    .ambassador-card {
+      padding: var(--spacing-6);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: var(--transition-normal);
+    }
+
+    .ambassador-card:hover {
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 8px 32px rgba(243, 186, 47, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .ambassador-avatar {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto var(--spacing-4);
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #000;
+      border: 4px solid var(--bnb-bg-dark);
+      position: relative;
+    }
+
+    .ambassador-level-badge {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      width: 32px;
+      height: 32px;
+      background: var(--level-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--bnb-bg-dark);
+      font-size: 1rem;
+    }
+
+    .ambassador-name {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-1);
+    }
+
+    .ambassador-title {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      margin-bottom: var(--spacing-3);
+    }
+
+    .ambassador-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-6);
+      margin-top: var(--spacing-4);
+      padding-top: var(--spacing-4);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .ambassador-stat {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-1);
+    }
+
+    .application-form {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-10);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .form-section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .form-group {
+      margin-bottom: var(--spacing-6);
+    }
+
+    .form-label {
+      display: block;
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin-bottom: var(--spacing-2);
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: var(--spacing-4);
+      background: rgba(30, 32, 38, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+      font-size: 1rem;
+      transition: var(--transition-fast);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 0 0 3px rgba(243, 186, 47, 0.2);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-hint {
+      font-size: 0.875rem;
+      color: var(--text-quaternary);
+      margin-top: var(--spacing-2);
+    }
+
+    .requirements-checklist {
+      list-style: none;
+      padding: 0;
+      margin: var(--spacing-6) 0;
+    }
+
+    .requirements-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-3);
+      padding: var(--spacing-3);
+      margin-bottom: var(--spacing-2);
+      background: rgba(243, 186, 47, 0.05);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--bnb-gold-primary);
+    }
+
+    @media (max-width: 768px) {
+      .ambassador-levels {
+        grid-template-columns: 1fr;
+      }
+
+      .current-ambassadors {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="index.html#features" class="nav-link">Features</a></li>
+            <li><a href="agents.html" class="nav-link">AI Agents</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="ambassadors.html" class="nav-link">Ambassadors</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary">Connect Wallet</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html#features" class="mobile-nav-link">Features</a>
+      <a href="agents.html" class="mobile-nav-link">AI Agents</a>
+      <a href="community.html" class="mobile-nav-link">Community</a>
+      <a href="ambassadors.html" class="mobile-nav-link">Ambassadors</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Ambassadors Hero -->
+    <section class="ambassadors-hero">
+      <div class="container">
+        <div class="hero-badge-large">🌟</div>
+        <h1 class="section-title">Become a HypeAI Ambassador</h1>
+        <p class="section-description" style="max-width: 700px; margin: 0 auto var(--spacing-8);">
+          Represent HypeAI in your region, help grow the community, and earn exclusive rewards and recognition
+        </p>
+        <button class="btn-primary btn-xl" onclick="document.getElementById('application').scrollIntoView({behavior: 'smooth'})">
+          Apply Now
+          <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Ambassador Benefits</h2>
+          <p class="section-description">Exclusive perks and rewards for our community leaders</p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card-large">
+            <div class="benefit-icon-large">💰</div>
+            <h3 class="benefit-title-large">Monthly Rewards</h3>
+            <p class="benefit-description-large">
+              Earn up to 20,000 HYPE tokens monthly based on your performance and contributions to the community.
+            </p>
+          </div>
+
+          <div class="benefit-card-large">
+            <div class="benefit-icon-large">🎁</div>
+            <h3 class="benefit-title-large">Exclusive Airdrops</h3>
+            <p class="benefit-description-large">
+              Early access to new features, exclusive NFTs, and special token airdrops reserved for ambassadors.
+            </p>
+          </div>
+
+          <div class="benefit-card-large">
+            <div class="benefit-icon-large">🏆</div>
+            <h3 class="benefit-title-large">VIP Status</h3>
+            <p class="benefit-description-large">
+              Special badge, priority support, direct access to the team, and invitations to exclusive events.
+            </p>
+          </div>
+
+          <div class="benefit-card-large">
+            <div class="benefit-icon-large">📚</div>
+            <h3 class="benefit-title-large">Learning Resources</h3>
+            <p class="benefit-description-large">
+              Access to exclusive educational materials, training sessions, and industry insights from experts.
+            </p>
+          </div>
+
+          <div class="benefit-card-large">
+            <div class="benefit-icon-large">🌐</div>
+            <h3 class="benefit-title-large">Global Network</h3>
+            <p class="benefit-description-large">
+              Connect with ambassadors worldwide, collaborate on initiatives, and build lasting relationships.
+            </p>
+          </div>
+
+          <div class="benefit-card-large">
+            <div class="benefit-icon-large">🎤</div>
+            <h3 class="benefit-title-large">Speaking Opportunities</h3>
+            <p class="benefit-description-large">
+              Represent HypeAI at conferences, AMAs, and community events with full support from the team.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ambassador Levels -->
+    <section class="section" style="background: var(--bnb-bg-dark);">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Ambassador Levels</h2>
+          <p class="section-description">Progress through tiers and unlock greater rewards</p>
+        </div>
+
+        <div class="ambassador-levels">
+          <!-- Starter Level -->
+          <div class="level-card starter">
+            <div class="level-icon">⭐</div>
+            <h3 class="level-name">Starter</h3>
+            <p class="level-subtitle">Entry-level ambassadors</p>
+
+            <div class="level-rewards">
+              <div class="level-reward-amount">5,000</div>
+              <div class="level-reward-label">HYPE / Month</div>
+            </div>
+
+            <ul class="level-perks">
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Ambassador badge in community</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Monthly token rewards</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Access to ambassador Discord</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Official ambassador kit</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Training and resources</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Elite Level -->
+          <div class="level-card elite">
+            <div class="level-icon">🌟</div>
+            <h3 class="level-name">Elite</h3>
+            <p class="level-subtitle">Proven community leaders</p>
+
+            <div class="level-rewards">
+              <div class="level-reward-amount">12,000</div>
+              <div class="level-reward-label">HYPE / Month</div>
+            </div>
+
+            <ul class="level-perks">
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">All Starter benefits</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Exclusive Elite badge</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Higher monthly rewards</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Priority event invitations</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Direct team communication</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Early feature access</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Quarterly NFT airdrops</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Legendary Level -->
+          <div class="level-card legendary">
+            <div class="level-icon">👑</div>
+            <h3 class="level-name">Legendary</h3>
+            <p class="level-subtitle">Top-tier global ambassadors</p>
+
+            <div class="level-rewards">
+              <div class="level-reward-amount">20,000</div>
+              <div class="level-reward-label">HYPE / Month</div>
+            </div>
+
+            <ul class="level-perks">
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">All Elite benefits</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Legendary crown badge</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Maximum monthly rewards</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Dedicated account manager</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Revenue sharing program</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Speaking at major events</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Influence on roadmap decisions</span>
+              </li>
+              <li>
+                <span class="perk-icon">✓</span>
+                <span class="perk-text">Exclusive team retreats</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Ambassadors -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Meet Our Ambassadors</h2>
+          <p class="section-description">Community leaders making a difference globally</p>
+        </div>
+
+        <div class="current-ambassadors">
+          <!-- Ambassador 1 -->
+          <div class="ambassador-card">
+            <div class="ambassador-avatar">
+              <span>JS</span>
+              <div class="ambassador-level-badge" style="--level-color: #F3BA2F;">👑</div>
+            </div>
+            <h3 class="ambassador-name">@johnsparks</h3>
+            <p class="ambassador-title">Legendary Ambassador • USA</p>
+            <div class="ambassador-stats">
+              <div class="ambassador-stat">
+                <div class="stat-value-large">2.4K</div>
+                <div class="stat-label-small">Members</div>
+              </div>
+              <div class="ambassador-stat">
+                <div class="stat-value-large">89</div>
+                <div class="stat-label-small">Events</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ambassador 2 -->
+          <div class="ambassador-card">
+            <div class="ambassador-avatar">
+              <span>MC</span>
+              <div class="ambassador-level-badge" style="--level-color: #9B59B6;">🌟</div>
+            </div>
+            <h3 class="ambassador-name">@mariacrypto</h3>
+            <p class="ambassador-title">Elite Ambassador • Brazil</p>
+            <div class="ambassador-stats">
+              <div class="ambassador-stat">
+                <div class="stat-value-large">1.8K</div>
+                <div class="stat-label-small">Members</div>
+              </div>
+              <div class="ambassador-stat">
+                <div class="stat-value-large">56</div>
+                <div class="stat-label-small">Events</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ambassador 3 -->
+          <div class="ambassador-card">
+            <div class="ambassador-avatar">
+              <span>AK</span>
+              <div class="ambassador-level-badge" style="--level-color: #F3BA2F;">👑</div>
+            </div>
+            <h3 class="ambassador-name">@alexkwan</h3>
+            <p class="ambassador-title">Legendary Ambassador • Singapore</p>
+            <div class="ambassador-stats">
+              <div class="ambassador-stat">
+                <div class="stat-value-large">3.1K</div>
+                <div class="stat-label-small">Members</div>
+              </div>
+              <div class="ambassador-stat">
+                <div class="stat-value-large">112</div>
+                <div class="stat-label-small">Events</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ambassador 4 -->
+          <div class="ambassador-card">
+            <div class="ambassador-avatar">
+              <span>LP</span>
+              <div class="ambassador-level-badge" style="--level-color: #4A90E2;">⭐</div>
+            </div>
+            <h3 class="ambassador-name">@lucaspatel</h3>
+            <p class="ambassador-title">Starter Ambassador • India</p>
+            <div class="ambassador-stats">
+              <div class="ambassador-stat">
+                <div class="stat-value-large">892</div>
+                <div class="stat-label-small">Members</div>
+              </div>
+              <div class="ambassador-stat">
+                <div class="stat-value-large">23</div>
+                <div class="stat-label-small">Events</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ambassador 5 -->
+          <div class="ambassador-card">
+            <div class="ambassador-avatar">
+              <span>SN</span>
+              <div class="ambassador-level-badge" style="--level-color: #9B59B6;">🌟</div>
+            </div>
+            <h3 class="ambassador-name">@sarahnguyen</h3>
+            <p class="ambassador-title">Elite Ambassador • Vietnam</p>
+            <div class="ambassador-stats">
+              <div class="ambassador-stat">
+                <div class="stat-value-large">1.5K</div>
+                <div class="stat-label-small">Members</div>
+              </div>
+              <div class="ambassador-stat">
+                <div class="stat-value-large">47</div>
+                <div class="stat-label-small">Events</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ambassador 6 -->
+          <div class="ambassador-card">
+            <div class="ambassador-avatar">
+              <span>RM</span>
+              <div class="ambassador-level-badge" style="--level-color: #4A90E2;">⭐</div>
+            </div>
+            <h3 class="ambassador-name">@robertmiller</h3>
+            <p class="ambassador-title">Starter Ambassador • UK</p>
+            <div class="ambassador-stats">
+              <div class="ambassador-stat">
+                <div class="stat-value-large">734</div>
+                <div class="stat-label-small">Members</div>
+              </div>
+              <div class="ambassador-stat">
+                <div class="stat-value-large">18</div>
+                <div class="stat-label-small">Events</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="application" class="section" style="background: var(--bnb-bg-dark);">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Apply to Become an Ambassador</h2>
+          <p class="section-description">Join our global team of community leaders</p>
+        </div>
+
+        <div class="application-form">
+          <h3 class="form-section-title">Requirements</h3>
+          <ul class="requirements-checklist">
+            <li>
+              <span class="perk-icon">✓</span>
+              <span class="perk-text">Active HypeAI community member for 30+ days</span>
+            </li>
+            <li>
+              <span class="perk-icon">✓</span>
+              <span class="perk-text">Minimum 100 HYPE tokens staked</span>
+            </li>
+            <li>
+              <span class="perk-icon">✓</span>
+              <span class="perk-text">Strong social media presence (1000+ followers)</span>
+            </li>
+            <li>
+              <span class="perk-icon">✓</span>
+              <span class="perk-text">Passion for AI, crypto, and community building</span>
+            </li>
+            <li>
+              <span class="perk-icon">✓</span>
+              <span class="perk-text">Commitment to host at least 2 events per month</span>
+            </li>
+          </ul>
+
+          <h3 class="form-section-title">Application Form</h3>
+
+          <form>
+            <div class="form-group">
+              <label class="form-label" for="fullName">Full Name *</label>
+              <input type="text" id="fullName" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input type="email" id="email" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="walletAddress">BSC Wallet Address *</label>
+              <input type="text" id="walletAddress" class="form-input" placeholder="0x..." required>
+              <div class="form-hint">Your rewards will be sent to this address</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="country">Country / Region *</label>
+              <select id="country" class="form-select" required>
+                <option value="">Select your country</option>
+                <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="sg">Singapore</option>
+                <option value="jp">Japan</option>
+                <option value="in">India</option>
+                <option value="br">Brazil</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="twitter">Twitter / X Handle *</label>
+              <input type="text" id="twitter" class="form-input" placeholder="@yourhandle" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="telegram">Telegram Username *</label>
+              <input type="text" id="telegram" class="form-input" placeholder="@yourhandle" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="experience">Community Management Experience *</label>
+              <textarea id="experience" class="form-textarea" placeholder="Tell us about your experience managing communities, organizing events, or contributing to crypto projects..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="motivation">Why do you want to be a HypeAI Ambassador? *</label>
+              <textarea id="motivation" class="form-textarea" placeholder="Share your motivation and what you hope to achieve as an ambassador..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ideas">Event Ideas & Community Initiatives *</label>
+              <textarea id="ideas" class="form-textarea" placeholder="What events would you organize? How would you grow the HypeAI community in your region?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary btn-block btn-lg">
+              Submit Application
+              <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">
+            AI-powered crypto services on Binance Smart Chain.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="agents.html">AI Agents</a></li>
+            <li><a href="trade.html">Trade</a></li>
+            <li><a href="stake.html">Stake</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Community</h4>
+          <ul class="footer-links">
+            <li><a href="community.html">Community</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="referral.html">Referral</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="ambassadors.html">Ambassadors</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HypeAI Events - AMAs, Webinars & Community Meetups</title>
+  <meta name="description" content="Join HypeAI events, AMAs, webinars, and community meetups. Stay connected and learn from industry experts.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    .events-hero {
+      padding: calc(80px + var(--spacing-8)) var(--spacing-4) var(--spacing-8);
+      background: radial-gradient(circle at 50% 50%, rgba(243, 186, 47, 0.1) 0%, transparent 70%);
+      text-align: center;
+    }
+
+    .upcoming-banner {
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.2) 0%, rgba(243, 186, 47, 0.05) 100%);
+      border: 2px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      margin-bottom: var(--spacing-12);
+      text-align: center;
+    }
+
+    .next-event-label {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: var(--spacing-2);
+    }
+
+    .next-event-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .countdown-timer {
+      display: flex;
+      gap: var(--spacing-4);
+      justify-content: center;
+      margin: var(--spacing-6) 0;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--spacing-4);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      min-width: 80px;
+    }
+
+    .countdown-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+      line-height: 1;
+    }
+
+    .countdown-label {
+      font-size: 0.75rem;
+      color: var(--text-quaternary);
+      text-transform: uppercase;
+      margin-top: var(--spacing-1);
+    }
+
+    .event-tabs {
+      display: flex;
+      gap: var(--spacing-2);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--spacing-8);
+    }
+
+    .event-tab {
+      padding: var(--spacing-3) var(--spacing-6);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .event-tab:hover,
+    .event-tab.active {
+      background: rgba(243, 186, 47, 0.1);
+      border-color: var(--bnb-gold-primary);
+      color: var(--bnb-gold-primary);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--spacing-6);
+    }
+
+    .event-card {
+      position: relative;
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition-normal);
+    }
+
+    .event-card:hover {
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 8px 32px rgba(243, 186, 47, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .event-banner {
+      height: 180px;
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.3) 0%, rgba(243, 186, 47, 0.1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .event-type-badge {
+      position: absolute;
+      top: var(--spacing-3);
+      right: var(--spacing-3);
+      padding: var(--spacing-1) var(--spacing-3);
+      background: var(--gradient-gold);
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+    }
+
+    .event-date-display {
+      text-align: center;
+      padding: var(--spacing-4);
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: var(--radius-lg);
+    }
+
+    .event-month {
+      font-size: 0.875rem;
+      color: var(--bnb-gold-primary);
+      text-transform: uppercase;
+    }
+
+    .event-day {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .event-content {
+      padding: var(--spacing-6);
+    }
+
+    .event-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-3);
+      line-height: 1.3;
+    }
+
+    .event-description {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .event-meta {
+      display: grid;
+      gap: var(--spacing-2);
+      margin-bottom: var(--spacing-4);
+      padding: var(--spacing-4);
+      background: rgba(243, 186, 47, 0.05);
+      border-radius: var(--radius-md);
+    }
+
+    .event-meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .event-meta-icon {
+      flex-shrink: 0;
+      color: var(--bnb-gold-primary);
+    }
+
+    .event-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--spacing-4);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .event-attendees {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+    }
+
+    .calendar-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-6);
+    }
+
+    .calendar-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .calendar-nav {
+      display: flex;
+      gap: var(--spacing-2);
+    }
+
+    .calendar-nav-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .calendar-nav-btn:hover {
+      border-color: var(--bnb-gold-primary);
+      color: var(--bnb-gold-primary);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: var(--spacing-2);
+    }
+
+    .calendar-day-label {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-quaternary);
+      text-transform: uppercase;
+      padding: var(--spacing-2);
+      font-weight: 600;
+    }
+
+    .calendar-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 32, 38, 0.4);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .calendar-day:hover {
+      background: rgba(243, 186, 47, 0.1);
+      border-color: var(--bnb-gold-primary);
+    }
+
+    .calendar-day.has-event::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      background: var(--bnb-gold-primary);
+      border-radius: 50%;
+    }
+
+    .calendar-day.today {
+      background: rgba(243, 186, 47, 0.2);
+      border-color: var(--bnb-gold-primary);
+      color: var(--bnb-gold-primary);
+    }
+
+    .calendar-day.other-month {
+      opacity: 0.3;
+    }
+
+    .newsletter-signup {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 2px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      text-align: center;
+    }
+
+    .newsletter-icon {
+      font-size: 4rem;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .newsletter-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-3);
+    }
+
+    .newsletter-description {
+      color: var(--text-tertiary);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: var(--spacing-2);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: var(--spacing-4);
+      background: rgba(30, 32, 38, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+      .countdown-timer {
+        flex-wrap: wrap;
+      }
+
+      .countdown-item {
+        min-width: 70px;
+      }
+
+      .countdown-number {
+        font-size: 2rem;
+      }
+
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .calendar-grid {
+        gap: var(--spacing-1);
+      }
+
+      .calendar-day {
+        font-size: 0.875rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="index.html#features" class="nav-link">Features</a></li>
+            <li><a href="agents.html" class="nav-link">AI Agents</a></li>
+            <li><a href="community.html" class="nav-link">Community</a></li>
+            <li><a href="events.html" class="nav-link">Events</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary">Connect Wallet</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html#features" class="mobile-nav-link">Features</a>
+      <a href="agents.html" class="mobile-nav-link">AI Agents</a>
+      <a href="community.html" class="mobile-nav-link">Community</a>
+      <a href="events.html" class="mobile-nav-link">Events</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Events Hero -->
+    <section class="events-hero">
+      <div class="container">
+        <h1 class="section-title">Upcoming Events</h1>
+        <p class="section-description">
+          Join AMAs, webinars, workshops, and community meetups
+        </p>
+      </div>
+    </section>
+
+    <!-- Next Event Banner -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="upcoming-banner">
+          <div class="next-event-label">Next Event</div>
+          <h2 class="next-event-title">HypeAI Team AMA - December Edition</h2>
+          <p class="section-description" style="margin-bottom: var(--spacing-6);">
+            Ask the team anything about our roadmap, technology, and future plans
+          </p>
+
+          <div class="countdown-timer">
+            <div class="countdown-item">
+              <div class="countdown-number">05</div>
+              <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number">14</div>
+              <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number">23</div>
+              <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number">47</div>
+              <div class="countdown-label">Seconds</div>
+            </div>
+          </div>
+
+          <button class="btn-primary btn-lg">Register Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Filters -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="event-tabs">
+          <button class="event-tab active">All Events</button>
+          <button class="event-tab">AMAs</button>
+          <button class="event-tab">Webinars</button>
+          <button class="event-tab">Workshops</button>
+          <button class="event-tab">Meetups</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Grid -->
+    <section class="section" style="padding-top: 0; background: var(--bnb-bg-dark);">
+      <div class="container">
+        <div class="events-grid">
+
+          <!-- Event 1 -->
+          <div class="event-card">
+            <div class="event-banner">
+              <div class="event-type-badge">AMA</div>
+              <div class="event-date-display">
+                <div class="event-month">Dec</div>
+                <div class="event-day">28</div>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">HypeAI Team AMA - December Edition</h3>
+              <p class="event-description">
+                Monthly AMA session with the core team. Ask about roadmap, tech updates, partnerships, and more.
+              </p>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                  </svg>
+                  <span>6:00 PM UTC</span>
+                </div>
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Discord Voice Channel</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-attendees">
+                  <span>👥</span>
+                  <span>847 registered</span>
+                </div>
+                <button class="btn-secondary btn-sm">Register</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="event-card">
+            <div class="event-banner">
+              <div class="event-type-badge">Webinar</div>
+              <div class="event-date-display">
+                <div class="event-month">Jan</div>
+                <div class="event-day">05</div>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">AI Trading Strategies 101</h3>
+              <p class="event-description">
+                Learn how to leverage HypeAI's AI agents for automated trading. Beginner-friendly workshop with live demos.
+              </p>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                  </svg>
+                  <span>3:00 PM UTC</span>
+                </div>
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>YouTube Live</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-attendees">
+                  <span>👥</span>
+                  <span>523 registered</span>
+                </div>
+                <button class="btn-secondary btn-sm">Register</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="event-card">
+            <div class="event-banner">
+              <div class="event-type-badge">Workshop</div>
+              <div class="event-date-display">
+                <div class="event-month">Jan</div>
+                <div class="event-day">12</div>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">Advanced Staking Strategies</h3>
+              <p class="event-description">
+                Deep dive into staking optimization, compound strategies, and maximizing APY with live Q&A.
+              </p>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                  </svg>
+                  <span>5:00 PM UTC</span>
+                </div>
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Zoom</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-attendees">
+                  <span>👥</span>
+                  <span>312 registered</span>
+                </div>
+                <button class="btn-secondary btn-sm">Register</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 4 -->
+          <div class="event-card">
+            <div class="event-banner">
+              <div class="event-type-badge">Meetup</div>
+              <div class="event-date-display">
+                <div class="event-month">Jan</div>
+                <div class="event-day">18</div>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">HypeAI Singapore Meetup</h3>
+              <p class="event-description">
+                In-person networking event with the community, team members, and special guest speakers.
+              </p>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                  </svg>
+                  <span>7:00 PM SGT</span>
+                </div>
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Marina Bay, Singapore</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-attendees">
+                  <span>👥</span>
+                  <span>89 / 150 spots</span>
+                </div>
+                <button class="btn-secondary btn-sm">Register</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 5 -->
+          <div class="event-card">
+            <div class="event-banner">
+              <div class="event-type-badge">AMA</div>
+              <div class="event-date-display">
+                <div class="event-month">Jan</div>
+                <div class="event-day">25</div>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">Partnership Announcement AMA</h3>
+              <p class="event-description">
+                Special AMA with our new strategic partner. Learn about upcoming integrations and collaborations.
+              </p>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                  </svg>
+                  <span>4:00 PM UTC</span>
+                </div>
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Telegram Voice Chat</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-attendees">
+                  <span>👥</span>
+                  <span>1.2K registered</span>
+                </div>
+                <button class="btn-secondary btn-sm">Register</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 6 -->
+          <div class="event-card">
+            <div class="event-banner">
+              <div class="event-type-badge">Webinar</div>
+              <div class="event-date-display">
+                <div class="event-month">Feb</div>
+                <div class="event-day">02</div>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">BSC DeFi Deep Dive</h3>
+              <p class="event-description">
+                Comprehensive guide to DeFi on Binance Smart Chain featuring HypeAI use cases and best practices.
+              </p>
+              <div class="event-meta">
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                  </svg>
+                  <span>2:00 PM UTC</span>
+                </div>
+                <div class="event-meta-item">
+                  <svg class="event-meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>YouTube Live</span>
+                </div>
+              </div>
+              <div class="event-footer">
+                <div class="event-attendees">
+                  <span>👥</span>
+                  <span>234 registered</span>
+                </div>
+                <button class="btn-secondary btn-sm">Register</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendar View -->
+    <section class="section">
+      <div class="container">
+        <div class="calendar-section">
+          <div class="calendar-header">
+            <h3 class="calendar-title">January 2025</h3>
+            <div class="calendar-nav">
+              <button class="calendar-nav-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M15 18l-6-6 6-6"></path>
+                </svg>
+              </button>
+              <button class="calendar-nav-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18l6-6-6-6"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="calendar-grid">
+            <div class="calendar-day-label">Sun</div>
+            <div class="calendar-day-label">Mon</div>
+            <div class="calendar-day-label">Tue</div>
+            <div class="calendar-day-label">Wed</div>
+            <div class="calendar-day-label">Thu</div>
+            <div class="calendar-day-label">Fri</div>
+            <div class="calendar-day-label">Sat</div>
+
+            <div class="calendar-day other-month">29</div>
+            <div class="calendar-day other-month">30</div>
+            <div class="calendar-day other-month">31</div>
+            <div class="calendar-day">1</div>
+            <div class="calendar-day">2</div>
+            <div class="calendar-day">3</div>
+            <div class="calendar-day">4</div>
+            <div class="calendar-day has-event">5</div>
+            <div class="calendar-day">6</div>
+            <div class="calendar-day">7</div>
+            <div class="calendar-day">8</div>
+            <div class="calendar-day">9</div>
+            <div class="calendar-day">10</div>
+            <div class="calendar-day">11</div>
+            <div class="calendar-day has-event">12</div>
+            <div class="calendar-day">13</div>
+            <div class="calendar-day">14</div>
+            <div class="calendar-day">15</div>
+            <div class="calendar-day">16</div>
+            <div class="calendar-day">17</div>
+            <div class="calendar-day has-event">18</div>
+            <div class="calendar-day">19</div>
+            <div class="calendar-day">20</div>
+            <div class="calendar-day">21</div>
+            <div class="calendar-day">22</div>
+            <div class="calendar-day today">23</div>
+            <div class="calendar-day">24</div>
+            <div class="calendar-day has-event">25</div>
+            <div class="calendar-day">26</div>
+            <div class="calendar-day">27</div>
+            <div class="calendar-day">28</div>
+            <div class="calendar-day">29</div>
+            <div class="calendar-day">30</div>
+            <div class="calendar-day">31</div>
+            <div class="calendar-day other-month">1</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section" style="background: var(--bnb-bg-dark);">
+      <div class="container">
+        <div class="newsletter-signup">
+          <div class="newsletter-icon">📅</div>
+          <h3 class="newsletter-title">Never Miss an Event</h3>
+          <p class="newsletter-description">
+            Subscribe to our event newsletter and get reminders for upcoming AMAs, webinars, and meetups
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+            <button type="submit" class="btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">
+            AI-powered crypto services on Binance Smart Chain.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="agents.html">AI Agents</a></li>
+            <li><a href="trade.html">Trade</a></li>
+            <li><a href="stake.html">Stake</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Community</h4>
+          <ul class="footer-links">
+            <li><a href="community.html">Community</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="referral.html">Referral</a></li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/mobile.js"></script>
+  <script>
+    // Event tabs
+    document.querySelectorAll('.event-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.event-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    // Countdown timer
+    function updateCountdown() {
+      const eventDate = new Date('2025-01-28T18:00:00Z').getTime();
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.querySelectorAll('.countdown-number').forEach((el, i) => {
+        const values = [days, hours, minutes, seconds];
+        el.textContent = String(values[i]).padStart(2, '0');
+      });
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Advanced Trading | HypeAI - AI-Powered Trading on BSC</title>
+  <meta name="title" content="Advanced Trading | HypeAI">
+  <meta name="description" content="Professional trading interface with real-time charts, order book, and AI-powered trading signals on Binance Smart Chain.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- TradingView Widget -->
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="trade-enhanced.html" class="nav-link">Trade</a></li>
+            <li><a href="pools.html" class="nav-link">Pools</a></li>
+            <li><a href="farm.html" class="nav-link">Farm</a></li>
+            <li><a href="bridge.html" class="nav-link">Bridge</a></li>
+            <li><a href="stake.html" class="nav-link">Stake</a></li>
+          </ul>
+        </nav>
+
+        <!-- BSC Badge & Wallet -->
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary" id="connectWallet">
+            <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M17.5 6.66667H2.5C1.83696 6.66667 1.20107 6.93006 0.732233 7.39889C0.263392 7.86773 0 8.50363 0 9.16667V15.8333C0 16.4964 0.263392 17.1323 0.732233 17.6011C1.20107 18.0699 1.83696 18.3333 2.5 18.3333H17.5C18.163 18.3333 18.7989 18.0699 19.2678 17.6011C19.7366 17.1323 20 16.4964 20 15.8333V9.16667C20 8.50363 19.7366 7.86773 19.2678 7.39889C18.7989 6.93006 18.163 6.66667 17.5 6.66667Z" fill="currentColor"/>
+            </svg>
+            Connect Wallet
+          </button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="trade-enhanced.html" class="mobile-nav-link">Trade</a>
+      <a href="pools.html" class="mobile-nav-link">Pools</a>
+      <a href="farm.html" class="mobile-nav-link">Farm</a>
+      <a href="bridge.html" class="mobile-nav-link">Bridge</a>
+      <a href="stake.html" class="mobile-nav-link">Stake</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Trading Interface -->
+    <section class="trading-section">
+      <div class="container-fluid">
+
+        <!-- Market Stats Bar -->
+        <div class="market-stats-bar">
+          <div class="market-stat">
+            <span class="stat-label">HYPE/USDT</span>
+            <span class="stat-value price-up">$0.0876</span>
+            <span class="stat-change positive">+12.4%</span>
+          </div>
+          <div class="market-stat">
+            <span class="stat-label">24h High</span>
+            <span class="stat-value">$0.0892</span>
+          </div>
+          <div class="market-stat">
+            <span class="stat-label">24h Low</span>
+            <span class="stat-value">$0.0754</span>
+          </div>
+          <div class="market-stat">
+            <span class="stat-label">24h Volume</span>
+            <span class="stat-value">$2.4M</span>
+          </div>
+          <div class="market-stat">
+            <span class="stat-label">Market Cap</span>
+            <span class="stat-value">$87.6M</span>
+          </div>
+        </div>
+
+        <!-- Trading Grid Layout -->
+        <div class="trading-grid">
+
+          <!-- Left Panel: Chart & Order Book -->
+          <div class="trading-left">
+
+            <!-- Trading Pairs & Timeframe -->
+            <div class="chart-controls">
+              <div class="pair-selector">
+                <button class="pair-btn active">HYPE/USDT</button>
+                <button class="pair-btn">HYPE/BNB</button>
+                <button class="pair-btn">HYPE/BUSD</button>
+              </div>
+              <div class="timeframe-selector">
+                <button class="tf-btn">1m</button>
+                <button class="tf-btn">5m</button>
+                <button class="tf-btn active">15m</button>
+                <button class="tf-btn">1h</button>
+                <button class="tf-btn">4h</button>
+                <button class="tf-btn">1D</button>
+              </div>
+            </div>
+
+            <!-- TradingView Chart -->
+            <div class="chart-container-wrapper">
+              <div id="tradingview_chart" class="tradingview-widget-container"></div>
+
+              <!-- AI Trading Signals Overlay -->
+              <div class="ai-signals-panel">
+                <div class="signal-header">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="#F3BA2F" stroke-width="2"/>
+                    <path d="M12 6V12L16 14" stroke="#F3BA2F" stroke-width="2"/>
+                  </svg>
+                  <span>AI Signal</span>
+                  <span class="signal-badge buy">BUY</span>
+                </div>
+                <div class="signal-content">
+                  <p class="signal-text">Strong buy signal detected. RSI oversold, MACD bullish crossover.</p>
+                  <div class="signal-stats">
+                    <span>Confidence: <strong class="text-success">87%</strong></span>
+                    <span>Target: <strong class="text-gold">$0.095</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Order Book -->
+            <div class="order-book-container">
+              <div class="order-book-header">
+                <h3>Order Book</h3>
+                <div class="order-book-tabs">
+                  <button class="ob-tab active">All</button>
+                  <button class="ob-tab">Bids</button>
+                  <button class="ob-tab">Asks</button>
+                </div>
+              </div>
+
+              <div class="order-book-content">
+                <!-- Order Book Headers -->
+                <div class="ob-headers">
+                  <span>Price (USDT)</span>
+                  <span>Amount (HYPE)</span>
+                  <span>Total</span>
+                </div>
+
+                <!-- Asks (Sell Orders) -->
+                <div class="ob-asks">
+                  <div class="ob-row ask">
+                    <span class="ob-price">0.0889</span>
+                    <span class="ob-amount">12,450</span>
+                    <span class="ob-total">1,106.81</span>
+                    <div class="ob-depth" style="width: 45%"></div>
+                  </div>
+                  <div class="ob-row ask">
+                    <span class="ob-price">0.0888</span>
+                    <span class="ob-amount">8,920</span>
+                    <span class="ob-total">792.10</span>
+                    <div class="ob-depth" style="width: 32%"></div>
+                  </div>
+                  <div class="ob-row ask">
+                    <span class="ob-price">0.0887</span>
+                    <span class="ob-amount">15,670</span>
+                    <span class="ob-total">1,389.93</span>
+                    <div class="ob-depth" style="width: 58%"></div>
+                  </div>
+                  <div class="ob-row ask">
+                    <span class="ob-price">0.0886</span>
+                    <span class="ob-amount">6,340</span>
+                    <span class="ob-total">561.72</span>
+                    <div class="ob-depth" style="width: 24%"></div>
+                  </div>
+                  <div class="ob-row ask">
+                    <span class="ob-price">0.0885</span>
+                    <span class="ob-amount">19,230</span>
+                    <span class="ob-total">1,701.86</span>
+                    <div class="ob-depth" style="width: 72%"></div>
+                  </div>
+                </div>
+
+                <!-- Current Price -->
+                <div class="ob-current-price">
+                  <span class="current-price-label">Current Price</span>
+                  <span class="current-price-value price-up">0.0876</span>
+                  <span class="current-price-change">↑ $0.0012</span>
+                </div>
+
+                <!-- Bids (Buy Orders) -->
+                <div class="ob-bids">
+                  <div class="ob-row bid">
+                    <span class="ob-price">0.0875</span>
+                    <span class="ob-amount">11,280</span>
+                    <span class="ob-total">987.00</span>
+                    <div class="ob-depth" style="width: 52%"></div>
+                  </div>
+                  <div class="ob-row bid">
+                    <span class="ob-price">0.0874</span>
+                    <span class="ob-amount">9,450</span>
+                    <span class="ob-total">825.93</span>
+                    <div class="ob-depth" style="width: 41%"></div>
+                  </div>
+                  <div class="ob-row bid">
+                    <span class="ob-price">0.0873</span>
+                    <span class="ob-amount">17,890</span>
+                    <span class="ob-total">1,561.80</span>
+                    <div class="ob-depth" style="width: 68%"></div>
+                  </div>
+                  <div class="ob-row bid">
+                    <span class="ob-price">0.0872</span>
+                    <span class="ob-amount">7,120</span>
+                    <span class="ob-total">620.86</span>
+                    <div class="ob-depth" style="width: 29%"></div>
+                  </div>
+                  <div class="ob-row bid">
+                    <span class="ob-price">0.0871</span>
+                    <span class="ob-amount">21,450</span>
+                    <span class="ob-total">1,868.30</span>
+                    <div class="ob-depth" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Panel: Trading Form & Orders -->
+          <div class="trading-right">
+
+            <!-- Trading Form -->
+            <div class="trading-form-card">
+              <div class="trade-type-tabs">
+                <button class="trade-tab active" data-type="spot">Spot</button>
+                <button class="trade-tab" data-type="limit">Limit</button>
+                <button class="trade-tab" data-type="market">Market</button>
+              </div>
+
+              <div class="trade-side-tabs">
+                <button class="side-tab buy-tab active" data-side="buy">Buy</button>
+                <button class="side-tab sell-tab" data-side="sell">Sell</button>
+              </div>
+
+              <!-- Buy Form -->
+              <div class="trade-form" id="buyForm">
+                <div class="balance-row">
+                  <span class="balance-label">Available</span>
+                  <span class="balance-value">1,245.89 USDT</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="buyPrice">Price</label>
+                  <div class="input-group">
+                    <input type="number" id="buyPrice" value="0.0876" step="0.0001">
+                    <span class="input-suffix">USDT</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="buyAmount">Amount</label>
+                  <div class="input-group">
+                    <input type="number" id="buyAmount" placeholder="0.00" step="0.01">
+                    <span class="input-suffix">HYPE</span>
+                  </div>
+                </div>
+
+                <!-- Percentage Buttons -->
+                <div class="percentage-btns">
+                  <button class="perc-btn" data-perc="25">25%</button>
+                  <button class="perc-btn" data-perc="50">50%</button>
+                  <button class="perc-btn" data-perc="75">75%</button>
+                  <button class="perc-btn" data-perc="100">100%</button>
+                </div>
+
+                <div class="form-group">
+                  <label for="buyTotal">Total</label>
+                  <div class="input-group">
+                    <input type="number" id="buyTotal" placeholder="0.00" step="0.01">
+                    <span class="input-suffix">USDT</span>
+                  </div>
+                </div>
+
+                <button class="btn-primary btn-block btn-buy">
+                  Buy HYPE
+                </button>
+
+                <div class="fee-info">
+                  <span>Fee (0.1%): <strong>0.12 USDT</strong></span>
+                </div>
+              </div>
+
+              <!-- Sell Form (Hidden by default) -->
+              <div class="trade-form" id="sellForm" style="display: none;">
+                <div class="balance-row">
+                  <span class="balance-label">Available</span>
+                  <span class="balance-value">14,250 HYPE</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="sellPrice">Price</label>
+                  <div class="input-group">
+                    <input type="number" id="sellPrice" value="0.0876" step="0.0001">
+                    <span class="input-suffix">USDT</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="sellAmount">Amount</label>
+                  <div class="input-group">
+                    <input type="number" id="sellAmount" placeholder="0.00" step="0.01">
+                    <span class="input-suffix">HYPE</span>
+                  </div>
+                </div>
+
+                <!-- Percentage Buttons -->
+                <div class="percentage-btns">
+                  <button class="perc-btn" data-perc="25">25%</button>
+                  <button class="perc-btn" data-perc="50">50%</button>
+                  <button class="perc-btn" data-perc="75">75%</button>
+                  <button class="perc-btn" data-perc="100">100%</button>
+                </div>
+
+                <div class="form-group">
+                  <label for="sellTotal">Total</label>
+                  <div class="input-group">
+                    <input type="number" id="sellTotal" placeholder="0.00" step="0.01">
+                    <span class="input-suffix">USDT</span>
+                  </div>
+                </div>
+
+                <button class="btn-primary btn-block btn-sell">
+                  Sell HYPE
+                </button>
+
+                <div class="fee-info">
+                  <span>Fee (0.1%): <strong>0.12 USDT</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats-card">
+              <h3 class="card-title">Market Stats</h3>
+              <div class="quick-stat-row">
+                <span class="qs-label">24h Volume</span>
+                <span class="qs-value">$2.4M</span>
+              </div>
+              <div class="quick-stat-row">
+                <span class="qs-label">24h Trades</span>
+                <span class="qs-value">12,450</span>
+              </div>
+              <div class="quick-stat-row">
+                <span class="qs-label">Liquidity</span>
+                <span class="qs-value">$8.9M</span>
+              </div>
+              <div class="quick-stat-row">
+                <span class="qs-label">Price Impact</span>
+                <span class="qs-value text-success">0.12%</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Bottom Section: Trade History & Open Orders -->
+        <div class="trading-bottom">
+
+          <div class="trading-tables-container">
+
+            <!-- Tabs -->
+            <div class="trading-tables-tabs">
+              <button class="tt-tab active" data-table="open-orders">Open Orders (3)</button>
+              <button class="tt-tab" data-table="order-history">Order History</button>
+              <button class="tt-tab" data-table="trade-history">Trade History</button>
+              <button class="tt-tab" data-table="funds">Funds</button>
+            </div>
+
+            <!-- Open Orders Table -->
+            <div class="trading-table" id="open-orders">
+              <table class="trade-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Pair</th>
+                    <th>Type</th>
+                    <th>Side</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th>Filled</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2025-10-19 14:23:45</td>
+                    <td>HYPE/USDT</td>
+                    <td>Limit</td>
+                    <td class="side-buy">Buy</td>
+                    <td>0.0870</td>
+                    <td>5,000 HYPE</td>
+                    <td>2,340 (46.8%)</td>
+                    <td>435.00 USDT</td>
+                    <td><span class="status-badge partial">Partial</span></td>
+                    <td><button class="btn-cancel">Cancel</button></td>
+                  </tr>
+                  <tr>
+                    <td>2025-10-19 13:15:22</td>
+                    <td>HYPE/USDT</td>
+                    <td>Limit</td>
+                    <td class="side-sell">Sell</td>
+                    <td>0.0895</td>
+                    <td>3,200 HYPE</td>
+                    <td>0 (0%)</td>
+                    <td>286.40 USDT</td>
+                    <td><span class="status-badge pending">Pending</span></td>
+                    <td><button class="btn-cancel">Cancel</button></td>
+                  </tr>
+                  <tr>
+                    <td>2025-10-19 12:08:11</td>
+                    <td>HYPE/BNB</td>
+                    <td>Limit</td>
+                    <td class="side-buy">Buy</td>
+                    <td>0.000145</td>
+                    <td>8,500 HYPE</td>
+                    <td>8,500 (100%)</td>
+                    <td>1.23 BNB</td>
+                    <td><span class="status-badge filled">Filled</span></td>
+                    <td><span class="text-muted">—</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Order History Table -->
+            <div class="trading-table" id="order-history" style="display: none;">
+              <table class="trade-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Pair</th>
+                    <th>Type</th>
+                    <th>Side</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th>Filled</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2025-10-19 11:45:33</td>
+                    <td>HYPE/USDT</td>
+                    <td>Market</td>
+                    <td class="side-buy">Buy</td>
+                    <td>0.0862</td>
+                    <td>10,000 HYPE</td>
+                    <td>10,000 (100%)</td>
+                    <td>862.00 USDT</td>
+                    <td><span class="status-badge completed">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td>2025-10-19 09:22:18</td>
+                    <td>HYPE/USDT</td>
+                    <td>Limit</td>
+                    <td class="side-sell">Sell</td>
+                    <td>0.0880</td>
+                    <td>5,500 HYPE</td>
+                    <td>5,500 (100%)</td>
+                    <td>484.00 USDT</td>
+                    <td><span class="status-badge completed">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td>2025-10-18 18:34:56</td>
+                    <td>HYPE/USDT</td>
+                    <td>Limit</td>
+                    <td class="side-buy">Buy</td>
+                    <td>0.0845</td>
+                    <td>7,200 HYPE</td>
+                    <td>0 (0%)</td>
+                    <td>608.40 USDT</td>
+                    <td><span class="status-badge cancelled">Cancelled</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Trade History Table -->
+            <div class="trading-table" id="trade-history" style="display: none;">
+              <table class="trade-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Pair</th>
+                    <th>Side</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th>Fee</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>14:45:23</td>
+                    <td>HYPE/USDT</td>
+                    <td class="side-buy">Buy</td>
+                    <td>0.0876</td>
+                    <td>450 HYPE</td>
+                    <td>0.039 USDT</td>
+                    <td>39.42 USDT</td>
+                  </tr>
+                  <tr>
+                    <td>14:44:18</td>
+                    <td>HYPE/USDT</td>
+                    <td class="side-sell">Sell</td>
+                    <td>0.0877</td>
+                    <td>1,200 HYPE</td>
+                    <td>0.105 USDT</td>
+                    <td>105.24 USDT</td>
+                  </tr>
+                  <tr>
+                    <td>14:43:05</td>
+                    <td>HYPE/USDT</td>
+                    <td class="side-buy">Buy</td>
+                    <td>0.0875</td>
+                    <td>890 HYPE</td>
+                    <td>0.078 USDT</td>
+                    <td>77.88 USDT</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Funds Table -->
+            <div class="trading-table" id="funds" style="display: none;">
+              <table class="trade-table">
+                <thead>
+                  <tr>
+                    <th>Asset</th>
+                    <th>Total Balance</th>
+                    <th>Available</th>
+                    <th>In Order</th>
+                    <th>BTC Value</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="asset-cell">
+                      <strong>HYPE</strong>
+                      <span class="asset-name">HypeAI</span>
+                    </td>
+                    <td>14,250.00</td>
+                    <td>11,050.00</td>
+                    <td>3,200.00</td>
+                    <td>0.0245 BTC</td>
+                    <td>
+                      <button class="btn-action">Deposit</button>
+                      <button class="btn-action">Withdraw</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="asset-cell">
+                      <strong>USDT</strong>
+                      <span class="asset-name">Tether</span>
+                    </td>
+                    <td>1,245.89</td>
+                    <td>810.89</td>
+                    <td>435.00</td>
+                    <td>0.0289 BTC</td>
+                    <td>
+                      <button class="btn-action">Deposit</button>
+                      <button class="btn-action">Withdraw</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="asset-cell">
+                      <strong>BNB</strong>
+                      <span class="asset-name">Binance Coin</span>
+                    </td>
+                    <td>2.45</td>
+                    <td>2.45</td>
+                    <td>0.00</td>
+                    <td>0.0167 BTC</td>
+                    <td>
+                      <button class="btn-action">Deposit</button>
+                      <button class="btn-action">Withdraw</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <p class="footer-description">
+            AI-powered crypto trading on Binance Smart Chain
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © 2025 HypeAI. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Trading Specific Styles */
+    .container-fluid {
+      width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .trading-section {
+      padding-top: calc(80px + 2rem);
+      min-height: 100vh;
+      background: var(--bnb-bg-darker);
+    }
+
+    /* Market Stats Bar */
+    .market-stats-bar {
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--glass-border);
+      margin-bottom: 1rem;
+      overflow-x: auto;
+    }
+
+    .market-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      min-width: 120px;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    .stat-value {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .stat-change {
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .stat-change.positive { color: var(--bnb-success); }
+    .price-up { color: var(--bnb-success); }
+
+    /* Trading Grid */
+    .trading-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 1024px) {
+      .trading-grid {
+        grid-template-columns: 1fr 380px;
+      }
+    }
+
+    /* Chart Controls */
+    .chart-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 1rem;
+    }
+
+    .pair-selector, .timeframe-selector {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .pair-btn, .tf-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .pair-btn.active, .tf-btn.active {
+      background: var(--gradient-gold);
+      color: #000;
+      border-color: var(--bnb-gold-primary);
+    }
+
+    /* Chart Container */
+    .chart-container-wrapper {
+      position: relative;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      height: 500px;
+      margin-bottom: 1rem;
+    }
+
+    #tradingview_chart {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* AI Signals Panel */
+    .ai-signals-panel {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      max-width: 280px;
+      padding: 1rem;
+      background: rgba(20, 21, 26, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-md);
+      box-shadow: 0 0 20px rgba(243, 186, 47, 0.3);
+    }
+
+    .signal-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: var(--bnb-gold-primary);
+    }
+
+    .signal-badge {
+      margin-left: auto;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .signal-badge.buy {
+      background: var(--bnb-success);
+      color: #000;
+    }
+
+    .signal-text {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .signal-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    /* Order Book */
+    .order-book-container {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .order-book-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .order-book-header h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .order-book-tabs {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .ob-tab {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: none;
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .ob-tab.active {
+      color: var(--bnb-gold-primary);
+      border-bottom: 2px solid var(--bnb-gold-primary);
+    }
+
+    .ob-headers {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-quaternary);
+      margin-bottom: 0.5rem;
+      text-align: right;
+    }
+
+    .ob-headers span:first-child {
+      text-align: left;
+    }
+
+    .ob-asks, .ob-bids {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .ob-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      font-size: 0.875rem;
+      text-align: right;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .ob-row:hover {
+      background: rgba(243, 186, 47, 0.05);
+    }
+
+    .ob-row span:first-child {
+      text-align: left;
+    }
+
+    .ob-row.ask .ob-price {
+      color: var(--bnb-error);
+    }
+
+    .ob-row.bid .ob-price {
+      color: var(--bnb-success);
+    }
+
+    .ob-depth {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(243, 186, 47, 0.1);
+      z-index: -1;
+    }
+
+    .ob-current-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      margin: 1rem 0;
+      background: rgba(243, 186, 47, 0.1);
+      border-radius: var(--radius-sm);
+    }
+
+    .current-price-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .current-price-change {
+      color: var(--bnb-success);
+      font-weight: 600;
+    }
+
+    /* Trading Form */
+    .trading-form-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .trade-type-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .trade-tab {
+      flex: 1;
+      padding: 0.75rem;
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .trade-tab.active {
+      background: var(--gradient-gold);
+      color: #000;
+      border-color: var(--bnb-gold-primary);
+    }
+
+    .trade-side-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .side-tab {
+      padding: 1rem;
+      border: 2px solid transparent;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .buy-tab {
+      background: rgba(14, 203, 129, 0.1);
+      color: var(--bnb-success);
+      border-color: transparent;
+    }
+
+    .buy-tab.active {
+      border-color: var(--bnb-success);
+      box-shadow: 0 0 20px rgba(14, 203, 129, 0.3);
+    }
+
+    .sell-tab {
+      background: rgba(246, 70, 93, 0.1);
+      color: var(--bnb-error);
+      border-color: transparent;
+    }
+
+    .sell-tab.active {
+      border-color: var(--bnb-error);
+      box-shadow: 0 0 20px rgba(246, 70, 93, 0.3);
+    }
+
+    .balance-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+    }
+
+    .balance-label {
+      color: var(--text-tertiary);
+    }
+
+    .balance-value {
+      color: var(--bnb-gold-primary);
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .input-group {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem 4rem 0.75rem 1rem;
+      background: rgba(30, 32, 38, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: var(--transition-fast);
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 0 0 3px rgba(243, 186, 47, 0.2);
+    }
+
+    .input-suffix {
+      position: absolute;
+      right: 1rem;
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .percentage-btns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .perc-btn {
+      padding: 0.5rem;
+      background: rgba(243, 186, 47, 0.1);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      color: var(--bnb-gold-primary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .perc-btn:hover {
+      background: rgba(243, 186, 47, 0.2);
+      border-color: var(--bnb-gold-primary);
+    }
+
+    .btn-buy {
+      background: linear-gradient(135deg, var(--bnb-success) 0%, #0AA868 100%);
+      margin-bottom: 1rem;
+    }
+
+    .btn-sell {
+      background: linear-gradient(135deg, var(--bnb-error) 0%, #D43850 100%);
+      margin-bottom: 1rem;
+    }
+
+    .fee-info {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+    }
+
+    /* Quick Stats Card */
+    .quick-stats-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .quick-stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .quick-stat-row:last-child {
+      border-bottom: none;
+    }
+
+    .qs-label {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+
+    .qs-value {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Trading Tables */
+    .trading-bottom {
+      margin-top: 1rem;
+    }
+
+    .trading-tables-container {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+    }
+
+    .trading-tables-tabs {
+      display: flex;
+      gap: 2rem;
+      border-bottom: 1px solid var(--glass-border);
+      margin-bottom: 1rem;
+    }
+
+    .tt-tab {
+      padding: 1rem 0;
+      background: none;
+      border: none;
+      color: var(--text-tertiary);
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition-fast);
+    }
+
+    .tt-tab.active {
+      color: var(--bnb-gold-primary);
+    }
+
+    .tt-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient-gold);
+    }
+
+    .trade-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .trade-table th {
+      text-align: left;
+      padding: 1rem;
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .trade-table td {
+      padding: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      border-bottom: 1px solid rgba(243, 186, 47, 0.05);
+    }
+
+    .trade-table tr:hover {
+      background: rgba(243, 186, 47, 0.05);
+    }
+
+    .side-buy { color: var(--bnb-success); font-weight: 600; }
+    .side-sell { color: var(--bnb-error); font-weight: 600; }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .status-badge.pending {
+      background: rgba(240, 185, 11, 0.2);
+      color: var(--bnb-warning);
+    }
+
+    .status-badge.partial {
+      background: rgba(0, 212, 255, 0.2);
+      color: var(--bnb-info);
+    }
+
+    .status-badge.filled,
+    .status-badge.completed {
+      background: rgba(14, 203, 129, 0.2);
+      color: var(--bnb-success);
+    }
+
+    .status-badge.cancelled {
+      background: rgba(246, 70, 93, 0.2);
+      color: var(--bnb-error);
+    }
+
+    .btn-cancel,
+    .btn-action {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .btn-cancel:hover {
+      background: rgba(246, 70, 93, 0.1);
+      border-color: var(--bnb-error);
+      color: var(--bnb-error);
+    }
+
+    .btn-action:hover {
+      background: rgba(243, 186, 47, 0.1);
+      border-color: var(--bnb-gold-primary);
+      color: var(--bnb-gold-primary);
+    }
+
+    .asset-cell {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .asset-name {
+      font-size: 0.75rem;
+      color: var(--text-quaternary);
+    }
+
+    .text-success { color: var(--bnb-success); }
+    .text-gold { color: var(--bnb-gold-primary); }
+    .text-muted { color: var(--text-quaternary); }
+  </style>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Trade side tabs
+    const sideTabs = document.querySelectorAll('.side-tab');
+    const buyForm = document.getElementById('buyForm');
+    const sellForm = document.getElementById('sellForm');
+
+    sideTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const side = tab.dataset.side;
+
+        sideTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        if (side === 'buy') {
+          buyForm.style.display = 'block';
+          sellForm.style.display = 'none';
+        } else {
+          buyForm.style.display = 'none';
+          sellForm.style.display = 'block';
+        }
+      });
+    });
+
+    // Trading tables tabs
+    const tableTabs = document.querySelectorAll('.tt-tab');
+    const tables = document.querySelectorAll('.trading-table');
+
+    tableTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tableId = tab.dataset.table;
+
+        tableTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        tables.forEach(table => {
+          table.style.display = table.id === tableId ? 'block' : 'none';
+        });
+      });
+    });
+
+    // TradingView Chart
+    new TradingView.widget({
+      "width": "100%",
+      "height": "100%",
+      "symbol": "BINANCE:BTCUSDT",
+      "interval": "15",
+      "timezone": "Etc/UTC",
+      "theme": "dark",
+      "style": "1",
+      "locale": "en",
+      "toolbar_bg": "#1E2026",
+      "enable_publishing": false,
+      "hide_side_toolbar": false,
+      "allow_symbol_change": true,
+      "container_id": "tradingview_chart",
+      "studies": [
+        "MASimple@tv-basicstudies",
+        "RSI@tv-basicstudies"
+      ],
+      "backgroundColor": "rgba(30, 32, 38, 0)",
+      "gridColor": "rgba(243, 186, 47, 0.1)",
+      "hide_top_toolbar": false,
+      "hide_legend": false,
+      "save_image": false
+    });
+
+    // Price update simulation
+    setInterval(() => {
+      const priceElements = document.querySelectorAll('.current-price-value');
+      priceElements.forEach(el => {
+        const currentPrice = parseFloat(el.textContent);
+        const change = (Math.random() - 0.5) * 0.0002;
+        const newPrice = (currentPrice + change).toFixed(4);
+        el.textContent = newPrice;
+      });
+    }, 3000);
+  </script>
+
+</body>
+</html>

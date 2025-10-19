@@ -1,0 +1,69 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bnb-gold-a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3BA2F"/>
+      <stop offset="100%" stop-color="#FCD535"/>
+    </linearGradient>
+    <linearGradient id="bnb-dark-a" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2C3136"/>
+      <stop offset="100%" stop-color="#1E2026"/>
+    </linearGradient>
+    <filter id="glow-a">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Circuit board background pattern -->
+  <g opacity="0.15">
+    <path d="M20,20 L30,20 L30,30" stroke="url(#bnb-gold-a)" stroke-width="0.5" fill="none"/>
+    <path d="M70,20 L80,20 L80,30" stroke="url(#bnb-gold-a)" stroke-width="0.5" fill="none"/>
+    <path d="M20,70 L30,70 L30,80" stroke="url(#bnb-gold-a)" stroke-width="0.5" fill="none"/>
+    <path d="M70,70 L80,70 L80,80" stroke="url(#bnb-gold-a)" stroke-width="0.5" fill="none"/>
+    <circle cx="30" cy="30" r="1.5" fill="url(#bnb-gold-a)"/>
+    <circle cx="70" cy="30" r="1.5" fill="url(#bnb-gold-a)"/>
+    <circle cx="30" cy="70" r="1.5" fill="url(#bnb-gold-a)"/>
+    <circle cx="70" cy="70" r="1.5" fill="url(#bnb-gold-a)"/>
+  </g>
+
+  <!-- Main hexagon frame (Binance-inspired) -->
+  <path d="M50,15 L70,27.5 L70,52.5 L50,65 L30,52.5 L30,27.5 Z"
+        stroke="url(#bnb-gold-a)"
+        stroke-width="3"
+        fill="url(#bnb-dark-a)"
+        filter="url(#glow-a)"/>
+
+  <!-- Stylized "H" with lightning bolt -->
+  <g id="h-lightning">
+    <!-- Left bar of H -->
+    <rect x="38" y="30" width="4" height="20" fill="url(#bnb-gold-a)" rx="2"/>
+    <!-- Right bar of H -->
+    <rect x="58" y="30" width="4" height="20" fill="url(#bnb-gold-a)" rx="2"/>
+
+    <!-- Lightning bolt through middle -->
+    <path d="M50,28 L45,40 L52,40 L47,52 L55,38 L48,38 L50,28 Z"
+          fill="url(#bnb-gold-a)"
+          filter="url(#glow-a)"/>
+  </g>
+
+  <!-- AI neural nodes -->
+  <g id="ai-nodes" opacity="0.8">
+    <circle cx="35" cy="35" r="2" fill="#FCD535"/>
+    <circle cx="65" cy="35" r="2" fill="#FCD535"/>
+    <circle cx="35" cy="45" r="2" fill="#FCD535"/>
+    <circle cx="65" cy="45" r="2" fill="#FCD535"/>
+
+    <!-- Connection lines -->
+    <line x1="35" y1="35" x2="50" y2="35" stroke="#FCD535" stroke-width="0.5" opacity="0.5"/>
+    <line x1="65" y1="35" x2="50" y2="35" stroke="#FCD535" stroke-width="0.5" opacity="0.5"/>
+    <line x1="35" y1="45" x2="50" y2="45" stroke="#FCD535" stroke-width="0.5" opacity="0.5"/>
+    <line x1="65" y1="45" x2="50" y2="45" stroke="#FCD535" stroke-width="0.5" opacity="0.5"/>
+  </g>
+
+  <!-- Bottom accent -->
+  <text x="50" y="78" font-family="Orbitron, sans-serif" font-size="8" font-weight="700"
+        text-anchor="middle" fill="url(#bnb-gold-a)" letter-spacing="0.5">AI</text>
+</svg>

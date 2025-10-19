@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>API Documentation - HypeAI Developer Portal</title>
+  <meta name="title" content="HypeAI API Documentation">
+  <meta name="description" content="Complete API reference for HypeAI platform. Access AI agents, trading data, and blockchain services via REST API.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+  <style>
+    /* API-specific styles */
+    .api-hero {
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.1) 0%, rgba(30, 32, 38, 0.8) 100%);
+      padding: 120px var(--spacing-4) var(--spacing-12);
+      text-align: center;
+    }
+
+    .api-nav {
+      position: sticky;
+      top: 80px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      height: fit-content;
+    }
+
+    .api-nav-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .api-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2);
+    }
+
+    .api-nav-link {
+      display: block;
+      padding: var(--spacing-3) var(--spacing-4);
+      color: var(--text-tertiary);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      font-size: 0.875rem;
+    }
+
+    .api-nav-link:hover,
+    .api-nav-link.active {
+      background: rgba(243, 186, 47, 0.1);
+      color: var(--bnb-gold-primary);
+    }
+
+    .api-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+      margin-top: var(--spacing-8);
+    }
+
+    .api-section {
+      scroll-margin-top: 100px;
+    }
+
+    .endpoint-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .endpoint-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--spacing-4);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .method-badge {
+      padding: var(--spacing-2) var(--spacing-4);
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.875rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .method-get {
+      background: rgba(14, 203, 129, 0.2);
+      color: var(--bnb-success);
+      border: 1px solid var(--bnb-success);
+    }
+
+    .method-post {
+      background: rgba(243, 186, 47, 0.2);
+      color: var(--bnb-gold-primary);
+      border: 1px solid var(--bnb-gold-primary);
+    }
+
+    .method-delete {
+      background: rgba(246, 70, 93, 0.2);
+      color: var(--bnb-error);
+      border: 1px solid var(--bnb-error);
+    }
+
+    .endpoint-path {
+      font-family: 'Fira Code', monospace;
+      font-size: 1.125rem;
+      color: var(--text-primary);
+      flex: 1;
+    }
+
+    .endpoint-description {
+      color: var(--text-tertiary);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-6);
+    }
+
+    .params-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--spacing-6) 0;
+    }
+
+    .params-table th {
+      background: rgba(243, 186, 47, 0.1);
+      padding: var(--spacing-3) var(--spacing-4);
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--glass-border);
+      font-size: 0.875rem;
+    }
+
+    .params-table td {
+      padding: var(--spacing-3) var(--spacing-4);
+      color: var(--text-tertiary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.875rem;
+    }
+
+    .param-name {
+      font-family: 'Fira Code', monospace;
+      color: var(--bnb-gold-primary);
+    }
+
+    .param-type {
+      font-family: 'Fira Code', monospace;
+      color: var(--bnb-info);
+      font-size: 0.75rem;
+    }
+
+    .param-required {
+      color: var(--bnb-error);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .code-block {
+      position: relative;
+      margin: var(--spacing-4) 0;
+    }
+
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacing-3) var(--spacing-4);
+      background: rgba(20, 21, 26, 0.8);
+      border: 1px solid var(--glass-border);
+      border-bottom: none;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+    }
+
+    .code-label {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      font-weight: 600;
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--text-tertiary);
+      cursor: pointer;
+      font-size: 0.75rem;
+      transition: var(--transition-fast);
+    }
+
+    .copy-btn:hover {
+      background: rgba(243, 186, 47, 0.1);
+      color: var(--bnb-gold-primary);
+      border-color: var(--bnb-gold-primary);
+    }
+
+    .code-block pre {
+      margin: 0;
+      padding: var(--spacing-4);
+      background: rgba(20, 21, 26, 0.8);
+      border: 1px solid var(--glass-border);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      overflow-x: auto;
+    }
+
+    .code-block code {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .api-explorer {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 2px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      margin-top: var(--spacing-8);
+    }
+
+    .explorer-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .explorer-form {
+      display: grid;
+      gap: var(--spacing-4);
+    }
+
+    .form-group {
+      display: grid;
+      gap: var(--spacing-2);
+    }
+
+    .form-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      padding: var(--spacing-3) var(--spacing-4);
+      background: rgba(30, 32, 38, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.875rem;
+      transition: var(--transition-fast);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 0 0 3px rgba(243, 186, 47, 0.2);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .response-box {
+      margin-top: var(--spacing-6);
+      padding: var(--spacing-4);
+      background: rgba(20, 21, 26, 0.8);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      min-height: 200px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+    }
+
+    .rate-limit-card {
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.1) 0%, rgba(30, 32, 38, 0.6) 100%);
+      border: 1px solid var(--bnb-gold-primary);
+      padding: var(--spacing-6);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .rate-limit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-4);
+      margin-top: var(--spacing-4);
+    }
+
+    .rate-limit-item {
+      text-align: center;
+    }
+
+    .rate-limit-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+      display: block;
+    }
+
+    .rate-limit-label {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      display: block;
+      margin-top: var(--spacing-1);
+    }
+
+    @media (min-width: 1024px) {
+      .api-content {
+        grid-template-columns: 250px 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Developer API</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="whitepaper.html" class="nav-link">Docs</a></li>
+            <li><a href="api.html" class="nav-link">API</a></li>
+            <li><a href="audit.html" class="nav-link">Audit</a></li>
+            <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary btn-sm">Get API Key</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="whitepaper.html" class="mobile-nav-link">Docs</a>
+      <a href="api.html" class="mobile-nav-link">API</a>
+      <a href="audit.html" class="mobile-nav-link">Audit</a>
+      <a href="analytics.html" class="mobile-nav-link">Analytics</a>
+      <button class="btn-primary btn-block">Get API Key</button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="api-hero">
+      <div class="container">
+        <h1 class="section-title">HypeAI API Documentation</h1>
+        <p class="section-description">
+          Build powerful applications with our comprehensive REST API. Access AI agents, trading data, and blockchain services on Binance Smart Chain.
+        </p>
+        <div style="margin-top: var(--spacing-6);">
+          <button class="btn-primary btn-lg">Get Started</button>
+          <button class="btn-secondary btn-lg" style="margin-left: var(--spacing-4);">View Examples</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Content -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Rate Limits -->
+        <div class="rate-limit-card">
+          <h3 class="info-title">API Rate Limits</h3>
+          <div class="rate-limit-grid">
+            <div class="rate-limit-item">
+              <span class="rate-limit-value">100</span>
+              <span class="rate-limit-label">Requests per minute (Free)</span>
+            </div>
+            <div class="rate-limit-item">
+              <span class="rate-limit-value">1,000</span>
+              <span class="rate-limit-label">Requests per minute (Pro)</span>
+            </div>
+            <div class="rate-limit-item">
+              <span class="rate-limit-value">10,000</span>
+              <span class="rate-limit-label">Requests per minute (Enterprise)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="api-content">
+
+          <!-- Navigation Sidebar -->
+          <aside class="api-nav">
+            <h3 class="api-nav-title">Endpoints</h3>
+            <ul class="api-nav-list">
+              <li><a href="#authentication" class="api-nav-link">Authentication</a></li>
+              <li><a href="#agents" class="api-nav-link">AI Agents</a></li>
+              <li><a href="#trading" class="api-nav-link">Trading</a></li>
+              <li><a href="#portfolio" class="api-nav-link">Portfolio</a></li>
+              <li><a href="#analytics" class="api-nav-link">Analytics</a></li>
+              <li><a href="#staking" class="api-nav-link">Staking</a></li>
+              <li><a href="#websocket" class="api-nav-link">WebSocket</a></li>
+              <li><a href="#explorer" class="api-nav-link">API Explorer</a></li>
+            </ul>
+          </aside>
+
+          <!-- Main Content -->
+          <div>
+
+            <!-- Authentication Section -->
+            <section id="authentication" class="api-section">
+              <h2 class="section-title" style="font-size: 2rem; text-align: left;">Authentication</h2>
+              <p class="section-description" style="text-align: left; margin-bottom: var(--spacing-8);">
+                All API requests require authentication using an API key. Include your key in the Authorization header.
+              </p>
+
+              <div class="endpoint-card">
+                <div class="endpoint-header">
+                  <span class="method-badge method-post">POST</span>
+                  <span class="endpoint-path">/api/v1/auth/login</span>
+                </div>
+                <p class="endpoint-description">
+                  Authenticate with your credentials to receive an API key and access token.
+                </p>
+
+                <h4 style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: var(--spacing-4);">Request Body</h4>
+                <table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="param-name">email</span></td>
+                      <td><span class="param-type">string</span></td>
+                      <td><span class="param-required">Required</span></td>
+                      <td>User email address</td>
+                    </tr>
+                    <tr>
+                      <td><span class="param-name">password</span></td>
+                      <td><span class="param-type">string</span></td>
+                      <td><span class="param-required">Required</span></td>
+                      <td>User password</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">Request Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-bash">curl -X POST https://api.hypeai.io/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "user@example.com",
+    "password": "your_secure_password"
+  }'</code></pre>
+                </div>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">Response Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-json">{
+  "success": true,
+  "data": {
+    "apiKey": "hypeai_1234567890abcdef",
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "expiresIn": 86400,
+    "user": {
+      "id": "usr_abc123",
+      "email": "user@example.com",
+      "tier": "pro"
+    }
+  }
+}</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <!-- AI Agents Section -->
+            <section id="agents" class="api-section">
+              <h2 class="section-title" style="font-size: 2rem; text-align: left;">AI Agents</h2>
+              <p class="section-description" style="text-align: left; margin-bottom: var(--spacing-8);">
+                Access and control HypeAI's 27 specialized AI agents for market analysis, trading, and portfolio management.
+              </p>
+
+              <div class="endpoint-card">
+                <div class="endpoint-header">
+                  <span class="method-badge method-get">GET</span>
+                  <span class="endpoint-path">/api/v1/agents</span>
+                </div>
+                <p class="endpoint-description">
+                  Retrieve a list of all available AI agents with their current status and capabilities.
+                </p>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">Request Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-bash">curl -X GET https://api.hypeai.io/v1/agents \
+  -H "Authorization: Bearer YOUR_API_KEY"</code></pre>
+                </div>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">Response Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-json">{
+  "success": true,
+  "data": {
+    "agents": [
+      {
+        "id": "agent_market_analyzer",
+        "name": "Market Analyzer",
+        "status": "active",
+        "uptime": 99.9,
+        "capabilities": ["market_analysis", "trend_detection", "sentiment_analysis"],
+        "lastUpdate": "2025-10-19T17:00:00Z"
+      },
+      {
+        "id": "agent_trading_bot",
+        "name": "Trading Bot",
+        "status": "active",
+        "uptime": 99.8,
+        "winRate": 73.2,
+        "capabilities": ["automated_trading", "strategy_execution", "risk_management"],
+        "lastUpdate": "2025-10-19T17:00:00Z"
+      }
+    ],
+    "total": 27
+  }
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="endpoint-card">
+                <div class="endpoint-header">
+                  <span class="method-badge method-post">POST</span>
+                  <span class="endpoint-path">/api/v1/agents/{agentId}/execute</span>
+                </div>
+                <p class="endpoint-description">
+                  Execute a specific AI agent with custom parameters and receive analysis results.
+                </p>
+
+                <h4 style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: var(--spacing-4);">Request Body</h4>
+                <table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="param-name">task</span></td>
+                      <td><span class="param-type">string</span></td>
+                      <td><span class="param-required">Required</span></td>
+                      <td>Task type: "analyze", "predict", "execute"</td>
+                    </tr>
+                    <tr>
+                      <td><span class="param-name">parameters</span></td>
+                      <td><span class="param-type">object</span></td>
+                      <td><span class="param-required">Required</span></td>
+                      <td>Task-specific parameters</td>
+                    </tr>
+                    <tr>
+                      <td><span class="param-name">async</span></td>
+                      <td><span class="param-type">boolean</span></td>
+                      <td>Optional</td>
+                      <td>Execute asynchronously (default: false)</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">Request Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-bash">curl -X POST https://api.hypeai.io/v1/agents/agent_market_analyzer/execute \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "task": "analyze",
+    "parameters": {
+      "symbol": "BNB/USDT",
+      "timeframe": "1h",
+      "indicators": ["RSI", "MACD", "EMA"]
+    }
+  }'</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <!-- Trading Section -->
+            <section id="trading" class="api-section">
+              <h2 class="section-title" style="font-size: 2rem; text-align: left;">Trading</h2>
+              <p class="section-description" style="text-align: left; margin-bottom: var(--spacing-8);">
+                Execute trades, manage orders, and access real-time market data on Binance Smart Chain.
+              </p>
+
+              <div class="endpoint-card">
+                <div class="endpoint-header">
+                  <span class="method-badge method-post">POST</span>
+                  <span class="endpoint-path">/api/v1/trading/orders</span>
+                </div>
+                <p class="endpoint-description">
+                  Place a new trading order (market, limit, or stop-loss).
+                </p>
+
+                <h4 style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: var(--spacing-4);">Request Body</h4>
+                <table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="param-name">symbol</span></td>
+                      <td><span class="param-type">string</span></td>
+                      <td><span class="param-required">Required</span></td>
+                      <td>Trading pair (e.g., "HYPE/BNB")</td>
+                    </tr>
+                    <tr>
+                      <td><span class="param-name">type</span></td>
+                      <td><span class="param-type">string</span></td>
+                      <td><span class="param-required">Required</span></td>
+                      <td>Order type: "market", "limit", "stop_loss"</td>
+                    </tr>
+                    <tr>
+                      <td><span class="param-name">side</span></td>
+                      <td><span class="param-type">string</span></td>
+                      <td><span class="param-required">Required</span></td>
+                      <td>"buy" or "sell"</td>
+                    </tr>
+                    <tr>
+                      <td><span class="param-name">amount</span></td>
+                      <td><span class="param-type">number</span></td>
+                      <td><span class="param-required">Required</span></td>
+                      <td>Order amount in base currency</td>
+                    </tr>
+                    <tr>
+                      <td><span class="param-name">price</span></td>
+                      <td><span class="param-type">number</span></td>
+                      <td>Optional</td>
+                      <td>Limit price (required for limit orders)</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">Request Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-bash">curl -X POST https://api.hypeai.io/v1/trading/orders \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "symbol": "HYPE/BNB",
+    "type": "limit",
+    "side": "buy",
+    "amount": 1000,
+    "price": 0.001
+  }'</code></pre>
+                </div>
+              </div>
+
+              <div class="endpoint-card">
+                <div class="endpoint-header">
+                  <span class="method-badge method-get">GET</span>
+                  <span class="endpoint-path">/api/v1/trading/orders</span>
+                </div>
+                <p class="endpoint-description">
+                  Retrieve all your open and historical orders.
+                </p>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">Response Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-json">{
+  "success": true,
+  "data": {
+    "orders": [
+      {
+        "id": "ord_123456",
+        "symbol": "HYPE/BNB",
+        "type": "limit",
+        "side": "buy",
+        "status": "open",
+        "amount": 1000,
+        "filled": 0,
+        "price": 0.001,
+        "createdAt": "2025-10-19T16:30:00Z"
+      }
+    ],
+    "total": 1
+  }
+}</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="api-section">
+              <h2 class="section-title" style="font-size: 2rem; text-align: left;">Portfolio</h2>
+              <p class="section-description" style="text-align: left; margin-bottom: var(--spacing-8);">
+                Access portfolio balances, transaction history, and performance metrics.
+              </p>
+
+              <div class="endpoint-card">
+                <div class="endpoint-header">
+                  <span class="method-badge method-get">GET</span>
+                  <span class="endpoint-path">/api/v1/portfolio/balances</span>
+                </div>
+                <p class="endpoint-description">
+                  Get current portfolio balances for all assets.
+                </p>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">Response Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-json">{
+  "success": true,
+  "data": {
+    "balances": [
+      {
+        "asset": "HYPE",
+        "free": 50000,
+        "locked": 10000,
+        "total": 60000,
+        "usdValue": 60.00
+      },
+      {
+        "asset": "BNB",
+        "free": 5.5,
+        "locked": 0,
+        "total": 5.5,
+        "usdValue": 1375.00
+      }
+    ],
+    "totalUsdValue": 1435.00
+  }
+}</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="api-section">
+              <h2 class="section-title" style="font-size: 2rem; text-align: left;">Analytics</h2>
+              <p class="section-description" style="text-align: left; margin-bottom: var(--spacing-8);">
+                Access market analytics, price data, and statistical insights.
+              </p>
+
+              <div class="endpoint-card">
+                <div class="endpoint-header">
+                  <span class="method-badge method-get">GET</span>
+                  <span class="endpoint-path">/api/v1/analytics/market-stats</span>
+                </div>
+                <p class="endpoint-description">
+                  Get comprehensive market statistics for HYPE token.
+                </p>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">Response Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-json">{
+  "success": true,
+  "data": {
+    "price": 0.001,
+    "marketCap": 1000000,
+    "volume24h": 250000,
+    "priceChange24h": 12.5,
+    "holders": 15600,
+    "transactions24h": 450000,
+    "tvl": 2400000
+  }
+}</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <!-- Staking Section -->
+            <section id="staking" class="api-section">
+              <h2 class="section-title" style="font-size: 2rem; text-align: left;">Staking</h2>
+              <p class="section-description" style="text-align: left; margin-bottom: var(--spacing-8);">
+                Manage staking positions and claim rewards programmatically.
+              </p>
+
+              <div class="endpoint-card">
+                <div class="endpoint-header">
+                  <span class="method-badge method-post">POST</span>
+                  <span class="endpoint-path">/api/v1/staking/stake</span>
+                </div>
+                <p class="endpoint-description">
+                  Stake HYPE tokens to earn 62% APY rewards.
+                </p>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">Request Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-bash">curl -X POST https://api.hypeai.io/v1/staking/stake \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "amount": 10000,
+    "lockPeriod": 90
+  }'</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <!-- WebSocket Section -->
+            <section id="websocket" class="api-section">
+              <h2 class="section-title" style="font-size: 2rem; text-align: left;">WebSocket API</h2>
+              <p class="section-description" style="text-align: left; margin-bottom: var(--spacing-8);">
+                Connect to real-time data streams for prices, trades, and agent updates.
+              </p>
+
+              <div class="endpoint-card">
+                <div class="endpoint-header">
+                  <span class="method-badge method-get">WS</span>
+                  <span class="endpoint-path">wss://ws.hypeai.io/v1/stream</span>
+                </div>
+                <p class="endpoint-description">
+                  Connect to WebSocket server and subscribe to real-time channels.
+                </p>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-label">JavaScript Example</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                  </div>
+                  <pre><code class="language-javascript">const ws = new WebSocket('wss://ws.hypeai.io/v1/stream');
+
+ws.onopen = () => {
+  // Subscribe to price updates
+  ws.send(JSON.stringify({
+    action: 'subscribe',
+    channels: ['prices:HYPE/BNB', 'agents:status']
+  }));
+};
+
+ws.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+  console.log('Received:', data);
+};
+
+// Example message
+{
+  "channel": "prices:HYPE/BNB",
+  "data": {
+    "price": 0.001,
+    "timestamp": "2025-10-19T17:00:00Z"
+  }
+}</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <!-- API Explorer -->
+            <section id="explorer" class="api-section">
+              <div class="api-explorer">
+                <h2 class="explorer-title">API Explorer</h2>
+                <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-6);">
+                  Test API endpoints directly from your browser. Select an endpoint, configure parameters, and see live responses.
+                </p>
+
+                <form class="explorer-form" id="explorerForm">
+                  <div class="form-group">
+                    <label class="form-label">Endpoint</label>
+                    <select class="form-select" id="explorerEndpoint">
+                      <option value="GET:/api/v1/agents">GET /api/v1/agents - List all agents</option>
+                      <option value="GET:/api/v1/portfolio/balances">GET /api/v1/portfolio/balances - Get balances</option>
+                      <option value="GET:/api/v1/analytics/market-stats">GET /api/v1/analytics/market-stats - Market stats</option>
+                      <option value="POST:/api/v1/trading/orders">POST /api/v1/trading/orders - Place order</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">API Key</label>
+                    <input type="text" class="form-input" placeholder="hypeai_your_api_key_here" id="explorerApiKey">
+                  </div>
+
+                  <div class="form-group" id="bodyGroup" style="display: none;">
+                    <label class="form-label">Request Body (JSON)</label>
+                    <textarea class="form-textarea" id="explorerBody" placeholder='{
+  "symbol": "HYPE/BNB",
+  "type": "limit",
+  "side": "buy",
+  "amount": 1000,
+  "price": 0.001
+}'></textarea>
+                  </div>
+
+                  <button type="submit" class="btn-primary btn-block">Execute Request</button>
+                </form>
+
+                <div class="response-box" id="explorerResponse">
+                  Response will appear here...
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">
+            AI-powered crypto services on Binance Smart Chain.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Developers</h4>
+          <ul class="footer-links">
+            <li><a href="api.html">API Documentation</a></li>
+            <li><a href="whitepaper.html">Whitepaper</a></li>
+            <li><a href="audit.html">Security Audit</a></li>
+            <li><a href="#">GitHub</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="proof.html">Proof of Reserves</a></li>
+            <li><a href="#">Status Page</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    // Syntax highlighting
+    hljs.highlightAll();
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuToggle?.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Copy code function
+    function copyCode(button) {
+      const codeBlock = button.closest('.code-block').querySelector('code');
+      const text = codeBlock.textContent;
+
+      navigator.clipboard.writeText(text).then(() => {
+        button.textContent = 'Copied!';
+        setTimeout(() => {
+          button.textContent = 'Copy';
+        }, 2000);
+      });
+    }
+
+    // API Explorer
+    const explorerForm = document.getElementById('explorerForm');
+    const explorerEndpoint = document.getElementById('explorerEndpoint');
+    const bodyGroup = document.getElementById('bodyGroup');
+    const explorerResponse = document.getElementById('explorerResponse');
+
+    explorerEndpoint?.addEventListener('change', (e) => {
+      const method = e.target.value.split(':')[0];
+      bodyGroup.style.display = method === 'POST' ? 'grid' : 'none';
+    });
+
+    explorerForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const [method, path] = explorerEndpoint.value.split(':');
+      const apiKey = document.getElementById('explorerApiKey').value;
+
+      explorerResponse.textContent = 'Loading...';
+
+      // Simulate API call
+      setTimeout(() => {
+        explorerResponse.textContent = JSON.stringify({
+          success: true,
+          message: 'This is a demo response. In production, this would call the actual API.',
+          endpoint: path,
+          method: method,
+          timestamp: new Date().toISOString()
+        }, null, 2);
+      }, 1000);
+    });
+
+    // Active nav link
+    const navLinks = document.querySelectorAll('.api-nav-link');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        navLinks.forEach(l => l.classList.remove('active'));
+        e.target.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

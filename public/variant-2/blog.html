@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blog - HypeAI | Latest News & Insights</title>
+  <meta name="description" content="Stay updated with the latest news, insights, and developments from HypeAI. AI-powered crypto analysis and market updates.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    .blog-hero {
+      padding: calc(80px + var(--spacing-12)) var(--spacing-4) var(--spacing-16);
+      background: linear-gradient(180deg, var(--bnb-bg-darker) 0%, var(--bnb-bg-dark) 100%);
+      text-align: center;
+    }
+
+    .blog-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-3);
+      justify-content: center;
+      margin-bottom: var(--spacing-12);
+    }
+
+    .filter-btn {
+      padding: var(--spacing-3) var(--spacing-6);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-full);
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: rgba(243, 186, 47, 0.15);
+      border-color: var(--bnb-gold-primary);
+      color: var(--bnb-gold-primary);
+    }
+
+    .search-bar {
+      max-width: 600px;
+      margin: 0 auto var(--spacing-12);
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: var(--spacing-4) var(--spacing-6) var(--spacing-4) 56px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: var(--transition-fast);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 0 0 3px rgba(243, 186, 47, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+    }
+
+    .featured-post {
+      margin-bottom: var(--spacing-12);
+      padding: var(--spacing-8);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 2px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 0 40px rgba(243, 186, 47, 0.3);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
+      transition: var(--transition-normal);
+    }
+
+    .featured-post:hover {
+      box-shadow: 0 0 60px rgba(243, 186, 47, 0.5);
+      transform: translateY(-4px);
+    }
+
+    .featured-image {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.2) 0%, rgba(30, 32, 38, 0.4) 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .featured-content .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-4);
+      margin-bottom: var(--spacing-4);
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+    }
+
+    .featured-badge {
+      display: inline-block;
+      padding: var(--spacing-2) var(--spacing-4);
+      background: var(--gradient-gold);
+      color: #000;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-3);
+    }
+
+    .post-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+    }
+
+    .post-card {
+      padding: var(--spacing-6);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      transition: var(--transition-normal);
+      cursor: pointer;
+    }
+
+    .post-card:hover {
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 12px 48px rgba(243, 186, 47, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .post-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.15) 0%, rgba(30, 32, 38, 0.4) 100%);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--spacing-4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .post-category {
+      display: inline-block;
+      padding: var(--spacing-1) var(--spacing-3);
+      background: rgba(243, 186, 47, 0.15);
+      border: 1px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-full);
+      color: var(--bnb-gold-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-3);
+    }
+
+    .post-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-3);
+      line-height: 1.3;
+    }
+
+    .post-excerpt {
+      color: var(--text-tertiary);
+      margin-bottom: var(--spacing-4);
+      line-height: 1.6;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-4);
+      font-size: 0.875rem;
+      color: var(--text-quaternary);
+    }
+
+    .post-author {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+    }
+
+    .author-avatar {
+      width: 32px;
+      height: 32px;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .load-more {
+      text-align: center;
+      margin-top: var(--spacing-12);
+    }
+
+    @media (min-width: 768px) {
+      .featured-post {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .post-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .post-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="agents.html" class="nav-link">AI Agents</a></li>
+            <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="docs.html" class="nav-link">Docs</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary">Connect Wallet</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="agents.html" class="mobile-nav-link">AI Agents</a>
+      <a href="roadmap.html" class="mobile-nav-link">Roadmap</a>
+      <a href="blog.html" class="mobile-nav-link">Blog</a>
+      <a href="docs.html" class="mobile-nav-link">Docs</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="blog-hero">
+      <div class="container">
+        <div class="hero-badge">
+          <svg class="badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+          </svg>
+          <span>Latest Insights & Updates</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-title-main">HypeAI Blog</span>
+          <span class="hero-title-gradient">AI, Crypto, and the Future</span>
+        </h1>
+
+        <p class="hero-description">
+          Stay ahead with expert analysis, market insights, and the latest developments in AI-powered DeFi on Binance Smart Chain.
+        </p>
+      </div>
+    </section>
+
+    <!-- Search & Filters -->
+    <section class="section">
+      <div class="container">
+        <div class="search-bar">
+          <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8" stroke-width="2"/>
+            <path d="M21 21L16.65 16.65" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input type="text" class="search-input" placeholder="Search articles..." id="searchInput">
+        </div>
+
+        <div class="blog-filters">
+          <button class="filter-btn active" data-category="all">All Posts</button>
+          <button class="filter-btn" data-category="ai">AI & Machine Learning</button>
+          <button class="filter-btn" data-category="defi">DeFi</button>
+          <button class="filter-btn" data-category="trading">Trading Strategies</button>
+          <button class="filter-btn" data-category="news">Platform News</button>
+          <button class="filter-btn" data-category="tutorial">Tutorials</button>
+        </div>
+
+        <!-- Featured Post -->
+        <article class="featured-post">
+          <div class="featured-image">🚀</div>
+          <div class="featured-content">
+            <span class="featured-badge">Featured</span>
+            <h2 class="post-title" style="font-size: 2rem;">HypeAI Private Sale: Everything You Need to Know</h2>
+            <p class="post-excerpt" style="font-size: 1.125rem;">
+              Our private sale is now live with exclusive bonuses up to 30%. Learn about the tiered bonus structure, vesting schedule, and how to participate in this groundbreaking opportunity.
+            </p>
+            <div class="post-meta">
+              <div class="post-author">
+                <div class="author-avatar">HT</div>
+                <span>HypeAI Team</span>
+              </div>
+              <span>•</span>
+              <span>Jan 15, 2026</span>
+              <span>•</span>
+              <span>5 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post Grid -->
+        <div class="post-grid" id="postGrid">
+          <!-- Post 1 -->
+          <article class="post-card" data-category="ai">
+            <div class="post-image">🤖</div>
+            <span class="post-category">AI & Machine Learning</span>
+            <h3 class="post-title">How Our 27 AI Agents Work Together</h3>
+            <p class="post-excerpt">
+              Dive deep into the architecture of HypeAI's multi-agent system. Learn how Market Analyzer, Trading Bot, and Portfolio Manager collaborate to maximize returns.
+            </p>
+            <div class="post-meta">
+              <div class="post-author">
+                <div class="author-avatar">JS</div>
+                <span>John Smith</span>
+              </div>
+              <span>•</span>
+              <span>Jan 12, 2026</span>
+              <span>•</span>
+              <span>8 min read</span>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="post-card" data-category="defi">
+            <div class="post-image">💰</div>
+            <span class="post-category">DeFi</span>
+            <h3 class="post-title">62% APY Staking: Behind the Numbers</h3>
+            <p class="post-excerpt">
+              Understand the economics behind our industry-leading staking rewards. Transparency, sustainability, and long-term value creation.
+            </p>
+            <div class="post-meta">
+              <div class="post-author">
+                <div class="author-avatar">SA</div>
+                <span>Sarah Anderson</span>
+              </div>
+              <span>•</span>
+              <span>Jan 10, 2026</span>
+              <span>•</span>
+              <span>6 min read</span>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="post-card" data-category="trading">
+            <div class="post-image">📊</div>
+            <span class="post-category">Trading Strategies</span>
+            <h3 class="post-title">AI-Powered Trading: 5 Strategies That Work</h3>
+            <p class="post-excerpt">
+              Proven trading strategies powered by AI. From momentum trading to mean reversion, learn what works in 2026's crypto markets.
+            </p>
+            <div class="post-meta">
+              <div class="post-author">
+                <div class="author-avatar">ML</div>
+                <span>Mike Lee</span>
+              </div>
+              <span>•</span>
+              <span>Jan 8, 2026</span>
+              <span>•</span>
+              <span>10 min read</span>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="post-card" data-category="news">
+            <div class="post-image">📰</div>
+            <span class="post-category">Platform News</span>
+            <h3 class="post-title">CertiK Audit Complete: All Systems Go</h3>
+            <p class="post-excerpt">
+              HypeAI smart contracts pass rigorous security audit with flying colors. Zero critical issues, mainnet deployment on track for Q2.
+            </p>
+            <div class="post-meta">
+              <div class="post-author">
+                <div class="author-avatar">HT</div>
+                <span>HypeAI Team</span>
+              </div>
+              <span>•</span>
+              <span>Jan 5, 2026</span>
+              <span>•</span>
+              <span>4 min read</span>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="post-card" data-category="tutorial">
+            <div class="post-image">📚</div>
+            <span class="post-category">Tutorial</span>
+            <h3 class="post-title">Getting Started with HypeAI: A Beginner's Guide</h3>
+            <p class="post-excerpt">
+              New to HypeAI? This comprehensive guide walks you through account setup, wallet connection, and your first AI-powered trade.
+            </p>
+            <div class="post-meta">
+              <div class="post-author">
+                <div class="author-avatar">EJ</div>
+                <span>Emily Johnson</span>
+              </div>
+              <span>•</span>
+              <span>Jan 3, 2026</span>
+              <span>•</span>
+              <span>12 min read</span>
+            </div>
+          </article>
+
+          <!-- Post 6 -->
+          <article class="post-card" data-category="ai">
+            <div class="post-image">🧠</div>
+            <span class="post-category">AI & Machine Learning</span>
+            <h3 class="post-title">The Future of AI in Crypto: 2026 Predictions</h3>
+            <p class="post-excerpt">
+              What's next for AI in cryptocurrency? Our team shares insights on emerging trends, challenges, and opportunities in AI-powered DeFi.
+            </p>
+            <div class="post-meta">
+              <div class="post-author">
+                <div class="author-avatar">DR</div>
+                <span>David Rodriguez</span>
+              </div>
+              <span>•</span>
+              <span>Jan 1, 2026</span>
+              <span>•</span>
+              <span>15 min read</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="load-more">
+          <button class="btn-secondary btn-lg">Load More Articles</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="section cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Never Miss an Update</h2>
+          <p class="cta-description">
+            Subscribe to our newsletter for weekly insights, market analysis, and exclusive content.
+          </p>
+          <div style="max-width: 500px; margin: 0 auto;">
+            <form class="newsletter-form" style="display: flex; gap: var(--spacing-3);">
+              <input type="email" placeholder="Your email address" class="newsletter-input" style="flex: 1; padding: var(--spacing-4); background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); color: var(--text-primary);">
+              <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">AI-powered crypto services on BSC.</p>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="agents.html">AI Agents</a></li>
+            <li><a href="stake.html">Stake</a></li>
+            <li><a href="governance.html">Governance</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="mobile.js"></script>
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const postCards = document.querySelectorAll('.post-card');
+    const searchInput = document.getElementById('searchInput');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.dataset.category;
+        postCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Search functionality
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      postCards.forEach(card => {
+        const title = card.querySelector('.post-title').textContent.toLowerCase();
+        const excerpt = card.querySelector('.post-excerpt').textContent.toLowerCase();
+        if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

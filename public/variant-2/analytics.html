@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Analytics Dashboard - HypeAI Real-Time Data</title>
+  <meta name="title" content="HypeAI Analytics Dashboard">
+  <meta name="description" content="Real-time analytics dashboard for HypeAI. Track price, volume, market cap, AI agent performance, and more.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+
+  <style>
+    .analytics-hero {
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.1) 0%, rgba(30, 32, 38, 0.8) 100%);
+      padding: 120px var(--spacing-4) var(--spacing-8);
+      text-align: center;
+    }
+
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      padding: var(--spacing-2) var(--spacing-4);
+      background: rgba(14, 203, 129, 0.1);
+      border: 1px solid var(--bnb-success);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--bnb-success);
+      border-radius: 50%;
+      animation: pulse-live 2s ease-in-out infinite;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-4);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .metric-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      transition: var(--transition-normal);
+    }
+
+    .metric-card:hover {
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 8px 32px rgba(243, 186, 47, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .metric-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .metric-label {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+
+    .metric-change {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .metric-change.positive {
+      color: var(--bnb-success);
+      background: rgba(14, 203, 129, 0.1);
+    }
+
+    .metric-change.negative {
+      color: var(--bnb-error);
+      background: rgba(246, 70, 93, 0.1);
+    }
+
+    .metric-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: var(--spacing-2);
+    }
+
+    .metric-subtext {
+      font-size: 0.875rem;
+      color: var(--text-quaternary);
+    }
+
+    .chart-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      margin-bottom: var(--spacing-6);
+    }
+
+    .chart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--spacing-6);
+      flex-wrap: wrap;
+      gap: var(--spacing-4);
+    }
+
+    .chart-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .chart-controls {
+      display: flex;
+      gap: var(--spacing-2);
+    }
+
+    .chart-btn {
+      padding: 8px 16px;
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .chart-btn:hover,
+    .chart-btn.active {
+      background: rgba(243, 186, 47, 0.1);
+      border-color: var(--bnb-gold-primary);
+      color: var(--bnb-gold-primary);
+    }
+
+    .chart-container {
+      position: relative;
+      height: 300px;
+    }
+
+    .table-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      overflow-x: auto;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .data-table thead {
+      background: rgba(243, 186, 47, 0.1);
+    }
+
+    .data-table th {
+      padding: var(--spacing-3) var(--spacing-4);
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .data-table td {
+      padding: var(--spacing-4);
+      color: var(--text-tertiary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .data-table tr:hover {
+      background: rgba(243, 186, 47, 0.05);
+    }
+
+    .agent-status {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-2);
+    }
+
+    .agent-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--bnb-success);
+    }
+
+    .agent-status-dot.inactive {
+      background: var(--text-quaternary);
+    }
+
+    .performance-bar {
+      height: 8px;
+      background: rgba(30, 32, 38, 0.6);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .performance-fill {
+      height: 100%;
+      background: var(--gradient-gold);
+      border-radius: var(--radius-full);
+      transition: width 1s ease;
+    }
+
+    .filter-section {
+      display: flex;
+      gap: var(--spacing-4);
+      margin-bottom: var(--spacing-6);
+      flex-wrap: wrap;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2);
+    }
+
+    .filter-label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .filter-select {
+      padding: 8px 16px;
+      background: rgba(30, 32, 38, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+
+    .filter-select:focus {
+      outline: none;
+      border-color: var(--bnb-gold-primary);
+    }
+
+    @media (min-width: 640px) {
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .metrics-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .chart-container {
+        height: 400px;
+      }
+    }
+
+    @keyframes pulse-live {
+      0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 10px var(--bnb-success);
+      }
+      50% {
+        opacity: 0.7;
+        box-shadow: 0 0 20px var(--bnb-success);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Analytics</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+            <li><a href="api.html" class="nav-link">API</a></li>
+            <li><a href="audit.html" class="nav-link">Audit</a></li>
+            <li><a href="proof.html" class="nav-link">Reserves</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary btn-sm">Trade HYPE</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="analytics.html" class="mobile-nav-link">Analytics</a>
+      <a href="api.html" class="mobile-nav-link">API</a>
+      <a href="audit.html" class="mobile-nav-link">Audit</a>
+      <a href="proof.html" class="mobile-nav-link">Reserves</a>
+      <button class="btn-primary btn-block">Trade HYPE</button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="analytics-hero">
+      <div class="container">
+        <div class="live-indicator">
+          <span class="live-dot"></span>
+          <span style="color: var(--bnb-success); font-weight: 600; font-size: 0.875rem;">LIVE DATA</span>
+        </div>
+        <h1 class="section-title">Analytics Dashboard</h1>
+        <p class="section-description">
+          Real-time market data, AI agent performance, and comprehensive analytics for HypeAI ecosystem
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section class="section" style="padding-top: var(--spacing-8);">
+      <div class="container">
+        <div class="metrics-grid">
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Price (HYPE/USD)</span>
+              <span class="metric-change positive">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 2L6 10M6 2L2 6M6 2L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                +12.5%
+              </span>
+            </div>
+            <div class="metric-value">$0.001</div>
+            <div class="metric-subtext">Last updated: 2 seconds ago</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Market Cap</span>
+              <span class="metric-change positive">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 2L6 10M6 2L2 6M6 2L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                +8.3%
+              </span>
+            </div>
+            <div class="metric-value">$1.0M</div>
+            <div class="metric-subtext">Circulating: 600M HYPE</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">24h Volume</span>
+              <span class="metric-change positive">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 2L6 10M6 2L2 6M6 2L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                +45.2%
+              </span>
+            </div>
+            <div class="metric-value">$250K</div>
+            <div class="metric-subtext">450,000 transactions</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Total Value Locked</span>
+              <span class="metric-change positive">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 2L6 10M6 2L2 6M6 2L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                +3.7%
+              </span>
+            </div>
+            <div class="metric-value">$2.4M</div>
+            <div class="metric-subtext">15,600 unique stakers</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Holders</span>
+              <span class="metric-change positive">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 2L6 10M6 2L2 6M6 2L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                +156
+              </span>
+            </div>
+            <div class="metric-value">15.6K</div>
+            <div class="metric-subtext">Active addresses</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Staking APY</span>
+              <span class="metric-change positive">Stable</span>
+            </div>
+            <div class="metric-value">62%</div>
+            <div class="metric-subtext">Annual percentage yield</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">AI Agents</span>
+              <span class="metric-change positive">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <circle cx="6" cy="6" r="4" fill="currentColor"/>
+                </svg>
+                Active
+              </span>
+            </div>
+            <div class="metric-value">27</div>
+            <div class="metric-subtext">99.9% uptime</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-label">Trading Win Rate</span>
+              <span class="metric-change positive">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 2L6 10M6 2L2 6M6 2L10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                +2.1%
+              </span>
+            </div>
+            <div class="metric-value">73%</div>
+            <div class="metric-subtext">Last 30 days</div>
+          </div>
+
+        </div>
+
+        <!-- Price Chart -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h2 class="chart-title">Price History</h2>
+            <div class="chart-controls">
+              <button class="chart-btn active" data-timeframe="24h">24H</button>
+              <button class="chart-btn" data-timeframe="7d">7D</button>
+              <button class="chart-btn" data-timeframe="30d">30D</button>
+              <button class="chart-btn" data-timeframe="90d">90D</button>
+              <button class="chart-btn" data-timeframe="1y">1Y</button>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="priceChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Volume Chart -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h2 class="chart-title">Trading Volume</h2>
+            <div class="chart-controls">
+              <button class="chart-btn active" data-timeframe="24h">24H</button>
+              <button class="chart-btn" data-timeframe="7d">7D</button>
+              <button class="chart-btn" data-timeframe="30d">30D</button>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="volumeChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Distribution Chart -->
+        <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-6); margin-bottom: var(--spacing-6);">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h2 class="chart-title">Token Distribution</h2>
+            </div>
+            <div class="chart-container" style="height: 350px;">
+              <canvas id="distributionChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Agents Performance -->
+        <h2 class="section-title" style="margin-top: var(--spacing-16); margin-bottom: var(--spacing-8); text-align: left;">
+          AI Agent Performance
+        </h2>
+
+        <div class="filter-section">
+          <div class="filter-group">
+            <label class="filter-label">Status</label>
+            <select class="filter-select">
+              <option>All Agents</option>
+              <option>Active</option>
+              <option>Maintenance</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Category</label>
+            <select class="filter-select">
+              <option>All Categories</option>
+              <option>Trading</option>
+              <option>Analysis</option>
+              <option>Risk Management</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Sort By</label>
+            <select class="filter-select">
+              <option>Performance</option>
+              <option>Uptime</option>
+              <option>Win Rate</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Agent</th>
+                <th>Status</th>
+                <th>Uptime</th>
+                <th>Performance</th>
+                <th>Win Rate</th>
+                <th>Last Active</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                    <span style="font-size: 1.5rem;">🤖</span>
+                    <div>
+                      <div style="font-weight: 600; color: var(--text-primary);">Market Analyzer</div>
+                      <div style="font-size: 0.75rem; color: var(--text-quaternary);">Analysis Agent</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="agent-status">
+                    <span class="agent-status-dot"></span>
+                    <span style="color: var(--bnb-success); font-weight: 500;">Active</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--text-primary); font-weight: 600;">99.9%</span>
+                </td>
+                <td>
+                  <div style="width: 100px;">
+                    <div class="performance-bar">
+                      <div class="performance-fill" style="width: 94%;"></div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 4px;">94/100</div>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 600;">N/A</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-tertiary);">2 min ago</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                    <span style="font-size: 1.5rem;">📊</span>
+                    <div>
+                      <div style="font-weight: 600; color: var(--text-primary);">Trading Bot</div>
+                      <div style="font-size: 0.75rem; color: var(--text-quaternary);">Automated Trading</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="agent-status">
+                    <span class="agent-status-dot"></span>
+                    <span style="color: var(--bnb-success); font-weight: 500;">Active</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--text-primary); font-weight: 600;">99.8%</span>
+                </td>
+                <td>
+                  <div style="width: 100px;">
+                    <div class="performance-bar">
+                      <div class="performance-fill" style="width: 88%;"></div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 4px;">88/100</div>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 600;">73%</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-tertiary);">1 min ago</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                    <span style="font-size: 1.5rem;">🎯</span>
+                    <div>
+                      <div style="font-weight: 600; color: var(--text-primary);">Portfolio Manager</div>
+                      <div style="font-size: 0.75rem; color: var(--text-quaternary);">Optimization</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="agent-status">
+                    <span class="agent-status-dot"></span>
+                    <span style="color: var(--bnb-success); font-weight: 500;">Active</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--text-primary); font-weight: 600;">99.7%</span>
+                </td>
+                <td>
+                  <div style="width: 100px;">
+                    <div class="performance-bar">
+                      <div class="performance-fill" style="width: 96%;"></div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 4px;">96/100</div>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 600;">N/A</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-tertiary);">5 min ago</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                    <span style="font-size: 1.5rem;">🔍</span>
+                    <div>
+                      <div style="font-weight: 600; color: var(--text-primary);">Risk Analyzer</div>
+                      <div style="font-size: 0.75rem; color: var(--text-quaternary);">Risk Management</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="agent-status">
+                    <span class="agent-status-dot"></span>
+                    <span style="color: var(--bnb-success); font-weight: 500;">Active</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--text-primary); font-weight: 600;">99.9%</span>
+                </td>
+                <td>
+                  <div style="width: 100px;">
+                    <div class="performance-bar">
+                      <div class="performance-fill" style="width: 92%;"></div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 4px;">92/100</div>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 600;">N/A</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-tertiary);">3 min ago</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                    <span style="font-size: 1.5rem;">💎</span>
+                    <div>
+                      <div style="font-weight: 600; color: var(--text-primary);">Gem Hunter</div>
+                      <div style="font-size: 0.75rem; color: var(--text-quaternary);">Discovery Agent</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="agent-status">
+                    <span class="agent-status-dot"></span>
+                    <span style="color: var(--bnb-success); font-weight: 500;">Active</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--text-primary); font-weight: 600;">99.6%</span>
+                </td>
+                <td>
+                  <div style="width: 100px;">
+                    <div class="performance-bar">
+                      <div class="performance-fill" style="width: 85%;"></div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 4px;">85/100</div>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 600;">67%</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-tertiary);">10 min ago</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                    <span style="font-size: 1.5rem;">📈</span>
+                    <div>
+                      <div style="font-weight: 600; color: var(--text-primary);">Yield Optimizer</div>
+                      <div style="font-size: 0.75rem; color: var(--text-quaternary);">DeFi Yield</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="agent-status">
+                    <span class="agent-status-dot"></span>
+                    <span style="color: var(--bnb-success); font-weight: 500;">Active</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--text-primary); font-weight: 600;">99.8%</span>
+                </td>
+                <td>
+                  <div style="width: 100px;">
+                    <div class="performance-bar">
+                      <div class="performance-fill" style="width: 98%;"></div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 4px;">98/100</div>
+                  </div>
+                </td>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 600;">N/A</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-tertiary);">1 min ago</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Recent Transactions -->
+        <h2 class="section-title" style="margin-top: var(--spacing-16); margin-bottom: var(--spacing-8); text-align: left;">
+          Recent Transactions
+        </h2>
+
+        <div class="table-card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Time</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 600;">Buy</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-primary); font-weight: 600;">10,000 HYPE</span>
+                </td>
+                <td>
+                  <span style="font-family: 'Courier New', monospace; font-size: 0.875rem; color: var(--text-tertiary);">0x742d...5678</span>
+                </td>
+                <td>
+                  <span style="font-family: 'Courier New', monospace; font-size: 0.875rem; color: var(--text-tertiary);">0x8765...4321</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-tertiary);">2 min ago</span>
+                </td>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 500;">Confirmed</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="color: var(--bnb-error); font-weight: 600;">Sell</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-primary); font-weight: 600;">5,000 HYPE</span>
+                </td>
+                <td>
+                  <span style="font-family: 'Courier New', monospace; font-size: 0.875rem; color: var(--text-tertiary);">0xABCD...EFGH</span>
+                </td>
+                <td>
+                  <span style="font-family: 'Courier New', monospace; font-size: 0.875rem; color: var(--text-tertiary);">0x9876...5432</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-tertiary);">5 min ago</span>
+                </td>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 500;">Confirmed</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="color: var(--bnb-warning); font-weight: 600;">Stake</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-primary); font-weight: 600;">50,000 HYPE</span>
+                </td>
+                <td>
+                  <span style="font-family: 'Courier New', monospace; font-size: 0.875rem; color: var(--text-tertiary);">0x1234...9876</span>
+                </td>
+                <td>
+                  <span style="font-family: 'Courier New', monospace; font-size: 0.875rem; color: var(--text-tertiary);">Staking Pool</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-tertiary);">8 min ago</span>
+                </td>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 500;">Confirmed</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 600;">Buy</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-primary); font-weight: 600;">25,000 HYPE</span>
+                </td>
+                <td>
+                  <span style="font-family: 'Courier New', monospace; font-size: 0.875rem; color: var(--text-tertiary);">0x5678...1234</span>
+                </td>
+                <td>
+                  <span style="font-family: 'Courier New', monospace; font-size: 0.875rem; color: var(--text-tertiary);">0xDCBA...8765</span>
+                </td>
+                <td>
+                  <span style="color: var(--text-tertiary);">12 min ago</span>
+                </td>
+                <td>
+                  <span style="color: var(--bnb-success); font-weight: 500;">Confirmed</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">
+            AI-powered crypto services on Binance Smart Chain.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Analytics</h4>
+          <ul class="footer-links">
+            <li><a href="analytics.html">Dashboard</a></li>
+            <li><a href="proof.html">Proof of Reserves</a></li>
+            <li><a href="api.html">API Access</a></li>
+            <li><a href="#">Historical Data</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="audit.html">Security Audit</a></li>
+            <li><a href="whitepaper.html">Whitepaper</a></li>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuToggle?.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Chart.js configuration
+    const chartColors = {
+      gold: '#F3BA2F',
+      goldSecondary: '#FCD535',
+      success: '#0ECB81',
+      error: '#F6465D',
+      info: '#00D4FF',
+      dark: '#1E2026',
+      border: 'rgba(243, 186, 47, 0.2)'
+    };
+
+    // Price Chart
+    const priceCtx = document.getElementById('priceChart');
+    if (priceCtx) {
+      new Chart(priceCtx, {
+        type: 'line',
+        data: {
+          labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+          datasets: [{
+            label: 'Price (USD)',
+            data: [0.0009, 0.00092, 0.00095, 0.00098, 0.00096, 0.00099, 0.001],
+            borderColor: chartColors.gold,
+            backgroundColor: 'rgba(243, 186, 47, 0.1)',
+            fill: true,
+            tension: 0.4,
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grid: {
+                color: 'rgba(255, 255, 255, 0.05)'
+              },
+              ticks: {
+                color: '#848E9C'
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              },
+              ticks: {
+                color: '#848E9C'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Volume Chart
+    const volumeCtx = document.getElementById('volumeChart');
+    if (volumeCtx) {
+      new Chart(volumeCtx, {
+        type: 'bar',
+        data: {
+          labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+          datasets: [{
+            label: 'Volume (USD)',
+            data: [25000, 30000, 35000, 45000, 40000, 38000, 42000],
+            backgroundColor: 'rgba(243, 186, 47, 0.6)',
+            borderColor: chartColors.gold,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(255, 255, 255, 0.05)'
+              },
+              ticks: {
+                color: '#848E9C'
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              },
+              ticks: {
+                color: '#848E9C'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Distribution Chart
+    const distributionCtx = document.getElementById('distributionChart');
+    if (distributionCtx) {
+      new Chart(distributionCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Staking Rewards', 'Treasury', 'Liquidity', 'Development', 'Marketing', 'Team'],
+          datasets: [{
+            data: [30, 25, 20, 10, 10, 5],
+            backgroundColor: [
+              chartColors.gold,
+              chartColors.goldSecondary,
+              chartColors.success,
+              chartColors.info,
+              '#E5A91A',
+              '#B4941F'
+            ],
+            borderColor: chartColors.dark,
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'right',
+              labels: {
+                color: '#B7BDC6',
+                padding: 15,
+                font: {
+                  size: 12
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Chart timeframe buttons
+    document.querySelectorAll('.chart-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const controls = this.closest('.chart-controls');
+        controls.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        // In production, this would fetch new data for the selected timeframe
+        console.log('Fetching data for:', this.dataset.timeframe);
+      });
+    });
+
+    // Simulate live data updates
+    setInterval(() => {
+      console.log('Updating live data...');
+      // In production, this would fetch real-time data from the API
+    }, 15000);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Center - HypeAI</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/help-page.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="agents.html" class="nav-link">AI Agents</a></li>
+            <li><a href="whitepaper.html" class="nav-link">Whitepaper</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary">Connect Wallet</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="help-page">
+    <div class="container">
+      <div class="help-header">
+        <h1 class="help-title">How Can We Help?</h1>
+        <p class="help-subtitle">Search for answers or browse categories below</p>
+        <div class="search-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input type="text" id="faqSearch" placeholder="Search help articles...">
+        </div>
+      </div>
+
+      <div class="help-categories">
+        <button class="category-btn active" data-category="all">All</button>
+        <button class="category-btn" data-category="getting-started">Getting Started</button>
+        <button class="category-btn" data-category="wallet">Wallet</button>
+        <button class="category-btn" data-category="trading">Trading</button>
+        <button class="category-btn" data-category="staking">Staking</button>
+        <button class="category-btn" data-category="ai-agents">AI Agents</button>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item" data-category="getting-started">
+          <button class="faq-question">
+            <span>What is HypeAI?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9L12 16L5 9" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>HypeAI is an AI-powered cryptocurrency platform built on Binance Smart Chain. We offer 27 specialized AI agents that help with trading, analysis, portfolio management, and more. Our platform combines cutting-edge AI technology with the speed and affordability of BSC.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="wallet">
+          <button class="faq-question">
+            <span>How do I connect my wallet?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9L12 16L5 9" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Click "Connect Wallet" in the top right corner. Select your wallet provider (MetaMask, Trust Wallet, etc.). Approve the connection request. Your wallet will be connected and you can start using HypeAI.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="wallet">
+          <button class="faq-question">
+            <span>Which wallets are supported?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9L12 16L5 9" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>We support MetaMask, Trust Wallet, WalletConnect, Binance Chain Wallet, and any BSC-compatible wallet.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="trading">
+          <button class="faq-question">
+            <span>What are the trading fees?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9L12 16L5 9" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>HypeAI charges a 0.3% trading fee per transaction. BSC gas fees (approximately $0.10) apply to all blockchain transactions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="staking">
+          <button class="faq-question">
+            <span>How does staking work?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9L12 16L5 9" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Stake your HYPE tokens to earn 62% APY rewards. Simply lock your tokens in the staking contract, and rewards are distributed automatically every block. You can unstake at any time after the minimum lock period.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="staking">
+          <button class="faq-question">
+            <span>What is the minimum staking amount?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9L12 16L5 9" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>The minimum staking amount is 100 HYPE tokens. There is no maximum limit.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="ai-agents">
+          <button class="faq-question">
+            <span>What are AI agents?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9L12 16L5 9" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>AI agents are specialized algorithms that perform specific tasks like market analysis, trading automation, portfolio optimization, and risk assessment. HypeAI offers 27 different agents, each expert in their domain.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="ai-agents">
+          <button class="faq-question">
+            <span>Are AI agents free to use?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9L12 16L5 9" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Basic AI agents are free for all users. Premium agents and advanced features require HYPE token holdings or a subscription.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="getting-started">
+          <button class="faq-question">
+            <span>How do I buy HYPE tokens?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9L12 16L5 9" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>You can buy HYPE tokens through our platform, PancakeSwap, or other DEXs on Binance Smart Chain. Connect your wallet, ensure you have BNB for gas fees, and swap BNB for HYPE.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="trading">
+          <button class="faq-question">
+            <span>Is there a minimum trade amount?</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9L12 16L5 9" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>There is no minimum trade amount, but very small trades may not be economical due to gas fees.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="help-contact">
+        <h2 class="contact-title">Still Need Help?</h2>
+        <p class="contact-description">Our support team is here 24/7</p>
+        <div class="contact-options">
+          <a href="mailto:support@hypeai.io" class="contact-card">
+            <div class="contact-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M3 8L10.89 13.26C11.567 13.672 12.433 13.672 13.11 13.26L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="#F3BA2F" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Email Support</h3>
+            <p>support@hypeai.io</p>
+          </a>
+          <a href="#" class="contact-card">
+            <div class="contact-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M8 10H8.01M12 10H12.01M16 10H16.01M9 16H5C3.89543 16 3 15.1046 3 14V6C3 4.89543 3.89543 4 5 4H19C20.1046 4 21 4.89543 21 6V14C21 15.1046 20.1046 16 19 16H14L9 21V16Z" stroke="#F3BA2F" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Live Chat</h3>
+            <p>Chat with support</p>
+          </a>
+          <a href="#" class="contact-card">
+            <div class="contact-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" fill="#F3BA2F"/>
+              </svg>
+            </div>
+            <h3>Telegram</h3>
+            <p>@HypeAISupport</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="cookies.html">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/mobile-menu.js"></script>
+  <script src="js/help-page.js"></script>
+</body>
+</html>

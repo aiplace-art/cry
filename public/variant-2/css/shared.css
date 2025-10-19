@@ -1,0 +1,442 @@
+/* ================================================
+   HypeAI Variant 2 - Shared Page Styles
+   BNB Gold Theme with Glassmorphism
+   ================================================ */
+
+/* === ROOT VARIABLES (BNB Theme) === */
+
+:root {
+  /* BNB Colors */
+  --bnb-gold: #F3BA2F;
+  --bnb-gold-light: #FCD535;
+  --bnb-gold-dark: #E5A91A;
+  --bnb-dark: #1E2026;
+  --bnb-darker: #14151A;
+
+  /* Gradients */
+  --gradient-bnb: linear-gradient(135deg, #F3BA2F 0%, #FCD535 100%);
+  --gradient-dark: linear-gradient(135deg, #1E2026 0%, #14151A 100%);
+
+  /* Glass Effect */
+  --glass-bg: rgba(30, 32, 38, 0.4);
+  --glass-border: rgba(243, 186, 47, 0.2);
+
+  /* Text */
+  --text-primary: #F9FAFB;
+  --text-secondary: #D1D5DB;
+  --text-tertiary: #9CA3AF;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.25);
+  --shadow-glow: 0 0 30px rgba(243, 186, 47, 0.4);
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+}
+
+/* === RESET & BASE === */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bnb-darker);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === TYPOGRAPHY === */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-sm);
+}
+
+a {
+  color: var(--bnb-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--bnb-gold-light);
+}
+
+/* === PAGE HERO TEMPLATE === */
+
+.page-hero {
+  background: var(--gradient-dark);
+  padding: 120px 20px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(243, 186, 47, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.page-hero h1 {
+  font-size: 3.5rem;
+  background: var(--gradient-bnb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero .bsc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: rgba(243, 186, 47, 0.1);
+  border: 1px solid rgba(243, 186, 47, 0.3);
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--bnb-gold);
+  margin-bottom: var(--spacing-md);
+}
+
+/* === GLASS CARDS === */
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(243, 186, 47, 0.5);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+.glass-card h3 {
+  color: var(--bnb-gold);
+  margin-bottom: var(--spacing-md);
+}
+
+/* === CONTENT GRID === */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  padding: var(--spacing-2xl) var(--spacing-md);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* === BUTTONS === */
+
+.btn-bnb-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--gradient-bnb);
+  color: #000;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-bnb-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-bnb-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: transparent;
+  color: var(--bnb-gold);
+  border: 2px solid var(--bnb-gold);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-bnb-secondary:hover {
+  background: rgba(243, 186, 47, 0.1);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-large {
+  padding: var(--spacing-md) var(--spacing-2xl);
+  font-size: 1.125rem;
+}
+
+/* === HEADER (Shared) === */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: var(--spacing-md) 0;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.header-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header-nav {
+    display: flex;
+    gap: var(--spacing-xl);
+  }
+
+  .header-nav a {
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .header-nav a:hover,
+  .header-nav a.active {
+    color: var(--bnb-gold);
+  }
+}
+
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+/* === FOOTER (Shared) === */
+
+.site-footer {
+  background: var(--bnb-dark);
+  border-top: 1px solid rgba(243, 186, 47, 0.2);
+  padding: var(--spacing-2xl) var(--spacing-md);
+  margin-top: var(--spacing-2xl);
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-logo {
+  margin-bottom: var(--spacing-lg);
+}
+
+.footer-logo img {
+  height: 50px;
+  width: auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(243, 186, 47, 0.1);
+  border: 1px solid rgba(243, 186, 47, 0.3);
+  border-radius: 50%;
+  color: var(--bnb-gold);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--bnb-gold);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.footer-bnb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bnb img {
+  width: 20px;
+  height: 20px;
+}
+
+/* === ANIMATIONS === */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(243, 186, 47, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(243, 186, 47, 0.6);
+  }
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* === RESPONSIVE === */
+
+@media (max-width: 768px) {
+  .page-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .glass-card {
+    padding: var(--spacing-md);
+  }
+}
+
+/* === UTILITY CLASSES === */
+
+.text-center { text-align: center; }
+.text-gradient {
+  background: var(--gradient-bnb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section-spacing {
+  padding: var(--spacing-2xl) 0;
+}

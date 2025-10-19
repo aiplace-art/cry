@@ -1,0 +1,191 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bnb-gold-anim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3BA2F">
+        <animate attributeName="stop-color"
+                 values="#F3BA2F;#FCD535;#F3BA2F"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#FCD535">
+        <animate attributeName="stop-color"
+                 values="#FCD535;#F3BA2F;#FCD535"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#F3BA2F">
+        <animate attributeName="stop-color"
+                 values="#F3BA2F;#FCD535;#F3BA2F"
+                 dur="3s"
+                 repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <radialGradient id="center-glow-anim">
+      <stop offset="0%" stop-color="#FCD535">
+        <animate attributeName="stop-opacity"
+                 values="0.8;1;0.8"
+                 dur="2s"
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#F3BA2F" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="glow-anim">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="pulse-glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur">
+        <animate attributeName="stdDeviation"
+                 values="2;4;2"
+                 dur="2s"
+                 repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background subtle pulse -->
+  <circle cx="50" cy="50" r="45" fill="url(#center-glow-anim)" opacity="0.1">
+    <animate attributeName="r"
+             values="45;48;45"
+             dur="3s"
+             repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Outer diamond -->
+  <path d="M50,15 L75,50 L50,85 L25,50 Z"
+        stroke="url(#bnb-gold-anim)"
+        stroke-width="3"
+        fill="none"
+        filter="url(#glow-anim)">
+    <animate attributeName="opacity"
+             values="1;0.8;1"
+             dur="2s"
+             repeatCount="indefinite"/>
+  </path>
+
+  <!-- Inner diamond with subtle scale -->
+  <path d="M50,25 L65,50 L50,75 L35,50 Z"
+        stroke="url(#bnb-gold-anim)"
+        stroke-width="2"
+        fill="url(#center-glow-anim)"
+        opacity="0.3">
+    <animateTransform attributeName="transform"
+                      type="scale"
+                      values="1;1.05;1"
+                      dur="2s"
+                      additive="sum"
+                      repeatCount="indefinite"/>
+  </path>
+
+  <!-- Neural network nodes with pulse -->
+  <g id="neural-nodes">
+    <!-- Outer nodes - rotating pulse -->
+    <circle cx="50" cy="15" r="3" fill="#F3BA2F" filter="url(#pulse-glow)">
+      <animate attributeName="r" values="3;3.5;3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="75" cy="50" r="3" fill="#F3BA2F" filter="url(#pulse-glow)">
+      <animate attributeName="r" values="3;3.5;3" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50" cy="85" r="3" fill="#F3BA2F" filter="url(#pulse-glow)">
+      <animate attributeName="r" values="3;3.5;3" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="25" cy="50" r="3" fill="#F3BA2F" filter="url(#pulse-glow)">
+      <animate attributeName="r" values="3;3.5;3" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Inner nodes - subtle glow -->
+    <circle cx="50" cy="25" r="2.5" fill="#FCD535">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="65" cy="50" r="2.5" fill="#FCD535">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50" cy="75" r="2.5" fill="#FCD535">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="35" cy="50" r="2.5" fill="#FCD535">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Center AI core - strong pulse -->
+    <circle cx="50" cy="50" r="4.5" fill="url(#bnb-gold-anim)" filter="url(#pulse-glow)">
+      <animate attributeName="r" values="4.5;5.5;4.5" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50" cy="50" r="2" fill="#1E2026">
+      <animate attributeName="r" values="2;2.5;2" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Neural connections - flowing energy -->
+  <g stroke="url(#bnb-gold-anim)" stroke-width="1.5" opacity="0.6">
+    <line x1="50" y1="25" x2="50" y2="50">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="65" y1="50" x2="50" y2="50">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="50" y1="75" x2="50" y2="50">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="35" y1="50" x2="50" y2="50">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- Cross connections - subtle pulse -->
+  <g stroke="url(#bnb-gold-anim)" stroke-width="0.8" opacity="0.3">
+    <line x1="50" y1="25" x2="65" y2="50">
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="65" y1="50" x2="50" y2="75">
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" begin="0.75s" repeatCount="indefinite"/>
+    </line>
+    <line x1="50" y1="75" x2="35" y2="50">
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="35" y1="50" x2="50" y2="25">
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" begin="2.25s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- Rotating particle effect -->
+  <g id="particles" opacity="0.6">
+    <circle cx="50" cy="20" r="1" fill="#FCD535">
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="0 50 50"
+                        to="360 50 50"
+                        dur="8s"
+                        repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50" cy="20" r="1" fill="#FCD535">
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="120 50 50"
+                        to="480 50 50"
+                        dur="8s"
+                        repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50" cy="20" r="1" fill="#FCD535">
+      <animateTransform attributeName="transform"
+                        type="rotate"
+                        from="240 50 50"
+                        to="600 50 50"
+                        dur="8s"
+                        repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="1.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

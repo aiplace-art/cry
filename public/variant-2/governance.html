@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Governance - HypeAI | DAO Voting & Proposals</title>
+  <meta name="description" content="Participate in HypeAI governance. Vote on proposals, submit ideas, and shape the future of the platform.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    .governance-hero {
+      padding: calc(80px + var(--spacing-12)) var(--spacing-4) var(--spacing-16);
+      background: linear-gradient(180deg, var(--bnb-bg-darker) 0%, var(--bnb-bg-dark) 100%);
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-12);
+    }
+
+    .stat-box {
+      padding: var(--spacing-6);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .stat-box-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+      line-height: 1;
+      margin-bottom: var(--spacing-2);
+    }
+
+    .stat-box-label {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: var(--spacing-2);
+      margin-bottom: var(--spacing-8);
+      border-bottom: 2px solid var(--glass-border);
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: var(--spacing-3) var(--spacing-6);
+      background: transparent;
+      border: none;
+      color: var(--text-tertiary);
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition-fast);
+    }
+
+    .tab-btn.active {
+      color: var(--bnb-gold-primary);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient-gold);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .proposal-card {
+      padding: var(--spacing-6);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-6);
+      transition: var(--transition-normal);
+    }
+
+    .proposal-card:hover {
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 12px 48px rgba(243, 186, 47, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .proposal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: var(--spacing-4);
+      gap: var(--spacing-4);
+      flex-wrap: wrap;
+    }
+
+    .proposal-badge {
+      padding: var(--spacing-1) var(--spacing-3);
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .proposal-badge.active {
+      background: rgba(14, 203, 129, 0.15);
+      color: var(--bnb-success);
+      border: 1px solid var(--bnb-success);
+    }
+
+    .proposal-badge.passed {
+      background: rgba(243, 186, 47, 0.15);
+      color: var(--bnb-gold-primary);
+      border: 1px solid var(--bnb-gold-primary);
+    }
+
+    .proposal-badge.rejected {
+      background: rgba(246, 70, 93, 0.15);
+      color: var(--bnb-error);
+      border: 1px solid var(--bnb-error);
+    }
+
+    .proposal-id {
+      font-size: 0.875rem;
+      color: var(--text-quaternary);
+    }
+
+    .proposal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-3);
+    }
+
+    .proposal-description {
+      color: var(--text-tertiary);
+      line-height: 1.7;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .proposal-meta {
+      display: flex;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-4);
+      font-size: 0.875rem;
+      color: var(--text-quaternary);
+      flex-wrap: wrap;
+    }
+
+    .vote-progress {
+      margin-bottom: var(--spacing-4);
+    }
+
+    .vote-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--spacing-2);
+      font-size: 0.875rem;
+    }
+
+    .vote-for {
+      color: var(--bnb-success);
+      font-weight: 600;
+    }
+
+    .vote-against {
+      color: var(--bnb-error);
+      font-weight: 600;
+    }
+
+    .vote-bar {
+      height: 8px;
+      background: rgba(30, 32, 38, 0.6);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      display: flex;
+    }
+
+    .vote-bar-for {
+      background: var(--bnb-success);
+      transition: width var(--transition-slow);
+    }
+
+    .vote-bar-against {
+      background: var(--bnb-error);
+      transition: width var(--transition-slow);
+    }
+
+    .vote-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-3);
+    }
+
+    .vote-btn {
+      padding: var(--spacing-3) var(--spacing-4);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      border: 2px solid;
+    }
+
+    .vote-btn-for {
+      background: rgba(14, 203, 129, 0.1);
+      border-color: var(--bnb-success);
+      color: var(--bnb-success);
+    }
+
+    .vote-btn-for:hover {
+      background: rgba(14, 203, 129, 0.2);
+      box-shadow: 0 0 20px rgba(14, 203, 129, 0.3);
+    }
+
+    .vote-btn-against {
+      background: rgba(246, 70, 93, 0.1);
+      border-color: var(--bnb-error);
+      color: var(--bnb-error);
+    }
+
+    .vote-btn-against:hover {
+      background: rgba(246, 70, 93, 0.2);
+      box-shadow: 0 0 20px rgba(246, 70, 93, 0.3);
+    }
+
+    .create-proposal-card {
+      padding: var(--spacing-8);
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.1) 0%, rgba(30, 32, 38, 0.4) 100%);
+      border: 2px dashed var(--bnb-gold-primary);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .voting-power-card {
+      padding: var(--spacing-6);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .power-display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-4);
+      background: rgba(243, 186, 47, 0.05);
+      border-radius: var(--radius-md);
+      margin-top: var(--spacing-4);
+    }
+
+    .power-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+    }
+
+    @media (min-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="agents.html" class="nav-link">AI Agents</a></li>
+            <li><a href="stake.html" class="nav-link">Stake</a></li>
+            <li><a href="governance.html" class="nav-link">Governance</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary">Connect Wallet</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="agents.html" class="mobile-nav-link">AI Agents</a>
+      <a href="stake.html" class="mobile-nav-link">Stake</a>
+      <a href="governance.html" class="mobile-nav-link">Governance</a>
+      <a href="blog.html" class="mobile-nav-link">Blog</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="governance-hero">
+      <div class="container">
+        <div class="hero-badge">
+          <svg class="badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+          </svg>
+          <span>Community-Driven Decision Making</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-title-main">Governance</span>
+          <span class="hero-title-gradient">Your Voice Matters</span>
+        </h1>
+
+        <p class="hero-description">
+          Shape the future of HypeAI. Vote on proposals, submit ideas, and participate in decentralized governance.
+        </p>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-box-value">23</div>
+            <div class="stat-box-label">Active Proposals</div>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-box-value">8.4M</div>
+            <div class="stat-box-label">Total Votes Cast</div>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-box-value">15.6K</div>
+            <div class="stat-box-label">Voters</div>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-box-value">87%</div>
+            <div class="stat-box-label">Participation Rate</div>
+          </div>
+        </div>
+
+        <!-- Voting Power -->
+        <div class="voting-power-card">
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--spacing-2);">Your Voting Power</h3>
+          <p style="color: var(--text-tertiary); font-size: 0.875rem; margin-bottom: var(--spacing-4);">
+            Voting power is determined by your HYPE token holdings and staking duration.
+          </p>
+          <div class="power-display">
+            <div>
+              <div style="font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: var(--spacing-1);">Total Voting Power</div>
+              <div class="power-value">125,000</div>
+            </div>
+            <button class="btn-secondary">Increase Power</button>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="active">Active Proposals (5)</button>
+          <button class="tab-btn" data-tab="passed">Passed (18)</button>
+          <button class="tab-btn" data-tab="rejected">Rejected (3)</button>
+          <button class="tab-btn" data-tab="create">Create Proposal</button>
+        </div>
+
+        <!-- Active Proposals -->
+        <div class="tab-content active" id="active">
+          <!-- Proposal 1 -->
+          <div class="proposal-card">
+            <div class="proposal-header">
+              <div>
+                <span class="proposal-id">HIP-047</span>
+              </div>
+              <span class="proposal-badge active">Active</span>
+            </div>
+
+            <h3 class="proposal-title">Increase AI Agent Development Fund to 15%</h3>
+            <p class="proposal-description">
+              Proposal to allocate an additional 5% of treasury funds to accelerate AI agent development. This will enable the team to hire 3 more AI engineers and expand agent capabilities by Q3 2026.
+            </p>
+
+            <div class="proposal-meta">
+              <span>Proposed by: <strong style="color: var(--bnb-gold-primary);">0x1234...5678</strong></span>
+              <span>•</span>
+              <span>Ends in: <strong>2 days 14 hours</strong></span>
+              <span>•</span>
+              <span>Quorum: <strong style="color: var(--bnb-success);">Met</strong></span>
+            </div>
+
+            <div class="vote-progress">
+              <div class="vote-stats">
+                <span class="vote-for">For: 5.8M (73.4%)</span>
+                <span class="vote-against">Against: 2.1M (26.6%)</span>
+              </div>
+              <div class="vote-bar">
+                <div class="vote-bar-for" style="width: 73.4%"></div>
+                <div class="vote-bar-against" style="width: 26.6%"></div>
+              </div>
+            </div>
+
+            <div class="vote-buttons">
+              <button class="vote-btn vote-btn-for">Vote For</button>
+              <button class="vote-btn vote-btn-against">Vote Against</button>
+            </div>
+          </div>
+
+          <!-- Proposal 2 -->
+          <div class="proposal-card">
+            <div class="proposal-header">
+              <div>
+                <span class="proposal-id">HIP-046</span>
+              </div>
+              <span class="proposal-badge active">Active</span>
+            </div>
+
+            <h3 class="proposal-title">Reduce Trading Fees to 0.1% for Stakers</h3>
+            <p class="proposal-description">
+              Introduce tiered trading fees based on staking amount. Users staking 100K+ HYPE tokens would receive 0.1% trading fees (down from 0.3%).
+            </p>
+
+            <div class="proposal-meta">
+              <span>Proposed by: <strong style="color: var(--bnb-gold-primary);">0xABCD...EFAB</strong></span>
+              <span>•</span>
+              <span>Ends in: <strong>4 days 8 hours</strong></span>
+              <span>•</span>
+              <span>Quorum: <strong style="color: var(--bnb-success);">Met</strong></span>
+            </div>
+
+            <div class="vote-progress">
+              <div class="vote-stats">
+                <span class="vote-for">For: 6.2M (81.2%)</span>
+                <span class="vote-against">Against: 1.4M (18.8%)</span>
+              </div>
+              <div class="vote-bar">
+                <div class="vote-bar-for" style="width: 81.2%"></div>
+                <div class="vote-bar-against" style="width: 18.8%"></div>
+              </div>
+            </div>
+
+            <div class="vote-buttons">
+              <button class="vote-btn vote-btn-for">Vote For</button>
+              <button class="vote-btn vote-btn-against">Vote Against</button>
+            </div>
+          </div>
+
+          <!-- Proposal 3 -->
+          <div class="proposal-card">
+            <div class="proposal-header">
+              <div>
+                <span class="proposal-id">HIP-045</span>
+              </div>
+              <span class="proposal-badge active">Active</span>
+            </div>
+
+            <h3 class="proposal-title">Launch HypeAI NFT Collection for AI Agents</h3>
+            <p class="proposal-description">
+              Create unique NFTs representing each of the 27 AI agents. NFT holders would receive priority access to agent features, exclusive analytics, and boosted staking rewards.
+            </p>
+
+            <div class="proposal-meta">
+              <span>Proposed by: <strong style="color: var(--bnb-gold-primary);">0x9876...5432</strong></span>
+              <span>•</span>
+              <span>Ends in: <strong>5 days 20 hours</strong></span>
+              <span>•</span>
+              <span>Quorum: <strong style="color: var(--text-quaternary);">Not Met</strong></span>
+            </div>
+
+            <div class="vote-progress">
+              <div class="vote-stats">
+                <span class="vote-for">For: 2.9M (64.4%)</span>
+                <span class="vote-against">Against: 1.6M (35.6%)</span>
+              </div>
+              <div class="vote-bar">
+                <div class="vote-bar-for" style="width: 64.4%"></div>
+                <div class="vote-bar-against" style="width: 35.6%"></div>
+              </div>
+            </div>
+
+            <div class="vote-buttons">
+              <button class="vote-btn vote-btn-for">Vote For</button>
+              <button class="vote-btn vote-btn-against">Vote Against</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passed Proposals -->
+        <div class="tab-content" id="passed">
+          <div class="proposal-card">
+            <div class="proposal-header">
+              <div>
+                <span class="proposal-id">HIP-044</span>
+              </div>
+              <span class="proposal-badge passed">Passed</span>
+            </div>
+
+            <h3 class="proposal-title">Implement Cross-Chain Bridge to Ethereum</h3>
+            <p class="proposal-description">
+              Enable HYPE token transfers between BSC and Ethereum networks. Passed with overwhelming support.
+            </p>
+
+            <div class="proposal-meta">
+              <span>Executed: <strong>Jan 10, 2026</strong></span>
+              <span>•</span>
+              <span>Final Vote: <strong style="color: var(--bnb-success);">92.7% For</strong></span>
+            </div>
+          </div>
+
+          <div class="proposal-card">
+            <div class="proposal-header">
+              <div>
+                <span class="proposal-id">HIP-043</span>
+              </div>
+              <span class="proposal-badge passed">Passed</span>
+            </div>
+
+            <h3 class="proposal-title">Increase Staking APY to 62%</h3>
+            <p class="proposal-description">
+              Raised staking rewards from 45% to 62% APY to incentivize long-term holding and platform participation.
+            </p>
+
+            <div class="proposal-meta">
+              <span>Executed: <strong>Jan 5, 2026</strong></span>
+              <span>•</span>
+              <span>Final Vote: <strong style="color: var(--bnb-success);">88.3% For</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rejected Proposals -->
+        <div class="tab-content" id="rejected">
+          <div class="proposal-card">
+            <div class="proposal-header">
+              <div>
+                <span class="proposal-id">HIP-039</span>
+              </div>
+              <span class="proposal-badge rejected">Rejected</span>
+            </div>
+
+            <h3 class="proposal-title">Reduce Total Supply by 30%</h3>
+            <p class="proposal-description">
+              Proposal to burn 300M HYPE tokens. Community voted against due to concerns about tokenomics stability.
+            </p>
+
+            <div class="proposal-meta">
+              <span>Closed: <strong>Dec 28, 2025</strong></span>
+              <span>•</span>
+              <span>Final Vote: <strong style="color: var(--bnb-error);">68.1% Against</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Create Proposal -->
+        <div class="tab-content" id="create">
+          <div class="create-proposal-card">
+            <div style="font-size: 4rem; margin-bottom: var(--spacing-4);">📝</div>
+            <h3 style="font-size: 1.75rem; font-weight: 700; color: var(--bnb-gold-primary); margin-bottom: var(--spacing-4);">Submit a Proposal</h3>
+            <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-6); max-width: 600px; margin-left: auto; margin-right: auto;">
+              Have an idea to improve HypeAI? Submit a governance proposal. Requires 50,000 HYPE voting power and a 3-day review period.
+            </p>
+            <button class="btn-primary btn-lg">Create New Proposal</button>
+            <div style="margin-top: var(--spacing-6); font-size: 0.875rem; color: var(--text-quaternary);">
+              Your voting power: <strong style="color: var(--bnb-gold-primary);">125,000</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Start Participating in Governance</h2>
+          <p class="cta-description">
+            Stake HYPE tokens to increase your voting power and shape the platform's future.
+          </p>
+          <div class="cta-buttons">
+            <button class="btn-primary btn-xl">Stake HYPE Tokens</button>
+            <button class="btn-secondary btn-xl">Learn About Governance</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">AI-powered crypto on BSC.</p>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Governance</h4>
+          <ul class="footer-links">
+            <li><a href="governance.html">Active Proposals</a></li>
+            <li><a href="#create">Submit Proposal</a></li>
+            <li><a href="#">Voting Guide</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="mobile.js"></script>
+  <script>
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.dataset.tab;
+
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        btn.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    // Vote button interactions
+    document.querySelectorAll('.vote-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert('Connect your wallet to vote on this proposal');
+      });
+    });
+  </script>
+</body>
+</html>

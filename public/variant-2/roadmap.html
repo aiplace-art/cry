@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Roadmap - HypeAI | Project Timeline & Milestones</title>
+  <meta name="title" content="HypeAI Roadmap - Project Timeline">
+  <meta name="description" content="Explore HypeAI's development roadmap, milestones, and future plans for AI-powered crypto on Binance Smart Chain.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    .roadmap-hero {
+      padding: calc(80px + var(--spacing-12)) var(--spacing-4) var(--spacing-16);
+      background: linear-gradient(180deg, var(--bnb-bg-darker) 0%, var(--bnb-bg-dark) 100%);
+      text-align: center;
+    }
+
+    .roadmap-timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-8) 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--bnb-gold-primary) 0%, rgba(243, 186, 47, 0.2) 100%);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 80px 1fr;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-12);
+      position: relative;
+    }
+
+    .timeline-content {
+      padding: var(--spacing-8);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-glass);
+      transition: var(--transition-normal);
+    }
+
+    .timeline-content:hover {
+      border-color: var(--bnb-gold-primary);
+      box-shadow: 0 12px 48px rgba(243, 186, 47, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .timeline-left { grid-column: 1; }
+    .timeline-right { grid-column: 3; }
+    .timeline-center { grid-column: 2; }
+
+    .timeline-marker {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #000;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 30px rgba(243, 186, 47, 0.5);
+    }
+
+    .timeline-marker.completed {
+      background: var(--bnb-success);
+    }
+
+    .timeline-marker.active {
+      animation: pulse-marker 2s ease-in-out infinite;
+    }
+
+    .quarter-tag {
+      display: inline-block;
+      padding: var(--spacing-2) var(--spacing-4);
+      background: rgba(243, 186, 47, 0.15);
+      border: 1px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-full);
+      color: var(--bnb-gold-primary);
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: var(--spacing-3);
+    }
+
+    .milestone-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .milestone-list {
+      list-style: none;
+      margin-top: var(--spacing-4);
+    }
+
+    .milestone-list li {
+      padding: var(--spacing-2) 0;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+    }
+
+    .milestone-list li::before {
+      content: '✓';
+      color: var(--bnb-success);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .milestone-list li.pending::before {
+      content: '○';
+      color: var(--bnb-gold-primary);
+    }
+
+    .progress-section {
+      background: var(--bnb-bg-dark);
+      padding: var(--spacing-16) var(--spacing-4);
+    }
+
+    .progress-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .progress-card {
+      padding: var(--spacing-8);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .progress-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .progress-percentage {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+    }
+
+    .progress-bar-container {
+      height: 12px;
+      background: rgba(30, 32, 38, 0.6);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      margin-bottom: var(--spacing-3);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--gradient-gold);
+      border-radius: var(--radius-full);
+      transition: width var(--transition-slow);
+    }
+
+    .timeline-chart {
+      padding: var(--spacing-8);
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-12);
+    }
+
+    @keyframes pulse-marker {
+      0%, 100% { box-shadow: 0 0 30px rgba(243, 186, 47, 0.5); }
+      50% { box-shadow: 0 0 50px rgba(243, 186, 47, 0.8); }
+    }
+
+    @media (max-width: 768px) {
+      .timeline-item {
+        grid-template-columns: 60px 1fr;
+        gap: var(--spacing-4);
+      }
+
+      .timeline-left,
+      .timeline-right {
+        grid-column: 2;
+      }
+
+      .timeline-center {
+        grid-column: 1;
+      }
+
+      .timeline-line {
+        left: 30px;
+      }
+
+      .timeline-marker {
+        width: 60px;
+        height: 60px;
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="index.html#features" class="nav-link">Features</a></li>
+            <li><a href="agents.html" class="nav-link">AI Agents</a></li>
+            <li><a href="stake.html" class="nav-link">Stake</a></li>
+            <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary">Connect Wallet</button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html#features" class="mobile-nav-link">Features</a>
+      <a href="agents.html" class="mobile-nav-link">AI Agents</a>
+      <a href="stake.html" class="mobile-nav-link">Stake</a>
+      <a href="roadmap.html" class="mobile-nav-link">Roadmap</a>
+      <a href="blog.html" class="mobile-nav-link">Blog</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="roadmap-hero">
+      <div class="container">
+        <div class="hero-badge">
+          <svg class="badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+          </svg>
+          <span>Building the Future of AI on BSC</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-title-main">Development Roadmap</span>
+          <span class="hero-title-gradient">Our Journey to AI-Powered DeFi</span>
+        </h1>
+
+        <p class="hero-description">
+          Track our progress as we build the most advanced AI-powered crypto platform on Binance Smart Chain. Transparent milestones, clear timelines, and community-driven development.
+        </p>
+      </div>
+    </section>
+
+    <!-- Progress Overview -->
+    <section class="progress-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Current Progress</h2>
+          <p class="section-description">Real-time development status across all workstreams</p>
+        </div>
+
+        <div class="progress-grid">
+          <div class="progress-card">
+            <div class="progress-header">
+              <h3 class="progress-title">Smart Contracts</h3>
+              <span class="progress-percentage">95%</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" style="width: 95%"></div>
+            </div>
+            <p style="color: var(--text-tertiary); font-size: 0.875rem;">Audited and deployed to BSC testnet. Mainnet deployment scheduled for Q1 2026.</p>
+          </div>
+
+          <div class="progress-card">
+            <div class="progress-header">
+              <h3 class="progress-title">AI Agent Development</h3>
+              <span class="progress-percentage">78%</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" style="width: 78%"></div>
+            </div>
+            <p style="color: var(--text-tertiary); font-size: 0.875rem;">27 agents in testing. Market Analyzer, Trading Bot, and Portfolio Manager live.</p>
+          </div>
+
+          <div class="progress-card">
+            <div class="progress-header">
+              <h3 class="progress-title">Platform UI/UX</h3>
+              <span class="progress-percentage">88%</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" style="width: 88%"></div>
+            </div>
+            <p style="color: var(--text-tertiary); font-size: 0.875rem;">Dashboard, staking, and trading interfaces complete. Mobile optimization ongoing.</p>
+          </div>
+
+          <div class="progress-card">
+            <div class="progress-header">
+              <h3 class="progress-title">Security & Audits</h3>
+              <span class="progress-percentage">100%</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" style="width: 100%"></div>
+            </div>
+            <p style="color: var(--text-tertiary); font-size: 0.875rem;">CertiK audit complete. All critical and high-severity issues resolved.</p>
+          </div>
+        </div>
+
+        <!-- Timeline Chart -->
+        <div class="timeline-chart">
+          <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--spacing-6);">Development Timeline</h3>
+          <canvas id="timelineChart" height="80"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Roadmap -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Milestone Timeline</h2>
+          <p class="section-description">From concept to market leader</p>
+        </div>
+
+        <div class="roadmap-timeline">
+          <div class="timeline-line"></div>
+
+          <!-- Q4 2025 - COMPLETED -->
+          <div class="timeline-item">
+            <div class="timeline-content timeline-left">
+              <span class="quarter-tag">Q4 2025 - COMPLETED</span>
+              <h3 class="milestone-title">Foundation & Research</h3>
+              <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-4);">Laying the groundwork for HypeAI platform</p>
+              <ul class="milestone-list">
+                <li>Team formation and hiring</li>
+                <li>Market research and competitor analysis</li>
+                <li>Technical architecture design</li>
+                <li>Whitepaper v1.0 release</li>
+                <li>Community building on Twitter & Telegram</li>
+                <li>BSC smart contract development start</li>
+              </ul>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-marker completed">Q4</div>
+            </div>
+            <div></div>
+          </div>
+
+          <!-- Q1 2026 - ACTIVE -->
+          <div class="timeline-item">
+            <div></div>
+            <div class="timeline-center">
+              <div class="timeline-marker active">Q1</div>
+            </div>
+            <div class="timeline-content timeline-right">
+              <span class="quarter-tag" style="background: rgba(14, 203, 129, 0.15); border-color: var(--bnb-success); color: var(--bnb-success);">Q1 2026 - IN PROGRESS</span>
+              <h3 class="milestone-title">Private Sale & Core Development</h3>
+              <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-4);">Building the platform and raising capital</p>
+              <ul class="milestone-list">
+                <li>Private sale launch (20-30% bonus)</li>
+                <li>CertiK smart contract audit</li>
+                <li>First 10 AI agents deployment</li>
+                <li class="pending">Dashboard beta release</li>
+                <li class="pending">BSC testnet deployment</li>
+                <li class="pending">KYC verification process</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Q2 2026 -->
+          <div class="timeline-item">
+            <div class="timeline-content timeline-left">
+              <span class="quarter-tag">Q2 2026 - UPCOMING</span>
+              <h3 class="milestone-title">Public Sale & Mainnet Launch</h3>
+              <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-4);">Going live on Binance Smart Chain</p>
+              <ul class="milestone-list">
+                <li class="pending">Public sale on PancakeSwap</li>
+                <li class="pending">Mainnet smart contract deployment</li>
+                <li class="pending">DEX listing (PancakeSwap, DODO)</li>
+                <li class="pending">Staking platform launch (62% APY)</li>
+                <li class="pending">All 27 AI agents live</li>
+                <li class="pending">Mobile app beta (iOS & Android)</li>
+              </ul>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-marker">Q2</div>
+            </div>
+            <div></div>
+          </div>
+
+          <!-- Q3 2026 -->
+          <div class="timeline-item">
+            <div></div>
+            <div class="timeline-center">
+              <div class="timeline-marker">Q3</div>
+            </div>
+            <div class="timeline-content timeline-right">
+              <span class="quarter-tag">Q3 2026 - PLANNED</span>
+              <h3 class="milestone-title">Expansion & Partnerships</h3>
+              <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-4);">Growing ecosystem and user base</p>
+              <ul class="milestone-list">
+                <li class="pending">CEX listings (Gate.io, MEXC, KuCoin)</li>
+                <li class="pending">Cross-chain bridge (ETH, Polygon)</li>
+                <li class="pending">Strategic partnerships announcement</li>
+                <li class="pending">DAO governance implementation</li>
+                <li class="pending">Advanced trading features</li>
+                <li class="pending">Referral & rewards program</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Q4 2026 -->
+          <div class="timeline-item">
+            <div class="timeline-content timeline-left">
+              <span class="quarter-tag">Q4 2026 - VISION</span>
+              <h3 class="milestone-title">AI Innovation & Scale</h3>
+              <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-4);">Next-generation AI capabilities</p>
+              <ul class="milestone-list">
+                <li class="pending">AI marketplace launch</li>
+                <li class="pending">Custom AI agent builder</li>
+                <li class="pending">Institutional trading desk</li>
+                <li class="pending">DeFi yield aggregator</li>
+                <li class="pending">NFT integration for AI agents</li>
+                <li class="pending">100K+ active users milestone</li>
+              </ul>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-marker">Q4</div>
+            </div>
+            <div></div>
+          </div>
+
+          <!-- 2027 & Beyond -->
+          <div class="timeline-item">
+            <div></div>
+            <div class="timeline-center">
+              <div class="timeline-marker">2027</div>
+            </div>
+            <div class="timeline-content timeline-right">
+              <span class="quarter-tag">2027 & BEYOND</span>
+              <h3 class="milestone-title">Global Dominance</h3>
+              <p style="color: var(--text-tertiary); margin-bottom: var(--spacing-4);">Becoming the #1 AI crypto platform</p>
+              <ul class="milestone-list">
+                <li class="pending">Layer 2 scaling solution</li>
+                <li class="pending">AI trading API for developers</li>
+                <li class="pending">Enterprise solutions</li>
+                <li class="pending">Global regulatory compliance</li>
+                <li class="pending">1M+ users worldwide</li>
+                <li class="pending">$1B+ total value locked</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Join Us on This Journey</h2>
+          <p class="cta-description">
+            Be part of the revolution. Private sale is live with exclusive bonuses up to 30%.
+          </p>
+          <div class="cta-buttons">
+            <button class="btn-primary btn-xl">
+              Join Private Sale
+              <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <button class="btn-secondary btn-xl">Read Whitepaper</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo-bnb.svg" alt="HypeAI">
+          </div>
+          <p class="footer-description">
+            AI-powered crypto services on Binance Smart Chain.
+          </p>
+          <div class="bsc-badge-footer">
+            <svg class="bsc-icon" width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+            </svg>
+            <span>Built on BSC</span>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="agents.html">AI Agents</a></li>
+            <li><a href="trade.html">Trade</a></li>
+            <li><a href="stake.html">Stake</a></li>
+            <li><a href="governance.html">Governance</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="whitepaper.html">Whitepaper</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Community</h4>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Telegram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 HypeAI. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="mobile.js"></script>
+  <script>
+    // Timeline Chart
+    const ctx = document.getElementById('timelineChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Q4 2025', 'Q1 2026', 'Q2 2026', 'Q3 2026', 'Q4 2026', 'Q1 2027'],
+        datasets: [{
+          label: 'Platform Completion %',
+          data: [15, 68, 85, 93, 98, 100],
+          borderColor: '#F3BA2F',
+          backgroundColor: 'rgba(243, 186, 47, 0.1)',
+          tension: 0.4,
+          fill: true,
+          pointBackgroundColor: '#F3BA2F',
+          pointBorderColor: '#000',
+          pointBorderWidth: 2,
+          pointRadius: 6,
+          pointHoverRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(30, 32, 38, 0.95)',
+            titleColor: '#F3BA2F',
+            bodyColor: '#EAECEF',
+            borderColor: '#F3BA2F',
+            borderWidth: 1,
+            padding: 12,
+            displayColors: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            ticks: { color: '#848E9C', callback: (value) => value + '%' },
+            grid: { color: 'rgba(243, 186, 47, 0.1)' }
+          },
+          x: {
+            ticks: { color: '#848E9C' },
+            grid: { display: false }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

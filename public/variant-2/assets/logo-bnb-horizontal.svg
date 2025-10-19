@@ -1,0 +1,76 @@
+<svg viewBox="0 0 280 70" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bnb-gold-h" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3BA2F"/>
+      <stop offset="50%" stop-color="#FCD535"/>
+      <stop offset="100%" stop-color="#F3BA2F"/>
+    </linearGradient>
+    <radialGradient id="center-glow-h">
+      <stop offset="0%" stop-color="#FCD535" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#F3BA2F" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow-h">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="text-glow-h">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon -->
+  <g transform="translate(10, 10)">
+    <path d="M25,5 L45,25 L25,45 L5,25 Z"
+          stroke="url(#bnb-gold-h)"
+          stroke-width="2.5"
+          fill="none"
+          filter="url(#glow-h)"/>
+    <path d="M25,12 L38,25 L25,38 L12,25 Z"
+          stroke="url(#bnb-gold-h)"
+          stroke-width="1.5"
+          fill="url(#center-glow-h)"
+          opacity="0.3"/>
+
+    <circle cx="25" cy="5" r="2.5" fill="#F3BA2F" filter="url(#glow-h)"/>
+    <circle cx="45" cy="25" r="2.5" fill="#F3BA2F" filter="url(#glow-h)"/>
+    <circle cx="25" cy="45" r="2.5" fill="#F3BA2F" filter="url(#glow-h)"/>
+    <circle cx="5" cy="25" r="2.5" fill="#F3BA2F" filter="url(#glow-h)"/>
+
+    <circle cx="25" cy="12" r="2" fill="#FCD535"/>
+    <circle cx="38" cy="25" r="2" fill="#FCD535"/>
+    <circle cx="25" cy="38" r="2" fill="#FCD535"/>
+    <circle cx="12" cy="25" r="2" fill="#FCD535"/>
+
+    <circle cx="25" cy="25" r="3.5" fill="url(#bnb-gold-h)" filter="url(#glow-h)"/>
+    <circle cx="25" cy="25" r="1.5" fill="#1E2026"/>
+
+    <g stroke="url(#bnb-gold-h)" stroke-width="1" opacity="0.6">
+      <line x1="25" y1="12" x2="25" y2="25"/>
+      <line x1="38" y1="25" x2="25" y2="25"/>
+      <line x1="25" y1="38" x2="25" y2="25"/>
+      <line x1="12" y1="25" x2="25" y2="25"/>
+    </g>
+  </g>
+
+  <!-- Divider line -->
+  <line x1="70" y1="15" x2="70" y2="55" stroke="url(#bnb-gold-h)" stroke-width="1" opacity="0.3"/>
+
+  <!-- Text -->
+  <g transform="translate(85, 0)">
+    <text x="0" y="38" font-family="Orbitron, 'Arial Black', sans-serif" font-size="32" font-weight="700"
+          fill="url(#bnb-gold-h)" letter-spacing="2.5" filter="url(#text-glow-h)">
+      Hype<tspan font-size="26" baseline-shift="super" letter-spacing="1.5">AI</tspan>
+    </text>
+    <text x="0" y="56" font-family="Orbitron, sans-serif" font-size="10" font-weight="400"
+          fill="#F3BA2F" letter-spacing="4" opacity="0.8">
+      POWERED BY BINANCE CHAIN
+    </text>
+  </g>
+</svg>

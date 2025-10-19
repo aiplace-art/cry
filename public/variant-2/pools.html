@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Liquidity Pools | HypeAI - Earn Fees on BSC</title>
+  <meta name="title" content="Liquidity Pools | HypeAI">
+  <meta name="description" content="Provide liquidity and earn trading fees on Binance Smart Chain. High APY pools with minimal impermanent loss.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bnb-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Powered by BSC</span>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="trade-enhanced.html" class="nav-link">Trade</a></li>
+            <li><a href="pools.html" class="nav-link">Pools</a></li>
+            <li><a href="farm.html" class="nav-link">Farm</a></li>
+            <li><a href="bridge.html" class="nav-link">Bridge</a></li>
+            <li><a href="stake.html" class="nav-link">Stake</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <button class="btn-primary" id="connectWallet">
+            <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M17.5 6.66667H2.5C1.83696 6.66667 1.20107 6.93006 0.732233 7.39889C0.263392 7.86773 0 8.50363 0 9.16667V15.8333C0 16.4964 0.263392 17.1323 0.732233 17.6011C1.20107 18.0699 1.83696 18.3333 2.5 18.3333H17.5C18.163 18.3333 18.7989 18.0699 19.2678 17.6011C19.7366 17.1323 20 16.4964 20 15.8333V9.16667C20 8.50363 19.7366 7.86773 19.2678 7.39889C18.7989 6.93006 18.163 6.66667 17.5 6.66667Z" fill="currentColor"/>
+            </svg>
+            Connect Wallet
+          </button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="trade-enhanced.html" class="mobile-nav-link">Trade</a>
+      <a href="pools.html" class="mobile-nav-link">Pools</a>
+      <a href="farm.html" class="mobile-nav-link">Farm</a>
+      <a href="bridge.html" class="mobile-nav-link">Bridge</a>
+      <a href="stake.html" class="mobile-nav-link">Stake</a>
+      <button class="btn-primary btn-block">Connect Wallet</button>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="pools-hero">
+      <div class="container">
+        <div class="hero-content-center">
+          <h1 class="page-title">Liquidity Pools</h1>
+          <p class="page-description">
+            Earn trading fees by providing liquidity to HypeAI pools on Binance Smart Chain
+          </p>
+
+          <div class="pools-stats">
+            <div class="pools-stat">
+              <div class="stat-value">$8.9M</div>
+              <div class="stat-label">Total Liquidity</div>
+            </div>
+            <div class="pools-stat">
+              <div class="stat-value">$124K</div>
+              <div class="stat-label">24h Volume</div>
+            </div>
+            <div class="pools-stat">
+              <div class="stat-value">12</div>
+              <div class="stat-label">Active Pools</div>
+            </div>
+            <div class="pools-stat">
+              <div class="stat-value">2,840</div>
+              <div class="stat-label">Liquidity Providers</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pools Section -->
+    <section class="pools-section">
+      <div class="container">
+
+        <!-- Pools Filter & Search -->
+        <div class="pools-controls">
+          <div class="search-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+              <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input type="text" placeholder="Search pools..." id="poolSearch">
+          </div>
+
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">All Pools</button>
+            <button class="filter-tab" data-filter="my">My Liquidity</button>
+            <button class="filter-tab" data-filter="stable">Stablecoins</button>
+            <button class="filter-tab" data-filter="popular">Popular</button>
+          </div>
+
+          <div class="sort-select">
+            <select id="sortPools">
+              <option value="apy">Sort by APY</option>
+              <option value="liquidity">Sort by Liquidity</option>
+              <option value="volume">Sort by Volume</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Pools Grid -->
+        <div class="pools-grid">
+
+          <!-- Pool Card 1 - HYPE/USDT -->
+          <div class="pool-card featured">
+            <div class="pool-header">
+              <div class="pool-tokens">
+                <div class="token-icons">
+                  <div class="token-icon">HYPE</div>
+                  <div class="token-icon">USDT</div>
+                </div>
+                <div class="pool-pair">
+                  <h3>HYPE/USDT</h3>
+                  <span class="pool-badge hot">HOT</span>
+                </div>
+              </div>
+              <div class="pool-apy">
+                <div class="apy-value">124.5%</div>
+                <div class="apy-label">APY</div>
+              </div>
+            </div>
+
+            <div class="pool-stats-grid">
+              <div class="pool-stat-item">
+                <span class="stat-label">TVL</span>
+                <span class="stat-value">$3.2M</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">24h Volume</span>
+                <span class="stat-value">$45.6K</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">Fee Tier</span>
+                <span class="stat-value">0.25%</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">My Share</span>
+                <span class="stat-value text-gold">2.45%</span>
+              </div>
+            </div>
+
+            <div class="pool-my-position">
+              <div class="position-header">
+                <span>My Position</span>
+                <span class="position-value">$2,340.50</span>
+              </div>
+              <div class="position-details">
+                <div class="position-item">
+                  <span>26,700 HYPE</span>
+                  <span>1,170 USDT</span>
+                </div>
+                <div class="position-rewards">
+                  <span class="rewards-label">Unclaimed Fees:</span>
+                  <span class="rewards-value">$12.45</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pool-actions">
+              <button class="btn-primary btn-block">Add Liquidity</button>
+              <div class="pool-actions-row">
+                <button class="btn-secondary">Remove</button>
+                <button class="btn-secondary">Claim Fees</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pool Card 2 - HYPE/BNB -->
+          <div class="pool-card">
+            <div class="pool-header">
+              <div class="pool-tokens">
+                <div class="token-icons">
+                  <div class="token-icon">HYPE</div>
+                  <div class="token-icon bnb">BNB</div>
+                </div>
+                <div class="pool-pair">
+                  <h3>HYPE/BNB</h3>
+                  <span class="pool-badge new">NEW</span>
+                </div>
+              </div>
+              <div class="pool-apy">
+                <div class="apy-value">89.2%</div>
+                <div class="apy-label">APY</div>
+              </div>
+            </div>
+
+            <div class="pool-stats-grid">
+              <div class="pool-stat-item">
+                <span class="stat-label">TVL</span>
+                <span class="stat-value">$2.1M</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">24h Volume</span>
+                <span class="stat-value">$32.8K</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">Fee Tier</span>
+                <span class="stat-value">0.30%</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">My Share</span>
+                <span class="stat-value">0.00%</span>
+              </div>
+            </div>
+
+            <div class="pool-info-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#F3BA2F" stroke-width="2"/>
+                <path d="M12 8V12M12 16H12.01" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>High volatility pair - higher rewards, higher IL risk</span>
+            </div>
+
+            <div class="pool-actions">
+              <button class="btn-primary btn-block">Add Liquidity</button>
+            </div>
+          </div>
+
+          <!-- Pool Card 3 - HYPE/BUSD -->
+          <div class="pool-card">
+            <div class="pool-header">
+              <div class="pool-tokens">
+                <div class="token-icons">
+                  <div class="token-icon">HYPE</div>
+                  <div class="token-icon">BUSD</div>
+                </div>
+                <div class="pool-pair">
+                  <h3>HYPE/BUSD</h3>
+                </div>
+              </div>
+              <div class="pool-apy">
+                <div class="apy-value">67.8%</div>
+                <div class="apy-label">APY</div>
+              </div>
+            </div>
+
+            <div class="pool-stats-grid">
+              <div class="pool-stat-item">
+                <span class="stat-label">TVL</span>
+                <span class="stat-value">$1.8M</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">24h Volume</span>
+                <span class="stat-value">$28.4K</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">Fee Tier</span>
+                <span class="stat-value">0.25%</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">My Share</span>
+                <span class="stat-value">0.00%</span>
+              </div>
+            </div>
+
+            <div class="pool-actions">
+              <button class="btn-primary btn-block">Add Liquidity</button>
+            </div>
+          </div>
+
+          <!-- Pool Card 4 - USDT/BUSD -->
+          <div class="pool-card stable">
+            <div class="pool-header">
+              <div class="pool-tokens">
+                <div class="token-icons">
+                  <div class="token-icon">USDT</div>
+                  <div class="token-icon">BUSD</div>
+                </div>
+                <div class="pool-pair">
+                  <h3>USDT/BUSD</h3>
+                  <span class="pool-badge stable">STABLE</span>
+                </div>
+              </div>
+              <div class="pool-apy">
+                <div class="apy-value">12.4%</div>
+                <div class="apy-label">APY</div>
+              </div>
+            </div>
+
+            <div class="pool-stats-grid">
+              <div class="pool-stat-item">
+                <span class="stat-label">TVL</span>
+                <span class="stat-value">$1.2M</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">24h Volume</span>
+                <span class="stat-value">$8.2K</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">Fee Tier</span>
+                <span class="stat-value">0.05%</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">IL Risk</span>
+                <span class="stat-value text-success">Very Low</span>
+              </div>
+            </div>
+
+            <div class="pool-info-row stable-info">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#0ECB81" stroke-width="2"/>
+              </svg>
+              <span>Low impermanent loss - stable pair</span>
+            </div>
+
+            <div class="pool-actions">
+              <button class="btn-primary btn-block">Add Liquidity</button>
+            </div>
+          </div>
+
+          <!-- Pool Card 5 - BNB/BUSD -->
+          <div class="pool-card">
+            <div class="pool-header">
+              <div class="pool-tokens">
+                <div class="token-icons">
+                  <div class="token-icon bnb">BNB</div>
+                  <div class="token-icon">BUSD</div>
+                </div>
+                <div class="pool-pair">
+                  <h3>BNB/BUSD</h3>
+                </div>
+              </div>
+              <div class="pool-apy">
+                <div class="apy-value">34.6%</div>
+                <div class="apy-label">APY</div>
+              </div>
+            </div>
+
+            <div class="pool-stats-grid">
+              <div class="pool-stat-item">
+                <span class="stat-label">TVL</span>
+                <span class="stat-value">$450K</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">24h Volume</span>
+                <span class="stat-value">$6.8K</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">Fee Tier</span>
+                <span class="stat-value">0.25%</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">My Share</span>
+                <span class="stat-value">0.00%</span>
+              </div>
+            </div>
+
+            <div class="pool-actions">
+              <button class="btn-primary btn-block">Add Liquidity</button>
+            </div>
+          </div>
+
+          <!-- Pool Card 6 - ETH/USDT -->
+          <div class="pool-card">
+            <div class="pool-header">
+              <div class="pool-tokens">
+                <div class="token-icons">
+                  <div class="token-icon">ETH</div>
+                  <div class="token-icon">USDT</div>
+                </div>
+                <div class="pool-pair">
+                  <h3>ETH/USDT</h3>
+                </div>
+              </div>
+              <div class="pool-apy">
+                <div class="apy-value">28.9%</div>
+                <div class="apy-label">APY</div>
+              </div>
+            </div>
+
+            <div class="pool-stats-grid">
+              <div class="pool-stat-item">
+                <span class="stat-label">TVL</span>
+                <span class="stat-value">$320K</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">24h Volume</span>
+                <span class="stat-value">$3.2K</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">Fee Tier</span>
+                <span class="stat-value">0.30%</span>
+              </div>
+              <div class="pool-stat-item">
+                <span class="stat-label">My Share</span>
+                <span class="stat-value">0.00%</span>
+              </div>
+            </div>
+
+            <div class="pool-actions">
+              <button class="btn-primary btn-block">Add Liquidity</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Add Liquidity Modal (Hidden by default) -->
+        <div class="modal" id="addLiquidityModal">
+          <div class="modal-overlay"></div>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>Add Liquidity</h2>
+              <button class="modal-close">&times;</button>
+            </div>
+
+            <div class="modal-body">
+              <div class="liquidity-form">
+
+                <!-- Token A Input -->
+                <div class="token-input-group">
+                  <div class="token-input-header">
+                    <span class="input-label">Token A</span>
+                    <span class="balance-text">Balance: 14,250 HYPE</span>
+                  </div>
+                  <div class="token-input">
+                    <input type="number" placeholder="0.00" id="tokenAAmount">
+                    <div class="token-select">
+                      <div class="token-icon">HYPE</div>
+                      <span>HYPE</span>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                        <path d="M6 8L2 4H10L6 8Z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="token-input-footer">
+                    <span class="usd-value">≈ $0.00</span>
+                    <button class="max-btn">MAX</button>
+                  </div>
+                </div>
+
+                <!-- Plus Icon -->
+                <div class="input-divider">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M5 12H19" stroke="#F3BA2F" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+
+                <!-- Token B Input -->
+                <div class="token-input-group">
+                  <div class="token-input-header">
+                    <span class="input-label">Token B</span>
+                    <span class="balance-text">Balance: 1,245.89 USDT</span>
+                  </div>
+                  <div class="token-input">
+                    <input type="number" placeholder="0.00" id="tokenBAmount">
+                    <div class="token-select">
+                      <div class="token-icon">USDT</div>
+                      <span>USDT</span>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                        <path d="M6 8L2 4H10L6 8Z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="token-input-footer">
+                    <span class="usd-value">≈ $0.00</span>
+                    <button class="max-btn">MAX</button>
+                  </div>
+                </div>
+
+                <!-- Pool Info -->
+                <div class="pool-share-info">
+                  <div class="share-row">
+                    <span>Current Price</span>
+                    <span class="value">1 HYPE = 0.0876 USDT</span>
+                  </div>
+                  <div class="share-row">
+                    <span>Pool Share</span>
+                    <span class="value text-gold">2.45%</span>
+                  </div>
+                  <div class="share-row">
+                    <span>Fee Tier</span>
+                    <span class="value">0.25%</span>
+                  </div>
+                  <div class="share-row">
+                    <span>Estimated APY</span>
+                    <span class="value text-success">124.5%</span>
+                  </div>
+                </div>
+
+                <!-- Price Impact Warning -->
+                <div class="warning-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#F0B90B" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <div>
+                    <strong>Price Impact: 0.12%</strong>
+                    <p>Your transaction will move the market price by 0.12%</p>
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button class="btn-primary btn-block btn-lg">
+                  Add Liquidity
+                </button>
+
+                <!-- Approval Info -->
+                <div class="approval-info">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 8V12M12 16H12.01" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                  <span>You'll need to approve HYPE and USDT before adding liquidity</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APY Calculator Section -->
+    <section class="calculator-section">
+      <div class="container">
+        <div class="calculator-card">
+          <h2 class="calculator-title">Pool APY Calculator</h2>
+          <p class="calculator-description">Calculate your potential earnings from liquidity provision</p>
+
+          <div class="calculator-grid">
+            <div class="calculator-inputs">
+              <div class="calc-input-group">
+                <label>Pool</label>
+                <select id="calcPool">
+                  <option value="124.5">HYPE/USDT (124.5% APY)</option>
+                  <option value="89.2">HYPE/BNB (89.2% APY)</option>
+                  <option value="67.8">HYPE/BUSD (67.8% APY)</option>
+                  <option value="12.4">USDT/BUSD (12.4% APY)</option>
+                </select>
+              </div>
+
+              <div class="calc-input-group">
+                <label>Investment Amount (USD)</label>
+                <input type="number" id="calcAmount" value="1000" min="1" step="100">
+              </div>
+
+              <div class="calc-input-group">
+                <label>Time Period</label>
+                <div class="time-period-tabs">
+                  <button class="tp-btn active" data-days="1">1 Day</button>
+                  <button class="tp-btn" data-days="7">1 Week</button>
+                  <button class="tp-btn" data-days="30">1 Month</button>
+                  <button class="tp-btn" data-days="365">1 Year</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="calculator-results">
+              <div class="calc-result-card">
+                <div class="result-icon">💰</div>
+                <div class="result-content">
+                  <div class="result-label">Estimated Earnings</div>
+                  <div class="result-value" id="earnings">$3.41</div>
+                  <div class="result-subtitle">Per day</div>
+                </div>
+              </div>
+
+              <div class="calc-result-card">
+                <div class="result-icon">📈</div>
+                <div class="result-content">
+                  <div class="result-label">Total Value</div>
+                  <div class="result-value" id="totalValue">$1,003.41</div>
+                  <div class="result-subtitle">After 1 day</div>
+                </div>
+              </div>
+
+              <div class="calc-result-card">
+                <div class="result-icon">⚡</div>
+                <div class="result-content">
+                  <div class="result-label">Daily APY</div>
+                  <div class="result-value text-success">0.341%</div>
+                  <div class="result-subtitle">Compounding</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="calculator-disclaimer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 8V12M12 16H12.01" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <p>Calculations are estimates based on current APY. Actual returns may vary due to market conditions and impermanent loss.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <p class="footer-description">
+            Liquidity pools powered by Binance Smart Chain
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © 2025 HypeAI. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Pools Specific Styles */
+    .pools-hero {
+      padding: calc(80px + 4rem) 1rem 4rem;
+      background: linear-gradient(180deg, rgba(243, 186, 47, 0.1) 0%, transparent 100%);
+    }
+
+    .hero-content-center {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .page-description {
+      font-size: 1.25rem;
+      color: var(--text-tertiary);
+      margin-bottom: 3rem;
+    }
+
+    .pools-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .pools-stat {
+      padding: 2rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .pools-section {
+      padding: 4rem 1rem;
+      background: var(--bnb-bg-darker);
+    }
+
+    .pools-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      align-items: center;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 3rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .filter-tab {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .filter-tab.active {
+      background: var(--gradient-gold);
+      color: #000;
+      border-color: var(--bnb-gold-primary);
+    }
+
+    .sort-select select {
+      padding: 0.75rem 1.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .pools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pool-card {
+      padding: 1.5rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      transition: var(--transition-normal);
+    }
+
+    .pool-card:hover {
+      border-color: rgba(243, 186, 47, 0.4);
+      box-shadow: 0 12px 48px rgba(243, 186, 47, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .pool-card.featured {
+      border: 2px solid var(--bnb-gold-primary);
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.1), var(--glass-bg));
+    }
+
+    .pool-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .pool-tokens {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .token-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    .token-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.75rem;
+      border-radius: 50%;
+      margin-left: -8px;
+      border: 2px solid var(--bnb-bg-darker);
+    }
+
+    .token-icon:first-child {
+      margin-left: 0;
+    }
+
+    .token-icon.bnb {
+      background: linear-gradient(135deg, #F3BA2F, #FCD535);
+    }
+
+    .pool-pair h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .pool-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .pool-badge.hot {
+      background: linear-gradient(135deg, #F6465D, #FF6B6B);
+      color: #fff;
+    }
+
+    .pool-badge.new {
+      background: linear-gradient(135deg, #00D4FF, #0ECB81);
+      color: #000;
+    }
+
+    .pool-badge.stable {
+      background: rgba(14, 203, 129, 0.2);
+      color: var(--bnb-success);
+    }
+
+    .pool-apy {
+      text-align: right;
+    }
+
+    .apy-value {
+      font-size: 2rem;
+      font-weight: 800;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .apy-label {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    .pool-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pool-stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .pool-my-position {
+      padding: 1rem;
+      background: rgba(243, 186, 47, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+    }
+
+    .position-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .position-value {
+      color: var(--bnb-gold-primary);
+      font-size: 1.25rem;
+    }
+
+    .position-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .position-item {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-tertiary);
+    }
+
+    .position-rewards {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .rewards-value {
+      color: var(--bnb-success);
+      font-weight: 700;
+    }
+
+    .pool-info-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: rgba(243, 186, 47, 0.05);
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      margin-bottom: 1.5rem;
+    }
+
+    .pool-info-row.stable-info {
+      background: rgba(14, 203, 129, 0.1);
+    }
+
+    .pool-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .pool-actions-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      display: none;
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: var(--bnb-bg-dark);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .modal-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: var(--text-tertiary);
+      font-size: 2rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .modal-close:hover {
+      color: var(--bnb-error);
+    }
+
+    .token-input-group {
+      margin-bottom: 1rem;
+    }
+
+    .token-input-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .input-label {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .balance-text {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+    }
+
+    .token-input {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(30, 32, 38, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+    }
+
+    .token-input input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .token-input input:focus {
+      outline: none;
+    }
+
+    .token-select {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .token-input-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .usd-value {
+      color: var(--text-tertiary);
+    }
+
+    .max-btn {
+      padding: 0.25rem 0.75rem;
+      background: rgba(243, 186, 47, 0.1);
+      border: 1px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-sm);
+      color: var(--bnb-gold-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .input-divider {
+      display: flex;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+
+    .pool-share-info {
+      padding: 1rem;
+      background: rgba(243, 186, 47, 0.05);
+      border-radius: var(--radius-md);
+      margin: 1.5rem 0;
+    }
+
+    .share-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      font-size: 0.875rem;
+    }
+
+    .share-row .value {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .warning-box {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(240, 185, 11, 0.1);
+      border: 1px solid var(--bnb-warning);
+      border-radius: var(--radius-md);
+      margin: 1.5rem 0;
+    }
+
+    .warning-box svg {
+      flex-shrink: 0;
+    }
+
+    .warning-box p {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      margin-top: 0.25rem;
+    }
+
+    .approval-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+    }
+
+    /* Calculator Section */
+    .calculator-section {
+      padding: 4rem 1rem;
+      background: var(--bnb-bg-dark);
+    }
+
+    .calculator-card {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .calculator-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .calculator-description {
+      text-align: center;
+      color: var(--text-tertiary);
+      margin-bottom: 3rem;
+    }
+
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .calculator-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .calc-input-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-input-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .calc-input-group input,
+    .calc-input-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(30, 32, 38, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+
+    .time-period-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+
+    .tp-btn {
+      padding: 0.75rem;
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .tp-btn.active {
+      background: var(--gradient-gold);
+      color: #000;
+      border-color: var(--bnb-gold-primary);
+    }
+
+    .calculator-results {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .calc-result-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: rgba(243, 186, 47, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .result-icon {
+      font-size: 2.5rem;
+    }
+
+    .result-label {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      margin-bottom: 0.5rem;
+    }
+
+    .result-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--bnb-gold-primary);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .result-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-quaternary);
+    }
+
+    .calculator-disclaimer {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(243, 186, 47, 0.05);
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+    }
+
+    .text-success { color: var(--bnb-success); }
+    .text-gold { color: var(--bnb-gold-primary); }
+  </style>
+
+  <script>
+    // Mobile menu
+    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('mobileMenu').classList.toggle('active');
+    });
+
+    // Add Liquidity Modal
+    document.querySelectorAll('.pool-card .btn-primary').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('addLiquidityModal').classList.add('active');
+      });
+    });
+
+    document.querySelector('.modal-close').addEventListener('click', () => {
+      document.getElementById('addLiquidityModal').classList.remove('active');
+    });
+
+    document.querySelector('.modal-overlay').addEventListener('click', () => {
+      document.getElementById('addLiquidityModal').classList.remove('active');
+    });
+
+    // Calculator
+    const calcPool = document.getElementById('calcPool');
+    const calcAmount = document.getElementById('calcAmount');
+    const timePeriodBtns = document.querySelectorAll('.tp-btn');
+    let selectedDays = 1;
+
+    timePeriodBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        timePeriodBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedDays = parseInt(btn.dataset.days);
+        updateCalculator();
+      });
+    });
+
+    calcPool.addEventListener('change', updateCalculator);
+    calcAmount.addEventListener('input', updateCalculator);
+
+    function updateCalculator() {
+      const apy = parseFloat(calcPool.value);
+      const amount = parseFloat(calcAmount.value) || 0;
+
+      const dailyRate = apy / 365 / 100;
+      const earnings = amount * dailyRate * selectedDays;
+      const totalValue = amount + earnings;
+
+      document.getElementById('earnings').textContent = `$${earnings.toFixed(2)}`;
+      document.getElementById('totalValue').textContent = `$${totalValue.toFixed(2)}`;
+
+      const periodText = selectedDays === 1 ? 'day' : selectedDays === 7 ? 'week' : selectedDays === 30 ? 'month' : 'year';
+      document.querySelector('.result-subtitle').textContent = `Per ${periodText}`;
+    }
+
+    updateCalculator();
+  </script>
+
+</body>
+</html>
