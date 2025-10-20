@@ -192,10 +192,18 @@ const translations = {
     view_live_activity: "🔴 View Live Activity",
 
     // Live Activity Section
+    live_activity_label: "Real-Time Activity",
     live_activity_title: "🔴 Live Agent Activity",
-    live_activity_description: "Real-time view of our AI workforce in action",
-    live_activity_working: "Currently Working On",
-    live_activity_completions: "📊 Recent Completions",
+    live_activity_description: "Watch our 27 AI agents working in real-time. Every task is genuine work happening right now.",
+    live_tasks_today: "Tasks Today",
+    live_active_now: "Active Now",
+    live_uptime: "Uptime",
+    live_recent_completions: "📊 Recent Completions",
+    live_updates: "Live Updates",
+    live_working: "WORKING",
+    live_complete: "complete",
+    live_est: "Est:",
+    live_tasks_completed: "tasks completed",
 
     // Intelligence Section
     intelligence_label: "Intelligence",
@@ -507,10 +515,18 @@ const translations = {
     view_live_activity: "🔴 Посмотреть активность в реальном времени",
 
     // Секция живой активности
+    live_activity_label: "Активность в реальном времени",
     live_activity_title: "🔴 Живая активность агентов",
-    live_activity_description: "Просмотр работы нашей AI команды в реальном времени",
-    live_activity_working: "Сейчас работает над",
-    live_activity_completions: "📊 Недавние завершения",
+    live_activity_description: "Смотрите как работают наши 27 AI агентов в реальном времени. Каждая задача - это реальная работа, происходящая прямо сейчас.",
+    live_tasks_today: "Задач сегодня",
+    live_active_now: "Активно сейчас",
+    live_uptime: "Время работы",
+    live_recent_completions: "📊 Недавние завершения",
+    live_updates: "Обновления в реальном времени",
+    live_working: "РАБОТАЕТ",
+    live_complete: "выполнено",
+    live_est: "Ост:",
+    live_tasks_completed: "задач выполнено",
 
     // Секция интеллекта
     intelligence_label: "Интеллект",

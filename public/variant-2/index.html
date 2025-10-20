@@ -567,7 +567,7 @@
       transform: translateY(0);
     }
 
-    .lang-menu {
+    .lang-dropdown {
       position: absolute;
       top: calc(100% + 8px);
       right: 0;
@@ -580,14 +580,23 @@
       padding: 8px;
       min-width: 160px;
       z-index: calc(var(--z-header) + 10);
-      animation: slideDown 0.3s var(--ease-premium);
       box-shadow: 0 8px 32px rgba(10, 1, 24, 0.8),
                   0 0 0 1px rgba(147, 51, 234, 0.2) inset,
                   0 0 60px rgba(147, 51, 234, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .lang-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     @supports not (backdrop-filter: blur(25px)) {
-      .lang-menu {
+      .lang-dropdown {
         background: linear-gradient(135deg, rgba(30, 32, 38, 0.99), rgba(10, 1, 24, 0.99));
       }
     }
@@ -601,10 +610,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    .lang-menu[hidden] {
-      display: none;
     }
 
     .lang-option {
@@ -890,7 +895,7 @@
         min-width: 120px;
       }
 
-      .lang-menu {
+      .lang-dropdown {
         left: 50%;
         right: auto;
         transform: translateX(-50%);
@@ -2530,7 +2535,7 @@
         <!-- Live Agents Badge -->
         <div class="live-badge">
           <span class="live-dot"></span>
-          <span>27 AI Agents Live</span>
+          <span data-i18n="live_badge">27 AI Agents Online</span>
         </div>
 
         <nav class="nav" id="nav">
@@ -2542,12 +2547,11 @@
           </ul>
           <div class="language-switcher">
             <button class="lang-btn" id="langBtn" aria-label="Select language" aria-expanded="false">
-              <span id="currentLang">EN</span> 🌐
+              EN 🌐
             </button>
-            <div class="lang-menu" id="langMenu" hidden>
-              <a href="#" class="lang-option active" data-lang="en">English</a>
-              <a href="#" class="lang-option" data-lang="ru">Русский</a>
-              <a href="#" class="lang-option" data-lang="zh">中文</a>
+            <div class="lang-dropdown" id="langDropdown">
+              <a href="#" class="lang-option active" id="langEn" data-lang="en">English</a>
+              <a href="#" class="lang-option" id="langRu" data-lang="ru">Русский</a>
             </div>
           </div>
           <a href="#contact" class="btn-primary" data-i18n="nav_get_started">Get Started →</a>
@@ -3103,23 +3107,23 @@
   <section class="section live-activity-section scroll-fade-in" id="live-activity">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Real-Time Activity</div>
-        <h2 class="section-title">🔴 Live Agent Activity</h2>
-        <p class="section-description">
+        <div class="section-label" data-i18n="live_activity_label">Real-Time Activity</div>
+        <h2 class="section-title" data-i18n="live_activity_title">🔴 Live Agent Activity</h2>
+        <p class="section-description" data-i18n="live_activity_description">
           Watch our 27 AI agents working in real-time. Every task is genuine work happening right now.
         </p>
         <div class="live-stats">
           <div class="live-stat-item">
             <div class="stat-value" id="tasks-today">2,847</div>
-            <div class="stat-label">Tasks Today</div>
+            <div class="stat-label" data-i18n="live_tasks_today">Tasks Today</div>
           </div>
           <div class="live-stat-item">
             <div class="stat-value" id="active-now">23/27</div>
-            <div class="stat-label">Active Now</div>
+            <div class="stat-label" data-i18n="live_active_now">Active Now</div>
           </div>
           <div class="live-stat-item">
             <div class="stat-value" id="uptime-percent">99.8%</div>
-            <div class="stat-label">Uptime</div>
+            <div class="stat-label" data-i18n="live_uptime">Uptime</div>
           </div>
         </div>
       </div>
@@ -3130,10 +3134,10 @@
 
       <div class="live-feed-container">
         <div class="live-feed-header">
-          <h3>📊 Recent Completions</h3>
+          <h3 data-i18n="live_recent_completions">📊 Recent Completions</h3>
           <div class="live-pulse">
             <span class="pulse-dot"></span>
-            <span>Live Updates</span>
+            <span data-i18n="live_updates">Live Updates</span>
           </div>
         </div>
         <div class="feed-items" id="feed-items">
@@ -3609,53 +3613,8 @@
     // LANGUAGE SWITCHER DROPDOWN
     // ========================================
 
-    const langBtn = document.getElementById('langBtn');
-    const langMenu = document.getElementById('langMenu');
-    const currentLang = document.getElementById('currentLang');
-
-    // Toggle dropdown on button click
-    if (langBtn && langMenu) {
-      langBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isExpanded = langBtn.getAttribute('aria-expanded') === 'true';
-        langBtn.setAttribute('aria-expanded', !isExpanded);
-        langMenu.hidden = isExpanded;
-      });
-
-      // Close dropdown when clicking outside
-      document.addEventListener('click', () => {
-        if (langMenu && !langMenu.hidden) {
-          langMenu.hidden = true;
-          langBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Handle language selection
-      document.querySelectorAll('.lang-option').forEach(option => {
-        option.addEventListener('click', (e) => {
-          e.preventDefault();
-          const lang = e.target.getAttribute('data-lang');
-
-          // Update current language display
-          if (currentLang) {
-            currentLang.textContent = lang.toUpperCase();
-          }
-
-          // Update active state
-          document.querySelectorAll('.lang-option').forEach(opt => {
-            opt.classList.remove('active');
-          });
-          e.target.classList.add('active');
-
-          // Close dropdown
-          langMenu.hidden = true;
-          langBtn.setAttribute('aria-expanded', 'false');
-
-          // Here you would implement actual i18n translation
-          console.log('Language switched to:', lang);
-        });
-      });
-    }
+    // Language switching is now handled by i18n.js
+    // This section is preserved for backward compatibility but not used
 
     // ========================================
     // LIVE AGENTS ACTIVITY SIMULATION
@@ -3822,23 +3781,28 @@
       const progress = Math.floor(Math.random() * 100);
       const timeRemaining = Math.floor(Math.random() * 300) + 30; // 30-330 seconds
 
+      const workingText = window.i18n ? window.i18n.translate('live_working') : 'WORKING';
+      const completeText = window.i18n ? window.i18n.translate('live_complete') : 'complete';
+      const estText = window.i18n ? window.i18n.translate('live_est') : 'Est:';
+      const tasksCompletedText = window.i18n ? window.i18n.translate('live_tasks_completed') : 'tasks completed';
+
       card.innerHTML = `
         <div class="agent-header">
           <div class="agent-info">
             <div class="agent-name">${agent.name}</div>
             <div class="agent-role">${agent.role}</div>
           </div>
-          <div class="status-badge working">WORKING</div>
+          <div class="status-badge working">${workingText}</div>
         </div>
         <div class="current-task">${agent.tasks[taskIndex]}...</div>
         <div class="progress-bar">
           <div class="progress-fill" style="width: ${progress}%"></div>
         </div>
         <div class="task-meta">
-          <span class="progress-percent">${progress}% complete</span>
-          <span class="time-remaining">Est: ${formatTime(timeRemaining)}</span>
+          <span class="progress-percent">${progress}% ${completeText}</span>
+          <span class="time-remaining">${estText} ${formatTime(timeRemaining)}</span>
         </div>
-        <div class="tasks-completed">${agent.completedTasks.toLocaleString()} tasks completed</div>
+        <div class="tasks-completed">${agent.completedTasks.toLocaleString()} ${tasksCompletedText}</div>
       `;
 
       return card;
@@ -3858,12 +3822,16 @@
         let newProgress = Math.min(currentProgress + Math.floor(Math.random() * 8) + 2, 100);
 
         progressFill.style.width = newProgress + '%';
-        if (progressPercent) progressPercent.textContent = newProgress + '% complete';
+        if (progressPercent) {
+          const completeText = window.i18n ? window.i18n.translate('live_complete') : 'complete';
+          progressPercent.textContent = newProgress + '% ' + completeText;
+        }
 
         // Update time remaining
         if (timeRemaining) {
           const seconds = Math.max(30, 300 - (newProgress * 3));
-          timeRemaining.textContent = 'Est: ' + formatTime(seconds);
+          const estText = window.i18n ? window.i18n.translate('live_est') : 'Est:';
+          timeRemaining.textContent = estText + ' ' + formatTime(seconds);
         }
 
         // If task complete, rotate to new task
@@ -3897,16 +3865,20 @@
       const progressPercent = card.querySelector('.progress-percent');
       const timeRemainingEl = card.querySelector('.time-remaining');
 
+      const completeText = window.i18n ? window.i18n.translate('live_complete') : 'complete';
+      const estText = window.i18n ? window.i18n.translate('live_est') : 'Est:';
+      const tasksCompletedText = window.i18n ? window.i18n.translate('live_tasks_completed') : 'tasks completed';
+
       if (currentTask) currentTask.textContent = agent.tasks[taskIndex] + '...';
       if (progressFill) progressFill.style.width = newProgress + '%';
-      if (progressPercent) progressPercent.textContent = newProgress + '% complete';
-      if (timeRemainingEl) timeRemainingEl.textContent = 'Est: ' + formatTime(timeRemaining);
+      if (progressPercent) progressPercent.textContent = newProgress + '% ' + completeText;
+      if (timeRemainingEl) timeRemainingEl.textContent = estText + ' ' + formatTime(timeRemaining);
 
       // Update completed tasks count
       agent.completedTasks++;
       const tasksCompletedEl = card.querySelector('.tasks-completed');
       if (tasksCompletedEl) {
-        tasksCompletedEl.textContent = agent.completedTasks.toLocaleString() + ' tasks completed';
+        tasksCompletedEl.textContent = agent.completedTasks.toLocaleString() + ' ' + tasksCompletedText;
       }
     }
 
@@ -3997,6 +3969,9 @@
     console.log('🌟 Cosmic effects active');
     console.log('🤖 All 27 agents ready');
   </script>
+
+  <!-- i18n Translation System -->
+  <script src="js/i18n.js"></script>
 
 </body>
 </html>
