@@ -44,6 +44,19 @@ export function SimpleDashboard() {
           20% получаете сразу, остальное разблокируется за 21 месяц
         </div>
 
+        {/* Переключение на полную версию */}
+        <div className="text-center mt-8">
+          <p className="text-gray-400 text-sm mb-2">
+            Нужна подробная статистика?
+          </p>
+          <button
+            onClick={() => router.push('/dashboard')}
+            className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors"
+          >
+            → Переключиться на полную версию
+          </button>
+        </div>
+
       </div>
     </div>
   );

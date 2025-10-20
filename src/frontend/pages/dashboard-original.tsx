@@ -6,16 +6,18 @@ import { MyPurchases } from '@/components/dashboard/MyPurchases';
 import { useRouter } from 'next/router';
 
 /**
- * ✅ ОСНОВНОЙ ДАШБОРД
+ * ✅ ОРИГИНАЛЬНЫЙ ДАШБОРД (V1)
  *
- * Это ОРИГИНАЛЬНАЯ версия дашборда (V1) - полная версия
- * с подробной статистикой, графиками и всеми функциями.
+ * Полная версия дашборда с подробной статистикой
+ * - 4 карточки статистики
+ * - График цены токена
+ * - 3 блока быстрых действий
+ * - История покупок
+ * - Подробная информация о вестинге
  *
- * Для упрощённой версии (V2): /dashboard-simple
- *
- * Доступ: http://localhost:3000/dashboard
+ * Доступ: http://localhost:3000/dashboard-original
  */
-export default function DashboardPage() {
+export default function DashboardOriginalPage() {
   const router = useRouter();
   const [view, setView] = useState<'overview' | 'buy' | 'purchases'>('overview');
 
@@ -67,12 +69,12 @@ export default function DashboardPage() {
       )}
 
       {/* Navigation Buttons */}
-      <div className="mt-8 flex gap-4 justify-center flex-wrap">
+      <div className="mt-8 flex gap-4 justify-center">
         <button
           onClick={() => setView('overview')}
-          className={`px-6 py-2 rounded-lg transition-all ${
+          className={`px-6 py-2 rounded-lg ${
             view === 'overview'
-              ? 'bg-[#F3BA2F] text-black font-bold'
+              ? 'bg-[#F3BA2F] text-black'
               : 'bg-[#14151A] text-[#848E9C] hover:bg-[#1E2026]'
           }`}
         >
@@ -80,9 +82,9 @@ export default function DashboardPage() {
         </button>
         <button
           onClick={() => setView('buy')}
-          className={`px-6 py-2 rounded-lg transition-all ${
+          className={`px-6 py-2 rounded-lg ${
             view === 'buy'
-              ? 'bg-[#F3BA2F] text-black font-bold'
+              ? 'bg-[#F3BA2F] text-black'
               : 'bg-[#14151A] text-[#848E9C] hover:bg-[#1E2026]'
           }`}
         >
@@ -90,9 +92,9 @@ export default function DashboardPage() {
         </button>
         <button
           onClick={() => setView('purchases')}
-          className={`px-6 py-2 rounded-lg transition-all ${
+          className={`px-6 py-2 rounded-lg ${
             view === 'purchases'
-              ? 'bg-[#F3BA2F] text-black font-bold'
+              ? 'bg-[#F3BA2F] text-black'
               : 'bg-[#14151A] text-[#848E9C] hover:bg-[#1E2026]'
           }`}
         >
@@ -101,15 +103,12 @@ export default function DashboardPage() {
       </div>
 
       {/* Version Switcher */}
-      <div className="mt-8 text-center pb-8">
-        <p className="text-[#848E9C] text-sm mb-2">
-          Слишком сложно? Попробуйте упрощённую версию:
-        </p>
+      <div className="mt-8 text-center">
         <button
           onClick={() => router.push('/dashboard-simple')}
-          className="text-[#F3BA2F] hover:text-[#FCD535] text-sm font-medium"
+          className="text-[#F3BA2F] hover:text-[#FCD535] text-sm"
         >
-          → Перейти на простой дашборд (для новичков)
+          → Переключиться на упрощённую версию
         </button>
       </div>
     </DashboardLayout>
