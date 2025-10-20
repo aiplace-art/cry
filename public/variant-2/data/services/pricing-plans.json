@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "project": "HypeAI Professional Services",
+    "version": "1.0.0",
+    "lastUpdate": "2025-10-21",
+    "currency": "USD"
+  },
+  "services": {
+    "twitter-automation": {
+      "serviceId": "twitter-001",
+      "name": "Twitter/X Automation",
+      "category": "social-media",
+      "status": "active",
+      "launchDate": "2025-10-21",
+      "priority": 1,
+      "agents": ["VIBE", "COPY", "PULSE", "MOMENTUM"],
+      "plans": {
+        "basic": {
+          "name": "Basic",
+          "price": 399,
+          "priceWithHype": 279,
+          "billingPeriod": "monthly",
+          "features": {
+            "tweetsPerDay": "3-5",
+            "tweetsPerMonth": "90-150",
+            "threads": "2-4/month",
+            "engagement": true,
+            "analytics": "monthly",
+            "support": "email",
+            "expectedGrowth": "500-2,000 followers/month"
+          }
+        },
+        "professional": {
+          "name": "Professional",
+          "price": 999,
+          "priceWithHype": 699,
+          "billingPeriod": "monthly",
+          "featured": true,
+          "features": {
+            "tweetsPerDay": "5-8",
+            "tweetsPerMonth": "150-240",
+            "threads": "8-15/month",
+            "replyAutomation": true,
+            "engagement": true,
+            "analytics": "weekly",
+            "support": "chat-24-7",
+            "competitorTracking": true,
+            "expectedGrowth": "2,000-5,000 followers/month"
+          }
+        },
+        "premium": {
+          "name": "Premium",
+          "price": 2999,
+          "priceWithHype": 2099,
+          "billingPeriod": "monthly",
+          "features": {
+            "tweetsPerDay": "8+",
+            "tweetsPerMonth": "240+",
+            "threads": "15+/month",
+            "replyAutomation": true,
+            "dmAutomation": true,
+            "spacesCoordination": true,
+            "influencerOutreach": true,
+            "engagement": true,
+            "analytics": "daily",
+            "support": "dedicated-manager",
+            "crisisManagement": true,
+            "expectedGrowth": "3,000-8,000 followers/month"
+          }
+        }
+      },
+      "addOns": {
+        "rushOnboarding": {
+          "name": "Rush Onboarding (12 hours)",
+          "price": 299
+        },
+        "additionalPlatform": {
+          "name": "Additional Social Platform",
+          "price": 399
+        }
+      }
+    },
+    "resume-cv": {
+      "serviceId": "resume-001",
+      "name": "Resume & CV Writing",
+      "category": "career",
+      "status": "active",
+      "launchDate": "2025-10-21",
+      "priority": 2,
+      "agents": ["COACH"],
+      "plans": {
+        "basic": {
+          "name": "Basic",
+          "price": 49,
+          "priceWithHype": 34,
+          "billingPeriod": "one-time",
+          "deliveryTime": "48 hours",
+          "features": {
+            "pages": 1,
+            "atsOptimized": true,
+            "template": "professional",
+            "revisions": 1,
+            "coverLetter": "template",
+            "formats": ["PDF", "Word"],
+            "aiGenerated": true
+          }
+        },
+        "professional": {
+          "name": "Professional",
+          "price": 99,
+          "priceWithHype": 69,
+          "billingPeriod": "one-time",
+          "deliveryTime": "24 hours",
+          "featured": true,
+          "features": {
+            "pages": "1-2",
+            "atsOptimized": true,
+            "template": "premium",
+            "revisions": 3,
+            "coverLetter": "custom-3-versions",
+            "linkedinOptimization": true,
+            "formats": ["PDF", "Word", "TXT"],
+            "humanReview": true,
+            "achievementQuantification": true
+          }
+        },
+        "premium": {
+          "name": "Premium",
+          "price": 199,
+          "priceWithHype": 139,
+          "billingPeriod": "one-time",
+          "deliveryTime": "12 hours (rush available)",
+          "features": {
+            "pages": "2-3",
+            "atsOptimized": true,
+            "template": "executive",
+            "revisions": "unlimited",
+            "coverLetter": "custom-5-versions",
+            "linkedinMakeover": true,
+            "executiveSummary": true,
+            "portfolioPage": true,
+            "interviewPrepGuide": true,
+            "formats": ["PDF", "Word", "TXT", "HTML"],
+            "seniorExpertReview": true,
+            "updateSupport30Days": true
+          }
+        }
+      },
+      "addOns": {
+        "rushDelivery12h": {
+          "name": "Rush Delivery (12 hours)",
+          "price": 49
+        },
+        "linkedinProfileWrite": {
+          "name": "LinkedIn Profile Writing",
+          "price": 99
+        },
+        "portfolioWebsite": {
+          "name": "Personal Portfolio Website",
+          "price": 299
+        }
+      }
+    },
+    "social-media-automation": {
+      "serviceId": "social-001",
+      "name": "Full Social Media Automation",
+      "category": "social-media",
+      "status": "active",
+      "launchDate": "2025-11-01",
+      "priority": 3,
+      "agents": ["VIBE", "MOMENTUM", "PULSE", "COPY", "PIXEL"],
+      "plans": {
+        "starter": {
+          "name": "Starter",
+          "price": 299,
+          "priceWithHype": 209,
+          "billingPeriod": "monthly",
+          "features": {
+            "platforms": "2-3",
+            "postsPerMonth": "30-60",
+            "graphics": true,
+            "scheduling": true,
+            "analytics": "monthly"
+          }
+        },
+        "professional": {
+          "name": "Professional",
+          "price": 999,
+          "priceWithHype": 699,
+          "billingPeriod": "monthly",
+          "featured": true,
+          "features": {
+            "platforms": "4-5",
+            "postsPerMonth": "60-120",
+            "graphics": true,
+            "storiesReels": "15-30/month",
+            "scheduling": true,
+            "analytics": "weekly",
+            "communityManagement": true
+          }
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "price": 2999,
+          "priceWithHype": 2099,
+          "billingPeriod": "monthly",
+          "features": {
+            "platforms": "all",
+            "postsPerMonth": "120-240",
+            "graphics": true,
+            "storiesReels": "daily",
+            "videoContent": "4-8/month",
+            "scheduling": true,
+            "analytics": "daily",
+            "communityManagement": true,
+            "influencerOutreach": true,
+            "dedicatedManager": true
+          }
+        }
+      }
+    }
+  },
+  "discounts": {
+    "hypeToken": {
+      "percentage": 30,
+      "description": "Pay with $HYPE tokens and save 30%"
+    },
+    "annual": {
+      "percentage": 20,
+      "description": "Save 20% with annual billing"
+    },
+    "referral": {
+      "percentage": 10,
+      "description": "10% off for every referral"
+    }
+  },
+  "guarantees": {
+    "moneyBack": {
+      "days": 30,
+      "description": "30-day money-back guarantee on all services"
+    },
+    "satisfaction": {
+      "description": "We revise until you're 100% satisfied"
+    },
+    "security": {
+      "description": "100% secure payment processing"
+    }
+  },
+  "revenueProjections": {
+    "twitterAutomation": {
+      "month1": {
+        "clients": 5,
+        "avgPrice": 999,
+        "revenue": 4995
+      },
+      "month3": {
+        "clients": 15,
+        "avgPrice": 999,
+        "revenue": 14985
+      },
+      "month6": {
+        "clients": 25,
+        "avgPrice": 999,
+        "revenue": 24975
+      },
+      "month12": {
+        "clients": 40,
+        "avgPrice": 999,
+        "revenue": 39960
+      }
+    },
+    "resumeCV": {
+      "month1": {
+        "orders": 20,
+        "avgPrice": 99,
+        "revenue": 1980
+      },
+      "month3": {
+        "orders": 60,
+        "avgPrice": 99,
+        "revenue": 5940
+      },
+      "month6": {
+        "orders": 100,
+        "avgPrice": 99,
+        "revenue": 9900
+      },
+      "month12": {
+        "orders": 150,
+        "avgPrice": 99,
+        "revenue": 14850
+      }
+    },
+    "combined": {
+      "year1Total": {
+        "conservative": 167400,
+        "realistic": 250000
+      }
+    }
+  }
+}

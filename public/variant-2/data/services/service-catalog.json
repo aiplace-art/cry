@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "catalogName": "HypeAI Professional Services",
+    "version": "1.0.0",
+    "totalServices": 60,
+    "activeServices": 3,
+    "comingSoon": 57,
+    "lastUpdate": "2025-10-21"
+  },
+  "activeServices": [
+    {
+      "id": "twitter-001",
+      "name": "Twitter/X Automation",
+      "status": "active",
+      "category": "social-media",
+      "priority": 1,
+      "landingPage": "twitter-automation.html",
+      "priceRange": "$399-$2,999/month",
+      "deliveryTime": "24-48 hours",
+      "agents": ["VIBE", "COPY", "PULSE", "MOMENTUM"],
+      "tags": ["crypto-friendly", "recurring-revenue", "high-margin"]
+    },
+    {
+      "id": "resume-001",
+      "name": "Resume & CV Writing",
+      "status": "active",
+      "category": "career",
+      "priority": 2,
+      "landingPage": "resume-cv.html",
+      "priceRange": "$49-$199",
+      "deliveryTime": "12-48 hours",
+      "agents": ["COACH"],
+      "tags": ["quick-revenue", "high-volume", "b2c"]
+    },
+    {
+      "id": "social-001",
+      "name": "Social Media Automation",
+      "status": "coming-soon",
+      "category": "social-media",
+      "priority": 3,
+      "landingPage": null,
+      "priceRange": "$299-$2,999/month",
+      "deliveryTime": "3-5 days",
+      "agents": ["VIBE", "MOMENTUM", "PULSE", "COPY", "PIXEL"],
+      "launchDate": "2025-11-01"
+    }
+  ],
+  "categories": [
+    {
+      "id": "social-media",
+      "name": "Social Media Automation",
+      "icon": "📱",
+      "servicesCount": 10,
+      "activeCount": 2,
+      "description": "Complete social media management and automation"
+    },
+    {
+      "id": "career",
+      "name": "Career Services",
+      "icon": "💼",
+      "servicesCount": 8,
+      "activeCount": 1,
+      "description": "Resume, CV, LinkedIn, career coaching"
+    },
+    {
+      "id": "web-dev",
+      "name": "Web Development",
+      "icon": "🌐",
+      "servicesCount": 12,
+      "activeCount": 0,
+      "description": "Websites, web apps, landing pages"
+    },
+    {
+      "id": "content",
+      "name": "Content Creation",
+      "icon": "✍️",
+      "servicesCount": 8,
+      "activeCount": 0,
+      "description": "Blog posts, articles, copywriting"
+    },
+    {
+      "id": "design",
+      "name": "Graphic Design",
+      "icon": "🎨",
+      "servicesCount": 10,
+      "activeCount": 0,
+      "description": "Logos, graphics, branding"
+    },
+    {
+      "id": "business",
+      "name": "Business Services",
+      "icon": "📊",
+      "servicesCount": 6,
+      "activeCount": 0,
+      "description": "Business plans, consulting, strategy"
+    },
+    {
+      "id": "crypto",
+      "name": "Crypto/Web3",
+      "icon": "₿",
+      "servicesCount": 4,
+      "activeCount": 1,
+      "description": "Crypto marketing, Web3 services"
+    },
+    {
+      "id": "ai-automation",
+      "name": "AI & Automation",
+      "icon": "🤖",
+      "servicesCount": 2,
+      "activeCount": 0,
+      "description": "Chatbots, workflow automation"
+    }
+  ],
+  "statistics": {
+    "totalLaunched": 3,
+    "totalRevenue": 0,
+    "totalClients": 0,
+    "averageRating": 0,
+    "targetMonth1Revenue": 6975,
+    "targetMonth3Revenue": 20925,
+    "targetMonth6Revenue": 34875,
+    "targetYear1Revenue": 167400
+  }
+}
