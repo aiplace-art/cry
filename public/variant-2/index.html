@@ -948,12 +948,25 @@
 
     .hero-stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 32px;
-      max-width: 800px;
-      margin: 0 auto;
-      padding-top: 24px;
-      border-top: 1px solid rgba(147, 51, 234, 0.2);
+      max-width: 1000px;
+      margin: 48px auto 0;
+      padding: 32px 40px;
+      background: rgba(30, 32, 38, 0.4);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      -moz-backdrop-filter: blur(30px);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(147, 51, 234, 0.2),
+                  0 0 0 1px rgba(147, 51, 234, 0.1) inset;
+    }
+
+    @supports not (backdrop-filter: blur(30px)) {
+      .hero-stats {
+        background: rgba(30, 32, 38, 0.6);
+      }
     }
 
     .stat-item {
@@ -1018,9 +1031,9 @@
       }
 
       .hero-stats {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        padding-top: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 16px;
+        padding: 24px 20px;
       }
 
       .usp-section {
@@ -1039,17 +1052,6 @@
       .private-sale-banner {
         font-size: 14px;
         padding: 10px 20px;
-      }
-
-      .stats-bar {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        padding: 20px;
-        margin-top: 24px;
-      }
-
-      .stats-bar-value {
-        font-size: 16px;
       }
 
       .live-badge {
@@ -2045,52 +2047,6 @@
       }
     }
 
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 20px;
-      padding: 24px;
-      background: rgba(30, 32, 38, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(147, 51, 234, 0.3);
-      border-radius: 20px;
-      margin-top: 32px;
-    }
-
-    .stats-bar-item {
-      text-align: center;
-    }
-
-    .stats-bar-value {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--cosmic-yellow);
-      margin-bottom: 4px;
-    }
-
-    .stats-bar-label {
-      font-size: 12px;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    @media (max-width: 768px) {
-      .stats-bar {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        padding: 24px;
-      }
-
-      .stats-bar-value {
-        font-size: 18px;
-      }
-
-      .stats-bar-label {
-        font-size: 10px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -2147,23 +2103,15 @@
       <!-- Starfield -->
       <div class="starfield" id="starfield"></div>
 
-      <!-- Cosmic Gradient Orbs -->
+      <!-- Cosmic Gradient Orbs - Reduced to 3 -->
       <div class="gradient-orb orb-1"></div>
-      <div class="gradient-orb orb-2"></div>
       <div class="gradient-orb orb-3"></div>
-      <div class="gradient-orb orb-4"></div>
       <div class="gradient-orb orb-5"></div>
-      <div class="gradient-orb orb-6"></div>
 
-      <!-- Particle System -->
-      <div class="particles" id="particles"></div>
-
-      <!-- Geometric Shapes -->
+      <!-- Geometric Shapes - Reduced to 2 -->
       <div class="geometric-shapes">
         <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
         <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
       </div>
     </div>
 
@@ -2171,11 +2119,6 @@
       <div class="hero-content">
         <div class="private-sale-banner" data-i18n="private_sale_banner">
           🚀 JOIN PRIVATE SALE - 20-30% BONUS
-        </div>
-
-        <div class="hero-label">
-          <span>🤖</span>
-          <span data-i18n="hero_label">27 AI Agents Working 24/7</span>
         </div>
 
         <h1 class="hero-title">
@@ -2192,10 +2135,15 @@
           <a href="#tokenomics" class="btn-secondary" data-i18n="hero_cta_tokenomics">Learn More</a>
         </div>
 
+        <!-- Consolidated Stats - 5 Essential Metrics -->
         <div class="hero-stats">
           <div class="stat-item">
-            <div class="stat-value">27/27</div>
-            <div class="stat-label" data-i18n="stat_agents_active">Agents Active</div>
+            <div class="stat-value">27</div>
+            <div class="stat-label" data-i18n="stat_agents_active">AI Agents Active</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">5,234</div>
+            <div class="stat-label" data-i18n="stat_users">Active Users</div>
           </div>
           <div class="stat-item">
             <div class="stat-value">35+</div>
@@ -2203,39 +2151,11 @@
           </div>
           <div class="stat-item">
             <div class="stat-value">62%</div>
-            <div class="stat-label" data-i18n="stat_apy">Max APY</div>
+            <div class="stat-label" data-i18n="stat_apy">Maximum APY</div>
           </div>
-        </div>
-
-        <!-- Extended Stats Bar -->
-        <div class="stats-bar">
-          <div class="stats-bar-item">
-            <div class="stats-bar-value">$1.2M</div>
-            <div class="stats-bar-label" data-i18n="stat_tvl">TVL (Demo)</div>
-          </div>
-          <div class="stats-bar-item">
-            <div class="stats-bar-value">5,234</div>
-            <div class="stats-bar-label" data-i18n="stat_users">Active Users</div>
-          </div>
-          <div class="stats-bar-item">
-            <div class="stats-bar-value">85%</div>
-            <div class="stats-bar-label" data-i18n="stat_accuracy">AI Accuracy</div>
-          </div>
-          <div class="stats-bar-item">
-            <div class="stats-bar-value">$0.001</div>
-            <div class="stats-bar-label" data-i18n="stat_price">Token Price</div>
-          </div>
-          <div class="stats-bar-item">
-            <div class="stats-bar-value">24/7</div>
-            <div class="stats-bar-label" data-i18n="stat_uptime">Uptime</div>
-          </div>
-          <div class="stats-bar-item">
-            <div class="stats-bar-value">2,520</div>
-            <div class="stats-bar-label" data-i18n="stat_transactions">Transactions</div>
-          </div>
-          <div class="stats-bar-item">
-            <div class="stats-bar-value">12,845</div>
-            <div class="stats-bar-label" data-i18n="stat_community">Community</div>
+          <div class="stat-item">
+            <div class="stat-value">85%</div>
+            <div class="stat-label" data-i18n="stat_accuracy">AI Accuracy</div>
           </div>
         </div>
       </div>
