@@ -1,0 +1,1395 @@
+{
+  "catalog_version": "1.0.0",
+  "last_updated": "2025-10-20",
+  "service_categories": {
+    "business_audit": {
+      "category_id": "BA",
+      "category_name": "Business Audit Services",
+      "description": "Comprehensive audit services for enterprise clients seeking deep insights into operations, compliance, and market positioning",
+      "target_clients": ["corporations", "medium_businesses", "large_enterprises", "international_companies"],
+      "services": {
+        "market_entry_audit": {
+          "service_id": "BA-001",
+          "name": "Market Entry Audit",
+          "tagline": "De-risk your market expansion with AI-powered analysis",
+          "description": "Comprehensive assessment of market entry opportunities for new countries and regions, combining AI-driven data analysis with human strategic oversight",
+          "scope_of_work": {
+            "phase_1_discovery": [
+              "Target market landscape analysis",
+              "Regulatory and legal environment assessment",
+              "Competitive landscape mapping",
+              "Cultural and business practice analysis",
+              "Entry barrier identification"
+            ],
+            "phase_2_analysis": [
+              "Market size and growth potential quantification",
+              "Customer segment identification and profiling",
+              "Competitive positioning analysis",
+              "Risk assessment matrix development",
+              "Entry strategy options evaluation"
+            ],
+            "phase_3_recommendations": [
+              "Optimal entry strategy recommendation",
+              "Implementation roadmap creation",
+              "Resource requirement planning",
+              "Financial projections and ROI modeling",
+              "Risk mitigation strategies"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Market Entry Assessment Report",
+              "format": "PDF + Interactive Dashboard",
+              "pages": "80-120",
+              "contents": ["Executive summary", "Market analysis", "Competitive intelligence", "Risk assessment", "Strategic recommendations"]
+            },
+            {
+              "name": "Market Entry Playbook",
+              "format": "PDF",
+              "pages": "40-60",
+              "contents": ["Step-by-step implementation guide", "Timeline and milestones", "Resource allocation plan", "Key partnerships to establish"]
+            },
+            {
+              "name": "Financial Model",
+              "format": "Excel + Web Dashboard",
+              "contents": ["3-year revenue projections", "Cost structure analysis", "Break-even analysis", "ROI scenarios", "Sensitivity analysis"]
+            },
+            {
+              "name": "Executive Presentation",
+              "format": "PowerPoint",
+              "slides": "30-40",
+              "contents": ["Key findings", "Strategic recommendations", "Implementation roadmap", "Financial outlook"]
+            },
+            {
+              "name": "Live Q&A Session",
+              "format": "Video Conference",
+              "duration": "2 hours",
+              "participants": ["C-suite executives", "HypeAI senior consultants"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "6-8 weeks",
+            "phases": {
+              "kickoff_and_discovery": "1 week",
+              "data_collection_analysis": "2-3 weeks",
+              "report_development": "2 weeks",
+              "review_and_refinement": "1 week",
+              "final_presentation": "1 week"
+            }
+          },
+          "pricing": {
+            "base_price": 15000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 15000,
+              "typical": 25000,
+              "maximum": 50000
+            },
+            "factors_affecting_price": [
+              "Number of target markets (each additional market +$8,000)",
+              "Market complexity (emerging markets +20-30%)",
+              "Urgency premium (expedited delivery +25%)",
+              "Industry specialization required (+$5,000-10,000)",
+              "Multiple language requirements (+$3,000 per language)"
+            ],
+            "payment_terms": {
+              "deposit": "40% upon contract signing",
+              "milestone_1": "30% at midpoint",
+              "final_payment": "30% upon delivery"
+            }
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "40%",
+                "responsibilities": ["Market data collection", "Competitive intelligence", "Regulatory research", "Trend analysis"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "15%",
+                "responsibilities": ["Data processing", "Statistical analysis", "Pattern recognition", "Dashboard development"]
+              },
+              {
+                "role": "sparc-coord",
+                "allocation": "10%",
+                "responsibilities": ["Project coordination", "Quality assurance", "Timeline management"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Senior Strategy Consultant",
+                "time_allocation": "60 hours",
+                "responsibilities": ["Strategic direction", "Client communication", "Final recommendations", "Presentation delivery"]
+              },
+              {
+                "role": "Regional Market Expert",
+                "time_allocation": "40 hours",
+                "responsibilities": ["Local market insights", "Cultural context", "Regulatory interpretation", "Partnership identification"]
+              },
+              {
+                "role": "Financial Analyst",
+                "time_allocation": "30 hours",
+                "responsibilities": ["Financial modeling", "ROI analysis", "Risk quantification"]
+              }
+            ],
+            "total_team_size": "3 humans + 3 AI agent types"
+          },
+          "success_metrics": {
+            "client_satisfaction": {
+              "target": "4.5/5.0",
+              "measurement": "Post-project survey"
+            },
+            "actionability": {
+              "target": "80% of recommendations implemented within 12 months",
+              "measurement": "12-month follow-up survey"
+            },
+            "accuracy": {
+              "target": "Market projections within 15% of actual performance",
+              "measurement": "24-month retrospective analysis"
+            },
+            "roi_for_client": {
+              "target": "10x return on audit investment",
+              "measurement": "Revenue generated from market entry vs. audit cost"
+            }
+          },
+          "target_regions": ["EU", "Nordic", "CIS", "Southeast Asia", "MENA", "Latin America"],
+          "industries_served": ["Technology", "Financial Services", "Healthcare", "Manufacturing", "Retail", "Energy"]
+        },
+        "financial_audit": {
+          "service_id": "BA-002",
+          "name": "Financial Audit & Analysis",
+          "tagline": "AI-enhanced financial intelligence for smarter decisions",
+          "description": "Deep financial analysis combining automated data processing with expert human interpretation to uncover optimization opportunities and risks",
+          "scope_of_work": {
+            "financial_health_assessment": [
+              "Balance sheet analysis",
+              "Cash flow analysis and forecasting",
+              "Profitability analysis by segment/product",
+              "Working capital optimization assessment",
+              "Debt structure evaluation"
+            ],
+            "operational_financial_analysis": [
+              "Cost structure breakdown and benchmarking",
+              "Revenue stream analysis",
+              "Margin analysis by business unit",
+              "Burn rate and runway calculation (for growth companies)",
+              "Budget vs. actual variance analysis"
+            ],
+            "risk_and_compliance": [
+              "Financial risk assessment",
+              "Internal controls evaluation",
+              "Compliance with accounting standards (GAAP/IFRS)",
+              "Fraud risk indicators",
+              "Financial reporting quality assessment"
+            ],
+            "optimization_opportunities": [
+              "Cost reduction opportunities identification",
+              "Revenue enhancement strategies",
+              "Working capital improvement recommendations",
+              "Tax optimization opportunities",
+              "Financial process automation recommendations"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Financial Health Report",
+              "format": "PDF + Interactive Excel Model",
+              "pages": "60-80",
+              "contents": ["Executive summary", "Financial position analysis", "Performance metrics", "Peer benchmarking", "Risk assessment"]
+            },
+            {
+              "name": "Optimization Roadmap",
+              "format": "PDF",
+              "pages": "30-40",
+              "contents": ["Quick wins (0-3 months)", "Medium-term initiatives (3-12 months)", "Strategic improvements (12+ months)", "Expected financial impact"]
+            },
+            {
+              "name": "Financial Dashboard",
+              "format": "Web-based interactive dashboard",
+              "contents": ["Real-time KPI tracking", "Scenario modeling tools", "Trend visualization", "Peer comparison"]
+            },
+            {
+              "name": "Board-Ready Presentation",
+              "format": "PowerPoint",
+              "slides": "25-35",
+              "contents": ["Key findings", "Opportunities and risks", "Recommended actions", "Financial impact projections"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "4-6 weeks",
+            "phases": {
+              "data_collection": "1 week",
+              "analysis": "2-3 weeks",
+              "report_creation": "1 week",
+              "review_presentation": "1 week"
+            }
+          },
+          "pricing": {
+            "base_price": 12000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 12000,
+              "typical": 20000,
+              "maximum": 45000
+            },
+            "factors_affecting_price": [
+              "Company revenue (>$100M revenue +$10,000)",
+              "Number of entities/subsidiaries (+$5,000 per entity)",
+              "Historical period analyzed (+$3,000 per additional year)",
+              "Industry complexity (+$5,000 for highly regulated)",
+              "International operations (+$8,000)"
+            ],
+            "payment_terms": {
+              "deposit": "40% upon contract signing",
+              "milestone": "35% upon draft report",
+              "final": "25% upon final delivery"
+            }
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "code-analyzer",
+                "allocation": "50%",
+                "responsibilities": ["Financial data processing", "Ratio calculations", "Trend analysis", "Anomaly detection"]
+              },
+              {
+                "role": "researcher",
+                "allocation": "20%",
+                "responsibilities": ["Industry benchmarking", "Peer comparison data", "Best practice research"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "CFO/Senior Financial Analyst",
+                "time_allocation": "80 hours",
+                "responsibilities": ["Strategic interpretation", "Risk assessment", "Recommendations", "Client presentation"]
+              },
+              {
+                "role": "CPA/Audit Specialist",
+                "time_allocation": "40 hours",
+                "responsibilities": ["Compliance review", "Control assessment", "Quality assurance"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "cost_savings_identified": {
+              "target": "15% of annual costs",
+              "measurement": "Quantified opportunities in report"
+            },
+            "implementation_rate": {
+              "target": "60% of recommendations implemented within 12 months",
+              "measurement": "Follow-up assessment"
+            },
+            "client_roi": {
+              "target": "20x return within 18 months",
+              "measurement": "Savings/revenue gains vs. audit cost"
+            }
+          }
+        },
+        "operational_efficiency_audit": {
+          "service_id": "BA-003",
+          "name": "Operational Efficiency Audit",
+          "tagline": "Transform operations with AI-driven insights",
+          "description": "Comprehensive operational analysis identifying bottlenecks, inefficiencies, and automation opportunities across business processes",
+          "scope_of_work": {
+            "process_mapping": [
+              "End-to-end process documentation",
+              "Workflow visualization",
+              "Stakeholder and system mapping",
+              "Process interdependency analysis"
+            ],
+            "efficiency_analysis": [
+              "Cycle time measurement",
+              "Bottleneck identification",
+              "Resource utilization analysis",
+              "Quality and error rate assessment",
+              "Capacity analysis"
+            ],
+            "technology_assessment": [
+              "Current tech stack evaluation",
+              "System integration analysis",
+              "Automation readiness assessment",
+              "Digital maturity scoring"
+            ],
+            "optimization_design": [
+              "Process redesign recommendations",
+              "Automation opportunity identification",
+              "Resource reallocation strategies",
+              "Quick win identification",
+              "Long-term transformation roadmap"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Operational Efficiency Report",
+              "format": "PDF + Web Dashboard",
+              "pages": "70-100",
+              "contents": ["Current state analysis", "Efficiency metrics", "Benchmarking", "Gap analysis", "Improvement opportunities"]
+            },
+            {
+              "name": "Process Maps & Workflows",
+              "format": "Interactive diagrams (Miro/Lucidchart)",
+              "contents": ["As-is processes", "To-be processes", "Automation candidates", "Integration requirements"]
+            },
+            {
+              "name": "Implementation Roadmap",
+              "format": "PDF + Gantt Chart",
+              "pages": "25-35",
+              "contents": ["Prioritized initiatives", "Timeline", "Resource requirements", "Expected impact", "Success metrics"]
+            },
+            {
+              "name": "ROI Model",
+              "format": "Excel + Web Calculator",
+              "contents": ["Cost-benefit analysis", "Payback period calculation", "NPV analysis", "Scenario planning"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "5-7 weeks",
+            "phases": {
+              "discovery_and_mapping": "2 weeks",
+              "analysis": "2-3 weeks",
+              "solution_design": "1-2 weeks",
+              "finalization": "1 week"
+            }
+          },
+          "pricing": {
+            "base_price": 18000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 18000,
+              "typical": 30000,
+              "maximum": 60000
+            },
+            "factors_affecting_price": [
+              "Number of processes analyzed (+$4,000 per major process)",
+              "Number of departments (+$5,000 per department)",
+              "Company size (1000+ employees +$15,000)",
+              "Complexity of operations (+$10,000 for manufacturing/logistics)",
+              "International operations (+$8,000)"
+            ]
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "35%",
+                "responsibilities": ["Process discovery", "Data collection", "Benchmarking research", "Best practice identification"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "25%",
+                "responsibilities": ["Process analysis", "Bottleneck detection", "Efficiency calculations", "Visualization"]
+              },
+              {
+                "role": "system-architect",
+                "allocation": "15%",
+                "responsibilities": ["Solution design", "Integration planning", "Technology recommendations"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Operations Consultant",
+                "time_allocation": "100 hours",
+                "responsibilities": ["Process interviews", "Strategic recommendations", "Change management planning", "Client workshops"]
+              },
+              {
+                "role": "Business Process Expert",
+                "time_allocation": "60 hours",
+                "responsibilities": ["Process redesign", "Best practice application", "Quality assurance"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "efficiency_gains": {
+              "target": "25% improvement in key process metrics",
+              "measurement": "Cycle time, throughput, error rates"
+            },
+            "cost_reduction": {
+              "target": "20% operational cost savings potential identified",
+              "measurement": "Quantified in ROI model"
+            },
+            "automation_potential": {
+              "target": "30% of manual tasks identified for automation",
+              "measurement": "Hours saved through automation"
+            }
+          }
+        },
+        "digital_transformation_audit": {
+          "service_id": "BA-004",
+          "name": "Digital Transformation Audit",
+          "tagline": "AI-powered assessment of your digital future",
+          "description": "Comprehensive evaluation of digital maturity, technology stack, and transformation readiness with actionable roadmap for digital excellence",
+          "scope_of_work": {
+            "digital_maturity_assessment": [
+              "Current digital capabilities evaluation",
+              "Technology stack analysis",
+              "Data and analytics maturity",
+              "Digital culture assessment",
+              "Innovation capability evaluation"
+            ],
+            "gap_analysis": [
+              "Industry best practices comparison",
+              "Competitor digital capabilities benchmarking",
+              "Technology gap identification",
+              "Skills gap analysis",
+              "Infrastructure assessment"
+            ],
+            "opportunity_identification": [
+              "AI and automation opportunities",
+              "Data monetization potential",
+              "Digital channel optimization",
+              "Customer experience enhancement",
+              "New business model opportunities"
+            ],
+            "transformation_roadmap": [
+              "Strategic priorities definition",
+              "Technology investment plan",
+              "Organizational change requirements",
+              "Risk mitigation strategies",
+              "Governance framework"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Digital Maturity Report",
+              "format": "PDF + Interactive Assessment",
+              "pages": "90-120",
+              "contents": ["Maturity scorecard", "Technology landscape", "Capability gaps", "Competitive positioning", "Industry benchmarks"]
+            },
+            {
+              "name": "Digital Transformation Roadmap",
+              "format": "PDF + Interactive Timeline",
+              "pages": "50-70",
+              "contents": ["3-year transformation plan", "Initiative portfolio", "Investment requirements", "Expected outcomes", "Governance model"]
+            },
+            {
+              "name": "Technology Architecture Blueprint",
+              "format": "PDF + Diagrams",
+              "pages": "30-40",
+              "contents": ["Target state architecture", "Integration strategy", "Data architecture", "Security framework", "Cloud strategy"]
+            },
+            {
+              "name": "Business Case & ROI Model",
+              "format": "Excel + Web Dashboard",
+              "contents": ["Investment requirements", "Expected benefits", "ROI projections", "Risk analysis", "Scenario planning"]
+            },
+            {
+              "name": "Executive Workshop",
+              "format": "Full-day workshop",
+              "duration": "8 hours",
+              "contents": ["Strategy alignment", "Priority setting", "Roadmap refinement", "Change leadership planning"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "8-10 weeks",
+            "phases": {
+              "assessment": "3 weeks",
+              "analysis_and_benchmarking": "2-3 weeks",
+              "roadmap_development": "2 weeks",
+              "business_case": "1 week",
+              "workshop_and_finalization": "1 week"
+            }
+          },
+          "pricing": {
+            "base_price": 35000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 35000,
+              "typical": 55000,
+              "maximum": 100000
+            },
+            "factors_affecting_price": [
+              "Company size (enterprise +$25,000)",
+              "Number of business units (+$8,000 per unit)",
+              "International scope (+$15,000)",
+              "Industry complexity (+$10,000 for regulated industries)",
+              "Technology stack complexity (+$12,000)"
+            ]
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "system-architect",
+                "allocation": "30%",
+                "responsibilities": ["Architecture assessment", "Technology evaluation", "Solution design", "Integration planning"]
+              },
+              {
+                "role": "researcher",
+                "allocation": "25%",
+                "responsibilities": ["Industry research", "Technology trends", "Competitive intelligence", "Best practices"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "20%",
+                "responsibilities": ["Current system analysis", "Data flow mapping", "Performance assessment", "Security evaluation"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Digital Transformation Lead",
+                "time_allocation": "120 hours",
+                "responsibilities": ["Strategy development", "Client leadership alignment", "Roadmap creation", "Workshop facilitation"]
+              },
+              {
+                "role": "Enterprise Architect",
+                "time_allocation": "80 hours",
+                "responsibilities": ["Technical architecture", "Technology selection", "Integration strategy", "Security design"]
+              },
+              {
+                "role": "Change Management Consultant",
+                "time_allocation": "40 hours",
+                "responsibilities": ["Organizational readiness", "Change strategy", "Stakeholder management", "Training planning"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "maturity_improvement": {
+              "target": "2 levels on maturity scale within 18 months",
+              "measurement": "Post-implementation maturity assessment"
+            },
+            "roi": {
+              "target": "300% ROI within 3 years",
+              "measurement": "Cost savings + revenue growth vs. investment"
+            },
+            "implementation_success": {
+              "target": "75% of roadmap initiatives launched within 24 months",
+              "measurement": "Progress tracking and follow-up assessments"
+            }
+          }
+        },
+        "risk_assessment": {
+          "service_id": "BA-005",
+          "name": "Enterprise Risk Assessment",
+          "tagline": "AI-enhanced risk intelligence for resilient business",
+          "description": "Comprehensive risk identification, quantification, and mitigation planning across operational, financial, strategic, and compliance domains",
+          "scope_of_work": {
+            "risk_identification": [
+              "Operational risk mapping",
+              "Financial risk assessment",
+              "Strategic risk evaluation",
+              "Compliance and regulatory risk",
+              "Cybersecurity and data risks",
+              "Supply chain and vendor risks",
+              "Reputational risk analysis"
+            ],
+            "risk_quantification": [
+              "Probability and impact assessment",
+              "Financial exposure calculation",
+              "Risk scoring and prioritization",
+              "Scenario analysis",
+              "Monte Carlo simulations for critical risks"
+            ],
+            "control_effectiveness": [
+              "Existing control evaluation",
+              "Control gap analysis",
+              "Control design assessment",
+              "Testing and validation recommendations"
+            ],
+            "mitigation_planning": [
+              "Risk treatment strategies",
+              "Mitigation action plans",
+              "Contingency planning",
+              "Risk transfer options (insurance, contracts)",
+              "Monitoring and reporting framework"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Enterprise Risk Register",
+              "format": "Excel + Web Dashboard",
+              "contents": ["Comprehensive risk inventory", "Risk ratings", "Ownership", "Current controls", "Treatment plans"]
+            },
+            {
+              "name": "Risk Assessment Report",
+              "format": "PDF",
+              "pages": "60-80",
+              "contents": ["Executive summary", "Risk landscape overview", "Critical risks deep-dive", "Control effectiveness", "Recommendations"]
+            },
+            {
+              "name": "Risk Mitigation Roadmap",
+              "format": "PDF + Project Plan",
+              "pages": "30-40",
+              "contents": ["Prioritized actions", "Implementation timeline", "Resource requirements", "Success metrics", "Governance"]
+            },
+            {
+              "name": "Risk Heat Maps & Visualizations",
+              "format": "Interactive Dashboard",
+              "contents": ["Risk matrices", "Trend analysis", "Exposure quantification", "Scenario impact visualization"]
+            },
+            {
+              "name": "Board Risk Presentation",
+              "format": "PowerPoint",
+              "slides": "20-30",
+              "contents": ["Top risks", "Exposure levels", "Mitigation priorities", "Resource requests"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "6-8 weeks",
+            "phases": {
+              "risk_identification": "2 weeks",
+              "assessment_and_quantification": "2-3 weeks",
+              "mitigation_planning": "1-2 weeks",
+              "reporting": "1 week"
+            }
+          },
+          "pricing": {
+            "base_price": 20000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 20000,
+              "typical": 35000,
+              "maximum": 70000
+            },
+            "factors_affecting_price": [
+              "Company size and complexity (+$15,000 for large enterprises)",
+              "Industry risk profile (+$10,000 for high-risk industries)",
+              "International operations (+$12,000)",
+              "Number of risk domains (+$5,000 per additional domain)",
+              "Regulatory complexity (+$8,000)"
+            ]
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "35%",
+                "responsibilities": ["Risk identification", "Industry risk research", "Regulatory monitoring", "Incident database analysis"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "25%",
+                "responsibilities": ["Risk quantification", "Data analysis", "Scenario modeling", "Dashboard creation"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Risk Management Consultant",
+                "time_allocation": "90 hours",
+                "responsibilities": ["Risk assessment leadership", "Expert judgment", "Recommendations", "Client workshops"]
+              },
+              {
+                "role": "Industry Risk Specialist",
+                "time_allocation": "50 hours",
+                "responsibilities": ["Domain expertise", "Risk evaluation", "Control assessment", "Mitigation design"]
+              },
+              {
+                "role": "Compliance Expert",
+                "time_allocation": "30 hours",
+                "responsibilities": ["Regulatory risk assessment", "Compliance controls", "Legal implications"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "risk_reduction": {
+              "target": "30% reduction in high-risk items within 12 months",
+              "measurement": "Follow-up risk assessment"
+            },
+            "incident_prevention": {
+              "target": "50% reduction in risk incidents",
+              "measurement": "Incident tracking over 18 months"
+            },
+            "client_satisfaction": {
+              "target": "4.7/5.0",
+              "measurement": "Post-engagement survey"
+            }
+          }
+        },
+        "compliance_audit": {
+          "service_id": "BA-006",
+          "name": "Compliance & Regulatory Audit",
+          "tagline": "AI-powered compliance assurance",
+          "description": "Comprehensive compliance assessment across regulatory frameworks with gap analysis and remediation roadmap",
+          "scope_of_work": {
+            "regulatory_landscape": [
+              "Applicable regulations identification",
+              "Regulatory change monitoring",
+              "Cross-jurisdictional requirements",
+              "Industry-specific compliance standards"
+            ],
+            "compliance_assessment": [
+              "Policy and procedure review",
+              "Control testing",
+              "Documentation review",
+              "Process compliance evaluation",
+              "Training and awareness assessment"
+            ],
+            "gap_identification": [
+              "Compliance gap analysis",
+              "Severity and priority rating",
+              "Root cause analysis",
+              "Exposure and liability assessment"
+            ],
+            "remediation_planning": [
+              "Corrective action plans",
+              "Policy and procedure updates",
+              "Control design improvements",
+              "Training and awareness programs",
+              "Ongoing monitoring framework"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Compliance Assessment Report",
+              "format": "PDF",
+              "pages": "70-90",
+              "contents": ["Regulatory overview", "Compliance status", "Gap analysis", "Risk exposure", "Recommendations"]
+            },
+            {
+              "name": "Gap Remediation Plan",
+              "format": "PDF + Project Plan",
+              "pages": "40-50",
+              "contents": ["Prioritized gaps", "Remediation actions", "Timeline", "Responsibilities", "Success criteria"]
+            },
+            {
+              "name": "Compliance Matrix",
+              "format": "Excel + Web Dashboard",
+              "contents": ["Requirement mapping", "Control mapping", "Evidence library", "Status tracking", "Audit trail"]
+            },
+            {
+              "name": "Policy & Procedure Templates",
+              "format": "Word documents",
+              "contents": ["Updated policies", "Procedure documentation", "Control descriptions", "Training materials"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "5-7 weeks",
+            "phases": {
+              "scoping_and_planning": "1 week",
+              "assessment": "2-3 weeks",
+              "analysis": "1-2 weeks",
+              "remediation_planning": "1 week"
+            }
+          },
+          "pricing": {
+            "base_price": 16000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 16000,
+              "typical": 28000,
+              "maximum": 55000
+            },
+            "factors_affecting_price": [
+              "Number of regulations/frameworks (+$6,000 per framework)",
+              "International jurisdictions (+$10,000)",
+              "Industry complexity (+$8,000 for highly regulated)",
+              "Company size (+$12,000 for large enterprises)",
+              "Urgency (+25% for expedited)"
+            ]
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "40%",
+                "responsibilities": ["Regulatory research", "Requirement extraction", "Best practice identification", "Documentation review"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "20%",
+                "responsibilities": ["Gap analysis", "Compliance tracking", "Dashboard development", "Evidence management"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Compliance Consultant",
+                "time_allocation": "100 hours",
+                "responsibilities": ["Assessment leadership", "Expert interpretation", "Recommendations", "Client advisory"]
+              },
+              {
+                "role": "Regulatory Specialist",
+                "time_allocation": "60 hours",
+                "responsibilities": ["Regulatory expertise", "Control evaluation", "Policy development", "Training design"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "compliance_improvement": {
+              "target": "95% compliance within 12 months",
+              "measurement": "Follow-up assessment"
+            },
+            "audit_readiness": {
+              "target": "Pass external audit with minor findings only",
+              "measurement": "External audit results"
+            },
+            "risk_mitigation": {
+              "target": "Zero critical compliance failures",
+              "measurement": "Incident tracking over 18 months"
+            }
+          }
+        }
+      }
+    },
+    "market_research": {
+      "category_id": "MR",
+      "category_name": "Market Research & Intelligence",
+      "description": "Data-driven market insights combining AI-powered analysis with human strategic interpretation",
+      "target_clients": ["enterprises_expanding", "international_companies", "private_equity", "strategic_planners"],
+      "services": {
+        "international_market_research": {
+          "service_id": "MR-001",
+          "name": "International Market Research",
+          "tagline": "Navigate global markets with AI-powered intelligence",
+          "description": "Comprehensive market research for international expansion covering EU, Nordic countries, CIS, and other regions with deep cultural and economic insights",
+          "scope_of_work": {
+            "market_landscape": [
+              "Market size and growth analysis",
+              "Economic indicators and trends",
+              "Political and regulatory environment",
+              "Cultural and consumer behavior analysis",
+              "Infrastructure and business environment"
+            ],
+            "competitive_analysis": [
+              "Competitive landscape mapping",
+              "Market share analysis",
+              "Competitor strategy assessment",
+              "Entry barrier analysis",
+              "White space opportunity identification"
+            ],
+            "customer_insights": [
+              "Customer segment identification",
+              "Buying behavior analysis",
+              "Channel preferences",
+              "Price sensitivity analysis",
+              "Brand perception studies"
+            ],
+            "market_entry_strategy": [
+              "Entry mode recommendations",
+              "Partnership opportunities",
+              "Distribution strategy",
+              "Pricing strategy",
+              "Go-to-market recommendations"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Market Research Report",
+              "format": "PDF + Interactive Dashboard",
+              "pages": "100-150",
+              "contents": ["Executive summary", "Market overview", "Competitive intelligence", "Customer insights", "Strategic recommendations", "Data appendices"]
+            },
+            {
+              "name": "Market Data Package",
+              "format": "Excel + Database",
+              "contents": ["Market sizing data", "Competitor databases", "Customer segment profiles", "Economic indicators", "Trend forecasts"]
+            },
+            {
+              "name": "Market Entry Playbook",
+              "format": "PDF",
+              "pages": "50-70",
+              "contents": ["Market entry strategy", "Implementation roadmap", "Partnership targets", "Risk mitigation", "Success metrics"]
+            },
+            {
+              "name": "Executive Presentation",
+              "format": "PowerPoint",
+              "slides": "40-50",
+              "contents": ["Market opportunity", "Competitive positioning", "Entry strategy", "Financial projections"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "8-12 weeks",
+            "phases": {
+              "scoping_and_design": "1-2 weeks",
+              "primary_research": "3-4 weeks",
+              "secondary_research": "2-3 weeks",
+              "analysis": "2-3 weeks",
+              "reporting": "1-2 weeks"
+            }
+          },
+          "pricing": {
+            "base_price": 25000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 25000,
+              "typical": 40000,
+              "maximum": 80000
+            },
+            "pricing_by_region": {
+              "single_country": "25,000-35,000",
+              "regional_study_3_5_countries": "45,000-65,000",
+              "multi_regional_6_plus_countries": "70,000-120,000"
+            },
+            "factors_affecting_price": [
+              "Number of countries (+$8,000-12,000 per country)",
+              "Primary research required (+$15,000-25,000)",
+              "Industry complexity (+$10,000)",
+              "Language requirements (+$5,000 per language)",
+              "Urgency premium (+30% for expedited)"
+            ],
+            "add_on_services": {
+              "focus_groups": "$8,000-15,000 per market",
+              "expert_interviews": "$5,000-10,000 (5-10 interviews)",
+              "consumer_surveys": "$10,000-20,000 per market",
+              "competitor_mystery_shopping": "$8,000-12,000"
+            }
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "50%",
+                "responsibilities": ["Secondary research", "Data collection", "Trend analysis", "Report compilation"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "20%",
+                "responsibilities": ["Data analysis", "Statistical modeling", "Visualization", "Dashboard development"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Senior Market Research Director",
+                "time_allocation": "120 hours",
+                "responsibilities": ["Research design", "Strategic interpretation", "Client management", "Presentation delivery"]
+              },
+              {
+                "role": "Regional Market Expert",
+                "time_allocation": "80 hours",
+                "responsibilities": ["Local insights", "Cultural context", "Primary research", "Network access"]
+              },
+              {
+                "role": "Industry Analyst",
+                "time_allocation": "60 hours",
+                "responsibilities": ["Industry expertise", "Competitive analysis", "Trend forecasting", "Strategic recommendations"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "accuracy": {
+              "target": "Market forecasts within 20% of actual",
+              "measurement": "24-month follow-up validation"
+            },
+            "actionability": {
+              "target": "Client proceeds with market entry in 80% of cases",
+              "measurement": "6-month follow-up survey"
+            },
+            "roi": {
+              "target": "Client achieves 5x return on research investment",
+              "measurement": "Market entry performance vs. research cost"
+            }
+          },
+          "specialty_regions": {
+            "european_union": {
+              "countries": ["Germany", "France", "Netherlands", "Belgium", "Austria", "Poland", "Czech Republic"],
+              "expertise_level": "Expert",
+              "local_partners": true
+            },
+            "nordic_countries": {
+              "countries": ["Sweden", "Norway", "Denmark", "Finland", "Iceland"],
+              "expertise_level": "Expert",
+              "local_partners": true
+            },
+            "cis_region": {
+              "countries": ["Russia", "Kazakhstan", "Ukraine", "Belarus", "Azerbaijan", "Georgia"],
+              "expertise_level": "Expert",
+              "local_partners": true
+            },
+            "baltics": {
+              "countries": ["Estonia", "Latvia", "Lithuania"],
+              "expertise_level": "Expert",
+              "local_partners": true
+            }
+          }
+        },
+        "competitive_intelligence": {
+          "service_id": "MR-002",
+          "name": "Competitive Intelligence",
+          "tagline": "Stay ahead with AI-powered competitive insights",
+          "description": "Ongoing competitive monitoring and deep-dive competitor analysis providing strategic intelligence for decision-making",
+          "scope_of_work": {
+            "competitor_profiling": [
+              "Company overview and history",
+              "Leadership and organizational structure",
+              "Financial performance analysis",
+              "Product/service portfolio",
+              "Market positioning and strategy"
+            ],
+            "strategic_analysis": [
+              "Strategic initiatives tracking",
+              "M&A activity monitoring",
+              "Partnership and alliance analysis",
+              "Innovation and R&D assessment",
+              "Geographic expansion tracking"
+            ],
+            "operational_intelligence": [
+              "Pricing strategies",
+              "Sales and marketing tactics",
+              "Distribution channels",
+              "Customer acquisition strategies",
+              "Technology stack and capabilities"
+            ],
+            "predictive_insights": [
+              "Strategic move predictions",
+              "Competitive threat assessment",
+              "Opportunity gap analysis",
+              "Defensive strategy recommendations",
+              "Offensive strategy opportunities"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Competitor Intelligence Report",
+              "format": "PDF + Web Dashboard",
+              "pages": "60-80 per competitor",
+              "contents": ["Competitor profiles", "Strategic analysis", "SWOT analysis", "Competitive positioning", "Recommendations"]
+            },
+            {
+              "name": "Competitive Intelligence Dashboard",
+              "format": "Real-time web dashboard",
+              "contents": ["Competitor tracking", "News alerts", "Strategic moves", "Market share trends", "Competitive metrics"]
+            },
+            {
+              "name": "Strategic Implications Brief",
+              "format": "PDF",
+              "pages": "20-30",
+              "contents": ["Key insights", "Threats and opportunities", "Recommended actions", "Strategic priorities"]
+            },
+            {
+              "name": "Quarterly Intelligence Updates",
+              "format": "PDF + Presentation",
+              "frequency": "Quarterly (for ongoing packages)",
+              "contents": ["Competitive landscape changes", "New developments", "Strategic shifts", "Action recommendations"]
+            }
+          ],
+          "timeline": {
+            "one_time_project": "4-6 weeks",
+            "ongoing_monitoring": "Monthly/quarterly updates",
+            "phases": {
+              "intelligence_gathering": "2-3 weeks",
+              "analysis": "1-2 weeks",
+              "reporting": "1 week"
+            }
+          },
+          "pricing": {
+            "one_time_project": {
+              "base_price": 15000,
+              "price_range": {
+                "minimum": 15000,
+                "typical": 25000,
+                "maximum": 50000
+              },
+              "pricing_by_scope": {
+                "single_competitor_deep_dive": "15,000-20,000",
+                "3_5_competitors": "30,000-45,000",
+                "comprehensive_landscape_10_plus": "60,000-100,000"
+              }
+            },
+            "ongoing_monitoring": {
+              "monthly_retainer": {
+                "basic": 5000,
+                "standard": 10000,
+                "premium": 18000
+              },
+              "quarterly_retainer": {
+                "basic": 12000,
+                "standard": 22000,
+                "premium": 40000
+              }
+            },
+            "currency": "USD",
+            "pricing_model": "project_based_or_retainer"
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "60%",
+                "responsibilities": ["Competitor monitoring", "News tracking", "Data collection", "Trend identification"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "15%",
+                "responsibilities": ["Data analysis", "Pattern recognition", "Dashboard updates", "Alert generation"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Competitive Intelligence Analyst",
+                "time_allocation": "80 hours (one-time) / 20-40 hours/month (ongoing)",
+                "responsibilities": ["Strategic analysis", "Insight generation", "Recommendations", "Client briefings"]
+              },
+              {
+                "role": "Industry Expert",
+                "time_allocation": "40 hours (one-time) / 10-20 hours/month (ongoing)",
+                "responsibilities": ["Expert interpretation", "Strategy assessment", "Market context", "Validation"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "early_warning": {
+              "target": "Identify competitive threats 3-6 months before market impact",
+              "measurement": "Tracking of predicted vs. actual competitive moves"
+            },
+            "decision_impact": {
+              "target": "Intelligence directly influences 60% of strategic decisions",
+              "measurement": "Client survey and decision tracking"
+            },
+            "roi": {
+              "target": "Prevent competitive losses worth 10x+ research investment",
+              "measurement": "Client-reported value of insights"
+            }
+          }
+        },
+        "industry_trend_analysis": {
+          "service_id": "MR-003",
+          "name": "Industry Trend Analysis",
+          "tagline": "Future-proof your strategy with AI trend intelligence",
+          "description": "Forward-looking industry analysis identifying emerging trends, disruptive forces, and strategic opportunities",
+          "scope_of_work": {
+            "trend_identification": [
+              "Macro trend analysis",
+              "Technology trend assessment",
+              "Consumer trend evaluation",
+              "Regulatory trend monitoring",
+              "Competitive trend tracking"
+            ],
+            "impact_assessment": [
+              "Industry impact modeling",
+              "Business model disruption analysis",
+              "Value chain evolution",
+              "Market structure changes",
+              "Timeline and probability assessment"
+            ],
+            "opportunity_analysis": [
+              "Growth opportunity identification",
+              "Innovation opportunity mapping",
+              "Strategic positioning opportunities",
+              "Partnership and ecosystem opportunities",
+              "Defensive strategy requirements"
+            ],
+            "strategic_implications": [
+              "Strategic recommendations",
+              "Investment priorities",
+              "Capability building needs",
+              "Risk mitigation strategies",
+              "Innovation roadmap"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Industry Trend Report",
+              "format": "PDF + Interactive Dashboard",
+              "pages": "80-120",
+              "contents": ["Trend landscape", "Impact analysis", "Scenario planning", "Strategic implications", "Recommendations"]
+            },
+            {
+              "name": "Trend Intelligence Dashboard",
+              "format": "Web-based dashboard",
+              "contents": ["Trend tracking", "Signal monitoring", "Impact visualization", "Scenario modeling"]
+            },
+            {
+              "name": "Strategic Response Playbook",
+              "format": "PDF",
+              "pages": "40-60",
+              "contents": ["Response strategies", "Innovation priorities", "Investment roadmap", "Partnership opportunities"]
+            },
+            {
+              "name": "Executive Workshop",
+              "format": "Half-day workshop",
+              "duration": "4 hours",
+              "contents": ["Trend implications", "Strategy refinement", "Priority setting", "Action planning"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "6-8 weeks",
+            "phases": {
+              "trend_research": "2-3 weeks",
+              "impact_analysis": "2 weeks",
+              "strategy_development": "1-2 weeks",
+              "workshop_and_finalization": "1 week"
+            }
+          },
+          "pricing": {
+            "base_price": 20000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 20000,
+              "typical": 35000,
+              "maximum": 65000
+            },
+            "factors_affecting_price": [
+              "Industry complexity (+$10,000)",
+              "Number of trend domains (+$5,000 per domain)",
+              "Scenario modeling depth (+$8,000)",
+              "Workshop facilitation (+$5,000)",
+              "Ongoing monitoring setup (+$10,000)"
+            ]
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "50%",
+                "responsibilities": ["Trend scanning", "Data collection", "Pattern recognition", "Signal monitoring"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "20%",
+                "responsibilities": ["Trend analysis", "Impact modeling", "Visualization", "Dashboard development"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Industry Futurist/Strategist",
+                "time_allocation": "90 hours",
+                "responsibilities": ["Trend interpretation", "Strategic implications", "Recommendations", "Workshop facilitation"]
+              },
+              {
+                "role": "Domain Expert",
+                "time_allocation": "50 hours",
+                "responsibilities": ["Expert validation", "Industry context", "Impact assessment", "Opportunity identification"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "predictive_accuracy": {
+              "target": "70% of identified trends materialize within forecast timeframe",
+              "measurement": "24-month retrospective analysis"
+            },
+            "strategic_value": {
+              "target": "Client captures 2+ new opportunities from insights",
+              "measurement": "Follow-up assessment at 18 months"
+            },
+            "competitive_advantage": {
+              "target": "6-12 month lead time vs. competitors",
+              "measurement": "Client market moves vs. competitor moves"
+            }
+          }
+        },
+        "customer_segmentation_analysis": {
+          "service_id": "MR-004",
+          "name": "Customer Segmentation & Analysis",
+          "tagline": "AI-powered customer intelligence for targeted growth",
+          "description": "Advanced customer segmentation using AI and data analytics to identify high-value segments and optimize targeting strategies",
+          "scope_of_work": {
+            "data_foundation": [
+              "Customer data audit and consolidation",
+              "Data quality assessment",
+              "Additional data source identification",
+              "Privacy and compliance review"
+            ],
+            "segmentation_analysis": [
+              "Behavioral segmentation",
+              "Value-based segmentation",
+              "Needs-based segmentation",
+              "Demographic and firmographic analysis",
+              "Psychographic profiling"
+            ],
+            "segment_profiling": [
+              "Detailed segment profiles",
+              "Size and growth potential",
+              "Buying behavior and preferences",
+              "Channel preferences",
+              "Lifetime value analysis"
+            ],
+            "strategy_development": [
+              "Segment targeting strategy",
+              "Value proposition by segment",
+              "Marketing mix recommendations",
+              "Customer journey optimization",
+              "Acquisition and retention strategies"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Customer Segmentation Report",
+              "format": "PDF + Interactive Dashboard",
+              "pages": "70-90",
+              "contents": ["Segmentation methodology", "Segment profiles", "Market sizing", "Strategic recommendations", "Implementation roadmap"]
+            },
+            {
+              "name": "Segment Intelligence Dashboard",
+              "format": "Web-based dashboard",
+              "contents": ["Segment performance metrics", "Customer behavior tracking", "Segment evolution", "Targeting effectiveness"]
+            },
+            {
+              "name": "Targeting Playbooks",
+              "format": "PDF (one per priority segment)",
+              "pages": "20-30 per segment",
+              "contents": ["Segment overview", "Buying behavior", "Value proposition", "Marketing strategies", "Sales approach"]
+            },
+            {
+              "name": "Implementation Toolkit",
+              "format": "Various formats",
+              "contents": ["CRM integration guide", "Marketing campaign templates", "Sales training materials", "Measurement framework"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "6-8 weeks",
+            "phases": {
+              "data_preparation": "1-2 weeks",
+              "analysis_and_segmentation": "2-3 weeks",
+              "profiling_and_strategy": "2 weeks",
+              "deliverable_creation": "1 week"
+            }
+          },
+          "pricing": {
+            "base_price": 18000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 18000,
+              "typical": 30000,
+              "maximum": 55000
+            },
+            "factors_affecting_price": [
+              "Customer database size (+$8,000 for 100k+ customers)",
+              "Data complexity (+$10,000 for multiple sources)",
+              "Advanced analytics (predictive models +$12,000)",
+              "Number of markets (+$6,000 per additional market)",
+              "CRM integration (+$8,000)"
+            ]
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "code-analyzer",
+                "allocation": "45%",
+                "responsibilities": ["Data processing", "Clustering algorithms", "Statistical analysis", "Predictive modeling"]
+              },
+              {
+                "role": "researcher",
+                "allocation": "20%",
+                "responsibilities": ["Market context", "Behavioral research", "Best practice identification"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Customer Analytics Lead",
+                "time_allocation": "100 hours",
+                "responsibilities": ["Segmentation strategy", "Analysis oversight", "Strategic recommendations", "Client presentation"]
+              },
+              {
+                "role": "Marketing Strategist",
+                "time_allocation": "60 hours",
+                "responsibilities": ["Targeting strategy", "Value proposition development", "Marketing mix design", "Playbook creation"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "targeting_improvement": {
+              "target": "40% improvement in marketing campaign performance",
+              "measurement": "A/B testing of segment-based vs. traditional campaigns"
+            },
+            "customer_value": {
+              "target": "25% increase in customer lifetime value for targeted segments",
+              "measurement": "12-month cohort analysis"
+            },
+            "efficiency_gains": {
+              "target": "30% reduction in customer acquisition costs",
+              "measurement": "CAC tracking over 12 months"
+            }
+          }
+        }
+      }
+    }
+  }
+}

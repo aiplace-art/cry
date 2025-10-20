@@ -1,29 +1,29 @@
 {
-  "timestamp": "2025-10-20T09:00:10.211Z",
+  "timestamp": "2025-10-20T15:00:10.269Z",
   "hashtags": [],
   "competitors": [
     {
       "username": "binance",
-      "followers": 14888734,
+      "followers": 14888644,
       "following": 577,
-      "tweets": 40281,
-      "engagementRate": "36962.18",
+      "tweets": 40282,
+      "engagementRate": "36961.03",
       "strategy": "Established player"
     },
     {
       "username": "BNBCHAIN",
-      "followers": 3898588,
+      "followers": 3897815,
       "following": 638,
-      "tweets": 30539,
-      "engagementRate": "12765.93",
+      "tweets": 30544,
+      "engagementRate": "12761.31",
       "strategy": "Established player"
     },
     {
       "username": "PancakeSwap",
-      "followers": 2137608,
+      "followers": 2137847,
       "following": 209,
-      "tweets": 17266,
-      "engagementRate": "12380.45",
+      "tweets": 17272,
+      "engagementRate": "12377.53",
       "strategy": "Established player"
     }
   ],
@@ -79,5 +79,5 @@
       "expectedImpact": "+50-100 followers/week"
     }
   ],
-  "previousRun": "2025-10-20T03:51:00.235Z"
+  "previousRun": "2025-10-20T09:00:10.211Z"
 }

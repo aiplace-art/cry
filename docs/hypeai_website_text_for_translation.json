@@ -1,0 +1,551 @@
+{
+  "meta": {
+    "page_title": "HypeAI - Professional AI Services Platform | 35+ Services, 24/7 Availability",
+    "meta_title": "HypeAI - Professional AI Services Platform",
+    "meta_description": "27 AI Agents. 35+ Professional Services. 24/7 Availability. 50-70% cheaper than traditional agencies. Crypto, web development, business consulting, smart contracts & more.",
+    "meta_keywords": "HypeAI, AI services, professional services, web development, business consulting, blockchain development, smart contract audit",
+    "og_title": "HypeAI - Professional AI Services Platform",
+    "og_description": "27 AI Agents Working 24/7. 35+ Services. 50-70% Cost Savings.",
+    "twitter_title": "HypeAI - Professional AI Services",
+    "twitter_description": "35+ AI Services. 3-10x Faster. Premium Quality."
+  },
+
+  "accessibility": {
+    "skip_to_main": "Skip to main content"
+  },
+
+  "header": {
+    "logo_text_1": "Hype",
+    "logo_text_2": "AI",
+    "live_badge": "27 AI Agents Live",
+    "nav_services": "Services",
+    "nav_ai_agents": "AI Agents",
+    "nav_tokenomics": "Tokenomics",
+    "nav_roadmap": "Roadmap",
+    "language_button": "EN",
+    "language_english": "English",
+    "language_russian": "Русский",
+    "language_chinese": "中文",
+    "cta_get_started": "Get Started →",
+    "mobile_menu_button": "☰"
+  },
+
+  "hero": {
+    "title_line_1": "Where AI Meets",
+    "title_line_2": "Opportunity",
+    "description": "",
+    "button_view_agents": "View AI Agents →",
+    "button_learn_more": "Learn More",
+    "stats": {
+      "agents_active": {
+        "value": "27",
+        "label": "AI Agents Active"
+      },
+      "active_users": {
+        "value": "5,234",
+        "label": "Active Users"
+      },
+      "services": {
+        "value": "35+",
+        "label": "Services"
+      },
+      "maximum_apy": {
+        "value": "62%",
+        "label": "Maximum APY"
+      },
+      "ai_accuracy": {
+        "value": "85%",
+        "label": "AI Accuracy"
+      }
+    }
+  },
+
+  "usp_section": {
+    "section_icon": "🚀",
+    "section_label": "Why HypeAI",
+    "section_title": "Why HypeAI is Destined to Succeed",
+    "section_description": "",
+    "cards": [
+      {
+        "icon": "🔍",
+        "title": "Crypto Checker - Paid Service 💰",
+        "features": [
+          "Scam or Legit? - Rug pull detection, honeypot check",
+          "Full Analysis - Contract security, liquidity, holders",
+          "Success Probability - AI predicts 10x, 100x, or dump",
+          "Complete Report - Tokenomics, team, marketing, roadmap"
+        ],
+        "price": "💵 $9.99 per check"
+      },
+      {
+        "icon": "🔮",
+        "title": "AI Oracle - Price Predictions",
+        "features": [
+          "Real-time market analysis",
+          "AI-powered predictions",
+          "85%+ accuracy rate",
+          "Updates every 60 seconds"
+        ]
+      },
+      {
+        "icon": "💰",
+        "title": "Real B2B Revenue",
+        "features": [
+          "35+ paid AI services",
+          "Growing client base",
+          "50% of revenue → token burns",
+          "Sustainable growth model"
+        ]
+      },
+      {
+        "icon": "🔥",
+        "title": "Aggressive Token Burns",
+        "features": [
+          "50% of ALL service fees get burned",
+          "Supply decreases weekly",
+          "Scarcity increases value",
+          "Deflationary forever"
+        ]
+      },
+      {
+        "icon": "💎",
+        "title": "62% APY Staking = Supply Shock"
+      },
+      {
+        "icon": "🤖",
+        "title": "27 Agents Work Infinitely"
+      },
+      {
+        "icon": "📈",
+        "title": "100% Success Formula"
+      },
+      {
+        "icon": "♾️",
+        "title": "Long-Term Commitment"
+      }
+    ]
+  },
+
+  "services_section": {
+    "section_title": "AI Services",
+    "section_description": "8 Service Categories - 35+ Specialized Services",
+    "categories": [
+      {
+        "icon": "🛡️",
+        "title": "Security & Auditing",
+        "features": [
+          "Smart Contract Audits",
+          "Penetration Testing",
+          "24/7 Security Monitoring",
+          "Incident Response"
+        ],
+        "price": "From $2,500"
+      },
+      {
+        "icon": "💰",
+        "title": "Tokenomics Design",
+        "features": [
+          "Economic Modeling",
+          "Token Distribution",
+          "Vesting Schedules",
+          "Burn Mechanisms"
+        ],
+        "price": "From $1,200"
+      },
+      {
+        "icon": "💻",
+        "title": "Smart Contract Development",
+        "features": [
+          "Custom Smart Contracts",
+          "dApp Development",
+          "Multi-Chain Deployment",
+          "Backend & APIs"
+        ],
+        "price": "From $3,500"
+      },
+      {
+        "icon": "📢",
+        "title": "Marketing & Growth",
+        "features": [
+          "Social Media Management",
+          "Launch Campaigns",
+          "Content Creation",
+          "Influencer Marketing"
+        ],
+        "price": "From $799/mo"
+      },
+      {
+        "icon": "👥",
+        "title": "Community Management",
+        "features": [
+          "Discord/Telegram Setup",
+          "24/7 Moderation",
+          "Engagement Programs",
+          "Sentiment Analysis"
+        ],
+        "price": "From $499/mo"
+      },
+      {
+        "icon": "🎨",
+        "title": "Design & Branding",
+        "features": [
+          "Logo & Brand Identity",
+          "Website Design",
+          "UI/UX for dApps",
+          "Marketing Assets"
+        ],
+        "price": "From $1,500"
+      },
+      {
+        "icon": "✍️",
+        "title": "Content Creation",
+        "features": [
+          "Whitepaper Writing",
+          "Technical Documentation",
+          "Blog Posts & Articles",
+          "Video Scripts"
+        ],
+        "price": "From $399"
+      },
+      {
+        "icon": "⚙️",
+        "title": "DevOps & Operations",
+        "features": [
+          "CI/CD Pipeline Setup",
+          "Cloud Infrastructure",
+          "Monitoring & Alerts",
+          "Performance Optimization"
+        ],
+        "price": "From $699/mo"
+      }
+    ],
+    "benefits": {
+      "speed": "⚡ 3-10x Faster Delivery",
+      "cost": "💰 50-70% Cheaper",
+      "availability": "🤖 24/7 Availability",
+      "utility": "🔥 Token Utility"
+    }
+  },
+
+  "agents_section": {
+    "section_title": "AI Team",
+    "section_description": "Meet Our AI Team",
+    "live_indicator": "LIVE",
+    "agents": [
+      {
+        "name": "ATLAS",
+        "role": "Blockchain Security Specialist"
+      },
+      {
+        "name": "NEXUS",
+        "role": "Full-Stack Developer"
+      },
+      {
+        "name": "SOLIDITY",
+        "role": "Smart Contract Expert"
+      },
+      {
+        "name": "PRISM",
+        "role": "Frontend Architect"
+      },
+      {
+        "name": "VERIFY",
+        "role": "QA & Testing Lead"
+      },
+      {
+        "name": "MOTION",
+        "role": "UI/UX Designer"
+      },
+      {
+        "name": "TITAN",
+        "role": "Business Strategy"
+      },
+      {
+        "name": "MOMENTUM",
+        "role": "Marketing Director"
+      },
+      {
+        "name": "PULSE",
+        "role": "Community Manager"
+      },
+      {
+        "name": "VIBE",
+        "role": "Social Media Specialist"
+      },
+      {
+        "name": "PIXEL",
+        "role": "Graphic Designer"
+      },
+      {
+        "name": "CONTENT",
+        "role": "Content Writer"
+      },
+      {
+        "name": "ORACLE",
+        "role": "Data Analyst"
+      },
+      {
+        "name": "CIPHER",
+        "role": "Cryptography Expert"
+      },
+      {
+        "name": "ECHO",
+        "role": "SEO Specialist"
+      },
+      {
+        "name": "VECTOR",
+        "role": "AI Researcher"
+      }
+    ]
+  },
+
+  "live_activity_section": {
+    "section_title": "Real-Time Activity",
+    "section_description": "🔴 Live Agent Activity",
+    "stats": {
+      "tasks_today": {
+        "value": "2,847",
+        "label": "Tasks Today"
+      },
+      "active_now": {
+        "value": "23/27",
+        "label": "Active Now"
+      },
+      "uptime": {
+        "value": "99.8%",
+        "label": "Uptime"
+      }
+    },
+    "recent_completions": "📊 Recent Completions",
+    "live_updates": "Live Updates",
+    "working_status": "WORKING",
+    "task_progress_text": "% complete",
+    "estimated_time_prefix": "Est:",
+    "tasks_completed_suffix": "tasks completed",
+    "task_completed_text": "completed",
+    "time_ago_suffix": "s ago",
+    "checkmark": "✓"
+  },
+
+  "features_section": {
+    "section_title": "Intelligence",
+    "section_description": "Powered by Intelligence",
+    "features": [
+      {
+        "icon": "🤖",
+        "title": "AI-Powered Trading"
+      },
+      {
+        "icon": "💰",
+        "title": "High-Yield Staking"
+      },
+      {
+        "icon": "🗳️",
+        "title": "DAO Governance"
+      },
+      {
+        "icon": "⚡",
+        "title": "Lightning Fast"
+      },
+      {
+        "icon": "🔒",
+        "title": "Security First"
+      },
+      {
+        "icon": "📊",
+        "title": "Real-Time Analytics"
+      }
+    ]
+  },
+
+  "tokenomics_section": {
+    "section_title": "Tokenomics",
+    "section_description": "Fair Distribution Designed for Sustainable Growth",
+    "distribution": {
+      "title": "Token Distribution",
+      "items": [
+        {
+          "label": "Public Sale",
+          "percentage": "40% (400M)"
+        },
+        {
+          "label": "Staking Rewards",
+          "percentage": "25% (250M)"
+        },
+        {
+          "label": "Team & Advisors",
+          "percentage": "15% (150M)"
+        },
+        {
+          "label": "Liquidity Pool",
+          "percentage": "10% (100M)"
+        },
+        {
+          "label": "Development Fund",
+          "percentage": "10% (100M)"
+        }
+      ]
+    },
+    "transaction_fees": {
+      "title": "Transaction Fees: 8%",
+      "breakdown": [
+        "4% Burned Forever",
+        "2% Staking Rewards",
+        "2% Development & Marketing"
+      ]
+    },
+    "burn_mechanisms": {
+      "title": "Burn Mechanisms",
+      "subtitle": "Active Burn Mechanisms",
+      "items": [
+        "50% of ALL service fees burned",
+        "4% of every transaction burned",
+        "Manual quarterly burns from profits",
+        "Crypto Checker revenue burns (Q2 2025)"
+      ]
+    },
+    "staking_benefits": {
+      "title": "Staking Benefits",
+      "items": [
+        "Up to 62% APY on locked staking",
+        "Flexible staking: 20% APY",
+        "365-day lock: 62% APY",
+        "Compounding rewards available"
+      ]
+    }
+  },
+
+  "roadmap_section": {
+    "section_title": "Roadmap",
+    "section_description": "Roadmap to Success",
+    "quarters": [
+      {
+        "title": "Q1 2025",
+        "subtitle": "Launch ✅",
+        "items": [
+          "Smart contract development",
+          "Security audit",
+          "DEX listing (PancakeSwap)",
+          "Initial airdrop",
+          "Community building"
+        ]
+      },
+      {
+        "title": "Q2 2025",
+        "subtitle": "Growth 🔄",
+        "items": [
+          "CEX listings (Gate.io, MEXC)",
+          "Staking platform launch",
+          "Crypto Checker service live",
+          "Marketing campaigns",
+          "Strategic partnerships"
+        ]
+      },
+      {
+        "title": "Q3 2025",
+        "subtitle": "Expansion 📅",
+        "items": [
+          "Multi-chain deployment",
+          "NFT integration",
+          "DAO governance launch",
+          "Advanced AI features",
+          "Global expansion"
+        ]
+      },
+      {
+        "title": "Q4 2025",
+        "subtitle": "Ecosystem 🚀",
+        "items": [
+          "Ecosystem grants program",
+          "Developer SDK release",
+          "Enterprise partnerships",
+          "1M+ users milestone",
+          "Mobile app release"
+        ]
+      }
+    ]
+  },
+
+  "footer": {
+    "logo_text_1": "Hype",
+    "logo_text_2": "AI",
+    "social_icons": {
+      "twitter": "𝕏",
+      "telegram": "💬",
+      "discord": "📱",
+      "email": "📧"
+    },
+    "sections": {
+      "quick_links": {
+        "title": "Quick Links",
+        "links": [
+          "Services",
+          "AI Agents",
+          "Tokenomics",
+          "Roadmap",
+          "Private Sale"
+        ]
+      },
+      "resources": {
+        "title": "Resources",
+        "links": [
+          "Documentation",
+          "API Docs",
+          "Whitepaper",
+          "Github",
+          "Proof"
+        ]
+      },
+      "legal": {
+        "title": "Legal",
+        "links": [
+          "Terms of Service",
+          "Privacy Policy",
+          "Cookie Policy",
+          "Disclaimer"
+        ]
+      }
+    },
+    "additional_links": [
+      "Careers",
+      "Blog",
+      "Contact"
+    ],
+    "copyright": "© 2025 HypeAI. All rights reserved."
+  },
+
+  "dynamic_templates": {
+    "agent_task_working": "${agent.name} is working on ${agent.tasks[taskIndex]}...",
+    "agent_task_progress": "${progress}% complete",
+    "agent_task_estimated": "Est: ${formatTime(timeRemaining)}",
+    "agent_tasks_completed": "${agent.completedTasks.toLocaleString()} tasks completed",
+    "feed_item_completed": "${agent.name} completed \"${task}\" ✓",
+    "feed_item_time": "${timeAgo}s ago"
+  },
+
+  "status_labels": {
+    "working": "WORKING",
+    "idle": "IDLE",
+    "completed": "COMPLETED",
+    "live": "LIVE"
+  },
+
+  "notes": {
+    "translation_instructions": "This file contains all text content from the HypeAI website that needs to be translated to Russian. Preserve the structure and only translate the values, not the keys. Keep emojis, numbers, percentages, and special characters unchanged. Preserve HTML entities and formatting codes like ${variable}.",
+    "sections_included": [
+      "Meta tags (SEO)",
+      "Header & Navigation",
+      "Hero section",
+      "Why HypeAI (USP)",
+      "Services section",
+      "AI Agents section",
+      "Live Activity section",
+      "Features section",
+      "Tokenomics section",
+      "Roadmap section",
+      "Footer",
+      "Dynamic templates",
+      "Status labels"
+    ]
+  }
+}

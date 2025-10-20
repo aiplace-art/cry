@@ -1,0 +1,844 @@
+{
+  "catalog_version": "1.0.0",
+  "last_updated": "2025-10-20",
+  "service_categories": {
+    "strategic_consulting": {
+      "category_id": "SC",
+      "category_name": "Strategic Consulting Services",
+      "description": "High-impact strategic consulting for market expansion, digital transformation, M&A, and business model innovation",
+      "target_clients": ["enterprises", "private_equity", "growth_companies", "international_corporations"],
+      "services": {
+        "market_expansion_strategy": {
+          "service_id": "SC-001",
+          "name": "Market Expansion Strategy",
+          "tagline": "AI-powered growth strategies for international success",
+          "description": "Comprehensive market expansion strategy for entering new geographic markets, with focus on EU, Nordic countries, Baltics, and CIS regions",
+          "scope_of_work": {
+            "strategic_assessment": [
+              "Current market position analysis",
+              "Growth objectives and constraints",
+              "Expansion readiness assessment",
+              "Resource and capability evaluation",
+              "Risk appetite and constraints"
+            ],
+            "market_evaluation": [
+              "Target market identification and prioritization",
+              "Market attractiveness analysis",
+              "Competitive landscape assessment",
+              "Entry barrier evaluation",
+              "Regulatory and legal considerations"
+            ],
+            "strategy_development": [
+              "Entry mode strategy (organic, M&A, partnership)",
+              "Go-to-market strategy",
+              "Competitive positioning",
+              "Product/service localization strategy",
+              "Partnership and ecosystem strategy"
+            ],
+            "implementation_planning": [
+              "Detailed implementation roadmap",
+              "Resource requirements and organizational design",
+              "Investment plan and financial projections",
+              "Risk mitigation strategies",
+              "Performance metrics and governance"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Market Expansion Strategy Report",
+              "format": "PDF + Interactive Dashboard",
+              "pages": "120-160",
+              "contents": ["Executive summary", "Market analysis", "Strategic recommendations", "Implementation roadmap", "Financial projections", "Risk analysis"]
+            },
+            {
+              "name": "Market Entry Playbook",
+              "format": "PDF",
+              "pages": "60-80",
+              "contents": ["Step-by-step implementation guide", "Market-specific tactics", "Partnership strategies", "Regulatory navigation", "Cultural considerations"]
+            },
+            {
+              "name": "Financial Model & Business Case",
+              "format": "Excel + Web Dashboard",
+              "contents": ["5-year revenue projections", "Investment requirements", "P&L forecasts", "ROI analysis", "Scenario planning", "Sensitivity analysis"]
+            },
+            {
+              "name": "Organizational Blueprint",
+              "format": "PDF",
+              "pages": "30-40",
+              "contents": ["Organizational structure", "Key roles and responsibilities", "Talent requirements", "Governance model", "Change management plan"]
+            },
+            {
+              "name": "Executive Workshop Series",
+              "format": "3 full-day workshops",
+              "contents": ["Strategy alignment workshop", "Implementation planning workshop", "Launch readiness workshop"]
+            },
+            {
+              "name": "Board Presentation",
+              "format": "PowerPoint",
+              "slides": "50-60",
+              "contents": ["Strategic rationale", "Market opportunity", "Implementation plan", "Financial case", "Risk mitigation"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "12-16 weeks",
+            "phases": {
+              "assessment_and_scoping": "2 weeks",
+              "market_research_analysis": "4-5 weeks",
+              "strategy_development": "3-4 weeks",
+              "implementation_planning": "2-3 weeks",
+              "workshops_and_finalization": "2 weeks"
+            }
+          },
+          "pricing": {
+            "base_price": 60000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 60000,
+              "typical": 90000,
+              "maximum": 150000
+            },
+            "pricing_by_scope": {
+              "single_market_expansion": "60,000-80,000",
+              "multi_market_regional_strategy": "90,000-120,000",
+              "global_expansion_strategy": "130,000-200,000"
+            },
+            "factors_affecting_price": [
+              "Number of target markets (+$20,000 per market beyond first)",
+              "Company size (enterprise +$30,000)",
+              "Industry complexity (+$15,000)",
+              "M&A component (+$25,000-50,000)",
+              "Ongoing advisory (3-6 months +$40,000-80,000)"
+            ],
+            "payment_terms": {
+              "deposit": "35% upon contract signing",
+              "milestone_1": "35% at strategy presentation",
+              "final_payment": "30% upon final delivery"
+            }
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "35%",
+                "responsibilities": ["Market intelligence", "Competitive analysis", "Regulatory research", "Best practice identification"]
+              },
+              {
+                "role": "system-architect",
+                "allocation": "15%",
+                "responsibilities": ["Operating model design", "Process architecture", "Technology recommendations", "Integration planning"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "15%",
+                "responsibilities": ["Data analysis", "Financial modeling", "Scenario analysis", "Dashboard development"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Partner/Principal Consultant",
+                "time_allocation": "150 hours",
+                "responsibilities": ["Overall strategy leadership", "C-suite engagement", "Strategic recommendations", "Board presentation"]
+              },
+              {
+                "role": "Market Expansion Lead",
+                "time_allocation": "200 hours",
+                "responsibilities": ["Project management", "Market analysis", "Strategy development", "Implementation planning"]
+              },
+              {
+                "role": "Regional Market Expert",
+                "time_allocation": "120 hours",
+                "responsibilities": ["Local market insights", "Cultural expertise", "Regulatory guidance", "Network access"]
+              },
+              {
+                "role": "Financial Strategist",
+                "time_allocation": "80 hours",
+                "responsibilities": ["Business case development", "Financial modeling", "Investment structuring", "ROI analysis"]
+              }
+            ],
+            "total_team_size": "4 senior humans + 3 AI agent types"
+          },
+          "success_metrics": {
+            "market_entry_success": {
+              "target": "Successful market entry within 18 months",
+              "measurement": "Market establishment and revenue generation"
+            },
+            "revenue_achievement": {
+              "target": "Achieve 80% of projected revenue in year 2",
+              "measurement": "Actual vs. projected revenue comparison"
+            },
+            "roi": {
+              "target": "15x return on consulting investment within 3 years",
+              "measurement": "New market revenue vs. consulting fees"
+            },
+            "client_satisfaction": {
+              "target": "4.8/5.0",
+              "measurement": "Post-project and 12-month follow-up surveys"
+            }
+          },
+          "specialty_markets": {
+            "estonia": {
+              "expertise_level": "Expert",
+              "services_offered": ["Full market entry", "Digital residency guidance", "EU market gateway strategy", "Tech ecosystem access"],
+              "local_partners": true,
+              "success_stories": "Multiple clients successfully established"
+            },
+            "finland": {
+              "expertise_level": "Expert",
+              "services_offered": ["Nordic market entry", "Innovation ecosystem access", "Public sector partnerships", "Sustainability integration"],
+              "local_partners": true
+            },
+            "sweden_norway_denmark": {
+              "expertise_level": "Expert",
+              "services_offered": ["Nordic expansion", "Corporate culture adaptation", "Regulatory compliance", "M&A facilitation"],
+              "local_partners": true
+            },
+            "germany_netherlands_belgium": {
+              "expertise_level": "Expert",
+              "services_offered": ["EU core market entry", "Manufacturing partnerships", "Distribution setup", "Compliance navigation"],
+              "local_partners": true
+            }
+          }
+        },
+        "digital_transformation_roadmap": {
+          "service_id": "SC-002",
+          "name": "Digital Transformation Roadmap",
+          "tagline": "Chart your path to digital leadership",
+          "description": "End-to-end digital transformation strategy from vision to execution, leveraging AI and emerging technologies for competitive advantage",
+          "scope_of_work": {
+            "vision_and_strategy": [
+              "Digital vision development",
+              "Strategic objectives alignment",
+              "Value creation opportunities",
+              "Digital business model innovation",
+              "Ecosystem and partnership strategy"
+            ],
+            "capability_assessment": [
+              "Current digital maturity",
+              "Technology landscape evaluation",
+              "Organizational capability assessment",
+              "Data and analytics readiness",
+              "Innovation culture evaluation"
+            ],
+            "transformation_design": [
+              "Target operating model design",
+              "Technology architecture blueprint",
+              "Data and AI strategy",
+              "Customer experience transformation",
+              "Operating process redesign"
+            ],
+            "roadmap_and_governance": [
+              "Multi-year transformation roadmap",
+              "Initiative portfolio and prioritization",
+              "Investment plan and business case",
+              "Governance and decision rights",
+              "Change management strategy"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Digital Transformation Strategy",
+              "format": "PDF + Interactive Dashboard",
+              "pages": "100-140",
+              "contents": ["Digital vision", "Strategic imperatives", "Transformation roadmap", "Business case", "Governance framework"]
+            },
+            {
+              "name": "Technology Architecture Blueprint",
+              "format": "PDF + Technical Documentation",
+              "pages": "60-80",
+              "contents": ["Target architecture", "Technology stack", "Integration strategy", "Data architecture", "Security framework", "Cloud strategy"]
+            },
+            {
+              "name": "Transformation Roadmap",
+              "format": "Interactive timeline + Project plans",
+              "contents": ["3-year transformation timeline", "Initiative portfolio", "Dependencies and sequencing", "Resource requirements", "Milestones and gates"]
+            },
+            {
+              "name": "Business Case & Investment Plan",
+              "format": "Excel + Dashboard",
+              "contents": ["Investment requirements by year", "Expected benefits quantification", "ROI analysis", "Funding strategy", "Value realization tracking"]
+            },
+            {
+              "name": "Organizational Change Plan",
+              "format": "PDF",
+              "pages": "40-50",
+              "contents": ["Change strategy", "Stakeholder management", "Communication plan", "Training and capability building", "Culture transformation"]
+            },
+            {
+              "name": "Executive Leadership Program",
+              "format": "Workshop series + coaching",
+              "duration": "6 sessions over 3 months",
+              "contents": ["Digital leadership", "Transformation management", "Decision-making in uncertainty", "Leading change"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "14-18 weeks",
+            "phases": {
+              "vision_and_assessment": "3-4 weeks",
+              "strategy_development": "4-5 weeks",
+              "roadmap_and_planning": "4-5 weeks",
+              "business_case_finalization": "2 weeks",
+              "workshops_and_leadership_alignment": "2-3 weeks"
+            }
+          },
+          "pricing": {
+            "base_price": 80000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 80000,
+              "typical": 120000,
+              "maximum": 200000
+            },
+            "pricing_by_company_size": {
+              "mid_market_100_1000_employees": "80,000-100,000",
+              "large_enterprise_1000_5000": "110,000-150,000",
+              "global_enterprise_5000_plus": "160,000-250,000"
+            },
+            "factors_affecting_price": [
+              "Company size and complexity (+$40,000 for global enterprises)",
+              "Number of business units (+$15,000 per BU)",
+              "International scope (+$25,000)",
+              "Industry complexity (+$20,000 for regulated industries)",
+              "Implementation support (6-12 months +$60,000-150,000)"
+            ],
+            "payment_terms": {
+              "deposit": "30% upon contract signing",
+              "milestone_1": "35% at strategy approval",
+              "milestone_2": "20% at roadmap completion",
+              "final": "15% upon final delivery"
+            }
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "system-architect",
+                "allocation": "35%",
+                "responsibilities": ["Architecture design", "Technology evaluation", "Integration planning", "Solution blueprinting"]
+              },
+              {
+                "role": "researcher",
+                "allocation": "25%",
+                "responsibilities": ["Technology trends", "Best practice research", "Competitive intelligence", "Innovation scouting"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "15%",
+                "responsibilities": ["Current system analysis", "Data flow mapping", "Performance modeling", "Dashboard development"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Partner/Digital Transformation Lead",
+                "time_allocation": "180 hours",
+                "responsibilities": ["Overall strategy", "C-suite engagement", "Vision development", "Board communication"]
+              },
+              {
+                "role": "Enterprise Architect",
+                "time_allocation": "150 hours",
+                "responsibilities": ["Architecture design", "Technology strategy", "Solution design", "Technical leadership"]
+              },
+              {
+                "role": "Change Management Lead",
+                "time_allocation": "100 hours",
+                "responsibilities": ["Change strategy", "Organizational design", "Culture transformation", "Leadership coaching"]
+              },
+              {
+                "role": "Business Strategist",
+                "time_allocation": "80 hours",
+                "responsibilities": ["Business model innovation", "Value creation", "Business case", "Strategic alignment"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "transformation_launch": {
+              "target": "Transformation program launched within 3 months of roadmap completion",
+              "measurement": "Program kick-off and governance establishment"
+            },
+            "milestone_achievement": {
+              "target": "70% of year-1 milestones achieved on time",
+              "measurement": "12-month progress review"
+            },
+            "business_value": {
+              "target": "Achieve 50% of projected benefits within 24 months",
+              "measurement": "Value realization tracking"
+            },
+            "roi": {
+              "target": "200% ROI within 3 years",
+              "measurement": "Benefits vs. total transformation investment"
+            }
+          }
+        },
+        "ma_due_diligence": {
+          "service_id": "SC-003",
+          "name": "M&A Due Diligence & Integration Strategy",
+          "tagline": "AI-enhanced M&A intelligence for deal success",
+          "description": "Comprehensive M&A due diligence combining AI-powered analysis with expert strategic assessment, plus integration strategy for post-deal success",
+          "scope_of_work": {
+            "commercial_due_diligence": [
+              "Market and competitive position validation",
+              "Revenue quality and sustainability assessment",
+              "Customer concentration and retention analysis",
+              "Growth opportunity validation",
+              "Competitive advantage assessment"
+            ],
+            "operational_due_diligence": [
+              "Operating model evaluation",
+              "Process maturity assessment",
+              "Technology and systems review",
+              "Supply chain and vendor analysis",
+              "Scalability assessment"
+            ],
+            "strategic_assessment": [
+              "Strategic fit and synergy identification",
+              "Value creation opportunities",
+              "Risk assessment and mitigation",
+              "Post-merger integration complexity",
+              "Alternative scenarios evaluation"
+            ],
+            "integration_planning": [
+              "Integration strategy development",
+              "Synergy realization roadmap",
+              "Day-1/Day-100 planning",
+              "Organizational integration design",
+              "Cultural integration strategy"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Due Diligence Report",
+              "format": "PDF + Data Room",
+              "pages": "80-120",
+              "contents": ["Executive summary", "Commercial assessment", "Operational review", "Risk analysis", "Valuation implications", "Recommendations"]
+            },
+            {
+              "name": "Red Flag Memo",
+              "format": "PDF (delivered early in process)",
+              "pages": "10-20",
+              "contents": ["Critical findings", "Deal-breaking risks", "Key areas for negotiation", "Urgent investigations required"]
+            },
+            {
+              "name": "Synergy Analysis",
+              "format": "Excel + Dashboard",
+              "contents": ["Revenue synergies", "Cost synergies", "Timing and probability", "Implementation requirements", "Value bridge"]
+            },
+            {
+              "name": "Integration Strategy & Roadmap",
+              "format": "PDF + Project Plan",
+              "pages": "60-80",
+              "contents": ["Integration vision", "Day-1 plan", "100-day plan", "Synergy capture plan", "Organizational design", "Risk mitigation"]
+            },
+            {
+              "name": "Management Presentation",
+              "format": "PowerPoint",
+              "slides": "40-50",
+              "contents": ["Key findings", "Strategic assessment", "Value creation plan", "Integration approach", "Recommendations"]
+            }
+          ],
+          "timeline": {
+            "due_diligence_only": "4-6 weeks",
+            "dd_plus_integration_strategy": "8-10 weeks",
+            "phases": {
+              "rapid_assessment_red_flags": "1 week",
+              "detailed_due_diligence": "3-4 weeks",
+              "integration_strategy": "3-4 weeks (if included)",
+              "finalization": "1 week"
+            }
+          },
+          "pricing": {
+            "due_diligence_only": {
+              "base_price": 40000,
+              "price_range": {
+                "minimum": 40000,
+                "typical": 65000,
+                "maximum": 120000
+              }
+            },
+            "dd_plus_integration_strategy": {
+              "base_price": 70000,
+              "price_range": {
+                "minimum": 70000,
+                "typical": 100000,
+                "maximum": 180000
+              }
+            },
+            "pricing_by_deal_size": {
+              "under_50m": "40,000-60,000",
+              "50m_250m": "65,000-100,000",
+              "250m_1b": "100,000-150,000",
+              "over_1b": "150,000-250,000"
+            },
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "factors_affecting_price": [
+              "Deal size and complexity (+30-50% for complex deals)",
+              "Target company size (+$20,000 for large targets)",
+              "International operations (+$25,000)",
+              "Industry complexity (+$15,000)",
+              "Urgency premium (+40% for 2-week turnaround)",
+              "Integration implementation support (+$80,000-200,000)"
+            ],
+            "payment_terms": {
+              "retainer": "50% upon engagement",
+              "final_payment": "50% upon report delivery"
+            }
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "40%",
+                "responsibilities": ["Market research", "Competitive intelligence", "Industry analysis", "Data room review"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "25%",
+                "responsibilities": ["Financial analysis", "Data analysis", "Synergy modeling", "Risk quantification"]
+              },
+              {
+                "role": "system-architect",
+                "allocation": "15%",
+                "responsibilities": ["Technology assessment", "Integration planning", "Systems compatibility", "Architecture review"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Partner/M&A Lead",
+                "time_allocation": "120 hours",
+                "responsibilities": ["Overall DD leadership", "Client communication", "Strategic assessment", "Deal team coordination"]
+              },
+              {
+                "role": "Commercial DD Lead",
+                "time_allocation": "100 hours",
+                "responsibilities": ["Market validation", "Revenue quality assessment", "Customer analysis", "Growth opportunities"]
+              },
+              {
+                "role": "Operations Specialist",
+                "time_allocation": "80 hours",
+                "responsibilities": ["Operational assessment", "Process evaluation", "Synergy identification", "Integration planning"]
+              },
+              {
+                "role": "Industry Expert",
+                "time_allocation": "40 hours",
+                "responsibilities": ["Industry insights", "Competitive dynamics", "Trend validation", "Expert validation"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "risk_identification": {
+              "target": "Identify 95% of material risks before closing",
+              "measurement": "Post-close risk review"
+            },
+            "valuation_impact": {
+              "target": "DD insights influence 10-20% of purchase price",
+              "measurement": "Negotiation impact analysis"
+            },
+            "synergy_realization": {
+              "target": "Achieve 80% of identified synergies within 24 months",
+              "measurement": "Post-merger synergy tracking"
+            },
+            "integration_success": {
+              "target": "Successful integration with <10% key talent attrition",
+              "measurement": "12-month post-close assessment"
+            }
+          }
+        },
+        "business_model_innovation": {
+          "service_id": "SC-004",
+          "name": "Business Model Innovation",
+          "tagline": "Reimagine your business for exponential growth",
+          "description": "Strategic business model design and innovation leveraging digital technologies, platforms, and AI to create new value and competitive advantage",
+          "scope_of_work": {
+            "current_state_analysis": [
+              "Business model canvas documentation",
+              "Value proposition analysis",
+              "Revenue model assessment",
+              "Cost structure evaluation",
+              "Competitive positioning"
+            ],
+            "opportunity_identification": [
+              "Market discontinuities and trends",
+              "Technology-enabled opportunities",
+              "Customer unmet needs",
+              "Industry value chain evolution",
+              "Platform and ecosystem opportunities"
+            ],
+            "innovation_design": [
+              "New business model concepts",
+              "Value proposition innovation",
+              "Revenue model innovation",
+              "Platform and network effect design",
+              "Ecosystem and partnership models"
+            ],
+            "validation_and_planning": [
+              "Business case development",
+              "Prototype and pilot planning",
+              "Go-to-market strategy",
+              "Organization and capability requirements",
+              "Risk assessment and mitigation"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Business Model Innovation Report",
+              "format": "PDF + Interactive Canvas",
+              "pages": "80-100",
+              "contents": ["Current model analysis", "Innovation opportunities", "New business model designs", "Strategic recommendations", "Implementation roadmap"]
+            },
+            {
+              "name": "Business Model Canvases",
+              "format": "PDF + Editable templates",
+              "contents": ["Current state canvas", "Future state canvas", "Alternative model options", "Value proposition canvases", "Platform design blueprints"]
+            },
+            {
+              "name": "Financial Model & Business Case",
+              "format": "Excel + Dashboard",
+              "contents": ["Revenue projections", "Cost structure", "Investment requirements", "P&L forecasts", "ROI analysis", "Sensitivity scenarios"]
+            },
+            {
+              "name": "Pilot & Validation Plan",
+              "format": "PDF",
+              "pages": "30-40",
+              "contents": ["Pilot objectives and scope", "Success metrics", "Timeline and milestones", "Resource requirements", "Learning agenda"]
+            },
+            {
+              "name": "Innovation Workshop Series",
+              "format": "3 interactive workshops",
+              "duration": "2 days each",
+              "contents": ["Innovation ideation", "Business model design", "Validation planning"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "10-12 weeks",
+            "phases": {
+              "discovery_and_analysis": "2-3 weeks",
+              "innovation_workshops": "2 weeks",
+              "model_design_and_validation": "3-4 weeks",
+              "business_case_and_planning": "2-3 weeks",
+              "finalization": "1 week"
+            }
+          },
+          "pricing": {
+            "base_price": 50000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 50000,
+              "typical": 75000,
+              "maximum": 130000
+            },
+            "factors_affecting_price": [
+              "Company complexity (+$20,000 for multi-BU companies)",
+              "Number of business models explored (+$15,000 per additional model)",
+              "Pilot implementation support (+$30,000-60,000)",
+              "International scope (+$20,000)",
+              "Ongoing advisory during pilot (6 months +$50,000)"
+            ],
+            "payment_terms": {
+              "deposit": "35% upon contract signing",
+              "milestone": "40% after innovation workshops",
+              "final": "25% upon delivery"
+            }
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "35%",
+                "responsibilities": ["Trend analysis", "Business model research", "Competitive intelligence", "Technology opportunity scanning"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "20%",
+                "responsibilities": ["Data analysis", "Financial modeling", "Scenario analysis", "Dashboard development"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "Partner/Innovation Strategist",
+                "time_allocation": "140 hours",
+                "responsibilities": ["Overall strategy", "Workshop facilitation", "Model design", "C-suite engagement"]
+              },
+              {
+                "role": "Business Model Designer",
+                "time_allocation": "120 hours",
+                "responsibilities": ["Business model innovation", "Value proposition design", "Revenue model design", "Canvas development"]
+              },
+              {
+                "role": "Digital Strategist",
+                "time_allocation": "60 hours",
+                "responsibilities": ["Technology opportunities", "Platform design", "Digital value creation", "Ecosystem strategy"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "innovation_quality": {
+              "target": "Develop 3-5 viable business model innovations",
+              "measurement": "Validated concepts with positive business case"
+            },
+            "pilot_launch": {
+              "target": "Launch pilot within 6 months",
+              "measurement": "Pilot launch date"
+            },
+            "revenue_potential": {
+              "target": "New models represent 20%+ revenue opportunity within 3 years",
+              "measurement": "Business case projections"
+            },
+            "market_validation": {
+              "target": "Positive customer validation for primary model",
+              "measurement": "Pilot results and customer feedback"
+            }
+          }
+        },
+        "go_to_market_strategy": {
+          "service_id": "SC-005",
+          "name": "Go-to-Market Strategy",
+          "tagline": "AI-optimized market entry and growth acceleration",
+          "description": "Comprehensive go-to-market strategy for new products, services, or markets, combining AI-driven insights with battle-tested frameworks",
+          "scope_of_work": {
+            "market_and_customer": [
+              "Target market definition and sizing",
+              "Customer segment identification",
+              "Buyer persona development",
+              "Customer journey mapping",
+              "Competitive positioning"
+            ],
+            "value_proposition": [
+              "Value proposition development",
+              "Messaging and positioning",
+              "Product-market fit validation",
+              "Pricing strategy",
+              "Brand strategy"
+            ],
+            "gtm_strategy": [
+              "Channel strategy",
+              "Sales model design",
+              "Marketing strategy and plan",
+              "Partnership strategy",
+              "Customer acquisition strategy"
+            ],
+            "execution_planning": [
+              "Launch plan and timeline",
+              "Sales and marketing playbooks",
+              "Resource requirements",
+              "Budget allocation",
+              "Metrics and KPIs"
+            ]
+          },
+          "deliverables": [
+            {
+              "name": "Go-to-Market Strategy Report",
+              "format": "PDF + Dashboard",
+              "pages": "90-110",
+              "contents": ["Market analysis", "Customer insights", "Competitive positioning", "GTM strategy", "Launch plan", "Financial projections"]
+            },
+            {
+              "name": "Sales Playbook",
+              "format": "PDF + Templates",
+              "pages": "50-60",
+              "contents": ["Sales process", "Buyer personas", "Value propositions", "Objection handling", "Sales tools", "Pitch decks"]
+            },
+            {
+              "name": "Marketing Playbook",
+              "format": "PDF + Campaign templates",
+              "pages": "50-60",
+              "contents": ["Marketing strategy", "Campaign plans", "Content strategy", "Channel tactics", "Budget allocation", "Measurement framework"]
+            },
+            {
+              "name": "Launch Plan",
+              "format": "PDF + Project plan",
+              "pages": "30-40",
+              "contents": ["Pre-launch activities", "Launch timeline", "Cross-functional coordination", "Milestones and gates", "Risk mitigation"]
+            },
+            {
+              "name": "Financial Model",
+              "format": "Excel + Dashboard",
+              "contents": ["Customer acquisition economics", "Revenue ramp", "Marketing and sales budget", "Unit economics", "Break-even analysis"]
+            }
+          ],
+          "timeline": {
+            "total_duration": "8-10 weeks",
+            "phases": {
+              "discovery": "2 weeks",
+              "strategy_development": "3-4 weeks",
+              "playbook_creation": "2-3 weeks",
+              "launch_planning": "1-2 weeks"
+            }
+          },
+          "pricing": {
+            "base_price": 35000,
+            "currency": "USD",
+            "pricing_model": "project_based",
+            "price_range": {
+              "minimum": 35000,
+              "typical": 55000,
+              "maximum": 90000
+            },
+            "pricing_by_scope": {
+              "single_product_launch": "35,000-50,000",
+              "platform_or_multi_product": "55,000-75,000",
+              "new_market_entry": "60,000-90,000",
+              "enterprise_complex_sale": "70,000-110,000"
+            },
+            "factors_affecting_price": [
+              "Market complexity (+$10,000)",
+              "International markets (+$15,000)",
+              "Enterprise sales (+$15,000)",
+              "Implementation support (3-6 months +$30,000-60,000)",
+              "Sales team training (+$15,000)"
+            ]
+          },
+          "team_composition": {
+            "ai_agents": [
+              {
+                "role": "researcher",
+                "allocation": "40%",
+                "responsibilities": ["Market research", "Competitive analysis", "Customer insights", "Channel research"]
+              },
+              {
+                "role": "code-analyzer",
+                "allocation": "15%",
+                "responsibilities": ["Data analysis", "Financial modeling", "Performance tracking", "Dashboard development"]
+              }
+            ],
+            "human_oversight": [
+              {
+                "role": "GTM Strategist",
+                "time_allocation": "120 hours",
+                "responsibilities": ["Overall strategy", "Market positioning", "GTM design", "Client advisory"]
+              },
+              {
+                "role": "Sales Strategist",
+                "time_allocation": "80 hours",
+                "responsibilities": ["Sales model design", "Playbook development", "Sales process", "Enablement planning"]
+              },
+              {
+                "role": "Marketing Strategist",
+                "time_allocation": "80 hours",
+                "responsibilities": ["Marketing strategy", "Campaign design", "Content strategy", "Channel planning"]
+              }
+            ]
+          },
+          "success_metrics": {
+            "launch_execution": {
+              "target": "Launch on time within 10% of budget",
+              "measurement": "Launch date and budget tracking"
+            },
+            "customer_acquisition": {
+              "target": "Achieve 80% of 6-month customer targets",
+              "measurement": "Customer acquisition tracking"
+            },
+            "cac_efficiency": {
+              "target": "CAC within 20% of model projections",
+              "measurement": "Actual CAC vs. projected"
+            },
+            "revenue_achievement": {
+              "target": "Achieve 70% of year-1 revenue projections",
+              "measurement": "Revenue tracking"
+            }
+          }
+        }
+      }
+    }
+  }
+}

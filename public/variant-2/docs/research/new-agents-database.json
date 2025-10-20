@@ -1,0 +1,469 @@
+{
+  "meta": {
+    "title": "HypeAI New Agent Specifications",
+    "date": "2025-10-20",
+    "totalNewAgents": 13,
+    "phases": 3,
+    "status": "Ready for Implementation"
+  },
+
+  "phase1Agents": [
+    {
+      "id": 28,
+      "name": "STRATEGY",
+      "role": "Business Plan Specialist",
+      "specialty": "Investor-Ready Business Plans",
+      "skills": [
+        "Business plan writing",
+        "Financial modeling",
+        "Pitch deck creation",
+        "Market analysis",
+        "Revenue projections",
+        "Executive summary writing",
+        "Investor presentations",
+        "Competitive positioning"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2C + Small Business",
+      "pricing": {
+        "basic": "$499 (Template-based business plan)",
+        "standard": "$1,299 (Custom investor-ready)",
+        "premium": "$2,999 (Full model + pitch deck)"
+      },
+      "revenueProjection": "$600K-$1.5M/year",
+      "deliveryTime": "2-5 days",
+      "priority": "CRITICAL",
+      "phase": 1
+    },
+    {
+      "id": 29,
+      "name": "SCHOLAR",
+      "role": "Academic Research Specialist",
+      "specialty": "Thesis & Dissertation Support",
+      "skills": [
+        "Research methodology",
+        "Literature review",
+        "Academic writing",
+        "Citation formatting (APA, MLA, Chicago)",
+        "Dissertation editing",
+        "Thesis structure",
+        "Statistical analysis support",
+        "Plagiarism prevention"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2C (Students, Researchers)",
+      "pricing": {
+        "outline": "$399 (Structure + research guidance)",
+        "editing": "$899 (Comprehensive editing)",
+        "writing": "$2,499 (Chapter assistance)",
+        "complete": "$4,999 (Full dissertation support)"
+      },
+      "revenueProjection": "$400K-$900K/year",
+      "deliveryTime": "1-4 weeks",
+      "priority": "CRITICAL",
+      "phase": 1,
+      "legalNote": "Research assistance and editing only, not ghost-writing"
+    },
+    {
+      "id": 30,
+      "name": "WEALTH",
+      "role": "Personal Finance Advisor",
+      "specialty": "Financial Planning for Individuals",
+      "skills": [
+        "Financial planning",
+        "Retirement strategy",
+        "Investment analysis",
+        "Budget optimization",
+        "Debt management",
+        "Tax planning basics",
+        "Estate planning overview",
+        "Financial goal setting"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2C (Individuals, Families)",
+      "pricing": {
+        "basic": "$599 (Financial health assessment)",
+        "standard": "$1,499 (Comprehensive plan)",
+        "premium": "$2,999 (Full strategy + estate)",
+        "ongoing": "$299/month (Continuous advisory)"
+      },
+      "revenueProjection": "$480K-$1.2M/year",
+      "deliveryTime": "1-2 weeks",
+      "priority": "CRITICAL",
+      "phase": 1,
+      "certifications": ["Disclaimer: Educational purposes only, not investment advice"],
+      "complianceNote": "All advice includes appropriate disclaimers"
+    },
+    {
+      "id": 31,
+      "name": "AUDIT",
+      "role": "Corporate Audit Specialist",
+      "specialty": "Due Diligence & Business Audits",
+      "skills": [
+        "Financial statement analysis",
+        "Due diligence investigations",
+        "Business process auditing",
+        "Risk assessment",
+        "Compliance review",
+        "Internal controls evaluation",
+        "Fraud detection",
+        "M&A analysis"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2B Enterprise",
+      "pricing": {
+        "basic": "$5,500 (Small business audit)",
+        "standard": "$15,000 (Mid-market due diligence)",
+        "comprehensive": "$35,000 (Full enterprise audit)",
+        "critical": "$75,000 (Pre-acquisition deep dive)"
+      },
+      "revenueProjection": "$1.8M-$4.5M/year",
+      "deliveryTime": "2-6 weeks",
+      "priority": "CRITICAL",
+      "phase": 1,
+      "certifications": ["Professional liability insurance required"]
+    },
+    {
+      "id": 32,
+      "name": "GLOBAL",
+      "role": "International Market Research Lead",
+      "specialty": "EU Market Entry (Estonia/Finland Focus)",
+      "skills": [
+        "International market research",
+        "EU market entry strategy",
+        "Regulatory compliance analysis",
+        "Cultural market assessment",
+        "Competitive landscape mapping",
+        "Go-to-market planning",
+        "Estonia/Finland expertise",
+        "Nordic market knowledge"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2B Enterprise",
+      "pricing": {
+        "scan": "$12,000 (Market opportunity assessment)",
+        "feasibility": "$35,000 (Detailed entry analysis)",
+        "fullStrategy": "$85,000 (Complete GTM plan)",
+        "retainer": "$15,000/quarter (Market intelligence)"
+      },
+      "revenueProjection": "$2.1M-$6.1M/year",
+      "deliveryTime": "4-12 weeks",
+      "priority": "CRITICAL",
+      "phase": 1,
+      "specialization": "Estonia/Finland as EU gateway"
+    },
+    {
+      "id": 33,
+      "name": "TRANSFORM",
+      "role": "Enterprise Strategy Consultant",
+      "specialty": "Digital Transformation & AI Adoption",
+      "skills": [
+        "Digital transformation strategy",
+        "AI adoption roadmaps",
+        "Change management",
+        "Technology stack optimization",
+        "Process reengineering",
+        "Innovation strategy",
+        "Organizational design",
+        "Executive advisory"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2B Enterprise",
+      "pricing": {
+        "hourly": "$250/hour (Senior consultant level)",
+        "project": "$45,000 (3-month transformation)",
+        "retainer": "$18,000/month (Executive advisory)"
+      },
+      "revenueProjection": "$2.7M-$5.4M/year",
+      "deliveryTime": "3-6 months",
+      "priority": "CRITICAL",
+      "phase": 1
+    },
+    {
+      "id": 34,
+      "name": "AUTOMATE",
+      "role": "AI Automation Architect",
+      "specialty": "Workflow Automation & AI Integration",
+      "skills": [
+        "Process automation",
+        "AI workflow design",
+        "RPA implementation",
+        "Integration architecture",
+        "Automation opportunity analysis",
+        "ROI modeling",
+        "Change management",
+        "Training & adoption"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2B Enterprise",
+      "pricing": {
+        "assessment": "$8,500 (Opportunity analysis)",
+        "pilot": "$35,000 (Single workflow)",
+        "department": "$85,000 (Department-wide)",
+        "enterprise": "$250,000 (Company-wide transformation)"
+      },
+      "revenueProjection": "$3.1M-$7.2M/year",
+      "deliveryTime": "2-6 months",
+      "priority": "CRITICAL",
+      "phase": 1
+    }
+  ],
+
+  "phase2Agents": [
+    {
+      "id": 35,
+      "name": "LAUNCH",
+      "role": "Startup Strategy Advisor",
+      "specialty": "MVP Strategy & Go-to-Market",
+      "skills": [
+        "MVP definition",
+        "Product-market fit",
+        "Go-to-market strategy",
+        "Lean startup methodology",
+        "Customer development",
+        "Funding strategy",
+        "Pitch preparation",
+        "Growth planning"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2C (Founders) + Small B2B",
+      "pricing": {
+        "hourly": "$95/hour",
+        "small": "$1,499 (MVP strategy)",
+        "medium": "$3,999 (6-month roadmap)",
+        "large": "$7,999 (Full GTM strategy)"
+      },
+      "revenueProjection": "$360K-$960K/year",
+      "deliveryTime": "1-6 weeks",
+      "priority": "HIGH",
+      "phase": 2
+    },
+    {
+      "id": 36,
+      "name": "INTEL",
+      "role": "Market Research Analyst",
+      "specialty": "Competitive Intelligence & Market Analysis",
+      "skills": [
+        "Market research",
+        "Competitive analysis",
+        "Industry trends",
+        "Customer segmentation",
+        "Market sizing",
+        "Opportunity assessment",
+        "Data analysis",
+        "Research reports"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2C + B2B",
+      "pricing": {
+        "quick": "$799 (Competitor analysis)",
+        "standard": "$2,499 (Market assessment)",
+        "deep": "$5,999 (Full market strategy)",
+        "b2b": "$25,000 (Enterprise research)"
+      },
+      "revenueProjection": "$1M-$2.8M/year",
+      "deliveryTime": "1-3 weeks",
+      "priority": "HIGH",
+      "phase": 2
+    },
+    {
+      "id": 37,
+      "name": "COMPETE",
+      "role": "Competitive Intelligence Analyst",
+      "specialty": "Ongoing Market & Competitor Monitoring",
+      "skills": [
+        "Competitor monitoring",
+        "Market intelligence",
+        "Trend analysis",
+        "Strategic positioning",
+        "Threat assessment",
+        "Opportunity identification",
+        "Intelligence reports",
+        "Benchmarking"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2B",
+      "pricing": {
+        "quarterly": "$8,500 (Quarterly report)",
+        "deepDive": "$25,000 (Comprehensive analysis)",
+        "retainer": "$12,000/quarter (Ongoing intelligence)"
+      },
+      "revenueProjection": "$816K-$2.25M/year",
+      "deliveryTime": "Ongoing/Quarterly",
+      "priority": "HIGH",
+      "phase": 2
+    },
+    {
+      "id": 38,
+      "name": "TALENT",
+      "role": "HR & Recruitment Specialist",
+      "specialty": "Talent Acquisition & Organizational Design",
+      "skills": [
+        "Recruitment strategy",
+        "Job description writing",
+        "Candidate screening",
+        "Organizational design",
+        "Compensation planning",
+        "Performance management",
+        "HR policy development",
+        "Talent retention"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2B",
+      "pricing": {
+        "project": "$2,500 (Recruitment project)",
+        "assessment": "$5,000 (Org design assessment)",
+        "retainer": "$3,000/month (Ongoing HR support)"
+      },
+      "revenueProjection": "$500K-$1.2M/year",
+      "deliveryTime": "2-8 weeks",
+      "priority": "MEDIUM",
+      "phase": 2
+    }
+  ],
+
+  "phase3Agents": [
+    {
+      "id": 39,
+      "name": "SALES",
+      "role": "Sales Automation Expert",
+      "specialty": "Sales Funnel Optimization & CRM",
+      "skills": [
+        "Sales funnel design",
+        "CRM implementation",
+        "Lead generation",
+        "Sales automation",
+        "Pipeline management",
+        "Conversion optimization",
+        "Sales analytics",
+        "Email sequences"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2B",
+      "pricing": {
+        "audit": "$3,500 (Sales process audit)",
+        "implementation": "$12,000 (CRM setup + automation)",
+        "retainer": "$4,000/month (Ongoing optimization)"
+      },
+      "revenueProjection": "$600K-$1.5M/year",
+      "deliveryTime": "4-8 weeks",
+      "priority": "MEDIUM",
+      "phase": 3
+    },
+    {
+      "id": 40,
+      "name": "OPERATIONS",
+      "role": "Operations Consultant",
+      "specialty": "Process Optimization & Efficiency",
+      "skills": [
+        "Process mapping",
+        "Efficiency analysis",
+        "Supply chain optimization",
+        "Quality management",
+        "Lean methodology",
+        "Six Sigma principles",
+        "KPI development",
+        "Performance improvement"
+      ],
+      "experience": "0 tasks (New Agent)",
+      "availability": "24/7",
+      "targetMarket": "B2B",
+      "pricing": {
+        "assessment": "$5,000 (Operations audit)",
+        "project": "$15,000 (Process optimization)",
+        "retainer": "$5,000/month (Continuous improvement)"
+      },
+      "revenueProjection": "$550K-$1.3M/year",
+      "deliveryTime": "4-12 weeks",
+      "priority": "MEDIUM",
+      "phase": 3
+    }
+  ],
+
+  "optionalAgents": [
+    {
+      "id": 41,
+      "name": "COUNSEL",
+      "role": "Business Legal Advisor",
+      "specialty": "Contracts, Corporate Structure, IP",
+      "priority": "LOW",
+      "note": "Add if legal partnerships secured",
+      "phase": "Optional"
+    },
+    {
+      "id": 42,
+      "name": "TEACH",
+      "role": "Corporate Training Specialist",
+      "specialty": "Employee Training & Development",
+      "priority": "MEDIUM",
+      "note": "Recurring revenue stream",
+      "phase": "Optional"
+    },
+    {
+      "id": 43,
+      "name": "SUSTAIN",
+      "role": "ESG & Sustainability Consultant",
+      "specialty": "Environmental, Social, Governance Reporting",
+      "priority": "MEDIUM",
+      "note": "EU market requirement",
+      "phase": "Optional"
+    },
+    {
+      "id": 44,
+      "name": "GRANT",
+      "role": "Funding & Grant Specialist",
+      "specialty": "EU Grants, VC Funding, Government Programs",
+      "priority": "MEDIUM",
+      "note": "High value for Estonia/Finland",
+      "phase": "Optional"
+    },
+    {
+      "id": 45,
+      "name": "PARTNER",
+      "role": "Partnership Development Specialist",
+      "specialty": "Strategic Alliances & Channel Development",
+      "priority": "MEDIUM",
+      "note": "Enterprise growth",
+      "phase": "Optional"
+    }
+  ],
+
+  "implementationSummary": {
+    "phase1": {
+      "agents": 7,
+      "timeline": "Months 1-3",
+      "investment": "$40K-$60K",
+      "expectedRevenue": "$200K-$400K (first 3 months)",
+      "priority": "CRITICAL - Launch immediately"
+    },
+    "phase2": {
+      "agents": 4,
+      "timeline": "Months 4-6",
+      "investment": "$20K-$30K",
+      "expectedRevenue": "$400K-$800K (months 4-6)",
+      "priority": "HIGH - Validate Phase 1 first"
+    },
+    "phase3": {
+      "agents": 2,
+      "timeline": "Months 7-12",
+      "investment": "$15K-$25K",
+      "expectedRevenue": "$600K-$1.2M (months 7-12)",
+      "priority": "MEDIUM - Scale based on demand"
+    },
+    "totalNewAgents": 13,
+    "totalInvestment": "$75K-$115K",
+    "year1Revenue": "$1.2M-$2.4M (from new agents only)"
+  }
+}

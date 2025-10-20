@@ -1,0 +1,569 @@
+{
+  "catalog_version": "1.0.0",
+  "last_updated": "2025-10-20",
+  "service_categories": {
+    "ongoing_support": {
+      "category_id": "OS",
+      "category_name": "Ongoing Support & Retainer Services",
+      "description": "Continuous strategic support and advisory services for sustained business excellence and growth",
+      "target_clients": ["enterprises", "growth_companies", "portfolio_companies", "strategic_clients"],
+      "service_packages": {
+        "executive_advisory_retainer": {
+          "service_id": "OS-001",
+          "name": "Executive Advisory Retainer",
+          "tagline": "Your strategic AI-powered advisory team on demand",
+          "description": "Ongoing strategic advisory providing C-suite level guidance, market intelligence, and decision support combining AI capabilities with senior human expertise",
+          "scope_of_work": {
+            "strategic_advisory": [
+              "Monthly strategic advisory sessions",
+              "Ad-hoc strategic counsel",
+              "Market opportunity assessment",
+              "Strategic decision support",
+              "Board presentation support"
+            ],
+            "market_intelligence": [
+              "Continuous competitive monitoring",
+              "Market trend tracking",
+              "Industry intelligence briefings",
+              "Quarterly market outlook",
+              "Strategic threat alerts"
+            ],
+            "performance_monitoring": [
+              "KPI tracking and analysis",
+              "Performance benchmarking",
+              "Early warning indicators",
+              "Opportunity identification",
+              "Risk monitoring"
+            ],
+            "on_demand_support": [
+              "Quick response analysis (48-hour turnaround)",
+              "Expert consultation access",
+              "Research requests",
+              "Ad-hoc presentations",
+              "Strategic workshop facilitation"
+            ]
+          },
+          "service_tiers": {
+            "essential": {
+              "monthly_fee": 8000,
+              "included_hours": 20,
+              "additional_hour_rate": 450,
+              "features": [
+                "1 monthly advisory session (2 hours)",
+                "Email/phone support",
+                "Quarterly business review",
+                "Market intelligence dashboard access",
+                "Competitive alerts",
+                "2 ad-hoc requests per month"
+              ],
+              "team": {
+                "primary_advisor": "Senior Consultant",
+                "support_team": "2 AI agents + 1 analyst"
+              },
+              "best_for": "Mid-market companies, focused advisory needs"
+            },
+            "professional": {
+              "monthly_fee": 15000,
+              "included_hours": 40,
+              "additional_hour_rate": 425,
+              "features": [
+                "2 monthly advisory sessions (4 hours total)",
+                "Priority support (24-hour response)",
+                "Monthly business review",
+                "Quarterly strategic planning workshop",
+                "Custom market intelligence reports",
+                "Competitive intelligence updates",
+                "5 ad-hoc requests per month",
+                "Board presentation support (2 per year)"
+              ],
+              "team": {
+                "primary_advisor": "Partner/Principal",
+                "support_team": "3 AI agents + 2 analysts + domain experts on-call"
+              },
+              "best_for": "Large enterprises, complex strategic needs"
+            },
+            "premier": {
+              "monthly_fee": 25000,
+              "included_hours": 70,
+              "additional_hour_rate": 400,
+              "features": [
+                "Weekly strategic touchpoints",
+                "Executive team advisory sessions",
+                "Dedicated strategic advisor",
+                "Monthly business review and strategic planning",
+                "Quarterly board-level strategic sessions",
+                "Real-time market intelligence",
+                "Unlimited ad-hoc requests",
+                "Board presentation development (4 per year)",
+                "Crisis response support (4-hour response)",
+                "Annual strategic retreat facilitation",
+                "Industry expert network access"
+              ],
+              "team": {
+                "primary_advisor": "Senior Partner",
+                "support_team": "5 AI agents + 3 senior analysts + dedicated research team + expert network"
+              },
+              "best_for": "Global enterprises, mission-critical strategic support"
+            }
+          },
+          "deliverables": {
+            "monthly": [
+              "Advisory session summaries",
+              "Action item tracking",
+              "Market intelligence briefing",
+              "Competitive updates",
+              "Performance dashboard"
+            ],
+            "quarterly": [
+              "Quarterly business review report",
+              "Strategic planning workshop",
+              "Market outlook and trends analysis",
+              "Competitive landscape update",
+              "Strategic recommendations"
+            ],
+            "annual": [
+              "Annual strategic assessment",
+              "Year-end performance analysis",
+              "Strategic plan for upcoming year",
+              "Executive presentation to board"
+            ]
+          },
+          "contract_terms": {
+            "minimum_commitment": "6 months",
+            "payment_terms": "Monthly in advance",
+            "termination": "30 days written notice after minimum commitment",
+            "annual_prepay_discount": "10% discount for annual prepayment"
+          },
+          "success_metrics": {
+            "client_satisfaction": {
+              "target": "4.8/5.0 quarterly satisfaction rating",
+              "measurement": "Quarterly client survey"
+            },
+            "strategic_impact": {
+              "target": "Advisory influences 70%+ of major strategic decisions",
+              "measurement": "Client feedback and decision tracking"
+            },
+            "value_realization": {
+              "target": "Client identifies 10x+ ROI annually",
+              "measurement": "Annual value assessment survey"
+            },
+            "retention": {
+              "target": "90% client retention beyond initial commitment",
+              "measurement": "Renewal tracking"
+            }
+          }
+        },
+        "market_monitoring_service": {
+          "service_id": "OS-002",
+          "name": "Continuous Market Monitoring",
+          "tagline": "Never miss a market signal with AI-powered intelligence",
+          "description": "Automated market and competitive monitoring with human-validated insights delivered continuously",
+          "scope_of_work": {
+            "monitoring_scope": [
+              "Competitive activity tracking",
+              "Market trend monitoring",
+              "Regulatory change tracking",
+              "Technology evolution monitoring",
+              "Customer sentiment analysis",
+              "Industry news curation"
+            ],
+            "analysis_and_insights": [
+              "Signal prioritization and filtering",
+              "Impact assessment",
+              "Strategic implications analysis",
+              "Opportunity and threat identification",
+              "Expert interpretation"
+            ],
+            "alerting_and_reporting": [
+              "Real-time critical alerts",
+              "Weekly digest reports",
+              "Monthly intelligence briefings",
+              "Quarterly trend analysis",
+              "Custom alerts based on keywords/events"
+            ]
+          },
+          "service_tiers": {
+            "standard": {
+              "monthly_fee": 3000,
+              "features": [
+                "Monitoring of 5 competitors",
+                "Weekly intelligence digest",
+                "Monthly briefing report (10-15 pages)",
+                "Email alerts for critical developments",
+                "Dashboard access",
+                "Quarterly trends analysis"
+              ],
+              "sources": "500+ curated sources",
+              "coverage": "Single market/region"
+            },
+            "advanced": {
+              "monthly_fee": 6000,
+              "features": [
+                "Monitoring of 10 competitors",
+                "Bi-weekly intelligence digest",
+                "Bi-weekly briefing report (15-20 pages)",
+                "SMS + email alerts",
+                "Advanced analytics dashboard",
+                "Monthly trends analysis",
+                "Social media monitoring",
+                "Patent and innovation tracking"
+              ],
+              "sources": "1000+ global sources",
+              "coverage": "Multi-market (up to 3 regions)"
+            },
+            "enterprise": {
+              "monthly_fee": 10000,
+              "features": [
+                "Monitoring of 20+ competitors",
+                "Daily intelligence briefs",
+                "Weekly deep-dive reports (20-30 pages)",
+                "Multi-channel alerts (SMS, email, Slack)",
+                "Customized dashboard",
+                "Bi-weekly trends analysis",
+                "Social media and sentiment tracking",
+                "Patent, M&A, and funding tracking",
+                "Expert analyst calls (2 per month)",
+                "Custom research requests (2 per month)"
+              ],
+              "sources": "2000+ global sources + proprietary data",
+              "coverage": "Global coverage, all markets"
+            }
+          },
+          "deliverables": {
+            "real_time": [
+              "Critical event alerts",
+              "Breaking news notifications",
+              "Competitive move alerts"
+            ],
+            "weekly": [
+              "Intelligence digest (5-10 pages)",
+              "Top developments summary",
+              "Strategic signals"
+            ],
+            "monthly": [
+              "Comprehensive intelligence briefing",
+              "Trend analysis",
+              "Competitive landscape update",
+              "Strategic recommendations"
+            ],
+            "quarterly": [
+              "Market outlook report",
+              "Competitive positioning analysis",
+              "Strategic opportunity assessment"
+            ]
+          },
+          "contract_terms": {
+            "minimum_commitment": "3 months",
+            "payment_terms": "Monthly in advance",
+            "setup_fee": "One-time $2,000 (waived for annual contracts)",
+            "annual_prepay_discount": "15% discount for annual prepayment"
+          },
+          "success_metrics": {
+            "signal_quality": {
+              "target": "90% of alerts rated as relevant/valuable",
+              "measurement": "Client feedback on alerts"
+            },
+            "early_detection": {
+              "target": "Identify critical developments 2-4 weeks before general awareness",
+              "measurement": "Time-to-alert vs. market awareness"
+            },
+            "action_rate": {
+              "target": "Client takes action on 30%+ of strategic signals",
+              "measurement": "Monthly client survey"
+            }
+          }
+        },
+        "quarterly_business_review": {
+          "service_id": "OS-003",
+          "name": "Quarterly Business Review Program",
+          "tagline": "Regular strategic checkpoints for sustained excellence",
+          "description": "Structured quarterly review process providing external perspective, performance analysis, and strategic recalibration",
+          "scope_of_work": {
+            "performance_review": [
+              "Financial performance analysis",
+              "Operational metrics review",
+              "Strategic initiative progress",
+              "KPI tracking and trends",
+              "Benchmarking against targets and peers"
+            ],
+            "market_and_competitive_update": [
+              "Market developments review",
+              "Competitive landscape changes",
+              "Industry trends update",
+              "Regulatory and policy changes",
+              "Technology evolution"
+            ],
+            "strategic_assessment": [
+              "Strategy effectiveness evaluation",
+              "Priority reassessment",
+              "Opportunity and risk update",
+              "Resource allocation review",
+              "Strategic adjustments recommendations"
+            ],
+            "planning_and_priorities": [
+              "Next quarter planning",
+              "Priority setting",
+              "Resource allocation recommendations",
+              "Risk mitigation planning",
+              "Success metrics definition"
+            ]
+          },
+          "service_tiers": {
+            "core": {
+              "quarterly_fee": 12000,
+              "annual_equivalent": 48000,
+              "features": [
+                "1-day on-site review session",
+                "Pre-review data analysis (40 hours)",
+                "Quarterly business review report (40-50 pages)",
+                "Executive presentation",
+                "Strategic recommendations",
+                "90-day action plan"
+              ],
+              "team": "Senior consultant + 2 AI agents + analyst"
+            },
+            "comprehensive": {
+              "quarterly_fee": 20000,
+              "annual_equivalent": 80000,
+              "features": [
+                "2-day on-site strategic review",
+                "Pre-review deep analysis (80 hours)",
+                "Comprehensive QBR report (60-80 pages)",
+                "Board-level presentation",
+                "Strategic recommendations with detailed implementation plans",
+                "90-day strategic roadmap",
+                "Mid-quarter progress check-in",
+                "Access to expert network for ad-hoc questions"
+              ],
+              "team": "Partner + 2 senior consultants + 3 AI agents + research team"
+            },
+            "executive": {
+              "quarterly_fee": 35000,
+              "annual_equivalent": 140000,
+              "features": [
+                "3-day executive strategic retreat",
+                "Pre-review comprehensive analysis (120 hours)",
+                "Executive QBR report (80-100 pages)",
+                "Board presentation with supporting materials",
+                "Strategic roadmap with detailed workstreams",
+                "Organizational alignment plan",
+                "Monthly progress touchpoints between QBRs",
+                "Crisis response support",
+                "Unlimited email/phone advisory",
+                "Expert network access"
+              ],
+              "team": "Senior Partner + 3 senior consultants + 5 AI agents + dedicated research team + expert advisors"
+            }
+          },
+          "deliverables": {
+            "pre_review": [
+              "Data collection and analysis",
+              "Stakeholder interviews (optional)",
+              "Performance benchmarking",
+              "Market and competitive research"
+            ],
+            "during_review": [
+              "Facilitated review sessions",
+              "Strategy workshops",
+              "Priority setting exercises",
+              "Action planning"
+            ],
+            "post_review": [
+              "QBR report with findings and recommendations",
+              "Executive presentation deck",
+              "90-day action plan",
+              "Implementation toolkit",
+              "Progress tracking dashboard"
+            ]
+          },
+          "contract_terms": {
+            "commitment": "Annual (4 quarterly reviews)",
+            "payment_terms": "Quarterly in advance",
+            "cancellation": "Can cancel after 2 quarters with 60 days notice",
+            "annual_prepay_discount": "12% discount for annual prepayment"
+          },
+          "success_metrics": {
+            "strategic_clarity": {
+              "target": "95% of leadership team aligned on priorities after each QBR",
+              "measurement": "Post-QBR alignment survey"
+            },
+            "action_completion": {
+              "target": "75% of 90-day actions completed on time",
+              "measurement": "Progress tracking at each QBR"
+            },
+            "performance_improvement": {
+              "target": "Year-over-year improvement in 70% of key metrics",
+              "measurement": "Annual performance comparison"
+            },
+            "client_value": {
+              "target": "Client rates QBR value at 4.7/5.0+",
+              "measurement": "Post-QBR satisfaction survey"
+            }
+          }
+        },
+        "transformation_program_support": {
+          "service_id": "OS-004",
+          "name": "Transformation Program Support",
+          "tagline": "Expert guidance throughout your transformation journey",
+          "description": "Ongoing support for clients executing major transformation programs (digital, operational, organizational) ensuring successful delivery and value realization",
+          "scope_of_work": {
+            "program_governance": [
+              "Program governance support",
+              "Steering committee participation",
+              "Progress monitoring and reporting",
+              "Risk and issue management",
+              "Decision support"
+            ],
+            "workstream_support": [
+              "Workstream advisory",
+              "Best practice guidance",
+              "Problem solving and unblocking",
+              "Quality assurance",
+              "Course correction recommendations"
+            ],
+            "change_management": [
+              "Change readiness assessment",
+              "Stakeholder engagement",
+              "Communication strategy support",
+              "Training and capability building",
+              "Adoption tracking"
+            ],
+            "value_realization": [
+              "Benefits tracking",
+              "Value realization monitoring",
+              "ROI validation",
+              "Success metrics reporting",
+              "Optimization recommendations"
+            ]
+          },
+          "service_tiers": {
+            "advisory": {
+              "monthly_fee": 15000,
+              "included_hours": 50,
+              "features": [
+                "Monthly steering committee participation",
+                "Bi-weekly program check-ins",
+                "Progress reporting and dashboard",
+                "Risk and issue advisory",
+                "Best practice guidance",
+                "Quarterly value realization review",
+                "Email/phone support"
+              ],
+              "team": "Senior consultant + program analyst + AI agents"
+            },
+            "hands_on": {
+              "monthly_fee": 30000,
+              "included_hours": 120,
+              "features": [
+                "Weekly on-site presence",
+                "Steering committee leadership",
+                "Active workstream support",
+                "Detailed progress reporting",
+                "Risk mitigation planning and execution support",
+                "Change management support",
+                "Stakeholder management",
+                "Monthly value realization tracking",
+                "Issue resolution support",
+                "Quality assurance reviews"
+              ],
+              "team": "Partner + 2 senior consultants + program manager + AI agents + specialists"
+            },
+            "embedded": {
+              "monthly_fee": 50000,
+              "included_hours": 200,
+              "features": [
+                "Embedded program leadership (3-4 days/week on-site)",
+                "Full program management support",
+                "Workstream leadership and execution",
+                "Comprehensive change management",
+                "Weekly steering committee and leadership updates",
+                "Real-time risk and issue management",
+                "Vendor and partner management support",
+                "Continuous value tracking and optimization",
+                "Executive coaching",
+                "Crisis response (same-day)",
+                "Dedicated support team"
+              ],
+              "team": "Senior Partner + 3-4 senior consultants + full-time program manager + specialists + AI agents + support staff"
+            }
+          },
+          "typical_engagement_duration": {
+            "small_programs": "6-12 months",
+            "medium_programs": "12-18 months",
+            "large_transformations": "18-36 months"
+          },
+          "deliverables": {
+            "weekly": [
+              "Progress reports",
+              "Risk and issue logs",
+              "Action item tracking"
+            ],
+            "monthly": [
+              "Monthly program report",
+              "Steering committee materials",
+              "Value realization tracking",
+              "Recommendations and course corrections"
+            ],
+            "quarterly": [
+              "Comprehensive program assessment",
+              "Value realization report",
+              "Roadmap adjustments",
+              "Executive presentation"
+            ]
+          },
+          "contract_terms": {
+            "minimum_commitment": "6 months",
+            "payment_terms": "Monthly in advance",
+            "notice_period": "60 days",
+            "success_fee": "Optional: 10-20% of realized value above baseline"
+          },
+          "success_metrics": {
+            "on_time_delivery": {
+              "target": "85% of major milestones delivered on time",
+              "measurement": "Milestone tracking"
+            },
+            "budget_adherence": {
+              "target": "Program delivered within 10% of budget",
+              "measurement": "Budget vs. actual tracking"
+            },
+            "value_realization": {
+              "target": "Achieve 80% of target benefits within 12 months of completion",
+              "measurement": "Benefits realization tracking"
+            },
+            "stakeholder_satisfaction": {
+              "target": "85% stakeholder satisfaction with transformation",
+              "measurement": "Quarterly stakeholder surveys"
+            }
+          }
+        }
+      },
+      "cross_package_features": {
+        "all_packages_include": [
+          "Access to HypeAI AI-powered analytics platform",
+          "Secure client portal for deliverables and communication",
+          "Regular account reviews",
+          "Preferential pricing on additional project work (10-15% discount)",
+          "Priority scheduling and resource allocation",
+          "Annual strategic planning session"
+        ],
+        "enterprise_add_ons": {
+          "crisis_response_retainer": {
+            "monthly_fee": 5000,
+            "description": "4-hour response time for crisis situations",
+            "includes": "Dedicated crisis team, 24/7 availability, rapid response protocols"
+          },
+          "executive_coaching": {
+            "monthly_fee": 8000,
+            "description": "Monthly executive coaching sessions for C-suite",
+            "includes": "4 sessions per month, leadership development, strategic thinking"
+          },
+          "board_advisory": {
+            "quarterly_fee": 15000,
+            "description": "Board meeting preparation and advisory",
+            "includes": "Board deck development, presentation coaching, board strategy sessions"
+          }
+        }
+      }
+    }
+  }
+}

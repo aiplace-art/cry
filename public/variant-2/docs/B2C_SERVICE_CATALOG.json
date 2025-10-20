@@ -1,0 +1,3354 @@
+{
+  "catalog": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-10-20",
+    "currency": "USD",
+    "deliveryModifiers": {
+      "express": {
+        "multiplier": 1.5,
+        "description": "50% premium for rush delivery"
+      },
+      "standard": {
+        "multiplier": 1.0,
+        "description": "Standard delivery timeframe"
+      },
+      "economy": {
+        "multiplier": 0.8,
+        "description": "20% discount for extended delivery"
+      }
+    },
+    "guarantees": {
+      "moneyBack": "100% money-back guarantee if not satisfied",
+      "revisions": "Unlimited revisions until satisfied",
+      "confidentiality": "Complete confidentiality and NDA",
+      "originality": "100% original content, plagiarism-free",
+      "support": "24/7 customer support"
+    }
+  },
+  "categories": {
+    "educational": {
+      "id": "edu",
+      "name": "Educational Services",
+      "description": "Academic writing, research, and editing services for students",
+      "icon": "graduation-cap",
+      "services": {
+        "thesis_bachelor": {
+          "id": "edu-thesis-bachelor",
+          "name": "Bachelor Thesis Writing",
+          "description": "Complete bachelor's thesis writing with research, analysis, and formatting",
+          "category": "educational",
+          "subcategory": "thesis",
+          "agents": ["researcher", "coder", "sparc-coder", "specification"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 299,
+              "deliveryDays": 7,
+              "pages": "30-40",
+              "features": [
+                "Research and literature review",
+                "Thesis writing (30-40 pages)",
+                "Basic formatting",
+                "Bibliography",
+                "2 rounds of revisions",
+                "Plagiarism report"
+              ],
+              "excludes": [
+                "Data analysis",
+                "Advanced formatting",
+                "Presentation slides"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 599,
+              "deliveryDays": 5,
+              "pages": "40-60",
+              "features": [
+                "Comprehensive research",
+                "Thesis writing (40-60 pages)",
+                "Advanced formatting (APA/MLA/Chicago)",
+                "Bibliography and citations",
+                "Data analysis (if applicable)",
+                "5 rounds of revisions",
+                "Plagiarism report",
+                "Methodology chapter",
+                "Abstract writing"
+              ],
+              "excludes": [
+                "Presentation slides",
+                "Oral defense preparation"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 899,
+              "deliveryDays": 3,
+              "pages": "60-80",
+              "features": [
+                "Extensive research with expert consultation",
+                "Thesis writing (60-80 pages)",
+                "Advanced formatting (any style)",
+                "Comprehensive bibliography",
+                "Statistical/qualitative data analysis",
+                "Unlimited revisions",
+                "Plagiarism report",
+                "Complete methodology chapter",
+                "Abstract and executive summary",
+                "10-slide presentation deck",
+                "30-minute oral defense preparation session",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "presentation_extended",
+              "name": "Extended Presentation (20 slides)",
+              "price": 99
+            },
+            {
+              "id": "defense_prep",
+              "name": "Oral Defense Preparation (1 hour)",
+              "price": 149
+            },
+            {
+              "id": "advanced_stats",
+              "name": "Advanced Statistical Analysis (SPSS/R)",
+              "price": 199
+            },
+            {
+              "id": "extra_revisions",
+              "name": "Additional Revision Round",
+              "price": 49
+            }
+          ],
+          "samples": [
+            "Sample thesis abstract",
+            "Sample methodology chapter",
+            "Sample bibliography page"
+          ]
+        },
+        "thesis_master": {
+          "id": "edu-thesis-master",
+          "name": "Master's Thesis Writing",
+          "description": "Advanced master's thesis with comprehensive research and analysis",
+          "category": "educational",
+          "subcategory": "thesis",
+          "agents": ["researcher", "coder", "sparc-coder", "specification", "architecture"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 599,
+              "deliveryDays": 14,
+              "pages": "50-70",
+              "features": [
+                "Advanced research and literature review",
+                "Thesis writing (50-70 pages)",
+                "Methodology design",
+                "Data collection guidance",
+                "Standard formatting",
+                "Bibliography",
+                "3 rounds of revisions",
+                "Plagiarism report"
+              ],
+              "excludes": [
+                "Primary data collection",
+                "Advanced statistical analysis",
+                "Publication-ready formatting"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 1199,
+              "deliveryDays": 10,
+              "pages": "70-100",
+              "features": [
+                "Comprehensive research with expert analysis",
+                "Thesis writing (70-100 pages)",
+                "Advanced methodology design",
+                "Data analysis (statistical/qualitative)",
+                "Professional formatting (any style)",
+                "Comprehensive bibliography",
+                "7 rounds of revisions",
+                "Plagiarism report",
+                "Abstract and executive summary",
+                "15-slide presentation",
+                "Literature review optimization"
+              ],
+              "excludes": [
+                "Primary data collection",
+                "Publication submission"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 1799,
+              "deliveryDays": 7,
+              "pages": "100-120",
+              "features": [
+                "Expert-level research with consultations",
+                "Thesis writing (100-120 pages)",
+                "Complete methodology chapter",
+                "Advanced data analysis (SPSS/R/Python)",
+                "Publication-ready formatting",
+                "Comprehensive bibliography",
+                "Unlimited revisions",
+                "Plagiarism report",
+                "Abstract and executive summary",
+                "25-slide professional presentation",
+                "1-hour oral defense preparation",
+                "Literature review with critical analysis",
+                "Recommendations for publication",
+                "Priority 24/7 support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "data_collection",
+              "name": "Primary Data Collection Design",
+              "price": 299
+            },
+            {
+              "id": "publication_prep",
+              "name": "Journal Publication Preparation",
+              "price": 399
+            },
+            {
+              "id": "conference_abstract",
+              "name": "Conference Abstract Writing",
+              "price": 149
+            },
+            {
+              "id": "extended_defense",
+              "name": "Extended Defense Preparation (2 hours)",
+              "price": 249
+            }
+          ],
+          "samples": [
+            "Sample master's thesis chapter",
+            "Sample literature review",
+            "Sample data analysis section"
+          ]
+        },
+        "thesis_phd": {
+          "id": "edu-thesis-phd",
+          "name": "PhD Dissertation Writing",
+          "description": "Comprehensive doctoral dissertation with original research contribution",
+          "category": "educational",
+          "subcategory": "thesis",
+          "agents": ["researcher", "coder", "sparc-coder", "specification", "architecture", "reviewer"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 1999,
+              "deliveryDays": 45,
+              "pages": "150-200",
+              "features": [
+                "Comprehensive literature review",
+                "Dissertation writing (150-200 pages)",
+                "Methodology chapter",
+                "Data analysis framework",
+                "Standard academic formatting",
+                "Bibliography and citations",
+                "5 rounds of revisions",
+                "Plagiarism report",
+                "Abstract"
+              ],
+              "excludes": [
+                "Primary research design",
+                "Advanced statistical modeling",
+                "Publication preparation"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 3999,
+              "deliveryDays": 30,
+              "pages": "200-300",
+              "features": [
+                "Expert-level literature review with critical analysis",
+                "Dissertation writing (200-300 pages)",
+                "Complete methodology design",
+                "Advanced data analysis",
+                "Professional formatting (university-specific)",
+                "Comprehensive bibliography",
+                "10 rounds of revisions",
+                "Plagiarism report",
+                "Abstract and executive summary",
+                "Research framework development",
+                "Theoretical contribution outline",
+                "30-slide defense presentation",
+                "2-hour defense preparation session"
+              ],
+              "excludes": [
+                "Multiple journal publications",
+                "Extensive primary data collection"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 5999,
+              "deliveryDays": 21,
+              "pages": "300-400",
+              "features": [
+                "World-class research with expert consultations",
+                "Dissertation writing (300-400 pages)",
+                "Complete original research design",
+                "Advanced statistical modeling and analysis",
+                "Publication-ready formatting",
+                "Comprehensive bibliography with 100+ sources",
+                "Unlimited revisions",
+                "Plagiarism report",
+                "Abstract and executive summary",
+                "Original theoretical framework",
+                "Significant contribution to field",
+                "50-slide professional defense presentation",
+                "4-hour comprehensive defense preparation",
+                "Mock defense session",
+                "Recommendations for 3 journal publications",
+                "Conference presentation materials",
+                "Dedicated project manager",
+                "Priority VIP support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "publication_package",
+              "name": "3 Journal Publication Package",
+              "price": 999
+            },
+            {
+              "id": "research_design",
+              "name": "Complete Research Design & Data Collection",
+              "price": 799
+            },
+            {
+              "id": "statistical_expert",
+              "name": "Statistical Expert Consultation (3 hours)",
+              "price": 449
+            },
+            {
+              "id": "extended_defense_premium",
+              "name": "Extended Defense Preparation (6 hours)",
+              "price": 599
+            }
+          ],
+          "samples": [
+            "Sample PhD dissertation chapter",
+            "Sample theoretical framework",
+            "Sample defense presentation"
+          ]
+        },
+        "research_paper": {
+          "id": "edu-research-paper",
+          "name": "Research Paper Writing",
+          "description": "Academic research papers with proper citations and analysis",
+          "category": "educational",
+          "subcategory": "papers",
+          "agents": ["researcher", "sparc-coder", "reviewer"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 99,
+              "deliveryDays": 5,
+              "pages": "5-10",
+              "features": [
+                "Topic research",
+                "Paper writing (5-10 pages)",
+                "Basic formatting",
+                "Bibliography",
+                "2 revisions",
+                "Plagiarism check"
+              ],
+              "excludes": [
+                "Advanced research",
+                "Data analysis",
+                "Multiple sources (15+ sources)"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 249,
+              "deliveryDays": 3,
+              "pages": "10-20",
+              "features": [
+                "Comprehensive research",
+                "Paper writing (10-20 pages)",
+                "Advanced formatting (APA/MLA/Chicago)",
+                "20+ scholarly sources",
+                "Bibliography and citations",
+                "5 revisions",
+                "Plagiarism report",
+                "Abstract"
+              ],
+              "excludes": [
+                "Original data collection",
+                "Statistical analysis"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 399,
+              "deliveryDays": 1,
+              "pages": "20-30",
+              "features": [
+                "Expert-level research",
+                "Paper writing (20-30 pages)",
+                "Professional formatting (any style)",
+                "30+ peer-reviewed sources",
+                "Comprehensive bibliography",
+                "Unlimited revisions",
+                "Plagiarism report",
+                "Abstract and keywords",
+                "Literature review",
+                "Critical analysis",
+                "Presentation slides (10 slides)",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "annotated_bibliography",
+              "name": "Annotated Bibliography",
+              "price": 49
+            },
+            {
+              "id": "presentation_slides",
+              "name": "Presentation Slides (15 slides)",
+              "price": 79
+            },
+            {
+              "id": "peer_review",
+              "name": "Expert Peer Review",
+              "price": 99
+            }
+          ],
+          "samples": [
+            "Sample research paper",
+            "Sample bibliography",
+            "Sample abstract"
+          ]
+        },
+        "essay_writing": {
+          "id": "edu-essay",
+          "name": "Essay Writing",
+          "description": "Academic essays for all subjects and levels",
+          "category": "educational",
+          "subcategory": "papers",
+          "agents": ["coder", "sparc-coder", "reviewer"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 49,
+              "deliveryDays": 3,
+              "pages": "2-5",
+              "features": [
+                "Essay writing (2-5 pages)",
+                "Basic research",
+                "Standard formatting",
+                "Bibliography",
+                "1 revision",
+                "Plagiarism check"
+              ],
+              "excludes": [
+                "Advanced analysis",
+                "Multiple sources",
+                "Premium formatting"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 99,
+              "deliveryDays": 2,
+              "pages": "5-10",
+              "features": [
+                "Essay writing (5-10 pages)",
+                "Comprehensive research",
+                "Advanced formatting",
+                "10+ sources",
+                "Bibliography",
+                "3 revisions",
+                "Plagiarism report",
+                "Outline included"
+              ],
+              "excludes": [
+                "Statistical analysis",
+                "Primary research"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 199,
+              "deliveryDays": 1,
+              "pages": "10-15",
+              "features": [
+                "Expert essay writing (10-15 pages)",
+                "Advanced research and analysis",
+                "Professional formatting (any style)",
+                "15+ scholarly sources",
+                "Comprehensive bibliography",
+                "Unlimited revisions",
+                "Plagiarism report",
+                "Detailed outline",
+                "Critical thinking and analysis",
+                "4-hour turnaround available",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "outline_only",
+              "name": "Essay Outline Only",
+              "price": 29
+            },
+            {
+              "id": "express_4hour",
+              "name": "4-Hour Express Delivery",
+              "price": 99
+            },
+            {
+              "id": "topic_brainstorm",
+              "name": "Topic Brainstorming Session",
+              "price": 39
+            }
+          ],
+          "samples": [
+            "Sample essay",
+            "Sample outline",
+            "Sample bibliography"
+          ]
+        },
+        "assignment_help": {
+          "id": "edu-assignment",
+          "name": "Assignment Help",
+          "description": "Help with homework, assignments, and coursework",
+          "category": "educational",
+          "subcategory": "papers",
+          "agents": ["coder", "sparc-coder", "tester"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 29,
+              "deliveryDays": 2,
+              "pages": "1-3",
+              "features": [
+                "Assignment completion (1-3 pages)",
+                "Basic research",
+                "Standard formatting",
+                "1 revision",
+                "Plagiarism check"
+              ],
+              "excludes": [
+                "Complex calculations",
+                "Programming tasks",
+                "Lab reports"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 79,
+              "deliveryDays": 1,
+              "pages": "3-7",
+              "features": [
+                "Assignment completion (3-7 pages)",
+                "Research and analysis",
+                "Professional formatting",
+                "3 revisions",
+                "Plagiarism report",
+                "Step-by-step solutions",
+                "Explanations included"
+              ],
+              "excludes": [
+                "Advanced programming",
+                "Complex lab reports"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 149,
+              "deliveryDays": 1,
+              "pages": "7-15",
+              "features": [
+                "Expert assignment completion (7-15 pages)",
+                "Advanced research and analysis",
+                "Professional formatting",
+                "Unlimited revisions",
+                "Plagiarism report",
+                "Detailed step-by-step solutions",
+                "Comprehensive explanations",
+                "Practice problems included",
+                "Programming/coding tasks included",
+                "Lab reports included",
+                "Same-day delivery option",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "tutoring_session",
+              "name": "1-Hour Tutoring Session",
+              "price": 59
+            },
+            {
+              "id": "practice_problems",
+              "name": "Additional Practice Problems Set",
+              "price": 29
+            },
+            {
+              "id": "video_explanation",
+              "name": "Video Explanation of Solution",
+              "price": 49
+            }
+          ],
+          "samples": [
+            "Sample assignment solution",
+            "Sample step-by-step explanation"
+          ]
+        },
+        "proofreading": {
+          "id": "edu-proofread",
+          "name": "Proofreading Service",
+          "description": "Professional proofreading for grammar, spelling, and punctuation",
+          "category": "educational",
+          "subcategory": "editing",
+          "agents": ["reviewer", "coder"],
+          "pricingModel": "perWord",
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "pricePerWord": 0.02,
+              "deliveryPer1000Words": 1,
+              "features": [
+                "Grammar and spelling check",
+                "Punctuation correction",
+                "Basic consistency check",
+                "Track changes document",
+                "1 round of revisions"
+              ],
+              "excludes": [
+                "Style improvements",
+                "Content suggestions",
+                "Formatting"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "pricePerWord": 0.035,
+              "deliveryPer1000Words": 1,
+              "features": [
+                "Grammar, spelling, and punctuation",
+                "Style and clarity improvements",
+                "Consistency check",
+                "Track changes document",
+                "Detailed comment feedback",
+                "2 rounds of revisions",
+                "Basic formatting check"
+              ],
+              "excludes": [
+                "Content restructuring",
+                "Advanced formatting"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "pricePerWord": 0.05,
+              "deliveryPer1000Words": 0.5,
+              "features": [
+                "Comprehensive proofreading",
+                "Style and clarity optimization",
+                "Consistency and flow improvements",
+                "Track changes document",
+                "Detailed feedback report",
+                "Unlimited revisions",
+                "Formatting check",
+                "Readability analysis",
+                "Tone consistency",
+                "Citation check",
+                "Priority 12-hour turnaround"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "express_6hour",
+              "name": "6-Hour Express Delivery",
+              "price": 49
+            },
+            {
+              "id": "formatting_basic",
+              "name": "Basic Formatting",
+              "price": 29
+            }
+          ],
+          "samples": [
+            "Sample proofread document with track changes"
+          ],
+          "minimumCharge": 25
+        },
+        "editing": {
+          "id": "edu-edit",
+          "name": "Academic Editing",
+          "description": "Comprehensive editing for structure, content, and style",
+          "category": "educational",
+          "subcategory": "editing",
+          "agents": ["reviewer", "coder", "sparc-coder"],
+          "pricingModel": "perWord",
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "pricePerWord": 0.05,
+              "deliveryPer1000Words": 2,
+              "features": [
+                "Grammar and spelling",
+                "Sentence structure improvement",
+                "Basic content suggestions",
+                "Track changes document",
+                "2 rounds of revisions"
+              ],
+              "excludes": [
+                "Major restructuring",
+                "Argument development",
+                "Source verification"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "pricePerWord": 0.08,
+              "deliveryPer1000Words": 2,
+              "features": [
+                "Comprehensive language editing",
+                "Structure and flow improvements",
+                "Content development suggestions",
+                "Argument strengthening",
+                "Track changes document",
+                "Detailed editor comments",
+                "3 rounds of revisions",
+                "Citation format check"
+              ],
+              "excludes": [
+                "Complete rewriting",
+                "Source research"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "pricePerWord": 0.12,
+              "deliveryPer1000Words": 1,
+              "features": [
+                "Expert-level comprehensive editing",
+                "Complete structure optimization",
+                "Content development and enhancement",
+                "Argument and logic strengthening",
+                "Track changes with detailed feedback",
+                "Comprehensive editor report",
+                "Unlimited revisions",
+                "Citation verification and formatting",
+                "Consistency across document",
+                "Academic tone optimization",
+                "Source quality assessment",
+                "Journal submission readiness check",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "rewrite_service",
+              "name": "Section Rewriting (per 1000 words)",
+              "price": 79
+            },
+            {
+              "id": "source_verification",
+              "name": "Source Verification & Enhancement",
+              "price": 99
+            },
+            {
+              "id": "editor_consultation",
+              "name": "1-Hour Editor Consultation",
+              "price": 89
+            }
+          ],
+          "samples": [
+            "Sample edited document",
+            "Sample editor report"
+          ],
+          "minimumCharge": 50
+        },
+        "formatting": {
+          "id": "edu-format",
+          "name": "Academic Formatting",
+          "description": "Professional formatting for academic documents",
+          "category": "educational",
+          "subcategory": "editing",
+          "agents": ["coder", "reviewer"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 49,
+              "deliveryDays": 1,
+              "features": [
+                "APA, MLA, or Chicago formatting",
+                "Title page",
+                "Page numbers and headers",
+                "Basic bibliography formatting",
+                "1 revision"
+              ],
+              "excludes": [
+                "Table of contents",
+                "Figure/table formatting",
+                "Complex layouts"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 99,
+              "deliveryDays": 1,
+              "features": [
+                "Advanced formatting (any style)",
+                "Title page and abstract",
+                "Table of contents",
+                "Page numbers, headers, footers",
+                "Bibliography and citations",
+                "Figure and table formatting (up to 10)",
+                "2 revisions",
+                "University template matching"
+              ],
+              "excludes": [
+                "Complex figure creation",
+                "Extensive table formatting (20+)"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 149,
+              "deliveryDays": 0.5,
+              "features": [
+                "Expert formatting (any style/university)",
+                "Complete document setup",
+                "Table of contents with hyperlinks",
+                "List of figures and tables",
+                "Page numbers, headers, footers",
+                "Professional bibliography",
+                "Unlimited figures and tables",
+                "Unlimited revisions",
+                "Appendices formatting",
+                "Custom university template",
+                "PDF conversion",
+                "Same-day delivery",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "figure_creation",
+              "name": "Professional Figure Creation (each)",
+              "price": 29
+            },
+            {
+              "id": "table_advanced",
+              "name": "Advanced Table Formatting (per 5)",
+              "price": 39
+            },
+            {
+              "id": "template_custom",
+              "name": "Custom Template Creation",
+              "price": 79
+            }
+          ],
+          "samples": [
+            "Sample formatted document",
+            "Sample title page",
+            "Sample bibliography"
+          ]
+        }
+      }
+    },
+    "business_startup": {
+      "id": "biz",
+      "name": "Business Startup Services",
+      "description": "Business planning, consulting, and pitch materials for entrepreneurs",
+      "icon": "briefcase",
+      "services": {
+        "business_plan_simple": {
+          "id": "biz-plan-simple",
+          "name": "Simple Business Plan",
+          "description": "Essential business plan for small startups and local businesses",
+          "category": "business_startup",
+          "subcategory": "planning",
+          "agents": ["researcher", "coder", "sparc-coder", "planner"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 399,
+              "deliveryDays": 7,
+              "pages": "10-15",
+              "features": [
+                "Executive summary",
+                "Business description",
+                "Market analysis (basic)",
+                "Products/services overview",
+                "Marketing strategy outline",
+                "Financial projections (3 years)",
+                "Basic competitor analysis",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Detailed market research",
+                "Advanced financial modeling",
+                "Pitch deck"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 599,
+              "deliveryDays": 5,
+              "pages": "15-20",
+              "features": [
+                "Comprehensive executive summary",
+                "Detailed business description",
+                "Market analysis with data",
+                "Competitor analysis (5+ competitors)",
+                "Products/services detailed description",
+                "Marketing and sales strategy",
+                "Operations plan",
+                "Management team overview",
+                "Financial projections (5 years)",
+                "Break-even analysis",
+                "4 revisions",
+                "Professional formatting"
+              ],
+              "excludes": [
+                "Primary market research",
+                "Pitch deck",
+                "Investor presentations"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 799,
+              "deliveryDays": 3,
+              "pages": "20-25",
+              "features": [
+                "Expert executive summary",
+                "Complete business description",
+                "Comprehensive market research",
+                "Detailed competitor analysis (10+ competitors)",
+                "Complete products/services section",
+                "Marketing, sales, and growth strategy",
+                "Operations and logistics plan",
+                "Management and organizational structure",
+                "Detailed financial projections (5 years)",
+                "Multiple financial scenarios",
+                "Break-even and ROI analysis",
+                "Risk assessment",
+                "Unlimited revisions",
+                "Professional design and formatting",
+                "10-slide pitch deck included",
+                "1-hour consultation",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "market_research_extended",
+              "name": "Extended Market Research Report",
+              "price": 299
+            },
+            {
+              "id": "financial_advanced",
+              "name": "Advanced Financial Modeling",
+              "price": 199
+            },
+            {
+              "id": "consultation_extended",
+              "name": "2-Hour Business Consultation",
+              "price": 249
+            }
+          ],
+          "samples": [
+            "Sample executive summary",
+            "Sample financial projections",
+            "Sample market analysis"
+          ]
+        },
+        "business_plan_investor": {
+          "id": "biz-plan-investor",
+          "name": "Investor-Ready Business Plan",
+          "description": "Comprehensive business plan designed to attract investors",
+          "category": "business_startup",
+          "subcategory": "planning",
+          "agents": ["researcher", "coder", "sparc-coder", "planner", "architecture"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 999,
+              "deliveryDays": 14,
+              "pages": "20-25",
+              "features": [
+                "Investor-focused executive summary",
+                "Company overview and vision",
+                "Market opportunity analysis",
+                "Competitor landscape",
+                "Product/service description",
+                "Go-to-market strategy",
+                "Financial projections (5 years)",
+                "Funding requirements overview",
+                "3 revisions",
+                "Professional formatting"
+              ],
+              "excludes": [
+                "Pitch deck",
+                "Detailed valuation",
+                "Investor targeting"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 1499,
+              "deliveryDays": 10,
+              "pages": "30-40",
+              "features": [
+                "Compelling executive summary",
+                "Complete company profile",
+                "Comprehensive market analysis",
+                "Competitive advantage analysis",
+                "Detailed product/service roadmap",
+                "Marketing and sales strategy",
+                "Operations and scaling plan",
+                "Management team and advisors",
+                "Detailed financial model (5 years)",
+                "Funding requirements and use of funds",
+                "Exit strategy",
+                "Risk mitigation strategies",
+                "5 revisions",
+                "Professional design",
+                "15-slide pitch deck",
+                "One-pager included"
+              ],
+              "excludes": [
+                "Investor research",
+                "Multiple pitch versions",
+                "Due diligence preparation"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 1999,
+              "deliveryDays": 7,
+              "pages": "40-50",
+              "features": [
+                "World-class executive summary",
+                "Complete company profile with vision",
+                "Deep market analysis with TAM/SAM/SOM",
+                "Competitive moat analysis",
+                "Comprehensive product/service roadmap",
+                "Multi-channel marketing strategy",
+                "Operations and scaling blueprint",
+                "Management team bios and advisors",
+                "Advanced financial model (7 years)",
+                "Multiple funding scenarios",
+                "Detailed use of funds",
+                "Valuation analysis",
+                "Exit strategy and ROI projections",
+                "Complete risk analysis",
+                "Unlimited revisions",
+                "Premium design and formatting",
+                "25-slide investor pitch deck",
+                "One-pager and teaser",
+                "Executive summary (2-page)",
+                "Financial summary sheet",
+                "2-hour pitch preparation",
+                "Investor Q&A preparation guide",
+                "Priority VIP support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "investor_research",
+              "name": "Investor Research & Targeting (20 investors)",
+              "price": 399
+            },
+            {
+              "id": "valuation_report",
+              "name": "Professional Valuation Report",
+              "price": 499
+            },
+            {
+              "id": "pitch_coaching",
+              "name": "4-Hour Pitch Coaching Package",
+              "price": 599
+            },
+            {
+              "id": "due_diligence_prep",
+              "name": "Due Diligence Preparation Package",
+              "price": 799
+            }
+          ],
+          "samples": [
+            "Sample investor business plan",
+            "Sample financial model",
+            "Sample pitch deck"
+          ]
+        },
+        "business_plan_comprehensive": {
+          "id": "biz-plan-comprehensive",
+          "name": "Comprehensive Business Plan",
+          "description": "Full-scale business plan for large ventures and franchises",
+          "category": "business_startup",
+          "subcategory": "planning",
+          "agents": ["researcher", "coder", "sparc-coder", "planner", "architecture", "reviewer"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 2499,
+              "deliveryDays": 21,
+              "pages": "40-50",
+              "features": [
+                "Complete executive summary",
+                "Company overview",
+                "Industry and market analysis",
+                "Competitor analysis",
+                "Products and services",
+                "Marketing strategy",
+                "Operations plan",
+                "Management structure",
+                "Financial projections (5 years)",
+                "Appendices",
+                "5 revisions"
+              ],
+              "excludes": [
+                "Primary research",
+                "Advanced financial scenarios",
+                "Multiple pitch versions"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 3499,
+              "deliveryDays": 18,
+              "pages": "60-80",
+              "features": [
+                "Comprehensive executive summary",
+                "Detailed company profile",
+                "Complete industry analysis",
+                "Market segmentation and targeting",
+                "Competitive landscape analysis",
+                "Product/service portfolio",
+                "Multi-channel marketing strategy",
+                "Sales strategy and projections",
+                "Operations and supply chain",
+                "HR and management plan",
+                "Technology and systems",
+                "Advanced financial model (7 years)",
+                "Multiple scenarios",
+                "Risk management plan",
+                "8 revisions",
+                "Professional formatting",
+                "20-slide pitch deck",
+                "One-pager and executive summary"
+              ],
+              "excludes": [
+                "Primary market research",
+                "Franchising documentation"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 4999,
+              "deliveryDays": 14,
+              "pages": "80-100",
+              "features": [
+                "World-class executive summary",
+                "Complete company profile and vision",
+                "Comprehensive industry analysis",
+                "Deep market research and segmentation",
+                "Competitive intelligence report",
+                "Complete product/service roadmap",
+                "Integrated marketing strategy",
+                "Sales strategy with CRM plan",
+                "Operations and logistics blueprint",
+                "HR policies and procedures",
+                "Technology infrastructure plan",
+                "Advanced financial model (10 years)",
+                "Sensitivity and scenario analysis",
+                "Valuation and exit strategies",
+                "Complete risk management",
+                "Regulatory and compliance section",
+                "Unlimited revisions",
+                "Premium design package",
+                "40-slide comprehensive pitch deck",
+                "Executive summary and one-pager",
+                "Financial summary dashboard",
+                "Operational manual outline",
+                "4-hour strategic consultation",
+                "Implementation roadmap (90 days)",
+                "Quarterly review templates",
+                "Dedicated project manager",
+                "Priority VIP support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "primary_research",
+              "name": "Primary Market Research (50 respondents)",
+              "price": 999
+            },
+            {
+              "id": "franchise_docs",
+              "name": "Franchise Documentation Package",
+              "price": 1499
+            },
+            {
+              "id": "strategic_consulting",
+              "name": "8-Hour Strategic Consulting Package",
+              "price": 999
+            },
+            {
+              "id": "implementation_support",
+              "name": "3-Month Implementation Support",
+              "price": 1999
+            }
+          ],
+          "samples": [
+            "Sample comprehensive business plan",
+            "Sample financial dashboard",
+            "Sample operations manual"
+          ]
+        },
+        "idea_validation": {
+          "id": "biz-idea-validation",
+          "name": "Business Idea Validation",
+          "description": "Validate your business idea before investing time and money",
+          "category": "business_startup",
+          "subcategory": "consulting",
+          "agents": ["researcher", "planner", "reviewer"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 199,
+              "deliveryDays": 3,
+              "pages": "5-10",
+              "features": [
+                "Market size estimation",
+                "Basic competitor analysis",
+                "Initial feasibility assessment",
+                "SWOT analysis",
+                "Go/No-go recommendation",
+                "1 revision"
+              ],
+              "excludes": [
+                "Customer interviews",
+                "Financial modeling",
+                "Detailed market research"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 349,
+              "deliveryDays": 5,
+              "pages": "15-20",
+              "features": [
+                "Comprehensive market analysis",
+                "Competitor deep-dive (10+ competitors)",
+                "Customer segment identification",
+                "Value proposition assessment",
+                "Business model evaluation",
+                "Revenue potential estimation",
+                "SWOT and Porter's Five Forces",
+                "Risk assessment",
+                "Go/No-go with reasoning",
+                "3 revisions",
+                "1-hour consultation"
+              ],
+              "excludes": [
+                "Primary customer research",
+                "Full business plan"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 499,
+              "deliveryDays": 7,
+              "pages": "25-30",
+              "features": [
+                "Comprehensive market opportunity analysis",
+                "Competitive landscape deep-dive",
+                "Customer segment analysis",
+                "Value proposition canvas",
+                "Business model canvas",
+                "Revenue model analysis",
+                "Cost structure estimation",
+                "Market entry strategy",
+                "Complete SWOT, Porter's, PESTEL analysis",
+                "Risk and mitigation strategies",
+                "MVP recommendations",
+                "Go-to-market strategy outline",
+                "Financial feasibility assessment",
+                "Unlimited revisions",
+                "2-hour strategic consultation",
+                "Action plan and next steps",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "customer_interviews",
+              "name": "Customer Interview Report (10 interviews)",
+              "price": 399
+            },
+            {
+              "id": "landing_page",
+              "name": "MVP Landing Page Creation",
+              "price": 299
+            },
+            {
+              "id": "prototype_plan",
+              "name": "Prototype Development Plan",
+              "price": 249
+            }
+          ],
+          "samples": [
+            "Sample validation report",
+            "Sample SWOT analysis",
+            "Sample business model canvas"
+          ]
+        },
+        "market_research": {
+          "id": "biz-market-research",
+          "name": "Market Research Report",
+          "description": "Comprehensive market research and analysis",
+          "category": "business_startup",
+          "subcategory": "consulting",
+          "agents": ["researcher", "planner", "coder"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 299,
+              "deliveryDays": 5,
+              "pages": "10-15",
+              "features": [
+                "Market size and growth",
+                "Key trends and drivers",
+                "Customer demographics",
+                "Basic competitor overview (5 competitors)",
+                "Market opportunities",
+                "Data visualization (5 charts)",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Primary research",
+                "Detailed customer personas",
+                "Advanced analytics"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 599,
+              "deliveryDays": 7,
+              "pages": "20-30",
+              "features": [
+                "Comprehensive market sizing (TAM/SAM/SOM)",
+                "Industry trends and forecasts",
+                "Customer segmentation",
+                "3-5 detailed personas",
+                "Competitor analysis (10+ competitors)",
+                "Market positioning map",
+                "Regulatory environment",
+                "Market entry barriers",
+                "Growth opportunities",
+                "Data visualization (15 charts)",
+                "4 revisions",
+                "Executive summary"
+              ],
+              "excludes": [
+                "Primary research",
+                "Advanced statistical analysis"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 899,
+              "deliveryDays": 10,
+              "pages": "40-50",
+              "features": [
+                "Deep market analysis with forecasts",
+                "Complete industry value chain",
+                "Customer segmentation and targeting",
+                "5-8 detailed personas with journey maps",
+                "Competitive intelligence (20+ competitors)",
+                "Market positioning and gaps",
+                "Regulatory and compliance analysis",
+                "Technology trends impact",
+                "Market entry strategies",
+                "Partnership opportunities",
+                "Risk and opportunity analysis",
+                "Strategic recommendations",
+                "Comprehensive data visualization (25+ charts)",
+                "Interactive dashboard access",
+                "Unlimited revisions",
+                "Executive summary and presentation",
+                "2-hour findings presentation",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "primary_research_surveys",
+              "name": "Primary Research Survey (100 respondents)",
+              "price": 599
+            },
+            {
+              "id": "focus_group",
+              "name": "Virtual Focus Group (8-10 participants)",
+              "price": 799
+            },
+            {
+              "id": "competitive_intelligence",
+              "name": "Advanced Competitive Intelligence",
+              "price": 399
+            }
+          ],
+          "samples": [
+            "Sample market research report",
+            "Sample customer persona",
+            "Sample competitive analysis"
+          ]
+        },
+        "competitor_analysis": {
+          "id": "biz-competitor-analysis",
+          "name": "Competitor Analysis",
+          "description": "In-depth analysis of your competitors and market positioning",
+          "category": "business_startup",
+          "subcategory": "consulting",
+          "agents": ["researcher", "planner"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 249,
+              "deliveryDays": 3,
+              "pages": "10-15",
+              "features": [
+                "5 competitor profiles",
+                "Product/service comparison",
+                "Pricing analysis",
+                "SWOT for each competitor",
+                "Market positioning map",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Digital presence analysis",
+                "Financial analysis",
+                "Customer reviews analysis"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 499,
+              "deliveryDays": 5,
+              "pages": "20-25",
+              "features": [
+                "10 competitor deep-dive profiles",
+                "Product/service feature matrix",
+                "Pricing and positioning analysis",
+                "Marketing strategy analysis",
+                "Digital presence review",
+                "SWOT for each competitor",
+                "Competitive advantages identification",
+                "Market positioning map",
+                "Customer reviews sentiment analysis",
+                "4 revisions",
+                "Executive summary"
+              ],
+              "excludes": [
+                "Financial deep-dive",
+                "Patent analysis"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 699,
+              "deliveryDays": 7,
+              "pages": "30-40",
+              "features": [
+                "15+ competitor comprehensive profiles",
+                "Complete feature comparison matrix",
+                "Pricing strategy deep-dive",
+                "Marketing and sales tactics analysis",
+                "Digital presence and SEO analysis",
+                "Social media strategy review",
+                "SWOT and Porter's Five Forces",
+                "Competitive moat assessment",
+                "Market positioning and gaps",
+                "Customer reviews and sentiment analysis",
+                "Emerging competitors tracking",
+                "Technology and innovation analysis",
+                "Strategic recommendations",
+                "Unlimited revisions",
+                "Executive summary and presentation",
+                "Data visualization dashboard",
+                "Quarterly update option",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "financial_analysis",
+              "name": "Competitor Financial Analysis",
+              "price": 299
+            },
+            {
+              "id": "patent_analysis",
+              "name": "Patent and IP Analysis",
+              "price": 399
+            },
+            {
+              "id": "quarterly_updates",
+              "name": "Quarterly Competitor Updates (3 months)",
+              "price": 499
+            }
+          ],
+          "samples": [
+            "Sample competitor profile",
+            "Sample positioning map",
+            "Sample feature matrix"
+          ]
+        },
+        "financial_modeling": {
+          "id": "biz-financial-model",
+          "name": "Financial Modeling",
+          "description": "Professional financial models and projections",
+          "category": "business_startup",
+          "subcategory": "consulting",
+          "agents": ["coder", "sparc-coder", "researcher"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 399,
+              "deliveryDays": 5,
+              "features": [
+                "3-year financial projections",
+                "Revenue model",
+                "Cost structure",
+                "Profit & loss statement",
+                "Cash flow projection",
+                "Break-even analysis",
+                "Basic assumptions sheet",
+                "Excel file with formulas",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Multiple scenarios",
+                "Balance sheet",
+                "Dashboard visualizations"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 799,
+              "deliveryDays": 7,
+              "features": [
+                "5-year detailed financial model",
+                "Revenue model with multiple streams",
+                "Complete cost structure",
+                "Profit & loss statement",
+                "Balance sheet",
+                "Cash flow statement",
+                "Break-even and ROI analysis",
+                "Key financial ratios",
+                "3 scenarios (base, optimistic, pessimistic)",
+                "Assumptions and sensitivity analysis",
+                "Excel file with formulas",
+                "Dashboard with charts",
+                "4 revisions",
+                "1-hour walkthrough"
+              ],
+              "excludes": [
+                "Advanced valuation",
+                "Investor-grade models"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 1299,
+              "deliveryDays": 10,
+              "features": [
+                "7-year comprehensive financial model",
+                "Multiple revenue streams modeling",
+                "Complete cost structure by department",
+                "Detailed P&L statement",
+                "Balance sheet projections",
+                "Cash flow statement with monthly detail",
+                "Break-even, ROI, and payback analysis",
+                "Complete financial ratios and KPIs",
+                "5 scenarios with probability weighting",
+                "Sensitivity and scenario analysis",
+                "Unit economics modeling",
+                "Customer acquisition cost (CAC) and LTV",
+                "Burn rate and runway calculations",
+                "Funding requirements analysis",
+                "Valuation models (DCF, comparable)",
+                "Excel model with full formulas",
+                "Interactive dashboard with visualizations",
+                "Unlimited revisions",
+                "2-hour detailed walkthrough",
+                "Video tutorial for model use",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "valuation_dcf",
+              "name": "DCF Valuation Model",
+              "price": 399
+            },
+            {
+              "id": "cap_table",
+              "name": "Cap Table Modeling",
+              "price": 299
+            },
+            {
+              "id": "monthly_updates",
+              "name": "Monthly Model Updates (3 months)",
+              "price": 599
+            }
+          ],
+          "samples": [
+            "Sample financial model",
+            "Sample dashboard",
+            "Sample scenario analysis"
+          ]
+        },
+        "pitch_deck": {
+          "id": "biz-pitch-deck",
+          "name": "Pitch Deck Creation",
+          "description": "Professional investor pitch deck design and content",
+          "category": "business_startup",
+          "subcategory": "pitch",
+          "agents": ["coder", "sparc-coder", "researcher"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 299,
+              "deliveryDays": 3,
+              "slides": "10-12",
+              "features": [
+                "10-12 slide deck",
+                "Problem and solution slides",
+                "Market opportunity",
+                "Product overview",
+                "Business model",
+                "Traction",
+                "Team slide",
+                "Financial highlights",
+                "Funding ask",
+                "Clean professional design",
+                "2 revisions",
+                "PowerPoint and PDF"
+              ],
+              "excludes": [
+                "Custom illustrations",
+                "Animated version",
+                "Pitch coaching"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 549,
+              "deliveryDays": 5,
+              "slides": "15-18",
+              "features": [
+                "15-18 slide comprehensive deck",
+                "Cover and vision slide",
+                "Problem statement with data",
+                "Solution and unique value prop",
+                "Market opportunity (TAM/SAM/SOM)",
+                "Product/service deep-dive",
+                "Business model and revenue streams",
+                "Go-to-market strategy",
+                "Competitive analysis",
+                "Traction and milestones",
+                "Financial projections",
+                "Team and advisors",
+                "Funding ask and use of funds",
+                "Professional design with brand colors",
+                "Custom graphics and charts",
+                "4 revisions",
+                "PowerPoint, PDF, and Keynote",
+                "1-hour pitch feedback session"
+              ],
+              "excludes": [
+                "Animated version",
+                "Extended pitch coaching"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 799,
+              "deliveryDays": 7,
+              "slides": "20-25",
+              "features": [
+                "20-25 slide investor-grade deck",
+                "Compelling opening and vision",
+                "Problem statement with market validation",
+                "Solution and competitive advantage",
+                "Market opportunity with growth trends",
+                "Product roadmap and innovation",
+                "Business model and unit economics",
+                "Multi-channel GTM strategy",
+                "Competitive moat analysis",
+                "Traction with key metrics",
+                "Financial model highlights",
+                "Team, advisors, and partners",
+                "Funding requirements and allocation",
+                "Exit strategy and returns",
+                "Appendix with supporting data",
+                "Premium custom design",
+                "Professional illustrations and infographics",
+                "Data visualization",
+                "Unlimited revisions",
+                "Animated presentation version",
+                "PowerPoint, PDF, Keynote, and Google Slides",
+                "2-hour pitch coaching session",
+                "Investor Q&A preparation guide",
+                "Elevator pitch script",
+                "Email pitch template",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "video_pitch",
+              "name": "Video Pitch Creation (2-3 minutes)",
+              "price": 499
+            },
+            {
+              "id": "pitch_coaching_extended",
+              "name": "4-Hour Pitch Coaching Package",
+              "price": 599
+            },
+            {
+              "id": "one_pager",
+              "name": "One-Pager Design",
+              "price": 149
+            },
+            {
+              "id": "teaser_deck",
+              "name": "Teaser Deck (5 slides)",
+              "price": 199
+            }
+          ],
+          "samples": [
+            "Sample pitch deck slides",
+            "Sample one-pager",
+            "Sample teaser"
+          ]
+        },
+        "executive_summary": {
+          "id": "biz-exec-summary",
+          "name": "Executive Summary",
+          "description": "Compelling executive summary for business plans",
+          "category": "business_startup",
+          "subcategory": "pitch",
+          "agents": ["coder", "researcher"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 149,
+              "deliveryDays": 2,
+              "pages": "1-2",
+              "features": [
+                "1-2 page summary",
+                "Business overview",
+                "Market opportunity",
+                "Value proposition",
+                "Financial highlights",
+                "Funding ask",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Design formatting",
+                "Multiple versions",
+                "Detailed financials"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 249,
+              "deliveryDays": 3,
+              "pages": "2-3",
+              "features": [
+                "2-3 page comprehensive summary",
+                "Compelling business story",
+                "Market opportunity with data",
+                "Unique value proposition",
+                "Competitive advantages",
+                "Traction and milestones",
+                "Financial highlights and projections",
+                "Management team",
+                "Funding requirements",
+                "Professional formatting",
+                "3 revisions"
+              ],
+              "excludes": [
+                "Premium design",
+                "One-pager version"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 399,
+              "deliveryDays": 4,
+              "pages": "3-4",
+              "features": [
+                "3-4 page investor-grade summary",
+                "Compelling narrative and story",
+                "Market opportunity with trends",
+                "Differentiated value proposition",
+                "Competitive moat explanation",
+                "Traction with key metrics",
+                "Detailed financial highlights",
+                "Management team and advisors",
+                "Funding and use of funds",
+                "Exit strategy mention",
+                "Premium design and formatting",
+                "Unlimited revisions",
+                "1-page version included",
+                "Teaser version (half-page)",
+                "Email pitch version",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "visual_infographic",
+              "name": "Infographic Version",
+              "price": 99
+            },
+            {
+              "id": "multiple_versions",
+              "name": "3 Industry-Specific Versions",
+              "price": 199
+            }
+          ],
+          "samples": [
+            "Sample executive summary",
+            "Sample one-pager"
+          ]
+        },
+        "one_pager": {
+          "id": "biz-one-pager",
+          "name": "Business One-Pager",
+          "description": "Single-page business overview for quick pitches",
+          "category": "business_startup",
+          "subcategory": "pitch",
+          "agents": ["coder", "researcher"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 99,
+              "deliveryDays": 2,
+              "pages": "1",
+              "features": [
+                "1-page business overview",
+                "Problem and solution",
+                "Market size",
+                "Business model",
+                "Traction",
+                "Team",
+                "Contact info",
+                "Clean formatting",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Custom design",
+                "Graphics",
+                "Infographic style"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 149,
+              "deliveryDays": 2,
+              "pages": "1",
+              "features": [
+                "1-page professional overview",
+                "Compelling problem statement",
+                "Solution and value prop",
+                "Market opportunity",
+                "Business model and revenue",
+                "Key traction metrics",
+                "Team highlights",
+                "Funding ask",
+                "Professional design",
+                "Brand colors and logo integration",
+                "3 revisions",
+                "PDF and Word versions"
+              ],
+              "excludes": [
+                "Infographic version",
+                "Multiple variations"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 199,
+              "deliveryDays": 3,
+              "pages": "1",
+              "features": [
+                "1-page premium business overview",
+                "Compelling headline and tagline",
+                "Problem with market validation",
+                "Solution and competitive advantage",
+                "Market opportunity and growth",
+                "Business model and unit economics",
+                "Key metrics and traction",
+                "Team and advisors",
+                "Funding requirements",
+                "Premium design with graphics",
+                "Custom illustrations",
+                "Brand integration",
+                "Unlimited revisions",
+                "Standard and infographic versions",
+                "Print and digital formats",
+                "PDF, Word, and PNG",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "vertical_formats",
+              "name": "3 Industry-Specific Versions",
+              "price": 99
+            },
+            {
+              "id": "multilingual",
+              "name": "Additional Language Version",
+              "price": 79
+            }
+          ],
+          "samples": [
+            "Sample one-pager standard",
+            "Sample one-pager infographic"
+          ]
+        }
+      }
+    },
+    "personal_services": {
+      "id": "personal",
+      "name": "Personal Services",
+      "description": "Career, finance, and marketing services for individuals and small businesses",
+      "icon": "user",
+      "services": {
+        "cv_resume": {
+          "id": "personal-cv",
+          "name": "CV/Resume Optimization",
+          "description": "Professional CV and resume writing and optimization",
+          "category": "personal_services",
+          "subcategory": "career",
+          "agents": ["coder", "reviewer"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 49,
+              "deliveryDays": 2,
+              "pages": "1-2",
+              "features": [
+                "Resume review and edit",
+                "Grammar and formatting fixes",
+                "Basic keyword optimization",
+                "ATS-friendly format",
+                "1 revision",
+                "Word and PDF versions"
+              ],
+              "excludes": [
+                "Complete rewrite",
+                "Cover letter",
+                "LinkedIn optimization"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 99,
+              "deliveryDays": 3,
+              "pages": "1-2",
+              "features": [
+                "Professional resume rewrite",
+                "Achievement-focused bullet points",
+                "Industry-specific keywords",
+                "ATS-optimized format",
+                "Professional design",
+                "Skills section optimization",
+                "3 revisions",
+                "2 format versions",
+                "Word, PDF, and text versions",
+                "30-minute consultation call"
+              ],
+              "excludes": [
+                "Cover letter",
+                "LinkedIn profile"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 149,
+              "deliveryDays": 4,
+              "pages": "1-2",
+              "features": [
+                "Executive-level resume creation",
+                "Strategic positioning and branding",
+                "Quantified achievements",
+                "Industry-specific optimization",
+                "ATS and human-reader optimized",
+                "Premium design with personal brand",
+                "Skills matrix included",
+                "Unlimited revisions",
+                "3 design templates",
+                "Word, PDF, and text versions",
+                "Cover letter included",
+                "1-hour career consultation",
+                "Interview preparation guide",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "cover_letter_standalone",
+              "name": "Professional Cover Letter",
+              "price": 29
+            },
+            {
+              "id": "linkedin_optimization",
+              "name": "LinkedIn Profile Optimization",
+              "price": 79
+            },
+            {
+              "id": "industry_specific",
+              "name": "Industry-Specific Resume (Tech, Finance, etc.)",
+              "price": 49
+            },
+            {
+              "id": "executive_resume",
+              "name": "Executive/C-Level Resume",
+              "price": 99
+            }
+          ],
+          "samples": [
+            "Sample resume before/after",
+            "Sample achievement bullets",
+            "Sample skills section"
+          ]
+        },
+        "cover_letter": {
+          "id": "personal-cover-letter",
+          "name": "Cover Letter Writing",
+          "description": "Compelling cover letters for job applications",
+          "category": "personal_services",
+          "subcategory": "career",
+          "agents": ["coder", "reviewer"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 29,
+              "deliveryDays": 1,
+              "pages": "1",
+              "features": [
+                "1-page cover letter",
+                "Job-specific customization",
+                "Professional tone",
+                "1 revision",
+                "Word and PDF"
+              ],
+              "excludes": [
+                "Multiple versions",
+                "Company research",
+                "Follow-up letters"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 49,
+              "deliveryDays": 2,
+              "pages": "1",
+              "features": [
+                "Customized 1-page letter",
+                "Company and role research",
+                "Achievement highlights",
+                "Compelling narrative",
+                "Professional formatting",
+                "2 revisions",
+                "Word and PDF versions",
+                "Email version included"
+              ],
+              "excludes": [
+                "Multiple job versions"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 79,
+              "deliveryDays": 2,
+              "pages": "1",
+              "features": [
+                "Custom cover letter with research",
+                "Company culture alignment",
+                "Role-specific achievements",
+                "Compelling storytelling",
+                "Professional design",
+                "Unlimited revisions",
+                "3 job-specific versions",
+                "Word and PDF formats",
+                "Email pitch version",
+                "Follow-up email template",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "additional_versions",
+              "name": "Additional Job-Specific Version",
+              "price": 19
+            },
+            {
+              "id": "networking_letter",
+              "name": "Networking Introduction Letter",
+              "price": 29
+            }
+          ],
+          "samples": [
+            "Sample cover letter",
+            "Sample email version"
+          ]
+        },
+        "linkedin_profile": {
+          "id": "personal-linkedin",
+          "name": "LinkedIn Profile Optimization",
+          "description": "Professional LinkedIn profile writing and optimization",
+          "category": "personal_services",
+          "subcategory": "career",
+          "agents": ["coder", "reviewer", "researcher"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 79,
+              "deliveryDays": 3,
+              "features": [
+                "Headline optimization",
+                "About section rewrite",
+                "Experience bullet points",
+                "Skills recommendations",
+                "Keyword optimization",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Complete profile overhaul",
+                "Custom background image",
+                "Content strategy"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 139,
+              "deliveryDays": 4,
+              "features": [
+                "Complete profile optimization",
+                "Compelling headline with keywords",
+                "Professional about section",
+                "All experience sections rewritten",
+                "Skills section optimization",
+                "Recommendations guidance",
+                "Featured section setup",
+                "Personal branding strategy",
+                "3 revisions",
+                "Profile checklist",
+                "30-minute strategy call"
+              ],
+              "excludes": [
+                "Custom graphics",
+                "Content calendar"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 199,
+              "deliveryDays": 5,
+              "features": [
+                "Complete profile transformation",
+                "SEO-optimized headline",
+                "Compelling about section with story",
+                "All sections professionally written",
+                "Skills endorsement strategy",
+                "Recommendation outreach templates",
+                "Featured section curation",
+                "Personal brand development",
+                "Content posting strategy (1 month)",
+                "5 post ideas with copy",
+                "Custom background banner design",
+                "Profile URL optimization",
+                "Unlimited revisions",
+                "1-hour strategy consultation",
+                "LinkedIn guide and best practices",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "banner_design",
+              "name": "Custom LinkedIn Banner Design",
+              "price": 49
+            },
+            {
+              "id": "content_calendar",
+              "name": "30-Day Content Calendar",
+              "price": 99
+            },
+            {
+              "id": "networking_outreach",
+              "name": "10 Networking Message Templates",
+              "price": 39
+            }
+          ],
+          "samples": [
+            "Sample LinkedIn profile",
+            "Sample headline and about",
+            "Sample post copy"
+          ]
+        },
+        "career_consulting": {
+          "id": "personal-career-consult",
+          "name": "Career Consulting",
+          "description": "One-on-one career strategy and guidance",
+          "category": "personal_services",
+          "subcategory": "career",
+          "agents": ["planner", "researcher"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 99,
+              "deliveryDays": 1,
+              "duration": "1 hour",
+              "features": [
+                "1-hour video consultation",
+                "Career assessment",
+                "Goal setting",
+                "Action plan outline",
+                "Follow-up email summary"
+              ],
+              "excludes": [
+                "Resume review",
+                "Job search strategy",
+                "Follow-up sessions"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 159,
+              "deliveryDays": 2,
+              "duration": "2 hours",
+              "features": [
+                "2-hour comprehensive consultation",
+                "Career assessment and personality analysis",
+                "Skills gap analysis",
+                "Career path recommendations",
+                "Goal setting and milestones",
+                "Job search strategy",
+                "Networking strategy",
+                "Resume and LinkedIn review",
+                "Detailed action plan document",
+                "Resource list",
+                "1 follow-up email check-in"
+              ],
+              "excludes": [
+                "Resume writing",
+                "Multiple follow-ups"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 199,
+              "deliveryDays": 3,
+              "duration": "3 hours",
+              "features": [
+                "3-hour intensive career coaching",
+                "Comprehensive career assessment",
+                "Personality and strengths analysis",
+                "Skills and experience audit",
+                "Multiple career path exploration",
+                "Industry and role research",
+                "Complete job search strategy",
+                "Networking and LinkedIn strategy",
+                "Interview preparation",
+                "Salary negotiation guidance",
+                "Resume and cover letter review",
+                "Detailed 90-day action plan",
+                "Resource toolkit",
+                "2 follow-up sessions (30 min each)",
+                "Email support for 30 days",
+                "Priority scheduling"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "additional_session",
+              "name": "Additional 1-Hour Session",
+              "price": 89
+            },
+            {
+              "id": "interview_prep",
+              "name": "Mock Interview Session (1 hour)",
+              "price": 79
+            },
+            {
+              "id": "salary_negotiation",
+              "name": "Salary Negotiation Coaching",
+              "price": 99
+            }
+          ],
+          "samples": [
+            "Sample career assessment",
+            "Sample action plan"
+          ]
+        },
+        "personal_budget": {
+          "id": "personal-budget",
+          "name": "Personal Budget Plan",
+          "description": "Customized budget and financial planning",
+          "category": "personal_services",
+          "subcategory": "finance",
+          "agents": ["coder", "planner"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 99,
+              "deliveryDays": 3,
+              "features": [
+                "Income and expense analysis",
+                "Basic budget template",
+                "Spending categories",
+                "Savings goal setting",
+                "Excel or Google Sheets",
+                "1 revision"
+              ],
+              "excludes": [
+                "Debt analysis",
+                "Investment planning",
+                "Financial goals planning"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 199,
+              "deliveryDays": 5,
+              "features": [
+                "Comprehensive financial analysis",
+                "Detailed budget plan",
+                "Income optimization strategies",
+                "Expense reduction recommendations",
+                "Debt payoff strategy",
+                "Emergency fund planning",
+                "Savings goals with timelines",
+                "Interactive budget spreadsheet",
+                "Monthly tracking tools",
+                "3 revisions",
+                "1-hour consultation",
+                "30-day email support"
+              ],
+              "excludes": [
+                "Investment portfolio",
+                "Tax planning"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 299,
+              "deliveryDays": 7,
+              "features": [
+                "Complete financial health assessment",
+                "Comprehensive budget plan",
+                "Income growth strategies",
+                "Expense optimization analysis",
+                "Complete debt elimination plan",
+                "Emergency fund strategy",
+                "Short and long-term savings goals",
+                "Financial milestone planning",
+                "Interactive budget dashboard",
+                "Monthly and annual projections",
+                "Financial tracking automation setup",
+                "Unlimited revisions",
+                "2-hour consultation",
+                "Financial education resources",
+                "Quarterly review sessions (3 months)",
+                "90-day email support",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "debt_strategy",
+              "name": "Advanced Debt Elimination Strategy",
+              "price": 99
+            },
+            {
+              "id": "investment_basics",
+              "name": "Investment Planning Basics",
+              "price": 149
+            },
+            {
+              "id": "monthly_reviews",
+              "name": "Monthly Budget Review (3 months)",
+              "price": 199
+            }
+          ],
+          "samples": [
+            "Sample budget template",
+            "Sample financial analysis",
+            "Sample savings plan"
+          ]
+        },
+        "investment_strategy": {
+          "id": "personal-investment",
+          "name": "Investment Strategy",
+          "description": "Personalized investment planning and strategy",
+          "category": "personal_services",
+          "subcategory": "finance",
+          "agents": ["researcher", "planner", "coder"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 299,
+              "deliveryDays": 5,
+              "features": [
+                "Risk tolerance assessment",
+                "Investment goals analysis",
+                "Asset allocation recommendation",
+                "Investment vehicle overview",
+                "Basic portfolio suggestion",
+                "Getting started guide",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Detailed research",
+                "Tax optimization",
+                "Ongoing monitoring"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 599,
+              "deliveryDays": 7,
+              "features": [
+                "Comprehensive risk assessment",
+                "Investment goals and timeline",
+                "Detailed asset allocation strategy",
+                "Investment vehicle comparison",
+                "Diversified portfolio recommendations",
+                "Tax-advantaged account strategies",
+                "Rebalancing guidelines",
+                "Performance tracking setup",
+                "Investment education resources",
+                "4 revisions",
+                "2-hour consultation",
+                "30-day email support"
+              ],
+              "excludes": [
+                "Active management",
+                "Individual stock research"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 899,
+              "deliveryDays": 10,
+              "features": [
+                "Complete financial and investment analysis",
+                "Risk tolerance and time horizon assessment",
+                "Investment goals with detailed planning",
+                "Optimal asset allocation strategy",
+                "Complete investment vehicle analysis",
+                "Diversified multi-asset portfolio",
+                "Tax optimization strategies",
+                "Retirement account maximization",
+                "Estate planning considerations",
+                "Rebalancing strategy and calendar",
+                "Performance tracking dashboard",
+                "Alternative investment exploration",
+                "Market research and insights",
+                "Unlimited revisions",
+                "3-hour detailed consultation",
+                "Investment education toolkit",
+                "Quarterly portfolio reviews (6 months)",
+                "90-day email support",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "stock_analysis",
+              "name": "Individual Stock Analysis (5 stocks)",
+              "price": 199
+            },
+            {
+              "id": "crypto_strategy",
+              "name": "Cryptocurrency Investment Strategy",
+              "price": 299
+            },
+            {
+              "id": "quarterly_reviews",
+              "name": "Quarterly Reviews (1 year)",
+              "price": 499
+            }
+          ],
+          "samples": [
+            "Sample investment strategy",
+            "Sample portfolio allocation",
+            "Sample asset analysis"
+          ]
+        },
+        "retirement_planning": {
+          "id": "personal-retirement",
+          "name": "Retirement Planning",
+          "description": "Comprehensive retirement planning and strategy",
+          "category": "personal_services",
+          "subcategory": "finance",
+          "agents": ["researcher", "planner", "coder"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 499,
+              "deliveryDays": 7,
+              "features": [
+                "Retirement goal assessment",
+                "Retirement income needs calculation",
+                "Current savings analysis",
+                "Savings gap identification",
+                "Basic retirement account strategy",
+                "Contribution recommendations",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Social security optimization",
+                "Healthcare planning",
+                "Estate considerations"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 899,
+              "deliveryDays": 10,
+              "features": [
+                "Comprehensive retirement assessment",
+                "Detailed retirement lifestyle planning",
+                "Income needs with inflation adjustment",
+                "Current savings and investments analysis",
+                "Retirement account optimization (401k, IRA)",
+                "Catch-up contribution strategies",
+                "Social security timing analysis",
+                "Healthcare cost planning",
+                "Withdrawal strategy basics",
+                "Retirement income sources overview",
+                "Action plan with milestones",
+                "4 revisions",
+                "2-hour consultation",
+                "Retirement calculator tool"
+              ],
+              "excludes": [
+                "Estate planning",
+                "Long-term care insurance"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 1499,
+              "deliveryDays": 14,
+              "features": [
+                "Complete retirement planning analysis",
+                "Detailed retirement lifestyle design",
+                "Comprehensive income needs projection",
+                "Current financial position analysis",
+                "Optimal retirement account strategy",
+                "Tax-efficient contribution planning",
+                "Social security optimization strategy",
+                "Medicare and healthcare planning",
+                "Long-term care considerations",
+                "Pension analysis (if applicable)",
+                "Multi-phase withdrawal strategy",
+                "Retirement income optimization",
+                "Estate planning basics",
+                "Legacy planning considerations",
+                "Market scenario modeling",
+                "Inflation protection strategies",
+                "Comprehensive action plan",
+                "Unlimited revisions",
+                "3-hour detailed consultation",
+                "Retirement planning dashboard",
+                "Annual review sessions (2 years)",
+                "Ongoing email support (90 days)",
+                "Priority VIP support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "social_security_deep",
+              "name": "Advanced Social Security Analysis",
+              "price": 299
+            },
+            {
+              "id": "healthcare_planning",
+              "name": "Healthcare and Long-Term Care Planning",
+              "price": 399
+            },
+            {
+              "id": "estate_basics",
+              "name": "Estate Planning Strategy",
+              "price": 499
+            }
+          ],
+          "samples": [
+            "Sample retirement plan",
+            "Sample income projection",
+            "Sample withdrawal strategy"
+          ]
+        },
+        "debt_management": {
+          "id": "personal-debt",
+          "name": "Debt Management Plan",
+          "description": "Strategic debt elimination and management plan",
+          "category": "personal_services",
+          "subcategory": "finance",
+          "agents": ["planner", "coder"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 199,
+              "deliveryDays": 3,
+              "features": [
+                "Debt inventory and analysis",
+                "Interest rate comparison",
+                "Payoff timeline calculation",
+                "Snowball vs avalanche method",
+                "Basic repayment plan",
+                "Budget adjustment tips",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Refinancing analysis",
+                "Credit score improvement",
+                "Negotiation strategies"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 399,
+              "deliveryDays": 5,
+              "features": [
+                "Comprehensive debt analysis",
+                "Interest cost calculations",
+                "Optimized payoff strategy",
+                "Snowball and avalanche comparison",
+                "Refinancing and consolidation analysis",
+                "Credit score improvement plan",
+                "Budget optimization for debt payoff",
+                "Monthly payment schedule",
+                "Milestone tracking",
+                "4 revisions",
+                "1-hour consultation",
+                "Debt payoff calculator",
+                "30-day email support"
+              ],
+              "excludes": [
+                "Creditor negotiation",
+                "Credit repair service"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 599,
+              "deliveryDays": 7,
+              "features": [
+                "Complete financial and debt assessment",
+                "All debt analysis with projections",
+                "Optimized multi-strategy payoff plan",
+                "Refinancing opportunities analysis",
+                "Consolidation options review",
+                "Balance transfer strategies",
+                "Credit score improvement roadmap",
+                "Creditor negotiation templates",
+                "Budget optimization plan",
+                "Income increase strategies",
+                "Expense reduction tactics",
+                "Monthly payment and savings schedule",
+                "Automated payment setup guidance",
+                "Milestone celebrations plan",
+                "Unlimited revisions",
+                "2-hour detailed consultation",
+                "Interactive debt tracker",
+                "Financial education resources",
+                "Quarterly check-ins (6 months)",
+                "90-day email support",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "credit_repair",
+              "name": "Credit Score Repair Strategy",
+              "price": 149
+            },
+            {
+              "id": "negotiation_help",
+              "name": "Creditor Negotiation Support",
+              "price": 199
+            },
+            {
+              "id": "monthly_coaching",
+              "name": "Monthly Debt Coaching (3 months)",
+              "price": 299
+            }
+          ],
+          "samples": [
+            "Sample debt analysis",
+            "Sample payoff schedule",
+            "Sample budget adjustment"
+          ]
+        },
+        "social_media_strategy": {
+          "id": "personal-social-strategy",
+          "name": "Social Media Strategy",
+          "description": "Social media strategy for small businesses and personal brands",
+          "category": "personal_services",
+          "subcategory": "marketing",
+          "agents": ["researcher", "planner", "coder"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 299,
+              "deliveryDays": 5,
+              "platforms": "1-2",
+              "features": [
+                "1-2 platform strategy",
+                "Audience analysis",
+                "Content pillars (3-4)",
+                "Posting frequency recommendations",
+                "Basic content ideas (10)",
+                "Hashtag strategy",
+                "Profile optimization tips",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Content creation",
+                "Visual strategy",
+                "Paid advertising"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 549,
+              "deliveryDays": 7,
+              "platforms": "2-3",
+              "features": [
+                "2-3 platform comprehensive strategy",
+                "Target audience deep-dive",
+                "Competitor analysis",
+                "Content pillars (5-6) with strategy",
+                "Posting schedule and calendar",
+                "30 content ideas with descriptions",
+                "Hashtag research and lists",
+                "Profile optimization for all platforms",
+                "Brand voice and messaging guide",
+                "Engagement strategy",
+                "Growth tactics",
+                "4 revisions",
+                "1-hour strategy call"
+              ],
+              "excludes": [
+                "Content creation",
+                "Advertising strategy"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 799,
+              "deliveryDays": 10,
+              "platforms": "3-4",
+              "features": [
+                "3-4 platform complete strategy",
+                "Comprehensive audience research",
+                "Competitor deep-dive analysis",
+                "Content pillars (7-8) with detailed strategy",
+                "30-day content calendar with post copy",
+                "50+ content ideas with descriptions",
+                "Hashtag strategy with custom lists",
+                "Complete profile optimization",
+                "Brand voice, tone, and messaging guide",
+                "Visual identity guidelines",
+                "Engagement and community strategy",
+                "Growth hacking tactics",
+                "Influencer outreach strategy",
+                "Analytics and KPI tracking setup",
+                "Crisis management guidelines",
+                "Unlimited revisions",
+                "2-hour strategy consultation",
+                "30-day implementation support",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "content_creation",
+              "name": "30 Social Media Posts (Copy + Graphics)",
+              "price": 399
+            },
+            {
+              "id": "ad_strategy",
+              "name": "Paid Advertising Strategy",
+              "price": 299
+            },
+            {
+              "id": "additional_platform",
+              "name": "Additional Platform Strategy",
+              "price": 149
+            }
+          ],
+          "samples": [
+            "Sample content calendar",
+            "Sample content pillars",
+            "Sample social strategy document"
+          ]
+        },
+        "content_calendar": {
+          "id": "personal-content-calendar",
+          "name": "Content Calendar",
+          "description": "Monthly content calendar for social media",
+          "category": "personal_services",
+          "subcategory": "marketing",
+          "agents": ["coder", "planner"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 199,
+              "deliveryDays": 5,
+              "posts": "30",
+              "features": [
+                "30-day content calendar",
+                "1 platform",
+                "Post topics and themes",
+                "Posting schedule",
+                "Hashtag suggestions",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Post copy",
+                "Graphics",
+                "Multiple platforms"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 349,
+              "deliveryDays": 7,
+              "posts": "60",
+              "features": [
+                "30-day detailed content calendar",
+                "2 platforms",
+                "30 complete post captions per platform",
+                "Posting schedule with best times",
+                "Content mix strategy",
+                "Hashtag lists for each post",
+                "Engagement prompts",
+                "Story/Reel ideas (10)",
+                "3 revisions",
+                "Editable spreadsheet"
+              ],
+              "excludes": [
+                "Graphics design",
+                "Video content"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 499,
+              "deliveryDays": 10,
+              "posts": "90",
+              "features": [
+                "30-day comprehensive content calendar",
+                "3 platforms",
+                "30 complete posts per platform (90 total)",
+                "Optimized posting schedule",
+                "Content mix and variety strategy",
+                "Custom hashtag research",
+                "Engagement tactics",
+                "Story/Reel concepts (15 with scripts)",
+                "Content repurposing guide",
+                "Trending topic integration",
+                "Unlimited revisions",
+                "Visual content descriptions",
+                "Calendar in multiple formats",
+                "1-hour planning call",
+                "Implementation guide",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "graphics_pack",
+              "name": "30 Graphics Pack (Canva templates)",
+              "price": 249
+            },
+            {
+              "id": "additional_month",
+              "name": "Additional Month Calendar",
+              "price": 299
+            },
+            {
+              "id": "video_scripts",
+              "name": "10 Video/Reel Scripts",
+              "price": 149
+            }
+          ],
+          "samples": [
+            "Sample content calendar",
+            "Sample post captions",
+            "Sample content themes"
+          ]
+        },
+        "seo_audit": {
+          "id": "personal-seo-audit",
+          "name": "SEO Audit",
+          "description": "Website SEO audit and optimization recommendations",
+          "category": "personal_services",
+          "subcategory": "marketing",
+          "agents": ["researcher", "coder", "reviewer"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 249,
+              "deliveryDays": 5,
+              "pages": "Up to 10",
+              "features": [
+                "Technical SEO analysis",
+                "On-page SEO review (up to 10 pages)",
+                "Meta tags analysis",
+                "Keyword analysis",
+                "Basic competitor review",
+                "Priority issues list",
+                "Quick wins recommendations",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Backlink analysis",
+                "Content strategy",
+                "Implementation support"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 499,
+              "deliveryDays": 7,
+              "pages": "Up to 25",
+              "features": [
+                "Comprehensive technical SEO audit",
+                "On-page SEO review (up to 25 pages)",
+                "Meta tags and schema optimization",
+                "Keyword research and mapping",
+                "Content quality assessment",
+                "Competitor SEO analysis (5 competitors)",
+                "Backlink profile overview",
+                "Site speed analysis",
+                "Mobile optimization review",
+                "Priority issues with severity ratings",
+                "Detailed recommendations",
+                "Implementation roadmap",
+                "4 revisions",
+                "1-hour walkthrough call"
+              ],
+              "excludes": [
+                "Content writing",
+                "Link building strategy"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 699,
+              "deliveryDays": 10,
+              "pages": "Up to 50",
+              "features": [
+                "Complete enterprise-level SEO audit",
+                "Technical SEO deep-dive",
+                "On-page optimization (up to 50 pages)",
+                "Advanced keyword research with opportunities",
+                "Content gap analysis",
+                "Competitor intelligence (10+ competitors)",
+                "Comprehensive backlink audit",
+                "Link building opportunities",
+                "Site architecture review",
+                "Internal linking strategy",
+                "Site speed optimization plan",
+                "Mobile and Core Web Vitals",
+                "Local SEO assessment (if applicable)",
+                "Schema markup recommendations",
+                "Complete priority matrix",
+                "6-month implementation roadmap",
+                "Monthly quick-win checklist",
+                "Unlimited revisions",
+                "2-hour strategy consultation",
+                "30-day implementation support",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "content_optimization",
+              "name": "10 Pages Content Optimization",
+              "price": 299
+            },
+            {
+              "id": "link_building",
+              "name": "Link Building Strategy",
+              "price": 349
+            },
+            {
+              "id": "monthly_monitoring",
+              "name": "Monthly SEO Monitoring (3 months)",
+              "price": 399
+            }
+          ],
+          "samples": [
+            "Sample SEO audit report",
+            "Sample recommendations list",
+            "Sample implementation roadmap"
+          ]
+        },
+        "email_marketing": {
+          "id": "personal-email-marketing",
+          "name": "Email Marketing Setup",
+          "description": "Email marketing strategy and campaign setup",
+          "category": "personal_services",
+          "subcategory": "marketing",
+          "agents": ["coder", "planner", "researcher"],
+          "tiers": {
+            "basic": {
+              "name": "Basic",
+              "price": 199,
+              "deliveryDays": 5,
+              "features": [
+                "Email marketing strategy outline",
+                "Platform recommendations",
+                "List building tactics",
+                "Basic template design (1)",
+                "Welcome email sequence (3 emails)",
+                "Subject line formulas",
+                "2 revisions"
+              ],
+              "excludes": [
+                "Platform setup",
+                "Multiple campaigns",
+                "A/B testing strategy"
+              ]
+            },
+            "professional": {
+              "name": "Professional",
+              "price": 399,
+              "deliveryDays": 7,
+              "features": [
+                "Comprehensive email strategy",
+                "Platform setup and configuration",
+                "List building and lead magnet ideas",
+                "Segmentation strategy",
+                "3 custom template designs",
+                "Welcome sequence (5 emails with copy)",
+                "Nurture campaign (5 emails with copy)",
+                "Newsletter template and ideas",
+                "Subject line bank (50+)",
+                "CTA optimization",
+                "Basic automation workflows",
+                "4 revisions",
+                "1-hour training session"
+              ],
+              "excludes": [
+                "Multiple campaigns",
+                "Advanced automation"
+              ]
+            },
+            "premium": {
+              "name": "Premium",
+              "price": 599,
+              "deliveryDays": 10,
+              "features": [
+                "Complete email marketing system",
+                "Full platform setup and integration",
+                "List building strategy with lead magnets",
+                "Advanced segmentation setup",
+                "5 custom template designs",
+                "Welcome sequence (7 emails)",
+                "Nurture campaign (8 emails)",
+                "Newsletter strategy and 4 newsletters",
+                "Promotional campaign templates",
+                "Re-engagement campaign (5 emails)",
+                "Subject line bank (100+)",
+                "CTA library and optimization",
+                "Advanced automation workflows",
+                "A/B testing strategy",
+                "Analytics and tracking setup",
+                "Deliverability optimization",
+                "Unlimited revisions",
+                "2-hour training and strategy session",
+                "30-day implementation support",
+                "Priority support"
+              ],
+              "excludes": []
+            }
+          },
+          "addOns": [
+            {
+              "id": "additional_campaign",
+              "name": "Additional Campaign (5 emails)",
+              "price": 199
+            },
+            {
+              "id": "lead_magnet_creation",
+              "name": "Lead Magnet Creation (PDF/Checklist)",
+              "price": 149
+            },
+            {
+              "id": "advanced_automation",
+              "name": "Advanced Automation Workflows",
+              "price": 299
+            }
+          ],
+          "samples": [
+            "Sample email template",
+            "Sample email sequence",
+            "Sample welcome email"
+          ]
+        }
+      }
+    }
+  },
+  "packageBundles": {
+    "student_success": {
+      "id": "bundle-student",
+      "name": "Student Success Package",
+      "description": "Complete academic support for students",
+      "services": ["edu-essay", "edu-research-paper", "edu-proofread"],
+      "originalPrice": 447,
+      "bundlePrice": 349,
+      "savings": 98,
+      "discount": "22%"
+    },
+    "thesis_complete": {
+      "id": "bundle-thesis",
+      "name": "Complete Thesis Package",
+      "description": "Everything needed for thesis success",
+      "services": ["edu-thesis-bachelor", "edu-proofread", "edu-format"],
+      "tier": "premium",
+      "originalPrice": 1097,
+      "bundlePrice": 899,
+      "savings": 198,
+      "discount": "18%"
+    },
+    "startup_launch": {
+      "id": "bundle-startup",
+      "name": "Startup Launch Package",
+      "description": "Complete startup documentation",
+      "services": ["biz-plan-investor", "biz-pitch-deck", "biz-financial-model"],
+      "tier": "professional",
+      "originalPrice": 2847,
+      "bundlePrice": 2299,
+      "savings": 548,
+      "discount": "19%"
+    },
+    "career_boost": {
+      "id": "bundle-career",
+      "name": "Career Boost Package",
+      "description": "Complete career transformation toolkit",
+      "services": ["personal-cv", "personal-cover-letter", "personal-linkedin", "personal-career-consult"],
+      "tier": "professional",
+      "originalPrice": 486,
+      "bundlePrice": 379,
+      "savings": 107,
+      "discount": "22%"
+    },
+    "financial_freedom": {
+      "id": "bundle-finance",
+      "name": "Financial Freedom Package",
+      "description": "Complete personal finance planning",
+      "services": ["personal-budget", "personal-investment", "personal-debt"],
+      "tier": "professional",
+      "originalPrice": 1197,
+      "bundlePrice": 949,
+      "savings": 248,
+      "discount": "21%"
+    },
+    "digital_presence": {
+      "id": "bundle-marketing",
+      "name": "Digital Presence Package",
+      "description": "Complete online marketing setup",
+      "services": ["personal-social-strategy", "personal-content-calendar", "personal-email-marketing"],
+      "tier": "professional",
+      "originalPrice": 1298,
+      "bundlePrice": 999,
+      "savings": 299,
+      "discount": "23%"
+    }
+  },
+  "seasonalPromotions": {
+    "back_to_school": {
+      "id": "promo-school",
+      "name": "Back to School Special",
+      "description": "Save on all educational services",
+      "category": "educational",
+      "discount": 20,
+      "validFrom": "2025-08-01",
+      "validTo": "2025-09-30",
+      "code": "SCHOOL2025"
+    },
+    "new_year_career": {
+      "id": "promo-career",
+      "name": "New Year Career Boost",
+      "description": "Start the year with a new job",
+      "category": "personal_services",
+      "subcategory": "career",
+      "discount": 25,
+      "validFrom": "2025-01-01",
+      "validTo": "2025-02-14",
+      "code": "CAREER2025"
+    },
+    "tax_season": {
+      "id": "promo-finance",
+      "name": "Tax Season Financial Planning",
+      "description": "Get your finances in order",
+      "category": "personal_services",
+      "subcategory": "finance",
+      "discount": 15,
+      "validFrom": "2025-01-15",
+      "validTo": "2025-04-15",
+      "code": "TAXTIME2025"
+    },
+    "startup_spring": {
+      "id": "promo-startup",
+      "name": "Spring Startup Launch",
+      "description": "Launch your business this spring",
+      "category": "business_startup",
+      "discount": 20,
+      "validFrom": "2025-03-01",
+      "validTo": "2025-05-31",
+      "code": "LAUNCH2025"
+    },
+    "summer_grad": {
+      "id": "promo-grad",
+      "name": "Summer Graduate Special",
+      "description": "Thesis and dissertation discount",
+      "services": ["edu-thesis-bachelor", "edu-thesis-master", "edu-thesis-phd"],
+      "discount": 15,
+      "validFrom": "2025-05-01",
+      "validTo": "2025-08-31",
+      "code": "GRAD2025"
+    },
+    "black_friday": {
+      "id": "promo-blackfriday",
+      "name": "Black Friday Mega Sale",
+      "description": "Biggest discounts of the year",
+      "discount": 30,
+      "validFrom": "2025-11-28",
+      "validTo": "2025-11-30",
+      "code": "BLACKFRIDAY2025"
+    }
+  },
+  "referralProgram": {
+    "customerReward": {
+      "type": "credit",
+      "amount": 50,
+      "description": "Get $50 credit for each friend who makes a purchase"
+    },
+    "friendDiscount": {
+      "type": "percentage",
+      "amount": 15,
+      "description": "Your friend gets 15% off their first order"
+    }
+  },
+  "loyaltyProgram": {
+    "tiers": [
+      {
+        "name": "Bronze",
+        "minSpending": 0,
+        "discount": 0,
+        "benefits": ["Priority email support", "Free plagiarism check"]
+      },
+      {
+        "name": "Silver",
+        "minSpending": 500,
+        "discount": 5,
+        "benefits": ["5% discount on all orders", "Priority support", "Free revisions +1"]
+      },
+      {
+        "name": "Gold",
+        "minSpending": 1500,
+        "discount": 10,
+        "benefits": ["10% discount on all orders", "VIP support", "Free revisions +2", "Free formatting"]
+      },
+      {
+        "name": "Platinum",
+        "minSpending": 5000,
+        "discount": 15,
+        "benefits": ["15% discount on all orders", "Dedicated account manager", "Unlimited revisions", "Free rush delivery", "Early access to new services"]
+      }
+    ]
+  }
+}
