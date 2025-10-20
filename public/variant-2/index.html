@@ -2093,6 +2093,59 @@
       }
     }
 
+    /* Декоративное свечение (без текста) */
+    .decorative-glow {
+      width: 100%;
+      max-width: 800px;
+      height: 3px;
+      margin: 0 auto 32px auto;
+      position: relative;
+      border-radius: 10px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 233, 0, 0.2) 20%,
+        rgba(255, 233, 0, 0.6) 50%,
+        rgba(255, 233, 0, 0.2) 80%,
+        transparent 100%
+      );
+      animation: decorative-pulse 3s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(255, 233, 0, 0.4),
+                  0 0 40px rgba(255, 233, 0, 0.2);
+    }
+
+    .decorative-glow::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 0;
+      right: 0;
+      height: 7px;
+      border-radius: 10px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(147, 51, 234, 0.1) 20%,
+        rgba(147, 51, 234, 0.3) 50%,
+        rgba(147, 51, 234, 0.1) 80%,
+        transparent 100%
+      );
+      filter: blur(8px);
+      animation: decorative-pulse 3s ease-in-out infinite reverse;
+    }
+
+    @keyframes decorative-pulse {
+      0%, 100% {
+        opacity: 0.6;
+        box-shadow: 0 0 20px rgba(255, 233, 0, 0.4),
+                    0 0 40px rgba(255, 233, 0, 0.2);
+      }
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 30px rgba(255, 233, 0, 0.6),
+                    0 0 60px rgba(255, 233, 0, 0.4),
+                    0 0 80px rgba(255, 233, 0, 0.2);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2166,6 +2219,9 @@
 
     <div class="container">
       <div class="hero-content">
+        <!-- Декоративное свечение сверху (без текста) -->
+        <div class="decorative-glow"></div>
+
         <!-- PRIVATE SALE BANNER - Сохранён для встраивания в другое место
         <div class="private-sale-banner" data-i18n="private_sale_banner">
           🚀 JOIN PRIVATE SALE - 20-30% BONUS
