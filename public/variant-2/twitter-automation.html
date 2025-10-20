@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter/X Automation - Grow Your Audience on Autopilot | HypeAI</title>
+  <meta name="description" content="Automated Twitter growth: 3-8 tweets/day, AI-generated threads, engagement automation. Grow 500-5,000 followers/month. Perfect for crypto projects.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/services.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .twitter-hero {
+      background: linear-gradient(135deg, rgba(29, 161, 242, 0.1) 0%, rgba(29, 161, 242, 0.05) 100%);
+      border-bottom: 2px solid rgba(29, 161, 242, 0.2);
+    }
+
+    .twitter-icon {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .pricing-table {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .pricing-card {
+      padding: 2.5rem;
+      background: rgba(30, 32, 38, 0.6);
+      border: 2px solid rgba(183, 189, 198, 0.2);
+      border-radius: 16px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .pricing-card.featured {
+      border-color: #1DA1F2;
+      background: rgba(29, 161, 242, 0.05);
+      box-shadow: 0 0 40px rgba(29, 161, 242, 0.2);
+      transform: scale(1.05);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .pricing-card.featured:hover {
+      transform: translateY(-8px) scale(1.05);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.5rem 1.5rem;
+      background: linear-gradient(135deg, #1DA1F2, #0C8DD6);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(29, 161, 242, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .plan-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #B7BDC6;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .plan-price {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #FFE900;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .plan-price span {
+      font-size: 1.25rem;
+      color: #757D8A;
+      font-weight: 600;
+    }
+
+    .plan-description {
+      font-size: 0.9375rem;
+      color: #B7BDC6;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+    }
+
+    .plan-features li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(183, 189, 198, 0.1);
+      color: #E4E7EB;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    .plan-features li:last-child {
+      border-bottom: none;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .result-card {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(29, 161, 242, 0.05);
+      border: 1px solid rgba(29, 161, 242, 0.2);
+      border-radius: 12px;
+    }
+
+    .result-number {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #1DA1F2;
+      margin-bottom: 0.5rem;
+    }
+
+    .result-label {
+      font-size: 0.875rem;
+      color: #B7BDC6;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: 3rem auto;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+    }
+
+    .timeline-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #1DA1F2, #0C8DD6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px rgba(29, 161, 242, 0.4);
+    }
+
+    .timeline-content h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.9375rem;
+      color: #B7BDC6;
+      line-height: 1.6;
+    }
+
+    .crypto-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 233, 0, 0.1);
+      border: 1px solid rgba(255, 233, 0, 0.3);
+      border-radius: 20px;
+      color: #FFE900;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin: 0 0.25rem;
+    }
+  </style>
+</head>
+
+<body class="cosmic-bg">
+
+  <!-- Navigation -->
+  <nav class="nav-sticky">
+    <div class="container">
+      <div class="nav-content">
+        <a href="index.html" class="logo">
+          <span class="logo-text">HYPE</span><span class="logo-accent">AI</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html#hero" class="nav-link">Home</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="index.html#tokenomics" class="nav-link">Tokenomics</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="btn btn-outline btn-sm" id="lang-toggle">EN</button>
+          <a href="#pricing" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="services-hero twitter-hero">
+    <div class="container">
+      <div class="hero-content text-center">
+        <div class="twitter-icon">𝕏</div>
+        <div class="section-label">Twitter/X Automation</div>
+        <h1 class="hero-title">
+          Grow Your Twitter<br>on <span class="text-gradient">Autopilot</span>
+        </h1>
+        <p class="hero-description">
+          AI-powered Twitter automation that actually works. 3-8 tweets/day, threads, replies, engagement optimization.
+          <br>Perfect for crypto projects, businesses, and personal brands.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-value">500-5K</div>
+            <div class="stat-label">Followers/Month</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">3-8</div>
+            <div class="stat-label">Tweets/Day</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Automation</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">AI</div>
+            <div class="stat-label">Powered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Real Results</div>
+        <h2 class="section-title">What You Can Expect</h2>
+        <p class="section-description">
+          Based on our clients' average performance over 90 days
+        </p>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-number">500-2K</div>
+          <div class="result-label">New Followers/Month (Basic)</div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-number">2K-5K</div>
+          <div class="result-label">New Followers/Month (Premium)</div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-number">3-8x</div>
+          <div class="result-label">Engagement Increase</div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-number">90-150</div>
+          <div class="result-label">Posts Per Month</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section bg-darker" id="pricing">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">Choose Your Growth Plan</h2>
+        <p class="section-description">
+          All plans include AI content generation, scheduling, and analytics.<br>
+          <span class="crypto-badge">💎 Pay with $HYPE for 30% discount</span>
+        </p>
+      </div>
+
+      <div class="pricing-table">
+
+        <!-- Basic Plan -->
+        <div class="glass-card pricing-card">
+          <div class="plan-name">Basic</div>
+          <div class="plan-price">$399<span>/month</span></div>
+          <div class="plan-description">
+            Perfect for getting started with Twitter automation
+          </div>
+
+          <ul class="plan-features">
+            <li>✅ <strong>3-5 tweets per day</strong> (90-150/month)</li>
+            <li>✅ AI-generated content</li>
+            <li>✅ Hashtag optimization</li>
+            <li>✅ Optimal timing scheduling</li>
+            <li>✅ 2-4 threads per month</li>
+            <li>✅ Engagement tracking</li>
+            <li>✅ Monthly analytics report</li>
+            <li>✅ Email support</li>
+            <li>📈 <strong>Expected:</strong> 500-2,000 followers/month</li>
+          </ul>
+
+          <button class="btn btn-outline btn-lg" style="width: 100%;">Get Started →</button>
+
+          <div class="service-trust-line" style="margin-top: 1.5rem;">
+            ⏱️ Launch in 24-48 hours
+          </div>
+        </div>
+
+        <!-- Professional Plan (Featured) -->
+        <div class="glass-card pricing-card featured">
+          <div class="popular-tag">🔥 Most Popular</div>
+          <div class="plan-name">Professional</div>
+          <div class="plan-price">$999<span>/month</span></div>
+          <div class="plan-description">
+            Complete Twitter growth solution for serious brands
+          </div>
+
+          <ul class="plan-features">
+            <li>✅ <strong>5-8 tweets per day</strong> (150-240/month)</li>
+            <li>✅ AI-generated content + custom voice</li>
+            <li>✅ Advanced hashtag strategy</li>
+            <li>✅ Optimal timing + trending topics</li>
+            <li>✅ 8-15 threads per month</li>
+            <li>✅ Reply automation (smart engagement)</li>
+            <li>✅ Engagement optimization</li>
+            <li>✅ Competitor tracking</li>
+            <li>✅ Weekly growth reports</li>
+            <li>✅ 24/7 chat support</li>
+            <li>📈 <strong>Expected:</strong> 2,000-5,000 followers/month</li>
+          </ul>
+
+          <button class="btn btn-primary btn-lg" style="width: 100%;">Get Started →</button>
+
+          <div class="service-trust-line" style="margin-top: 1.5rem;">
+            ⏱️ Launch in 24 hours | 💎 Most value
+          </div>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="glass-card pricing-card">
+          <div class="plan-name">Premium</div>
+          <div class="plan-price">$2,999<span>/month</span></div>
+          <div class="plan-description">
+            Enterprise-grade Twitter automation & management
+          </div>
+
+          <ul class="plan-features">
+            <li>✅ <strong>8+ tweets per day</strong> (240+/month)</li>
+            <li>✅ Premium AI content + brand voice training</li>
+            <li>✅ Advanced strategy & research</li>
+            <li>✅ Real-time trending participation</li>
+            <li>✅ 15+ threads per month</li>
+            <li>✅ Full reply automation</li>
+            <li>✅ DM automation (welcome messages)</li>
+            <li>✅ Twitter Spaces coordination</li>
+            <li>✅ Influencer outreach</li>
+            <li>✅ Crisis management alerts</li>
+            <li>✅ Dedicated account manager</li>
+            <li>✅ Daily reports + strategy calls</li>
+            <li>📈 <strong>Expected:</strong> 3,000-8,000 followers/month</li>
+          </ul>
+
+          <button class="btn btn-outline btn-lg" style="width: 100%;">Contact Sales →</button>
+
+          <div class="service-trust-line" style="margin-top: 1.5rem;">
+            ⏱️ White-glove onboarding | 📞 Direct support line
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center" style="margin-top: 3rem;">
+        <p style="color: #B7BDC6; font-size: 0.875rem;">
+          💎 <strong>Crypto Projects:</strong> Pay with $HYPE tokens and get 30% discount on any plan!<br>
+          ₿ All plans include native crypto content expertise
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-description">
+          From setup to growth in 4 simple steps
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-number">1</div>
+          <div class="timeline-content">
+            <h3>Onboarding & Strategy</h3>
+            <p>
+              We analyze your brand, audience, and goals. Define your content strategy, voice, and target topics.
+              Connect your Twitter account securely.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">2</div>
+          <div class="timeline-content">
+            <h3>AI Training & Setup</h3>
+            <p>
+              Our AI agents (VIBE, COPY, PULSE) learn your brand voice and industry.
+              We create initial content calendar and set up automation workflows.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">3</div>
+          <div class="timeline-content">
+            <h3>Launch & Automation</h3>
+            <p>
+              System goes live! Daily tweets, threads, and engagement happen automatically.
+              Our AI monitors performance and optimizes in real-time.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">4</div>
+          <div class="timeline-content">
+            <h3>Growth & Optimization</h3>
+            <p>
+              Watch your followers grow! Weekly/monthly reports show detailed analytics.
+              Continuous optimization based on what performs best.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section class="section bg-darker">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Advantages</div>
+        <h2 class="section-title">Why HypeAI Twitter Automation?</h2>
+      </div>
+
+      <div class="advantages-grid">
+        <div class="advantage-card">
+          <div class="advantage-icon">🤖</div>
+          <h3>AI-Powered Quality</h3>
+          <p>Advanced AI generates engaging, on-brand content that sounds human, not robotic.</p>
+        </div>
+
+        <div class="advantage-card">
+          <div class="advantage-icon">₿</div>
+          <h3>Crypto Native</h3>
+          <p>We specialize in crypto/Web3 Twitter. Perfect for token launches, DeFi projects, NFTs.</p>
+        </div>
+
+        <div class="advantage-card">
+          <div class="advantage-icon">📈</div>
+          <h3>Proven Growth</h3>
+          <p>Our clients average 2,000-5,000 new followers per month with high engagement rates.</p>
+        </div>
+
+        <div class="advantage-card">
+          <div class="advantage-icon">⚡</div>
+          <h3>24/7 Automation</h3>
+          <p>Never miss optimal posting times. System works around the clock in all timezones.</p>
+        </div>
+
+        <div class="advantage-card">
+          <div class="advantage-icon">💰</div>
+          <h3>10x Cheaper Than Agency</h3>
+          <p>AI efficiency means professional results at a fraction of traditional agency costs.</p>
+        </div>
+
+        <div class="advantage-card">
+          <div class="advantage-icon">🔒</div>
+          <h3>100% Safe & Compliant</h3>
+          <p>No sketchy bots or fake followers. Fully compliant with Twitter/X terms of service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="container">
+      <div class="glass-card cta-card-large">
+        <h2 class="cta-title">Ready to Grow Your Twitter?</h2>
+        <p class="cta-description">
+          Launch in 24-48 hours. Cancel anytime. 30-day money-back guarantee.
+        </p>
+
+        <div class="cta-buttons">
+          <a href="#pricing" class="btn btn-primary btn-lg">
+            Choose Your Plan →
+          </a>
+          <button class="btn btn-secondary btn-lg">
+            Schedule a Demo Call
+          </button>
+        </div>
+
+        <div class="cta-trust-line">
+          ✅ No long-term contracts | ⭐ 95% satisfaction | 🔒 Secure | 💎 30% discount with $HYPE
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>HypeAI</h4>
+          <p>AI-powered Twitter automation that works.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Services</h4>
+          <a href="services.html" class="footer-link">All Services</a>
+          <a href="twitter-automation.html" class="footer-link">Twitter Automation</a>
+          <a href="#" class="footer-link">Instagram Automation</a>
+          <a href="#" class="footer-link">LinkedIn Automation</a>
+        </div>
+
+        <div class="footer-section">
+          <h4>Company</h4>
+          <a href="index.html#about" class="footer-link">About</a>
+          <a href="index.html#roadmap" class="footer-link">Roadmap</a>
+          <a href="index.html#contact" class="footer-link">Contact</a>
+        </div>
+
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <a href="#" class="footer-link">Twitter</a>
+          <a href="#" class="footer-link">Telegram</a>
+          <a href="#" class="footer-link">Discord</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 HypeAI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/services.js"></script>
+
+</body>
+</html>
