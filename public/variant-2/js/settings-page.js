@@ -33,7 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
   forms.forEach(form => {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('Settings saved successfully!');
+      if (window.toast) {
+        window.toast.success('Settings saved successfully!');
+      }
     });
   });
 
@@ -43,7 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', function(e) {
       if (!this.type || this.type !== 'submit') {
         e.preventDefault();
-        alert('Settings saved successfully!');
+        if (window.toast) {
+          window.toast.success('Settings saved successfully!');
+        }
       }
     });
   });

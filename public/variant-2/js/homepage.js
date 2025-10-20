@@ -233,12 +233,16 @@ if (connectWalletBtn) {
         console.error('Error connecting wallet:', error);
         connectWalletBtn.textContent = 'Connect Wallet';
         connectWalletBtn.disabled = false;
-        alert('Failed to connect wallet. Please try again.');
+        if (window.toast) {
+          window.toast.error('Failed to connect wallet. Please try again.');
+        }
       }
     } else {
       connectWalletBtn.textContent = 'Connect Wallet';
       connectWalletBtn.disabled = false;
-      alert('Please install MetaMask to connect your wallet.');
+      if (window.toast) {
+        window.toast.warning('Please install MetaMask to connect your wallet.');
+      }
     }
   });
 }

@@ -15,16 +15,20 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/bnb-theme.css">
   <link rel="stylesheet" href="css/animations.css">
 
   <style>
+    * {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
     .roadmap-hero {
-      padding: calc(80px + var(--spacing-12)) var(--spacing-4) var(--spacing-16);
-      background: linear-gradient(180deg, var(--bnb-bg-darker) 0%, var(--bnb-bg-dark) 100%);
+      padding: calc(100px + var(--spacing-16)) var(--spacing-6) var(--spacing-20);
+      background: linear-gradient(180deg, rgba(15, 16, 20, 1) 0%, rgba(20, 21, 26, 1) 100%);
       text-align: center;
     }
 
@@ -40,8 +44,8 @@
       left: 50%;
       top: 0;
       bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, var(--bnb-gold-primary) 0%, rgba(243, 186, 47, 0.2) 100%);
+      width: 4px;
+      background: linear-gradient(180deg, #FFE900 0%, rgba(255, 233, 0, 0.15) 100%);
       transform: translateX(-50%);
     }
 
@@ -54,19 +58,20 @@
     }
 
     .timeline-content {
-      padding: var(--spacing-8);
-      background: var(--glass-bg);
-      backdrop-filter: blur(24px);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-glass);
-      transition: var(--transition-normal);
+      padding: var(--spacing-12);
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(40px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .timeline-content:hover {
-      border-color: var(--bnb-gold-primary);
-      box-shadow: 0 12px 48px rgba(243, 186, 47, 0.3);
-      transform: translateY(-4px);
+      border-color: #FFE900;
+      box-shadow: 0 16px 60px rgba(255, 233, 0, 0.25);
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .timeline-left { grid-column: 1; }
@@ -110,10 +115,11 @@
     }
 
     .milestone-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: var(--spacing-4);
+      font-size: 1.875rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: var(--spacing-5);
+      letter-spacing: -0.02em;
     }
 
     .milestone-list {
@@ -155,11 +161,11 @@
     }
 
     .progress-card {
-      padding: var(--spacing-8);
-      background: var(--glass-bg);
-      backdrop-filter: blur(24px);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
+      padding: var(--spacing-10);
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(40px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
     }
 
     .progress-header {

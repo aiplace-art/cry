@@ -4,95 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HypeAI Logo Showcase - Binance Chain Edition</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bnb-theme.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    .showcase-page {
+      min-height: 100vh;
+      padding-top: calc(80px + var(--spacing-8));
+      padding-bottom: var(--spacing-16);
     }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      color: #ffffff;
-      padding: 40px 20px;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    h1 {
+    .showcase-header {
       text-align: center;
-      font-size: 3em;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #F3BA2F 0%, #FCD535 100%);
+      margin-bottom: var(--spacing-12);
+      padding: var(--spacing-12) var(--spacing-4);
+      background: linear-gradient(135deg, rgba(243, 186, 47, 0.1) 0%, rgba(30, 32, 38, 0.6) 100%);
+      border-radius: var(--radius-xl);
+    }
+
+    .showcase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      padding: var(--spacing-2) var(--spacing-6);
+      background: rgba(243, 186, 47, 0.2);
+      border: 1px solid var(--bnb-gold-primary);
+      border-radius: var(--radius-full);
+      color: var(--bnb-gold-primary);
+      font-weight: 700;
+      margin-bottom: var(--spacing-6);
+    }
+
+    .showcase-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      background: var(--gradient-gold);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      margin-bottom: var(--spacing-4);
     }
 
-    .subtitle {
-      text-align: center;
-      font-size: 1.2em;
-      color: #F3BA2F;
-      margin-bottom: 60px;
-      opacity: 0.9;
+    .showcase-subtitle {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      color: var(--text-tertiary);
+      font-weight: 500;
     }
 
-    .section {
-      margin-bottom: 80px;
+    .showcase-section {
+      margin-bottom: var(--spacing-16);
     }
 
-    .section-title {
-      font-size: 2em;
-      margin-bottom: 30px;
-      color: #FCD535;
-      border-bottom: 2px solid #F3BA2F;
-      padding-bottom: 10px;
+    .showcase-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--bnb-gold-primary);
+      margin-bottom: var(--spacing-8);
+      padding-bottom: var(--spacing-4);
+      border-bottom: 2px solid var(--glass-border);
     }
 
-    .grid {
+    .showcase-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-bottom: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-8);
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(243, 186, 47, 0.3);
-      border-radius: 15px;
-      padding: 30px;
-      transition: all 0.3s ease;
+    .showcase-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-8);
+      transition: var(--transition-normal);
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(243, 186, 47, 0.3);
-      border-color: #F3BA2F;
+    .showcase-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(243, 186, 47, 0.25);
+      border-color: var(--bnb-gold-primary);
     }
 
-    .card h3 {
-      color: #F3BA2F;
-      margin-bottom: 20px;
-      font-size: 1.3em;
+    .showcase-card h3 {
+      color: var(--bnb-gold-primary);
+      margin-bottom: var(--spacing-6);
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: var(--font-display);
     }
 
     .logo-display {
-      background: #ffffff;
-      border-radius: 10px;
-      padding: 40px;
-      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-8);
+      margin-bottom: var(--spacing-4);
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 200px;
+      border: 2px solid rgba(243, 186, 47, 0.2);
     }
 
     .logo-display.dark {
-      background: #1E2026;
+      background: var(--bnb-bg-dark);
+      border-color: var(--glass-border);
     }
 
     .logo-display img,
@@ -260,23 +278,76 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>HypeAI Logo Showcase</h1>
-    <p class="subtitle">Binance Chain Edition - Neural Network Diamond Design</p>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/logo-bnb-icon.svg" alt="HypeAI" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-name">HypeAI</span>
+            <span class="logo-tagline">Logo Showcase</span>
+          </div>
+        </a>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html#features" class="nav-link">Features</a></li>
+            <li><a href="agents.html" class="nav-link">AI Agents</a></li>
+            <li><a href="whitepaper.html" class="nav-link">Whitepaper</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <div class="bsc-badge">
+            <svg class="bsc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#F3BA2F"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#F3BA2F"/>
+              <path d="M2 12L12 17L22 12" stroke="#F3BA2F" stroke-width="2"/>
+            </svg>
+            <span>BSC</span>
+          </div>
+          <a href="index.html" class="btn-primary btn-sm">Home</a>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <!-- Main Concepts -->
-    <section class="section">
-      <h2 class="section-title">Logo Concepts</h2>
-      <div class="concepts-grid">
-        <div class="card">
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="index.html#features" class="mobile-nav-link">Features</a>
+      <a href="agents.html" class="mobile-nav-link">AI Agents</a>
+      <a href="whitepaper.html" class="mobile-nav-link">Whitepaper</a>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+    </nav>
+  </div>
+
+  <main class="showcase-page">
+    <div class="container">
+      <div class="showcase-header">
+        <div class="showcase-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span>Brand Assets</span>
+        </div>
+        <h1 class="showcase-title">HypeAI Logo Showcase</h1>
+        <p class="showcase-subtitle">Binance Chain Edition - Neural Network Diamond Design</p>
+      </div>
+
+      <!-- Main Concepts -->
+      <section class="showcase-section">
+        <h2 class="showcase-section-title">Logo Concepts</h2>
+        <div class="showcase-grid">
+          <div class="showcase-card">
           <h3>Concept A: AI Lightning + BNB</h3>
           <div class="logo-display">
             <object data="assets/logo-concept-a.svg" type="image/svg+xml" style="width: 200px;"></object>
           </div>
-          <p>Stylized "H" with lightning bolt through neural network nodes, combining energy and AI connectivity.</p>
+          <p style="color: var(--text-tertiary); line-height: 1.7;">Stylized "H" with lightning bolt through neural network nodes, combining energy and AI connectivity.</p>
         </div>
 
-        <div class="card">
+        <div class="showcase-card">
           <h3>Concept B: Neural Network Diamond ⭐</h3>
           <div class="logo-display">
             <object data="assets/logo-concept-b.svg" type="image/svg+xml" style="width: 200px;"></object>

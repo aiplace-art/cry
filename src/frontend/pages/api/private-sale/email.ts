@@ -92,20 +92,23 @@ export default async function handler(
     await sgMail.send(msg);
     */
 
-    // For now, just log the email data
-    console.log('Email notification sent:', {
-      walletAddress,
-      amount,
-      tokens,
-      transactionHash,
-    });
+    // For now, just log the email data (SECURITY: No sensitive data exposed)
+    // In production, this would integrate with email service
+    if (process.env.NODE_ENV === 'development') {
+      console.error('[EMAIL] Notification would be sent for transaction:', transactionHash.substring(0, 10) + '...');
+    }
 
     return res.status(200).json({ success: true });
   } catch (error: any) {
-    console.error('Email send error:', error);
-    return res.status(500).json({
-      success: false,
-      error: error.message || 'Failed to send email',
+    // SECURITY: Import error handler for proper sanitization
+    const { createErrorResponse, logError } = await import('../../lib/backend/error-handler');
+
+    logError(error, {
+      endpoint: '/api/private-sale/email',
+      hasWalletAddress: !!walletAddress
     });
+
+    const response = createErrorResponse(500, error);
+    return res.status(response.statusCode).json(response.body);
   }
 }

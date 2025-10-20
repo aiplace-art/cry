@@ -3,542 +3,1309 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
   <title>27 AI Agents - HypeAI Platform</title>
-  <meta name="description" content="Meet our 27 specialized AI agents working 24/7 on Binance Smart Chain">
+  <meta name="title" content="27 AI Agents - HypeAI Platform">
+  <meta name="description" content="Meet our 27 specialized AI agents working 24/7 to deliver exceptional results across all service categories.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="27 AI Agents - HypeAI">
+  <meta property="og:description" content="Specialized AI agents optimizing your projects 24/7">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/shared.css">
-  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    /* ========================================
+       BNBCHAIN.ORG PREMIUM DESIGN SYSTEM
+       ======================================== */
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/logo-bnb-icon.svg">
+    :root {
+      /* Exact BNB Chain Colors */
+      --bg-primary: #14151A;
+      --bg-secondary: #1E2026;
+      --brand-yellow: #FFE900;
+      --text-primary: #FFFFFF;
+      --text-secondary: #8C8F9B;
+
+      /* Transitions */
+      --ease-premium: cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ========================================
+       ANIMATED GRADIENT MESH BACKGROUND
+       ======================================== */
+
+    .page-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .gradient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.15;
+      animation: float-orb 20s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--brand-yellow) 0%, transparent 70%);
+      top: -200px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--brand-yellow) 0%, transparent 70%);
+      top: 50%;
+      right: -150px;
+      animation-delay: 3s;
+    }
+
+    .orb-3 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--brand-yellow) 0%, transparent 70%);
+      bottom: 10%;
+      left: 30%;
+      animation-delay: 6s;
+    }
+
+    @keyframes float-orb {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      33% {
+        transform: translate(30px, -40px) scale(1.1);
+      }
+      66% {
+        transform: translate(-20px, 30px) scale(0.9);
+      }
+    }
+
+    /* ========================================
+       CONTAINER SYSTEM
+       ======================================== */
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+    }
+
+    /* ========================================
+       HEADER
+       ======================================== */
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(20, 21, 26, 0.8);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-bottom: 1px solid rgba(255, 233, 0, 0.1);
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .header.scrolled {
+      padding: 16px 0;
+      background: rgba(20, 21, 26, 0.95);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: transform 0.3s var(--ease-premium);
+    }
+
+    .logo:hover {
+      transform: translateY(-2px);
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-highlight {
+      color: var(--brand-yellow);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s var(--ease-premium);
+      position: relative;
+    }
+
+    .nav-link.active {
+      color: var(--text-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brand-yellow);
+      transition: width 0.3s var(--ease-premium);
+    }
+
+    .nav-link.active::after,
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .btn-primary {
+      background: var(--brand-yellow);
+      color: var(--bg-primary);
+      border: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-premium);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(255, 233, 0, 0.4);
+    }
+
+    /* Mobile menu */
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-list {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav.mobile-open .nav-list {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(20, 21, 26, 0.98);
+        padding: 24px;
+        gap: 24px;
+        border-top: 1px solid rgba(255, 233, 0, 0.1);
+      }
+    }
+
+    /* ========================================
+       PAGE HERO
+       ======================================== */
+
+    .page-hero {
+      padding: 200px 0 120px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 233, 0, 0.1);
+      border: 1px solid rgba(255, 233, 0, 0.3);
+      color: var(--brand-yellow);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 32px;
+      animation: fade-in-up 1s var(--ease-premium);
+    }
+
+    .page-hero-title {
+      font-size: 96px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      animation: fade-in-up 1s var(--ease-premium) 0.1s backwards;
+    }
+
+    .page-hero-description {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 60px;
+      animation: fade-in-up 1s var(--ease-premium) 0.2s backwards;
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hero Stats */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      animation: fade-in-up 1s var(--ease-premium) 0.3s backwards;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--brand-yellow);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .page-hero {
+        padding: 140px 0 80px;
+      }
+
+      .page-hero-title {
+        font-size: 48px;
+      }
+
+      .page-hero-description {
+        font-size: 18px;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+    }
+
+    /* ========================================
+       SECTION SYSTEM
+       ======================================== */
+
+    .section {
+      padding: 160px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brand-yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .section-description {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 40px;
+      }
+
+      .section-header {
+        margin-bottom: 60px;
+      }
+    }
+
+    /* ========================================
+       AGENT CARDS GRID
+       ======================================== */
+
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .agent-card {
+      background: rgba(30, 32, 38, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 233, 0, 0.1);
+      border-radius: 16px;
+      padding: 40px;
+      transition: all 0.4s var(--ease-premium);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .agent-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(255, 233, 0, 0.05) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s var(--ease-premium);
+    }
+
+    .agent-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 233, 0, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .agent-card:hover::before {
+      opacity: 1;
+    }
+
+    .agent-status {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 12px;
+      height: 12px;
+      background: var(--brand-yellow);
+      border-radius: 50%;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 233, 0, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 0 8px rgba(255, 233, 0, 0);
+      }
+    }
+
+    .agent-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, rgba(255, 233, 0, 0.1) 0%, rgba(255, 233, 0, 0.05) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      transition: transform 0.4s var(--ease-premium);
+    }
+
+    .agent-card:hover .agent-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .agent-name {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .agent-description {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .agent-stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .agent-stat {
+      text-align: center;
+      padding: 12px;
+      background: rgba(255, 233, 0, 0.05);
+      border-radius: 8px;
+    }
+
+    .agent-stat strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--brand-yellow);
+      margin-bottom: 4px;
+    }
+
+    .agent-stat small {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 1024px) {
+      .agents-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .agents-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .agent-card {
+        padding: 32px;
+      }
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+
+    .footer {
+      padding: 80px 0 40px;
+      border-top: 1px solid rgba(255, 233, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand {
+      max-width: 350px;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .footer-logo-highlight {
+      color: var(--brand-yellow);
+    }
+
+    .footer-description {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 233, 0, 0.1);
+      border: 1px solid rgba(255, 233, 0, 0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .social-link:hover {
+      background: var(--brand-yellow);
+      color: var(--bg-primary);
+      border-color: var(--brand-yellow);
+      transform: translateY(-4px);
+    }
+
+    .footer-section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s var(--ease-premium);
+    }
+
+    .footer-links a:hover {
+      color: var(--brand-yellow);
+    }
+
+    .footer-bottom {
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 233, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .footer-copyright {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-copyright a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s var(--ease-premium);
+    }
+
+    .footer-copyright a:hover {
+      color: var(--brand-yellow);
+    }
+
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-copyright {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    /* ========================================
+       SCROLL ANIMATIONS
+       ======================================== */
+
+    .scroll-fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s var(--ease-premium);
+    }
+
+    .scroll-fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================================
+       UTILITIES
+       ======================================== */
+
+    .text-gradient {
+      background: linear-gradient(135deg, var(--brand-yellow) 0%, #FFF4A3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-container">
-      <div class="header-logo">
-        <a href="index.html">
-          <img src="assets/logo-bnb.svg" alt="HypeAI" height="40">
+
+  <!-- Animated Background -->
+  <div class="page-background">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <!-- ========================================
+       HEADER
+       ======================================== -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Hype<span class="logo-highlight">AI</span></span>
         </a>
-      </div>
 
-      <nav class="header-nav">
-        <a href="index.html">Home</a>
-        <a href="agents.html" class="active">AI Agents</a>
-        <a href="about.html">About</a>
-        <a href="trade.html">Trade</a>
-        <a href="stake.html">Stake</a>
-        <a href="whitepaper.html">Whitepaper</a>
-      </nav>
+        <nav class="nav" id="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="agents.html" class="nav-link active">AI Agents</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+          <a href="index.html#start" class="btn-primary">Get Started →</a>
+        </nav>
 
-      <div class="header-cta">
-        <button class="btn-bnb-primary">Connect Wallet</button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- ========================================
+       PAGE HERO
+       ======================================== -->
   <section class="page-hero">
-    <div class="bsc-badge">
-      <span>Powered by Binance Smart Chain</span>
-    </div>
-    <h1>27 AI Agents Working 24/7</h1>
-    <p>Specialized artificial intelligence agents optimizing your crypto experience</p>
+    <div class="container">
+      <div class="page-hero-label">
+        <span>🤖</span>
+        <span>27 AI Agents Working 24/7</span>
+      </div>
+      <h1 class="page-hero-title"><span class="text-gradient">27 Specialized</span><br>AI Agents</h1>
+      <p class="page-hero-description">
+        Advanced artificial intelligence agents optimizing your projects around the clock with enterprise-grade performance
+      </p>
 
-    <!-- Stats -->
-    <div class="agents-stats">
-      <div class="agent-stat">
-        <div class="agent-stat-value">27</div>
-        <div class="agent-stat-label">Active Agents</div>
-      </div>
-      <div class="agent-stat">
-        <div class="agent-stat-value">99.9%</div>
-        <div class="agent-stat-label">Uptime</div>
-      </div>
-      <div class="agent-stat">
-        <div class="agent-stat-value">24/7</div>
-        <div class="agent-stat-label">Operation</div>
-      </div>
-      <div class="agent-stat">
-        <div class="agent-stat-value">2.8M+</div>
-        <div class="agent-stat-label">Actions Taken</div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value">27</div>
+          <div class="stat-label">Active Agents</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">99.9%</div>
+          <div class="stat-label">Uptime</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">24/7</div>
+          <div class="stat-label">Operation</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">2.8M+</div>
+          <div class="stat-label">Tasks Completed</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Agents Grid -->
-  <section class="section-spacing">
+  <!-- ========================================
+       AGENTS GRID
+       ======================================== -->
+  <section class="section scroll-fade-in">
     <div class="container">
+      <div class="section-header">
+        <div class="section-label">AI Agent Fleet</div>
+        <h2 class="section-title">Meet Our AI Agents</h2>
+        <p class="section-description">
+          Each agent specializes in specific tasks, working together to deliver exceptional results
+        </p>
+      </div>
+
       <div class="agents-grid">
-        <!-- Market Analysis Agents -->
-        <div class="agent-card glass-card fade-in">
+        <!-- Development Agents -->
+        <div class="agent-card">
           <div class="agent-status"></div>
-          <div class="agent-icon">📊</div>
-          <h3 class="agent-name">Market Analyzer</h3>
-          <p class="agent-description">Real-time market trend analysis using deep learning models</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>87%</strong>
+          <div class="agent-icon">💻</div>
+          <h3 class="agent-name">Code Architect</h3>
+          <p class="agent-description">Designs scalable system architectures and technical specifications for complex projects</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>98%</strong>
               <small>Accuracy</small>
             </div>
-            <div class="agent-stat-item">
+            <div class="agent-stat">
               <strong>24/7</strong>
               <small>Active</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
           <div class="agent-status"></div>
-          <div class="agent-icon">🎯</div>
-          <h3 class="agent-name">Trend Predictor</h3>
-          <p class="agent-description">Advanced ML models for trend prediction and pattern recognition</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>82%</strong>
-              <small>Accuracy</small>
+          <div class="agent-icon">🔧</div>
+          <h3 class="agent-name">Full-Stack Developer</h3>
+          <p class="agent-description">Builds complete web applications with modern frameworks and best practices</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>456</strong>
+              <small>Projects</small>
             </div>
-            <div class="agent-stat-item">
+            <div class="agent-stat">
+              <strong>3-5 Days</strong>
+              <small>Delivery</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">⚛️</div>
+          <h3 class="agent-name">Frontend Specialist</h3>
+          <p class="agent-description">Creates responsive, accessible UI components with React, Vue, and Angular</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
               <strong>99.8%</strong>
               <small>Uptime</small>
             </div>
-          </div>
-        </div>
-
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">📈</div>
-          <h3 class="agent-name">Signal Generator</h3>
-          <p class="agent-description">Generates buy/sell signals based on technical indicators</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>79%</strong>
-              <small>Win Rate</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>1,248</strong>
-              <small>Signals/Day</small>
+            <div class="agent-stat">
+              <strong>Fast</strong>
+              <small>Delivery</small>
             </div>
           </div>
         </div>
 
-        <!-- Trading Agents -->
-        <div class="agent-card glass-card fade-in">
+        <!-- Blockchain Agents -->
+        <div class="agent-card">
           <div class="agent-status"></div>
-          <div class="agent-icon">💹</div>
-          <h3 class="agent-name">Auto Trader</h3>
-          <p class="agent-description">Executes trades automatically based on your strategy</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>3.2s</strong>
-              <small>Avg Speed</small>
+          <div class="agent-icon">🔗</div>
+          <h3 class="agent-name">Smart Contract Developer</h3>
+          <p class="agent-description">Develops secure, gas-optimized smart contracts for Ethereum and other chains</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>$500M+</strong>
+              <small>Secured</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>847</strong>
-              <small>Trades/Day</small>
+            <div class="agent-stat">
+              <strong>Zero</strong>
+              <small>Exploits</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
           <div class="agent-status"></div>
-          <div class="agent-icon">⚡</div>
-          <h3 class="agent-name">Flash Arbitrage</h3>
-          <p class="agent-description">Identifies and executes arbitrage opportunities instantly</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>0.8s</strong>
-              <small>Detection</small>
-            </div>
-            <div class="agent-stat-item">
+          <div class="agent-icon">🛡️</div>
+          <h3 class="agent-name">Security Auditor</h3>
+          <p class="agent-description">Performs comprehensive smart contract audits and vulnerability assessments</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
               <strong>234</strong>
-              <small>Arb/Day</small>
+              <small>Audits</small>
+            </div>
+            <div class="agent-stat">
+              <strong>100%</strong>
+              <small>Coverage</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
           <div class="agent-status"></div>
-          <div class="agent-icon">🎲</div>
-          <h3 class="agent-name">Risk Manager</h3>
-          <p class="agent-description">Monitors positions and adjusts risk exposure automatically</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>Real-time</strong>
-              <small>Monitoring</small>
+          <div class="agent-icon">💎</div>
+          <h3 class="agent-name">DeFi Specialist</h3>
+          <p class="agent-description">Builds DeFi protocols, liquidity pools, and yield farming strategies</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>87</strong>
+              <small>Protocols</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>Auto</strong>
-              <small>Adjustment</small>
+            <div class="agent-stat">
+              <strong>High APY</strong>
+              <small>Optimized</small>
             </div>
           </div>
         </div>
 
-        <!-- Portfolio Management -->
-        <div class="agent-card glass-card fade-in">
+        <!-- Design Agents -->
+        <div class="agent-card">
           <div class="agent-status"></div>
-          <div class="agent-icon">💼</div>
-          <h3 class="agent-name">Portfolio Optimizer</h3>
-          <p class="agent-description">Rebalances portfolio for optimal risk-reward ratio</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>Daily</strong>
-              <small>Rebalance</small>
+          <div class="agent-icon">🎨</div>
+          <h3 class="agent-name">UI/UX Designer</h3>
+          <p class="agent-description">Creates beautiful, user-centered interfaces with modern design principles</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>342</strong>
+              <small>Designs</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>8.2%</strong>
-              <small>Avg APY</small>
+            <div class="agent-stat">
+              <strong>4.9/5</strong>
+              <small>Rating</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
           <div class="agent-status"></div>
-          <div class="agent-icon">🌟</div>
-          <h3 class="agent-name">Diversification Expert</h3>
-          <p class="agent-description">Suggests optimal asset allocation across different sectors</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>15+</strong>
-              <small>Assets</small>
+          <div class="agent-icon">✨</div>
+          <h3 class="agent-name">Brand Designer</h3>
+          <p class="agent-description">Develops complete brand identities including logos, colors, and guidelines</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>189</strong>
+              <small>Brands</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>Smart</strong>
-              <small>Allocation</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">💰</div>
-          <h3 class="agent-name">Yield Farmer</h3>
-          <p class="agent-description">Finds and executes best yield farming opportunities</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>62%</strong>
-              <small>Best APY</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>Auto</strong>
-              <small>Compound</small>
+            <div class="agent-stat">
+              <strong>2-3 Days</strong>
+              <small>Delivery</small>
             </div>
           </div>
         </div>
 
-        <!-- DeFi Agents -->
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">🏦</div>
-          <h3 class="agent-name">Liquidity Provider</h3>
-          <p class="agent-description">Manages LP positions across multiple DEXs</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>5 DEXs</strong>
-              <small>Supported</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>Auto</strong>
-              <small>LP Manage</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">🔄</div>
-          <h3 class="agent-name">Swap Optimizer</h3>
-          <p class="agent-description">Finds best swap routes for minimal slippage</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>0.3%</strong>
-              <small>Avg Slippage</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>Multi-hop</strong>
-              <small>Routes</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">🎁</div>
-          <h3 class="agent-name">Staking Manager</h3>
-          <p class="agent-description">Automatically stakes and compounds rewards</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>Daily</strong>
-              <small>Compound</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>Auto</strong>
-              <small>Restake</small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Analytics Agents -->
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
           <div class="agent-status"></div>
           <div class="agent-icon">📱</div>
-          <h3 class="agent-name">Sentiment Analyzer</h3>
-          <p class="agent-description">Analyzes social media sentiment for market insights</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>100K+</strong>
-              <small>Sources</small>
+          <h3 class="agent-name">Product Designer</h3>
+          <p class="agent-description">Designs complete product experiences from wireframes to prototypes</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>156</strong>
+              <small>Products</small>
             </div>
-            <div class="agent-stat-item">
+            <div class="agent-stat">
+              <strong>Premium</strong>
+              <small>Quality</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marketing Agents -->
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">📊</div>
+          <h3 class="agent-name">Marketing Strategist</h3>
+          <p class="agent-description">Creates comprehensive marketing strategies and growth plans</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>267</strong>
+              <small>Campaigns</small>
+            </div>
+            <div class="agent-stat">
+              <strong>3.2x ROI</strong>
+              <small>Average</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">📝</div>
+          <h3 class="agent-name">Content Creator</h3>
+          <p class="agent-description">Writes engaging blog posts, articles, and marketing copy</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>1.2K</strong>
+              <small>Articles</small>
+            </div>
+            <div class="agent-stat">
+              <strong>SEO</strong>
+              <small>Optimized</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">📢</div>
+          <h3 class="agent-name">Social Media Manager</h3>
+          <p class="agent-description">Manages social media presence across all major platforms</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>523</strong>
+              <small>Clients</small>
+            </div>
+            <div class="agent-stat">
+              <strong>Daily</strong>
+              <small>Posts</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analysis Agents -->
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">📈</div>
+          <h3 class="agent-name">Data Analyst</h3>
+          <p class="agent-description">Analyzes data patterns and provides actionable business insights</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>892</strong>
+              <small>Reports</small>
+            </div>
+            <div class="agent-stat">
               <strong>Real-time</strong>
               <small>Analysis</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">📰</div>
-          <h3 class="agent-name">News Aggregator</h3>
-          <p class="agent-description">Collects and summarizes crypto news in real-time</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>500+</strong>
-              <small>News/Day</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>AI</strong>
-              <small>Summary</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
           <div class="agent-status"></div>
           <div class="agent-icon">🔍</div>
-          <h3 class="agent-name">Whale Tracker</h3>
-          <p class="agent-description">Monitors large transactions and whale movements</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>Real-time</strong>
-              <small>Alerts</small>
+          <h3 class="agent-name">Market Researcher</h3>
+          <p class="agent-description">Conducts comprehensive market research and competitive analysis</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>445</strong>
+              <small>Studies</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>100K+</strong>
-              <small>Wallets</small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Security Agents -->
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">🛡️</div>
-          <h3 class="agent-name">Security Scanner</h3>
-          <p class="agent-description">Scans smart contracts for vulnerabilities before interaction</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>Auto</strong>
-              <small>Scan</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>Safe</strong>
-              <small>Verify</small>
+            <div class="agent-stat">
+              <strong>Deep</strong>
+              <small>Insights</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
           <div class="agent-status"></div>
-          <div class="agent-icon">🚨</div>
-          <h3 class="agent-name">Fraud Detector</h3>
-          <p class="agent-description">Identifies potential scams and rugpulls</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>98%</strong>
-              <small>Detection</small>
+          <div class="agent-icon">🎯</div>
+          <h3 class="agent-name">SEO Specialist</h3>
+          <p class="agent-description">Optimizes content and websites for search engine rankings</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>678</strong>
+              <small>Sites</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>Instant</strong>
-              <small>Alert</small>
+            <div class="agent-stat">
+              <strong>+245%</strong>
+              <small>Avg Growth</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
+        <!-- Business Agents -->
+        <div class="agent-card">
           <div class="agent-status"></div>
-          <div class="agent-icon">🔐</div>
-          <h3 class="agent-name">Wallet Guardian</h3>
-          <p class="agent-description">Monitors wallet for suspicious activity 24/7</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
+          <div class="agent-icon">💼</div>
+          <h3 class="agent-name">Business Consultant</h3>
+          <p class="agent-description">Provides strategic business advice and operational optimization</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>234</strong>
+              <small>Projects</small>
+            </div>
+            <div class="agent-stat">
+              <strong>Expert</strong>
+              <small>Advice</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">📋</div>
+          <h3 class="agent-name">Project Manager</h3>
+          <p class="agent-description">Manages project timelines, resources, and stakeholder communication</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>567</strong>
+              <small>Projects</small>
+            </div>
+            <div class="agent-stat">
+              <strong>97%</strong>
+              <small>On-time</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">💡</div>
+          <h3 class="agent-name">Innovation Advisor</h3>
+          <p class="agent-description">Identifies growth opportunities and innovation strategies</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>178</strong>
+              <small>Strategies</small>
+            </div>
+            <div class="agent-stat">
+              <strong>High</strong>
+              <small>Impact</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quality Assurance -->
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">✅</div>
+          <h3 class="agent-name">QA Engineer</h3>
+          <p class="agent-description">Performs comprehensive testing and quality assurance</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>1.2K</strong>
+              <small>Tests</small>
+            </div>
+            <div class="agent-stat">
+              <strong>99.2%</strong>
+              <small>Coverage</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">🐛</div>
+          <h3 class="agent-name">Debug Specialist</h3>
+          <p class="agent-description">Identifies and fixes bugs with advanced debugging techniques</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>3.4K</strong>
+              <small>Bugs Fixed</small>
+            </div>
+            <div class="agent-stat">
+              <strong>2h Avg</strong>
+              <small>Resolution</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">📚</div>
+          <h3 class="agent-name">Documentation Writer</h3>
+          <p class="agent-description">Creates comprehensive technical and user documentation</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>892</strong>
+              <small>Docs</small>
+            </div>
+            <div class="agent-stat">
+              <strong>Clear</strong>
+              <small>Detailed</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support Agents -->
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">💬</div>
+          <h3 class="agent-name">Customer Support</h3>
+          <p class="agent-description">Provides 24/7 customer support and issue resolution</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
               <strong>24/7</strong>
-              <small>Monitor</small>
+              <small>Available</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>Instant</strong>
-              <small>Notify</small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Automation Agents -->
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">⏰</div>
-          <h3 class="agent-name">Tax Calculator</h3>
-          <p class="agent-description">Automatically calculates crypto taxes and generates reports</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>Auto</strong>
-              <small>Track</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>Tax</strong>
-              <small>Reports</small>
+            <div class="agent-stat">
+              <strong>5min</strong>
+              <small>Response</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">📊</div>
-          <h3 class="agent-name">Performance Reporter</h3>
-          <p class="agent-description">Generates detailed performance reports and analytics</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>Weekly</strong>
-              <small>Reports</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>Full</strong>
-              <small>Analytics</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">🔔</div>
-          <h3 class="agent-name">Alert Manager</h3>
-          <p class="agent-description">Customizable alerts for price, volume, and events</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>Custom</strong>
-              <small>Alerts</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>Multi</strong>
-              <small>Channel</small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Advanced Agents -->
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">🤖</div>
-          <h3 class="agent-name">Strategy Builder</h3>
-          <p class="agent-description">Helps create custom trading strategies with AI assistance</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>AI</strong>
-              <small>Powered</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>Custom</strong>
-              <small>Strategy</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
           <div class="agent-status"></div>
           <div class="agent-icon">🎓</div>
-          <h3 class="agent-name">Learning Assistant</h3>
-          <p class="agent-description">Provides educational content and trading tips</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>AI</strong>
-              <small>Tutor</small>
+          <h3 class="agent-name">Training Specialist</h3>
+          <p class="agent-description">Provides training and onboarding for new users and features</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>456</strong>
+              <small>Sessions</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>24/7</strong>
-              <small>Help</small>
+            <div class="agent-stat">
+              <strong>4.8/5</strong>
+              <small>Rating</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
+          <div class="agent-status"></div>
+          <div class="agent-icon">🔄</div>
+          <h3 class="agent-name">DevOps Engineer</h3>
+          <p class="agent-description">Manages deployment, CI/CD pipelines, and infrastructure</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>99.9%</strong>
+              <small>Uptime</small>
+            </div>
+            <div class="agent-stat">
+              <strong>Auto</strong>
+              <small>Deploy</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Specialized Agents -->
+        <div class="agent-card">
           <div class="agent-status"></div>
           <div class="agent-icon">🌐</div>
-          <h3 class="agent-name">Multi-Chain Bridge</h3>
-          <p class="agent-description">Manages cross-chain operations and asset bridging</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>5+</strong>
-              <small>Chains</small>
+          <h3 class="agent-name">Translation Expert</h3>
+          <p class="agent-description">Provides accurate translations in 50+ languages</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>50+</strong>
+              <small>Languages</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>Auto</strong>
-              <small>Bridge</small>
+            <div class="agent-stat">
+              <strong>99%</strong>
+              <small>Accuracy</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
           <div class="agent-status"></div>
-          <div class="agent-icon">🎮</div>
-          <h3 class="agent-name">GameFi Manager</h3>
-          <p class="agent-description">Optimizes play-to-earn and GameFi strategies</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>P2E</strong>
-              <small>Optimize</small>
+          <div class="agent-icon">🎬</div>
+          <h3 class="agent-name">Video Producer</h3>
+          <p class="agent-description">Creates professional video content and animations</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>234</strong>
+              <small>Videos</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>Auto</strong>
-              <small>Claim</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="agent-card glass-card fade-in">
-          <div class="agent-status"></div>
-          <div class="agent-icon">🖼️</div>
-          <h3 class="agent-name">NFT Analyzer</h3>
-          <p class="agent-description">Analyzes NFT collections for rarity and value</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>Rarity</strong>
-              <small>Score</small>
-            </div>
-            <div class="agent-stat-item">
-              <strong>Floor</strong>
-              <small>Track</small>
+            <div class="agent-stat">
+              <strong>HD/4K</strong>
+              <small>Quality</small>
             </div>
           </div>
         </div>
 
-        <div class="agent-card glass-card fade-in">
+        <div class="agent-card">
           <div class="agent-status"></div>
           <div class="agent-icon">⚙️</div>
-          <h3 class="agent-name">Gas Optimizer</h3>
-          <p class="agent-description">Optimizes transaction timing for lowest gas fees</p>
-          <div class="agent-stats">
-            <div class="agent-stat-item">
-              <strong>Save</strong>
-              <small>30%+ Gas</small>
+          <h3 class="agent-name">Automation Specialist</h3>
+          <p class="agent-description">Builds workflow automation and integration solutions</p>
+          <div class="agent-stats-row">
+            <div class="agent-stat">
+              <strong>567</strong>
+              <small>Workflows</small>
             </div>
-            <div class="agent-stat-item">
-              <strong>Smart</strong>
-              <small>Timing</small>
+            <div class="agent-stat">
+              <strong>80%</strong>
+              <small>Time Saved</small>
             </div>
           </div>
         </div>
@@ -546,92 +1313,148 @@
     </div>
   </section>
 
-  <!-- Activity Feed -->
-  <section class="section-spacing" style="background: var(--bnb-dark);">
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer">
     <div class="container">
-      <h2 class="text-center text-gradient">Live Activity Feed</h2>
-      <p class="text-center" style="margin-bottom: var(--spacing-2xl);">
-        See what our AI agents are doing right now
-      </p>
-
-      <div class="activity-log">
-        <div class="activity-item">
-          <div class="activity-time">2s ago</div>
-          <div class="activity-message">
-            <strong>Market Analyzer</strong> detected bullish pattern on BNB/USDT
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            Hype<span class="footer-logo-highlight">AI</span>
+          </div>
+          <p class="footer-description">
+            Professional AI services platform with 27 specialized agents working 24/7 to deliver exceptional results for your projects.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-link">𝕏</a>
+            <a href="#" class="social-link">💬</a>
+            <a href="#" class="social-link">📱</a>
+            <a href="#" class="social-link">📧</a>
           </div>
         </div>
 
-        <div class="activity-item">
-          <div class="activity-time">8s ago</div>
-          <div class="activity-message">
-            <strong>Auto Trader</strong> executed buy order: 2.5 BNB at $315.42
-          </div>
+        <div>
+          <div class="footer-section-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="index.html#services">Blockchain Development</a></li>
+            <li><a href="index.html#services">Web Development</a></li>
+            <li><a href="index.html#services">Design & UX</a></li>
+            <li><a href="index.html#services">Marketing</a></li>
+            <li><a href="index.html#services">Security Audit</a></li>
+          </ul>
         </div>
 
-        <div class="activity-item">
-          <div class="activity-time">15s ago</div>
-          <div class="activity-message">
-            <strong>Yield Farmer</strong> compounded rewards: +0.84 HYPE
-          </div>
+        <div>
+          <div class="footer-section-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="agents.html">AI Agents</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
         </div>
 
-        <div class="activity-item">
-          <div class="activity-time">23s ago</div>
-          <div class="activity-message">
-            <strong>Risk Manager</strong> adjusted portfolio allocation
-          </div>
-        </div>
-
-        <div class="activity-item">
-          <div class="activity-time">41s ago</div>
-          <div class="activity-message">
-            <strong>Sentiment Analyzer</strong> social sentiment: 78% bullish
-          </div>
-        </div>
-
-        <div class="activity-item">
-          <div class="activity-time">1m ago</div>
-          <div class="activity-message">
-            <strong>Security Scanner</strong> verified contract: 0x742d...3f8a (SAFE)
-          </div>
+        <div>
+          <div class="footer-section-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img src="assets/logo-bnb.svg" alt="HypeAI" height="50">
-      </div>
-
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="agents.html">AI Agents</a>
-        <a href="about.html">About</a>
-        <a href="trade.html">Trade</a>
-        <a href="stake.html">Stake</a>
-        <a href="whitepaper.html">Whitepaper</a>
-      </div>
-
-      <div class="footer-social">
-        <a href="#" class="social-icon">𝕏</a>
-        <a href="#" class="social-icon">T</a>
-        <a href="#" class="social-icon">D</a>
-        <a href="#" class="social-icon">G</a>
-      </div>
-
-      <div class="footer-bnb">
-        <span>Built on</span>
-        <strong style="color: var(--bnb-gold);">Binance Smart Chain</strong>
-        <span>⚡</span>
+      <div class="footer-bottom">
+        <div>© 2025 HypeAI. All rights reserved.</div>
+        <div class="footer-copyright">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/interactions.js"></script>
+  <!-- ========================================
+       SCRIPTS
+       ======================================== -->
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      lastScroll = currentScroll;
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const nav = document.getElementById('nav');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      nav.classList.toggle('mobile-open');
+      mobileMenuBtn.textContent = nav.classList.contains('mobile-open') ? '✕' : '☰';
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerHeight = header.offsetHeight;
+          const targetPosition = target.offsetTop - headerHeight - 20;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+
+          nav.classList.remove('mobile-open');
+          mobileMenuBtn.textContent = '☰';
+        }
+      });
+    });
+
+    // Parallax effect for background
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const background = document.querySelector('.page-background');
+
+      if (background && scrolled < window.innerHeight * 2) {
+        background.style.transform = `translateY(${scrolled * 0.3}px)`;
+      }
+    });
+  </script>
+
 </body>
 </html>

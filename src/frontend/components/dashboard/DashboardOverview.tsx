@@ -66,7 +66,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
       value: `${vestingProgress}%`,
       icon: '⏳',
       color: 'from-bnb-primary500 to-cyan-500',
-      info: '4 of 6 months',
+      info: 'Month 14 of 21',
     },
     {
       title: 'Referral Earnings',
@@ -243,7 +243,7 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
           <div>
             <h4 className="text-sm font-bold text-[#EAECEF] mb-1">Vesting Schedule</h4>
             <p className="text-sm text-[#848E9C]">
-              Your tokens are subject to a 6-month vesting period. Tokens unlock gradually over time and can be claimed on this dashboard.
+              20% tokens unlocked immediately. After 3-month cliff, remaining 80% vest linearly over 18 months (21 months total). Claim anytime after cliff ends.
             </p>
           </div>
         </div>

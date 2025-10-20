@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню - Здоровое Питание</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        
+        .flyer {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .business-name {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .menu-item {
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+        }
+        
+        .dish-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .nutrition {
+            background: #f8f9ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .nutrition-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        
+        .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #27ae60;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .contacts {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .contacts h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        
+        .contact-info {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .cta {
+            background: #e74c3c;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <div class="header">
+            <h1 class="business-name">Здоровое Питание</h1>
+            <p class="subtitle">🍽️ Полезное питание с подсчетом калорий 🌱</p>
+        </div>
+        
+        <div class="menu-grid">
+
+            <div class="menu-item">
+                <h3 class="dish-name">🥗 Люля-кебаб с гречкой и овощным салатом</h3>
+                <p>Сочный люля-кебаб из смеси баранины и говядины с рассыпчатой гречкой, свежими овощами и красным соусом</p>
+                
+                <div class="nutrition">
+                    <div class="nutrition-row">
+                        <span><strong>Калории:</strong></span>
+                        <span>767.7 ккал</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Белки:</strong></span>
+                        <span>32.2г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Жиры:</strong></span>
+                        <span>36.7г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Углеводы:</strong></span>
+                        <span>75.7г</span>
+                    </div>
+                </div>
+                
+                <div class="price">💰 450 руб.</div>
+            </div>
+
+            <div class="menu-item">
+                <h3 class="dish-name">🥗 Цыплёнок по-гавайски с рисом</h3>
+                <p>Нежное куриное филе с тропическими нотками ананаса, болгарским перцем и ароматным рисом</p>
+                
+                <div class="nutrition">
+                    <div class="nutrition-row">
+                        <span><strong>Калории:</strong></span>
+                        <span>478.8 ккал</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Белки:</strong></span>
+                        <span>51.2г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Жиры:</strong></span>
+                        <span>12.5г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Углеводы:</strong></span>
+                        <span>39.5г</span>
+                    </div>
+                </div>
+                
+                <div class="price">💰 380 руб.</div>
+            </div>
+
+            <div class="menu-item">
+                <h3 class="dish-name">🥗 Куриная грудка с запечёнными овощами и киноа</h3>
+                <p>Сочная куриная грудка с ароматными запечёнными овощами и питательной киноа</p>
+                
+                <div class="nutrition">
+                    <div class="nutrition-row">
+                        <span><strong>Калории:</strong></span>
+                        <span>540.2 ккал</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Белки:</strong></span>
+                        <span>58.2г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Жиры:</strong></span>
+                        <span>14.2г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Углеводы:</strong></span>
+                        <span>46.4г</span>
+                    </div>
+                </div>
+                
+                <div class="price">💰 420 руб.</div>
+            </div>
+
+            <div class="menu-item">
+                <h3 class="dish-name">🥗 Лосось с тушёной спаржей и картофельным пюре</h3>
+                <p>Нежный лосось с деликатесной спаржей и воздушным картофельным пюре</p>
+                
+                <div class="nutrition">
+                    <div class="nutrition-row">
+                        <span><strong>Калории:</strong></span>
+                        <span>498.9 ккал</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Белки:</strong></span>
+                        <span>36.4г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Жиры:</strong></span>
+                        <span>23.9г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Углеводы:</strong></span>
+                        <span>31.3г</span>
+                    </div>
+                </div>
+                
+                <div class="price">💰 520 руб.</div>
+            </div>
+
+            <div class="menu-item">
+                <h3 class="dish-name">🥗 Индейка в томатном соусе с булгуром</h3>
+                <p>Диетическая индейка в ароматном томатном соусе с полезным булгуром</p>
+                
+                <div class="nutrition">
+                    <div class="nutrition-row">
+                        <span><strong>Калории:</strong></span>
+                        <span>506.7 ккал</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Белки:</strong></span>
+                        <span>40.8г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Жиры:</strong></span>
+                        <span>16.8г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Углеводы:</strong></span>
+                        <span>50.5г</span>
+                    </div>
+                </div>
+                
+                <div class="price">💰 400 руб.</div>
+            </div>
+
+            <div class="menu-item">
+                <h3 class="dish-name">🥗 Треска запечённая с овощами и салатом из шпината</h3>
+                <p>Нежная треска с овощами и витаминным салатом из молодого шпината</p>
+                
+                <div class="nutrition">
+                    <div class="nutrition-row">
+                        <span><strong>Калории:</strong></span>
+                        <span>203.5 ккал</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Белки:</strong></span>
+                        <span>29.9г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Жиры:</strong></span>
+                        <span>6.6г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Углеводы:</strong></span>
+                        <span>8.4г</span>
+                    </div>
+                </div>
+                
+                <div class="price">💰 360 руб.</div>
+            </div>
+
+            <div class="menu-item">
+                <h3 class="dish-name">🥗 Говяжий стейк с печёной тыквой и салатом</h3>
+                <p>Сочный говяжий стейк с карамелизованной тыквой и освежающим салатом</p>
+                
+                <div class="nutrition">
+                    <div class="nutrition-row">
+                        <span><strong>Калории:</strong></span>
+                        <span>500.9 ккал</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Белки:</strong></span>
+                        <span>41.7г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Жиры:</strong></span>
+                        <span>30.3г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Углеводы:</strong></span>
+                        <span>14.2г</span>
+                    </div>
+                </div>
+                
+                <div class="price">💰 580 руб.</div>
+            </div>
+
+            <div class="menu-item">
+                <h3 class="dish-name">🥗 Куриные котлеты на пару с гречкой и зелёным горошком</h3>
+                <p>Нежные паровые котлеты из куриного фарша с гречкой и зелёным горошком</p>
+                
+                <div class="nutrition">
+                    <div class="nutrition-row">
+                        <span><strong>Калории:</strong></span>
+                        <span>516.3 ккал</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Белки:</strong></span>
+                        <span>42.0г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Жиры:</strong></span>
+                        <span>19.5г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Углеводы:</strong></span>
+                        <span>41.9г</span>
+                    </div>
+                </div>
+                
+                <div class="price">💰 340 руб.</div>
+            </div>
+
+            <div class="menu-item">
+                <h3 class="dish-name">🥗 Курица терияки с рисом и брокколи</h3>
+                <p>Куриное филе в глазури терияки с рассыпчатым рисом и брокколи</p>
+                
+                <div class="nutrition">
+                    <div class="nutrition-row">
+                        <span><strong>Калории:</strong></span>
+                        <span>514.9 ккал</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Белки:</strong></span>
+                        <span>53.3г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Жиры:</strong></span>
+                        <span>12.1г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Углеводы:</strong></span>
+                        <span>48.2г</span>
+                    </div>
+                </div>
+                
+                <div class="price">💰 420 руб.</div>
+            </div>
+
+            <div class="menu-item">
+                <h3 class="dish-name">🥗 Запечённая форель с кабачками и салатом из помидоров</h3>
+                <p>Нежная запечённая форель с кабачками и свежим томатным салатом</p>
+                
+                <div class="nutrition">
+                    <div class="nutrition-row">
+                        <span><strong>Калории:</strong></span>
+                        <span>225.5 ккал</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Белки:</strong></span>
+                        <span>30.9г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Жиры:</strong></span>
+                        <span>8.7г</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span><strong>Углеводы:</strong></span>
+                        <span>8.7г</span>
+                    </div>
+                </div>
+                
+                <div class="price">💰 480 руб.</div>
+            </div>
+
+        </div>
+        
+        <div class="contacts">
+            <h3>📞 КОНТАКТЫ ДЛЯ ЗАКАЗА</h3>
+            <div class="contact-info">
+                <p><strong>📱 Телефон:</strong> +7 (495) 123-45-67</p>
+                <p><strong>📸 Instagram:</strong> @healthy_meals_delivery</p>
+                <p><strong>📍 Адрес:</strong> Москва, доставка по городу</p>
+
+            </div>
+            <div class="cta">📱 ПОДПИШИСЬ НА КАНАЛ!</div>
+        </div>
+    </div>
+</body>
+</html>

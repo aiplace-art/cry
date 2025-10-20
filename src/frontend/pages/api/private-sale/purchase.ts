@@ -1,59 +1,41 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { ethers } from 'ethers';
-import { Pool } from 'pg';
-import { PrivateSaleService } from '../../../backend/services/privateSaleService';
-import { PurchaseRequest as ServicePurchaseRequest, PurchaseStatus } from '../../../backend/types/privateSale.types';
-
-interface PurchaseRequest {
-  amount: number;
-  paymentMethod: string;
-  walletAddress: string;
-  email: string;
-  referralCode?: string;
-  calculation: {
-    usdAmount: number;
-    baseTokens: number;
-    bonusTokens: number;
-    totalTokens: number;
-    bonusPercentage: number;
-  };
-}
-
-interface PurchaseResponse {
-  success: boolean;
-  purchaseId?: string;
-  paymentUrl?: string;
-  transactionHash?: string;
-  error?: string;
-  limitInfo?: {
-    totalPurchased: number;
-    walletLimit: number;
-    remaining: number;
-  };
-}
-
-// Initialize database connection
-const dbPool = new Pool({
-  host: process.env.DB_HOST || 'localhost',
-  port: parseInt(process.env.DB_PORT || '5432'),
-  database: process.env.DB_NAME || 'crypto_presale',
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD,
-  max: 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
-});
-
-const privateSaleService = new PrivateSaleService(dbPool);
-
 /**
- * API endpoint to process private sale purchases with $500 per wallet limit
+ * Private Sale Purchase Endpoint
  * POST /api/private-sale/purchase
+ *
+ * Process token purchase (simulation for testnet)
  */
-export default async function handler(
+
+import type { NextApiRequest, NextApiResponse } from 'next';
+import {
+  PurchaseRequest,
+  PurchaseResponse,
+  PurchaseRequestSchema,
+  APIError,
+  DBPurchase
+} from '../../../types/api';
+import {
+  getAuthenticatedAddress,
+  sanitizeAddress
+} from '../../../lib/backend/auth';
+import {
+  getBNBPriceUSD,
+  getTokenPrice,
+  calculateTokensWithBonus,
+  normalizeAddress
+} from '../../../lib/backend/blockchain';
+import { insertPurchase } from '../../../lib/backend/database';
+import { withRateLimit } from '../../../lib/backend/rate-limiter';
+import { ethers } from 'ethers';
+
+// ============================================================================
+// API Handler
+// ============================================================================
+
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse<PurchaseResponse>
 ) {
+  // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({
       success: false,
@@ -62,133 +44,124 @@ export default async function handler(
   }
 
   try {
-    const { amount, paymentMethod, walletAddress, email, referralCode, calculation } = req.body as PurchaseRequest;
+    // Authenticate user
+    const authHeader = req.headers.authorization as string | undefined;
+    const userAddress = getAuthenticatedAddress(authHeader);
 
-    // Validate input
-    if (!amount || !paymentMethod || !walletAddress || !email || !calculation) {
+    // Validate request body
+    const validationResult = PurchaseRequestSchema.safeParse(req.body);
+
+    if (!validationResult.success) {
       return res.status(400).json({
         success: false,
-        error: 'Missing required fields',
+        error: 'Invalid request data',
       });
     }
 
-    // Validate wallet address
-    if (!ethers.isAddress(walletAddress)) {
+    const { amount, paymentMethod, referralCode, email } = validationResult.data;
+
+    // Validate minimum investment (SECURITY: Enforce $400 minimum as per specs)
+    const MINIMUM_INVESTMENT_USD = 400;
+    if (amount < MINIMUM_INVESTMENT_USD) {
       return res.status(400).json({
         success: false,
-        error: 'Invalid wallet address',
+        error: `Minimum investment is $${MINIMUM_INVESTMENT_USD}`,
       });
     }
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    // Additional validation: Prevent zero or negative amounts
+    if (amount <= 0) {
       return res.status(400).json({
         success: false,
-        error: 'Invalid email address',
+        error: 'Investment amount must be greater than zero',
       });
     }
 
-    // Validate payment method
-    const validPaymentMethods = ['ETH', 'USDT', 'USDC', 'BTC', 'CARD'];
-    if (!validPaymentMethods.includes(paymentMethod.toUpperCase())) {
+    // Validate maximum investment (prevent overflow attacks)
+    const MAXIMUM_INVESTMENT_USD = 10_000_000;
+    if (amount > MAXIMUM_INVESTMENT_USD) {
       return res.status(400).json({
         success: false,
-        error: 'Invalid payment method',
+        error: `Maximum investment is $${MAXIMUM_INVESTMENT_USD.toLocaleString()}`,
       });
     }
 
-    // Check remaining limit BEFORE attempting purchase
-    const limitInfo = await privateSaleService.getRemainingLimit(walletAddress);
+    // Get current prices
+    const [tokenPrice, bnbPrice] = await Promise.all([
+      getTokenPrice(),
+      getBNBPriceUSD(),
+    ]);
 
-    if (limitInfo.remaining <= 0) {
-      return res.status(403).json({
-        success: false,
-        error: `You have reached your purchase limit of $${limitInfo.walletLimit}`,
-        limitInfo: {
-          totalPurchased: limitInfo.totalPurchased,
-          walletLimit: limitInfo.walletLimit,
-          remaining: limitInfo.remaining,
-        },
-      });
+    // Convert amount to USD
+    let amountUSD = amount;
+    if (paymentMethod === 'BNB') {
+      amountUSD = amount * bnbPrice;
     }
 
-    if (calculation.usdAmount > limitInfo.remaining) {
-      return res.status(403).json({
-        success: false,
-        error: `Purchase amount exceeds your remaining limit. You can purchase up to $${limitInfo.remaining.toFixed(2)} more.`,
-        limitInfo: {
-          totalPurchased: limitInfo.totalPurchased,
-          walletLimit: limitInfo.walletLimit,
-          remaining: limitInfo.remaining,
-        },
-      });
-    }
+    // Calculate tokens with bonus
+    const calculation = calculateTokensWithBonus(amountUSD, tokenPrice);
 
-    // Create purchase request for service
-    const serviceRequest: ServicePurchaseRequest = {
-      walletAddress: walletAddress.toLowerCase(),
-      amountUSD: calculation.usdAmount,
-      paymentMethod: paymentMethod.toUpperCase(),
-      email,
-      referralCode,
+    // Generate mock transaction hash (for testnet simulation)
+    // In production, this would come from actual blockchain transaction
+    const mockTxHash = ethers.id(
+      `${userAddress}-${Date.now()}-${amount}-${paymentMethod}`
+    );
+
+    // Create purchase record
+    const purchase: Omit<DBPurchase, 'created_at'> = {
+      id: ethers.id(`${userAddress}-${Date.now()}`),
+      address: normalizeAddress(userAddress),
+      timestamp: Date.now(),
+      amount: amountUSD,
+      payment_method: paymentMethod,
+      token_amount: calculation.baseTokens,
+      bonus_tokens: calculation.bonusTokens,
+      total_tokens: calculation.totalTokens,
+      bonus_percentage: calculation.bonusPercentage,
+      tx_hash: mockTxHash,
+      referral_code: referralCode,
+      email: email,
+      claimed_tokens: 0,
     };
 
-    // Process purchase through service (includes limit validation)
-    const result = await privateSaleService.createPurchase(serviceRequest);
+    // Save to database
+    insertPurchase(purchase);
 
+    // Estimate gas (mock for testnet)
+    const estimatedGas = paymentMethod === 'BNB' ? '0.001' : '0.002';
+
+    // Return success response
     return res.status(200).json({
       success: true,
-      purchaseId: result.purchase.id?.toString(),
-      paymentUrl: result.paymentUrl,
-      transactionHash: result.purchase.txHash || undefined,
+      txHash: mockTxHash,
+      tokensReceived: Math.floor(calculation.baseTokens),
+      bonusTokens: Math.floor(calculation.bonusTokens),
+      totalTokens: Math.floor(calculation.totalTokens),
+      bonusPercentage: calculation.bonusPercentage,
+      estimatedGas,
     });
-  } catch (error: any) {
-    console.error('Purchase error:', error);
 
-    // Handle specific error types
-    if (error.message.includes('limit') || error.message.includes('Exceeds')) {
-      // Get current limit info for error response
-      try {
-        const limitInfo = await privateSaleService.getRemainingLimit(req.body.walletAddress);
-        return res.status(403).json({
-          success: false,
-          error: error.message,
-          limitInfo: {
-            totalPurchased: limitInfo.totalPurchased,
-            walletLimit: limitInfo.walletLimit,
-            remaining: limitInfo.remaining,
-          },
-        });
-      } catch (limitError) {
-        // If we can't get limit info, just return the error
-        return res.status(403).json({
-          success: false,
-          error: error.message,
-        });
-      }
-    }
+  } catch (error) {
+    // SECURITY: Import error handler for proper sanitization
+    const { createErrorResponse, logError } = await import('../../../lib/backend/error-handler');
 
-    // Handle blacklist errors
-    if (error.message.includes('blacklisted')) {
-      return res.status(403).json({
-        success: false,
-        error: 'This wallet address is not eligible for purchases',
-      });
-    }
-
-    // Handle sale status errors
-    if (error.message.includes('not active') || error.message.includes('ended')) {
-      return res.status(400).json({
-        success: false,
-        error: error.message,
-      });
-    }
-
-    // Generic error response
-    return res.status(500).json({
-      success: false,
-      error: error.message || 'Purchase failed. Please try again.',
+    logError(error, {
+      endpoint: '/api/private-sale/purchase',
+      userAddress: req.headers.authorization ? 'authenticated' : 'anonymous'
     });
+
+    if (error instanceof APIError) {
+      const response = createErrorResponse(error.statusCode, error);
+      return res.status(response.statusCode).json(response.body);
+    }
+
+    const response = createErrorResponse(500, error);
+    return res.status(response.statusCode).json(response.body);
   }
 }
+
+// ============================================================================
+// Export with Rate Limiting
+// ============================================================================
+
+export default withRateLimit('purchase', handler);

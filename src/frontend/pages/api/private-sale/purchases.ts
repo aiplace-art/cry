@@ -1,65 +1,74 @@
+/**
+ * Purchase History Endpoint
+ * GET /api/private-sale/purchases
+ *
+ * Get user's purchase history with vesting information
+ */
+
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Purchase } from '../../../types/private-sale';
+import {
+  PurchaseHistoryResponse,
+  APIError
+} from '../../../types/api';
+import { getAuthenticatedAddress } from '../../../lib/backend/auth';
+import { getPurchasesByAddress } from '../../../lib/backend/database';
+import { withRateLimit } from '../../../lib/backend/rate-limiter';
 
-interface PurchasesResponse {
-  purchases: Purchase[];
-  total: number;
-}
+// ============================================================================
+// API Handler
+// ============================================================================
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<PurchasesResponse>
+  res: NextApiResponse<PurchaseHistoryResponse>
 ) {
+  // Only allow GET requests
   if (req.method !== 'GET') {
-    return res.status(405).json({ purchases: [], total: 0 });
+    return res.status(405).json({
+      success: false,
+      error: 'Method not allowed',
+    });
   }
 
   try {
-    const { wallet } = req.query;
+    // Authenticate user
+    const authHeader = req.headers.authorization as string | undefined;
+    const userAddress = getAuthenticatedAddress(authHeader);
 
-    if (!wallet || typeof wallet !== 'string') {
-      return res.status(400).json({ purchases: [], total: 0 });
+    // Get purchases from database
+    const purchases = getPurchasesByAddress(userAddress);
+
+    // Calculate totals
+    const totalInvested = purchases.reduce((sum, p) => sum + p.amount, 0);
+    const totalTokens = purchases.reduce((sum, p) => sum + p.totalTokens, 0);
+
+    // Return success response
+    return res.status(200).json({
+      success: true,
+      purchases,
+      totalInvested: Math.floor(totalInvested * 100) / 100, // Round to 2 decimals
+      totalTokens: Math.floor(totalTokens),
+    });
+
+  } catch (error) {
+    console.error('Purchase history error:', error);
+
+    if (error instanceof APIError) {
+      return res.status(error.statusCode).json({
+        success: false,
+        error: error.message,
+      });
     }
 
-    // In production, fetch from database
-    // const purchases = await db.purchases.find({
-    //   walletAddress: wallet.toLowerCase(),
-    // }).sort({ createdAt: -1 });
-
-    // Mock data for demonstration
-    const mockPurchases: Purchase[] = [
-      {
-        id: 'purchase_1',
-        amount: 1000,
-        currency: 'USDT',
-        tokensReceived: 20000,
-        bonusTokens: 3000,
-        totalTokens: 23000,
-        transactionHash: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
-        status: 'completed',
-        timestamp: new Date(Date.now() - 86400000),
-        walletAddress: wallet.toLowerCase(),
-      },
-      {
-        id: 'purchase_2',
-        amount: 500,
-        currency: 'ETH',
-        tokensReceived: 10000,
-        bonusTokens: 1000,
-        totalTokens: 11000,
-        transactionHash: '0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890',
-        status: 'completed',
-        timestamp: new Date(Date.now() - 172800000),
-        walletAddress: wallet.toLowerCase(),
-      },
-    ];
-
-    return res.status(200).json({
-      purchases: mockPurchases,
-      total: mockPurchases.length,
+    return res.status(500).json({
+      success: false,
+      error: 'Failed to fetch purchase history',
     });
-  } catch (error) {
-    console.error('Purchases fetch error:', error);
-    return res.status(500).json({ purchases: [], total: 0 });
   }
 }
+
+// ============================================================================
+// Export with Rate Limiting
+// ============================================================================
+
+export default withRateLimit('query', handler);

@@ -35,7 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const editAvatarBtn = document.getElementById('editAvatar');
   if (editAvatarBtn) {
     editAvatarBtn.addEventListener('click', function() {
-      alert('Avatar upload functionality would be implemented here');
+      if (window.toast) {
+        window.toast.info('Avatar upload functionality coming soon!');
+      }
     });
   }
 });

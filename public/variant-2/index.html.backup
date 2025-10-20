@@ -1,0 +1,2903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>HypeAI - Professional AI Services Platform | 35+ Services, 24/7 Availability</title>
+  <meta name="title" content="HypeAI - Professional AI Services Platform">
+  <meta name="description" content="27 AI Agents. 35+ Professional Services. 24/7 Availability. 50-70% cheaper than traditional agencies. Crypto, web development, business consulting, smart contracts & more.">
+  <meta name="keywords" content="HypeAI, AI services, professional services, web development, business consulting, blockchain development, smart contract audit">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hypeai.io/">
+  <meta property="og:title" content="HypeAI - Professional AI Services Platform">
+  <meta property="og:description" content="27 AI Agents Working 24/7. 35+ Services. 50-70% Cost Savings.">
+  <meta property="og:image" content="https://hypeai.io/assets/og-services.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://hypeai.io/">
+  <meta property="twitter:title" content="HypeAI - Professional AI Services">
+  <meta property="twitter:description" content="35+ AI Services. 3-10x Faster. Premium Quality.">
+  <meta property="twitter:image" content="https://hypeai.io/assets/twitter-services.jpg">
+
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0a0118">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       BNBCHAIN.ORG PREMIUM DESIGN SYSTEM
+       ======================================== */
+
+    :root {
+      /* Cosmic Color Palette */
+      --bg-primary: #0a0118;
+      --bg-secondary: #1E2026;
+      --cosmic-purple: #9333ea;
+      --cosmic-blue: #3b82f6;
+      --cosmic-yellow: #FFE900;
+      --brand-yellow: #FFE900;
+      --cosmic-pink: #ec4899;
+      --text-primary: #FFFFFF;
+      --text-secondary: #A0A3B1;
+
+      /* Z-Index Scale */
+      --z-background: 0;
+      --z-content: 1;
+      --z-content-overlay: 2;
+      --z-header: 1000;
+      --z-modal: 2000;
+
+      /* Transitions */
+      --ease-premium: cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+      /* Gradient Presets */
+      --gradient-primary: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-blue));
+      --gradient-accent: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-blue), var(--cosmic-yellow));
+      --gradient-yellow: linear-gradient(135deg, var(--cosmic-yellow) 0%, #FFF4A3 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Skip to main content for accessibility */
+    .skip-to-main {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      background: var(--cosmic-purple);
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      z-index: 10000;
+      transition: top 0.3s;
+      font-weight: 600;
+    }
+
+    .skip-to-main:focus {
+      top: 0;
+      outline: 3px solid var(--cosmic-yellow);
+    }
+
+    /* ========================================
+       COSMIC STARFIELD BACKGROUND
+       ======================================== */
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: var(--z-background);
+      background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.15) 0%, var(--bg-primary) 70%);
+    }
+
+    /* Animated Starfield */
+    .starfield {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Cosmic Gradient Orbs with Glow */
+    .gradient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.25;
+      animation: float-orb 25s ease-in-out infinite;
+      box-shadow: 0 0 100px currentColor;
+      will-change: transform;
+    }
+
+    .orb-1 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, var(--cosmic-purple) 0%, transparent 70%);
+      top: -300px;
+      left: -200px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--cosmic-blue) 0%, transparent 70%);
+      top: 150px;
+      right: -200px;
+      animation-delay: 3s;
+    }
+
+    .orb-3 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--cosmic-yellow) 0%, transparent 70%);
+      bottom: -100px;
+      left: 25%;
+      animation-delay: 6s;
+    }
+
+    .orb-4 {
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, var(--cosmic-pink) 0%, transparent 70%);
+      top: 50%;
+      right: 15%;
+      animation-delay: 9s;
+    }
+
+    .orb-5 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--cosmic-purple) 0%, transparent 70%);
+      bottom: 20%;
+      left: 5%;
+      animation-delay: 12s;
+    }
+
+    .orb-6 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, var(--cosmic-blue) 0%, transparent 70%);
+      top: 30%;
+      left: 40%;
+      animation-delay: 15s;
+    }
+
+    @keyframes float-orb {
+      0%, 100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+      25% {
+        transform: translate(60px, -40px) scale(1.1) rotate(90deg);
+      }
+      50% {
+        transform: translate(-20px, 60px) scale(1.15) rotate(180deg);
+      }
+      75% {
+        transform: translate(-50px, -30px) scale(0.95) rotate(270deg);
+      }
+    }
+
+    /* Particle System */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      animation: float-particle 20s linear infinite;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes float-particle {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+      }
+    }
+
+    /* Cosmic Geometric Shapes */
+    .geometric-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.08;
+      animation: float-shape 20s ease-in-out infinite;
+      box-shadow: 0 0 30px currentColor;
+    }
+
+    .shape-1 {
+      width: 120px;
+      height: 120px;
+      border: 3px solid var(--cosmic-purple);
+      border-radius: 30px;
+      top: 15%;
+      left: 8%;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 100px;
+      height: 100px;
+      border: 3px solid var(--cosmic-blue);
+      border-radius: 50%;
+      top: 55%;
+      right: 12%;
+      animation-delay: 2s;
+    }
+
+    .shape-3 {
+      width: 80px;
+      height: 80px;
+      border: 3px solid var(--cosmic-yellow);
+      transform: rotate(45deg);
+      bottom: 25%;
+      left: 65%;
+      animation-delay: 4s;
+    }
+
+    .shape-4 {
+      width: 90px;
+      height: 90px;
+      border: 3px solid var(--cosmic-pink);
+      border-radius: 20px;
+      top: 40%;
+      left: 20%;
+      animation-delay: 6s;
+    }
+
+    @keyframes float-shape {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.08;
+      }
+      50% {
+        transform: translateY(-50px) rotate(180deg);
+        opacity: 0.15;
+      }
+    }
+
+    /* Reduced motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .gradient-orb,
+      .particle,
+      .shape,
+      .star {
+        animation: none;
+      }
+    }
+
+    /* ========================================
+       CONTAINER SYSTEM
+       ======================================== */
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 60px;
+      position: relative;
+      z-index: var(--z-content);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+    }
+
+    /* ========================================
+       COSMIC HEADER
+       ======================================== */
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, rgba(10, 1, 24, 0.85), rgba(30, 32, 38, 0.85));
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      -moz-backdrop-filter: blur(30px) saturate(180%);
+      border-bottom: 1px solid rgba(147, 51, 234, 0.3);
+      z-index: var(--z-header);
+      padding: 20px 0;
+      transition: all 0.4s var(--ease-premium);
+      box-shadow: 0 8px 32px rgba(10, 1, 24, 0.5),
+                  0 0 0 1px rgba(147, 51, 234, 0.1) inset;
+    }
+
+    /* Fallback for browsers without backdrop-filter */
+    @supports not (backdrop-filter: blur(30px)) {
+      .header {
+        background: linear-gradient(135deg, rgba(10, 1, 24, 0.95), rgba(30, 32, 38, 0.95));
+      }
+    }
+
+    .header.scrolled {
+      padding: 14px 0;
+      background: linear-gradient(135deg, rgba(10, 1, 24, 0.95), rgba(30, 32, 38, 0.95));
+      box-shadow: 0 8px 40px rgba(10, 1, 24, 0.8),
+                  0 0 0 1px rgba(147, 51, 234, 0.2) inset,
+                  0 0 60px rgba(147, 51, 234, 0.15);
+      border-bottom: 1px solid rgba(147, 51, 234, 0.4);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: all 0.4s var(--ease-premium);
+      position: relative;
+      text-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+    }
+
+    .logo:hover {
+      transform: translateY(-2px) scale(1.05);
+      text-shadow: 0 0 30px rgba(147, 51, 234, 0.6),
+                   0 0 60px rgba(59, 130, 246, 0.4);
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-highlight {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 10px rgba(147, 51, 234, 0.5));
+      will-change: filter;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* Language Switcher */
+    .language-switcher {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(147, 51, 234, 0.1);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 8px;
+      padding: 6px 8px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      -moz-backdrop-filter: blur(10px);
+    }
+
+    @supports not (backdrop-filter: blur(10px)) {
+      .language-switcher {
+        background: rgba(147, 51, 234, 0.2);
+      }
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: all 0.3s var(--ease-premium);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .lang-btn:hover {
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(147, 51, 234, 0.15);
+    }
+
+    .lang-btn.active {
+      color: var(--text-primary);
+      background: var(--gradient-primary);
+      box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
+    }
+
+    .lang-separator {
+      width: 1px;
+      height: 16px;
+      background: rgba(147, 51, 234, 0.3);
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: all 0.3s var(--ease-premium);
+      position: relative;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(59, 130, 246, 0.1));
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-premium);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 16px;
+      right: 16px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cosmic-purple), var(--cosmic-blue), var(--cosmic-yellow));
+      border-radius: 2px;
+      transform: scaleX(0);
+      transition: transform 0.3s var(--ease-premium);
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+      text-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+    }
+
+    .nav-link:hover::before {
+      opacity: 1;
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.4s var(--ease-premium);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(147, 51, 234, 0.4);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-premium);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(147, 51, 234, 0.6);
+    }
+
+    .btn-primary:hover::before {
+      opacity: 1;
+    }
+
+    .btn-secondary {
+      background: rgba(147, 51, 234, 0.1);
+      color: var(--text-primary);
+      border: 2px solid rgba(147, 51, 234, 0.5);
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-premium);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      -moz-backdrop-filter: blur(10px);
+    }
+
+    @supports not (backdrop-filter: blur(10px)) {
+      .btn-secondary {
+        background: rgba(147, 51, 234, 0.2);
+      }
+    }
+
+    .btn-secondary:hover {
+      background: rgba(147, 51, 234, 0.2);
+      border-color: var(--cosmic-purple);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(147, 51, 234, 0.3);
+    }
+
+    /* Focus styles for keyboard navigation */
+    .nav-link:focus,
+    .btn-primary:focus,
+    .btn-secondary:focus,
+    .card-link:focus,
+    .social-link:focus,
+    .footer-links a:focus,
+    .mobile-menu-btn:focus,
+    .lang-btn:focus {
+      outline: 3px solid var(--cosmic-blue);
+      outline-offset: 4px;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:focus {
+      outline: 3px solid var(--cosmic-yellow);
+      outline-offset: 4px;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      background: rgba(147, 51, 234, 0.2);
+      border: 2px solid rgba(147, 51, 234, 0.5);
+      color: var(--text-primary);
+      font-size: 24px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .mobile-menu-btn:hover {
+      background: rgba(147, 51, 234, 0.3);
+      border-color: var(--cosmic-purple);
+    }
+
+    @media (max-width: 1024px) {
+      .nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: linear-gradient(135deg, rgba(10, 1, 24, 0.98), rgba(30, 32, 38, 0.98));
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 40px;
+        gap: 32px;
+        transition: left 0.4s var(--ease-premium);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+      }
+
+      .nav.mobile-open {
+        left: 0;
+      }
+
+      .nav-list {
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+      }
+
+      .nav-link {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .language-switcher {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 140px 0 80px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: var(--z-content-overlay);
+      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(59, 130, 246, 0.2));
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      -moz-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(147, 51, 234, 0.3);
+    }
+
+    @supports not (backdrop-filter: blur(10px)) {
+      .hero-label {
+        background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.3));
+      }
+    }
+
+    .hero-title {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+
+    .hero-description {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto 48px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 0;
+      border-top: 1px solid rgba(147, 51, 234, 0.2);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 48px;
+      font-weight: 700;
+      background: var(--gradient-yellow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 56px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 120px 0 60px;
+        min-height: auto;
+      }
+
+      .hero-title {
+        font-size: 40px;
+      }
+
+      .hero-description {
+        font-size: 18px;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .stat-value {
+        font-size: 36px;
+      }
+    }
+
+    /* ========================================
+       SECTION STYLES
+       ======================================== */
+
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 64px;
+    }
+
+    .section-label {
+      display: inline-block;
+      padding: 8px 20px;
+      background: rgba(147, 51, 234, 0.1);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cosmic-purple);
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-description {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .section-title {
+        font-size: 52px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-header {
+        margin-bottom: 48px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+      .section-description {
+        font-size: 16px;
+      }
+    }
+
+    /* ========================================
+       CARD STYLES
+       ======================================== */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .card {
+      background: rgba(30, 32, 38, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      -moz-backdrop-filter: blur(20px);
+      border: 1px solid rgba(147, 51, 234, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      transition: all 0.4s var(--ease-bounce);
+    }
+
+    @supports not (backdrop-filter: blur(20px)) {
+      .card {
+        background: rgba(30, 32, 38, 0.8);
+      }
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+    }
+
+    .card-icon {
+      font-size: 48px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .card-description {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .card-link {
+      color: var(--cosmic-blue);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .card-link:hover {
+      color: var(--cosmic-yellow);
+      transform: translateX(4px);
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .card {
+        padding: 32px;
+      }
+    }
+
+    /* ========================================
+       USP SECTION - WHY DESTINED TO SUCCEED
+       ======================================== */
+
+    .usp-section {
+      background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
+      position: relative;
+    }
+
+    .usp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .usp-card {
+      background: rgba(30, 32, 38, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      -moz-backdrop-filter: blur(20px);
+      border: 1px solid rgba(147, 51, 234, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      transition: all 0.4s var(--ease-premium);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .usp-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-premium);
+    }
+
+    .usp-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 20px 60px rgba(147, 51, 234, 0.4);
+    }
+
+    .usp-card:hover::before {
+      opacity: 1;
+    }
+
+    .usp-card.featured {
+      border: 2px solid var(--cosmic-yellow);
+      background: linear-gradient(135deg, rgba(255, 233, 0, 0.05), rgba(30, 32, 38, 0.8));
+      box-shadow: 0 0 40px rgba(255, 233, 0, 0.2);
+    }
+
+    .usp-card.featured::before {
+      background: var(--gradient-yellow);
+      opacity: 1;
+    }
+
+    .usp-icon {
+      font-size: 56px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .usp-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .usp-description {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .usp-features {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .usp-features li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .usp-features li::before {
+      content: '✓';
+      color: var(--cosmic-yellow);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .usp-price {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(255, 233, 0, 0.1);
+      border: 1px solid rgba(255, 233, 0, 0.3);
+      border-radius: 8px;
+      font-weight: 700;
+      color: var(--cosmic-yellow);
+      margin-top: 16px;
+    }
+
+    .usp-impact {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(147, 51, 234, 0.2);
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 1024px) {
+      .usp-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .usp-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Success Formula Callout */
+    .success-formula {
+      margin-top: 64px;
+      padding: 48px;
+      background: linear-gradient(135deg, rgba(255, 233, 0, 0.1), rgba(147, 51, 234, 0.1));
+      border: 2px solid var(--cosmic-yellow);
+      border-radius: 24px;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(255, 233, 0, 0.2);
+    }
+
+    .success-formula h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--cosmic-yellow);
+    }
+
+    .success-formula p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .success-formula {
+        padding: 32px 24px;
+      }
+
+      .success-formula h3 {
+        font-size: 22px;
+      }
+
+      .success-formula p {
+        font-size: 16px;
+      }
+    }
+
+    /* ========================================
+       SERVICES SECTION
+       ======================================== */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .service-card {
+      background: rgba(30, 32, 38, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      -moz-backdrop-filter: blur(20px);
+      border: 1px solid rgba(147, 51, 234, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      transition: all 0.4s var(--ease-premium);
+      text-align: center;
+    }
+
+    @supports not (backdrop-filter: blur(20px)) {
+      .service-card {
+        background: rgba(30, 32, 38, 0.8);
+      }
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+    }
+
+    .service-icon {
+      font-size: 56px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .service-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .service-description {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .service-features {
+      list-style: none;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    .service-features li {
+      padding: 6px 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-features li::before {
+      content: '→';
+      color: var(--cosmic-blue);
+      font-weight: 700;
+    }
+
+    .service-price {
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgba(147, 51, 234, 0.2);
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      border-radius: 8px;
+      font-weight: 700;
+      color: var(--cosmic-yellow);
+      margin-top: 16px;
+    }
+
+    @media (max-width: 1200px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 32px;
+      }
+    }
+
+    /* ========================================
+       AI AGENTS SECTION
+       ======================================== */
+
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .agent-card {
+      background: rgba(30, 32, 38, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(147, 51, 234, 0.2);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s var(--ease-premium);
+      text-align: center;
+    }
+
+    .agent-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(57, 255, 20, 0.5);
+      box-shadow: 0 12px 32px rgba(57, 255, 20, 0.2);
+    }
+
+    .agent-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .agent-role {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: rgba(57, 255, 20, 0.1);
+      border: 1px solid rgba(57, 255, 20, 0.3);
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #39FF14;
+      margin-top: 12px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #39FF14;
+      border-radius: 50%;
+      animation: pulse-live 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-live {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .agents-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .agents-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .agent-card {
+        padding: 20px;
+      }
+    }
+
+    /* ========================================
+       TOKENOMICS SECTION
+       ======================================== */
+
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .tokenomics-info h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+    }
+
+    .tokenomics-info p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .distribution-list {
+      list-style: none;
+    }
+
+    .distribution-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+    }
+
+    .distribution-label {
+      font-size: 16px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .distribution-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cosmic-yellow);
+    }
+
+    .fee-breakdown {
+      margin-top: 32px;
+      padding: 32px;
+      background: rgba(147, 51, 234, 0.1);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 16px;
+    }
+
+    .fee-breakdown h4 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .fee-breakdown ul {
+      list-style: none;
+    }
+
+    .fee-breakdown li {
+      padding: 8px 0;
+      font-size: 15px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .fee-breakdown li::before {
+      content: '🔥';
+      font-size: 18px;
+    }
+
+    @media (max-width: 1024px) {
+      .tokenomics-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* ========================================
+       ROADMAP SECTION
+       ======================================== */
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .roadmap-card {
+      background: rgba(30, 32, 38, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(147, 51, 234, 0.2);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 16px 48px rgba(59, 130, 246, 0.3);
+    }
+
+    .roadmap-quarter {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--cosmic-yellow);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .roadmap-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .roadmap-items {
+      list-style: none;
+    }
+
+    .roadmap-items li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .roadmap-items li::before {
+      content: '✓';
+      color: #39FF14;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .roadmap-card.completed {
+      border-color: rgba(57, 255, 20, 0.4);
+      background: rgba(57, 255, 20, 0.05);
+    }
+
+    .roadmap-card.in-progress {
+      border-color: rgba(255, 233, 0, 0.4);
+      background: rgba(255, 233, 0, 0.05);
+    }
+
+    .roadmap-card.in-progress .roadmap-items li::before {
+      content: '🔄';
+    }
+
+    .roadmap-card.upcoming .roadmap-items li::before {
+      content: '📅';
+      color: var(--cosmic-blue);
+    }
+
+    @media (max-width: 1200px) {
+      .roadmap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .roadmap-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+
+    .footer {
+      padding: 80px 0 32px;
+      background: linear-gradient(135deg, rgba(10, 1, 24, 0.9), rgba(30, 32, 38, 0.9));
+      border-top: 1px solid rgba(147, 51, 234, 0.3);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 64px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-brand p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 233, 0, 0.1);
+      border: 1px solid rgba(255, 233, 0, 0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 18px;
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .social-link:hover {
+      background: rgba(255, 233, 0, 0.2);
+      border-color: var(--cosmic-yellow);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(255, 233, 0, 0.3);
+    }
+
+    .footer-links h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .footer-links a:hover {
+      color: var(--cosmic-yellow);
+      transform: translateX(4px);
+      display: inline-block;
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(147, 51, 234, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--cosmic-yellow);
+    }
+
+    @media (max-width: 1024px) {
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    /* ========================================
+       SCROLL ANIMATIONS
+       ======================================== */
+
+    .scroll-fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s var(--ease-premium);
+    }
+
+    .scroll-fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================================
+       UTILITIES
+       ======================================== */
+
+    .text-gradient {
+      background: var(--gradient-yellow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .breathing-space {
+      margin-top: 120px;
+    }
+
+    @media (max-width: 768px) {
+      .breathing-space {
+        margin-top: 80px;
+      }
+    }
+
+    /* Private Sale Banner */
+    .private-sale-banner {
+      display: inline-block;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, rgba(255, 233, 0, 0.2), rgba(255, 100, 0, 0.2));
+      border: 2px solid var(--cosmic-yellow);
+      border-radius: 16px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cosmic-yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+      animation: pulse-banner 2s ease-in-out infinite;
+      box-shadow: 0 0 40px rgba(255, 233, 0, 0.4);
+    }
+
+    @keyframes pulse-banner {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 40px rgba(255, 233, 0, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 60px rgba(255, 233, 0, 0.6);
+      }
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 24px;
+      padding: 32px;
+      background: rgba(30, 32, 38, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 20px;
+      margin-top: 48px;
+    }
+
+    .stats-bar-item {
+      text-align: center;
+    }
+
+    .stats-bar-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--cosmic-yellow);
+      margin-bottom: 4px;
+    }
+
+    .stats-bar-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .stats-bar {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        padding: 24px;
+      }
+
+      .stats-bar-value {
+        font-size: 18px;
+      }
+
+      .stats-bar-label {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+  <!-- ========================================
+       HEADER
+       ======================================== -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="#hero" class="logo" aria-label="HypeAI Home">
+          <span class="logo-text">Hype<span class="logo-highlight">AI</span></span>
+        </a>
+
+        <nav class="nav" id="nav">
+          <ul class="nav-list">
+            <li><a href="#services" class="nav-link" data-i18n="nav_services">Services</a></li>
+            <li><a href="#agents" class="nav-link" data-i18n="nav_agents">AI Agents</a></li>
+            <li><a href="#tokenomics" class="nav-link" data-i18n="nav_tokenomics">Tokenomics</a></li>
+            <li><a href="#roadmap" class="nav-link" data-i18n="nav_roadmap">Roadmap</a></li>
+          </ul>
+          <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+            <div class="lang-separator"></div>
+            <button class="lang-btn" data-lang="ru" aria-label="Switch to Russian">RU</button>
+            <div class="lang-separator"></div>
+            <button class="lang-btn" data-lang="zh" aria-label="Switch to Chinese">中文</button>
+          </div>
+          <a href="#contact" class="btn-primary" data-i18n="nav_get_started">Get Started →</a>
+        </nav>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================
+       COSMIC HERO SECTION
+       ======================================== -->
+  <section class="hero" id="main-content">
+    <div class="hero-background">
+      <!-- Starfield -->
+      <div class="starfield" id="starfield"></div>
+
+      <!-- Cosmic Gradient Orbs -->
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+      <div class="gradient-orb orb-4"></div>
+      <div class="gradient-orb orb-5"></div>
+      <div class="gradient-orb orb-6"></div>
+
+      <!-- Particle System -->
+      <div class="particles" id="particles"></div>
+
+      <!-- Geometric Shapes -->
+      <div class="geometric-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="private-sale-banner" data-i18n="private_sale_banner">
+          🚀 JOIN PRIVATE SALE - 20-30% BONUS
+        </div>
+
+        <div class="hero-label">
+          <span>🤖</span>
+          <span data-i18n="hero_label">27 AI Agents Working 24/7</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_1">Where AI Meets</span><br>
+          <span class="gradient-text" data-i18n="hero_title_2">Opportunity</span>
+        </h1>
+
+        <p class="hero-description" data-i18n="hero_description">
+          AI-powered crypto platform with 27 professional AI agents. AI Services, Token Economics, and 85% prediction accuracy. Stake for up to 62% APY.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#services" class="btn-primary" data-i18n="hero_cta_explore">View AI Agents →</a>
+          <a href="#tokenomics" class="btn-secondary" data-i18n="hero_cta_tokenomics">Learn More</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-value">27/27</div>
+            <div class="stat-label" data-i18n="stat_agents_active">Agents Active</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">35+</div>
+            <div class="stat-label" data-i18n="stat_services">Services</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">62%</div>
+            <div class="stat-label" data-i18n="stat_apy">Max APY</div>
+          </div>
+        </div>
+
+        <!-- Extended Stats Bar -->
+        <div class="stats-bar">
+          <div class="stats-bar-item">
+            <div class="stats-bar-value">$1.2M</div>
+            <div class="stats-bar-label" data-i18n="stat_tvl">TVL (Demo)</div>
+          </div>
+          <div class="stats-bar-item">
+            <div class="stats-bar-value">5,234</div>
+            <div class="stats-bar-label" data-i18n="stat_users">Active Users</div>
+          </div>
+          <div class="stats-bar-item">
+            <div class="stats-bar-value">85%</div>
+            <div class="stats-bar-label" data-i18n="stat_accuracy">AI Accuracy</div>
+          </div>
+          <div class="stats-bar-item">
+            <div class="stats-bar-value">$0.001</div>
+            <div class="stats-bar-label" data-i18n="stat_price">Token Price</div>
+          </div>
+          <div class="stats-bar-item">
+            <div class="stats-bar-value">24/7</div>
+            <div class="stats-bar-label" data-i18n="stat_uptime">Uptime</div>
+          </div>
+          <div class="stats-bar-item">
+            <div class="stats-bar-value">2,520</div>
+            <div class="stats-bar-label" data-i18n="stat_transactions">Transactions</div>
+          </div>
+          <div class="stats-bar-item">
+            <div class="stats-bar-value">12,845</div>
+            <div class="stats-bar-label" data-i18n="stat_community">Community</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       WHY HYPEAI IS DESTINED TO SUCCEED
+       ======================================== -->
+  <section class="section usp-section scroll-fade-in">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-i18n="usp_label">🚀 Why HypeAI</div>
+        <h2 class="section-title" data-i18n="usp_title">Why HypeAI is Destined to Succeed</h2>
+        <p class="section-description" data-i18n="usp_description">
+          Built on real revenue, utility, and AI innovation. Our success is inevitable.
+        </p>
+      </div>
+
+      <div class="usp-grid">
+        <!-- USP 1: Crypto Checker - FEATURED -->
+        <div class="usp-card featured">
+          <div class="usp-icon">🔍</div>
+          <h3 class="usp-title" data-i18n="usp1_title">Crypto Checker - Paid Service 💰</h3>
+          <p class="usp-description" data-i18n="usp1_description">
+            Enter any crypto address. Our 27 AI agents analyze in 30 seconds:
+          </p>
+          <ul class="usp-features">
+            <li data-i18n="usp1_feature1">Scam or Legit? - Rug pull detection, honeypot check</li>
+            <li data-i18n="usp1_feature2">Full Analysis - Contract security, liquidity, holders</li>
+            <li data-i18n="usp1_feature3">Success Probability - AI predicts 10x, 100x, or dump</li>
+            <li data-i18n="usp1_feature4">Complete Report - Tokenomics, team, marketing, roadmap</li>
+          </ul>
+          <div class="usp-price" data-i18n="usp1_price">💵 $9.99 per check</div>
+          <div class="usp-impact" data-i18n="usp1_impact">
+            🎯 Coming Q2 2025: Save investors from scams, earn revenue, burn tokens. Win-win-win.
+            Expected: 100M+ tokens burned in Year 1
+          </div>
+        </div>
+
+        <!-- USP 2: AI Oracle -->
+        <div class="usp-card">
+          <div class="usp-icon">🔮</div>
+          <h3 class="usp-title" data-i18n="usp2_title">AI Oracle - Price Predictions</h3>
+          <ul class="usp-features">
+            <li data-i18n="usp2_feature1">Real-time market analysis</li>
+            <li data-i18n="usp2_feature2">AI-powered predictions</li>
+            <li data-i18n="usp2_feature3">85%+ accuracy rate</li>
+            <li data-i18n="usp2_feature4">Updates every 60 seconds</li>
+          </ul>
+        </div>
+
+        <!-- USP 3: Real B2B Revenue -->
+        <div class="usp-card">
+          <div class="usp-icon">💰</div>
+          <h3 class="usp-title" data-i18n="usp3_title">Real B2B Revenue</h3>
+          <ul class="usp-features">
+            <li data-i18n="usp3_feature1">35+ paid AI services</li>
+            <li data-i18n="usp3_feature2">Growing client base</li>
+            <li data-i18n="usp3_feature3">50% of revenue → token burns</li>
+            <li data-i18n="usp3_feature4">Sustainable growth model</li>
+          </ul>
+          <p class="usp-description" data-i18n="usp3_description">
+            All services are paid in HYPE tokens. Clients must buy HYPE to use our AI services. This creates constant buying pressure.
+          </p>
+        </div>
+
+        <!-- USP 4: Aggressive Token Burns -->
+        <div class="usp-card">
+          <div class="usp-icon">🔥</div>
+          <h3 class="usp-title" data-i18n="usp4_title">Aggressive Token Burns</h3>
+          <ul class="usp-features">
+            <li data-i18n="usp4_feature1">50% of ALL service fees get burned</li>
+            <li data-i18n="usp4_feature2">Supply decreases weekly</li>
+            <li data-i18n="usp4_feature3">Scarcity increases value</li>
+            <li data-i18n="usp4_feature4">Deflationary forever</li>
+          </ul>
+        </div>
+
+        <!-- USP 5: 62% APY Staking -->
+        <div class="usp-card">
+          <div class="usp-icon">💎</div>
+          <h3 class="usp-title" data-i18n="usp5_title">62% APY Staking = Supply Shock</h3>
+          <p class="usp-description" data-i18n="usp5_description">
+            When 40-60% of tokens are locked in staking (365-day lock), circulating supply drops dramatically. Less available tokens = higher prices. Diamond hands get rewarded massively.
+          </p>
+          <div class="usp-impact" data-i18n="usp5_projection">
+            Projection: 500M+ tokens locked by Q4 2025
+          </div>
+        </div>
+
+        <!-- USP 6: 27 Agents Work Infinitely -->
+        <div class="usp-card">
+          <div class="usp-icon">🤖</div>
+          <h3 class="usp-title" data-i18n="usp6_title">27 Agents Work Infinitely</h3>
+          <p class="usp-description" data-i18n="usp6_description">
+            Human agencies sleep. Get tired. Quit. Our 27 agents work 24/7/365 without rest, delivering value EVERY SINGLE SECOND.
+          </p>
+        </div>
+      </div>
+
+      <!-- Success Formula Callout -->
+      <div class="success-formula">
+        <h3 data-i18n="success_formula_title">📈 100% Success Formula</h3>
+        <p data-i18n="success_formula_text">
+          Revenue drives demand → Burns reduce supply → Staking locks tokens → Price MUST increase. Math doesn't lie.
+        </p>
+      </div>
+
+      <!-- Long-Term Commitment -->
+      <div class="success-formula" style="margin-top: 32px; border-color: var(--cosmic-purple);">
+        <h3 data-i18n="commitment_title">♾️ Long-Term Commitment</h3>
+        <p data-i18n="commitment_text">
+          We NEVER Stop. This isn't a pump-and-dump. We're building a $100M+ revenue platform. Our agents work forever. Your investment grows forever.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       AI SERVICES PLATFORM
+       ======================================== -->
+  <section class="section scroll-fade-in" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-i18n="services_label">AI Services</div>
+        <h2 class="section-title" data-i18n="services_title">8 Service Categories - 35+ Specialized Services</h2>
+        <p class="section-description" data-i18n="services_description">
+          Professional AI services for crypto projects - from smart contract development to marketing.
+          Pay only in HYPEAI tokens with 50% burn on every transaction.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: Security & Auditing -->
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <h3 class="service-title" data-i18n="service1_title">Security & Auditing</h3>
+          <p class="service-description" data-i18n="service1_description">
+            Professional smart contract audits and security assessments by ATLAS, our blockchain security specialist. Military-grade security protocols.
+          </p>
+          <ul class="service-features">
+            <li data-i18n="service1_feature1">Smart Contract Audits</li>
+            <li data-i18n="service1_feature2">Penetration Testing</li>
+            <li data-i18n="service1_feature3">24/7 Security Monitoring</li>
+            <li data-i18n="service1_feature4">Incident Response</li>
+          </ul>
+          <div class="service-price" data-i18n="service1_price">From $2,500</div>
+        </div>
+
+        <!-- Service 2: Tokenomics Design -->
+        <div class="service-card">
+          <div class="service-icon">💰</div>
+          <h3 class="service-title" data-i18n="service2_title">Tokenomics Design</h3>
+          <p class="service-description" data-i18n="service2_description">
+            Design sustainable token economics with proper distribution, vesting, and burn mechanisms.
+          </p>
+          <ul class="service-features">
+            <li data-i18n="service2_feature1">Economic Modeling</li>
+            <li data-i18n="service2_feature2">Token Distribution</li>
+            <li data-i18n="service2_feature3">Vesting Schedules</li>
+            <li data-i18n="service2_feature4">Burn Mechanisms</li>
+          </ul>
+          <div class="service-price" data-i18n="service2_price">From $1,200</div>
+        </div>
+
+        <!-- Service 3: Smart Contract Development -->
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3 class="service-title" data-i18n="service3_title">Smart Contract Development</h3>
+          <p class="service-description" data-i18n="service3_description">
+            Enterprise-grade smart contracts and dApps built by NEXUS, SOLIDITY, and PRISM. Production-ready code with 100% test coverage.
+          </p>
+          <ul class="service-features">
+            <li data-i18n="service3_feature1">Custom Smart Contracts</li>
+            <li data-i18n="service3_feature2">dApp Development</li>
+            <li data-i18n="service3_feature3">Multi-Chain Deployment</li>
+            <li data-i18n="service3_feature4">Backend & APIs</li>
+          </ul>
+          <div class="service-price" data-i18n="service3_price">From $3,500</div>
+        </div>
+
+        <!-- Service 4: Marketing & Growth -->
+        <div class="service-card">
+          <div class="service-icon">📢</div>
+          <h3 class="service-title" data-i18n="service4_title">Marketing & Growth</h3>
+          <p class="service-description" data-i18n="service4_description">
+            Full-scale marketing campaigns with social media management, content creation, and influencer outreach.
+          </p>
+          <ul class="service-features">
+            <li data-i18n="service4_feature1">Social Media Management</li>
+            <li data-i18n="service4_feature2">Launch Campaigns</li>
+            <li data-i18n="service4_feature3">Content Creation</li>
+            <li data-i18n="service4_feature4">Influencer Marketing</li>
+          </ul>
+          <div class="service-price" data-i18n="service4_price">From $799/mo</div>
+        </div>
+
+        <!-- Service 5: Community Management -->
+        <div class="service-card">
+          <div class="service-icon">👥</div>
+          <h3 class="service-title" data-i18n="service5_title">Community Management</h3>
+          <p class="service-description" data-i18n="service5_description">
+            24/7 community management across Discord, Telegram, and social platforms.
+          </p>
+          <ul class="service-features">
+            <li data-i18n="service5_feature1">Discord/Telegram Setup</li>
+            <li data-i18n="service5_feature2">24/7 Moderation</li>
+            <li data-i18n="service5_feature3">Engagement Programs</li>
+            <li data-i18n="service5_feature4">Sentiment Analysis</li>
+          </ul>
+          <div class="service-price" data-i18n="service5_price">From $499/mo</div>
+        </div>
+
+        <!-- Service 6: Design & Branding -->
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3 class="service-title" data-i18n="service6_title">Design & Branding</h3>
+          <p class="service-description" data-i18n="service6_description">
+            Professional logo design, brand identity, website design, and marketing assets.
+          </p>
+          <ul class="service-features">
+            <li data-i18n="service6_feature1">Logo & Brand Identity</li>
+            <li data-i18n="service6_feature2">Website Design</li>
+            <li data-i18n="service6_feature3">UI/UX for dApps</li>
+            <li data-i18n="service6_feature4">Marketing Assets</li>
+          </ul>
+          <div class="service-price" data-i18n="service6_price">From $1,500</div>
+        </div>
+
+        <!-- Service 7: Content Creation -->
+        <div class="service-card">
+          <div class="service-icon">✍️</div>
+          <h3 class="service-title" data-i18n="service7_title">Content Creation</h3>
+          <p class="service-description" data-i18n="service7_description">
+            Whitepaper writing, technical documentation, blog posts, and video scripts.
+          </p>
+          <ul class="service-features">
+            <li data-i18n="service7_feature1">Whitepaper Writing</li>
+            <li data-i18n="service7_feature2">Technical Documentation</li>
+            <li data-i18n="service7_feature3">Blog Posts & Articles</li>
+            <li data-i18n="service7_feature4">Video Scripts</li>
+          </ul>
+          <div class="service-price" data-i18n="service7_price">From $399</div>
+        </div>
+
+        <!-- Service 8: DevOps & Operations -->
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3 class="service-title" data-i18n="service8_title">DevOps & Operations</h3>
+          <p class="service-description" data-i18n="service8_description">
+            Enterprise infrastructure managed by our DevOps team. CI/CD pipelines, monitoring, and 99.9% uptime.
+          </p>
+          <ul class="service-features">
+            <li data-i18n="service8_feature1">CI/CD Pipeline Setup</li>
+            <li data-i18n="service8_feature2">Cloud Infrastructure</li>
+            <li data-i18n="service8_feature3">Monitoring & Alerts</li>
+            <li data-i18n="service8_feature4">Performance Optimization</li>
+          </ul>
+          <div class="service-price" data-i18n="service8_price">From $699/mo</div>
+        </div>
+      </div>
+
+      <!-- Service Benefits -->
+      <div class="cards-grid" style="margin-top: 64px;">
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3 class="card-title" data-i18n="benefit1_title">3-10x Faster Delivery</h3>
+          <p class="card-description" data-i18n="benefit1_description">
+            AI agents work 24/7 without breaks. What takes traditional agencies weeks, we deliver in days.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💰</div>
+          <h3 class="card-title" data-i18n="benefit2_title">50-70% Cheaper</h3>
+          <p class="card-description" data-i18n="benefit2_description">
+            Save significantly compared to hiring full teams while getting enterprise-quality results.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3 class="card-title" data-i18n="benefit3_title">24/7 Availability</h3>
+          <p class="card-description" data-i18n="benefit3_description">
+            Our agents never sleep, take breaks, or quit. Continuous work on your projects around the clock.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔥</div>
+          <h3 class="card-title" data-i18n="benefit4_title">Token Utility</h3>
+          <p class="card-description" data-i18n="benefit4_description">
+            All services paid in HYPEAI tokens with 50% burn, creating permanent deflation and increasing value.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       MEET OUR AI TEAM
+       ======================================== -->
+  <section class="section scroll-fade-in" id="agents">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-i18n="agents_label">AI Team</div>
+        <h2 class="section-title" data-i18n="agents_title">Meet Our AI Team</h2>
+        <p class="section-description" data-i18n="agents_description">
+          27 specialized AI agents working 24/7. Never sleep. Never quit.
+        </p>
+      </div>
+
+      <div class="agents-grid">
+        <!-- Development Division -->
+        <div class="agent-card">
+          <div class="agent-name">ATLAS</div>
+          <div class="agent-role" data-i18n="agent1_role">Blockchain Security Specialist</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">NEXUS</div>
+          <div class="agent-role" data-i18n="agent2_role">Full-Stack Developer</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">SOLIDITY</div>
+          <div class="agent-role" data-i18n="agent3_role">Smart Contract Expert</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">PRISM</div>
+          <div class="agent-role" data-i18n="agent4_role">Frontend Architect</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">VERIFY</div>
+          <div class="agent-role" data-i18n="agent5_role">QA & Testing Lead</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">MOTION</div>
+          <div class="agent-role" data-i18n="agent6_role">UI/UX Designer</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <!-- Business Division -->
+        <div class="agent-card">
+          <div class="agent-name">TITAN</div>
+          <div class="agent-role" data-i18n="agent7_role">Business Strategy</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">MOMENTUM</div>
+          <div class="agent-role" data-i18n="agent8_role">Marketing Director</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">PULSE</div>
+          <div class="agent-role" data-i18n="agent9_role">Community Manager</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">VIBE</div>
+          <div class="agent-role" data-i18n="agent10_role">Social Media Specialist</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">PIXEL</div>
+          <div class="agent-role" data-i18n="agent11_role">Graphic Designer</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">CONTENT</div>
+          <div class="agent-role" data-i18n="agent12_role">Content Writer</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <!-- Additional agents placeholder (continuing to 27) -->
+        <div class="agent-card">
+          <div class="agent-name">ORACLE</div>
+          <div class="agent-role" data-i18n="agent13_role">Data Analyst</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">CIPHER</div>
+          <div class="agent-role" data-i18n="agent14_role">Cryptography Expert</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">ECHO</div>
+          <div class="agent-role" data-i18n="agent15_role">SEO Specialist</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-name">VECTOR</div>
+          <div class="agent-role" data-i18n="agent16_role">AI Researcher</div>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span data-i18n="live">LIVE</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="/agents-activity.html" class="btn-primary" data-i18n="view_all_agents">
+          👥 View All 27 Agents →
+        </a>
+        <a href="/agents-activity.html" class="btn-secondary" style="margin-left: 16px;" data-i18n="view_live_activity">
+          🔴 View Live Activity
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       POWERED BY INTELLIGENCE
+       ======================================== -->
+  <section class="section scroll-fade-in">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-i18n="intelligence_label">Intelligence</div>
+        <h2 class="section-title" data-i18n="intelligence_title">Powered by Intelligence</h2>
+        <p class="section-description" data-i18n="intelligence_description">
+          Advanced AI-powered features for the modern crypto ecosystem
+        </p>
+      </div>
+
+      <div class="usp-grid">
+        <div class="usp-card">
+          <div class="usp-icon">🤖</div>
+          <h3 class="usp-title" data-i18n="intelligence1_title">AI-Powered Trading</h3>
+          <p class="usp-description" data-i18n="intelligence1_description">
+            Our advanced AI models analyze price patterns, market sentiment, and on-chain data to provide 85%+ accurate predictions using LSTM and Transformer algorithms.
+          </p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-icon">💰</div>
+          <h3 class="usp-title" data-i18n="intelligence2_title">High-Yield Staking</h3>
+          <p class="usp-description" data-i18n="intelligence2_description">
+            Earn up to 62% APY by staking HYPEAI tokens. Choose flexible or locked staking with compounding rewards.
+          </p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-icon">🗳️</div>
+          <h3 class="usp-title" data-i18n="intelligence3_title">DAO Governance</h3>
+          <p class="usp-description" data-i18n="intelligence3_description">
+            Community-driven decision making. Vote on new features, fee adjustments, and strategic partnerships. 1 HYPEAI = 1 Vote.
+          </p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-icon">⚡</div>
+          <h3 class="usp-title" data-i18n="intelligence4_title">Lightning Fast</h3>
+          <p class="usp-description" data-i18n="intelligence4_description">
+            Built on BNB Chain for instant transactions at minimal cost. Trade and stake with confidence.
+          </p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-icon">🔒</div>
+          <h3 class="usp-title" data-i18n="intelligence5_title">Security First</h3>
+          <p class="usp-description" data-i18n="intelligence5_description">
+            Multi-signature wallets, regular audits, and insurance fund protection.
+          </p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-icon">📊</div>
+          <h3 class="usp-title" data-i18n="intelligence6_title">Real-Time Analytics</h3>
+          <p class="usp-description" data-i18n="intelligence6_description">
+            Track your portfolio, staking rewards, and AI predictions in one unified dashboard.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       TOKENOMICS
+       ======================================== -->
+  <section class="section scroll-fade-in" id="tokenomics">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-i18n="tokenomics_label">Tokenomics</div>
+        <h2 class="section-title" data-i18n="tokenomics_title">Fair Distribution Designed for Sustainable Growth</h2>
+        <p class="section-description" data-i18n="tokenomics_description">
+          1,000,000,000 HYPEAI total supply with aggressive burn mechanisms and high staking rewards.
+        </p>
+      </div>
+
+      <div class="tokenomics-grid">
+        <div class="tokenomics-info">
+          <h3 data-i18n="distribution_title">Token Distribution</h3>
+          <p data-i18n="distribution_description">
+            Fair and transparent allocation designed to ensure long-term project success and community benefit.
+          </p>
+
+          <ul class="distribution-list">
+            <li class="distribution-item">
+              <span class="distribution-label" data-i18n="dist_public">Public Sale</span>
+              <span class="distribution-value">40% (400M)</span>
+            </li>
+            <li class="distribution-item">
+              <span class="distribution-label" data-i18n="dist_staking">Staking Rewards</span>
+              <span class="distribution-value">25% (250M)</span>
+            </li>
+            <li class="distribution-item">
+              <span class="distribution-label" data-i18n="dist_team">Team & Advisors</span>
+              <span class="distribution-value">15% (150M)</span>
+            </li>
+            <li class="distribution-item">
+              <span class="distribution-label" data-i18n="dist_liquidity">Liquidity Pool</span>
+              <span class="distribution-value">10% (100M)</span>
+            </li>
+            <li class="distribution-item">
+              <span class="distribution-label" data-i18n="dist_development">Development Fund</span>
+              <span class="distribution-value">10% (100M)</span>
+            </li>
+          </ul>
+
+          <div class="fee-breakdown">
+            <h4 data-i18n="fees_title">Transaction Fees: 8%</h4>
+            <ul>
+              <li data-i18n="fee1">4% Burned Forever</li>
+              <li data-i18n="fee2">2% Staking Rewards</li>
+              <li data-i18n="fee3">2% Development & Marketing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tokenomics-info">
+          <h3 data-i18n="burn_title">Burn Mechanisms</h3>
+          <p data-i18n="burn_description">
+            Multiple deflationary mechanisms ensure constant reduction in supply, increasing scarcity and value over time.
+          </p>
+
+          <div class="fee-breakdown" style="margin-top: 0;">
+            <h4 data-i18n="burn_mechanisms_title">Active Burn Mechanisms</h4>
+            <ul>
+              <li data-i18n="burn1">50% of ALL service fees burned</li>
+              <li data-i18n="burn2">4% of every transaction burned</li>
+              <li data-i18n="burn3">Manual quarterly burns from profits</li>
+              <li data-i18n="burn4">Crypto Checker revenue burns (Q2 2025)</li>
+            </ul>
+          </div>
+
+          <div class="fee-breakdown" style="margin-top: 32px; background: rgba(57, 255, 20, 0.1); border-color: rgba(57, 255, 20, 0.3);">
+            <h4 data-i18n="staking_title">Staking Benefits</h4>
+            <ul>
+              <li data-i18n="staking1">Up to 62% APY on locked staking</li>
+              <li data-i18n="staking2">Flexible staking: 20% APY</li>
+              <li data-i18n="staking3">365-day lock: 62% APY</li>
+              <li data-i18n="staking4">Compounding rewards available</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       ROADMAP
+       ======================================== -->
+  <section class="section scroll-fade-in" id="roadmap">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-i18n="roadmap_label">Roadmap</div>
+        <h2 class="section-title" data-i18n="roadmap_title">Roadmap to Success</h2>
+        <p class="section-description" data-i18n="roadmap_description">
+          Our journey to revolutionize crypto services with AI innovation
+        </p>
+      </div>
+
+      <div class="roadmap-grid">
+        <!-- Q1 2025 -->
+        <div class="roadmap-card completed">
+          <div class="roadmap-quarter" data-i18n="q1_2025">Q1 2025</div>
+          <h3 class="roadmap-title" data-i18n="q1_title">Launch ✅</h3>
+          <ul class="roadmap-items">
+            <li data-i18n="q1_item1">Smart contract development</li>
+            <li data-i18n="q1_item2">Security audit</li>
+            <li data-i18n="q1_item3">DEX listing (PancakeSwap)</li>
+            <li data-i18n="q1_item4">Initial airdrop</li>
+            <li data-i18n="q1_item5">Community building</li>
+          </ul>
+        </div>
+
+        <!-- Q2 2025 -->
+        <div class="roadmap-card in-progress">
+          <div class="roadmap-quarter" data-i18n="q2_2025">Q2 2025</div>
+          <h3 class="roadmap-title" data-i18n="q2_title">Growth 🔄</h3>
+          <ul class="roadmap-items">
+            <li data-i18n="q2_item1">CEX listings (Gate.io, MEXC)</li>
+            <li data-i18n="q2_item2">Staking platform launch</li>
+            <li data-i18n="q2_item3">Crypto Checker service live</li>
+            <li data-i18n="q2_item4">Marketing campaigns</li>
+            <li data-i18n="q2_item5">Strategic partnerships</li>
+          </ul>
+        </div>
+
+        <!-- Q3 2025 -->
+        <div class="roadmap-card upcoming">
+          <div class="roadmap-quarter" data-i18n="q3_2025">Q3 2025</div>
+          <h3 class="roadmap-title" data-i18n="q3_title">Expansion 📅</h3>
+          <ul class="roadmap-items">
+            <li data-i18n="q3_item1">Multi-chain deployment</li>
+            <li data-i18n="q3_item2">NFT integration</li>
+            <li data-i18n="q3_item3">DAO governance launch</li>
+            <li data-i18n="q3_item4">Advanced AI features</li>
+            <li data-i18n="q3_item5">Global expansion</li>
+          </ul>
+        </div>
+
+        <!-- Q4 2025 -->
+        <div class="roadmap-card upcoming">
+          <div class="roadmap-quarter" data-i18n="q4_2025">Q4 2025</div>
+          <h3 class="roadmap-title" data-i18n="q4_title">Ecosystem 🚀</h3>
+          <ul class="roadmap-items">
+            <li data-i18n="q4_item1">Ecosystem grants program</li>
+            <li data-i18n="q4_item2">Developer SDK release</li>
+            <li data-i18n="q4_item3">Enterprise partnerships</li>
+            <li data-i18n="q4_item4">1M+ users milestone</li>
+            <li data-i18n="q4_item5">Mobile app release</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Hype<span style="background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AI</span></h3>
+          <p data-i18n="footer_description">
+            Professional AI Services Platform with 27 AI agents working 24/7. From smart contract development to marketing - we deliver enterprise-grade solutions at 50-70% lower cost.
+          </p>
+          <div class="social-links">
+            <a href="https://twitter.com/hypeai" class="social-link" aria-label="Twitter/X" target="_blank" rel="noopener noreferrer">𝕏</a>
+            <a href="https://discord.gg/hypeai" class="social-link" aria-label="Discord" target="_blank" rel="noopener noreferrer">💬</a>
+            <a href="https://t.me/hypeai" class="social-link" aria-label="Telegram" target="_blank" rel="noopener noreferrer">📱</a>
+            <a href="mailto:contact@hypeai.io" class="social-link" aria-label="Email">📧</a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4 data-i18n="footer_quick">Quick Links</h4>
+          <ul>
+            <li><a href="#services" data-i18n="footer_services">Services</a></li>
+            <li><a href="#agents" data-i18n="footer_agents">AI Agents</a></li>
+            <li><a href="#tokenomics" data-i18n="footer_tokenomics">Tokenomics</a></li>
+            <li><a href="#roadmap" data-i18n="footer_roadmap">Roadmap</a></li>
+            <li><a href="/private-sale" data-i18n="footer_private_sale">Private Sale</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4 data-i18n="footer_resources">Resources</h4>
+          <ul>
+            <li><a href="/docs" data-i18n="footer_docs">Documentation</a></li>
+            <li><a href="/api-docs" data-i18n="footer_api">API Docs</a></li>
+            <li><a href="/whitepaper" data-i18n="footer_whitepaper">Whitepaper</a></li>
+            <li><a href="https://github.com/hypeai" target="_blank" rel="noopener noreferrer" data-i18n="footer_github">Github</a></li>
+            <li><a href="/proof" data-i18n="footer_proof">Proof</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4 data-i18n="footer_legal">Legal</h4>
+          <ul>
+            <li><a href="/terms" data-i18n="footer_terms">Terms of Service</a></li>
+            <li><a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a></li>
+            <li><a href="/cookies" data-i18n="footer_cookies">Cookie Policy</a></li>
+            <li><a href="/disclaimer" data-i18n="footer_disclaimer">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div id="copyright">© 2025 HypeAI. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="/careers" data-i18n="footer_careers">Careers</a>
+          <a href="/blog" data-i18n="footer_blog">Blog</a>
+          <a href="/contact" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       JAVASCRIPT
+       ======================================== -->
+  <script>
+    // ========================================
+    // INITIALIZE COSMIC ELEMENTS
+    // ========================================
+
+    // Create starfield (reduced from 150 to 75 for performance)
+    const starfield = document.getElementById('starfield');
+    const starCount = 75;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.width = Math.random() * 3 + 'px';
+      star.style.height = star.style.width;
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      starfield.appendChild(star);
+    }
+
+    // Create floating particles (reduced from 40 to 20)
+    const particles = document.getElementById('particles');
+    const particleCount = 20;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 20 + 's';
+      particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+      particles.appendChild(particle);
+    }
+
+    // ========================================
+    // HEADER SCROLL EFFECT
+    // ========================================
+
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // ========================================
+    // MOBILE MENU
+    // ========================================
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const nav = document.getElementById('nav');
+
+    if (mobileMenuBtn && nav) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('mobile-open');
+        mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        mobileMenuBtn.setAttribute('aria-expanded', isOpen.toString());
+      });
+
+      // Close mobile menu when clicking nav links
+      const navLinks = nav.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (nav.classList.contains('mobile-open')) {
+            nav.classList.remove('mobile-open');
+            mobileMenuBtn.textContent = '☰';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    }
+
+    // ========================================
+    // SMOOTH SCROLL WITH EVENT DELEGATION
+    // ========================================
+
+    document.addEventListener('click', function(e) {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+
+      const href = anchor.getAttribute('href');
+
+      // Skip if just "#"
+      if (href === '#') {
+        e.preventDefault();
+        return;
+      }
+
+      const target = document.querySelector(href);
+      if (target && header) {
+        e.preventDefault();
+        const headerHeight = header.offsetHeight;
+        const targetPosition = target.offsetTop - headerHeight - 20;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+
+        // Close mobile menu if open
+        if (nav && nav.classList.contains('mobile-open')) {
+          nav.classList.remove('mobile-open');
+        }
+        if (mobileMenuBtn) {
+          mobileMenuBtn.textContent = '☰';
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+
+    // ========================================
+    // SCROLL ANIMATIONS WITH INTERSECTION OBSERVER
+    // ========================================
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ========================================
+    // PARALLAX EFFECT WITH RAF THROTTLING
+    // ========================================
+
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          const heroBackground = document.querySelector('.hero-background');
+          const orbs = document.querySelectorAll('.gradient-orb');
+          const shapes = document.querySelectorAll('.shape');
+
+          if (scrolled < window.innerHeight) {
+            // Parallax for background
+            if (heroBackground) {
+              heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+
+            // Parallax for orbs (different speeds)
+            orbs.forEach((orb, index) => {
+              const speed = 0.3 + (index * 0.1);
+              orb.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+
+            // Parallax for shapes
+            shapes.forEach((shape, index) => {
+              const speed = 0.2 + (index * 0.05);
+              shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            });
+          }
+
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // ========================================
+    // LANGUAGE SWITCHER
+    // ========================================
+
+    const langButtons = document.querySelectorAll('.lang-btn');
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        langButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const lang = btn.getAttribute('data-lang');
+        // Here you would implement actual i18n translation
+        console.log('Language switched to:', lang);
+      });
+    });
+
+    // ========================================
+    // DYNAMIC COPYRIGHT YEAR
+    // ========================================
+
+    const copyrightEl = document.getElementById('copyright');
+    if (copyrightEl) {
+      const year = new Date().getFullYear();
+      copyrightEl.textContent = `© ${year} HypeAI. All rights reserved.`;
+    }
+
+    // ========================================
+    // INITIALIZATION COMPLETE
+    // ========================================
+
+    console.log('✅ HypeAI website initialized successfully');
+    console.log('🌟 Cosmic effects active');
+    console.log('🤖 All 27 agents ready');
+  </script>
+
+</body>
+</html>

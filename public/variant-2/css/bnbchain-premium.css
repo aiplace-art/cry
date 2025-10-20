@@ -1,0 +1,430 @@
+/* ========================================
+   BNBCHAIN.ORG PREMIUM DESIGN SYSTEM
+   ======================================== */
+
+:root {
+  /* Exact BNB Chain Colors */
+  --bg-primary: #14151A;
+  --bg-secondary: #1E2026;
+  --brand-yellow: #FFE900;
+  --text-primary: #FFFFFF;
+  --text-secondary: #8C8F9B;
+  --text-tertiary: #6B7280;
+
+  /* Transitions */
+  --ease-premium: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 96px;
+  --section-spacing: 160px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   ANIMATED GRADIENT BACKGROUND
+   ======================================== */
+
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  animation: float-orb 20s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--brand-yellow) 0%, transparent 70%);
+  top: -200px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--brand-yellow) 0%, transparent 70%);
+  top: 200px;
+  right: -150px;
+  animation-delay: 3s;
+}
+
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--brand-yellow) 0%, transparent 70%);
+  bottom: -100px;
+  left: 30%;
+  animation-delay: 6s;
+}
+
+@keyframes float-orb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 30px) scale(0.9);
+  }
+}
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(20, 21, 26, 0.8);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-bottom: 1px solid rgba(255, 233, 0, 0.1);
+  z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.3s var(--ease-premium);
+}
+
+.header-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  transition: transform 0.3s var(--ease-premium);
+  display: inline-block;
+}
+
+.header-logo a:hover {
+  transform: translateY(-2px);
+}
+
+.header-nav {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.header-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s var(--ease-premium);
+  position: relative;
+}
+
+.header-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--brand-yellow);
+  transition: width 0.3s var(--ease-premium);
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+  color: var(--text-primary);
+}
+
+.header-nav a:hover::after,
+.header-nav a.active::after {
+  width: 100%;
+}
+
+.btn-bnb-primary {
+  background: var(--brand-yellow);
+  color: var(--bg-primary);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-premium);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.btn-bnb-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(255, 233, 0, 0.4);
+}
+
+/* ========================================
+   GLASSMORPHISM CARDS
+   ======================================== */
+
+.glass-card {
+  background: rgba(30, 32, 38, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 233, 0, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  transition: all 0.4s var(--ease-premium);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(255, 233, 0, 0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-premium);
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 233, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+
+.page-hero {
+  padding: calc(100px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero h1 {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-md);
+  background: linear-gradient(135deg, var(--brand-yellow) 0%, #FFF4A3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fade-in-up 1s var(--ease-premium);
+}
+
+.page-hero p {
+  font-size: 20px;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto var(--spacing-lg);
+  animation: fade-in-up 1s var(--ease-premium) 0.2s backwards;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-spacing {
+  padding: var(--section-spacing) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--brand-yellow) 0%, #FFF4A3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ========================================
+   GRID LAYOUTS
+   ======================================== */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+.btn-large {
+  padding: 18px 40px;
+  font-size: 18px;
+}
+
+.gradient-bnb {
+  background: linear-gradient(135deg, var(--brand-yellow) 0%, #FFF4A3 100%);
+}
+
+.bsc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 233, 0, 0.1);
+  border: 1px solid rgba(255, 233, 0, 0.3);
+  color: var(--brand-yellow);
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.site-footer {
+  padding: var(--spacing-2xl) 0 var(--spacing-lg);
+  border-top: 1px solid rgba(255, 233, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.footer-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
+  text-align: center;
+}
+
+.footer-bnb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.footer-bnb strong {
+  color: var(--brand-yellow);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s var(--ease-premium);
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  :root {
+    --section-spacing: 80px;
+  }
+
+  .header-container {
+    padding: 0 24px;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .footer-container {
+    padding: 0 24px;
+  }
+}

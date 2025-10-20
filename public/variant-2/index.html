@@ -119,6 +119,24 @@
       background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.15) 0%, var(--bg-primary) 70%);
     }
 
+    /* Fade out background elements at bottom */
+    .hero-background::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 250px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(10, 1, 24, 0.5) 40%,
+        var(--bg-primary) 90%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
     /* Animated Starfield */
     .starfield {
       position: absolute;
@@ -841,8 +859,27 @@
       display: flex;
       align-items: center;
       position: relative;
-      padding: 80px 0 40px;
+      padding: 80px 0 120px;
       overflow: hidden;
+    }
+
+    /* Seamless gradient fade-out at bottom of hero */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(10, 1, 24, 0.3) 30%,
+        rgba(10, 1, 24, 0.7) 60%,
+        var(--bg-primary) 100%
+      );
+      pointer-events: none;
+      z-index: var(--z-content);
     }
 
     .hero-content {
@@ -959,8 +996,12 @@
 
     @media (max-width: 768px) {
       .hero {
-        padding: 80px 0 32px;
+        padding: 80px 0 80px;
         min-height: auto;
+      }
+
+      .hero::after {
+        height: 150px;
       }
 
       .hero-title {
@@ -980,6 +1021,15 @@
         grid-template-columns: 1fr;
         gap: 24px;
         padding-top: 20px;
+      }
+
+      .usp-section {
+        margin-top: -60px;
+        padding-top: 80px;
+      }
+
+      .section {
+        margin-top: -40px;
       }
 
       .stat-value {
@@ -1021,6 +1071,64 @@
     .section {
       padding: 64px 0;
       position: relative;
+      margin-top: -80px;
+      z-index: var(--z-content);
+    }
+
+    /* First section after hero - special transition styling */
+    .usp-section {
+      margin-top: -100px;
+      padding-top: 120px;
+      position: relative;
+      z-index: var(--z-content);
+    }
+
+    /* Subtle glow effect at top of first section */
+    .usp-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(147, 51, 234, 0.3) 20%,
+        rgba(59, 130, 246, 0.3) 50%,
+        rgba(147, 51, 234, 0.3) 80%,
+        transparent 100%
+      );
+      box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+      opacity: 0.6;
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% {
+        opacity: 0.4;
+        box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+      }
+      50% {
+        opacity: 0.7;
+        box-shadow: 0 0 30px rgba(147, 51, 234, 0.5);
+      }
+    }
+
+    /* Smooth transition zone between hero and content */
+    .transition-zone {
+      position: relative;
+      height: 200px;
+      margin-top: -200px;
+      pointer-events: none;
+      z-index: calc(var(--z-content) + 1);
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(10, 1, 24, 0.2) 50%,
+        transparent 100%
+      );
     }
 
     .section-header {

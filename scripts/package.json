@@ -31,5 +31,6 @@
     "telegram"
   ],
   "author": "MoonVault Team",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }

@@ -1,0 +1,9 @@
+# Images Directory
+
+Store optimized images here:
+- WebP format preferred
+- Responsive sizes (400w, 800w, 1200w)
+- Max 150KB per image
+- Use descriptive filenames
+
+See PERFORMANCE_GUIDE.md for optimization instructions.

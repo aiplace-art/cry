@@ -11,15 +11,23 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/bnb-theme.css">
   <link rel="stylesheet" href="css/animations.css">
 
   <style>
+    * {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    code, pre {
+      font-family: 'JetBrains Mono', monospace !important;
+    }
+
     .docs-hero {
-      padding: calc(80px + var(--spacing-12)) var(--spacing-4) var(--spacing-16);
-      background: linear-gradient(180deg, var(--bnb-bg-darker) 0%, var(--bnb-bg-dark) 100%);
+      padding: calc(100px + var(--spacing-16)) var(--spacing-6) var(--spacing-20);
+      background: linear-gradient(180deg, rgba(15, 16, 20, 1) 0%, rgba(20, 21, 26, 1) 100%);
       text-align: center;
     }
 
@@ -79,11 +87,11 @@
     }
 
     .docs-content {
-      background: var(--glass-bg);
-      backdrop-filter: blur(24px);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      padding: var(--spacing-8);
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(40px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: var(--spacing-12);
     }
 
     .docs-breadcrumb {
@@ -101,19 +109,21 @@
     }
 
     .doc-card {
-      padding: var(--spacing-6);
-      background: rgba(243, 186, 47, 0.05);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
-      margin-bottom: var(--spacing-6);
-      transition: var(--transition-normal);
+      padding: var(--spacing-10);
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(40px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      margin-bottom: var(--spacing-8);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
     }
 
     .doc-card:hover {
-      border-color: var(--bnb-gold-primary);
-      box-shadow: 0 8px 32px rgba(243, 186, 47, 0.2);
-      transform: translateY(-2px);
+      border-color: #FFE900;
+      box-shadow: 0 16px 60px rgba(255, 233, 0, 0.2);
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .doc-card-icon {
@@ -129,27 +139,30 @@
     }
 
     .doc-card-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: var(--spacing-2);
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: var(--spacing-3);
+      letter-spacing: -0.02em;
     }
 
     .doc-card-description {
-      color: var(--text-tertiary);
-      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.7;
+      font-size: 1rem;
     }
 
     .code-block {
-      background: #14151A;
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-md);
-      padding: var(--spacing-4);
-      margin: var(--spacing-4) 0;
+      background: rgba(10, 11, 15, 0.8);
+      backdrop-filter: blur(40px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: var(--spacing-6);
+      margin: var(--spacing-6) 0;
       overflow-x: auto;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.875rem;
-      line-height: 1.6;
+      font-size: 0.9375rem;
+      line-height: 1.7;
     }
 
     .code-block code {
@@ -159,12 +172,13 @@
     .api-endpoint {
       display: flex;
       align-items: center;
-      gap: var(--spacing-3);
-      padding: var(--spacing-4);
-      background: rgba(243, 186, 47, 0.05);
-      border-left: 3px solid var(--bnb-gold-primary);
-      border-radius: var(--radius-sm);
-      margin: var(--spacing-4) 0;
+      gap: var(--spacing-4);
+      padding: var(--spacing-5);
+      background: rgba(255, 233, 0, 0.08);
+      backdrop-filter: blur(40px);
+      border-left: 4px solid #FFE900;
+      border-radius: 12px;
+      margin: var(--spacing-6) 0;
       font-family: 'JetBrains Mono', monospace;
     }
 
@@ -356,14 +370,14 @@
           <span>Getting Started</span>
         </div>
 
-        <h1 style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--spacing-6);">Introduction</h1>
+        <h1 style="font-size: 3rem; font-weight: 600; color: #FFFFFF; margin-bottom: var(--spacing-8); letter-spacing: -0.03em;">Introduction</h1>
 
-        <p style="font-size: 1.125rem; color: var(--text-tertiary); line-height: 1.7; margin-bottom: var(--spacing-8);">
+        <p style="font-size: 1.1875rem; color: rgba(255, 255, 255, 0.7); line-height: 1.8; margin-bottom: var(--spacing-12);">
           Welcome to the HypeAI developer documentation. This guide will help you integrate with our AI-powered crypto platform, access our APIs, and build innovative applications on Binance Smart Chain.
         </p>
 
         <!-- Quick Start Cards -->
-        <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--spacing-6);">Quick Start</h2>
+        <h2 style="font-size: 2.125rem; font-weight: 600; color: #FFFFFF; margin-bottom: var(--spacing-10); letter-spacing: -0.02em;">Quick Start</h2>
 
         <div class="quick-start-grid">
           <div class="doc-card">

@@ -27,7 +27,10 @@ apiClient.interceptors.response.use(
   (response) => response.data,
   (error) => {
     const message = error.response?.data?.message || error.message || 'An error occurred';
-    console.error('API Error:', message);
+    // SECURITY: Only log errors in development mode
+    if (process.env.NODE_ENV === 'development') {
+      console.error('API Error:', message);
+    }
     return Promise.reject(new Error(message));
   }
 );

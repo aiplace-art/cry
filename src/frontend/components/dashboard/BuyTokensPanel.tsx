@@ -208,7 +208,7 @@ export const BuyTokensPanel: React.FC<BuyTokensPanelProps> = ({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <p className="text-sm text-[#EAECEF]">
-                  Tokens are subject to 6-month vesting period. You can claim vested tokens on the dashboard.
+                  20% tokens unlocked immediately. After 3-month cliff, remaining 80% vest linearly over 18 months (21 months total). Claim anytime after cliff ends.
                 </p>
               </div>
             </div>
@@ -266,7 +266,7 @@ export const BuyTokensPanel: React.FC<BuyTokensPanelProps> = ({
               <div>
                 <div className="flex justify-between text-sm mb-1">
                   <span className="text-[#848E9C]">Vesting Period</span>
-                  <span className="font-bold text-[#EAECEF]">6 Months</span>
+                  <span className="font-bold text-[#EAECEF]">21 Months</span>
                 </div>
               </div>
 
