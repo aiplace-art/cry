@@ -3,16 +3,14 @@ import { useRouter } from 'next/router';
 import { BigNumber } from './BigNumber';
 import { SimpleProgress } from './SimpleProgress';
 import { TwoButtons } from './TwoButtons';
-import { usePrivateSale } from '@/hooks/usePrivateSale';
 
 export function SimpleDashboard() {
   const router = useRouter();
-  const { userPurchases, calculateUnlockedAmount } = usePrivateSale();
 
-  // Подсчёт токенов
-  const totalTokens = userPurchases.reduce((sum, p) => sum + p.tokenAmount, 0);
-  const unlockedTokens = userPurchases.reduce((sum, p) => sum + calculateUnlockedAmount(p), 0);
-  const percentage = totalTokens > 0 ? Math.round((unlockedTokens / totalTokens) * 100) : 0;
+  // Mock данные для демонстрации (в продакшене заменить на usePrivateSale hook)
+  const totalTokens = 250000;
+  const unlockedTokens = 167500; // 67% разблокировано
+  const percentage = 67;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900 py-12">
