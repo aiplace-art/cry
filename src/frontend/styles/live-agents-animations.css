@@ -1,0 +1,718 @@
+/**
+ * Live Agents Activity - CSS Animations
+ * Cosmic-themed, glass morphism style with 60fps performance
+ * Mobile-friendly and optimized for BNB Chain aesthetic
+ */
+
+/* ============================================
+   1. AGENT CARD PULSE ANIMATIONS
+   ============================================ */
+
+/* Base agent card styling */
+.agent-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+/* Working state - breathing glow effect */
+.agent-card.working {
+  animation: agentPulse 2s ease-in-out infinite;
+  border-color: rgba(255, 233, 0, 0.3);
+}
+
+@keyframes agentPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(255, 233, 0, 0.2),
+      0 0 40px rgba(255, 233, 0, 0.1),
+      inset 0 0 20px rgba(255, 233, 0, 0.05);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(255, 233, 0, 0.4),
+      0 0 60px rgba(255, 233, 0, 0.2),
+      inset 0 0 30px rgba(255, 233, 0, 0.1);
+    transform: scale(1.02);
+  }
+}
+
+/* Border color cycling for active agents */
+.agent-card.working::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(
+    45deg,
+    #FFE900,
+    #FF6B00,
+    #9D4EDD,
+    #FFE900
+  );
+  background-size: 300% 300%;
+  animation: borderCycle 3s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+}
+
+@keyframes borderCycle {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Idle state - subtle static glow */
+.agent-card.idle {
+  border-color: rgba(57, 255, 20, 0.2);
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.1);
+}
+
+/* Busy state - intense pulse */
+.agent-card.busy {
+  animation: agentBusyPulse 1s ease-in-out infinite;
+  border-color: rgba(255, 107, 0, 0.4);
+}
+
+@keyframes agentBusyPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 25px rgba(255, 107, 0, 0.3),
+      0 0 50px rgba(255, 107, 0, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 40px rgba(255, 107, 0, 0.5),
+      0 0 80px rgba(255, 107, 0, 0.25);
+  }
+}
+
+/* ============================================
+   2. PROGRESS BAR ANIMATIONS
+   ============================================ */
+
+.progress-container {
+  position: relative;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #FFE900 0%,
+    #FF6B00 50%,
+    #9D4EDD 100%
+  );
+  background-size: 200% 100%;
+  border-radius: 4px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: progressShine 2s linear infinite;
+  position: relative;
+  will-change: width;
+}
+
+/* Moving gradient effect */
+@keyframes progressShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Shimmer overlay on progress bar */
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* Completion flash effect */
+.progress-bar.complete {
+  animation: completionFlash 0.6s ease-out;
+}
+
+@keyframes completionFlash {
+  0% {
+    background: linear-gradient(90deg, #FFE900, #FF6B00, #9D4EDD);
+    box-shadow: 0 0 20px rgba(157, 78, 221, 0.8);
+  }
+  50% {
+    background: #9D4EDD;
+    box-shadow: 0 0 40px rgba(157, 78, 221, 1);
+  }
+  100% {
+    background: linear-gradient(90deg, #FFE900, #FF6B00, #9D4EDD);
+    box-shadow: 0 0 0 rgba(157, 78, 221, 0);
+  }
+}
+
+/* ============================================
+   3. TASK COMPLETION EFFECTS
+   ============================================ */
+
+.task-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Task completion - fade out and slide down */
+.task-item.completing {
+  animation: taskComplete 0.6s ease-out forwards;
+}
+
+@keyframes taskComplete {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(10px) scale(0.95);
+    color: #9D4EDD;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* New task slides in from top */
+.task-item.new {
+  animation: taskSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes taskSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Counter increment with bounce */
+.task-counter {
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.task-counter.increment {
+  animation: counterBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes counterBounce {
+  0% {
+    transform: scale(1);
+    color: inherit;
+  }
+  50% {
+    transform: scale(1.3);
+    color: #FFE900;
+  }
+  100% {
+    transform: scale(1);
+    color: inherit;
+  }
+}
+
+/* ============================================
+   4. STATUS INDICATOR DOTS
+   ============================================ */
+
+.status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 8px;
+}
+
+/* Working - pulsing orange dot */
+.status-indicator.working {
+  background: #FF6B00;
+  animation: statusPulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.8);
+  }
+}
+
+/* Idle - static green dot */
+.status-indicator.idle {
+  background: #39FF14;
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+}
+
+/* Completing - fast pulse yellow dot */
+.status-indicator.completing {
+  background: #FFE900;
+  animation: statusFastPulse 0.5s ease-in-out infinite;
+}
+
+@keyframes statusFastPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(255, 233, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(255, 233, 0, 1);
+  }
+}
+
+/* Ripple effect for status indicators */
+.status-indicator::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0;
+}
+
+.status-indicator.working::before,
+.status-indicator.completing::before {
+  animation: statusRipple 2s ease-out infinite;
+}
+
+@keyframes statusRipple {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   5. LIVE FEED SCROLL ANIMATIONS
+   ============================================ */
+
+.live-feed {
+  position: relative;
+  overflow: hidden;
+  max-height: 400px;
+}
+
+.live-feed-container {
+  animation: autoScroll 30s linear infinite;
+  will-change: transform;
+}
+
+/* Pause scroll on hover */
+.live-feed:hover .live-feed-container {
+  animation-play-state: paused;
+}
+
+@keyframes autoScroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+/* Feed items fade in/out */
+.feed-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: feedItemFadeIn 0.5s ease-out forwards;
+}
+
+@keyframes feedItemFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Stagger animation for multiple items */
+.feed-item:nth-child(1) { animation-delay: 0s; }
+.feed-item:nth-child(2) { animation-delay: 0.1s; }
+.feed-item:nth-child(3) { animation-delay: 0.2s; }
+.feed-item:nth-child(4) { animation-delay: 0.3s; }
+.feed-item:nth-child(5) { animation-delay: 0.4s; }
+
+/* Gradient fade at top and bottom */
+.live-feed::before,
+.live-feed::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 60px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.live-feed::before {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 17, 28, 1) 0%,
+    rgba(13, 17, 28, 0) 100%
+  );
+}
+
+.live-feed::after {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(13, 17, 28, 1) 0%,
+    rgba(13, 17, 28, 0) 100%
+  );
+}
+
+/* ============================================
+   6. COSMIC BACKGROUND EFFECTS
+   ============================================ */
+
+/* Floating particles for active agents */
+.agent-card.working .cosmic-particles,
+.agent-card.busy .cosmic-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.cosmic-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #FFE900;
+  border-radius: 50%;
+  animation: floatParticle 4s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Generate multiple particles with different delays */
+.cosmic-particle:nth-child(1) {
+  left: 20%; top: 80%;
+  --tx: 30px; --ty: -60px;
+  animation-delay: 0s;
+}
+
+.cosmic-particle:nth-child(2) {
+  left: 50%; top: 70%;
+  --tx: -20px; --ty: -70px;
+  animation-delay: 1s;
+}
+
+.cosmic-particle:nth-child(3) {
+  left: 80%; top: 60%;
+  --tx: -40px; --ty: -50px;
+  animation-delay: 2s;
+}
+
+.cosmic-particle:nth-child(4) {
+  left: 40%; top: 90%;
+  --tx: 25px; --ty: -80px;
+  animation-delay: 1.5s;
+}
+
+.cosmic-particle:nth-child(5) {
+  left: 70%; top: 85%;
+  --tx: -30px; --ty: -65px;
+  animation-delay: 2.5s;
+}
+
+/* Glow emanating from busy agents */
+.agent-card.working::after,
+.agent-card.busy::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 233, 0, 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: glowPulse 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.agent-card.busy::after {
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 107, 0, 0.2) 0%,
+    transparent 70%
+  );
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   7. HOVER STATES
+   ============================================ */
+
+.agent-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 40px rgba(255, 233, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.agent-card.working:hover {
+  box-shadow:
+    0 10px 40px rgba(255, 233, 0, 0.3),
+    0 0 60px rgba(255, 233, 0, 0.2);
+}
+
+.agent-card.busy:hover {
+  box-shadow:
+    0 10px 40px rgba(255, 107, 0, 0.3),
+    0 0 60px rgba(255, 107, 0, 0.2);
+}
+
+/* Task item hover */
+.task-item:hover {
+  background: rgba(255, 233, 0, 0.05);
+  transform: translateX(4px);
+  padding-left: 16px;
+}
+
+/* Feed item hover - pause and highlight */
+.feed-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #FFE900;
+  padding-left: 13px;
+}
+
+/* ============================================
+   8. MOBILE RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Reduce animation intensity on mobile */
+  .agent-card.working {
+    animation-duration: 3s;
+  }
+
+  @keyframes agentPulse {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(255, 233, 0, 0.2);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(255, 233, 0, 0.3);
+      transform: scale(1.01);
+    }
+  }
+
+  /* Disable border cycling on mobile for performance */
+  .agent-card.working::before {
+    animation: none;
+    opacity: 0.3;
+  }
+
+  /* Simpler progress animation */
+  .progress-bar {
+    animation-duration: 3s;
+  }
+
+  /* Reduce particle count */
+  .cosmic-particle:nth-child(n+4) {
+    display: none;
+  }
+
+  /* Simpler glow effect */
+  .agent-card.working::after,
+  .agent-card.busy::after {
+    display: none;
+  }
+
+  /* Faster auto-scroll */
+  @keyframes autoScroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further reduce animations on small screens */
+  .agent-card {
+    padding: 1rem;
+  }
+
+  .progress-bar::after {
+    display: none; /* Remove shimmer effect */
+  }
+
+  .status-indicator::before {
+    display: none; /* Remove ripple effect */
+  }
+
+  /* Simpler feed animations */
+  .feed-item {
+    animation: simpleFadeIn 0.3s ease-out forwards;
+  }
+
+  @keyframes simpleFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+/* ============================================
+   9. PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* Use GPU acceleration for animated elements */
+.agent-card,
+.progress-bar,
+.task-item,
+.feed-item,
+.status-indicator {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .live-feed-container {
+    animation: none;
+  }
+
+  .agent-card:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   10. UTILITY CLASSES
+   ============================================ */
+
+/* Fade in utility */
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Slide up utility */
+.slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse utility for attention */
+.pulse-attention {
+  animation: pulseAttention 2s ease-in-out infinite;
+}
+
+@keyframes pulseAttention {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 233, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 233, 0, 0);
+  }
+}
+
+/* Spin utility for loading */
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
