@@ -172,12 +172,173 @@ class DatabaseCoordinator {
   }
 
   /**
+   * Sync services pricing from JSON to database
+   */
+  async syncServicesPricing() {
+    const dataPath = path.join(__dirname, '../../public/variant-2/data/services/pricing-plans.json');
+
+    try {
+      const data = JSON.parse(await fs.readFile(dataPath, 'utf8'));
+
+      const client = await getClient();
+
+      try {
+        await client.beginTransaction();
+
+        // Sync Twitter Automation pricing
+        if (data.services['twitter-automation']) {
+          const twitter = data.services['twitter-automation'];
+
+          for (const [planName, planData] of Object.entries(twitter.plans)) {
+            await client.query(`
+              INSERT INTO service_pricing (service_id, plan_name, price, price_with_hype, billing_period, features)
+              VALUES ($1, $2, $3, $4, $5, $6)
+              ON CONFLICT (service_id, plan_name)
+              DO UPDATE SET
+                price = $3,
+                price_with_hype = $4,
+                features = $6,
+                last_update = CURRENT_TIMESTAMP
+            `, [
+              'twitter-001',
+              planName,
+              planData.price,
+              planData.priceWithHype,
+              planData.billingPeriod,
+              JSON.stringify(planData.features)
+            ]);
+          }
+        }
+
+        // Sync Resume/CV pricing
+        if (data.services['resume-cv']) {
+          const resume = data.services['resume-cv'];
+
+          for (const [planName, planData] of Object.entries(resume.plans)) {
+            await client.query(`
+              INSERT INTO service_pricing (service_id, plan_name, price, price_with_hype, billing_period, features)
+              VALUES ($1, $2, $3, $4, $5, $6)
+              ON CONFLICT (service_id, plan_name)
+              DO UPDATE SET
+                price = $3,
+                price_with_hype = $4,
+                features = $6,
+                last_update = CURRENT_TIMESTAMP
+            `, [
+              'resume-001',
+              planName,
+              planData.price,
+              planData.priceWithHype,
+              planData.billingPeriod,
+              JSON.stringify(planData.features)
+            ]);
+          }
+        }
+
+        await client.commitTransaction();
+
+        this.syncCount++;
+        console.log('✅ Services pricing synced to database');
+      } catch (error) {
+        await client.rollbackTransaction();
+        throw error;
+      } finally {
+        client.release();
+      }
+    } catch (error) {
+      console.error('❌ Failed to sync services pricing:', error.message);
+      this.errorCount++;
+    }
+  }
+
+  /**
+   * Sync service catalog from JSON to database
+   */
+  async syncServiceCatalog() {
+    const dataPath = path.join(__dirname, '../../public/variant-2/data/services/service-catalog.json');
+
+    try {
+      const data = JSON.parse(await fs.readFile(dataPath, 'utf8'));
+
+      const client = await getClient();
+
+      try {
+        await client.beginTransaction();
+
+        // Sync active services
+        for (const service of data.activeServices) {
+          await client.query(`
+            INSERT INTO services_catalog (
+              service_id, name, status, category, priority,
+              landing_page, price_range, delivery_time, agents
+            )
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+            ON CONFLICT (service_id)
+            DO UPDATE SET
+              status = $3,
+              priority = $5,
+              landing_page = $6,
+              price_range = $7,
+              delivery_time = $8,
+              last_update = CURRENT_TIMESTAMP
+          `, [
+            service.id,
+            service.name,
+            service.status,
+            service.category,
+            service.priority,
+            service.landingPage,
+            service.priceRange,
+            service.deliveryTime,
+            JSON.stringify(service.agents)
+          ]);
+        }
+
+        // Update statistics
+        await client.query(`
+          INSERT INTO service_statistics (
+            id, total_services, active_services, total_revenue, total_clients
+          )
+          VALUES (1, $1, $2, $3, $4)
+          ON CONFLICT (id)
+          DO UPDATE SET
+            total_services = $1,
+            active_services = $2,
+            total_revenue = $3,
+            total_clients = $4,
+            last_update = CURRENT_TIMESTAMP
+        `, [
+          data.meta.totalServices,
+          data.meta.activeServices,
+          data.statistics.totalRevenue || 0,
+          data.statistics.totalClients || 0
+        ]);
+
+        await client.commitTransaction();
+
+        this.syncCount++;
+        console.log('✅ Service catalog synced to database');
+      } catch (error) {
+        await client.rollbackTransaction();
+        throw error;
+      } finally {
+        client.release();
+      }
+    } catch (error) {
+      console.error('❌ Failed to sync service catalog:', error.message);
+      this.errorCount++;
+    }
+  }
+
+  /**
    * Sync all data from JSON files to database
    */
   async syncAllFromJSON() {
     console.log('🔄 Syncing data from JSON files to database...');
     await this.syncProjectState();
     await this.syncTokenomicsDistribution();
+    await this.syncServicesPricing();
+    await this.syncServiceCatalog();
     console.log('');
   }
 
