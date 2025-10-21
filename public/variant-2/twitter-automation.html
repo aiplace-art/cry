@@ -212,6 +212,91 @@
       font-weight: 600;
       margin: 0 0.25rem;
     }
+
+    /* Language Switcher - из index.html */
+    .language-switcher {
+      position: relative;
+    }
+
+    .lang-btn {
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(59, 130, 246, 0.15));
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      padding: 10px 16px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(147, 51, 234, 0.2);
+    }
+
+    .lang-btn:hover {
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.25));
+      border-color: rgba(147, 51, 234, 0.6);
+      box-shadow: 0 6px 24px rgba(147, 51, 234, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: linear-gradient(135deg, rgba(30, 32, 38, 0.98), rgba(10, 1, 24, 0.98));
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      border-radius: 12px;
+      padding: 8px;
+      min-width: 160px;
+      z-index: 9999;
+      box-shadow: 0 8px 32px rgba(10, 1, 24, 0.8);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .lang-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .lang-option:hover {
+      color: white;
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.2));
+    }
+
+    .lang-option.active {
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.4), rgba(59, 130, 246, 0.3));
+      color: white;
+    }
+
+    .lang-option.active::after {
+      content: '✓';
+      margin-left: auto;
+      color: #FFE900;
+      font-weight: 700;
+    }
   </style>
 </head>
 
@@ -233,7 +318,15 @@
         </div>
 
         <div class="nav-actions">
-          <button class="btn btn-outline btn-sm" id="lang-toggle">EN</button>
+          <div class="language-switcher">
+            <button class="lang-btn" id="langBtn" aria-label="Select language" aria-expanded="false">
+              EN 🌐
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+              <a href="#" class="lang-option active" id="langEn" data-lang="en">English</a>
+              <a href="#" class="lang-option" id="langRu" data-lang="ru">Русский</a>
+            </div>
+          </div>
           <a href="#pricing" class="btn btn-primary btn-sm">Get Started</a>
         </div>
       </div>
@@ -595,6 +688,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script src="js/services.js"></script>
 
