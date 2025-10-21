@@ -152,11 +152,17 @@ svg {
     touch-action: manipulation;
   }
 
-  /* Space for fixed header */
+  /* Space for fixed header - CORRECT OFFSET */
   main,
   .hero,
   .services-hero {
-    padding-top: calc(var(--header-height) + 20px) !important;
+    padding-top: var(--header-height) !important;
+    margin-top: 0 !important;
+  }
+
+  /* First section after header needs extra space */
+  .services-hero {
+    padding-top: calc(var(--header-height) + 40px) !important;
   }
 }
 
@@ -186,7 +192,7 @@ svg {
   height: 2px;
   background: var(--cosmic-yellow, #FFE900);
   border-radius: 2px;
-  transition: all 0.3s var(--touch-ease);
+  transition: all 0.5s ease-in-out;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -244,8 +250,8 @@ svg {
     rgba(10, 1, 24, 0.98) 0%,
     rgba(30, 32, 38, 0.98) 100%
   );
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   z-index: 999;
 
   display: flex;
@@ -257,7 +263,9 @@ svg {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
-  transition: all 0.4s var(--touch-ease);
+  transition: opacity 0.5s ease-in-out,
+              visibility 0.5s ease-in-out,
+              transform 0.5s ease-in-out;
 
   /* Prevent scroll on body when menu open */
   overflow-y: auto;
@@ -307,7 +315,7 @@ svg {
   text-decoration: none;
   color: var(--text-primary, #FFFFFF);
   border-radius: 12px;
-  transition: all 0.3s var(--touch-ease);
+  transition: all 0.5s ease-in-out;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   background: rgba(255, 255, 255, 0.03);
@@ -315,10 +323,11 @@ svg {
 }
 
 .mobile-nav-overlay .nav-link:hover,
-.mobile-nav-overlay .nav-link:focus {
-  background: rgba(255, 233, 0, 0.1);
-  border-color: rgba(255, 233, 0, 0.3);
-  transform: translateX(4px);
+.mobile-nav-overlay .nav-link:focus,
+.mobile-nav-overlay .nav-link:active {
+  background: rgba(255, 233, 0, 0.15);
+  border-color: rgba(255, 233, 0, 0.4);
+  transform: translateX(4px) scale(1.02);
 }
 
 .mobile-nav-overlay .nav-link.active {
@@ -327,7 +336,8 @@ svg {
 }
 
 /* Mobile CTA Button */
-.mobile-nav-overlay .btn-primary {
+.mobile-nav-overlay .btn-primary,
+.mobile-nav-overlay .mobile-cta {
   margin-top: 16px;
   min-height: 52px;
   padding: 16px 32px;
@@ -337,17 +347,38 @@ svg {
   max-width: 300px;
   border-radius: 12px;
   touch-action: manipulation;
+  transition: all 0.5s ease-in-out;
+}
+
+.mobile-nav-overlay .btn-primary:active,
+.mobile-nav-overlay .mobile-cta:active {
+  transform: scale(0.95);
 }
 
 /* Mobile Language Switcher in Overlay */
-.mobile-nav-overlay .language-switcher {
+.mobile-nav-overlay .language-switcher,
+.mobile-nav-overlay .mobile-lang-switcher {
   width: 100%;
   max-width: 300px;
+  position: relative;
+  z-index: 10;
 }
 
 .mobile-nav-overlay .lang-btn {
   width: 100%;
   justify-content: center;
+  background: rgba(147, 51, 234, 0.2) !important;
+  border: 1px solid rgba(147, 51, 234, 0.4) !important;
+  min-height: 52px !important;
+}
+
+.mobile-nav-overlay .lang-dropdown {
+  position: relative !important;
+  top: 8px !important;
+  right: auto !important;
+  left: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 /* ========================================
@@ -729,12 +760,12 @@ svg {
    ======================================== */
 
 @media (max-width: 768px) {
-  /* Reduce animation complexity */
-  *,
+  /* Slow down animations for smoothness */
+  *:not(.hamburger-line):not(.mobile-nav-overlay):not(.nav-link),
   *::before,
   *::after {
-    animation-duration: 0.3s !important;
-    transition-duration: 0.25s !important;
+    animation-duration: 0.5s !important;
+    transition-duration: 0.5s !important;
   }
 
   /* Hide heavy decorative elements */

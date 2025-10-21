@@ -94,6 +94,12 @@
       const langSwitcher = document.querySelector('.language-switcher');
       const ctaButton = document.querySelector('.btn-primary');
 
+      console.log('🔍 Creating overlay - Found elements:', {
+        desktopNav: !!desktopNav,
+        langSwitcher: !!langSwitcher,
+        ctaButton: !!ctaButton
+      });
+
       // Create overlay
       this.overlay = document.createElement('div');
       this.overlay.id = 'mobile-nav-overlay';
@@ -106,33 +112,79 @@
       const content = document.createElement('div');
       content.className = 'mobile-nav-content';
 
-      // Clone and add navigation
+      // Clone and add navigation - WITH FALLBACK
       if (desktopNav) {
         const navList = desktopNav.querySelector('.nav-list');
         if (navList) {
           const clonedNav = navList.cloneNode(true);
-          // Remove any existing event listeners by cloning
+          console.log('✅ Menu items cloned:', clonedNav.querySelectorAll('li').length);
           content.appendChild(clonedNav);
+        } else {
+          console.warn('⚠️ .nav-list not found, creating fallback menu');
+          content.appendChild(this.createFallbackMenu());
         }
+      } else {
+        console.warn('⚠️ .nav not found, creating fallback menu');
+        content.appendChild(this.createFallbackMenu());
       }
 
       // Clone and add language switcher
       if (langSwitcher) {
         const clonedLang = langSwitcher.cloneNode(true);
+        clonedLang.classList.add('mobile-lang-switcher');
         // Re-initialize language switcher for clone
         this.initLanguageSwitcher(clonedLang);
         content.appendChild(clonedLang);
+        console.log('✅ Language switcher cloned');
+      } else {
+        console.warn('⚠️ Language switcher not found');
       }
 
       // Clone and add CTA
       if (ctaButton) {
         const clonedCTA = ctaButton.cloneNode(true);
         clonedCTA.setAttribute('tabindex', '0');
+        clonedCTA.classList.add('mobile-cta');
         content.appendChild(clonedCTA);
+        console.log('✅ CTA button cloned');
       }
 
       this.overlay.appendChild(content);
       this.body.appendChild(this.overlay);
+
+      console.log('✅ Mobile overlay created successfully');
+    }
+
+    /**
+     * Create fallback navigation menu
+     */
+    createFallbackMenu() {
+      const navList = document.createElement('ul');
+      navList.className = 'nav-list';
+
+      const menuItems = [
+        { href: 'index.html', text: 'Home' },
+        { href: 'services.html', text: 'Services', active: true },
+        { href: 'index.html#tokenomics', text: 'Tokenomics' },
+        { href: 'index.html#roadmap', text: 'Roadmap' },
+        { href: 'index.html#contact', text: 'Contact' }
+      ];
+
+      menuItems.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'nav-item';
+
+        const a = document.createElement('a');
+        a.href = item.href;
+        a.className = 'nav-link' + (item.active ? ' active' : '');
+        a.textContent = item.text;
+
+        li.appendChild(a);
+        navList.appendChild(li);
+      });
+
+      console.log('✅ Fallback menu created with', menuItems.length, 'items');
+      return navList;
     }
 
     /**
