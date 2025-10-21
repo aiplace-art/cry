@@ -14,7 +14,7 @@ const translations = {
     // Hero Section
     hero_title_1: "Where AI Meets",
     hero_title_2: "Opportunity",
-    hero_description: "AI-powered crypto platform with 27 professional AI agents. AI Services, Token Economics, and 85% prediction accuracy. Stake for up to 62% APY.",
+    hero_description: "AI-powered crypto platform with 42 professional AI agents. AI Services, Token Economics, and 85% prediction accuracy. Stake for up to 62% APY.",
     hero_cta_explore: "View AI Agents →",
     hero_cta_tokenomics: "Learn More",
 
@@ -29,7 +29,7 @@ const translations = {
     nav_get_started: "Get Started →",
 
     // Live Badge
-    live_badge: "27 AI Agents Online",
+    live_badge: "42 AI Agents Online",
     live: "LIVE",
 
     // Private Sale Banner
@@ -41,7 +41,7 @@ const translations = {
     usp_description: "Built on real revenue, utility, and AI innovation. Our success is inevitable.",
 
     usp1_title: "Crypto Checker - Paid Service 💰",
-    usp1_description: "Enter any crypto address. Our 27 AI agents analyze in 30 seconds:",
+    usp1_description: "Enter any crypto address. Our 42 AI agents analyze in 30 seconds:",
     usp1_feature1: "Scam or Legit? - Rug pull detection, honeypot check",
     usp1_feature2: "Full Analysis - Contract security, liquidity, holders",
     usp1_feature3: "Success Probability - AI predicts 10x, 100x, or dump",
@@ -73,7 +73,7 @@ const translations = {
     usp5_description: "High rewards lock up supply. Less circulating = higher scarcity = price pressure. Early stakers win big.",
     usp5_projection: "🎯 If 50% of supply gets staked → Only 20% tradeable → Price explosion imminent",
 
-    usp6_title: "27 Agents Work Infinitely",
+    usp6_title: "42 Agents Work Infinitely",
     usp6_description: "Human teams sleep. AI doesn't. 24/7 development, support, marketing. Costs pennies, produces millions in value.",
 
     success_formula_title: "📈 100% Success Formula",
@@ -167,7 +167,7 @@ const translations = {
     // AI Agents Section
     agents_label: "AI Team",
     agents_title: "Meet Our AI Team",
-    agents_description: "27 specialized agents, each a master in their domain",
+    agents_description: "42 specialized agents, each a master in their domain",
 
     // Agent roles (16 featured agents)
     agent1_role: "Blockchain Security Specialist",
@@ -188,13 +188,13 @@ const translations = {
     agent16_role: "AI Researcher",
 
     // Agent buttons
-    view_all_agents: "👥 Meet All 27 Agents",
+    view_all_agents: "👥 Meet All 42 Agents",
     view_live_activity: "🔴 View Live Activity",
 
     // Live Activity Section
     live_activity_label: "Real-Time Activity",
     live_activity_title: "🔴 Live Agent Activity",
-    live_activity_description: "Watch our 27 AI agents working in real-time. Every task is genuine work happening right now.",
+    live_activity_description: "Watch our 42 AI agents working in real-time. Every task is genuine work happening right now.",
     live_tasks_today: "Tasks Today",
     live_active_now: "Active Now",
     live_uptime: "Uptime",
@@ -337,7 +337,7 @@ const translations = {
     // Главная секция
     hero_title_1: "Где AI встречает",
     hero_title_2: "Возможности",
-    hero_description: "AI-платформа с 27 профессиональными AI агентами. AI услуги, токен-экономика и точность прогнозов 85%. Стейкинг до 62% APY.",
+    hero_description: "AI-платформа с 42 профессиональными AI агентами. AI услуги, токен-экономика и точность прогнозов 85%. Стейкинг до 62% APY.",
     hero_cta_explore: "Смотреть AI агентов →",
     hero_cta_tokenomics: "Узнать больше",
 
@@ -352,7 +352,7 @@ const translations = {
     nav_get_started: "Начать →",
 
     // Значок онлайн
-    live_badge: "27 AI агентов онлайн",
+    live_badge: "42 AI агента онлайн",
     live: "ОНЛАЙН",
 
     // Баннер приватной продажи
@@ -364,7 +364,7 @@ const translations = {
     usp_description: "Построен на реальном доходе, утилите и AI инновациях. Наш успех неизбежен.",
 
     usp1_title: "Crypto Checker - Платная услуга 💰",
-    usp1_description: "Введите любой крипто-адрес. Наши 27 AI агентов анализируют за 30 секунд:",
+    usp1_description: "Введите любой крипто-адрес. Наши 42 AI агента анализируют за 30 секунд:",
     usp1_feature1: "Скам или честный? - Обнаружение rug pull, проверка honeypot",
     usp1_feature2: "Полный анализ - Безопасность контракта, ликвидность, держатели",
     usp1_feature3: "Вероятность успеха - AI предсказывает 10x, 100x или слив",
@@ -396,7 +396,7 @@ const translations = {
     usp5_description: "Высокие награды блокируют предложение. Меньше в обращении = выше дефицит = давление на цену. Ранние стейкеры выигрывают по-крупному.",
     usp5_projection: "🎯 Если 50% предложения застейкано → Только 20% в торговле → Взрыв цены неизбежен",
 
-    usp6_title: "27 агентов работают бесконечно",
+    usp6_title: "42 агента работают бесконечно",
     usp6_description: "Человеческие команды спят. AI не спит. Разработка, поддержка, маркетинг 24/7. Стоит копейки, создаёт ценность на миллионы.",
 
     success_formula_title: "📈 100% формула успеха",
@@ -490,7 +490,7 @@ const translations = {
     // Секция AI агентов
     agents_label: "AI Команда",
     agents_title: "Познакомьтесь с нашей AI командой",
-    agents_description: "27 специализированных агентов, каждый - мастер своего дела",
+    agents_description: "42 специализированных агента, каждый - мастер своего дела",
 
     // Роли агентов (16 представленных агентов)
     agent1_role: "Специалист по блокчейн-безопасности",
@@ -511,13 +511,13 @@ const translations = {
     agent16_role: "AI исследователь",
 
     // Кнопки агентов
-    view_all_agents: "👥 Познакомиться со всеми 27 агентами",
+    view_all_agents: "👥 Познакомиться со всеми 42 агентами",
     view_live_activity: "🔴 Посмотреть активность в реальном времени",
 
     // Секция живой активности
     live_activity_label: "Активность в реальном времени",
     live_activity_title: "🔴 Живая активность агентов",
-    live_activity_description: "Смотрите как работают наши 27 AI агентов в реальном времени. Каждая задача - это реальная работа, происходящая прямо сейчас.",
+    live_activity_description: "Смотрите как работают наши 42 AI агента в реальном времени. Каждая задача - это реальная работа, происходящая прямо сейчас.",
     live_tasks_today: "Задач сегодня",
     live_active_now: "Активно сейчас",
     live_uptime: "Время работы",
