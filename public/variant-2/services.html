@@ -6,76 +6,578 @@
   <title>HypeAI Services - Professional AI-Powered Solutions</title>
   <meta name="description" content="Professional AI services for individuals and businesses. From social media automation to business consulting, web development to content creation.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/services.css">
-
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/bnbchain-premium.css">
+
+  <style>
+    /* Services-specific styles using BNB Chain design system */
+
+    /* Hero Section */
+    .services-hero {
+      padding: calc(100px + var(--spacing-3xl)) 0 var(--spacing-2xl);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      display: inline-block;
+      background: rgba(255, 233, 0, 0.1);
+      border: 1px solid rgba(255, 233, 0, 0.3);
+      color: var(--brand-yellow);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .hero-title {
+      font-size: clamp(48px, 7vw, 80px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--spacing-md);
+      color: var(--text-primary);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, var(--brand-yellow) 0%, #FFF4A3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      font-size: 20px;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto var(--spacing-xl);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--spacing-lg);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--brand-yellow);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* Section Spacing */
+    .section {
+      padding: var(--spacing-2xl) 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bg-darker {
+      background: rgba(30, 32, 38, 0.2);
+    }
+
+    /* Service Tabs */
+    .services-tabs {
+      display: flex;
+      gap: var(--spacing-sm);
+      justify-content: center;
+      margin-bottom: var(--spacing-xl);
+      flex-wrap: wrap;
+    }
+
+    .services-tab {
+      background: rgba(30, 32, 38, 0.4);
+      border: 1px solid rgba(255, 233, 0, 0.1);
+      border-radius: var(--radius-md);
+      padding: 12px 24px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-premium);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .services-tab:hover {
+      border-color: rgba(255, 233, 0, 0.3);
+      color: var(--text-primary);
+    }
+
+    .services-tab.active {
+      background: rgba(255, 233, 0, 0.1);
+      border-color: var(--brand-yellow);
+      color: var(--brand-yellow);
+    }
+
+    /* Services Grid */
+    .featured-services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    @media (max-width: 768px) {
+      .featured-services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+    }
+
+    /* Service Cards */
+    .service-featured-card,
+    .service-card {
+      position: relative;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: var(--spacing-md);
+      right: var(--spacing-md);
+      background: var(--brand-yellow);
+      color: var(--bg-primary);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    .service-icon {
+      font-size: 48px;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .service-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-primary);
+    }
+
+    .service-description {
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-md);
+      line-height: 1.6;
+    }
+
+    /* Pricing Grid */
+    .service-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .price-tier {
+      background: rgba(20, 21, 26, 0.6);
+      border: 1px solid rgba(255, 233, 0, 0.1);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .price-tier.featured {
+      border-color: var(--brand-yellow);
+      background: rgba(255, 233, 0, 0.05);
+    }
+
+    .tier-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .tier-price {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--brand-yellow);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .tier-price span {
+      font-size: 16px;
+      color: var(--text-secondary);
+    }
+
+    .tier-features {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tier-features li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    /* Simple Pricing */
+    .service-pricing-simple {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .price-range {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--brand-yellow);
+      margin-bottom: 4px;
+    }
+
+    .price-subtext {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* Service Highlights */
+    .service-highlights {
+      list-style: none;
+      padding: 0;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .service-highlights li {
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    /* Service Agents */
+    .service-agents {
+      background: rgba(20, 21, 26, 0.6);
+      border-radius: var(--radius-sm);
+      padding: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .service-agents strong {
+      color: var(--brand-yellow);
+    }
+
+    /* Service Actions */
+    .service-actions {
+      display: flex;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-premium);
+      font-family: 'Space Grotesk', sans-serif;
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--brand-yellow);
+      color: var(--bg-primary);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(255, 233, 0, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255, 233, 0, 0.3);
+      color: var(--text-primary);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--brand-yellow);
+      background: rgba(255, 233, 0, 0.1);
+    }
+
+    .btn-sm {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .btn-lg {
+      padding: 18px 36px;
+      font-size: 18px;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 233, 0, 0.1);
+      border: 1px solid rgba(255, 233, 0, 0.3);
+      color: var(--brand-yellow);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 233, 0, 0.2);
+    }
+
+    /* Service Trust Line */
+    .service-trust-line {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-align: center;
+      padding-top: var(--spacing-sm);
+      border-top: 1px solid rgba(255, 233, 0, 0.1);
+    }
+
+    /* Section Header */
+    .section-header {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .section-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-primary);
+    }
+
+    /* Advantages Grid */
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .advantage-card {
+      background: rgba(30, 32, 38, 0.4);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 233, 0, 0.1);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      transition: all 0.4s var(--ease-premium);
+    }
+
+    .advantage-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 233, 0, 0.3);
+    }
+
+    .advantage-icon {
+      font-size: 48px;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .advantage-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-xs);
+      color: var(--text-primary);
+    }
+
+    .advantage-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* CTA Card */
+    .cta-card-large {
+      text-align: center;
+      padding: var(--spacing-2xl);
+    }
+
+    .cta-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-primary);
+    }
+
+    .cta-description {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto var(--spacing-lg);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: var(--spacing-sm);
+      justify-content: center;
+      margin-bottom: var(--spacing-lg);
+      flex-wrap: wrap;
+    }
+
+    .cta-trust-line {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* Footer */
+    .footer {
+      padding: var(--spacing-2xl) 0 var(--spacing-lg);
+      border-top: 1px solid rgba(255, 233, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .footer-section h4 {
+      color: var(--brand-yellow);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .footer-section p {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .footer-link {
+      display: block;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 8px;
+      transition: color 0.3s var(--ease-premium);
+    }
+
+    .footer-link:hover {
+      color: var(--brand-yellow);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: var(--spacing-lg);
+      border-top: 1px solid rgba(255, 233, 0, 0.1);
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255, 233, 0, 0.3);
+      color: var(--text-primary);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .header-nav {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      .services-hero {
+        padding: calc(80px + var(--spacing-2xl)) 0 var(--spacing-xl);
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .service-actions {
+        flex-direction: column;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .advantages-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
-<body class="cosmic-bg">
+<body>
 
-  <!-- Navigation -->
-  <nav class="nav-sticky">
-    <div class="container">
-      <div class="nav-content">
-        <a href="index.html" class="logo">
-          <span class="logo-text">HYPE</span><span class="logo-accent">AI</span>
-        </a>
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
 
-        <div class="nav-links">
-          <a href="index.html#hero" class="nav-link">Home</a>
-          <a href="services.html" class="nav-link active">Services</a>
-          <a href="index.html#tokenomics" class="nav-link">Tokenomics</a>
-          <a href="index.html#roadmap" class="nav-link">Roadmap</a>
-          <a href="index.html#contact" class="nav-link">Contact</a>
-        </div>
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="header-logo">
+        <a href="index.html">HYPE<span style="color: var(--brand-yellow);">AI</span></a>
+      </div>
 
-        <div class="nav-actions">
-          <button class="btn btn-outline btn-sm" id="lang-toggle">
-            <span class="lang-current">EN</span>
-          </button>
-          <a href="index.html#buy" class="btn btn-primary btn-sm">Buy $HYPE</a>
-        </div>
+      <nav class="header-nav">
+        <a href="index.html#hero">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="index.html#tokenomics">Tokenomics</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <button class="btn-bnb-primary">Buy $HYPE</button>
+        <button class="mobile-menu-toggle">☰</button>
       </div>
     </div>
-  </nav>
+  </header>
 
   <!-- Hero Section -->
   <section class="services-hero">
     <div class="container">
-      <div class="hero-content text-center">
-        <div class="section-label">Professional Services</div>
-        <h1 class="hero-title">
-          AI-Powered Services<br>for <span class="text-gradient">Everyone</span>
-        </h1>
-        <p class="hero-description">
-          From personal projects to enterprise solutions. Professional quality, AI speed, unbeatable prices.
-        </p>
+      <div class="section-label">Professional Services</div>
+      <h1 class="hero-title">
+        AI-Powered Services<br>for <span class="text-gradient">Everyone</span>
+      </h1>
+      <p class="hero-description">
+        From personal projects to enterprise solutions. Professional quality, AI speed, unbeatable prices.
+      </p>
 
-        <div class="hero-stats">
-          <div class="stat-item">
-            <div class="stat-value">42</div>
-            <div class="stat-label">AI Agents</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-value">60+</div>
-            <div class="stat-label">Services</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-value">98%</div>
-            <div class="stat-label">Satisfaction</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-value">24/7</div>
-            <div class="stat-label">Support</div>
-          </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value">42</div>
+          <div class="stat-label">AI Agents</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">60+</div>
+          <div class="stat-label">Services</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">NEW</div>
+          <div class="stat-label">Just Launched</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">24/7</div>
+          <div class="stat-label">Support</div>
         </div>
       </div>
     </div>
@@ -145,7 +647,7 @@
           </div>
 
           <div class="service-trust-line">
-            ⏱️ Start in 24-48 hours | ⭐ 95% satisfaction | 💰 Recurring revenue model
+            ⏱️ Start in 24-48 hours | 💰 Recurring revenue model | 🚀 Launch special pricing
           </div>
         </div>
 
@@ -384,8 +886,8 @@
 
         <div class="advantage-card">
           <div class="advantage-icon">📈</div>
-          <h3>Proven Results</h3>
-          <p>98% client satisfaction, 4.9/5 average rating, thousands of projects delivered.</p>
+          <h3>New Launch</h3>
+          <p>Brand new professional services. Be among our first clients and get priority support!</p>
         </div>
       </div>
     </div>
@@ -397,7 +899,7 @@
       <div class="glass-card cta-card-large">
         <h2 class="cta-title">Ready to Get Started?</h2>
         <p class="cta-description">
-          Join thousands of satisfied customers who trust HypeAI for their projects
+          Be among the first to experience AI-powered professional services at launch pricing
         </p>
 
         <div class="cta-buttons">
@@ -410,7 +912,7 @@
         </div>
 
         <div class="cta-trust-line">
-          ✅ 30-Day Money-Back Guarantee | ⭐ 4.9/5 Average Rating | 🔒 100% Secure | 💎 Pay with $HYPE for discount
+          ✅ 30-Day Money-Back Guarantee | 🚀 New Launch Pricing | 🔒 100% Secure | 💎 Pay with $HYPE for 30% discount
         </div>
       </div>
     </div>
@@ -455,7 +957,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
   <script src="js/services.js"></script>
 
 </body>
