@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>HypeAI - Professional AI Services | 42 AI Agents, 60+ Services</title>
+  <meta name="title" content="HypeAI - Professional AI Services Platform">
+  <meta name="description" content="42 AI Agents. 60+ Professional Services. 24/7 Support. Twitter automation, web development, content creation, business consulting, smart contracts & more.">
+  <meta name="keywords" content="HypeAI, AI services, professional services, Twitter automation, web development, business consulting, social media automation, content creation">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hypeai.io/services">
+  <meta property="og:title" content="HypeAI - Professional AI Services">
+  <meta property="og:description" content="42 AI Agents Working 24/7. 60+ Services. Just Launched.">
+  <meta property="og:image" content="https://hypeai.io/assets/og-services.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://hypeai.io/services">
+  <meta property="twitter:title" content="HypeAI - Professional AI Services">
+  <meta property="twitter:description" content="60+ AI Services. 3-10x Faster. Premium Quality.">
+  <meta property="twitter:image" content="https://hypeai.io/assets/twitter-services.jpg">
+
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0a0118">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       BNBCHAIN.ORG PREMIUM DESIGN SYSTEM
+       ======================================== */
+
+    :root {
+      /* Cosmic Color Palette */
+      --bg-primary: #0a0118;
+      --bg-secondary: #1E2026;
+      --cosmic-purple: #9333ea;
+      --cosmic-blue: #3b82f6;
+      --cosmic-yellow: #FFE900;
+      --brand-yellow: #FFE900;
+      --cosmic-pink: #ec4899;
+      --text-primary: #FFFFFF;
+      --text-secondary: #A0A3B1;
+
+      /* Z-Index Scale */
+      --z-background: 0;
+      --z-content: 1;
+      --z-content-overlay: 2;
+      --z-header: 1000;
+      --z-modal: 2000;
+
+      /* Transitions */
+      --ease-premium: cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+      /* Gradient Presets */
+      --gradient-primary: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-blue));
+      --gradient-accent: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-blue), var(--cosmic-yellow));
+      --gradient-yellow: linear-gradient(135deg, var(--cosmic-yellow) 0%, #FFF4A3 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Skip to main content for accessibility */
+    .skip-to-main {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      background: var(--cosmic-purple);
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      z-index: 10000;
+      transition: top 0.3s;
+      font-weight: 600;
+    }
+
+    .skip-to-main:focus {
+      top: 0;
+      outline: 3px solid var(--cosmic-yellow);
+    }
+
+    /* ========================================
+       COSMIC STARFIELD BACKGROUND
+       ======================================== */
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: var(--z-background);
+      background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.15) 0%, var(--bg-primary) 70%);
+    }
+
+    /* Fade out background elements at bottom */
+    .hero-background::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 250px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(10, 1, 24, 0.5) 40%,
+        var(--bg-primary) 90%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Animated Starfield */
+    .starfield {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Cosmic Gradient Orbs with Glow */
+    .gradient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.25;
+      animation: float-orb 25s ease-in-out infinite;
+      box-shadow: 0 0 100px currentColor;
+      will-change: transform;
+    }
+
+    .orb-1 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, var(--cosmic-purple) 0%, transparent 70%);
+      top: -300px;
+      left: -200px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--cosmic-blue) 0%, transparent 70%);
+      top: 150px;
+      right: -200px;
+      animation-delay: 3s;
+    }
+
+    .orb-3 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--cosmic-yellow) 0%, transparent 70%);
+      bottom: -100px;
+      left: 25%;
+      animation-delay: 6s;
+    }
+
+    .orb-4 {
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, var(--cosmic-pink) 0%, transparent 70%);
+      top: 50%;
+      right: 15%;
+      animation-delay: 9s;
+    }
+
+    .orb-5 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--cosmic-purple) 0%, transparent 70%);
+      bottom: 20%;
+      left: 5%;
+      animation-delay: 12s;
+    }
+
+    .orb-6 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, var(--cosmic-blue) 0%, transparent 70%);
+      top: 30%;
+      left: 40%;
+      animation-delay: 15s;
+    }
+
+    @keyframes float-orb {
+      0%, 100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+      25% {
+        transform: translate(60px, -40px) scale(1.1) rotate(90deg);
+      }
+      50% {
+        transform: translate(-20px, 60px) scale(1.15) rotate(180deg);
+      }
+      75% {
+        transform: translate(-50px, -30px) scale(0.95) rotate(270deg);
+      }
+    }
+
+    /* Particle System */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      animation: float-particle 20s linear infinite;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes float-particle {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+      }
+    }
+
+    /* Cosmic Geometric Shapes */
+    .geometric-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.08;
+      animation: float-shape 20s ease-in-out infinite;
+      box-shadow: 0 0 30px currentColor;
+    }
+
+    .shape-1 {
+      width: 120px;
+      height: 120px;
+      border: 3px solid var(--cosmic-purple);
+      border-radius: 30px;
+      top: 15%;
+      left: 8%;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 100px;
+      height: 100px;
+      border: 3px solid var(--cosmic-blue);
+      border-radius: 50%;
+      top: 55%;
+      right: 12%;
+      animation-delay: 2s;
+    }
+
+    .shape-3 {
+      width: 80px;
+      height: 80px;
+      border: 3px solid var(--cosmic-yellow);
+      transform: rotate(45deg);
+      bottom: 25%;
+      left: 65%;
+      animation-delay: 4s;
+    }
+
+    .shape-4 {
+      width: 90px;
+      height: 90px;
+      border: 3px solid var(--cosmic-pink);
+      border-radius: 20px;
+      top: 40%;
+      left: 20%;
+      animation-delay: 6s;
+    }
+
+    @keyframes float-shape {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.08;
+      }
+      50% {
+        transform: translateY(-50px) rotate(180deg);
+        opacity: 0.15;
+      }
+    }
+
+    /* Reduced motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .gradient-orb,
+      .particle,
+      .shape,
+      .star {
+        animation: none;
+      }
+    }
+
+    /* ========================================
+       CONTAINER SYSTEM
+       ======================================== */
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 60px;
+      position: relative;
+      z-index: var(--z-content);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+    }
+
+    /* ========================================
+       COSMIC HEADER
+       ======================================== */
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, rgba(10, 1, 24, 0.85), rgba(30, 32, 38, 0.85));
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      -moz-backdrop-filter: blur(30px) saturate(180%);
+      border-bottom: 1px solid rgba(147, 51, 234, 0.3);
+      z-index: var(--z-header);
+      padding: 20px 0;
+      transition: all 0.4s var(--ease-premium);
+      box-shadow: 0 8px 32px rgba(10, 1, 24, 0.5),
+                  0 0 0 1px rgba(147, 51, 234, 0.1) inset;
+    }
+
+    /* Fallback for browsers without backdrop-filter */
+    @supports not (backdrop-filter: blur(30px)) {
+      .header {
+        background: linear-gradient(135deg, rgba(10, 1, 24, 0.95), rgba(30, 32, 38, 0.95));
+      }
+    }
+
+    .header.scrolled {
+      padding: 14px 0;
+      background: linear-gradient(135deg, rgba(10, 1, 24, 0.95), rgba(30, 32, 38, 0.95));
+      box-shadow: 0 8px 40px rgba(10, 1, 24, 0.8),
+                  0 0 0 1px rgba(147, 51, 234, 0.2) inset,
+                  0 0 60px rgba(147, 51, 234, 0.15);
+      border-bottom: 1px solid rgba(147, 51, 234, 0.4);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: all 0.4s var(--ease-premium);
+      position: relative;
+      text-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+      flex-shrink: 0;
+    }
+
+    .logo:hover {
+      transform: translateY(-2px) scale(1.05);
+      text-shadow: 0 0 30px rgba(147, 51, 234, 0.6),
+                   0 0 60px rgba(59, 130, 246, 0.4);
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-highlight {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 10px rgba(147, 51, 234, 0.5));
+      will-change: filter;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-shrink: 1;
+      margin-left: auto;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    /* Language Switcher Dropdown */
+    .language-switcher {
+      position: relative;
+    }
+
+    .lang-btn {
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(59, 130, 246, 0.15));
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      -moz-backdrop-filter: blur(15px);
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      padding: 10px 16px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-premium);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(147, 51, 234, 0.2);
+    }
+
+    @supports not (backdrop-filter: blur(15px)) {
+      .lang-btn {
+        background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.25));
+      }
+    }
+
+    .lang-btn:hover {
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.25));
+      border-color: rgba(147, 51, 234, 0.6);
+      box-shadow: 0 6px 24px rgba(147, 51, 234, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .lang-btn:active {
+      transform: translateY(0);
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: linear-gradient(135deg, rgba(30, 32, 38, 0.98), rgba(10, 1, 24, 0.98));
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      -moz-backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      border-radius: 12px;
+      padding: 8px;
+      min-width: 160px;
+      z-index: calc(var(--z-header) + 10);
+      box-shadow: 0 8px 32px rgba(10, 1, 24, 0.8),
+                  0 0 0 1px rgba(147, 51, 234, 0.2) inset,
+                  0 0 60px rgba(147, 51, 234, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .lang-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    @supports not (backdrop-filter: blur(25px)) {
+      .lang-dropdown {
+        background: linear-gradient(135deg, rgba(30, 32, 38, 0.99), rgba(10, 1, 24, 0.99));
+      }
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s var(--ease-premium);
+      font-weight: 500;
+      font-size: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lang-option::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(59, 130, 246, 0.1));
+      opacity: 0;
+      transition: opacity 0.2s var(--ease-premium);
+    }
+
+    .lang-option:hover::before {
+      opacity: 1;
+    }
+
+    .lang-option:hover {
+      color: white;
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.2));
+      box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+    }
+
+    .lang-option.active {
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.4), rgba(59, 130, 246, 0.3));
+      color: white;
+      box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+    }
+
+    .lang-option.active::after {
+      content: '✓';
+      margin-left: auto;
+      color: var(--cosmic-yellow);
+      font-weight: 700;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: all 0.3s var(--ease-premium);
+      position: relative;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(59, 130, 246, 0.1));
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-premium);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 16px;
+      right: 16px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cosmic-purple), var(--cosmic-blue), var(--cosmic-yellow));
+      border-radius: 2px;
+      transform: scaleX(0);
+      transition: transform 0.3s var(--ease-premium);
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+      text-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+    }
+
+    .nav-link:hover::before {
+      opacity: 1;
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.4s var(--ease-premium);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(147, 51, 234, 0.4);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-premium);
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: left 0.5s;
+      pointer-events: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(147, 51, 234, 0.6);
+    }
+
+    .btn-primary:hover::before {
+      opacity: 1;
+    }
+
+    .btn-primary:hover::after {
+      left: 100%;
+    }
+
+    .btn-secondary {
+      background: rgba(147, 51, 234, 0.1);
+      color: var(--text-primary);
+      border: 2px solid rgba(147, 51, 234, 0.5);
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-premium);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      -moz-backdrop-filter: blur(10px);
+    }
+
+    @supports not (backdrop-filter: blur(10px)) {
+      .btn-secondary {
+        background: rgba(147, 51, 234, 0.2);
+      }
+    }
+
+    .btn-secondary:hover {
+      background: rgba(147, 51, 234, 0.2);
+      border-color: var(--cosmic-purple);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(147, 51, 234, 0.3);
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      background: rgba(147, 51, 234, 0.2);
+      border: 2px solid rgba(147, 51, 234, 0.5);
+      color: var(--text-primary);
+      font-size: 24px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .mobile-menu-btn:hover {
+      background: rgba(147, 51, 234, 0.3);
+      border-color: var(--cosmic-purple);
+    }
+
+    @media (max-width: 1024px) {
+      .header-content {
+        gap: 16px;
+      }
+
+      .nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: linear-gradient(135deg, rgba(10, 1, 24, 0.98), rgba(30, 32, 38, 0.98));
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 40px;
+        gap: 32px;
+        transition: left 0.4s var(--ease-premium);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        margin-left: 0;
+      }
+
+      .nav.mobile-open {
+        left: 0;
+      }
+
+      .nav-list {
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+      }
+
+      .nav-link {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .language-switcher {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .lang-btn {
+        width: auto;
+        min-width: 120px;
+      }
+
+      .lang-dropdown {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+      }
+
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+
+    /* Seamless gradient fade-out at bottom of hero */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(10, 1, 24, 0.3) 30%,
+        rgba(10, 1, 24, 0.7) 60%,
+        var(--bg-primary) 100%
+      );
+      pointer-events: none;
+      z-index: var(--z-content);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: var(--z-content-overlay);
+      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(59, 130, 246, 0.2));
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      -moz-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(147, 51, 234, 0.3);
+    }
+
+    @supports not (backdrop-filter: blur(10px)) {
+      .hero-label {
+        background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.3));
+      }
+    }
+
+    .hero-title {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text {
+      background: var(--gradient-accent);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+      animation: gradient-shift 8s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+    }
+
+    .hero-description {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 1000px;
+      margin: 48px auto 0;
+      padding: 32px 40px;
+      background: rgba(30, 32, 38, 0.4);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      -moz-backdrop-filter: blur(30px);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(147, 51, 234, 0.2),
+                  0 0 0 1px rgba(147, 51, 234, 0.1) inset;
+    }
+
+    @supports not (backdrop-filter: blur(30px)) {
+      .hero-stats {
+        background: rgba(30, 32, 38, 0.6);
+      }
+    }
+
+    .stat-item {
+      text-align: center;
+      animation: stat-fade-in 0.6s ease-out backwards;
+    }
+
+    .stat-item:nth-child(1) { animation-delay: 0.2s; }
+    .stat-item:nth-child(2) { animation-delay: 0.3s; }
+    .stat-item:nth-child(3) { animation-delay: 0.4s; }
+    .stat-item:nth-child(4) { animation-delay: 0.5s; }
+
+    @keyframes stat-fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      background: var(--gradient-yellow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 0 60px;
+        min-height: auto;
+      }
+
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 16px;
+        padding: 24px 20px;
+      }
+
+      .stat-value {
+        font-size: 28px;
+      }
+    }
+
+    /* ========================================
+       SECTION STYLES
+       ======================================== */
+
+    .section {
+      padding: 80px 0;
+      position: relative;
+      z-index: var(--z-content);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 52px;
+    }
+
+    .section-label {
+      display: inline-block;
+      padding: 8px 20px;
+      background: rgba(147, 51, 234, 0.1);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cosmic-purple);
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-description {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .section-description {
+        font-size: 16px;
+      }
+    }
+
+    /* ========================================
+       SERVICES GRID
+       ======================================== */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: rgba(30, 32, 38, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      -moz-backdrop-filter: blur(20px);
+      border: 1px solid rgba(147, 51, 234, 0.2);
+      border-radius: 20px;
+      padding: 36px;
+      transition: all 0.4s var(--ease-bounce);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @supports not (backdrop-filter: blur(20px)) {
+      .service-card {
+        background: rgba(30, 32, 38, 0.8);
+      }
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-premium);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 20px 60px rgba(147, 51, 234, 0.4);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card.featured {
+      border: 2px solid var(--cosmic-yellow);
+      background: linear-gradient(135deg, rgba(255, 233, 0, 0.05), rgba(30, 32, 38, 0.8));
+      box-shadow: 0 0 40px rgba(255, 233, 0, 0.2);
+    }
+
+    .service-card.featured::before {
+      background: var(--gradient-yellow);
+      opacity: 1;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 6px 12px;
+      background: var(--gradient-yellow);
+      color: var(--bg-primary);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .service-icon {
+      font-size: 56px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .service-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .service-description {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .service-pricing {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(255, 233, 0, 0.1);
+      border: 1px solid rgba(255, 233, 0, 0.3);
+      border-radius: 8px;
+      font-weight: 700;
+      color: var(--cosmic-yellow);
+      margin-bottom: 20px;
+    }
+
+    .service-features {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .service-features li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .service-features li::before {
+      content: '✓';
+      color: var(--cosmic-yellow);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .service-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-premium);
+      text-decoration: none;
+      margin-top: 16px;
+    }
+
+    .service-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(147, 51, 234, 0.4);
+    }
+
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .service-card {
+        padding: 32px;
+      }
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+
+    .footer {
+      background: rgba(30, 32, 38, 0.5);
+      border-top: 1px solid rgba(147, 51, 234, 0.2);
+      padding: 80px 0 32px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h3 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(147, 51, 234, 0.1);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 12px;
+      color: var(--text-primary);
+      font-size: 20px;
+      text-decoration: none;
+      transition: all 0.3s var(--ease-premium);
+    }
+
+    .social-link:hover {
+      background: var(--gradient-primary);
+      border-color: transparent;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(147, 51, 234, 0.4);
+    }
+
+    .footer-links h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s var(--ease-premium);
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: var(--cosmic-yellow);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(147, 51, 234, 0.2);
+      padding-top: 32px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1024px) {
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer {
+        padding: 60px 0 24px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <span class="logo-text">HYPE</span><span class="logo-highlight">AI</span>
+        </a>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="services-final.html" class="nav-link">Services</a></li>
+            <li><a href="index.html#tokenomics" class="nav-link">Tokenomics</a></li>
+            <li><a href="index.html#roadmap" class="nav-link">Roadmap</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          </ul>
+
+          <div class="language-switcher">
+            <button class="lang-btn" id="lang-toggle" aria-haspopup="true" aria-expanded="false">
+              <span id="current-lang">EN</span> ▼
+            </button>
+            <div class="lang-dropdown" id="lang-dropdown">
+              <a href="#" class="lang-option active" data-lang="en">🇬🇧 English</a>
+              <a href="#" class="lang-option" data-lang="ru">🇷🇺 Русский</a>
+              <a href="#" class="lang-option" data-lang="zh">🇨🇳 中文</a>
+              <a href="#" class="lang-option" data-lang="ar">🇸🇦 العربية</a>
+            </div>
+          </div>
+
+          <a href="index.html#buy" class="btn-primary">Buy $HYPE</a>
+        </nav>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="main-content">
+    <div class="hero-background">
+      <div class="starfield" id="starfield"></div>
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+      <div class="gradient-orb orb-4"></div>
+      <div class="gradient-orb orb-5"></div>
+      <div class="gradient-orb orb-6"></div>
+      <div class="particles" id="particles"></div>
+      <div class="geometric-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-label">🚀 NEW - Just Launched</div>
+        <h1 class="hero-title">
+          Professional AI Services<br>
+          <span class="gradient-text">For Everyone</span>
+        </h1>
+        <p class="hero-description">
+          From Twitter automation to web development, content creation to business consulting. Professional quality, AI speed, unbeatable prices. Powered by 42 specialized AI agents working 24/7.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-value">42</div>
+            <div class="stat-label">AI Agents</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">60+</div>
+            <div class="stat-label">Services</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">NEW</div>
+            <div class="stat-label">Just Launched</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Our Services</div>
+        <h2 class="section-title">Premium AI-Powered Solutions</h2>
+        <p class="section-description">
+          Choose from 60+ professional services across multiple categories. All powered by our specialized AI agents.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Twitter/X Automation -->
+        <div class="service-card featured">
+          <div class="featured-badge">🚀 Most Popular</div>
+          <div class="service-icon">🐦</div>
+          <h3 class="service-title">Twitter/X Automation</h3>
+          <p class="service-description">
+            Automated Twitter growth: 3-8 tweets/day, threads, replies, trending topics, engagement optimization.
+          </p>
+          <div class="service-pricing">$399 - $2,999/month</div>
+          <ul class="service-features">
+            <li>500-5,000 follower growth/month</li>
+            <li>AI-generated threads & content</li>
+            <li>Engagement automation</li>
+            <li>Analytics & reporting</li>
+          </ul>
+          <a href="#contact" class="service-cta">Get Started →</a>
+        </div>
+
+        <!-- Social Media Automation -->
+        <div class="service-card featured">
+          <div class="featured-badge">🔥 Best Value</div>
+          <div class="service-icon">📱</div>
+          <h3 class="service-title">Social Media Automation</h3>
+          <p class="service-description">
+            Complete social media management: Twitter, Instagram, LinkedIn, TikTok. Auto-posting, content generation, community management.
+          </p>
+          <div class="service-pricing">$299 - $999/month</div>
+          <ul class="service-features">
+            <li>30-120 posts/month</li>
+            <li>2-5 platforms</li>
+            <li>AI content generation</li>
+            <li>Stories & Reels</li>
+          </ul>
+          <a href="#contact" class="service-cta">Get Started →</a>
+        </div>
+
+        <!-- Resume & CV -->
+        <div class="service-card">
+          <div class="service-icon">📄</div>
+          <h3 class="service-title">Professional Resume & CV</h3>
+          <p class="service-description">
+            ATS-optimized resumes, cover letters, LinkedIn profiles. Get hired faster with professional presentation.
+          </p>
+          <div class="service-pricing">$49 - $199</div>
+          <ul class="service-features">
+            <li>ATS-optimized formatting</li>
+            <li>3 revisions included</li>
+            <li>24-48 hour delivery</li>
+            <li>Cover letter included</li>
+          </ul>
+          <a href="#contact" class="service-cta">Order Now →</a>
+        </div>
+
+        <!-- Web Development -->
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3 class="service-title">Web Development</h3>
+          <p class="service-description">
+            Landing pages, portfolios, e-commerce sites, full web applications. Modern, fast, mobile-responsive.
+          </p>
+          <div class="service-pricing">$299 - $9,999</div>
+          <ul class="service-features">
+            <li>Mobile responsive design</li>
+            <li>SEO optimized</li>
+            <li>3-14 day delivery</li>
+            <li>CMS integration</li>
+          </ul>
+          <a href="#contact" class="service-cta">View Portfolio →</a>
+        </div>
+
+        <!-- Content Creation -->
+        <div class="service-card">
+          <div class="service-icon">✍️</div>
+          <h3 class="service-title">AI Content Creation</h3>
+          <p class="service-description">
+            Blog posts, articles, social media content, video scripts. SEO-optimized, engaging, ready to publish.
+          </p>
+          <div class="service-pricing">$49 - $999/month</div>
+          <ul class="service-features">
+            <li>30-120 pieces/month</li>
+            <li>SEO optimization</li>
+            <li>Multiple formats</li>
+            <li>Fast turnaround</li>
+          </ul>
+          <a href="#contact" class="service-cta">Order Content →</a>
+        </div>
+
+        <!-- LinkedIn Automation -->
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3 class="service-title">LinkedIn Professional</h3>
+          <p class="service-description">
+            B2B positioning, thought leadership, lead generation through automated LinkedIn posting and engagement.
+          </p>
+          <div class="service-pricing">$499 - $4,999/month</div>
+          <ul class="service-features">
+            <li>1-2 posts daily</li>
+            <li>Articles & carousels</li>
+            <li>200-1,500 connections/month</li>
+            <li>5-100 qualified leads/month</li>
+          </ul>
+          <a href="#contact" class="service-cta">Learn More →</a>
+        </div>
+
+        <!-- Business Plans -->
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3 class="service-title">Business Plans & Strategy</h3>
+          <p class="service-description">
+            Investor-ready business plans, market research, financial projections, strategic consulting.
+          </p>
+          <div class="service-pricing">$399 - $15,000</div>
+          <ul class="service-features">
+            <li>Investor-ready format</li>
+            <li>Financial models</li>
+            <li>Market research</li>
+            <li>Expert review</li>
+          </ul>
+          <a href="#contact" class="service-cta">Get Started →</a>
+        </div>
+
+        <!-- Graphic Design -->
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3 class="service-title">Graphic Design</h3>
+          <p class="service-description">
+            Logos, social media graphics, banners, infographics, brand identity kits.
+          </p>
+          <div class="service-pricing">$99 - $1,999</div>
+          <ul class="service-features">
+            <li>Unlimited revisions</li>
+            <li>Vector files included</li>
+            <li>2-5 day delivery</li>
+            <li>Commercial license</li>
+          </ul>
+          <a href="#contact" class="service-cta">Order Design →</a>
+        </div>
+
+        <!-- Crypto/Web3 Marketing -->
+        <div class="service-card featured">
+          <div class="featured-badge">₿ Crypto Specialist</div>
+          <div class="service-icon">🔗</div>
+          <h3 class="service-title">Crypto/Web3 Marketing</h3>
+          <p class="service-description">
+            Twitter, Discord, Telegram management, community building, influencer outreach, token launch support.
+          </p>
+          <div class="service-pricing">$1,999 - $7,999/month</div>
+          <ul class="service-features">
+            <li>Multi-platform management</li>
+            <li>Community growth</li>
+            <li>Crypto-native content</li>
+            <li>Influencer campaigns</li>
+          </ul>
+          <a href="#contact" class="service-cta">Launch Campaign →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose HypeAI -->
+  <section class="section" style="background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.1) 0%, transparent 70%);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Advantages</div>
+        <h2 class="section-title">Why Choose HypeAI Services?</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3 class="service-title">3-10x Faster</h3>
+          <p class="service-description">
+            AI automation delivers professional results in hours, not weeks.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💰</div>
+          <h3 class="service-title">60-80% Cheaper</h3>
+          <p class="service-description">
+            Same quality as agencies at a fraction of the cost thanks to AI efficiency.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🤖</div>
+          <h3 class="service-title">42 AI Agents</h3>
+          <p class="service-description">
+            Specialized agents for every task, working together seamlessly.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔒</div>
+          <h3 class="service-title">Quality Guaranteed</h3>
+          <p class="service-description">
+            30-day money-back guarantee. If you're not satisfied, we refund 100%.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💎</div>
+          <h3 class="service-title">Pay with $HYPE</h3>
+          <p class="service-description">
+            Get 15-30% discount when paying with HYPE tokens.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📈</div>
+          <h3 class="service-title">New Launch</h3>
+          <p class="service-description">
+            Brand new professional services. Be among our first clients and get priority support!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Hype<span style="background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AI</span></h3>
+          <p>
+            Professional AI Services Platform with 42 AI agents working 24/7. From Twitter automation to web development, business consulting to content creation - we deliver enterprise-grade solutions at unbeatable prices.
+          </p>
+          <div class="social-links">
+            <a href="https://twitter.com/hypeai" class="social-link" aria-label="Twitter/X" target="_blank" rel="noopener noreferrer">𝕏</a>
+            <a href="https://discord.gg/hypeai" class="social-link" aria-label="Discord" target="_blank" rel="noopener noreferrer">💬</a>
+            <a href="https://t.me/hypeai" class="social-link" aria-label="Telegram" target="_blank" rel="noopener noreferrer">📱</a>
+            <a href="mailto:contact@hypeai.io" class="social-link" aria-label="Email">📧</a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="services-final.html">Services</a></li>
+            <li><a href="index.html#agents">AI Agents</a></li>
+            <li><a href="index.html#tokenomics">Tokenomics</a></li>
+            <li><a href="index.html#roadmap">Roadmap</a></li>
+            <li><a href="/private-sale">Private Sale</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/docs">Documentation</a></li>
+            <li><a href="/api-docs">API Docs</a></li>
+            <li><a href="/whitepaper">Whitepaper</a></li>
+            <li><a href="https://github.com/hypeai" target="_blank" rel="noopener noreferrer">Github</a></li>
+            <li><a href="/proof">Proof</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/disclaimer">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div id="copyright">© 2025 HypeAI. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // ========================================
+    // COSMIC BACKGROUND GENERATION
+    // ========================================
+
+    // Generate starfield
+    const starfield = document.getElementById('starfield');
+    if (starfield) {
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.width = `${Math.random() * 3 + 1}px`;
+        star.style.height = star.style.width;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 3}s`;
+        starfield.appendChild(star);
+      }
+    }
+
+    // Generate particles
+    const particlesContainer = document.getElementById('particles');
+    if (particlesContainer) {
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // ========================================
+    // HEADER SCROLL EFFECT
+    // ========================================
+
+    const header = document.querySelector('.header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // ========================================
+    // MOBILE MENU
+    // ========================================
+
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+
+    if (mobileMenuBtn && nav) {
+      mobileMenuBtn.addEventListener('click', () => {
+        nav.classList.toggle('mobile-open');
+        const isOpen = nav.classList.contains('mobile-open');
+        mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close menu when clicking nav links
+      const navLinks = nav.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (nav.classList.contains('mobile-open')) {
+            nav.classList.remove('mobile-open');
+            mobileMenuBtn.textContent = '☰';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    }
+
+    // ========================================
+    // LANGUAGE SWITCHER
+    // ========================================
+
+    const langToggle = document.getElementById('lang-toggle');
+    const langDropdown = document.getElementById('lang-dropdown');
+    const langOptions = document.querySelectorAll('.lang-option');
+
+    if (langToggle && langDropdown) {
+      langToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('show');
+        const isOpen = langDropdown.classList.contains('show');
+        langToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', () => {
+        langDropdown.classList.remove('show');
+        langToggle.setAttribute('aria-expanded', 'false');
+      });
+
+      langOptions.forEach(option => {
+        option.addEventListener('click', (e) => {
+          e.preventDefault();
+          const lang = option.dataset.lang;
+          const langText = option.textContent.split(' ')[1];
+
+          // Update active state
+          langOptions.forEach(opt => opt.classList.remove('active'));
+          option.classList.add('active');
+
+          // Update button text
+          document.getElementById('current-lang').textContent = lang.toUpperCase();
+
+          // Close dropdown
+          langDropdown.classList.remove('show');
+          langToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // ========================================
+    // SMOOTH SCROLL
+    // ========================================
+
+    document.addEventListener('click', function(e) {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+
+      const href = anchor.getAttribute('href');
+
+      // Skip if just "#"
+      if (href === '#') {
+        e.preventDefault();
+        return;
+      }
+
+      const target = document.querySelector(href);
+      if (target && header) {
+        e.preventDefault();
+        const headerHeight = header.offsetHeight;
+        const targetPosition = target.offsetTop - headerHeight - 20;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+
+        // Close mobile menu if open
+        if (nav && nav.classList.contains('mobile-open')) {
+          nav.classList.remove('mobile-open');
+        }
+        if (mobileMenuBtn) {
+          mobileMenuBtn.textContent = '☰';
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+
+    // ========================================
+    // PARALLAX EFFECT
+    // ========================================
+
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          const heroBackground = document.querySelector('.hero-background');
+          const orbs = document.querySelectorAll('.gradient-orb');
+          const shapes = document.querySelectorAll('.shape');
+
+          if (scrolled < window.innerHeight) {
+            // Parallax for background
+            if (heroBackground) {
+              heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+
+            // Parallax for orbs (different speeds)
+            orbs.forEach((orb, index) => {
+              const speed = 0.3 + (index * 0.1);
+              orb.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+
+            // Parallax for shapes
+            shapes.forEach((shape, index) => {
+              const speed = 0.2 + (index * 0.05);
+              shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            });
+          }
+
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // ========================================
+    // DYNAMIC COPYRIGHT YEAR
+    // ========================================
+
+    const copyrightEl = document.getElementById('copyright');
+    if (copyrightEl) {
+      const year = new Date().getFullYear();
+      copyrightEl.textContent = `© ${year} HypeAI. All rights reserved.`;
+    }
+
+    console.log('✅ HypeAI Services page initialized successfully');
+    console.log('🌟 Cosmic effects active');
+    console.log('🤖 42 agents ready to serve');
+  </script>
+
+  <!-- i18n Translation System -->
+  <script src="js/i18n.js"></script>
+</body>
+</html>

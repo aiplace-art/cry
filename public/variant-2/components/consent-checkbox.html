@@ -1,0 +1,267 @@
+<!--
+  HYPEAI Legal Consent Checkbox Component
+  GDPR + CCPA Compliant Consent Form
+
+  Usage: Include this in registration/purchase forms
+
+  Features:
+  - Required consent for Terms & Privacy
+  - Age verification (18+)
+  - Optional marketing consent
+  - Mobile-responsive
+  - Accessible (WCAG 2.1 AA)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Consent Component - HypeAI</title>
+
+  <style>
+    /* Consent Checkbox Styles */
+    .legal-consent {
+      background: rgba(30, 32, 38, 0.4);
+      border: 1px solid rgba(147, 51, 234, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .consent-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .consent-checkbox:last-child {
+      margin-bottom: 0;
+    }
+
+    .consent-checkbox input[type="checkbox"] {
+      margin-top: 4px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: #FFE900;
+      flex-shrink: 0;
+    }
+
+    .consent-checkbox span {
+      color: #E4E7EB;
+      font-size: 14px;
+      line-height: 1.6;
+      user-select: none;
+    }
+
+    .consent-checkbox a {
+      color: #00E5FF;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .consent-checkbox a:hover {
+      color: #FFE900;
+      border-bottom-color: #FFE900;
+    }
+
+    .consent-checkbox a:focus {
+      outline: 2px solid #FFE900;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Required indicator */
+    .consent-checkbox.required span::after {
+      content: ' *';
+      color: #ff4444;
+      font-weight: 700;
+    }
+
+    /* Optional badge */
+    .consent-checkbox.optional span::after {
+      content: ' (optional)';
+      color: #A0A3B1;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* Error state */
+    .consent-checkbox.error {
+      animation: shake 0.5s ease;
+    }
+
+    .consent-checkbox.error span {
+      color: #ff4444;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    /* Hover effect */
+    .consent-checkbox:hover {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+      padding: 8px;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .legal-consent {
+        padding: 16px;
+      }
+
+      .consent-checkbox span {
+        font-size: 13px;
+      }
+    }
+
+    /* Accessibility - High contrast mode */
+    @media (prefers-contrast: high) {
+      .legal-consent {
+        border-width: 2px;
+        border-color: #FFE900;
+      }
+
+      .consent-checkbox a {
+        text-decoration: underline;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      .consent-checkbox span {
+        color: #FFFFFF;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Legal Consent Checkbox Component -->
+<div class="legal-consent">
+
+  <!-- Terms of Service & Privacy Policy (REQUIRED) -->
+  <label class="consent-checkbox required">
+    <input
+      type="checkbox"
+      name="terms_accepted"
+      id="terms_accepted"
+      required
+      aria-required="true"
+      aria-describedby="terms-description"
+    >
+    <span id="terms-description">
+      I agree to the
+      <a href="legal/terms-of-service.html" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+      and
+      <a href="legal/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+    </span>
+  </label>
+
+  <!-- Age Verification (REQUIRED) -->
+  <label class="consent-checkbox required">
+    <input
+      type="checkbox"
+      name="age_verified"
+      id="age_verified"
+      required
+      aria-required="true"
+      aria-describedby="age-description"
+    >
+    <span id="age-description">
+      I confirm I am 18 years or older
+    </span>
+  </label>
+
+  <!-- Marketing Consent (OPTIONAL - GDPR compliant) -->
+  <label class="consent-checkbox optional">
+    <input
+      type="checkbox"
+      name="marketing_consent"
+      id="marketing_consent"
+      aria-describedby="marketing-description"
+    >
+    <span id="marketing-description">
+      I agree to receive marketing emails and promotional content
+      (You can unsubscribe at any time)
+    </span>
+  </label>
+
+  <!-- Data Processing Consent (OPTIONAL but recommended for GDPR) -->
+  <label class="consent-checkbox optional">
+    <input
+      type="checkbox"
+      name="analytics_consent"
+      id="analytics_consent"
+      aria-describedby="analytics-description"
+    >
+    <span id="analytics-description">
+      I agree to analytics cookies for improving user experience
+      (See our <a href="legal/cookie-policy.html" target="_blank" rel="noopener noreferrer">Cookie Policy</a>)
+    </span>
+  </label>
+
+</div>
+
+<!-- Validation Script (Optional) -->
+<script>
+  // Form validation example
+  function validateConsent() {
+    const termsAccepted = document.getElementById('terms_accepted');
+    const ageVerified = document.getElementById('age_verified');
+
+    let isValid = true;
+
+    // Check terms acceptance
+    if (!termsAccepted.checked) {
+      termsAccepted.closest('.consent-checkbox').classList.add('error');
+      isValid = false;
+    } else {
+      termsAccepted.closest('.consent-checkbox').classList.remove('error');
+    }
+
+    // Check age verification
+    if (!ageVerified.checked) {
+      ageVerified.closest('.consent-checkbox').classList.add('error');
+      isValid = false;
+    } else {
+      ageVerified.closest('.consent-checkbox').classList.remove('error');
+    }
+
+    return isValid;
+  }
+
+  // Remove error state on checkbox change
+  document.querySelectorAll('.consent-checkbox input[required]').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+        this.closest('.consent-checkbox').classList.remove('error');
+      }
+    });
+  });
+
+  // Example: Attach to form submit
+  // const form = document.querySelector('form');
+  // if (form) {
+  //   form.addEventListener('submit', function(e) {
+  //     if (!validateConsent()) {
+  //       e.preventDefault();
+  //       alert('Please accept the required terms to continue.');
+  //     }
+  //   });
+  // }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Test - HypeAI</title>
+  
+  <!-- Link mobile optimizations -->
+  <link rel="stylesheet" href="css/mobile-optimizations.css">
+  
+  <style>
+    :root {
+      --bg-primary: #0a0118;
+      --cosmic-yellow: #FFE900;
+      --cosmic-purple: #9333ea;
+      --text-primary: #FFFFFF;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    
+    .header {
+      background: rgba(10, 1, 24, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--cosmic-yellow);
+    }
+    
+    .nav {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+    }
+    
+    .nav-link {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cosmic-purple), #3b82f6);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    
+    .language-switcher {
+      position: relative;
+    }
+    
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    
+    .lang-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 8px;
+      background: rgba(30, 32, 38, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 8px;
+      display: none;
+    }
+    
+    .lang-dropdown.active {
+      display: block;
+    }
+    
+    .lang-option {
+      padding: 10px 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    
+    .lang-option:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .section {
+      padding: 60px 0;
+    }
+    
+    .test-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .test-title {
+      color: var(--cosmic-yellow);
+      margin-bottom: 16px;
+    }
+    
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    
+    .test-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: 24px 0;
+    }
+    
+    .stat-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--cosmic-yellow);
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+    
+    input, textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      margin: 8px 0;
+    }
+    
+    .success-indicator {
+      background: #10b981;
+      color: white;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 16px 0;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">HYPEAI</div>
+      
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link">Services</a></li>
+          <li><a href="#" class="nav-link">About</a></li>
+          <li><a href="#" class="nav-link">Pricing</a></li>
+          <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div class="language-switcher">
+          <button class="lang-btn" onclick="toggleLang()">
+            🌐 EN
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <div class="lang-option">🇺🇸 English</div>
+            <div class="lang-option">🇷🇺 Русский</div>
+            <div class="lang-option">🇪🇸 Español</div>
+          </div>
+        </div>
+        
+        <button class="btn-primary">Get Started</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container section">
+      
+      <div class="success-indicator">
+        ✅ Mobile optimizations loaded! Test on iPhone Safari for best results.
+      </div>
+      
+      <!-- Test: Header -->
+      <div class="test-section">
+        <h2 class="test-title">1. Header Test</h2>
+        <p>✅ Header should be fixed at 64px height on mobile</p>
+        <p>✅ Hamburger menu should appear instead of nav</p>
+        <p>✅ Logo should shrink to 32px on mobile</p>
+        <p>✅ Language switcher should work</p>
+      </div>
+      
+      <!-- Test: Typography -->
+      <div class="test-section">
+        <h2 class="test-title">2. Typography Test</h2>
+        <h1>H1 Heading (32px-48px responsive)</h1>
+        <h2>H2 Heading (24px-36px responsive)</h2>
+        <h3>H3 Heading (20px-28px responsive)</h3>
+        <h4>H4 Heading (18px-22px responsive)</h4>
+        <p>Body text at 16px (prevents iOS zoom on inputs)</p>
+      </div>
+      
+      <!-- Test: Hero Stats Grid -->
+      <div class="test-section">
+        <h2 class="test-title">3. Stats Grid Test</h2>
+        <p>✅ Should be 2 columns on mobile, 1 column on iPhone SE</p>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-value">27</div>
+            <div class="stat-label">AI Agents</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">35+</div>
+            <div class="stat-label">Services</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Available</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">50%</div>
+            <div class="stat-label">Cost Savings</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Test: Touch Targets -->
+      <div class="test-section">
+        <h2 class="test-title">4. Touch Targets Test</h2>
+        <p>✅ All buttons should be minimum 44px height (easy to tap)</p>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+          <button class="btn-primary">Primary Button (44px)</button>
+          <button class="btn-primary btn-sm">Small Button (40px)</button>
+          <button class="btn-primary btn-lg">Large Button (52px)</button>
+        </div>
+      </div>
+      
+      <!-- Test: Forms (No Zoom) -->
+      <div class="test-section">
+        <h2 class="test-title">5. Form Test (No Zoom on Focus)</h2>
+        <p>✅ Tapping inputs should NOT zoom on iOS (16px font size)</p>
+        <label>Text Input:</label>
+        <input type="text" placeholder="Type here - no zoom!">
+        
+        <label>Email Input:</label>
+        <input type="email" placeholder="email@example.com">
+        
+        <label>Textarea:</label>
+        <textarea placeholder="Enter text - no zoom!"></textarea>
+      </div>
+      
+      <!-- Test: Service Cards Grid -->
+      <div class="test-section">
+        <h2 class="test-title">6. Service Cards Grid Test</h2>
+        <p>✅ Should stack to 1 column on mobile</p>
+        <div class="test-grid">
+          <div class="test-card">
+            <h3>Card 1</h3>
+            <p>Service description</p>
+          </div>
+          <div class="test-card">
+            <h3>Card 2</h3>
+            <p>Service description</p>
+          </div>
+          <div class="test-card">
+            <h3>Card 3</h3>
+            <p>Service description</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Test: Horizontal Scroll -->
+      <div class="test-section">
+        <h2 class="test-title">7. Horizontal Scroll Test</h2>
+        <p>✅ NO horizontal scroll should exist anywhere</p>
+        <p>✅ All content should fit within viewport width</p>
+        <div style="background: rgba(255,0,0,0.2); padding: 12px; border: 2px solid red; border-radius: 6px;">
+          This wide content should NOT cause horizontal scroll
+        </div>
+      </div>
+      
+      <!-- Test Checklist -->
+      <div class="test-section">
+        <h2 class="test-title">8. Manual Testing Checklist</h2>
+        <div style="text-align: left;">
+          <p><strong>Test on iPhone Safari:</strong></p>
+          <ul style="margin-left: 24px; margin-top: 8px;">
+            <li>✅ Tap hamburger menu - should open smoothly</li>
+            <li>✅ Menu should be full-screen with blur</li>
+            <li>✅ Tap a link - menu should close</li>
+            <li>✅ Tap outside menu - should close</li>
+            <li>✅ Body scroll should be prevented when menu open</li>
+            <li>✅ Header should stay fixed at top</li>
+            <li>✅ Safe area padding (notch respected)</li>
+            <li>✅ Language dropdown works</li>
+            <li>✅ All buttons easy to tap (44px)</li>
+            <li>✅ No zoom when tapping form inputs</li>
+            <li>✅ No horizontal scroll anywhere</li>
+            <li>✅ Stats grid: 2 columns (1 on iPhone SE)</li>
+            <li>✅ Service cards: 1 column stack</li>
+            <li>✅ Typography readable and scaled</li>
+            <li>✅ Animations smooth (60fps)</li>
+          </ul>
+          
+          <p style="margin-top: 24px;"><strong>Landscape Mode:</strong></p>
+          <ul style="margin-left: 24px; margin-top: 8px;">
+            <li>✅ Header stays fixed</li>
+            <li>✅ Menu scrollable</li>
+            <li>✅ Stats: 4 columns</li>
+            <li>✅ No overflow</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Console Check -->
+      <div class="test-section">
+        <h2 class="test-title">9. Console Check</h2>
+        <p>✅ Open browser console and look for:</p>
+        <code style="display: block; background: rgba(0,0,0,0.5); padding: 12px; border-radius: 6px; margin-top: 12px;">
+          ✅ Mobile navigation initialized<br>
+          ✅ Mobile enhancements loaded
+        </code>
+      </div>
+      
+      <!-- Documentation -->
+      <div class="test-section">
+        <h2 class="test-title">10. Documentation</h2>
+        <p>📚 Full documentation available:</p>
+        <ul style="margin-left: 24px; margin-top: 8px;">
+          <li><code>/docs/MOBILE_TESTING_GUIDE.md</code></li>
+          <li><code>/docs/MOBILE_CSS_REFERENCE.md</code></li>
+          <li><code>/docs/MOBILE_IMPLEMENTATION_SUMMARY.md</code></li>
+        </ul>
+      </div>
+      
+    </div>
+  </main>
+  
+  <!-- Mobile Nav Script -->
+  <script src="js/mobile-nav.js"></script>
+  
+  <script>
+    // Language dropdown
+    function toggleLang() {
+      const dropdown = document.getElementById('langDropdown');
+      dropdown.classList.toggle('active');
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.language-switcher')) {
+        document.getElementById('langDropdown').classList.remove('active');
+      }
+    });
+    
+    // Display viewport info
+    function showViewportInfo() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      console.log(`Viewport: ${width}x${height}px`);
+      
+      if (width <= 375) {
+        console.log('📱 iPhone SE size detected');
+      } else if (width <= 390) {
+        console.log('📱 iPhone 12/13/14 size detected');
+      } else if (width <= 430) {
+        console.log('📱 iPhone 14 Plus size detected');
+      } else if (width <= 768) {
+        console.log('📱 Mobile size detected');
+      } else {
+        console.log('💻 Desktop size detected');
+      }
+    }
+    
+    showViewportInfo();
+    window.addEventListener('resize', showViewportInfo);
+  </script>
+  
+</body>
+</html>
