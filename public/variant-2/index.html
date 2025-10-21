@@ -3999,9 +3999,27 @@
     console.log('🤖 All 42 agents ready');
   </script>
 
+  <!-- Toast Notifications System -->
+  <script src="js/toast.js"></script>
+
   <!-- i18n Translation System -->
   <script src="js/i18n.js?v=2"></script>
   <script src="js/mobile-nav.js"></script>
+
+  <!-- Coming Soon Toast Examples -->
+  <script>
+    // Show "Coming Soon" for incomplete features
+    document.addEventListener('DOMContentLoaded', () => {
+      // Find all buttons/links with data-coming-soon attribute
+      document.querySelectorAll('[data-coming-soon]').forEach(element => {
+        element.addEventListener('click', (e) => {
+          e.preventDefault();
+          const feature = element.dataset.comingSoon || element.textContent || 'Эта функция';
+          toast.info(`${feature} скоро будет доступна! 🚀`);
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
