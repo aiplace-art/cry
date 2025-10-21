@@ -6,6 +6,14 @@
 const translations = {
   en: {
     // Navigation
+    nav: {
+      home: "Home",
+      services: "Services",
+      tokenomics: "Tokenomics",
+      roadmap: "Roadmap",
+      contact: "Contact",
+      buyToken: "Buy $HYPE"
+    },
     nav_services: "Services",
     nav_agents: "AI Agents",
     nav_tokenomics: "Tokenomics",
@@ -83,6 +91,144 @@ const translations = {
     commitment_text: "We're not launching and ghosting. Every week: new features, new burns, new partnerships. The machine never stops.",
 
     // Services Section
+    services: {
+      hero: {
+        label: "Professional Services",
+        title1: "AI-Powered Services",
+        title2: "Everyone",
+        description: "From personal projects to enterprise solutions. Professional quality, AI speed, unbeatable prices."
+      },
+      stats: {
+        agents: "AI Agents",
+        services: "Services",
+        launched: "Just Launched",
+        support: "Support"
+      },
+      tabs: {
+        all: "🌟 All Services",
+        individuals: "👤 For Individuals",
+        business: "🏢 For Businesses",
+        crypto: "₿ Crypto/Web3"
+      },
+      cards: {
+        socialMedia: {
+          badge: "🔥 Most Profitable",
+          title: "Social Media Automation",
+          description: "Complete social media management: Twitter, Instagram, LinkedIn, TikTok. Auto-posting, content generation, community management.",
+          pricingBasic: "Basic",
+          pricingPro: "Pro",
+          agents: "Agents:",
+          getStarted: "Get Started →",
+          learnMore: "Learn More",
+          trust: "⏱️ Start in 24-48 hours | 💰 Recurring revenue model | 🚀 Launch special pricing"
+        },
+        twitter: {
+          badge: "🚀 Quick Start",
+          title: "Twitter/X Growth Package",
+          description: "Automated Twitter growth: 3-8 tweets/day, threads, replies, trending topics, engagement optimization.",
+          pricing: "$399 - $2,999/month",
+          pricingSubtext: "Based on volume & features",
+          getStarted: "Start Growing →",
+          trust: "⏱️ Launch tomorrow | ⭐ Perfect for crypto projects | 💎 Pay in $HYPE for 30% discount"
+        },
+        linkedin: {
+          title: "LinkedIn Professional",
+          description: "B2B positioning, thought leadership, lead generation through automated LinkedIn posting and engagement.",
+          pricing: "$499 - $4,999/month",
+          learnMore: "Learn More →"
+        },
+        resume: {
+          title: "Professional Resume & CV",
+          description: "ATS-optimized resumes, cover letters, LinkedIn profiles. Get hired faster with professional presentation.",
+          pricing: "$49 - $199",
+          pricingSubtext: "One-time",
+          getStarted: "Get Started →"
+        },
+        webDev: {
+          title: "Web Development",
+          description: "Landing pages, portfolios, e-commerce sites, full web applications. Modern, fast, mobile-responsive.",
+          pricing: "$299 - $9,999",
+          button: "View Portfolio →"
+        },
+        content: {
+          title: "AI Content Creation",
+          description: "Blog posts, articles, social media content, video scripts. SEO-optimized, engaging, ready to publish.",
+          pricing: "$49 - $999/month",
+          button: "Order Content →"
+        },
+        businessPlans: {
+          title: "Business Plans & Strategy",
+          description: "Investor-ready business plans, market research, financial projections, strategic consulting.",
+          pricing: "$399 - $15,000",
+          getStarted: "Get Started →"
+        },
+        crypto: {
+          badge: "₿ Our Specialty",
+          title: "Crypto/Web3 Marketing",
+          description: "Twitter, Discord, Telegram management, community building, influencer outreach, token launch support.",
+          pricing: "$1,999 - $7,999/month",
+          button: "Launch Campaign →"
+        },
+        design: {
+          title: "Graphic Design",
+          description: "Logos, social media graphics, banners, infographics, brand identity kits.",
+          pricing: "$99 - $1,999",
+          button: "Order Design →"
+        }
+      },
+      advantages: {
+        label: "Advantages",
+        title: "Why Choose HypeAI Services?",
+        faster: {
+          title: "3-10x Faster",
+          description: "AI automation delivers professional results in hours, not weeks."
+        },
+        cheaper: {
+          title: "60-80% Cheaper",
+          description: "Same quality as agencies at a fraction of the cost thanks to AI efficiency."
+        },
+        agents: {
+          title: "42 AI Agents",
+          description: "Specialized agents for every task, working together seamlessly."
+        },
+        quality: {
+          title: "Quality Guaranteed",
+          description: "30-day money-back guarantee. If you're not satisfied, we refund 100%."
+        },
+        payment: {
+          title: "Pay with $HYPE",
+          description: "Get 15-30% discount when paying with HYPE tokens."
+        },
+        launch: {
+          title: "New Launch",
+          description: "Brand new professional services. Be among our first clients and get priority support!"
+        }
+      },
+      cta: {
+        title: "Ready to Get Started?",
+        description: "Be among the first to experience AI-powered professional services at launch pricing",
+        browse: "Browse All Services →",
+        contact: "Contact Sales Team",
+        trust: "✅ 30-Day Money-Back Guarantee | 🚀 New Launch Pricing | 🔒 100% Secure | 💎 Pay with $HYPE for 30% discount"
+      },
+      footer: {
+        about: "Professional AI services for everyone.",
+        servicesTitle: "Services",
+        socialMedia: "Social Media",
+        webDev: "Web Development",
+        contentCreation: "Content Creation",
+        businessConsulting: "Business Consulting",
+        companyTitle: "Company",
+        about: "About",
+        roadmap: "Roadmap",
+        contact: "Contact",
+        connectTitle: "Connect",
+        twitter: "Twitter",
+        telegram: "Telegram",
+        discord: "Discord",
+        copyright: "© 2025 HypeAI. All rights reserved."
+      }
+    },
     services_label: "AI Services",
     services_title: "8 Service Categories - 35+ Specialized Services",
     services_description: "Professional AI-powered services at a fraction of traditional costs",
@@ -329,6 +475,14 @@ const translations = {
 
   ru: {
     // Навигация
+    nav: {
+      home: "Главная",
+      services: "Услуги",
+      tokenomics: "Токеномика",
+      roadmap: "Дорожная карта",
+      contact: "Контакты",
+      buyToken: "Купить $HYPE"
+    },
     nav_services: "Услуги",
     nav_agents: "AI Агенты",
     nav_tokenomics: "Токеномика",
@@ -406,6 +560,144 @@ const translations = {
     commitment_text: "Мы не просто запускаемся и исчезаем. Каждую неделю: новые функции, новые сжигания, новые партнёрства. Машина никогда не останавливается.",
 
     // Секция услуг
+    services: {
+      hero: {
+        label: "Профессиональные услуги",
+        title1: "AI-услуги",
+        title2: "Для всех",
+        description: "От личных проектов до корпоративных решений. Профессиональное качество, скорость AI, непобедимые цены."
+      },
+      stats: {
+        agents: "AI агентов",
+        services: "Услуг",
+        launched: "Только запущено",
+        support: "Поддержка"
+      },
+      tabs: {
+        all: "🌟 Все услуги",
+        individuals: "👤 Для частных лиц",
+        business: "🏢 Для бизнеса",
+        crypto: "₿ Крипто/Web3"
+      },
+      cards: {
+        socialMedia: {
+          badge: "🔥 Самое прибыльное",
+          title: "Автоматизация соцсетей",
+          description: "Полное управление соцсетями: Twitter, Instagram, LinkedIn, TikTok. Автопостинг, генерация контента, управление сообществом.",
+          pricingBasic: "Базовый",
+          pricingPro: "Про",
+          agents: "Агенты:",
+          getStarted: "Начать →",
+          learnMore: "Узнать больше",
+          trust: "⏱️ Старт за 24-48 часов | 💰 Рекуррентная модель дохода | 🚀 Специальные стартовые цены"
+        },
+        twitter: {
+          badge: "🚀 Быстрый старт",
+          title: "Рост в Twitter/X",
+          description: "Автоматизированный рост в Twitter: 3-8 твитов/день, треды, ответы, трендовые темы, оптимизация вовлечения.",
+          pricing: "$399 - $2,999/месяц",
+          pricingSubtext: "Зависит от объёма и функций",
+          getStarted: "Начать рост →",
+          trust: "⏱️ Запуск завтра | ⭐ Идеально для крипто-проектов | 💎 Платите в $HYPE со скидкой 30%"
+        },
+        linkedin: {
+          title: "LinkedIn для профессионалов",
+          description: "B2B позиционирование, лидерство мнений, генерация лидов через автоматизированный постинг в LinkedIn и вовлечение.",
+          pricing: "$499 - $4,999/месяц",
+          learnMore: "Узнать больше →"
+        },
+        resume: {
+          title: "Профессиональное резюме и CV",
+          description: "ATS-оптимизированные резюме, сопроводительные письма, профили LinkedIn. Устройтесь быстрее с профессиональной презентацией.",
+          pricing: "$49 - $199",
+          pricingSubtext: "Разово",
+          getStarted: "Начать →"
+        },
+        webDev: {
+          title: "Веб-разработка",
+          description: "Лендинги, портфолио, интернет-магазины, полноценные веб-приложения. Современные, быстрые, мобильные.",
+          pricing: "$299 - $9,999",
+          button: "Смотреть портфолио →"
+        },
+        content: {
+          title: "AI создание контента",
+          description: "Посты в блог, статьи, контент для соцсетей, видео-скрипты. SEO-оптимизировано, вовлекающе, готово к публикации.",
+          pricing: "$49 - $999/месяц",
+          button: "Заказать контент →"
+        },
+        businessPlans: {
+          title: "Бизнес-планы и стратегия",
+          description: "Инвестиционные бизнес-планы, маркетинговые исследования, финансовые прогнозы, стратегический консалтинг.",
+          pricing: "$399 - $15,000",
+          getStarted: "Начать →"
+        },
+        crypto: {
+          badge: "₿ Наша специализация",
+          title: "Крипто/Web3 маркетинг",
+          description: "Управление Twitter, Discord, Telegram, создание сообщества, работа с инфлюенсерами, поддержка запуска токена.",
+          pricing: "$1,999 - $7,999/месяц",
+          button: "Запустить кампанию →"
+        },
+        design: {
+          title: "Графический дизайн",
+          description: "Логотипы, графика для соцсетей, баннеры, инфографика, наборы фирменного стиля.",
+          pricing: "$99 - $1,999",
+          button: "Заказать дизайн →"
+        }
+      },
+      advantages: {
+        label: "Преимущества",
+        title: "Почему выбирают услуги HypeAI?",
+        faster: {
+          title: "В 3-10 раз быстрее",
+          description: "AI автоматизация даёт профессиональные результаты за часы, а не недели."
+        },
+        cheaper: {
+          title: "На 60-80% дешевле",
+          description: "То же качество что у агентств за часть стоимости благодаря эффективности AI."
+        },
+        agents: {
+          title: "42 AI агента",
+          description: "Специализированные агенты для каждой задачи, работающие вместе без швов."
+        },
+        quality: {
+          title: "Гарантия качества",
+          description: "30-дневная гарантия возврата денег. Если не устроит - возврат 100%."
+        },
+        payment: {
+          title: "Платите в $HYPE",
+          description: "Получите скидку 15-30% при оплате токенами HYPE."
+        },
+        launch: {
+          title: "Новый запуск",
+          description: "Совершенно новые профессиональные услуги. Будьте среди первых клиентов и получите приоритетную поддержку!"
+        }
+      },
+      cta: {
+        title: "Готовы начать?",
+        description: "Будьте среди первых, кто испытает AI-услуги по стартовым ценам",
+        browse: "Смотреть все услуги →",
+        contact: "Связаться с отделом продаж",
+        trust: "✅ Гарантия возврата 30 дней | 🚀 Стартовые цены | 🔒 100% безопасно | 💎 Платите в $HYPE со скидкой 30%"
+      },
+      footer: {
+        about: "Профессиональные AI услуги для каждого.",
+        servicesTitle: "Услуги",
+        socialMedia: "Соцсети",
+        webDev: "Веб-разработка",
+        contentCreation: "Создание контента",
+        businessConsulting: "Бизнес-консалтинг",
+        companyTitle: "Компания",
+        about: "О нас",
+        roadmap: "Дорожная карта",
+        contact: "Контакты",
+        connectTitle: "Связаться",
+        twitter: "Twitter",
+        telegram: "Telegram",
+        discord: "Discord",
+        copyright: "© 2025 HypeAI. Все права защищены."
+      }
+    },
     services_label: "AI Услуги",
     services_title: "8 категорий услуг - 35+ специализированных услуг",
     services_description: "Профессиональные AI услуги за часть стоимости традиционных агентств",
@@ -675,39 +967,50 @@ class I18n {
   }
 
   setupLanguageSwitcher() {
+    // Support old format (dropdown)
     const langBtn = document.getElementById('langBtn');
     const langDropdown = document.getElementById('langDropdown');
 
-    if (!langBtn || !langDropdown) return;
-
-    // Toggle dropdown
-    langBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      langDropdown.classList.toggle('show');
-      langBtn.setAttribute('aria-expanded', langDropdown.classList.contains('show'));
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', () => {
-      langDropdown.classList.remove('show');
-      langBtn.setAttribute('aria-expanded', 'false');
-    });
-
-    // Language option click handlers
-    const enOption = document.getElementById('langEn');
-    const ruOption = document.getElementById('langRu');
-
-    if (enOption) {
-      enOption.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.setLanguage('en');
+    if (langBtn && langDropdown) {
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('show');
+        langBtn.setAttribute('aria-expanded', langDropdown.classList.contains('show'));
       });
+
+      document.addEventListener('click', () => {
+        langDropdown.classList.remove('show');
+        langBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      const enOption = document.getElementById('langEn');
+      const ruOption = document.getElementById('langRu');
+
+      if (enOption) {
+        enOption.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.setLanguage('en');
+        });
+      }
+
+      if (ruOption) {
+        ruOption.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.setLanguage('ru');
+        });
+      }
     }
 
-    if (ruOption) {
-      ruOption.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.setLanguage('ru');
+    // Support new format (toggle button - services.html)
+    const langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+      const langOptions = langToggle.querySelectorAll('.lang-option');
+
+      langOptions.forEach(option => {
+        option.addEventListener('click', (e) => {
+          const lang = option.getAttribute('data-lang');
+          this.setLanguage(lang);
+        });
       });
     }
   }
@@ -737,7 +1040,19 @@ class I18n {
 
     elements.forEach(element => {
       const key = element.getAttribute('data-i18n');
-      const translation = translations[this.currentLang][key];
+
+      // Handle nested keys like "nav.home" or "services.hero.label"
+      const keys = key.split('.');
+      let translation = translations[this.currentLang];
+
+      for (const k of keys) {
+        if (translation && translation[k]) {
+          translation = translation[k];
+        } else {
+          translation = null;
+          break;
+        }
+      }
 
       if (translation) {
         // Handle different element types
@@ -751,18 +1066,28 @@ class I18n {
   }
 
   updateButtonState() {
+    // Update dropdown button with emoji
     const langBtn = document.getElementById('langBtn');
     if (langBtn) {
-      langBtn.textContent = this.currentLang.toUpperCase();
+      langBtn.textContent = this.currentLang.toUpperCase() + ' 🌐';
     }
 
-    // Update active state in dropdown
     const enOption = document.getElementById('langEn');
     const ruOption = document.getElementById('langRu');
 
     if (enOption && ruOption) {
       enOption.classList.toggle('active', this.currentLang === 'en');
       ruOption.classList.toggle('active', this.currentLang === 'ru');
+    }
+
+    // Update new format toggle button (services.html)
+    const langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+      const langOptions = langToggle.querySelectorAll('.lang-option');
+      langOptions.forEach(option => {
+        const lang = option.getAttribute('data-lang');
+        option.classList.toggle('active', lang === this.currentLang);
+      });
     }
   }
 

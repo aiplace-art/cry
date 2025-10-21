@@ -402,6 +402,78 @@
       color: var(--cosmic-yellow);
     }
 
+    /* Language Switcher Dropdown */
+    .language-switcher {
+      position: relative;
+    }
+
+    .lang-btn {
+      background: rgba(147, 51, 234, 0.1);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 8px;
+      padding: 8px 16px;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.3s var(--ease-premium);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lang-btn:hover {
+      background: rgba(147, 51, 234, 0.2);
+      border-color: rgba(147, 51, 234, 0.5);
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: rgba(30, 32, 38, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      border-radius: 12px;
+      padding: 8px;
+      min-width: 140px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s var(--ease-premium);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      z-index: 1001;
+    }
+
+    .lang-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-option {
+      display: block;
+      padding: 10px 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s var(--ease-premium);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .lang-option:hover {
+      background: rgba(147, 51, 234, 0.15);
+      color: var(--text-primary);
+    }
+
+    .lang-option.active {
+      background: rgba(147, 51, 234, 0.2);
+      color: var(--cosmic-purple);
+      font-weight: 600;
+    }
+
     .btn-primary {
       background: var(--gradient-primary);
       color: white;
@@ -475,20 +547,20 @@
        SERVICES PAGE SPECIFIC STYLES
        ======================================== */
 
-    /* Hero Section */
+    /* Hero Section - КОМПАКТНЕЕ */
     .services-hero {
-      padding: calc(100px + 80px) 0 80px;
+      padding: calc(100px + 60px) 0 60px;
       text-align: center;
       position: relative;
       z-index: var(--z-content);
     }
 
     .hero-title {
-      font-size: clamp(48px, 7vw, 80px);
+      font-size: clamp(40px, 6vw, 64px);
       font-weight: 700;
       line-height: 1.1;
       letter-spacing: -0.02em;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
       color: var(--text-primary);
     }
 
@@ -500,23 +572,23 @@
     }
 
     .hero-description {
-      font-size: 20px;
+      font-size: 17px;
       color: var(--text-secondary);
-      max-width: 700px;
-      margin: 0 auto 48px;
+      max-width: 650px;
+      margin: 0 auto 36px;
     }
 
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      max-width: 900px;
+      gap: 24px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 32px;
+      padding: 24px;
       background: rgba(30, 32, 38, 0.4);
       backdrop-filter: blur(30px);
       border: 1px solid rgba(147, 51, 234, 0.3);
-      border-radius: 24px;
+      border-radius: 20px;
       box-shadow: 0 8px 32px rgba(147, 51, 234, 0.2);
     }
 
@@ -525,23 +597,23 @@
     }
 
     .stat-value {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 700;
       color: var(--brand-yellow);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .stat-label {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-secondary);
     }
 
-    /* Service Tabs */
+    /* Service Tabs - КОМПАКТНЕЕ */
     .services-tabs {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       justify-content: center;
-      margin-bottom: 48px;
+      margin-bottom: 36px;
       flex-wrap: wrap;
     }
 
@@ -549,10 +621,10 @@
       background: rgba(30, 32, 38, 0.4);
       border: 1px solid rgba(255, 233, 0, 0.1);
       border-radius: 10px;
-      padding: 12px 24px;
+      padding: 10px 20px;
       color: var(--text-secondary);
       font-weight: 600;
-      font-size: 15px;
+      font-size: 14px;
       cursor: pointer;
       transition: all 0.3s var(--ease-premium);
       font-family: 'Space Grotesk', sans-serif;
@@ -569,21 +641,21 @@
       color: var(--brand-yellow);
     }
 
-    /* Services Grid */
+    /* Services Grid - КОМПАКТНЕЕ */
     .featured-services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
     }
 
-    /* Glass Card Effect */
+    /* Glass Card Effect - КОМПАКТНЕЕ */
     .glass-card {
       background: rgba(30, 32, 38, 0.6);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(147, 51, 234, 0.2);
-      border-radius: 20px;
-      padding: 36px;
+      border-radius: 16px;
+      padding: 28px;
       transition: all 0.4s var(--ease-bounce);
       position: relative;
     }
@@ -608,38 +680,38 @@
     }
 
     .service-icon {
-      font-size: 48px;
-      margin-bottom: 20px;
+      font-size: 42px;
+      margin-bottom: 16px;
       display: block;
     }
 
     .service-title {
-      font-size: 24px;
+      font-size: 21px;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       color: var(--text-primary);
     }
 
     .service-description {
       color: var(--text-secondary);
-      margin-bottom: 24px;
-      line-height: 1.6;
-      font-size: 15px;
+      margin-bottom: 18px;
+      line-height: 1.5;
+      font-size: 14px;
     }
 
-    /* Pricing Grid */
+    /* Pricing Grid - КОМПАКТНЕЕ */
     .service-pricing-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
+      gap: 12px;
+      margin-bottom: 18px;
     }
 
     .price-tier {
       background: rgba(20, 21, 26, 0.6);
       border: 1px solid rgba(255, 233, 0, 0.1);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 10px;
+      padding: 16px;
       transition: all 0.3s var(--ease-premium);
     }
 
@@ -649,21 +721,21 @@
     }
 
     .tier-name {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--text-secondary);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .tier-price {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
       color: var(--brand-yellow);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .tier-price span {
-      font-size: 16px;
+      font-size: 14px;
       color: var(--text-secondary);
     }
 
@@ -673,48 +745,48 @@
     }
 
     .tier-features li {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-secondary);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
-    /* Simple Pricing */
+    /* Simple Pricing - КОМПАКТНЕЕ */
     .service-pricing-simple {
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .price-range {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
       color: var(--brand-yellow);
       margin-bottom: 4px;
     }
 
     .price-subtext {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-secondary);
     }
 
-    /* Service Highlights */
+    /* Service Highlights - КОМПАКТНЕЕ */
     .service-highlights {
       list-style: none;
       padding: 0;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .service-highlights li {
       color: var(--text-secondary);
-      margin-bottom: 8px;
-      font-size: 15px;
+      margin-bottom: 6px;
+      font-size: 13px;
     }
 
-    /* Service Agents */
+    /* Service Agents - КОМПАКТНЕЕ */
     .service-agents {
       background: rgba(20, 21, 26, 0.6);
       border-radius: 8px;
-      padding: 12px 16px;
-      margin-bottom: 24px;
-      font-size: 14px;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+      font-size: 13px;
       color: var(--text-secondary);
     }
 
@@ -722,19 +794,19 @@
       color: var(--brand-yellow);
     }
 
-    /* Service Actions */
+    /* Service Actions - КОМПАКТНЕЕ */
     .service-actions {
       display: flex;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 10px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 14px 28px;
-      border-radius: 10px;
+      padding: 12px 24px;
+      border-radius: 9px;
       font-weight: 600;
-      font-size: 15px;
+      font-size: 14px;
       cursor: pointer;
       transition: all 0.3s var(--ease-premium);
       font-family: 'Space Grotesk', sans-serif;
@@ -762,26 +834,26 @@
     }
 
     .service-trust-line {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-secondary);
       text-align: center;
-      padding-top: 16px;
+      padding-top: 14px;
       border-top: 1px solid rgba(255, 233, 0, 0.1);
     }
 
-    /* Advantages Section */
+    /* Advantages Section - КОМПАКТНЕЕ */
     .advantages-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
 
     .advantage-card {
       background: rgba(30, 32, 38, 0.4);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 233, 0, 0.1);
-      border-radius: 20px;
-      padding: 32px;
+      border-radius: 16px;
+      padding: 24px;
       transition: all 0.4s var(--ease-premium);
     }
 
@@ -792,40 +864,41 @@
     }
 
     .advantage-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
+      font-size: 40px;
+      margin-bottom: 12px;
     }
 
     .advantage-card h3 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       color: var(--text-primary);
     }
 
     .advantage-card p {
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.5;
+      font-size: 14px;
     }
 
-    /* CTA Section */
+    /* CTA Section - КОМПАКТНЕЕ */
     .cta-card-large {
       text-align: center;
-      padding: 64px 48px;
+      padding: 48px 36px;
     }
 
     .cta-title {
-      font-size: clamp(32px, 5vw, 48px);
+      font-size: clamp(28px, 4.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       color: var(--text-primary);
     }
 
     .cta-description {
-      font-size: 18px;
+      font-size: 16px;
       color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto 32px;
+      max-width: 580px;
+      margin: 0 auto 28px;
     }
 
     .cta-buttons {
@@ -1007,15 +1080,26 @@
 
         <nav class="nav">
           <ul class="nav-list">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="services.html" class="nav-link active">Services</a></li>
-            <li><a href="index.html#tokenomics" class="nav-link">Tokenomics</a></li>
-            <li><a href="index.html#roadmap" class="nav-link">Roadmap</a></li>
-            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+            <li><a href="services.html" class="nav-link active" data-i18n="nav.services">Services</a></li>
+            <li><a href="index.html#tokenomics" class="nav-link" data-i18n="nav.tokenomics">Tokenomics</a></li>
+            <li><a href="index.html#roadmap" class="nav-link" data-i18n="nav.roadmap">Roadmap</a></li>
+            <li><a href="index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
           </ul>
+
+          <!-- Language Switcher Dropdown -->
+          <div class="language-switcher">
+            <button class="lang-btn" id="langBtn" aria-label="Select language" aria-expanded="false">
+              EN 🌐
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+              <a href="#" class="lang-option active" id="langEn" data-lang="en">English</a>
+              <a href="#" class="lang-option" id="langRu" data-lang="ru">Русский</a>
+            </div>
+          </div>
         </nav>
 
-        <button class="btn-primary">Buy $HYPE</button>
+        <button class="btn-primary" data-i18n="nav.buyToken">Buy $HYPE</button>
       </div>
     </div>
   </header>
@@ -1023,30 +1107,30 @@
   <!-- Hero Section -->
   <section class="services-hero">
     <div class="container">
-      <div class="section-label">Professional Services</div>
+      <div class="section-label" data-i18n="services.hero.label">Professional Services</div>
       <h1 class="hero-title">
-        AI-Powered Services<br>for <span class="text-gradient">Everyone</span>
+        <span data-i18n="services.hero.title1">AI-Powered Services</span><br>for <span class="text-gradient" data-i18n="services.hero.title2">Everyone</span>
       </h1>
-      <p class="hero-description">
+      <p class="hero-description" data-i18n="services.hero.description">
         From personal projects to enterprise solutions. Professional quality, AI speed, unbeatable prices.
       </p>
 
       <div class="hero-stats">
         <div class="stat-item">
           <div class="stat-value">42</div>
-          <div class="stat-label">AI Agents</div>
+          <div class="stat-label" data-i18n="services.stats.agents">AI Agents</div>
         </div>
         <div class="stat-item">
           <div class="stat-value">60+</div>
-          <div class="stat-label">Services</div>
+          <div class="stat-label" data-i18n="services.stats.services">Services</div>
         </div>
         <div class="stat-item">
           <div class="stat-value">NEW</div>
-          <div class="stat-label">Just Launched</div>
+          <div class="stat-label" data-i18n="services.stats.launched">Just Launched</div>
         </div>
         <div class="stat-item">
           <div class="stat-value">24/7</div>
-          <div class="stat-label">Support</div>
+          <div class="stat-label" data-i18n="services.stats.support">Support</div>
         </div>
       </div>
     </div>
@@ -1058,16 +1142,16 @@
 
       <!-- Audience Toggle -->
       <div class="services-tabs">
-        <button class="services-tab active" data-tab="all">
+        <button class="services-tab active" data-tab="all" data-i18n="services.tabs.all">
           🌟 All Services
         </button>
-        <button class="services-tab" data-tab="individuals">
+        <button class="services-tab" data-tab="individuals" data-i18n="services.tabs.individuals">
           👤 For Individuals
         </button>
-        <button class="services-tab" data-tab="business">
+        <button class="services-tab" data-tab="business" data-i18n="services.tabs.business">
           🏢 For Businesses
         </button>
-        <button class="services-tab" data-tab="crypto">
+        <button class="services-tab" data-tab="crypto" data-i18n="services.tabs.crypto">
           ₿ Crypto/Web3
         </button>
       </div>
@@ -1077,16 +1161,16 @@
 
         <!-- PRIORITY 1: Social Media Automation -->
         <div class="glass-card" data-audience="all">
-          <div class="featured-badge">🔥 Most Profitable</div>
+          <div class="featured-badge" data-i18n="services.cards.socialMedia.badge">🔥 Most Profitable</div>
           <div class="service-icon">📱</div>
-          <h3 class="service-title">Social Media Automation</h3>
-          <p class="service-description">
+          <h3 class="service-title" data-i18n="services.cards.socialMedia.title">Social Media Automation</h3>
+          <p class="service-description" data-i18n="services.cards.socialMedia.description">
             Complete social media management: Twitter, Instagram, LinkedIn, TikTok. Auto-posting, content generation, community management.
           </p>
 
           <div class="service-pricing-grid">
             <div class="price-tier">
-              <div class="tier-name">Basic</div>
+              <div class="tier-name" data-i18n="services.cards.socialMedia.pricingBasic">Basic</div>
               <div class="tier-price">$299<span>/mo</span></div>
               <ul class="tier-features">
                 <li>✅ 30-60 posts/month</li>
@@ -1095,7 +1179,7 @@
               </ul>
             </div>
             <div class="price-tier featured">
-              <div class="tier-name">Pro</div>
+              <div class="tier-name" data-i18n="services.cards.socialMedia.pricingPro">Pro</div>
               <div class="tier-price">$999<span>/mo</span></div>
               <ul class="tier-features">
                 <li>✅ 60-120 posts/month</li>
@@ -1107,31 +1191,31 @@
           </div>
 
           <div class="service-agents">
-            <strong>Agents:</strong> VIBE, MOMENTUM, PULSE, COPY, PIXEL
+            <strong data-i18n="services.cards.socialMedia.agents">Agents:</strong> VIBE, MOMENTUM, PULSE, COPY, PIXEL
           </div>
 
           <div class="service-actions">
-            <button class="btn btn-primary">Get Started →</button>
-            <button class="btn btn-outline">Learn More</button>
+            <button class="btn btn-primary" data-i18n="services.cards.socialMedia.getStarted">Get Started →</button>
+            <button class="btn btn-outline" data-i18n="services.cards.socialMedia.learnMore">Learn More</button>
           </div>
 
-          <div class="service-trust-line">
+          <div class="service-trust-line" data-i18n="services.cards.socialMedia.trust">
             ⏱️ Start in 24-48 hours | 💰 Recurring revenue model | 🚀 Launch special pricing
           </div>
         </div>
 
         <!-- PRIORITY 2: Twitter/X Automation -->
         <div class="glass-card" data-audience="business crypto">
-          <div class="featured-badge">🚀 Quick Start</div>
+          <div class="featured-badge" data-i18n="services.cards.twitter.badge">🚀 Quick Start</div>
           <div class="service-icon">🐦</div>
-          <h3 class="service-title">Twitter/X Growth Package</h3>
-          <p class="service-description">
+          <h3 class="service-title" data-i18n="services.cards.twitter.title">Twitter/X Growth Package</h3>
+          <p class="service-description" data-i18n="services.cards.twitter.description">
             Automated Twitter growth: 3-8 tweets/day, threads, replies, trending topics, engagement optimization.
           </p>
 
           <div class="service-pricing-simple">
-            <div class="price-range">$399 - $2,999/month</div>
-            <div class="price-subtext">Based on volume & features</div>
+            <div class="price-range" data-i18n="services.cards.twitter.pricing">$399 - $2,999/month</div>
+            <div class="price-subtext" data-i18n="services.cards.twitter.pricingSubtext">Based on volume & features</div>
           </div>
 
           <ul class="service-highlights">
@@ -1142,14 +1226,14 @@
           </ul>
 
           <div class="service-agents">
-            <strong>Agents:</strong> VIBE, COPY, PULSE
+            <strong data-i18n="services.cards.socialMedia.agents">Agents:</strong> VIBE, COPY, PULSE
           </div>
 
           <div class="service-actions">
-            <button class="btn btn-primary">Start Growing →</button>
+            <button class="btn btn-primary" data-i18n="services.cards.twitter.getStarted">Start Growing →</button>
           </div>
 
-          <div class="service-trust-line">
+          <div class="service-trust-line" data-i18n="services.cards.twitter.trust">
             ⏱️ Launch tomorrow | ⭐ Perfect for crypto projects | 💎 Pay in $HYPE for 30% discount
           </div>
         </div>
@@ -1157,13 +1241,13 @@
         <!-- PRIORITY 3: LinkedIn Automation -->
         <div class="glass-card" data-audience="business">
           <div class="service-icon">💼</div>
-          <h3 class="service-title">LinkedIn Professional</h3>
-          <p class="service-description">
+          <h3 class="service-title" data-i18n="services.cards.linkedin.title">LinkedIn Professional</h3>
+          <p class="service-description" data-i18n="services.cards.linkedin.description">
             B2B positioning, thought leadership, lead generation through automated LinkedIn posting and engagement.
           </p>
 
           <div class="service-pricing-simple">
-            <div class="price-range">$499 - $4,999/month</div>
+            <div class="price-range" data-i18n="services.cards.linkedin.pricing">$499 - $4,999/month</div>
           </div>
 
           <ul class="service-highlights">
@@ -1173,20 +1257,20 @@
             <li>✅ 5-100 qualified leads/month</li>
           </ul>
 
-          <button class="btn btn-outline btn-sm">Learn More →</button>
+          <button class="btn btn-outline btn-sm" data-i18n="services.cards.linkedin.learnMore">Learn More →</button>
         </div>
 
         <!-- Resume/CV Services -->
         <div class="glass-card" data-audience="individuals">
           <div class="service-icon">📄</div>
-          <h3 class="service-title">Professional Resume & CV</h3>
-          <p class="service-description">
+          <h3 class="service-title" data-i18n="services.cards.resume.title">Professional Resume & CV</h3>
+          <p class="service-description" data-i18n="services.cards.resume.description">
             ATS-optimized resumes, cover letters, LinkedIn profiles. Get hired faster with professional presentation.
           </p>
 
           <div class="service-pricing-simple">
-            <div class="price-range">$49 - $199</div>
-            <div class="price-subtext">One-time</div>
+            <div class="price-range" data-i18n="services.cards.resume.pricing">$49 - $199</div>
+            <div class="price-subtext" data-i18n="services.cards.resume.pricingSubtext">One-time</div>
           </div>
 
           <ul class="service-highlights">
@@ -1196,19 +1280,19 @@
             <li>✅ Cover letter included</li>
           </ul>
 
-          <button class="btn btn-outline btn-sm">Get Started →</button>
+          <button class="btn btn-outline btn-sm" data-i18n="services.cards.resume.getStarted">Get Started →</button>
         </div>
 
         <!-- Web Development -->
         <div class="glass-card" data-audience="business individuals">
           <div class="service-icon">🌐</div>
-          <h3 class="service-title">Web Development</h3>
-          <p class="service-description">
+          <h3 class="service-title" data-i18n="services.cards.webDev.title">Web Development</h3>
+          <p class="service-description" data-i18n="services.cards.webDev.description">
             Landing pages, portfolios, e-commerce sites, full web applications. Modern, fast, mobile-responsive.
           </p>
 
           <div class="service-pricing-simple">
-            <div class="price-range">$299 - $9,999</div>
+            <div class="price-range" data-i18n="services.cards.webDev.pricing">$299 - $9,999</div>
           </div>
 
           <ul class="service-highlights">
@@ -1218,19 +1302,19 @@
             <li>✅ CMS integration</li>
           </ul>
 
-          <button class="btn btn-outline btn-sm">View Portfolio →</button>
+          <button class="btn btn-outline btn-sm" data-i18n="services.cards.webDev.button">View Portfolio →</button>
         </div>
 
         <!-- Content Creation -->
         <div class="glass-card" data-audience="business individuals">
           <div class="service-icon">✍️</div>
-          <h3 class="service-title">AI Content Creation</h3>
-          <p class="service-description">
+          <h3 class="service-title" data-i18n="services.cards.content.title">AI Content Creation</h3>
+          <p class="service-description" data-i18n="services.cards.content.description">
             Blog posts, articles, social media content, video scripts. SEO-optimized, engaging, ready to publish.
           </p>
 
           <div class="service-pricing-simple">
-            <div class="price-range">$49 - $999/month</div>
+            <div class="price-range" data-i18n="services.cards.content.pricing">$49 - $999/month</div>
           </div>
 
           <ul class="service-highlights">
@@ -1240,19 +1324,19 @@
             <li>✅ Fast turnaround</li>
           </ul>
 
-          <button class="btn btn-outline btn-sm">Order Content →</button>
+          <button class="btn btn-outline btn-sm" data-i18n="services.cards.content.button">Order Content →</button>
         </div>
 
         <!-- Business Plans -->
         <div class="glass-card" data-audience="business individuals">
           <div class="service-icon">📊</div>
-          <h3 class="service-title">Business Plans & Strategy</h3>
-          <p class="service-description">
+          <h3 class="service-title" data-i18n="services.cards.businessPlans.title">Business Plans & Strategy</h3>
+          <p class="service-description" data-i18n="services.cards.businessPlans.description">
             Investor-ready business plans, market research, financial projections, strategic consulting.
           </p>
 
           <div class="service-pricing-simple">
-            <div class="price-range">$399 - $15,000</div>
+            <div class="price-range" data-i18n="services.cards.businessPlans.pricing">$399 - $15,000</div>
           </div>
 
           <ul class="service-highlights">
@@ -1262,20 +1346,20 @@
             <li>✅ Expert review</li>
           </ul>
 
-          <button class="btn btn-outline btn-sm">Get Started →</button>
+          <button class="btn btn-outline btn-sm" data-i18n="services.cards.businessPlans.getStarted">Get Started →</button>
         </div>
 
         <!-- Crypto/Web3 Specialist -->
         <div class="glass-card" data-audience="crypto">
-          <div class="featured-badge">₿ Our Specialty</div>
+          <div class="featured-badge" data-i18n="services.cards.crypto.badge">₿ Our Specialty</div>
           <div class="service-icon">🔗</div>
-          <h3 class="service-title">Crypto/Web3 Marketing</h3>
-          <p class="service-description">
+          <h3 class="service-title" data-i18n="services.cards.crypto.title">Crypto/Web3 Marketing</h3>
+          <p class="service-description" data-i18n="services.cards.crypto.description">
             Twitter, Discord, Telegram management, community building, influencer outreach, token launch support.
           </p>
 
           <div class="service-pricing-simple">
-            <div class="price-range">$1,999 - $7,999/month</div>
+            <div class="price-range" data-i18n="services.cards.crypto.pricing">$1,999 - $7,999/month</div>
           </div>
 
           <ul class="service-highlights">
@@ -1285,19 +1369,19 @@
             <li>✅ Influencer campaigns</li>
           </ul>
 
-          <button class="btn btn-primary btn-sm">Launch Campaign →</button>
+          <button class="btn btn-primary btn-sm" data-i18n="services.cards.crypto.button">Launch Campaign →</button>
         </div>
 
         <!-- Graphic Design -->
         <div class="glass-card" data-audience="business individuals">
           <div class="service-icon">🎨</div>
-          <h3 class="service-title">Graphic Design</h3>
-          <p class="service-description">
+          <h3 class="service-title" data-i18n="services.cards.design.title">Graphic Design</h3>
+          <p class="service-description" data-i18n="services.cards.design.description">
             Logos, social media graphics, banners, infographics, brand identity kits.
           </p>
 
           <div class="service-pricing-simple">
-            <div class="price-range">$99 - $1,999</div>
+            <div class="price-range" data-i18n="services.cards.design.pricing">$99 - $1,999</div>
           </div>
 
           <ul class="service-highlights">
@@ -1307,7 +1391,7 @@
             <li>✅ Commercial license</li>
           </ul>
 
-          <button class="btn btn-outline btn-sm">Order Design →</button>
+          <button class="btn btn-outline btn-sm" data-i18n="services.cards.design.button">Order Design →</button>
         </div>
 
       </div>
@@ -1318,45 +1402,45 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Advantages</div>
-        <h2 class="section-title">Why Choose HypeAI Services?</h2>
+        <div class="section-label" data-i18n="services.advantages.label">Advantages</div>
+        <h2 class="section-title" data-i18n="services.advantages.title">Why Choose HypeAI Services?</h2>
       </div>
 
       <div class="advantages-grid">
         <div class="advantage-card">
           <div class="advantage-icon">⚡</div>
-          <h3>3-10x Faster</h3>
-          <p>AI automation delivers professional results in hours, not weeks.</p>
+          <h3 data-i18n="services.advantages.faster.title">3-10x Faster</h3>
+          <p data-i18n="services.advantages.faster.description">AI automation delivers professional results in hours, not weeks.</p>
         </div>
 
         <div class="advantage-card">
           <div class="advantage-icon">💰</div>
-          <h3>60-80% Cheaper</h3>
-          <p>Same quality as agencies at a fraction of the cost thanks to AI efficiency.</p>
+          <h3 data-i18n="services.advantages.cheaper.title">60-80% Cheaper</h3>
+          <p data-i18n="services.advantages.cheaper.description">Same quality as agencies at a fraction of the cost thanks to AI efficiency.</p>
         </div>
 
         <div class="advantage-card">
           <div class="advantage-icon">🤖</div>
-          <h3>42 AI Agents</h3>
-          <p>Specialized agents for every task, working together seamlessly.</p>
+          <h3 data-i18n="services.advantages.agents.title">42 AI Agents</h3>
+          <p data-i18n="services.advantages.agents.description">Specialized agents for every task, working together seamlessly.</p>
         </div>
 
         <div class="advantage-card">
           <div class="advantage-icon">🔒</div>
-          <h3>Quality Guaranteed</h3>
-          <p>30-day money-back guarantee. If you're not satisfied, we refund 100%.</p>
+          <h3 data-i18n="services.advantages.quality.title">Quality Guaranteed</h3>
+          <p data-i18n="services.advantages.quality.description">30-day money-back guarantee. If you're not satisfied, we refund 100%.</p>
         </div>
 
         <div class="advantage-card">
           <div class="advantage-icon">💎</div>
-          <h3>Pay with $HYPE</h3>
-          <p>Get 15-30% discount when paying with HYPE tokens.</p>
+          <h3 data-i18n="services.advantages.payment.title">Pay with $HYPE</h3>
+          <p data-i18n="services.advantages.payment.description">Get 15-30% discount when paying with HYPE tokens.</p>
         </div>
 
         <div class="advantage-card">
           <div class="advantage-icon">📈</div>
-          <h3>New Launch</h3>
-          <p>Brand new professional services. Be among our first clients and get priority support!</p>
+          <h3 data-i18n="services.advantages.launch.title">New Launch</h3>
+          <p data-i18n="services.advantages.launch.description">Brand new professional services. Be among our first clients and get priority support!</p>
         </div>
       </div>
     </div>
@@ -1366,21 +1450,21 @@
   <section class="section">
     <div class="container">
       <div class="glass-card cta-card-large">
-        <h2 class="cta-title">Ready to Get Started?</h2>
-        <p class="cta-description">
+        <h2 class="cta-title" data-i18n="services.cta.title">Ready to Get Started?</h2>
+        <p class="cta-description" data-i18n="services.cta.description">
           Be among the first to experience AI-powered professional services at launch pricing
         </p>
 
         <div class="cta-buttons">
-          <button class="btn btn-primary btn-lg">
+          <button class="btn btn-primary btn-lg" data-i18n="services.cta.browse">
             Browse All Services →
           </button>
-          <button class="btn btn-secondary btn-lg">
+          <button class="btn btn-secondary btn-lg" data-i18n="services.cta.contact">
             Contact Sales Team
           </button>
         </div>
 
-        <div class="cta-trust-line">
+        <div class="cta-trust-line" data-i18n="services.cta.trust">
           ✅ 30-Day Money-Back Guarantee | 🚀 New Launch Pricing | 🔒 100% Secure | 💎 Pay with $HYPE for 30% discount
         </div>
       </div>
@@ -1393,39 +1477,40 @@
       <div class="footer-content">
         <div class="footer-section">
           <h4>HypeAI</h4>
-          <p>Professional AI services for everyone.</p>
+          <p data-i18n="services.footer.about">Professional AI services for everyone.</p>
         </div>
 
         <div class="footer-section">
-          <h4>Services</h4>
-          <a href="#" class="footer-link">Social Media</a>
-          <a href="#" class="footer-link">Web Development</a>
-          <a href="#" class="footer-link">Content Creation</a>
-          <a href="#" class="footer-link">Business Consulting</a>
+          <h4 data-i18n="services.footer.servicesTitle">Services</h4>
+          <a href="#" class="footer-link" data-i18n="services.footer.socialMedia">Social Media</a>
+          <a href="#" class="footer-link" data-i18n="services.footer.webDev">Web Development</a>
+          <a href="#" class="footer-link" data-i18n="services.footer.contentCreation">Content Creation</a>
+          <a href="#" class="footer-link" data-i18n="services.footer.businessConsulting">Business Consulting</a>
         </div>
 
         <div class="footer-section">
-          <h4>Company</h4>
-          <a href="index.html#about" class="footer-link">About</a>
-          <a href="index.html#roadmap" class="footer-link">Roadmap</a>
-          <a href="index.html#contact" class="footer-link">Contact</a>
+          <h4 data-i18n="services.footer.companyTitle">Company</h4>
+          <a href="index.html#about" class="footer-link" data-i18n="services.footer.about">About</a>
+          <a href="index.html#roadmap" class="footer-link" data-i18n="services.footer.roadmap">Roadmap</a>
+          <a href="index.html#contact" class="footer-link" data-i18n="services.footer.contact">Contact</a>
         </div>
 
         <div class="footer-section">
-          <h4>Connect</h4>
-          <a href="#" class="footer-link">Twitter</a>
-          <a href="#" class="footer-link">Telegram</a>
-          <a href="#" class="footer-link">Discord</a>
+          <h4 data-i18n="services.footer.connectTitle">Connect</h4>
+          <a href="#" class="footer-link" data-i18n="services.footer.twitter">Twitter</a>
+          <a href="#" class="footer-link" data-i18n="services.footer.telegram">Telegram</a>
+          <a href="#" class="footer-link" data-i18n="services.footer.discord">Discord</a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2025 HypeAI. All rights reserved.</p>
+        <p data-i18n="services.footer.copyright">&copy; 2025 HypeAI. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
+  <script src="js/i18n.js"></script>
   <script src="js/services.js"></script>
 
   <script>
