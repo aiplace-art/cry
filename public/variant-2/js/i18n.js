@@ -1066,10 +1066,10 @@ class I18n {
   }
 
   updateButtonState() {
-    // Update dropdown button with emoji
+    // Update dropdown button
     const langBtn = document.getElementById('langBtn');
     if (langBtn) {
-      langBtn.textContent = this.currentLang.toUpperCase() + ' 🌐';
+      langBtn.textContent = this.currentLang.toUpperCase();
     }
 
     const enOption = document.getElementById('langEn');
