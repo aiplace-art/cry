@@ -14,7 +14,7 @@ const translations = {
     // Hero Section
     hero_title_1: "Where AI Meets",
     hero_title_2: "Opportunity",
-    hero_description: "AI-powered crypto platform with 42 professional AI agents. AI Services, Token Economics, and 85% prediction accuracy. Stake for up to 62% APY.",
+    hero_description: "Need marketing? Code? Design? Analytics? 42 AI agents do it 24/7. World's first AI corporation owned by token holders. Welcome to the era where AI works instead of people — you just own part of the empire.",
     hero_cta_explore: "View AI Agents →",
     hero_cta_tokenomics: "Learn More",
 
@@ -337,7 +337,7 @@ const translations = {
     // Главная секция
     hero_title_1: "Где AI встречает",
     hero_title_2: "Возможности",
-    hero_description: "AI-платформа с 42 профессиональными AI агентами. AI услуги, токен-экономика и точность прогнозов 85%. Стейкинг до 62% APY.",
+    hero_description: "Нужен маркетинг? Код? Дизайн? Аналитика? 42 AI агента делают это круглосуточно. Первая в мире AI-корпорация, принадлежащая токенхолдерам. Добро пожаловать в эру, где AI работает вместо людей — ты просто владеешь частью империи.",
     hero_cta_explore: "Смотреть AI агентов →",
     hero_cta_tokenomics: "Узнать больше",
 
