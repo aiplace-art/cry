@@ -1,7 +1,7 @@
 /**
- * Mobile Navigation Handler
- * Hamburger menu and mobile navigation functionality
- * @version 1.0.0
+ * Mobile Navigation - Perfect iOS Experience
+ * Hamburger menu with smooth animations and accessibility
+ * @version 2.0 - Complete Rewrite
  */
 
 (function() {
@@ -16,6 +16,8 @@
       this.hamburger = null;
       this.overlay = null;
       this.body = document.body;
+      this.focusableElements = [];
+      this.lastFocusedElement = null;
 
       this.init();
     }
@@ -24,107 +26,146 @@
      * Initialize mobile navigation
      */
     init() {
-      // Create hamburger button
-      this.createHamburgerButton();
+      // Wait for DOM to be ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => this.setup());
+      } else {
+        this.setup();
+      }
+    }
 
-      // Create mobile overlay
-      this.createMobileOverlay();
-
-      // Setup event listeners
+    /**
+     * Setup navigation elements
+     */
+    setup() {
+      this.createHamburger();
+      this.createOverlay();
       this.setupEventListeners();
+      this.setupViewportFix();
 
       console.log('✅ Mobile navigation initialized');
     }
 
     /**
-     * Create hamburger menu button
+     * Create hamburger button
      */
-    createHamburgerButton() {
-      // Find header nav actions container
-      const headerActions = document.querySelector('.header-content .nav') ||
-                           document.querySelector('.nav-actions') ||
-                           document.querySelector('.header-content');
+    createHamburger() {
+      // Find header
+      const header = document.querySelector('.header-content') ||
+                     document.querySelector('.header');
 
-      if (!headerActions) {
-        console.warn('Header nav not found');
+      if (!header) {
+        console.warn('⚠️ Header not found');
         return;
       }
 
-      // Create hamburger button
+      // Create hamburger
       this.hamburger = document.createElement('button');
       this.hamburger.className = 'hamburger';
+      this.hamburger.setAttribute('type', 'button');
       this.hamburger.setAttribute('aria-label', 'Toggle navigation menu');
       this.hamburger.setAttribute('aria-expanded', 'false');
+      this.hamburger.setAttribute('aria-controls', 'mobile-nav-overlay');
+
       this.hamburger.innerHTML = `
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       `;
 
-      // Insert hamburger before or after nav
-      const insertionPoint = headerActions.parentElement;
-      if (insertionPoint) {
-        insertionPoint.appendChild(this.hamburger);
+      // Create header actions container if needed
+      let headerActions = header.querySelector('.header-actions');
+      if (!headerActions) {
+        headerActions = document.createElement('div');
+        headerActions.className = 'header-actions';
+        header.appendChild(headerActions);
       }
+
+      // Insert hamburger
+      headerActions.appendChild(this.hamburger);
     }
 
     /**
-     * Create mobile navigation overlay
+     * Create mobile overlay
      */
-    createMobileOverlay() {
-      // Find existing nav
-      const desktopNav = document.querySelector('.nav') ||
-                        document.querySelector('.nav-list')?.parentElement;
-
-      if (!desktopNav) {
-        console.warn('Desktop nav not found');
-        return;
-      }
-
-      // Clone nav links
-      const navList = desktopNav.querySelector('.nav-list');
-      const clonedNavList = navList ? navList.cloneNode(true) : null;
-
-      // Clone language switcher
+    createOverlay() {
+      // Get navigation elements
+      const desktopNav = document.querySelector('.nav');
       const langSwitcher = document.querySelector('.language-switcher');
-      const clonedLangSwitcher = langSwitcher ? langSwitcher.cloneNode(true) : null;
-
-      // Clone CTA button
       const ctaButton = document.querySelector('.btn-primary');
-      const clonedCTA = ctaButton ? ctaButton.cloneNode(true) : null;
 
       // Create overlay
       this.overlay = document.createElement('div');
+      this.overlay.id = 'mobile-nav-overlay';
       this.overlay.className = 'mobile-nav-overlay';
       this.overlay.setAttribute('aria-hidden', 'true');
+      this.overlay.setAttribute('role', 'dialog');
+      this.overlay.setAttribute('aria-modal', 'true');
 
-      // Build overlay content
-      const overlayContent = document.createElement('div');
-      overlayContent.className = 'mobile-nav-content';
+      // Create content container
+      const content = document.createElement('div');
+      content.className = 'mobile-nav-content';
 
-      if (clonedNavList) {
-        overlayContent.appendChild(clonedNavList);
+      // Clone and add navigation
+      if (desktopNav) {
+        const navList = desktopNav.querySelector('.nav-list');
+        if (navList) {
+          const clonedNav = navList.cloneNode(true);
+          // Remove any existing event listeners by cloning
+          content.appendChild(clonedNav);
+        }
       }
 
-      if (clonedLangSwitcher) {
-        overlayContent.appendChild(clonedLangSwitcher);
+      // Clone and add language switcher
+      if (langSwitcher) {
+        const clonedLang = langSwitcher.cloneNode(true);
+        // Re-initialize language switcher for clone
+        this.initLanguageSwitcher(clonedLang);
+        content.appendChild(clonedLang);
       }
 
-      if (clonedCTA) {
-        overlayContent.appendChild(clonedCTA);
+      // Clone and add CTA
+      if (ctaButton) {
+        const clonedCTA = ctaButton.cloneNode(true);
+        clonedCTA.setAttribute('tabindex', '0');
+        content.appendChild(clonedCTA);
       }
 
-      this.overlay.appendChild(overlayContent);
-
-      // Append to body
+      this.overlay.appendChild(content);
       this.body.appendChild(this.overlay);
+    }
+
+    /**
+     * Initialize language switcher in overlay
+     */
+    initLanguageSwitcher(switcher) {
+      const btn = switcher.querySelector('.lang-btn');
+      const dropdown = switcher.querySelector('.lang-dropdown');
+
+      if (!btn || !dropdown) return;
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('active');
+        const isExpanded = dropdown.classList.contains('active');
+        btn.setAttribute('aria-expanded', isExpanded);
+      });
+
+      // Close dropdown when option selected
+      const options = dropdown.querySelectorAll('.lang-option');
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          dropdown.classList.remove('active');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
     }
 
     /**
      * Setup event listeners
      */
     setupEventListeners() {
-      if (!this.hamburger) return;
+      if (!this.hamburger || !this.overlay) return;
 
       // Hamburger click
       this.hamburger.addEventListener('click', (e) => {
@@ -132,24 +173,23 @@
         this.toggle();
       });
 
-      // Overlay links click - close menu
-      if (this.overlay) {
-        const overlayLinks = this.overlay.querySelectorAll('a');
-        overlayLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            this.close();
-          });
+      // Overlay link clicks - close menu
+      const links = this.overlay.querySelectorAll('a, .btn');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          // Small delay for visual feedback
+          setTimeout(() => this.close(), 100);
         });
-      }
+      });
 
-      // ESC key to close
+      // ESC key
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && this.isOpen) {
           this.close();
         }
       });
 
-      // Click outside to close
+      // Click outside overlay
       document.addEventListener('click', (e) => {
         if (this.isOpen &&
             !this.overlay.contains(e.target) &&
@@ -158,20 +198,33 @@
         }
       });
 
+      // Prevent clicks inside overlay from closing
+      this.overlay.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+
       // Window resize - close on desktop
-      let resizeTimer;
+      let resizeTimeout;
       window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
           if (window.innerWidth > 768 && this.isOpen) {
             this.close();
           }
         }, 250);
       });
+
+      // Orientation change
+      window.addEventListener('orientationchange', () => {
+        if (this.isOpen) {
+          // Recalculate viewport on orientation change
+          setTimeout(() => this.setupViewportFix(), 300);
+        }
+      });
     }
 
     /**
-     * Toggle menu open/close
+     * Toggle menu
      */
     toggle() {
       if (this.isOpen) {
@@ -185,13 +238,18 @@
      * Open menu
      */
     open() {
+      // Store last focused element
+      this.lastFocusedElement = document.activeElement;
+
       this.isOpen = true;
 
+      // Update hamburger
       if (this.hamburger) {
         this.hamburger.classList.add('active');
         this.hamburger.setAttribute('aria-expanded', 'true');
       }
 
+      // Show overlay
       if (this.overlay) {
         this.overlay.classList.add('active');
         this.overlay.setAttribute('aria-hidden', 'false');
@@ -199,9 +257,15 @@
 
       // Prevent body scroll
       this.body.style.overflow = 'hidden';
+      this.body.style.position = 'fixed'; // iOS Safari fix
+      this.body.style.width = '100%';
+      this.body.style.top = `-${window.scrollY}px`;
 
       // Focus management
-      this.trapFocus();
+      this.setupFocusTrap();
+
+      // Announce to screen readers
+      this.announce('Navigation menu opened');
     }
 
     /**
@@ -210,45 +274,60 @@
     close() {
       this.isOpen = false;
 
+      // Update hamburger
       if (this.hamburger) {
         this.hamburger.classList.remove('active');
         this.hamburger.setAttribute('aria-expanded', 'false');
       }
 
+      // Hide overlay
       if (this.overlay) {
         this.overlay.classList.remove('active');
         this.overlay.setAttribute('aria-hidden', 'true');
       }
 
-      // Restore body scroll
+      // Restore scroll
+      const scrollY = Math.abs(parseInt(this.body.style.top || '0'));
       this.body.style.overflow = '';
+      this.body.style.position = '';
+      this.body.style.width = '';
+      this.body.style.top = '';
+      window.scrollTo(0, scrollY);
 
-      // Return focus to hamburger
-      if (this.hamburger) {
+      // Restore focus
+      if (this.lastFocusedElement) {
+        this.lastFocusedElement.focus();
+      } else if (this.hamburger) {
         this.hamburger.focus();
       }
+
+      // Announce to screen readers
+      this.announce('Navigation menu closed');
     }
 
     /**
-     * Trap focus within overlay when open
+     * Setup focus trap
      */
-    trapFocus() {
+    setupFocusTrap() {
       if (!this.overlay) return;
 
-      const focusableElements = this.overlay.querySelectorAll(
-        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      // Get focusable elements
+      this.focusableElements = Array.from(
+        this.overlay.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
       );
 
-      if (focusableElements.length === 0) return;
+      if (this.focusableElements.length === 0) return;
 
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
+      const firstElement = this.focusableElements[0];
+      const lastElement = this.focusableElements[this.focusableElements.length - 1];
 
       // Focus first element
-      firstElement.focus();
+      setTimeout(() => firstElement.focus(), 100);
 
-      // Handle tab navigation
-      this.overlay.addEventListener('keydown', (e) => {
+      // Trap focus
+      const trapFocus = (e) => {
         if (e.key !== 'Tab') return;
 
         if (e.shiftKey) {
@@ -264,46 +343,79 @@
             firstElement.focus();
           }
         }
+      };
+
+      // Add listener
+      this.overlay.addEventListener('keydown', trapFocus);
+
+      // Store for cleanup
+      this.overlay._trapFocus = trapFocus;
+    }
+
+    /**
+     * Setup viewport height fix for iOS
+     */
+    setupViewportFix() {
+      // Fix for iOS Safari 100vh issue
+      const setVH = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      };
+
+      setVH();
+      window.addEventListener('resize', setVH);
+      window.addEventListener('orientationchange', () => {
+        setTimeout(setVH, 300);
       });
+    }
+
+    /**
+     * Announce to screen readers
+     */
+    announce(message) {
+      const announcement = document.createElement('div');
+      announcement.setAttribute('role', 'status');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.className = 'sr-only';
+      announcement.textContent = message;
+      this.body.appendChild(announcement);
+
+      setTimeout(() => {
+        this.body.removeChild(announcement);
+      }, 1000);
     }
   }
 
   /**
-   * Mobile viewport height fix (iOS)
-   * Fixes 100vh issues on mobile browsers
+   * Mobile detection and device classes
    */
-  function setMobileVH() {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
+  function detectDevice() {
+    const ua = navigator.userAgent;
+    const html = document.documentElement;
 
-  /**
-   * Detect mobile browser
-   */
-  function detectMobile() {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      document.documentElement.classList.add('mobile-device');
+    // Detect mobile
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua)) {
+      html.classList.add('mobile-device');
     }
 
     // Detect iOS
-    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if (isIOS) {
-      document.documentElement.classList.add('ios-device');
+    if (/iPhone|iPad|iPod/i.test(ua)) {
+      html.classList.add('ios-device');
     }
 
     // Detect Android
-    const isAndroid = /Android/i.test(navigator.userAgent);
-    if (isAndroid) {
-      document.documentElement.classList.add('android-device');
+    if (/Android/i.test(ua)) {
+      html.classList.add('android-device');
     }
 
-    return isMobile;
+    // Detect standalone mode (PWA)
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      html.classList.add('standalone-mode');
+    }
   }
 
   /**
-   * Prevent zoom on double-tap (iOS)
+   * Prevent double-tap zoom on iOS
    */
   function preventDoubleTapZoom() {
     let lastTouchEnd = 0;
@@ -318,32 +430,58 @@
   }
 
   /**
-   * Initialize on DOM ready
+   * Add screen reader only styles
+   */
+  function addA11yStyles() {
+    if (!document.getElementById('mobile-a11y-styles')) {
+      const style = document.createElement('style');
+      style.id = 'mobile-a11y-styles';
+      style.textContent = `
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border-width: 0;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }
+
+  /**
+   * Initialize
    */
   function init() {
-    // Detect mobile
-    const isMobile = detectMobile();
+    // Detect device
+    detectDevice();
 
-    // Set mobile viewport height
-    setMobileVH();
-    window.addEventListener('resize', setMobileVH);
+    // Add accessibility styles
+    addA11yStyles();
 
     // Initialize mobile nav
     window.mobileNav = new MobileNav();
 
-    // Prevent double-tap zoom on iOS
-    if (isMobile) {
+    // Prevent double-tap zoom on mobile
+    if (document.documentElement.classList.contains('mobile-device')) {
       preventDoubleTapZoom();
     }
 
     console.log('✅ Mobile enhancements loaded');
   }
 
-  // Initialize when DOM is ready
+  // Initialize
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
+
+  // Expose for debugging
+  window.MobileNav = MobileNav;
 
 })();
