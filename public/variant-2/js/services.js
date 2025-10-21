@@ -465,45 +465,9 @@
   }
 
   /**
-   * Language Toggle Handler
+   * Language switching is now fully handled by i18n.js
+   * No separate LanguageToggle class needed
    */
-  class LanguageToggle {
-    constructor() {
-      this.langToggle = document.getElementById('lang-toggle');
-      this.currentLang = 'EN';
-
-      if (this.langToggle) {
-        this.init();
-      }
-    }
-
-    init() {
-      this.langToggle.addEventListener('click', () => {
-        this.toggleLanguage();
-      });
-    }
-
-    toggleLanguage() {
-      const currentLangElement = document.querySelector('.lang-current');
-
-      if (currentLangElement) {
-        this.currentLang = this.currentLang === 'EN' ? 'RU' : 'EN';
-        currentLangElement.textContent = this.currentLang;
-
-        console.log(`Language switched to: ${this.currentLang}`);
-
-        // Here you would typically load translations
-        // For now, just show a notification
-        if (window.servicesController) {
-          window.servicesController.showNotification(
-            '🌐 Language',
-            `Switched to ${this.currentLang}. Full translations coming soon!`,
-            'info'
-          );
-        }
-      }
-    }
-  }
 
   /**
    * Add required CSS animations dynamically
@@ -570,7 +534,7 @@
 
     // Initialize controllers
     window.servicesController = new ServicesController();
-    window.languageToggle = new LanguageToggle();
+    // Language switching handled by i18n.js
 
     console.log('✅ Services page fully loaded and interactive');
   }
