@@ -3,7 +3,7 @@
   "name": "hypeai-website",
   "buildCommand": "echo 'Using pre-built public/ folder from repository'",
   "installCommand": "echo 'No npm dependencies needed for static site'",
-  "outputDirectory": "public",
+  "outputDirectory": "public/variant-2",
   "cleanUrls": true,
   "public": true,
   "headers": [
