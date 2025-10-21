@@ -1076,7 +1076,7 @@
       <div class="featured-services-grid">
 
         <!-- PRIORITY 1: Social Media Automation -->
-        <div class="glass-card service-featured-card" data-audience="all">
+        <div class="glass-card" data-audience="all">
           <div class="featured-badge">🔥 Most Profitable</div>
           <div class="service-icon">📱</div>
           <h3 class="service-title">Social Media Automation</h3>
@@ -1121,7 +1121,7 @@
         </div>
 
         <!-- PRIORITY 2: Twitter/X Automation -->
-        <div class="glass-card service-featured-card" data-audience="business crypto">
+        <div class="glass-card" data-audience="business crypto">
           <div class="featured-badge">🚀 Quick Start</div>
           <div class="service-icon">🐦</div>
           <h3 class="service-title">Twitter/X Growth Package</h3>
@@ -1155,7 +1155,7 @@
         </div>
 
         <!-- PRIORITY 3: LinkedIn Automation -->
-        <div class="glass-card service-card" data-audience="business">
+        <div class="glass-card" data-audience="business">
           <div class="service-icon">💼</div>
           <h3 class="service-title">LinkedIn Professional</h3>
           <p class="service-description">
@@ -1177,7 +1177,7 @@
         </div>
 
         <!-- Resume/CV Services -->
-        <div class="glass-card service-card" data-audience="individuals">
+        <div class="glass-card" data-audience="individuals">
           <div class="service-icon">📄</div>
           <h3 class="service-title">Professional Resume & CV</h3>
           <p class="service-description">
@@ -1200,7 +1200,7 @@
         </div>
 
         <!-- Web Development -->
-        <div class="glass-card service-card" data-audience="business individuals">
+        <div class="glass-card" data-audience="business individuals">
           <div class="service-icon">🌐</div>
           <h3 class="service-title">Web Development</h3>
           <p class="service-description">
@@ -1222,7 +1222,7 @@
         </div>
 
         <!-- Content Creation -->
-        <div class="glass-card service-card" data-audience="business individuals">
+        <div class="glass-card" data-audience="business individuals">
           <div class="service-icon">✍️</div>
           <h3 class="service-title">AI Content Creation</h3>
           <p class="service-description">
@@ -1244,7 +1244,7 @@
         </div>
 
         <!-- Business Plans -->
-        <div class="glass-card service-card" data-audience="business individuals">
+        <div class="glass-card" data-audience="business individuals">
           <div class="service-icon">📊</div>
           <h3 class="service-title">Business Plans & Strategy</h3>
           <p class="service-description">
@@ -1266,7 +1266,7 @@
         </div>
 
         <!-- Crypto/Web3 Specialist -->
-        <div class="glass-card service-card" data-audience="crypto">
+        <div class="glass-card" data-audience="crypto">
           <div class="featured-badge">₿ Our Specialty</div>
           <div class="service-icon">🔗</div>
           <h3 class="service-title">Crypto/Web3 Marketing</h3>
@@ -1289,7 +1289,7 @@
         </div>
 
         <!-- Graphic Design -->
-        <div class="glass-card service-card" data-audience="business individuals">
+        <div class="glass-card" data-audience="business individuals">
           <div class="service-icon">🎨</div>
           <h3 class="service-title">Graphic Design</h3>
           <p class="service-description">
@@ -1471,7 +1471,8 @@
 
         // Filter cards
         cards.forEach(card => {
-          if (filter === 'all' || card.dataset.audience.includes(filter)) {
+          const audiences = card.dataset.audience.split(' ');
+          if (filter === 'all' || audiences.includes(filter)) {
             card.style.display = 'block';
           } else {
             card.style.display = 'none';
