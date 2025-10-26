@@ -40,8 +40,8 @@ const HYPEAI_KNOWLEDGE = {
 
   // AI Агенты
   agents: {
-    count: 15,
-    description: "15 специализированных AI агентов для различных задач",
+    count: 27,
+    description: "27 AI агентов работают 24/7 для различных задач",
     types: [
       {
         name: "Market Analyst",
@@ -134,7 +134,7 @@ const HYPEAI_KNOWLEDGE = {
   features: {
     aiPowered: {
       title: "AI-Powered Trading",
-      description: "Умная торговля с использованием 15 AI агентов",
+      description: "Умная торговля с использованием 27 AI агентов",
       benefits: [
         "Автоматический анализ рынка 24/7",
         "Предсказание трендов с точностью 85%+",

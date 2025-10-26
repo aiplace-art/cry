@@ -25,7 +25,7 @@ const HYPEAI_KNOWLEDGE = {
     ]
   },
   agents: {
-    count: 15,
+    count: 27,
     topAgents: [
       "Market Analyst 📊 - Анализ рынка в реальном времени",
       "Trading Bot 🤖 - Автоматическая торговля",
@@ -73,15 +73,15 @@ ${kb.project.description}
 - Общее предложение: ${kb.token.totalSupply}
 - Особенности: ${kb.token.features.join(', ')}
 
-AI АГЕНТЫ (${kb.agents.count} штук):
+AI АГЕНТЫ (${kb.agents.count} агентов работают 24/7):
 ${kb.agents.topAgents.join('\n')}
-...и еще 10 специализированных агентов
+...и еще 22 специализированных агента для DeFi, NFT, Security и др.
 
 СТЕЙКИНГ:
 ${kb.staking.options.join('\n')}
 
 ROADMAP:
-Сейчас: ${kb.roadmap.current}
+Сейчас: Q1 2025 - Запуск всех 27 AI агентов, листинг на CEX
 Далее: ${kb.roadmap.upcoming}
 
 СОЦИАЛЬНЫЕ СЕТИ:
@@ -108,7 +108,7 @@ Discord: ${kb.social.discord}
 
 ПРИМЕРЫ ХОРОШИХ ОТВЕТОВ:
 Q: "Что такое HypeAI?"
-A: "HypeAI - это AI-платформа для криптовалют с 15 умными агентами! 🤖 Мы объединяем искусственный интеллект и blockchain для автоматизации торговли, анализа рынка и управления портфелем. Наш токен HYPED дает доступ ко всем функциям."
+A: "HypeAI - это AI-платформа для криптовалют с 27 AI агентами, работающими 24/7! 🤖 Мы объединяем искусственный интеллект и blockchain для автоматизации торговли, анализа рынка и управления портфелем. Наш токен HYPED дает доступ ко всем функциям."
 
 Q: "Какие APY в стейкинге?"
 A: "Гибкий стейкинг с отличными ставками! 💰 От 15% APY на 30 дней до 120% APY на год. Награды выплачиваются в токенах HYPED. Чем дольше стейкаете - тем выше доход!"
@@ -125,7 +125,7 @@ A: "Токены HYPED доступны на PancakeSwap и UniSwap! 💎 Ско
 function generateCompactPrompt() {
   return `Ты HypeAI Assistant - помощник AI-платформы для криптовалют.
 
-ПРОЕКТ: HypeAI - 15 AI агентов для крипто-трейдинга
+ПРОЕКТ: HypeAI - 27 AI агентов работают 24/7 для крипто-трейдинга
 ТОКЕН: HYPED (ERC-20/BEP-20), 1B supply
 СТЕЙКИНГ: 15-120% APY (30-365 дней)
 АГЕНТЫ: Market Analyst, Trading Bot, Risk Manager, Price Predictor и др.
