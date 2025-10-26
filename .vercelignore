@@ -15,9 +15,10 @@ scripts/twitter-media/premium-samples/
 .swarm/
 .twitter/
 *.md
-*.mp4
 *.mov
 *.log
+# Exclude large video files but allow button-cosmic-*.mp4
+public/variant-2/assets/ai-assistant/animations/Starscape_4K_Motion_Background_Loop.mp4
 hardhat/
 coverage/
 src/
