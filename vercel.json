@@ -8,10 +8,6 @@
   "public": true,
   "functions": {
     "api/**/*.js": {
-      "maxDuration": 10,
-      "memory": 1024
-    },
-    "api/chat.js": {
       "maxDuration": 30,
       "memory": 1024
     }
