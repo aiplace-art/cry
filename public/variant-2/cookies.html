@@ -67,9 +67,11 @@
         <nav class="toc-list">
           <a href="#what-are-cookies" class="toc-link">1. What Are Cookies?</a>
           <a href="#types" class="toc-link">2. Types of Cookies We Use</a>
-          <a href="#manage" class="toc-link">3. Managing Cookies</a>
-          <a href="#third-party" class="toc-link">4. Third-Party Cookies</a>
-          <a href="#contact" class="toc-link">5. Contact Us</a>
+          <a href="#tracking-tech" class="toc-link">3. Other Tracking Technologies</a>
+          <a href="#manage" class="toc-link">4. Managing Cookies</a>
+          <a href="#third-party-opt-out" class="toc-link">5. Third-Party Cookie Opt-Out</a>
+          <a href="#third-party" class="toc-link">6. Third-Party Cookies</a>
+          <a href="#contact" class="toc-link">7. Contact Us</a>
         </nav>
       </div>
 
@@ -81,7 +83,7 @@
 
         <section id="types" class="legal-section">
           <h2 class="section-title">Types of Cookies We Use</h2>
-          
+
           <h3 class="subsection-title">Essential Cookies</h3>
           <p>Required for the platform to function properly:</p>
           <ul class="legal-list">
@@ -113,22 +115,309 @@
             <li>Social media pixels (Twitter, Facebook)</li>
             <li>Referral tracking</li>
           </ul>
+
+          <h3 class="subsection-title">Detailed Cookie Information</h3>
+          <p>Below is a comprehensive list of cookies used on HypeAI, including their type, duration, and provider:</p>
+
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Cookie Name</th>
+                <th>Type</th>
+                <th>Duration</th>
+                <th>Provider</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>hypeai_session</code></td>
+                <td>Essential</td>
+                <td>Session</td>
+                <td>HypeAI</td>
+                <td>Maintains user session and authentication state</td>
+              </tr>
+              <tr>
+                <td><code>hypeai_wallet</code></td>
+                <td>Essential</td>
+                <td>7 days</td>
+                <td>HypeAI</td>
+                <td>Remembers connected Web3 wallet address</td>
+              </tr>
+              <tr>
+                <td><code>hypeai_security</code></td>
+                <td>Essential</td>
+                <td>Session</td>
+                <td>HypeAI</td>
+                <td>CSRF protection and security tokens</td>
+              </tr>
+              <tr>
+                <td><code>hypeai_prefs</code></td>
+                <td>Preference</td>
+                <td>1 year</td>
+                <td>HypeAI</td>
+                <td>Stores user preferences (language, theme, currency)</td>
+              </tr>
+              <tr>
+                <td><code>_ga</code></td>
+                <td>Analytics</td>
+                <td>2 years</td>
+                <td>Google Analytics</td>
+                <td>Distinguishes unique users and tracks sessions</td>
+              </tr>
+              <tr>
+                <td><code>_gid</code></td>
+                <td>Analytics</td>
+                <td>24 hours</td>
+                <td>Google Analytics</td>
+                <td>Distinguishes users for analytics</td>
+              </tr>
+              <tr>
+                <td><code>_gat</code></td>
+                <td>Analytics</td>
+                <td>1 minute</td>
+                <td>Google Analytics</td>
+                <td>Throttles request rate to Google Analytics</td>
+              </tr>
+              <tr>
+                <td><code>mp_*</code></td>
+                <td>Analytics</td>
+                <td>1 year</td>
+                <td>Mixpanel</td>
+                <td>Tracks feature engagement and user behavior</td>
+              </tr>
+              <tr>
+                <td><code>_hjid</code></td>
+                <td>Analytics</td>
+                <td>1 year</td>
+                <td>Hotjar</td>
+                <td>User behavior tracking and heatmap generation</td>
+              </tr>
+              <tr>
+                <td><code>_gcl_au</code></td>
+                <td>Marketing</td>
+                <td>90 days</td>
+                <td>Google Ads</td>
+                <td>Tracks ad conversions and campaign effectiveness</td>
+              </tr>
+              <tr>
+                <td><code>_fbp</code></td>
+                <td>Marketing</td>
+                <td>90 days</td>
+                <td>Facebook</td>
+                <td>Facebook Pixel for ad targeting and conversion tracking</td>
+              </tr>
+              <tr>
+                <td><code>_twitter_sess</code></td>
+                <td>Marketing</td>
+                <td>Session</td>
+                <td>Twitter</td>
+                <td>Twitter analytics and conversion tracking</td>
+              </tr>
+              <tr>
+                <td><code>hypeai_referral</code></td>
+                <td>Marketing</td>
+                <td>30 days</td>
+                <td>HypeAI</td>
+                <td>Tracks referral sources and affiliate campaigns</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="tracking-tech" class="legal-section">
+          <h2 class="section-title">Other Tracking Technologies</h2>
+          <p>In addition to cookies, HypeAI uses other tracking technologies to provide a seamless experience:</p>
+
+          <h3 class="subsection-title">Local Storage</h3>
+          <p>Browser local storage is used to persist user preferences and settings locally on your device. Unlike cookies, this data is not transmitted to our servers with every request.</p>
+          <ul class="legal-list">
+            <li><strong>Purpose:</strong> Store language preferences, theme settings, and UI state</li>
+            <li><strong>Duration:</strong> Persists until manually cleared</li>
+            <li><strong>Control:</strong> Can be cleared through browser settings or our cookie manager</li>
+          </ul>
+
+          <h3 class="subsection-title">Session Storage</h3>
+          <p>Temporary storage that expires when you close your browser tab or window.</p>
+          <ul class="legal-list">
+            <li><strong>Purpose:</strong> Maintain temporary state during your session</li>
+            <li><strong>Duration:</strong> Session only (cleared when tab closes)</li>
+            <li><strong>Use cases:</strong> Form data, navigation state, temporary calculations</li>
+          </ul>
+
+          <h3 class="subsection-title">Web3 Wallet Signatures</h3>
+          <p>When you connect your Web3 wallet, we may request cryptographic signatures for authentication purposes.</p>
+          <ul class="legal-list">
+            <li><strong>Purpose:</strong> Verify wallet ownership and authenticate transactions</li>
+            <li><strong>Security:</strong> Signatures are cryptographically secure and cannot be forged</li>
+            <li><strong>Privacy:</strong> No private keys are ever transmitted or stored</li>
+          </ul>
+
+          <h3 class="subsection-title">Pixels & Beacons</h3>
+          <p>Small transparent images embedded in emails and web pages to track engagement.</p>
+          <ul class="legal-list">
+            <li><strong>Email tracking:</strong> Detect email opens and link clicks</li>
+            <li><strong>Ad impressions:</strong> Measure ad visibility and performance</li>
+            <li><strong>Conversion tracking:</strong> Track completed actions from marketing campaigns</li>
+          </ul>
+
+          <div class="info-box info-box-info">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#00E5FF" stroke-width="2"/>
+            </svg>
+            <p><strong>Your Control:</strong> All tracking technologies listed above are subject to the same consent controls as cookies. You can manage your preferences through our cookie consent manager or browser settings.</p>
+          </div>
         </section>
 
         <section id="manage" class="legal-section">
           <h2 class="section-title">Managing Cookies</h2>
-          <p>You can control cookies through:</p>
+
+          <h3 class="subsection-title">Granular Consent Controls</h3>
+          <p>HypeAI provides comprehensive cookie consent controls that give you full transparency and choice over which cookies are used. When you first visit our platform, you'll see our cookie consent banner with the following options:</p>
+
           <ul class="legal-list">
-            <li><strong>Cookie Banner:</strong> Accept or reject non-essential cookies</li>
-            <li><strong>Settings:</strong> <a href="settings.html" class="text-link">Manage preferences</a> in your account</li>
-            <li><strong>Browser:</strong> Disable cookies in browser settings</li>
+            <li><strong>Accept All:</strong> Consent to all cookies including analytics and marketing cookies for the full platform experience</li>
+            <li><strong>Reject Non-Essential:</strong> Only allow essential cookies required for platform functionality; analytics and marketing cookies will be blocked</li>
+            <li><strong>Customize Preferences:</strong> Choose specific cookie categories (Analytics, Preference, Marketing) individually to create a personalized experience</li>
           </ul>
+
+          <div class="info-box info-box-info">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#00E5FF" stroke-width="2"/>
+            </svg>
+            <p><strong>Change Anytime:</strong> You can modify your cookie preferences at any time by clicking the "Manage Cookie Preferences" button in the footer or accessing your account settings.</p>
+          </div>
+
+          <h3 class="subsection-title">Cookie Management Options</h3>
+          <p>You have multiple ways to control cookies on HypeAI:</p>
+          <ul class="legal-list">
+            <li><strong>Cookie Consent Manager:</strong> Use our built-in cookie manager to accept, reject, or customize cookie preferences at any time</li>
+            <li><strong>Account Settings:</strong> <a href="settings.html" class="text-link">Manage your preferences</a> in your account dashboard for persistent control across devices</li>
+            <li><strong>Browser Settings:</strong> Configure cookie settings directly in your browser (Chrome, Firefox, Safari, Edge) to block or delete cookies globally</li>
+            <li><strong>Browser Extensions:</strong> Install privacy-focused browser extensions like Privacy Badger or uBlock Origin for advanced tracking protection</li>
+          </ul>
+
+          <h3 class="subsection-title">What Happens When You Customize?</h3>
+          <p>Understanding the impact of your cookie choices:</p>
+
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Cookie Category</th>
+                <th>If Enabled</th>
+                <th>If Disabled</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Essential</strong></td>
+                <td>Full platform functionality, wallet connection, secure sessions</td>
+                <td>Platform may not function correctly (cannot be disabled)</td>
+              </tr>
+              <tr>
+                <td><strong>Analytics</strong></td>
+                <td>Help us improve the platform by understanding user behavior</td>
+                <td>No analytics tracking; you browse anonymously</td>
+              </tr>
+              <tr>
+                <td><strong>Preference</strong></td>
+                <td>Remembers your settings (language, theme, currency)</td>
+                <td>Need to reset preferences each visit</td>
+              </tr>
+              <tr>
+                <td><strong>Marketing</strong></td>
+                <td>See relevant ads and track referral rewards</td>
+                <td>Generic ads only; referral tracking disabled</td>
+              </tr>
+            </tbody>
+          </table>
+
           <div class="info-box info-box-warning">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#F0B90B" stroke-width="2"/>
             </svg>
-            <p>Disabling essential cookies may affect platform functionality.</p>
+            <p><strong>Important:</strong> Disabling essential cookies may prevent core platform features like wallet connection, transaction signing, and account authentication from working properly.</p>
           </div>
+        </section>
+
+        <section id="third-party-opt-out" class="legal-section">
+          <h2 class="section-title">Third-Party Cookie Opt-Out</h2>
+          <p>Many third-party services provide their own opt-out mechanisms. You can control tracking by these services independently of HypeAI:</p>
+
+          <h3 class="subsection-title">Analytics & Advertising Opt-Out Links</h3>
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Purpose</th>
+                <th>Opt-Out Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Google Analytics</strong></td>
+                <td>Website analytics and traffic measurement</td>
+                <td><a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="text-link">tools.google.com/dlpage/gaoptout</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google Ads</strong></td>
+                <td>Advertising and conversion tracking</td>
+                <td><a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" class="text-link">adssettings.google.com</a></td>
+              </tr>
+              <tr>
+                <td><strong>Facebook</strong></td>
+                <td>Social media advertising and pixels</td>
+                <td><a href="https://www.facebook.com/ads/preferences" target="_blank" rel="noopener noreferrer" class="text-link">facebook.com/ads/preferences</a></td>
+              </tr>
+              <tr>
+                <td><strong>Twitter</strong></td>
+                <td>Social media analytics and advertising</td>
+                <td><a href="https://twitter.com/settings/privacy" target="_blank" rel="noopener noreferrer" class="text-link">twitter.com/settings/privacy</a></td>
+              </tr>
+              <tr>
+                <td><strong>Mixpanel</strong></td>
+                <td>Product analytics and user engagement</td>
+                <td><a href="https://mixpanel.com/optout" target="_blank" rel="noopener noreferrer" class="text-link">mixpanel.com/optout</a></td>
+              </tr>
+              <tr>
+                <td><strong>Hotjar</strong></td>
+                <td>Behavior analytics and heatmaps</td>
+                <td><a href="https://www.hotjar.com/policies/do-not-track" target="_blank" rel="noopener noreferrer" class="text-link">hotjar.com/policies/do-not-track</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="subsection-title">Industry-Wide Opt-Out Platforms</h3>
+          <p>Use these resources to opt out of tracking across multiple advertising networks simultaneously:</p>
+          <ul class="legal-list">
+            <li><strong>Your Online Choices (EU):</strong> <a href="https://www.youronlinechoices.com" target="_blank" rel="noopener noreferrer" class="text-link">youronlinechoices.com</a> - Manage preferences for participating EU advertising companies</li>
+            <li><strong>Network Advertising Initiative (US):</strong> <a href="https://optout.networkadvertising.org" target="_blank" rel="noopener noreferrer" class="text-link">optout.networkadvertising.org</a> - Opt out of targeted advertising from NAI members</li>
+            <li><strong>Digital Advertising Alliance (US):</strong> <a href="https://optout.aboutads.info" target="_blank" rel="noopener noreferrer" class="text-link">optout.aboutads.info</a> - Control interest-based advertising from DAA members</li>
+            <li><strong>TRUSTe Preference Manager:</strong> <a href="https://preferences-mgr.truste.com" target="_blank" rel="noopener noreferrer" class="text-link">preferences-mgr.truste.com</a> - Manage tracking preferences for certified companies</li>
+          </ul>
+
+          <h3 class="subsection-title">Browser Do Not Track (DNT)</h3>
+          <p>Most modern browsers support the Do Not Track (DNT) signal that requests websites not track your browsing activity:</p>
+          <ul class="legal-list">
+            <li><strong>Chrome:</strong> Settings → Privacy and security → Cookies and other site data → Send a "Do Not Track" request</li>
+            <li><strong>Firefox:</strong> Settings → Privacy & Security → Send websites a "Do Not Track" signal</li>
+            <li><strong>Safari:</strong> Preferences → Privacy → Prevent cross-site tracking</li>
+            <li><strong>Edge:</strong> Settings → Privacy, search, and services → Send "Do Not Track" requests</li>
+          </ul>
+
+          <div class="info-box info-box-info">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#00E5FF" stroke-width="2"/>
+            </svg>
+            <p><strong>Note:</strong> HypeAI respects Do Not Track signals and will not load non-essential tracking scripts when DNT is enabled. However, DNT is not legally enforced and compliance varies across websites.</p>
+          </div>
+
+          <h3 class="subsection-title">Mobile App Tracking Controls</h3>
+          <p>If you use HypeAI through a mobile app, you can control tracking through device settings:</p>
+          <ul class="legal-list">
+            <li><strong>iOS:</strong> Settings → Privacy → Tracking → Disable "Allow Apps to Request to Track"</li>
+            <li><strong>Android:</strong> Settings → Google → Ads → Opt out of Ads Personalization</li>
+          </ul>
         </section>
 
         <section id="third-party" class="legal-section">
@@ -218,5 +507,20 @@
   </footer>
 
   <script src="js/mobile-menu.js"></script>
+
+  <!-- AI Assistant Widget -->
+  <link rel="stylesheet" href="/variant-2/css/ai-assistant.css">
+  <script src="/variant-2/js/ai-assistant.js"></script>
+  <script>
+    // Initialize AI Assistant
+    const aiAssistant = new HypeAIAssistant({
+      apiUrl: '/api/ai-assistant/chat',
+      language: 'en', // Auto-detect or user preference
+      welcomeMessage: 'Hi! 👋 I\'m your HypeAI Assistant. Ask me anything about our platform!',
+      position: 'bottom-right',
+      theme: 'cosmic-purple'
+    });
+  </script>
+
 </body>
 </html>

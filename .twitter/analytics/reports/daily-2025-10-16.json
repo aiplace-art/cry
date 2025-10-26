@@ -1,0 +1,63 @@
+{
+  "date": "2025-10-16",
+  "type": "daily",
+  "metrics": {
+    "followers": 1250,
+    "following": 342,
+    "totalTweets": 89,
+    "growth": {
+      "daily": 0
+    }
+  },
+  "engagement": {
+    "averageRate": "1.92",
+    "totalTweets": 20,
+    "topPerformer": {
+      "id": "demo-11",
+      "text": "Demo tweet 11 #HypeAI #Solana #AI",
+      "created_at": "2025-10-05T15:16:29.322Z",
+      "likes": 7,
+      "retweets": 20,
+      "replies": 17,
+      "impressions": 3554,
+      "engagementRate": 4.949044341930503,
+      "hashtags": [
+        "HypeAI",
+        "Solana",
+        "AI"
+      ],
+      "isReply": true,
+      "isRetweet": false
+    }
+  },
+  "topHashtags": [
+    {
+      "hashtag": "HypeAI",
+      "uses": 20,
+      "avgEngagement": 1.9222470830035228,
+      "totalImpressions": 43335,
+      "avgImpressionsPerUse": 2166.75
+    },
+    {
+      "hashtag": "Solana",
+      "uses": 20,
+      "avgEngagement": 1.9222470830035228,
+      "totalImpressions": 43335,
+      "avgImpressionsPerUse": 2166.75
+    },
+    {
+      "hashtag": "AI",
+      "uses": 20,
+      "avgEngagement": 1.9222470830035228,
+      "totalImpressions": 43335,
+      "avgImpressionsPerUse": 2166.75
+    }
+  ],
+  "contentBreakdown": {
+    "original": 11,
+    "replies": 6,
+    "retweets": 3,
+    "withHashtags": 20,
+    "withMedia": 0
+  }
+}

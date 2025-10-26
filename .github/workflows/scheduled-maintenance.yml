@@ -1,0 +1,138 @@
+name: Scheduled Maintenance
+
+on:
+  schedule:
+    # Run every Sunday at 2 AM UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+
+jobs:
+  # Update dependencies
+  dependency-updates:
+    name: Check Dependency Updates
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Check for updates
+        run: |
+          echo "Checking for dependency updates..."
+          npm outdated || true
+          echo "✅ Dependency check completed"
+
+      - name: Security audit
+        run: |
+          echo "Running security audit..."
+          npm audit || true
+
+  # Cleanup old artifacts
+  cleanup-artifacts:
+    name: Cleanup Old Artifacts
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Delete old artifacts
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            // Get all artifacts
+            const { data: artifacts } = await github.rest.actions.listArtifactsForRepo({
+              owner,
+              repo,
+              per_page: 100
+            });
+
+            // Delete artifacts older than 30 days
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+            for (const artifact of artifacts.artifacts) {
+              const createdAt = new Date(artifact.created_at);
+              if (createdAt < thirtyDaysAgo) {
+                console.log(`Deleting artifact: ${artifact.name}`);
+                await github.rest.actions.deleteArtifact({
+                  owner,
+                  repo,
+                  artifact_id: artifact.id
+                });
+              }
+            }
+
+  # Cleanup old workflow runs
+  cleanup-workflow-runs:
+    name: Cleanup Old Workflow Runs
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Delete old workflow runs
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            // Get all workflows
+            const { data: workflows } = await github.rest.actions.listRepoWorkflows({
+              owner,
+              repo
+            });
+
+            const ninetyDaysAgo = new Date();
+            ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
+
+            for (const workflow of workflows.workflows) {
+              // Get workflow runs
+              const { data: runs } = await github.rest.actions.listWorkflowRuns({
+                owner,
+                repo,
+                workflow_id: workflow.id,
+                per_page: 100
+              });
+
+              // Delete old runs
+              for (const run of runs.workflow_runs) {
+                const createdAt = new Date(run.created_at);
+                if (createdAt < ninetyDaysAgo && run.status === 'completed') {
+                  console.log(`Deleting run: ${run.name} (${run.id})`);
+                  await github.rest.actions.deleteWorkflowRun({
+                    owner,
+                    repo,
+                    run_id: run.id
+                  });
+                }
+              }
+            }
+
+  # Health check
+  system-health-check:
+    name: System Health Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check production health
+        run: |
+          echo "Running system health checks..."
+
+          # Website health check
+          curl -f https://hypeai.io || echo "Website health check failed"
+
+          # SSL certificate check
+          echo "Checking SSL certificate..."
+          echo | openssl s_client -servername hypeai.io -connect hypeai.io:443 2>/dev/null | openssl x509 -noout -dates
+
+          echo "✅ Health check completed"

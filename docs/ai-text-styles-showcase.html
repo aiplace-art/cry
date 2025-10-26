@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Styles Showcase - 8 Elegant Variants</title>
+    <link rel="stylesheet" href="../public/variant-2/css/ai-text-styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #00E5FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .variant-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .variant-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .cosmic-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(0, 229, 255, 0.3), transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(138, 43, 226, 0.3), transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 100, 255, 0.2), transparent 70%);
+            filter: blur(20px);
+            animation: cosmicPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes cosmicPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
+        }
+
+        .ai-button {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .variant-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .variant-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .variant-concept {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .beauty-score {
+            text-align: center;
+            font-size: 13px;
+            color: #00E5FF;
+            margin-bottom: 20px;
+        }
+
+        .beauty-stars {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+
+        .star {
+            color: #FFD700;
+            font-size: 16px;
+        }
+
+        .star.half {
+            color: rgba(255, 215, 0, 0.5);
+        }
+
+        .css-preview {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .implementation-notes {
+            background: rgba(0, 229, 255, 0.05);
+            border-left: 3px solid #00E5FF;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+
+        .implementation-notes h2 {
+            color: #00E5FF;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .implementation-notes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .implementation-notes li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .implementation-notes li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #00E5FF;
+        }
+
+        code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Text Styles Showcase</h1>
+        <p class="subtitle">8 Beautiful & Elegant Typography Variants for Cosmic Buttons</p>
+
+        <div class="grid">
+            <!-- VARIANT 1: PRISTINE CRYSTAL -->
+            <div class="variant-card">
+                <div class="cosmic-bg"></div>
+                <div class="ai-button">
+                    <div class="ai-text-crystal">AI</div>
+                </div>
+                <div class="variant-info">
+                    <div class="variant-name">PRISTINE CRYSTAL</div>
+                    <div class="variant-concept">Ultra-clean white with perfect depth</div>
+                    <div class="beauty-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star half">★</span>
+                    </div>
+                    <div class="beauty-score">Beauty Score: 9/10</div>
+                    <div class="css-preview">class="ai-text-crystal"</div>
+                </div>
+            </div>
+
+            <!-- VARIANT 2: FROSTED LUMINANCE -->
+            <div class="variant-card">
+                <div class="cosmic-bg"></div>
+                <div class="ai-button">
+                    <div class="ai-text-frosted">AI</div>
+                </div>
+                <div class="variant-info">
+                    <div class="variant-name">FROSTED LUMINANCE</div>
+                    <div class="variant-concept">Soft frosted glass with gentle glow</div>
+                    <div class="beauty-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="beauty-score">Beauty Score: 10/10</div>
+                    <div class="css-preview">class="ai-text-frosted"</div>
+                </div>
+            </div>
+
+            <!-- VARIANT 3: SOFT HALO -->
+            <div class="variant-card">
+                <div class="cosmic-bg"></div>
+                <div class="ai-button">
+                    <div class="ai-text-halo">AI</div>
+                </div>
+                <div class="variant-info">
+                    <div class="variant-name">SOFT HALO</div>
+                    <div class="variant-concept">Gentle luminous aura, ethereal</div>
+                    <div class="beauty-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star half">★</span>
+                    </div>
+                    <div class="beauty-score">Beauty Score: 9/10</div>
+                    <div class="css-preview">class="ai-text-halo"</div>
+                </div>
+            </div>
+
+            <!-- VARIANT 4: SILK CHROME -->
+            <div class="variant-card">
+                <div class="cosmic-bg"></div>
+                <div class="ai-button">
+                    <div class="ai-text-chrome">AI</div>
+                </div>
+                <div class="variant-info">
+                    <div class="variant-name">SILK CHROME</div>
+                    <div class="variant-concept">Liquid metal with flowing reflections</div>
+                    <div class="beauty-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="beauty-score">Beauty Score: 10/10 • Animated</div>
+                    <div class="css-preview">class="ai-text-chrome"</div>
+                </div>
+            </div>
+
+            <!-- VARIANT 5: PEARL ESSENCE -->
+            <div class="variant-card">
+                <div class="cosmic-bg"></div>
+                <div class="ai-button">
+                    <div class="ai-text-pearl">AI</div>
+                </div>
+                <div class="variant-info">
+                    <div class="variant-name">PEARL ESSENCE</div>
+                    <div class="variant-concept">Iridescent pearl with color shifts</div>
+                    <div class="beauty-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star half">★</span>
+                    </div>
+                    <div class="beauty-score">Beauty Score: 9/10 • Animated</div>
+                    <div class="css-preview">class="ai-text-pearl"</div>
+                </div>
+            </div>
+
+            <!-- VARIANT 6: PORCELAIN DEPTH -->
+            <div class="variant-card">
+                <div class="cosmic-bg"></div>
+                <div class="ai-button">
+                    <div class="ai-text-porcelain">AI</div>
+                </div>
+                <div class="variant-info">
+                    <div class="variant-name">PORCELAIN DEPTH</div>
+                    <div class="variant-concept">3D extrusion with soft edges</div>
+                    <div class="beauty-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="beauty-score">Beauty Score: 10/10</div>
+                    <div class="css-preview">class="ai-text-porcelain"</div>
+                </div>
+            </div>
+
+            <!-- VARIANT 7: GOSSAMER LIGHT -->
+            <div class="variant-card">
+                <div class="cosmic-bg"></div>
+                <div class="ai-button">
+                    <div class="ai-text-gossamer">AI</div>
+                </div>
+                <div class="variant-info">
+                    <div class="variant-name">GOSSAMER LIGHT</div>
+                    <div class="variant-concept">Ultra-delicate with ethereal presence</div>
+                    <div class="beauty-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star half">★</span>
+                    </div>
+                    <div class="beauty-score">Beauty Score: 9/10</div>
+                    <div class="css-preview">class="ai-text-gossamer"</div>
+                </div>
+            </div>
+
+            <!-- VARIANT 8: DIAMOND FACET -->
+            <div class="variant-card">
+                <div class="cosmic-bg"></div>
+                <div class="ai-button">
+                    <div class="ai-text-diamond">AI</div>
+                </div>
+                <div class="variant-info">
+                    <div class="variant-name">DIAMOND FACET</div>
+                    <div class="variant-concept">Crystalline multi-angle reflections</div>
+                    <div class="beauty-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="beauty-score">Beauty Score: 10/10 • Animated</div>
+                    <div class="css-preview">class="ai-text-diamond"</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="implementation-notes">
+            <h2>Implementation Guide</h2>
+            <ul>
+                <li><strong>CSS File:</strong> <code>/public/variant-2/css/ai-text-styles.css</code></li>
+                <li><strong>Usage:</strong> Add class to your "AI" text element (e.g., <code>&lt;div class="ai-text-frosted"&gt;AI&lt;/div&gt;</code>)</li>
+                <li><strong>Button Size:</strong> Designed for 110x110px circular button with cosmic video background</li>
+                <li><strong>Font Family:</strong> All variants use Inter font (system fallback included)</li>
+                <li><strong>Animations:</strong> Chrome, Pearl, and Diamond variants include subtle animations</li>
+                <li><strong>Accessibility:</strong> Respects <code>prefers-reduced-motion</code> and <code>prefers-contrast</code></li>
+                <li><strong>Mobile Responsive:</strong> Font size adjusts to 36px on screens &lt; 768px</li>
+                <li><strong>Recommended:</strong> FROSTED LUMINANCE (10/10), SILK CHROME (10/10), or PORCELAIN DEPTH (10/10)</li>
+            </ul>
+
+            <h2 style="margin-top: 30px;">Top Recommendations by Use Case</h2>
+            <ul>
+                <li><strong>Maximum Elegance:</strong> FROSTED LUMINANCE or PORCELAIN DEPTH</li>
+                <li><strong>Luxury Brand Feel:</strong> SILK CHROME or DIAMOND FACET</li>
+                <li><strong>Minimalist Clean:</strong> PRISTINE CRYSTAL or GOSSAMER LIGHT</li>
+                <li><strong>Unique/Memorable:</strong> PEARL ESSENCE or SOFT HALO</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

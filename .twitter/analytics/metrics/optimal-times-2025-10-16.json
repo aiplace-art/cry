@@ -1,0 +1,46 @@
+{
+  "bestHours": [
+    {
+      "hour": 15,
+      "avgEngagement": 1.9222470830035228,
+      "tweetCount": 20
+    }
+  ],
+  "bestDays": [
+    {
+      "day": "Tuesday",
+      "avgEngagement": 3.268835723869831,
+      "tweetCount": 3
+    },
+    {
+      "day": "Friday",
+      "avgEngagement": 2.953732426319103,
+      "tweetCount": 2
+    },
+    {
+      "day": "Wednesday",
+      "avgEngagement": 2.6261418325683823,
+      "tweetCount": 3
+    },
+    {
+      "day": "Sunday",
+      "avgEngagement": 2.145506682259365,
+      "tweetCount": 3
+    },
+    {
+      "day": "Saturday",
+      "avgEngagement": 1.1766561886662146,
+      "tweetCount": 3
+    },
+    {
+      "day": "Thursday",
+      "avgEngagement": 0.8673007486453356,
+      "tweetCount": 3
+    },
+    {
+      "day": "Monday",
+      "avgEngagement": 0.7613844264682896,
+      "tweetCount": 3
+    }
+  ]
+}

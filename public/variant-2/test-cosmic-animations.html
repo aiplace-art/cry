@@ -206,5 +206,20 @@
     <p>🚀 Cosmic Animation System v1.0.0</p>
     <p><small>Premium space/galaxy animations for modern web experiences</small></p>
   </div>
+
+  <!-- AI Assistant Widget -->
+  <link rel="stylesheet" href="/variant-2/css/ai-assistant.css">
+  <script src="/variant-2/js/ai-assistant.js"></script>
+  <script>
+    // Initialize AI Assistant
+    const aiAssistant = new HypeAIAssistant({
+      apiUrl: '/api/ai-assistant/chat',
+      language: 'en', // Auto-detect or user preference
+      welcomeMessage: 'Hi! 👋 I\'m your HypeAI Assistant. Ask me anything about our platform!',
+      position: 'bottom-right',
+      theme: 'cosmic-purple'
+    });
+  </script>
+
 </body>
 </html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Text Premium Variants - HYPEAI Design System</title>
+  <style>
+    /* ========================================
+       BASE COSMIC DESIGN SYSTEM
+       ======================================== */
+    :root {
+      --cosmic-purple: #9333ea;
+      --cosmic-blue: #3b82f6;
+      --cosmic-yellow: #FFE900;
+      --cosmic-pink: #ec4899;
+      --bg-dark: #0a0a0f;
+      --text-white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-white);
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-blue), var(--cosmic-yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 60px;
+    }
+
+    .variants-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .variant-card {
+      background: rgba(147, 51, 234, 0.1);
+      border: 2px solid rgba(147, 51, 234, 0.3);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .variant-card:hover {
+      border-color: var(--cosmic-blue);
+      box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .variant-title {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Base Button Style */
+    .btn-cosmic {
+      background: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-blue));
+      border: none;
+      padding: 18px 40px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 28px;
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      transition: all 0.4s ease;
+      letter-spacing: 4px;
+    }
+
+    .btn-cosmic:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(147, 51, 234, 0.6);
+    }
+
+    /* ========================================
+       VARIANT 1: HOLOGRAPHIC SHIMMER
+       ======================================== */
+    .ai-text-variant-1 {
+      background: linear-gradient(
+        135deg,
+        var(--cosmic-purple) 0%,
+        var(--cosmic-blue) 25%,
+        var(--cosmic-yellow) 50%,
+        var(--cosmic-pink) 75%,
+        var(--cosmic-purple) 100%
+      );
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: holographic-shimmer 4s linear infinite;
+      font-weight: 900;
+      filter: brightness(1.3);
+    }
+
+    @keyframes holographic-shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ========================================
+       VARIANT 2: NEON GLOW PULSE
+       ======================================== */
+    .ai-text-variant-2 {
+      color: var(--text-white);
+      font-weight: 900;
+      text-shadow:
+        0 0 10px var(--cosmic-blue),
+        0 0 20px var(--cosmic-blue),
+        0 0 30px var(--cosmic-purple),
+        0 0 40px var(--cosmic-purple),
+        0 0 50px var(--cosmic-blue);
+      animation: neon-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes neon-pulse {
+      0%, 100% {
+        text-shadow:
+          0 0 10px var(--cosmic-blue),
+          0 0 20px var(--cosmic-blue),
+          0 0 30px var(--cosmic-purple),
+          0 0 40px var(--cosmic-purple);
+        filter: brightness(1);
+      }
+      50% {
+        text-shadow:
+          0 0 15px var(--cosmic-blue),
+          0 0 30px var(--cosmic-blue),
+          0 0 45px var(--cosmic-purple),
+          0 0 60px var(--cosmic-purple),
+          0 0 75px var(--cosmic-blue);
+        filter: brightness(1.5);
+      }
+    }
+
+    /* ========================================
+       VARIANT 3: 3D EMBOSSED CRYSTAL
+       ======================================== */
+    .ai-text-variant-3 {
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.9) 0%,
+        var(--cosmic-blue) 50%,
+        var(--cosmic-purple) 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        -1px -1px 2px rgba(255, 255, 255, 0.5);
+      filter: drop-shadow(0 4px 8px rgba(147, 51, 234, 0.4));
+      letter-spacing: 6px;
+    }
+
+    .ai-text-variant-3:hover {
+      filter: drop-shadow(0 6px 12px rgba(147, 51, 234, 0.6));
+    }
+
+    /* ========================================
+       VARIANT 4: LIQUID METAL CHROME
+       ======================================== */
+    .ai-text-variant-4 {
+      background: linear-gradient(
+        135deg,
+        #c0c0c0 0%,
+        var(--cosmic-blue) 20%,
+        #ffffff 40%,
+        var(--cosmic-purple) 60%,
+        #e0e0e0 80%,
+        var(--cosmic-blue) 100%
+      );
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      animation: chrome-reflection 3s ease-in-out infinite;
+      filter: contrast(1.3) brightness(1.2);
+    }
+
+    @keyframes chrome-reflection {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ========================================
+       VARIANT 5: CYBERPUNK GLITCH ART
+       ======================================== */
+    .ai-text-variant-5 {
+      color: var(--text-white);
+      font-weight: 900;
+      position: relative;
+      animation: glitch-main 5s infinite;
+    }
+
+    @keyframes glitch-main {
+      0%, 90%, 92%, 94%, 100% {
+        text-shadow: none;
+        transform: skew(0deg);
+      }
+      91% {
+        text-shadow:
+          -2px 0 var(--cosmic-pink),
+          2px 0 var(--cosmic-blue);
+        transform: skew(-2deg);
+      }
+      93% {
+        text-shadow:
+          2px 0 var(--cosmic-pink),
+          -2px 0 var(--cosmic-blue);
+        transform: skew(2deg);
+      }
+    }
+
+    .ai-text-variant-5::before,
+    .ai-text-variant-5::after {
+      content: 'AI';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .ai-text-variant-5::before {
+      animation: glitch-red 5s infinite;
+      color: var(--cosmic-pink);
+      z-index: -1;
+    }
+
+    .ai-text-variant-5::after {
+      animation: glitch-blue 5s infinite;
+      color: var(--cosmic-blue);
+      z-index: -2;
+    }
+
+    @keyframes glitch-red {
+      0%, 90%, 100% { transform: translate(0); opacity: 0; }
+      91% { transform: translate(-3px, 2px); opacity: 0.8; }
+    }
+
+    @keyframes glitch-blue {
+      0%, 90%, 100% { transform: translate(0); opacity: 0; }
+      91% { transform: translate(3px, -2px); opacity: 0.8; }
+    }
+
+    /* ========================================
+       VARIANT 6: QUANTUM PARTICLE BURST
+       ======================================== */
+    .ai-text-variant-6 {
+      color: var(--text-white);
+      font-weight: 900;
+      position: relative;
+      filter: drop-shadow(0 0 20px var(--cosmic-blue));
+    }
+
+    .variant-6-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--cosmic-yellow) 0%, transparent 70%);
+      box-shadow: 0 0 10px var(--cosmic-yellow);
+      opacity: 0;
+      animation: particle-orbit 4s infinite;
+    }
+
+    .particle:nth-child(2) { animation-delay: 0.5s; }
+    .particle:nth-child(3) { animation-delay: 1s; }
+    .particle:nth-child(4) { animation-delay: 1.5s; }
+    .particle:nth-child(5) { animation-delay: 2s; }
+    .particle:nth-child(6) { animation-delay: 2.5s; }
+
+    @keyframes particle-orbit {
+      0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      50% {
+        transform: translate(60px, -40px) scale(1.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(120px, 0) scale(0);
+        opacity: 0;
+      }
+    }
+
+    /* ========================================
+       VARIANT 7: FACETED DIAMOND PRISM
+       ======================================== */
+    .ai-text-variant-7 {
+      position: relative;
+      color: transparent;
+      font-weight: 900;
+    }
+
+    .facet {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-blue), var(--cosmic-yellow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+      animation: facet-light 6s linear infinite;
+    }
+
+    .facet:nth-child(2) {
+      clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+      animation-delay: 1s;
+      background: linear-gradient(225deg, var(--cosmic-yellow), var(--cosmic-blue), var(--cosmic-purple));
+    }
+
+    @keyframes facet-light {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.8); }
+    }
+
+    /* ========================================
+       VARIANT 8: ETHEREAL QUANTUM BLUR
+       ======================================== */
+    .ai-text-variant-8 {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 900;
+      position: relative;
+      text-shadow:
+        0 0 20px var(--cosmic-blue),
+        0 0 40px var(--cosmic-purple);
+      animation: quantum-wave 5s ease-in-out infinite;
+    }
+
+    .ai-text-variant-8::before,
+    .ai-text-variant-8::after {
+      content: 'AI';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.4;
+      filter: blur(4px);
+    }
+
+    .ai-text-variant-8::before {
+      color: var(--cosmic-purple);
+      animation: quantum-shift-1 5s ease-in-out infinite;
+    }
+
+    .ai-text-variant-8::after {
+      color: var(--cosmic-blue);
+      animation: quantum-shift-2 5s ease-in-out infinite;
+    }
+
+    @keyframes quantum-wave {
+      0%, 100% { transform: translateY(0); filter: blur(0); }
+      50% { transform: translateY(-3px); filter: blur(1px); }
+    }
+
+    @keyframes quantum-shift-1 {
+      0%, 100% { transform: translate(-2px, -2px); opacity: 0.4; }
+      50% { transform: translate(-5px, 3px); opacity: 0.6; }
+    }
+
+    @keyframes quantum-shift-2 {
+      0%, 100% { transform: translate(2px, 2px); opacity: 0.4; }
+      50% { transform: translate(5px, -3px); opacity: 0.6; }
+    }
+
+    /* ========================================
+       PERFORMANCE NOTES
+       ======================================== */
+    .performance-notes {
+      margin-top: 60px;
+      padding: 30px;
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 4px solid var(--cosmic-blue);
+      border-radius: 8px;
+    }
+
+    .performance-notes h2 {
+      color: var(--cosmic-yellow);
+      margin-bottom: 15px;
+    }
+
+    .performance-notes ul {
+      list-style-position: inside;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Text Premium Variants</h1>
+    <p class="subtitle">8 Distinct Design Approaches for HYPEAI Cosmic Buttons</p>
+
+    <div class="variants-grid">
+      <!-- Variant 1 -->
+      <div class="variant-card">
+        <div class="variant-title">Variant 1: Holographic Shimmer</div>
+        <button class="btn-cosmic">
+          <span class="ai-text-variant-1">AI</span>
+        </button>
+      </div>
+
+      <!-- Variant 2 -->
+      <div class="variant-card">
+        <div class="variant-title">Variant 2: Neon Glow Pulse</div>
+        <button class="btn-cosmic">
+          <span class="ai-text-variant-2">AI</span>
+        </button>
+      </div>
+
+      <!-- Variant 3 -->
+      <div class="variant-card">
+        <div class="variant-title">Variant 3: 3D Embossed Crystal</div>
+        <button class="btn-cosmic">
+          <span class="ai-text-variant-3">AI</span>
+        </button>
+      </div>
+
+      <!-- Variant 4 -->
+      <div class="variant-card">
+        <div class="variant-title">Variant 4: Liquid Metal Chrome</div>
+        <button class="btn-cosmic">
+          <span class="ai-text-variant-4">AI</span>
+        </button>
+      </div>
+
+      <!-- Variant 5 -->
+      <div class="variant-card">
+        <div class="variant-title">Variant 5: Cyberpunk Glitch Art</div>
+        <button class="btn-cosmic">
+          <span class="ai-text-variant-5">AI</span>
+        </button>
+      </div>
+
+      <!-- Variant 6 -->
+      <div class="variant-card">
+        <div class="variant-title">Variant 6: Quantum Particle Burst</div>
+        <button class="btn-cosmic">
+          <div class="variant-6-wrapper">
+            <span class="ai-text-variant-6">AI</span>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Variant 7 -->
+      <div class="variant-card">
+        <div class="variant-title">Variant 7: Faceted Diamond Prism</div>
+        <button class="btn-cosmic">
+          <span class="ai-text-variant-7">
+            <span class="facet">AI</span>
+            <span class="facet">AI</span>
+            AI
+          </span>
+        </button>
+      </div>
+
+      <!-- Variant 8 -->
+      <div class="variant-card">
+        <div class="variant-title">Variant 8: Ethereal Quantum Blur</div>
+        <button class="btn-cosmic">
+          <span class="ai-text-variant-8">AI</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="performance-notes">
+      <h2>⚡ Performance Optimizations</h2>
+      <ul>
+        <li><strong>GPU Acceleration</strong>: All animations use transform and opacity for 60fps performance</li>
+        <li><strong>Will-change hints</strong>: Implicit via transform/opacity (browser optimizes automatically)</li>
+        <li><strong>Reduced repaints</strong>: No layout-affecting properties animated</li>
+        <li><strong>Browser compatibility</strong>: -webkit- prefixes included for Safari/Chrome support</li>
+        <li><strong>Fallbacks</strong>: Graceful degradation for older browsers (solid colors if gradients fail)</li>
+        <li><strong>Animation efficiency</strong>: Timing functions optimized (ease-in-out vs linear where appropriate)</li>
+        <li><strong>Minimal DOM</strong>: Pseudo-elements used instead of extra HTML nodes</li>
+        <li><strong>CSS-only</strong>: Zero JavaScript dependencies for animations</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

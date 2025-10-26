@@ -1,0 +1,33 @@
+# CODEOWNERS file for GitHub repository
+#
+# This file defines code owners for different parts of the repository
+# Code owners are automatically requested for review when PRs change their files
+
+# Global code owners
+* @ai-place
+
+# Workflow files require approval from DevOps team
+/.github/workflows/ @ai-place @devops-team
+
+# Security-related files
+/src/contracts/ @ai-place @security-team
+/tests/security/ @ai-place @security-team
+
+# Smart contracts
+*.sol @ai-place @blockchain-team
+
+# Configuration files
+*.yml @ai-place @devops-team
+*.yaml @ai-place @devops-team
+Dockerfile @ai-place @devops-team
+docker-compose.yml @ai-place @devops-team
+
+# Frontend files
+/public/ @ai-place @frontend-team
+*.html @ai-place @frontend-team
+*.css @ai-place @frontend-team
+*.js @ai-place @frontend-team
+
+# Documentation
+/docs/ @ai-place @documentation-team
+*.md @ai-place @documentation-team

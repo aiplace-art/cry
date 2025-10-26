@@ -1,0 +1,12 @@
+[
+  {
+    "id": "task_1761047032859_wuunw0b7o",
+    "type": "code",
+    "description": "Create BNB Chain Branded Templates Generator - Implementation of /Users/ai.place/Crypto/scripts/twitter-media/bnb-templates-generator.js with 8 template types, BNB Chain visual branding (colors #F3BA2F, #FFE900, network visualization, badges), integration with ProfessionalImageGenerator, and automatic generation of all templates to /bnb-templates/ directory. Includes: BNBMinimalist, BNBTechGradient, BNBServiceShowcase methods, network visualization, dual logos (BNB Chain + HypeAI). Must generate 8 PNGs: introduction, features, community, education, launch, technical, engagement, viral.",
+    "priority": 5,
+    "status": "queued",
+    "createdAt": 1761047032859,
+    "assignedTo": null,
+    "progress": 0
+  }
+]

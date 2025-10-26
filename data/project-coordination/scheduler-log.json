@@ -1,0 +1,213 @@
+{
+  "runs": [
+    {
+      "timestamp": "2025-10-21T19:15:51.077Z",
+      "moscowTime": "21.10.2025, 22:15:51",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "morning",
+          "time": "2025-10-22T06:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-21T19:18:32.324Z",
+      "moscowTime": "21.10.2025, 22:18:32",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "morning",
+          "time": "2025-10-22T06:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-24T12:12:59.637Z",
+      "moscowTime": "24.10.2025, 15:12:59",
+      "success": true,
+      "reason": "SCHEDULED_POST",
+      "details": {
+        "slot": "afternoon",
+        "success": true,
+        "output": null
+      }
+    },
+    {
+      "timestamp": "2025-10-25T10:58:01.701Z",
+      "moscowTime": "25.10.2025, 13:58:01",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "afternoon",
+          "time": "2025-10-25T12:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-25T11:58:45.851Z",
+      "moscowTime": "25.10.2025, 14:58:45",
+      "success": false,
+      "reason": "POST_FAILED",
+      "details": {
+        "slot": "afternoon",
+        "success": false,
+        "error": "Command failed: node ./scripts/auto-poster.js"
+      }
+    },
+    {
+      "timestamp": "2025-10-25T15:11:21.621Z",
+      "moscowTime": "25.10.2025, 18:11:21",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "evening",
+          "time": "2025-10-25T18:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-25T16:00:00.698Z",
+      "moscowTime": "25.10.2025, 19:00:00",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "evening",
+          "time": "2025-10-25T18:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-25T17:00:00.488Z",
+      "moscowTime": "25.10.2025, 20:00:00",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "evening",
+          "time": "2025-10-25T18:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-25T17:10:32.784Z",
+      "moscowTime": "25.10.2025, 20:10:32",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "evening",
+          "time": "2025-10-25T18:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-25T19:47:14.222Z",
+      "moscowTime": "25.10.2025, 22:47:14",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "afternoon",
+          "time": "2025-10-26T13:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-26T09:00:00.399Z",
+      "moscowTime": "26.10.2025, 12:00:00",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "afternoon",
+          "time": "2025-10-26T13:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-26T10:00:00.258Z",
+      "moscowTime": "26.10.2025, 13:00:00",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "afternoon",
+          "time": "2025-10-26T13:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-26T11:00:01.191Z",
+      "moscowTime": "26.10.2025, 14:00:01",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "afternoon",
+          "time": "2025-10-26T13:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-26T12:00:00.303Z",
+      "moscowTime": "26.10.2025, 15:00:00",
+      "success": false,
+      "reason": "POST_FAILED",
+      "details": {
+        "slot": "afternoon",
+        "success": false,
+        "error": "Command failed: node ./scripts/auto-poster.js"
+      }
+    },
+    {
+      "timestamp": "2025-10-26T13:00:01.106Z",
+      "moscowTime": "26.10.2025, 16:00:01",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "evening",
+          "time": "2025-10-26T19:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-26T14:00:00.385Z",
+      "moscowTime": "26.10.2025, 17:00:00",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "evening",
+          "time": "2025-10-26T19:00:00.000Z"
+        }
+      }
+    }
+  ],
+  "stats": {
+    "totalRuns": 16,
+    "successfulPosts": 1,
+    "skippedPosts": 13,
+    "failedPosts": 2,
+    "consecutiveErrors": 2
+  }
+}

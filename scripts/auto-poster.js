@@ -8,6 +8,8 @@
 import dotenv from 'dotenv';
 import { TwitterApi } from 'twitter-api-v2';
 import fs from 'fs';
+import PremiumImageGenerator from './twitter-media/premium-image-generator.js';
+import ProfessionalImageGenerator from './twitter-media/professional-image-generator.js';
 
 dotenv.config({ path: './scripts/.env.marketing' });
 
@@ -73,7 +75,19 @@ function formatTweet(tweet) {
   return text;
 }
 
-// Map tweet categories to BNB Chain templates
+// Map tweet categories to premium styles
+const PREMIUM_STYLE_MAP = {
+  introduction: 'glassmorphism',
+  features: '3DGradient',
+  technical: 'neonCyberpunk',
+  community: 'abstractGeo',
+  launch: 'cinematic',
+  education: 'glassmorphism',
+  engagement: 'neonCyberpunk',
+  viral: 'cinematic'
+};
+
+// Map tweet categories to BNB Chain templates (Tier 3 fallback)
 const BNB_TEMPLATE_MAP = {
   technical: './scripts/twitter-media/bnb-templates/technical.png',
   features: './scripts/twitter-media/bnb-templates/features.png',
@@ -85,21 +99,166 @@ const BNB_TEMPLATE_MAP = {
   introduction: './scripts/twitter-media/bnb-templates/introduction.png'
 };
 
-// Upload media to Twitter
+// Track recently used styles to keep feed diverse
+let recentStyles = [];
+
+/**
+ * Select premium style intelligently (rotate to avoid repetition)
+ */
+function selectPremiumStyle(category) {
+  const baseStyle = PREMIUM_STYLE_MAP[category] || 'glassmorphism';
+
+  // All available styles
+  const allStyles = ['glassmorphism', '3DGradient', 'neonCyberpunk', 'abstractGeo', 'cinematic'];
+
+  // If base style wasn't used recently, use it
+  if (!recentStyles.includes(baseStyle)) {
+    return baseStyle;
+  }
+
+  // Otherwise, find alternative that wasn't used recently
+  const availableStyles = allStyles.filter(s => !recentStyles.includes(s));
+
+  if (availableStyles.length > 0) {
+    return availableStyles[0];
+  }
+
+  // All styles used, reset and use base
+  recentStyles = [];
+  return baseStyle;
+}
+
+/**
+ * Extract content data from tweet for image generation
+ */
+function extractContentData(tweetData) {
+  const text = tweetData.text;
+
+  // Try to extract title (first line or sentence)
+  const firstLine = text.split('\n')[0] || text.split('.')[0] || 'HypeAI';
+  const title = firstLine.length > 50 ? firstLine.substring(0, 47) + '...' : firstLine;
+
+  // Extract subtitle (second line or category)
+  const lines = text.split('\n').filter(l => l.trim());
+  const subtitle = lines[1] || `${tweetData.category.charAt(0).toUpperCase() + tweetData.category.slice(1)}`;
+
+  // Look for stats or numbers
+  const numberMatch = text.match(/\$[\d,.]+[KMB]?|\d+[%+]/);
+  const stats = numberMatch ? numberMatch[0] : null;
+
+  return {
+    title: title.replace(/[#@]/g, '').trim(),
+    subtitle: subtitle.replace(/[#@]/g, '').trim().substring(0, 60),
+    stats,
+    category: tweetData.category,
+    hashtags: tweetData.hashtags?.join(' ') || ''
+  };
+}
+
+/**
+ * Generate premium image (Tier 1)
+ */
+async function generatePremiumImage(tweetData, style) {
+  try {
+    console.log(`   ✨ Generating PREMIUM image (${style})...`);
+
+    const generator = new PremiumImageGenerator();
+    const contentData = extractContentData(tweetData);
+
+    let buffer;
+    switch (style) {
+      case 'glassmorphism':
+        buffer = await generator.generateGlassmorphism(contentData);
+        break;
+      case '3DGradient':
+        buffer = await generator.generate3DGradient(contentData);
+        break;
+      case 'neonCyberpunk':
+        buffer = await generator.generateNeonCyberpunk(contentData);
+        break;
+      case 'abstractGeo':
+        buffer = await generator.generateAbstractGeo(contentData);
+        break;
+      case 'cinematic':
+        buffer = await generator.generateCinematic(contentData);
+        break;
+      default:
+        buffer = await generator.generateGlassmorphism(contentData);
+    }
+
+    // Save to cache
+    const filename = `./scripts/twitter-media/premium-${tweetData.id}-${style}.png`;
+    fs.writeFileSync(filename, buffer);
+
+    console.log(`   ✅ Premium image generated: ${style}`);
+    return filename;
+
+  } catch (error) {
+    console.log(`   ⚠️  Premium generation failed: ${error.message}`);
+    return null;
+  }
+}
+
+/**
+ * Generate professional image (Tier 2)
+ */
+async function generateProfessionalImage(tweetData) {
+  try {
+    console.log(`   🎨 Generating PROFESSIONAL image...`);
+
+    const generator = new ProfessionalImageGenerator();
+    const contentData = extractContentData(tweetData);
+
+    // Choose professional style based on category
+    let buffer;
+    if (tweetData.category === 'launch' || tweetData.category === 'viral') {
+      buffer = await generator.generateTechGradient(contentData);
+    } else if (tweetData.category === 'features') {
+      buffer = await generator.generateDataViz(contentData);
+    } else {
+      buffer = await generator.generateMinimalist(contentData);
+    }
+
+    const filename = `./scripts/twitter-media/professional-${tweetData.id}.png`;
+    fs.writeFileSync(filename, buffer);
+
+    console.log(`   ✅ Professional image generated`);
+    return filename;
+
+  } catch (error) {
+    console.log(`   ⚠️  Professional generation failed: ${error.message}`);
+    return null;
+  }
+}
+
+// Upload media to Twitter with 3-tier fallback system
 async function uploadMedia(client, tweetData) {
   try {
     let mediaPath = null;
 
-    // Try to use BNB Chain template first
-    const templatePath = BNB_TEMPLATE_MAP[tweetData.category];
-    if (templatePath && fs.existsSync(templatePath)) {
-      console.log(`   🎨 Using BNB Chain template: ${tweetData.category}`);
-      mediaPath = templatePath;
+    // TIER 1: Premium Generator (NEW!)
+    const selectedStyle = selectPremiumStyle(tweetData.category);
+    mediaPath = await generatePremiumImage(tweetData, selectedStyle);
+
+    if (mediaPath && fs.existsSync(mediaPath)) {
+      // Track style usage
+      recentStyles.push(selectedStyle);
+      if (recentStyles.length > 3) recentStyles.shift(); // Keep last 3
+      console.log(`   🌟 Using PREMIUM image (${selectedStyle})`);
     } else {
-      // Fallback to dynamic generation
-      console.log(`   🎨 Template not found, generating image...`);
-      const { getMediaForTweet } = await import('./media-generator.js');
-      mediaPath = await getMediaForTweet(tweetData);
+      // TIER 2: Professional Generator
+      console.log(`   🔄 Trying PROFESSIONAL generator...`);
+      mediaPath = await generateProfessionalImage(tweetData);
+    }
+
+    if (!mediaPath || !fs.existsSync(mediaPath)) {
+      // TIER 3: BNB Chain Templates
+      console.log(`   🔄 Trying BNB Chain template...`);
+      const templatePath = BNB_TEMPLATE_MAP[tweetData.category];
+      if (templatePath && fs.existsSync(templatePath)) {
+        console.log(`   🎨 Using BNB Chain template: ${tweetData.category}`);
+        mediaPath = templatePath;
+      }
     }
 
     if (!mediaPath || !fs.existsSync(mediaPath)) {

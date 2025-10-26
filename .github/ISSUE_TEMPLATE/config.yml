@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or Discussion
+    url: https://github.com/your-org/your-repo/discussions
+    about: Please use GitHub Discussions for questions and general discussions
+  - name: Security Issue
+    url: https://github.com/your-org/your-repo/security/advisories/new
+    about: Please report security vulnerabilities privately
+  - name: Documentation
+    url: https://hypeai.io/docs
+    about: Check our documentation for common questions

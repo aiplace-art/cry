@@ -42,6 +42,13 @@ module.exports = async (req, res) => {
   }
 
   try {
+    // Debug: Log environment variables
+    console.log('[Chat API] Environment check:', {
+      hasGroqKey: !!process.env.GROQ_API_KEY,
+      keyLength: process.env.GROQ_API_KEY ? process.env.GROQ_API_KEY.length : 0,
+      nodeEnv: process.env.NODE_ENV,
+      allEnvKeys: Object.keys(process.env).filter(k => k.includes('GROQ'))
+    });
     // Get client IP
     const clientIp = req.headers['x-forwarded-for'] ||
                      req.headers['x-real-ip'] ||

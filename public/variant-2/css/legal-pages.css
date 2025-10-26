@@ -329,7 +329,157 @@
   color: var(--bnb-gold-secondary);
 }
 
+/* CCPA Badges */
+.badge-yes {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(14, 203, 129, 0.2);
+  border: 1px solid rgba(14, 203, 129, 0.4);
+  border-radius: var(--radius-sm);
+  color: #0ECB81;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-no {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255, 75, 75, 0.1);
+  border: 1px solid rgba(255, 75, 75, 0.3);
+  border-radius: var(--radius-sm);
+  color: #FF4B4B;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Legal Table */
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-6) 0;
+  background: rgba(30, 32, 38, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.legal-table thead {
+  background: rgba(243, 186, 47, 0.1);
+}
+
+.legal-table th {
+  padding: var(--spacing-4);
+  text-align: left;
+  font-weight: 700;
+  color: var(--bnb-gold-primary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--glass-border);
+}
+
+.legal-table td {
+  padding: var(--spacing-4);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: top;
+}
+
+.legal-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.legal-table tbody tr:hover {
+  background: rgba(243, 186, 47, 0.05);
+}
+
+.legal-table td strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.legal-table td small {
+  color: var(--text-tertiary);
+  font-size: 0.75rem;
+}
+
+/* CCPA Rights Grid */
+.ccpa-rights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-4);
+  margin: var(--spacing-6) 0;
+}
+
+.ccpa-right-card {
+  padding: var(--spacing-6);
+  background: rgba(30, 32, 38, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+.ccpa-right-card:hover {
+  border-color: var(--bnb-gold-primary);
+  box-shadow: 0 0 30px rgba(243, 186, 47, 0.2);
+  transform: translateY(-2px);
+}
+
+.ccpa-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-4);
+  text-align: center;
+  display: block;
+}
+
+.ccpa-right-card h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-3);
+  text-align: center;
+}
+
+.ccpa-right-card p {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin-bottom: var(--spacing-3);
+  line-height: 1.6;
+}
+
+.ccpa-right-card .legal-list {
+  margin-top: var(--spacing-3);
+}
+
+.ccpa-right-card .legal-list li {
+  font-size: 0.875rem;
+  padding-left: var(--spacing-5);
+  margin-bottom: var(--spacing-2);
+}
+
 /* Responsive */
+@media (max-width: 768px) {
+  .legal-table {
+    font-size: 0.75rem;
+  }
+
+  .legal-table th,
+  .legal-table td {
+    padding: var(--spacing-3);
+  }
+
+  .ccpa-rights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (min-width: 1024px) {
   .legal-toc {
     position: static;

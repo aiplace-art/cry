@@ -603,5 +603,20 @@
     console.log('%c HypeAI Logo Showcase ', 'background: linear-gradient(135deg, #F3BA2F 0%, #FCD535 100%); color: #1E2026; font-size: 20px; font-weight: bold; padding: 10px;');
     console.log('Powered by Binance Chain');
   </script>
+
+  <!-- AI Assistant Widget -->
+  <link rel="stylesheet" href="/variant-2/css/ai-assistant.css">
+  <script src="/variant-2/js/ai-assistant.js"></script>
+  <script>
+    // Initialize AI Assistant
+    const aiAssistant = new HypeAIAssistant({
+      apiUrl: '/api/ai-assistant/chat',
+      language: 'en', // Auto-detect or user preference
+      welcomeMessage: 'Hi! 👋 I\'m your HypeAI Assistant. Ask me anything about our platform!',
+      position: 'bottom-right',
+      theme: 'cosmic-purple'
+    });
+  </script>
+
 </body>
 </html>

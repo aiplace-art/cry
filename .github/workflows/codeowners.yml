@@ -1,0 +1,31 @@
+name: CODEOWNERS Validation
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+      - 'CODEOWNERS'
+
+jobs:
+  validate-codeowners:
+    name: Validate CODEOWNERS
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate CODEOWNERS file
+        run: |
+          if [ -f .github/CODEOWNERS ]; then
+            echo "CODEOWNERS file found"
+            cat .github/CODEOWNERS
+          else
+            echo "Warning: CODEOWNERS file not found"
+          fi
+
+      - name: Check workflow changes require approval
+        if: contains(github.event.pull_request.changed_files, '.github/workflows')
+        run: |
+          echo "Workflow files were changed - requires CODEOWNERS approval"

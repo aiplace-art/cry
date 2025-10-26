@@ -1,0 +1,110 @@
+{
+  "generated": "2025-10-21T17:49:44.691Z",
+  "totalImages": 10,
+  "statistics": {
+    "totalSize": 1721567,
+    "totalSizeKB": "1681.22",
+    "averageSize": 172156.7,
+    "averageSizeKB": "168.12",
+    "totalTime": 704,
+    "averageTime": "70.40"
+  },
+  "quality": {
+    "twitterOptimal": true,
+    "performanceGood": true,
+    "resolution": "1200x675",
+    "aspectRatio": "16:9"
+  },
+  "images": [
+    {
+      "category": "Glassmorphism",
+      "description": "Service Showcase with Frosted Glass",
+      "filename": "glassmorphism-services-1761068982973.png",
+      "fileSize": 186467,
+      "fileSizeKB": "182.10",
+      "duration": 148,
+      "path": "/Users/ai.place/Crypto/scripts/twitter-media/premium-samples/glassmorphism-services-1761068982973.png"
+    },
+    {
+      "category": "Glassmorphism",
+      "description": "Feature Announcement with Glass Morphism",
+      "filename": "glassmorphism-features-1761068982974.png",
+      "fileSize": 184172,
+      "fileSizeKB": "179.86",
+      "duration": 66,
+      "path": "/Users/ai.place/Crypto/scripts/twitter-media/premium-samples/glassmorphism-features-1761068982974.png"
+    },
+    {
+      "category": "3D Gradient",
+      "description": "Launch Announcement with Depth Effects",
+      "filename": "3d-gradient-launch-1761068982975.png",
+      "fileSize": 134953,
+      "fileSizeKB": "131.79",
+      "duration": 47,
+      "path": "/Users/ai.place/Crypto/scripts/twitter-media/premium-samples/3d-gradient-launch-1761068982975.png"
+    },
+    {
+      "category": "3D Gradient",
+      "description": "Technical Feature with 3D Layering",
+      "filename": "3d-gradient-technical-1761068982976.png",
+      "fileSize": 133030,
+      "fileSizeKB": "129.91",
+      "duration": 45,
+      "path": "/Users/ai.place/Crypto/scripts/twitter-media/premium-samples/3d-gradient-technical-1761068982976.png"
+    },
+    {
+      "category": "Neon Cyberpunk",
+      "description": "Community Engagement with Neon Glow",
+      "filename": "neon-cyberpunk-community-1761068982977.png",
+      "fileSize": 301502,
+      "fileSizeKB": "294.44",
+      "duration": 100,
+      "path": "/Users/ai.place/Crypto/scripts/twitter-media/premium-samples/neon-cyberpunk-community-1761068982977.png"
+    },
+    {
+      "category": "Neon Cyberpunk",
+      "description": "Viral Content with Futuristic Design",
+      "filename": "neon-cyberpunk-viral-1761068982978.png",
+      "fileSize": 273318,
+      "fileSizeKB": "266.91",
+      "duration": 88,
+      "path": "/Users/ai.place/Crypto/scripts/twitter-media/premium-samples/neon-cyberpunk-viral-1761068982978.png"
+    },
+    {
+      "category": "Abstract Geometric",
+      "description": "Educational Content with Patterns",
+      "filename": "abstract-geometric-education-1761068982979.png",
+      "fileSize": 84820,
+      "fileSizeKB": "82.83",
+      "duration": 34,
+      "path": "/Users/ai.place/Crypto/scripts/twitter-media/premium-samples/abstract-geometric-education-1761068982979.png"
+    },
+    {
+      "category": "Abstract Geometric",
+      "description": "Statistics with Geometric Backgrounds",
+      "filename": "abstract-geometric-stats-1761068982980.png",
+      "fileSize": 87641,
+      "fileSizeKB": "85.59",
+      "duration": 38,
+      "path": "/Users/ai.place/Crypto/scripts/twitter-media/premium-samples/abstract-geometric-stats-1761068982980.png"
+    },
+    {
+      "category": "Cinematic",
+      "description": "Major Announcement (Movie Poster Style)",
+      "filename": "cinematic-announcement-1761068982981.png",
+      "fileSize": 162854,
+      "fileSizeKB": "159.04",
+      "duration": 71,
+      "path": "/Users/ai.place/Crypto/scripts/twitter-media/premium-samples/cinematic-announcement-1761068982981.png"
+    },
+    {
+      "category": "Cinematic",
+      "description": "Partnership Reveal (Cinematic Quality)",
+      "filename": "cinematic-partnership-1761068982982.png",
+      "fileSize": 172810,
+      "fileSizeKB": "168.76",
+      "duration": 67,
+      "path": "/Users/ai.place/Crypto/scripts/twitter-media/premium-samples/cinematic-partnership-1761068982982.png"
+    }
+  ]
+}

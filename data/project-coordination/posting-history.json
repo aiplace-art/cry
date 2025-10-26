@@ -20,15 +20,35 @@
     18,
     19,
     20,
-    21
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
   ],
-  "lastIndex": 21,
+  "lastIndex": 26,
   "lastPosted": {
-    "tweetId": "1980287897203867693",
-    "contentId": 21,
-    "category": "viral",
-    "timestamp": "2025-10-20T15:00:01.497Z",
-    "url": "https://twitter.com/HypeAIProject/status/1980287897203867693"
+    "tweetId": "1982172109699752260",
+    "contentId": 26,
+    "category": "launch",
+    "timestamp": "2025-10-25T19:47:13.025Z",
+    "url": "https://twitter.com/HypeAIProject/status/1982172109699752260"
   },
-  "startedAt": "2025-10-16T18:16:00.000Z"
+  "startedAt": "2025-10-16T18:16:00.000Z",
+  "threads": [
+    {
+      "platform": "Threads",
+      "content": "Test content from automation",
+      "result": {
+        "success": true,
+        "mode": "manual",
+        "workflowFile": "/Users/ai.place/Crypto/scripts/manual-workflows/threads-post-1761421635731.json",
+        "message": "Post ready for manual posting. See instructions in file."
+      },
+      "timestamp": "2025-10-25T19:47:15.732Z",
+      "mode": "manual"
+    }
+  ],
+  "lastUpdated": "2025-10-25T19:47:15.732Z"
 }

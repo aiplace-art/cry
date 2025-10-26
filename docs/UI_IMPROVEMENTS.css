@@ -1,0 +1,879 @@
+/* ============================================
+   HYPEAI CHAT - UI/UX IMPROVEMENTS
+   World-Class Polish & Enhancements
+   ============================================ */
+
+/* ============================================
+   1. PREMIUM INPUT FIELD ENHANCEMENT
+   ============================================ */
+
+.chat-input-wrapper {
+    background: rgba(20, 21, 26, 0.6) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(243, 186, 47, 0.15) !important;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.2),
+        0 2px 4px -1px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-input-wrapper:focus-within {
+    border-color: rgba(243, 186, 47, 0.5) !important;
+    box-shadow:
+        0 8px 16px -4px rgba(243, 186, 47, 0.2),
+        0 4px 8px -2px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        0 0 0 1px rgba(243, 186, 47, 0.3) !important;
+    transform: translateY(-1px);
+}
+
+.chat-input-wrapper:hover:not(:focus-within) {
+    border-color: rgba(243, 186, 47, 0.25);
+    box-shadow:
+        0 6px 12px -2px rgba(0, 0, 0, 0.15),
+        0 3px 6px -1px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+}
+
+/* ============================================
+   2. ENHANCED SEND BUTTON
+   ============================================ */
+
+.btn-send {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-send::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-send:active::before {
+    width: 200%;
+    height: 200%;
+}
+
+.btn-send:disabled {
+    background: linear-gradient(135deg, #6B7280, #4B5563) !important;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.btn-send.sending {
+    animation: pulse-send 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-send {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(243, 186, 47, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(243, 186, 47, 0.8);
+    }
+}
+
+.btn-send.sent {
+    background: linear-gradient(135deg, #10B981, #059669) !important;
+    animation: success-bounce 0.5s ease;
+}
+
+@keyframes success-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ============================================
+   3. AGENT CARD VISUAL UPGRADE
+   ============================================ */
+
+.agent-card {
+    background: linear-gradient(
+        135deg,
+        rgba(243, 186, 47, 0.08) 0%,
+        rgba(243, 186, 47, 0.03) 100%
+    ) !important;
+    border: 1px solid rgba(243, 186, 47, 0.15) !important;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.agent-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(243, 186, 47, 0.1),
+        transparent
+    );
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.agent-card:hover::before {
+    left: 100%;
+}
+
+.agent-card:hover {
+    transform: translateY(-4px) scale(1.02) !important;
+    box-shadow:
+        0 8px 24px rgba(243, 186, 47, 0.2),
+        0 4px 8px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(243, 186, 47, 0.4) !important;
+}
+
+.agent-card.active {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 229, 255, 0.15) 0%,
+        rgba(0, 229, 255, 0.05) 100%
+    ) !important;
+    border-color: var(--cosmic-cyan) !important;
+    box-shadow:
+        0 0 30px rgba(0, 229, 255, 0.4),
+        0 0 60px rgba(0, 229, 255, 0.2),
+        0 8px 24px rgba(0, 0, 0, 0.2),
+        inset 0 0 20px rgba(0, 229, 255, 0.1) !important;
+    transform: translateY(-2px) scale(1.03) !important;
+}
+
+.agent-card.active::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(0, 229, 255, 0.3),
+        transparent 30%
+    );
+    animation: rotate-gradient 3s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotate-gradient {
+    to { transform: rotate(360deg); }
+}
+
+.agent-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.agent-avatar {
+    font-size: 18px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
+}
+
+.agent-card:hover .agent-avatar {
+    filter: drop-shadow(0 4px 8px rgba(243, 186, 47, 0.6));
+    transform: scale(1.1);
+}
+
+.agent-card.active .agent-avatar {
+    filter:
+        drop-shadow(0 0 8px rgba(0, 229, 255, 0.8))
+        drop-shadow(0 0 16px rgba(0, 229, 255, 0.4));
+    animation: agent-avatar-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes agent-avatar-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15) rotate(5deg);
+    }
+}
+
+/* ============================================
+   4. MESSAGE BUBBLE DEPTH & SHADOW
+   ============================================ */
+
+.message-body {
+    background: linear-gradient(
+        135deg,
+        rgba(243, 186, 47, 0.08) 0%,
+        rgba(243, 186, 47, 0.04) 100%
+    ) !important;
+    border: 1px solid rgba(243, 186, 47, 0.15) !important;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.message:hover .message-body {
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        0 2px 4px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    border-color: rgba(243, 186, 47, 0.25);
+}
+
+.message.user .message-body {
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.12) 0%,
+        rgba(59, 130, 246, 0.06) 100%
+    ) !important;
+    border-color: rgba(59, 130, 246, 0.25) !important;
+}
+
+.message.ai .message-body {
+    position: relative;
+    overflow: hidden;
+}
+
+.message.ai .message-body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(
+        circle at center,
+        rgba(243, 186, 47, 0.15),
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.message.ai:hover .message-body::after {
+    opacity: 1;
+}
+
+/* ============================================
+   5. TYPOGRAPHY REFINEMENT
+   ============================================ */
+
+:root {
+    /* Font Sizes */
+    --text-xs: 11px;
+    --text-sm: 13px;
+    --text-base: 15px;
+    --text-lg: 17px;
+    --text-xl: 20px;
+    --text-2xl: 24px;
+    --text-3xl: 30px;
+    --text-4xl: 36px;
+
+    /* Line Heights */
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+
+    /* Letter Spacing */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+}
+
+.welcome-content h2 {
+    font-size: var(--text-4xl) !important;
+    font-weight: 700 !important;
+    line-height: var(--leading-tight) !important;
+    letter-spacing: var(--tracking-tight) !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.message-body {
+    font-size: var(--text-base) !important;
+    line-height: var(--leading-relaxed) !important;
+    letter-spacing: var(--tracking-normal) !important;
+}
+
+.message-body h1 {
+    font-size: var(--text-2xl) !important;
+    font-weight: 700 !important;
+    line-height: var(--leading-tight) !important;
+    letter-spacing: var(--tracking-tight) !important;
+    margin-top: 24px !important;
+    margin-bottom: 12px !important;
+}
+
+.message-body h2 {
+    font-size: var(--text-xl) !important;
+    font-weight: 600 !important;
+    line-height: var(--leading-snug) !important;
+    letter-spacing: var(--tracking-tight) !important;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+}
+
+.message-body h3 {
+    font-size: var(--text-lg) !important;
+    font-weight: 600 !important;
+    line-height: var(--leading-snug) !important;
+    margin-top: 16px !important;
+    margin-bottom: 8px !important;
+}
+
+.message-body p {
+    margin-bottom: 16px !important;
+    line-height: var(--leading-relaxed) !important;
+}
+
+.message-body code {
+    font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace !important;
+    font-size: var(--text-sm) !important;
+    letter-spacing: -0.01em !important;
+}
+
+@media (min-width: 1024px) {
+    .message-body {
+        max-width: 65ch;
+    }
+}
+
+/* ============================================
+   6. IMPROVED SCROLLBAR STYLING
+   ============================================ */
+
+.sidebar-content::-webkit-scrollbar,
+.messages-container::-webkit-scrollbar {
+    width: 8px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-content::-webkit-scrollbar-track,
+.messages-container::-webkit-scrollbar-track {
+    background: rgba(243, 186, 47, 0.05);
+    border-radius: 4px;
+    margin: 4px 0;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb,
+.messages-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        rgba(243, 186, 47, 0.5),
+        rgba(243, 186, 47, 0.3)
+    );
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background 0.3s ease;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover,
+.messages-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+        180deg,
+        rgba(243, 186, 47, 0.8),
+        rgba(243, 186, 47, 0.6)
+    );
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:active,
+.messages-container::-webkit-scrollbar-thumb:active {
+    background: var(--bnb-gold);
+}
+
+/* Firefox Support */
+.sidebar-content,
+.messages-container {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(243, 186, 47, 0.4) rgba(243, 186, 47, 0.05);
+}
+
+/* ============================================
+   7. ENHANCED LOADING ANIMATION
+   ============================================ */
+
+.spinner-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(243, 186, 47, 0.1) !important;
+    border-top-color: var(--bnb-gold) !important;
+    border-right-color: var(--gold-light) !important;
+    border-radius: 50%;
+    animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite !important;
+    box-shadow:
+        0 0 10px rgba(243, 186, 47, 0.3),
+        inset 0 0 10px rgba(243, 186, 47, 0.1);
+}
+
+.spinner::before,
+.spinner::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.spinner::before {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 2px solid rgba(0, 229, 255, 0.2);
+    border-top-color: var(--cosmic-cyan);
+    animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite reverse;
+}
+
+.spinner::after {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(252, 213, 53, 0.3);
+    border-top-color: var(--gold-light);
+    animation: spin 2s linear infinite;
+}
+
+/* ============================================
+   8. QUICK ACTION CARDS ENHANCEMENT
+   ============================================ */
+
+.quick-action-card {
+    background: linear-gradient(
+        135deg,
+        rgba(243, 186, 47, 0.08) 0%,
+        rgba(243, 186, 47, 0.03) 100%
+    ) !important;
+    border: 1px solid rgba(243, 186, 47, 0.15) !important;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.quick-action-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(243, 186, 47, 0.15) 0%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.quick-action-card:hover::before {
+    opacity: 1;
+    animation: rotate-glow 3s linear infinite;
+}
+
+@keyframes rotate-glow {
+    to { transform: rotate(360deg); }
+}
+
+.quick-action-card:hover {
+    transform: translateY(-4px) scale(1.02) !important;
+    box-shadow:
+        0 12px 24px rgba(243, 186, 47, 0.2),
+        0 6px 12px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--bnb-gold) !important;
+}
+
+.quick-action-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.quick-action-icon {
+    font-size: 32px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.quick-action-card:hover .quick-action-icon {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 4px 8px rgba(243, 186, 47, 0.4));
+}
+
+/* ============================================
+   9. SIDEBAR TOGGLE ENHANCEMENT
+   ============================================ */
+
+.sidebar-toggle-btn {
+    background: linear-gradient(
+        135deg,
+        rgba(243, 186, 47, 0.15) 0%,
+        rgba(243, 186, 47, 0.08) 100%
+    ) !important;
+    border: 1px solid rgba(243, 186, 47, 0.25) !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 12px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-toggle-btn:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(243, 186, 47, 0.25) 0%,
+        rgba(243, 186, 47, 0.15) 100%
+    ) !important;
+    border-color: var(--bnb-gold) !important;
+    box-shadow:
+        0 4px 8px rgba(243, 186, 47, 0.2),
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+    transform: scale(1.05);
+}
+
+.sidebar-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.sidebar-toggle-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-toggle-btn svg {
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   10. MESSAGE AVATAR ENHANCEMENTS
+   ============================================ */
+
+.message-avatar {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 14px !important;
+    background: linear-gradient(
+        135deg,
+        rgba(243, 186, 47, 0.15) 0%,
+        rgba(243, 186, 47, 0.05) 100%
+    ) !important;
+    border: 2px solid rgba(243, 186, 47, 0.2) !important;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.message:hover .message-avatar {
+    transform: scale(1.05);
+    box-shadow:
+        0 4px 12px rgba(243, 186, 47, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.message-avatar.ai-avatar {
+    background: linear-gradient(
+        135deg,
+        rgba(243, 186, 47, 0.2) 0%,
+        rgba(0, 229, 255, 0.1) 100%
+    ) !important;
+    border-color: rgba(243, 186, 47, 0.3) !important;
+}
+
+.message-avatar.user-avatar {
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.2) 0%,
+        rgba(99, 102, 241, 0.1) 100%
+    ) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* ============================================
+   11. ACCESSIBILITY - FOCUS INDICATORS
+   ============================================ */
+
+*:focus-visible {
+    outline: 2px solid var(--bnb-gold);
+    outline-offset: 2px;
+}
+
+.btn-icon:focus-visible,
+.quick-action-card:focus-visible,
+.agent-card:focus-visible,
+.message-action-btn:focus-visible {
+    outline: 3px solid var(--bnb-gold);
+    outline-offset: 3px;
+    box-shadow:
+        0 0 0 6px rgba(243, 186, 47, 0.2),
+        var(--focus-ring);
+}
+
+/* ============================================
+   12. SPRING PHYSICS TRANSITIONS
+   ============================================ */
+
+:root {
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-out-circ: cubic-bezier(0, 0.55, 0.45, 1);
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* ============================================
+   13. ENHANCED CODE BLOCKS
+   ============================================ */
+
+.enhanced-code-block {
+    background: linear-gradient(
+        135deg,
+        rgba(20, 21, 26, 0.98) 0%,
+        rgba(14, 15, 20, 0.98) 100%
+    ) !important;
+    border: 1px solid rgba(243, 186, 47, 0.25) !important;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border-radius: 16px !important;
+    overflow: hidden;
+}
+
+.code-block-header {
+    background: linear-gradient(
+        135deg,
+        rgba(243, 186, 47, 0.1) 0%,
+        rgba(243, 186, 47, 0.05) 100%
+    ) !important;
+    border-bottom: 1px solid rgba(243, 186, 47, 0.15) !important;
+    padding: 12px 16px !important;
+}
+
+.code-language-badge {
+    background: rgba(243, 186, 47, 0.15);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px !important;
+    color: var(--bnb-gold) !important;
+}
+
+.code-copy-btn {
+    background: rgba(243, 186, 47, 0.1) !important;
+    border: 1px solid rgba(243, 186, 47, 0.2) !important;
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.code-copy-btn:hover {
+    background: rgba(243, 186, 47, 0.2) !important;
+    border-color: var(--bnb-gold) !important;
+    box-shadow: 0 2px 8px rgba(243, 186, 47, 0.3) !important;
+    transform: translateY(-1px);
+}
+
+.code-copy-btn.copied {
+    background: linear-gradient(
+        135deg,
+        rgba(16, 185, 129, 0.25) 0%,
+        rgba(16, 185, 129, 0.15) 100%
+    ) !important;
+    border-color: #10b981 !important;
+    color: #10b981 !important;
+}
+
+/* ============================================
+   14. MOBILE TOUCH TARGETS
+   ============================================ */
+
+.btn-icon {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.message-action-btn {
+    min-height: 44px;
+    padding: 8px 16px;
+}
+
+.history-item {
+    min-height: 64px;
+    padding: 16px 12px;
+}
+
+/* ============================================
+   15. MOBILE BOTTOM SHEET
+   ============================================ */
+
+@media (max-width: 768px) {
+    .chat-sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        height: 70vh;
+        max-height: 500px;
+        transform: translateY(100%);
+        border-top: 2px solid rgba(243, 186, 47, 0.3);
+        border-radius: 24px 24px 0 0;
+        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
+        z-index: 1000;
+    }
+
+    .chat-sidebar.open {
+        transform: translateY(0);
+    }
+
+    .chat-sidebar::before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        z-index: 10;
+    }
+}
+
+/* ============================================
+   16. PARTICLE LOADER (ALTERNATIVE)
+   ============================================ */
+
+.particle-loader {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.particle-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bnb-gold);
+    box-shadow: 0 0 10px rgba(243, 186, 47, 0.5);
+    animation: particle-bounce 1.4s ease-in-out infinite;
+}
+
+.particle-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.particle-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes particle-bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   17. STAGGERED CARD REVEAL
+   ============================================ */
+
+.quick-action-card:nth-child(1) {
+    animation: card-reveal 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    animation-delay: 0.1s;
+}
+
+.quick-action-card:nth-child(2) {
+    animation: card-reveal 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    animation-delay: 0.2s;
+}
+
+.quick-action-card:nth-child(3) {
+    animation: card-reveal 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    animation-delay: 0.3s;
+}
+
+.quick-action-card:nth-child(4) {
+    animation: card-reveal 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    animation-delay: 0.4s;
+}
+
+@keyframes card-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ============================================
+   18. SKIP TO CONTENT LINK (A11Y)
+   ============================================ */
+
+.skip-to-content {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--bnb-gold);
+    color: #000;
+    padding: 12px 24px;
+    z-index: 10000;
+    transition: top 0.3s ease;
+    font-weight: 600;
+    border-radius: 0 0 8px 0;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* ============================================
+   END OF IMPROVEMENTS
+   ============================================ */

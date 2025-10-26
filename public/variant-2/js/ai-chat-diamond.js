@@ -283,7 +283,7 @@ class DiamondChatController {
           const controller = new AbortController();
           const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
 
-          const response = await fetch('/api/chat', {
+          const response = await fetch('/api/chat-groq', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -311,7 +311,8 @@ class DiamondChatController {
           const data = await response.json();
 
           // Success - display AI response
-          this.addMessage(data.message, 'ai');
+          const aiResponse = data.response || data.message || 'Ответ получен';
+          this.addMessage(aiResponse, 'ai');
           this.trackEvent('ai_response_success', { attempt });
           return;
 

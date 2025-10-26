@@ -1,0 +1,49 @@
+{
+  "name": "@hypeai/premium-test-suite",
+  "version": "1.0.0",
+  "description": "Comprehensive test suite for HYPEAI variant-2 with 95%+ coverage",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:unit": "vitest run unit/",
+    "test:integration": "vitest run integration/",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:a11y": "vitest run accessibility/",
+    "test:perf": "vitest run performance/",
+    "lighthouse": "lhci autorun",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:e2e && npm run test:a11y && npm run test:perf",
+    "test:visual": "npx chromatic --project-token=YOUR_TOKEN",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.8.3",
+    "@playwright/test": "^1.40.1",
+    "@storybook/addon-a11y": "^7.6.3",
+    "@storybook/addon-essentials": "^7.6.3",
+    "@storybook/html": "^7.6.3",
+    "@testing-library/dom": "^9.3.3",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/user-event": "^14.5.1",
+    "@vitest/coverage-v8": "^1.0.4",
+    "@vitest/ui": "^1.0.4",
+    "axe-core": "^4.8.3",
+    "axe-playwright": "^1.2.3",
+    "chromatic": "^10.2.0",
+    "jsdom": "^23.0.1",
+    "lighthouse": "^11.4.0",
+    "lhci": "^0.12.0",
+    "playwright": "^1.40.1",
+    "storybook": "^7.6.3",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.7",
+    "vitest": "^1.0.4"
+  },
+  "dependencies": {
+    "happy-dom": "^12.10.3"
+  }
+}

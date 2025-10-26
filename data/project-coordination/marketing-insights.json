@@ -1,46 +1,9 @@
 {
-  "timestamp": "2025-10-20T15:00:10.269Z",
+  "timestamp": "2025-10-21T15:00:01.961Z",
   "hashtags": [],
-  "competitors": [
-    {
-      "username": "binance",
-      "followers": 14888644,
-      "following": 577,
-      "tweets": 40282,
-      "engagementRate": "36961.03",
-      "strategy": "Established player"
-    },
-    {
-      "username": "BNBCHAIN",
-      "followers": 3897815,
-      "following": 638,
-      "tweets": 30544,
-      "engagementRate": "12761.31",
-      "strategy": "Established player"
-    },
-    {
-      "username": "PancakeSwap",
-      "followers": 2137847,
-      "following": 209,
-      "tweets": 17272,
-      "engagementRate": "12377.53",
-      "strategy": "Established player"
-    }
-  ],
+  "competitors": [],
   "influencers": [],
   "recommendations": [
-    {
-      "type": "competitor",
-      "priority": "MEDIUM",
-      "action": "Study @binance's content strategy",
-      "tactics": [
-        "Analyze their best-performing tweets",
-        "Identify their posting schedule",
-        "Engage with their community",
-        "Differentiate your messaging"
-      ],
-      "expectedImpact": "Strategic positioning improvement"
-    },
     {
       "type": "timing",
       "priority": "MEDIUM",
@@ -79,5 +42,5 @@
       "expectedImpact": "+50-100 followers/week"
     }
   ],
-  "previousRun": "2025-10-20T09:00:10.211Z"
+  "previousRun": "2025-10-20T15:00:10.269Z"
 }

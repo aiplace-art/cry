@@ -1,0 +1,342 @@
+[
+  {
+    "id": "demo-0",
+    "text": "Demo tweet 0 #HypeAI #Solana #AI",
+    "created_at": "2025-10-16T15:16:29.322Z",
+    "likes": 69,
+    "retweets": 18,
+    "replies": 9,
+    "impressions": 9,
+    "engagementRate": 0.4929109755001365,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-1",
+    "text": "Demo tweet 1 #HypeAI #Solana #AI",
+    "created_at": "2025-10-15T15:16:29.322Z",
+    "likes": 91,
+    "retweets": 18,
+    "replies": 18,
+    "impressions": 3414,
+    "engagementRate": 3.1941276782410193,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": true,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-2",
+    "text": "Demo tweet 2 #HypeAI #Solana #AI",
+    "created_at": "2025-10-14T15:16:29.322Z",
+    "likes": 76,
+    "retweets": 29,
+    "replies": 12,
+    "impressions": 71,
+    "engagementRate": 4.871692298472577,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": true,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-3",
+    "text": "Demo tweet 3 #HypeAI #Solana #AI",
+    "created_at": "2025-10-13T15:16:29.322Z",
+    "likes": 6,
+    "retweets": 0,
+    "replies": 16,
+    "impressions": 3112,
+    "engagementRate": 0.21802560202160037,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-4",
+    "text": "Demo tweet 4 #HypeAI #Solana #AI",
+    "created_at": "2025-10-12T15:16:29.322Z",
+    "likes": 7,
+    "retweets": 14,
+    "replies": 12,
+    "impressions": 97,
+    "engagementRate": 0.7985011062304043,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": true,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-5",
+    "text": "Demo tweet 5 #HypeAI #Solana #AI",
+    "created_at": "2025-10-11T15:16:29.322Z",
+    "likes": 76,
+    "retweets": 8,
+    "replies": 4,
+    "impressions": 139,
+    "engagementRate": 1.6016795712348593,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-6",
+    "text": "Demo tweet 6 #HypeAI #Solana #AI",
+    "created_at": "2025-10-10T15:16:29.322Z",
+    "likes": 3,
+    "retweets": 4,
+    "replies": 11,
+    "impressions": 1832,
+    "engagementRate": 2.8095515232432673,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-7",
+    "text": "Demo tweet 7 #HypeAI #Solana #AI",
+    "created_at": "2025-10-09T15:16:29.322Z",
+    "likes": 27,
+    "retweets": 0,
+    "replies": 3,
+    "impressions": 1756,
+    "engagementRate": 0.8432985885245547,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-8",
+    "text": "Demo tweet 8 #HypeAI #Solana #AI",
+    "created_at": "2025-10-08T15:16:29.322Z",
+    "likes": 96,
+    "retweets": 1,
+    "replies": 1,
+    "impressions": 4878,
+    "engagementRate": 3.2454832097927495,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": true
+  },
+  {
+    "id": "demo-9",
+    "text": "Demo tweet 9 #HypeAI #Solana #AI",
+    "created_at": "2025-10-07T15:16:29.322Z",
+    "likes": 70,
+    "retweets": 23,
+    "replies": 4,
+    "impressions": 1485,
+    "engagementRate": 3.2690017646108442,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": true,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-10",
+    "text": "Demo tweet 10 #HypeAI #Solana #AI",
+    "created_at": "2025-10-06T15:16:29.322Z",
+    "likes": 26,
+    "retweets": 21,
+    "replies": 14,
+    "impressions": 2832,
+    "engagementRate": 1.49625085862916,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-11",
+    "text": "Demo tweet 11 #HypeAI #Solana #AI",
+    "created_at": "2025-10-05T15:16:29.322Z",
+    "likes": 7,
+    "retweets": 20,
+    "replies": 17,
+    "impressions": 3554,
+    "engagementRate": 4.949044341930503,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": true,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-12",
+    "text": "Demo tweet 12 #HypeAI #Solana #AI",
+    "created_at": "2025-10-04T15:16:29.322Z",
+    "likes": 54,
+    "retweets": 25,
+    "replies": 13,
+    "impressions": 877,
+    "engagementRate": 0.5347863247089674,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-13",
+    "text": "Demo tweet 13 #HypeAI #Solana #AI",
+    "created_at": "2025-10-03T15:16:29.322Z",
+    "likes": 42,
+    "retweets": 23,
+    "replies": 3,
+    "impressions": 3554,
+    "engagementRate": 3.0979133293949395,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-14",
+    "text": "Demo tweet 14 #HypeAI #Solana #AI",
+    "created_at": "2025-10-02T15:16:29.322Z",
+    "likes": 62,
+    "retweets": 29,
+    "replies": 19,
+    "impressions": 1545,
+    "engagementRate": 1.2656926819113157,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-15",
+    "text": "Demo tweet 15 #HypeAI #Solana #AI",
+    "created_at": "2025-10-01T15:16:29.322Z",
+    "likes": 96,
+    "retweets": 2,
+    "replies": 14,
+    "impressions": 3244,
+    "engagementRate": 1.4388146096713772,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-16",
+    "text": "Demo tweet 16 #HypeAI #Solana #AI",
+    "created_at": "2025-09-30T15:16:29.322Z",
+    "likes": 54,
+    "retweets": 24,
+    "replies": 0,
+    "impressions": 4972,
+    "engagementRate": 1.6658131085260712,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": true,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-17",
+    "text": "Demo tweet 17 #HypeAI #Solana #AI",
+    "created_at": "2025-09-29T15:16:29.322Z",
+    "likes": 90,
+    "retweets": 24,
+    "replies": 2,
+    "impressions": 3176,
+    "engagementRate": 0.5698768187541081,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": false
+  },
+  {
+    "id": "demo-18",
+    "text": "Demo tweet 18 #HypeAI #Solana #AI",
+    "created_at": "2025-09-28T15:16:29.322Z",
+    "likes": 46,
+    "retweets": 28,
+    "replies": 4,
+    "impressions": 2784,
+    "engagementRate": 0.688974598617188,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": true
+  },
+  {
+    "id": "demo-19",
+    "text": "Demo tweet 19 #HypeAI #Solana #AI",
+    "created_at": "2025-09-27T15:16:29.322Z",
+    "likes": 35,
+    "retweets": 23,
+    "replies": 15,
+    "impressions": 4,
+    "engagementRate": 1.393502670054817,
+    "hashtags": [
+      "HypeAI",
+      "Solana",
+      "AI"
+    ],
+    "isReply": false,
+    "isRetweet": true
+  }
+]

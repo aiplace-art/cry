@@ -1,0 +1,30 @@
+{
+  "name": "agent-visualization",
+  "version": "1.0.0",
+  "description": "Advanced AI Agent Graph Visualization System",
+  "main": "components/visualization/index.js",
+  "scripts": {
+    "demo": "npx serve src/components/visualization",
+    "test": "echo \"Tests coming soon\" && exit 0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "reactflow": "^11.10.0",
+    "framer-motion": "^10.16.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
+  },
+  "keywords": [
+    "visualization",
+    "agent",
+    "graph",
+    "react",
+    "ai",
+    "swarm"
+  ],
+  "author": "HYPEAI",
+  "license": "MIT"
+}

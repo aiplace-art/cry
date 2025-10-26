@@ -1,0 +1,62 @@
+# Auto-labeler configuration
+
+# Smart contracts
+'area: smart-contracts':
+  - src/contracts/**/*
+  - '**/*.sol'
+
+# Frontend
+'area: frontend':
+  - src/frontend/**/*
+  - public/**/*
+  - '**/*.tsx'
+  - '**/*.jsx'
+  - '**/*.css'
+  - '**/*.html'
+
+# Tests
+'area: testing':
+  - tests/**/*
+  - test/**/*
+  - '**/*.test.js'
+  - '**/*.test.ts'
+  - '**/*.spec.js'
+  - '**/*.spec.ts'
+
+# Documentation
+'area: documentation':
+  - docs/**/*
+  - '**/*.md'
+  - README.md
+
+# CI/CD
+'area: ci/cd':
+  - .github/workflows/**/*
+  - .github/**/*
+  - 'Dockerfile'
+  - 'docker-compose.yml'
+
+# Scripts
+'area: scripts':
+  - scripts/**/*
+
+# Configuration
+'area: configuration':
+  - config/**/*
+  - '**/*.json'
+  - '**/*.yml'
+  - '**/*.yaml'
+  - '.eslintrc*'
+  - '.prettierrc*'
+  - 'hardhat.config.js'
+
+# Security
+'security':
+  - tests/security/**/*
+  - 'SECURITY.md'
+
+# Dependencies
+'dependencies':
+  - package.json
+  - package-lock.json
+  - yarn.lock

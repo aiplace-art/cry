@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Storybook
+storybook-static/
+
+# Lighthouse
+.lighthouseci/
+lhci-reports/
+
+# Misc
+.DS_Store
+*.log
+.env.test

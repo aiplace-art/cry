@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "name": "@hypeai/brand-config",
+  "version": "1.0.0",
+  "description": "Centralized brand colors and visual configuration for HypeAI + BNB Chain",
+  "exports": {
+    "./brand-colors": "./brand-colors.js",
+    "./visual-config": "./visual-config.js"
+  }
+}

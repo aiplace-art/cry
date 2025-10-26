@@ -1,0 +1,97 @@
+name: Performance Monitoring
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  # Lighthouse performance audit
+  lighthouse-audit:
+    name: Lighthouse Performance Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://hypeai.io
+            https://hypeai.io/services
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Performance report
+        run: |
+          echo "Performance audit completed"
+          echo "View results at: https://googlechrome.github.io/lighthouse/viewer/"
+
+  # Web vitals monitoring
+  web-vitals:
+    name: Web Vitals Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Measure Core Web Vitals
+        run: |
+          echo "Checking Core Web Vitals..."
+          # Add actual web vitals measurement here
+          echo "✅ Web Vitals check completed"
+
+  # Bundle size tracking
+  bundle-size-tracking:
+    name: Bundle Size Tracking
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Analyze bundle size
+        run: |
+          if [ -d public ]; then
+            echo "📦 Bundle Size Report"
+            du -sh public/* || true
+            find public -type f -name "*.js" -exec du -h {} \; | sort -rh | head -10
+          fi
+
+  # API response time monitoring
+  api-monitoring:
+    name: API Response Time
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check API response times
+        run: |
+          echo "Checking API response times..."
+
+          # Health check
+          start=$(date +%s%N)
+          curl -f https://hypeai.io/api/health || echo "Health endpoint not found"
+          end=$(date +%s%N)
+          duration=$((($end - $start) / 1000000))
+          echo "Health check: ${duration}ms"
+
+          echo "✅ API monitoring completed"

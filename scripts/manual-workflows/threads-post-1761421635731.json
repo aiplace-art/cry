@@ -1,0 +1,18 @@
+{
+  "content": "Test content from automation",
+  "options": {},
+  "instructions": [
+    "1. Open Threads mobile app or threads.net",
+    "2. Click \"New Thread\" button",
+    "3. Copy and paste the content below",
+    "4. Add image if provided",
+    "5. Click \"Post\"",
+    "6. Update posting-history.json with post URL"
+  ],
+  "contentToCopy": "Test content from automation",
+  "imageUrl": null,
+  "scheduledFor": "Now",
+  "platform": "Threads",
+  "status": "pending_manual_post",
+  "createdAt": "2025-10-25T19:47:15.731Z"
+}

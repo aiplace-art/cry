@@ -1,0 +1,156 @@
+name: Branch Protection Rules
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  # Enforce branch naming conventions
+  branch-naming:
+    name: Check Branch Naming
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check branch name
+        run: |
+          BRANCH_NAME="${{ github.head_ref }}"
+
+          # Allowed patterns: feature/, bugfix/, hotfix/, release/, docs/
+          if [[ ! $BRANCH_NAME =~ ^(feature|bugfix|hotfix|release|docs)/[a-z0-9-]+ ]]; then
+            echo "❌ Invalid branch name: $BRANCH_NAME"
+            echo "Branch names must follow pattern: feature/, bugfix/, hotfix/, release/, docs/"
+            echo "Example: feature/add-new-component"
+            exit 1
+          fi
+
+          echo "✅ Branch name is valid: $BRANCH_NAME"
+
+  # Require minimum approvals
+  require-approvals:
+    name: Require Approvals
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.base_ref == 'main'
+
+    steps:
+      - name: Check PR approvals
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: reviews } = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+
+            const approvals = reviews.filter(review => review.state === 'APPROVED');
+            const requiredApprovals = 1;
+
+            if (approvals.length < requiredApprovals) {
+              core.setFailed(`PR requires at least ${requiredApprovals} approval(s). Current: ${approvals.length}`);
+            } else {
+              core.info(`✅ PR has ${approvals.length} approval(s)`);
+            }
+
+  # Check for required labels
+  require-labels:
+    name: Check Required Labels
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: pullRequest } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+
+            const labels = pullRequest.labels.map(label => label.name);
+            const validTypes = ['feature', 'bugfix', 'hotfix', 'docs', 'refactor', 'test'];
+
+            const hasTypeLabel = labels.some(label => validTypes.includes(label));
+
+            if (!hasTypeLabel) {
+              core.setFailed(`PR must have one of these labels: ${validTypes.join(', ')}`);
+            } else {
+              core.info('✅ PR has valid type label');
+            }
+
+  # Prevent direct pushes to main
+  prevent-direct-push:
+    name: Prevent Direct Push to Main
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Check if push is from merge
+        run: |
+          echo "⚠️ Direct pushes to main are not allowed!"
+          echo "Please create a PR and merge through the review process."
+          exit 1
+
+  # Check PR size
+  check-pr-size:
+    name: Check PR Size
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check PR size
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: pullRequest } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+
+            const additions = pullRequest.additions;
+            const deletions = pullRequest.deletions;
+            const changedFiles = pullRequest.changed_files;
+
+            const maxAdditions = 1000;
+            const maxFiles = 50;
+
+            if (additions > maxAdditions) {
+              core.warning(`PR is large (${additions} additions). Consider splitting it into smaller PRs.`);
+            }
+
+            if (changedFiles > maxFiles) {
+              core.warning(`PR touches many files (${changedFiles} files). Consider splitting it into smaller PRs.`);
+            }
+
+            core.info(`PR stats: +${additions} -${deletions} files: ${changedFiles}`);
+
+  # Require linked issue
+  require-linked-issue:
+    name: Require Linked Issue
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check for linked issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: pullRequest } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+
+            const body = pullRequest.body || '';
+            const issuePattern = /#\d+|https:\/\/github\.com\/.*\/issues\/\d+/;
+
+            if (!issuePattern.test(body)) {
+              core.warning('PR does not reference an issue. Please link the related issue.');
+            } else {
+              core.info('✅ PR references an issue');
+            }

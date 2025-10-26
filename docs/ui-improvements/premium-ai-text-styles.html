@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium AI Text Styles - HYPEAI Cosmic Button</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .variant-card {
+            background: linear-gradient(135deg, rgba(20, 20, 30, 0.8), rgba(10, 10, 20, 0.9));
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .variant-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 229, 255, 0.3);
+        }
+
+        .variant-title {
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #00E5FF;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .button-preview {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button-preview::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(0,229,255,0.1)"/></svg>');
+            opacity: 0.5;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .ai-text {
+            font-size: 28px;
+            font-weight: 900;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+            user-select: none;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            overflow-x: auto;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        .performance-note {
+            background: rgba(0, 229, 255, 0.1);
+            border-left: 3px solid #00E5FF;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+
+        /* ========================================
+           VARIANT 1: 3D EXTRUDED TEXT
+        ======================================== */
+        .ai-3d-extruded {
+            background: linear-gradient(180deg, #00E5FF 0%, #0088FF 50%, #0044FF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow:
+                0 1px 0 rgba(0, 200, 255, 0.8),
+                0 2px 0 rgba(0, 180, 255, 0.7),
+                0 3px 0 rgba(0, 160, 255, 0.6),
+                0 4px 0 rgba(0, 140, 255, 0.5),
+                0 5px 0 rgba(0, 120, 255, 0.4),
+                0 6px 0 rgba(0, 100, 255, 0.3),
+                0 7px 0 rgba(0, 80, 255, 0.2),
+                0 8px 10px rgba(0, 0, 0, 0.8),
+                0 12px 20px rgba(0, 0, 0, 0.6);
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .ai-3d-extruded:hover {
+            animation: extrude-pulse 0.6s ease-in-out;
+        }
+
+        @keyframes extrude-pulse {
+            0%, 100% { transform: translateY(0) translateZ(0); }
+            50% { transform: translateY(-2px) translateZ(10px); }
+        }
+
+        /* ========================================
+           VARIANT 2: CHROME METALLIC
+        ======================================== */
+        .ai-chrome {
+            background: linear-gradient(
+                90deg,
+                #b8b8b8 0%,
+                #ffffff 20%,
+                #e0e0e0 40%,
+                #ffffff 60%,
+                #b8b8b8 80%,
+                #ffffff 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter:
+                drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))
+                drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9));
+            animation: chrome-shine 3s linear infinite;
+            will-change: background-position;
+        }
+
+        @keyframes chrome-shine {
+            to { background-position: 200% center; }
+        }
+
+        /* ========================================
+           VARIANT 3: HOLOGRAPHIC RAINBOW
+        ======================================== */
+        .ai-holographic {
+            background: linear-gradient(
+                45deg,
+                #ff0080 0%,
+                #ff8c00 12%,
+                #ffd700 25%,
+                #00ff00 37%,
+                #00e5ff 50%,
+                #0080ff 62%,
+                #8000ff 75%,
+                #ff0080 87%,
+                #ff8c00 100%
+            );
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter:
+                drop-shadow(0 0 12px rgba(0, 229, 255, 0.8))
+                drop-shadow(0 0 20px rgba(255, 0, 128, 0.6));
+            animation: holographic-shift 4s ease-in-out infinite;
+            will-change: background-position, filter;
+        }
+
+        @keyframes holographic-shift {
+            0%, 100% {
+                background-position: 0% 50%;
+                filter:
+                    drop-shadow(0 0 12px rgba(0, 229, 255, 0.8))
+                    drop-shadow(0 0 20px rgba(255, 0, 128, 0.6))
+                    hue-rotate(0deg);
+            }
+            50% {
+                background-position: 100% 50%;
+                filter:
+                    drop-shadow(0 0 12px rgba(255, 0, 128, 0.8))
+                    drop-shadow(0 0 20px rgba(0, 229, 255, 0.6))
+                    hue-rotate(180deg);
+            }
+        }
+
+        /* ========================================
+           VARIANT 4: NEON CYBERPUNK
+        ======================================== */
+        .ai-neon {
+            color: #00E5FF;
+            text-shadow:
+                0 0 5px #00E5FF,
+                0 0 10px #00E5FF,
+                0 0 20px #00E5FF,
+                0 0 40px #00E5FF,
+                0 0 80px #0088FF,
+                0 0 120px #0088FF,
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+            animation: neon-flicker 4s ease-in-out infinite;
+            will-change: text-shadow, opacity;
+        }
+
+        @keyframes neon-flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow:
+                    0 0 5px #00E5FF,
+                    0 0 10px #00E5FF,
+                    0 0 20px #00E5FF,
+                    0 0 40px #00E5FF,
+                    0 0 80px #0088FF,
+                    0 0 120px #0088FF,
+                    2px 2px 4px rgba(0, 0, 0, 0.8);
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow:
+                    0 0 2px #00E5FF,
+                    0 0 5px #00E5FF,
+                    2px 2px 4px rgba(0, 0, 0, 0.8);
+                opacity: 0.8;
+            }
+        }
+
+        /* ========================================
+           VARIANT 5: DIGITAL GLITCH
+        ======================================== */
+        .ai-glitch {
+            color: #fff;
+            position: relative;
+            animation: glitch-skew 2s infinite;
+        }
+
+        .ai-glitch::before,
+        .ai-glitch::after {
+            content: 'AI';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ai-glitch::before {
+            color: #00E5FF;
+            animation: glitch-left 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite reverse;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+        }
+
+        .ai-glitch::after {
+            color: #FF0080;
+            animation: glitch-right 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitch-left {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-3px); }
+            40% { transform: translate(-2px); }
+            60% { transform: translate(3px); }
+            80% { transform: translate(-1px); }
+        }
+
+        @keyframes glitch-right {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(3px); }
+            40% { transform: translate(-3px); }
+            60% { transform: translate(2px); }
+            80% { transform: translate(-2px); }
+        }
+
+        @keyframes glitch-skew {
+            0%, 100% { transform: skew(0deg); }
+            20% { transform: skew(-2deg); }
+            40% { transform: skew(2deg); }
+            60% { transform: skew(-1deg); }
+            80% { transform: skew(1deg); }
+        }
+
+        /* ========================================
+           VARIANT 6: LIQUID GOLD
+        ======================================== */
+        .ai-liquid-gold {
+            background: linear-gradient(
+                135deg,
+                #ffd700 0%,
+                #ffed4e 20%,
+                #fff9a3 40%,
+                #ffd700 60%,
+                #ff8c00 80%,
+                #ffd700 100%
+            );
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter:
+                drop-shadow(0 2px 4px rgba(255, 215, 0, 0.8))
+                drop-shadow(0 0 20px rgba(255, 215, 0, 0.6))
+                brightness(1.2);
+            animation: liquid-flow 3s ease-in-out infinite;
+            will-change: background-position, filter;
+        }
+
+        @keyframes liquid-flow {
+            0%, 100% {
+                background-position: 0% 0%;
+                filter:
+                    drop-shadow(0 2px 4px rgba(255, 215, 0, 0.8))
+                    drop-shadow(0 0 20px rgba(255, 215, 0, 0.6))
+                    brightness(1.2);
+            }
+            50% {
+                background-position: 100% 100%;
+                filter:
+                    drop-shadow(0 2px 4px rgba(255, 140, 0, 0.8))
+                    drop-shadow(0 0 20px rgba(255, 215, 0, 0.8))
+                    brightness(1.4);
+            }
+        }
+
+        /* ========================================
+           VARIANT 7: DIAMOND CRYSTALLINE
+        ======================================== */
+        .ai-diamond {
+            background: linear-gradient(
+                45deg,
+                #e3f2fd 0%,
+                #ffffff 20%,
+                #bbdefb 40%,
+                #ffffff 50%,
+                #90caf9 60%,
+                #ffffff 80%,
+                #e3f2fd 100%
+            );
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter:
+                drop-shadow(0 0 2px rgba(255, 255, 255, 1))
+                drop-shadow(0 0 5px rgba(144, 202, 249, 0.8))
+                drop-shadow(0 0 10px rgba(100, 181, 246, 0.6))
+                drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5))
+                brightness(1.5)
+                contrast(1.3);
+            animation: diamond-sparkle 3s linear infinite;
+            will-change: background-position;
+        }
+
+        @keyframes diamond-sparkle {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+        }
+
+        .ai-diamond::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: 0;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #fff, 0 0 15px rgba(144, 202, 249, 0.8);
+            animation: sparkle-move 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle-move {
+            0%, 100% {
+                opacity: 0;
+                transform: translate(0, 0) scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-30px, 20px) scale(1);
+            }
+        }
+
+        /* ========================================
+           VARIANT 8: PLASMA ENERGY
+        ======================================== */
+        .ai-plasma {
+            background: linear-gradient(
+                90deg,
+                #ff0080 0%,
+                #ff8c00 10%,
+                #00E5FF 20%,
+                #8000ff 30%,
+                #ff0080 40%,
+                #ff8c00 50%,
+                #00E5FF 60%,
+                #8000ff 70%,
+                #ff0080 80%,
+                #ff8c00 90%,
+                #00E5FF 100%
+            );
+            background-size: 400% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter:
+                drop-shadow(0 0 10px rgba(0, 229, 255, 0.8))
+                drop-shadow(0 0 20px rgba(255, 0, 128, 0.6))
+                drop-shadow(0 0 30px rgba(128, 0, 255, 0.4))
+                blur(0.3px);
+            animation: plasma-wave 2s linear infinite;
+            will-change: background-position;
+        }
+
+        @keyframes plasma-wave {
+            to { background-position: 400% 0; }
+        }
+
+        .ai-plasma::after {
+            content: 'AI';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(
+                90deg,
+                #ff0080 0%,
+                #ff8c00 10%,
+                #00E5FF 20%,
+                #8000ff 30%,
+                #ff0080 40%,
+                #ff8c00 50%,
+                #00E5FF 60%,
+                #8000ff 70%,
+                #ff0080 80%,
+                #ff8c00 90%,
+                #00E5FF 100%
+            );
+            background-size: 400% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: blur(8px);
+            opacity: 0.6;
+            animation: plasma-wave 2s linear infinite reverse;
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00E5FF, #0088FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 42px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 50px;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <h1>Premium AI Text Styles</h1>
+    <p class="subtitle">8 Production-Ready CSS Effects for HYPEAI Cosmic Button</p>
+
+    <div class="showcase-grid">
+        <!-- VARIANT 1: 3D EXTRUDED -->
+        <div class="variant-card">
+            <div class="variant-title">01. 3D Extruded</div>
+            <div class="button-preview">
+                <div class="ai-text ai-3d-extruded">AI</div>
+            </div>
+            <div class="code-block">/* 3D Extruded Text */
+.ai-3d-extruded {
+    background: linear-gradient(180deg,
+        #00E5FF 0%, #0088FF 50%, #0044FF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+        0 1px 0 rgba(0, 200, 255, 0.8),
+        0 2px 0 rgba(0, 180, 255, 0.7),
+        0 3px 0 rgba(0, 160, 255, 0.6),
+        0 4px 0 rgba(0, 140, 255, 0.5),
+        0 5px 0 rgba(0, 120, 255, 0.4),
+        0 6px 0 rgba(0, 100, 255, 0.3),
+        0 7px 0 rgba(0, 80, 255, 0.2),
+        0 8px 10px rgba(0, 0, 0, 0.8),
+        0 12px 20px rgba(0, 0, 0, 0.6);
+    transform: translateZ(0);
+    will-change: transform;
+}</div>
+            <div class="performance-note">
+                ⚡ GPU-accelerated with translateZ(0). Multiple text-shadows create depth illusion without 3D transforms.
+            </div>
+        </div>
+
+        <!-- VARIANT 2: CHROME METALLIC -->
+        <div class="variant-card">
+            <div class="variant-title">02. Chrome Metallic</div>
+            <div class="button-preview">
+                <div class="ai-text ai-chrome">AI</div>
+            </div>
+            <div class="code-block">/* Chrome Metallic */
+.ai-chrome {
+    background: linear-gradient(90deg,
+        #b8b8b8 0%, #ffffff 20%, #e0e0e0 40%,
+        #ffffff 60%, #b8b8b8 80%, #ffffff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter:
+        drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))
+        drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9));
+    animation: chrome-shine 3s linear infinite;
+    will-change: background-position;
+}
+
+@keyframes chrome-shine {
+    to { background-position: 200% center; }
+}</div>
+            <div class="performance-note">
+                ⚡ Animated background position (GPU-friendly). Creates realistic metallic reflection.
+            </div>
+        </div>
+
+        <!-- VARIANT 3: HOLOGRAPHIC RAINBOW -->
+        <div class="variant-card">
+            <div class="variant-title">03. Holographic Rainbow</div>
+            <div class="button-preview">
+                <div class="ai-text ai-holographic">AI</div>
+            </div>
+            <div class="code-block">/* Holographic Rainbow */
+.ai-holographic {
+    background: linear-gradient(45deg,
+        #ff0080 0%, #ff8c00 12%, #ffd700 25%,
+        #00ff00 37%, #00e5ff 50%, #0080ff 62%,
+        #8000ff 75%, #ff0080 87%, #ff8c00 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter:
+        drop-shadow(0 0 12px rgba(0, 229, 255, 0.8))
+        drop-shadow(0 0 20px rgba(255, 0, 128, 0.6));
+    animation: holographic-shift 4s ease-in-out infinite;
+    will-change: background-position, filter;
+}
+
+@keyframes holographic-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        background-position: 100% 50%;
+        filter: hue-rotate(180deg);
+    }
+}</div>
+            <div class="performance-note">
+                ⚡ Combines gradient animation with hue-rotate for dynamic rainbow effect. Most visually striking.
+            </div>
+        </div>
+
+        <!-- VARIANT 4: NEON CYBERPUNK -->
+        <div class="variant-card">
+            <div class="variant-title">04. Neon Cyberpunk</div>
+            <div class="button-preview">
+                <div class="ai-text ai-neon">AI</div>
+            </div>
+            <div class="code-block">/* Neon Cyberpunk */
+.ai-neon {
+    color: #00E5FF;
+    text-shadow:
+        0 0 5px #00E5FF,
+        0 0 10px #00E5FF,
+        0 0 20px #00E5FF,
+        0 0 40px #00E5FF,
+        0 0 80px #0088FF,
+        0 0 120px #0088FF,
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+    animation: neon-flicker 4s ease-in-out infinite;
+    will-change: text-shadow, opacity;
+}
+
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: [full glow];
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        text-shadow: [reduced glow];
+        opacity: 0.8;
+    }
+}</div>
+            <div class="performance-note">
+                ⚡ Classic neon sign effect with realistic flicker. Multiple text-shadows create intense glow.
+            </div>
+        </div>
+
+        <!-- VARIANT 5: DIGITAL GLITCH -->
+        <div class="variant-card">
+            <div class="variant-title">05. Digital Glitch</div>
+            <div class="button-preview">
+                <div class="ai-text ai-glitch">AI</div>
+            </div>
+            <div class="code-block">/* Digital Glitch (requires ::before/::after) */
+.ai-glitch {
+    color: #fff;
+    position: relative;
+    animation: glitch-skew 2s infinite;
+}
+
+.ai-glitch::before,
+.ai-glitch::after {
+    content: 'AI';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+.ai-glitch::before {
+    color: #00E5FF;
+    animation: glitch-left 1.5s infinite reverse;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.ai-glitch::after {
+    color: #FF0080;
+    animation: glitch-right 2s infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-left {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-3px); }
+}</div>
+            <div class="performance-note">
+                ⚡ RGB split effect using clip-path. Requires pseudo-elements. Most complex implementation.
+            </div>
+        </div>
+
+        <!-- VARIANT 6: LIQUID GOLD -->
+        <div class="variant-card">
+            <div class="variant-title">06. Liquid Gold</div>
+            <div class="button-preview">
+                <div class="ai-text ai-liquid-gold">AI</div>
+            </div>
+            <div class="code-block">/* Liquid Gold */
+.ai-liquid-gold {
+    background: linear-gradient(135deg,
+        #ffd700 0%, #ffed4e 20%, #fff9a3 40%,
+        #ffd700 60%, #ff8c00 80%, #ffd700 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter:
+        drop-shadow(0 2px 4px rgba(255, 215, 0, 0.8))
+        drop-shadow(0 0 20px rgba(255, 215, 0, 0.6))
+        brightness(1.2);
+    animation: liquid-flow 3s ease-in-out infinite;
+    will-change: background-position, filter;
+}
+
+@keyframes liquid-flow {
+    0%, 100% {
+        background-position: 0% 0%;
+        filter: brightness(1.2);
+    }
+    50% {
+        background-position: 100% 100%;
+        filter: brightness(1.4);
+    }
+}</div>
+            <div class="performance-note">
+                ⚡ Flowing gradient with brightness animation. Creates molten metal effect. Premium feel.
+            </div>
+        </div>
+
+        <!-- VARIANT 7: DIAMOND CRYSTALLINE -->
+        <div class="variant-card">
+            <div class="variant-title">07. Diamond Crystalline</div>
+            <div class="button-preview">
+                <div class="ai-text ai-diamond">AI</div>
+            </div>
+            <div class="code-block">/* Diamond Crystalline (requires ::before) */
+.ai-diamond {
+    background: linear-gradient(45deg,
+        #e3f2fd 0%, #ffffff 20%, #bbdefb 40%,
+        #ffffff 50%, #90caf9 60%, #ffffff 80%,
+        #e3f2fd 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter:
+        drop-shadow(0 0 2px rgba(255, 255, 255, 1))
+        drop-shadow(0 0 5px rgba(144, 202, 249, 0.8))
+        drop-shadow(0 0 10px rgba(100, 181, 246, 0.6))
+        brightness(1.5) contrast(1.3);
+    animation: diamond-sparkle 3s linear infinite;
+}
+
+.ai-diamond::before {
+    /* Sparkle effect */
+    content: '';
+    position: absolute;
+    width: 4px; height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: sparkle-move 2s infinite;
+}</div>
+            <div class="performance-note">
+                ⚡ Bright crystalline effect with animated sparkle. Multiple filters create faceted diamond look.
+            </div>
+        </div>
+
+        <!-- VARIANT 8: PLASMA ENERGY -->
+        <div class="variant-card">
+            <div class="variant-title">08. Plasma Energy</div>
+            <div class="button-preview">
+                <div class="ai-text ai-plasma">AI</div>
+            </div>
+            <div class="code-block">/* Plasma Energy (requires ::after) */
+.ai-plasma {
+    background: linear-gradient(90deg,
+        #ff0080 0%, #ff8c00 10%, #00E5FF 20%,
+        #8000ff 30%, #ff0080 40%, #ff8c00 50%,
+        #00E5FF 60%, #8000ff 70%, #ff0080 80%,
+        #ff8c00 90%, #00E5FF 100%);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter:
+        drop-shadow(0 0 10px rgba(0, 229, 255, 0.8))
+        drop-shadow(0 0 20px rgba(255, 0, 128, 0.6))
+        drop-shadow(0 0 30px rgba(128, 0, 255, 0.4))
+        blur(0.3px);
+    animation: plasma-wave 2s linear infinite;
+}
+
+.ai-plasma::after {
+    content: 'AI';
+    /* Blurred duplicate for plasma glow */
+    filter: blur(8px);
+    opacity: 0.6;
+    animation: plasma-wave 2s linear infinite reverse;
+}</div>
+            <div class="performance-note">
+                ⚡ Fast-moving gradient with blurred duplicate creates energy wave effect. Very dynamic.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
