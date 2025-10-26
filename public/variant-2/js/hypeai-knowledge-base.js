@@ -312,3 +312,9 @@ const HYPEAI_KNOWLEDGE = {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = HYPEAI_KNOWLEDGE;
 }
+
+// CRITICAL: Export to window for browser usage
+if (typeof window !== 'undefined') {
+  window.HYPEAI_KNOWLEDGE = HYPEAI_KNOWLEDGE;
+  console.log('✅ HypeAI Knowledge Base loaded successfully');
+}
