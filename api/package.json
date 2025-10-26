@@ -1,0 +1,12 @@
+{
+  "name": "hypeai-api",
+  "version": "1.0.0",
+  "description": "HypeAI Serverless API Functions",
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.17.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

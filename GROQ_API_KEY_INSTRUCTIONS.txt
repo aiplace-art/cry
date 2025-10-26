@@ -1,0 +1,299 @@
+================================================================================
+GROQ API KEY - STEP-BY-STEP INSTRUCTIONS FOR HYPEAI
+================================================================================
+
+📋 TABLE OF CONTENTS:
+1. Getting Your API Key (3 minutes)
+2. Setting Up Your Environment (2 minutes)
+3. Testing Your Setup (1 minute)
+4. Security Checklist
+5. Quick Reference
+
+================================================================================
+STEP 1: GET YOUR GROQ API KEY
+================================================================================
+
+1.1 Visit Groq Console:
+    → Open your browser
+    → Go to: https://console.groq.com
+    → Bookmark this page for future use
+
+1.2 Create Account:
+    → Click "Sign Up" or "Get Started"
+    → Choose one:
+      • GitHub Account (recommended for developers)
+      • Google Account (fastest)
+      • Email/Password (traditional)
+    → Complete the registration
+
+1.3 Navigate to API Keys:
+    → After login, find the navigation menu
+    → Click "API Keys" (usually in left sidebar or settings)
+    → You'll see a list of API keys (empty if first time)
+
+1.4 Create New API Key:
+    → Click "Create API Key" or "+ New API Key"
+    → Enter a name: "HypeAI Production" (or your choice)
+    → Optionally add notes: "For HypeAI chatbot"
+    → Click "Create" or "Generate"
+
+1.5 COPY YOUR KEY IMMEDIATELY:
+    ⚠️  CRITICAL: The key is shown ONLY ONCE!
+
+    → The key looks like: gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    → Click the "Copy" button
+    → DO NOT close the page until you've saved the key
+
+1.6 Save Key Securely:
+    Option A (Recommended):
+      → Password manager (1Password, LastPass, Bitwarden)
+      → Label it: "Groq API Key - HypeAI"
+
+    Option B:
+      → Encrypted note app
+      → Secure cloud storage (encrypted)
+
+    Option C (Temporary):
+      → Text file on your computer
+      → Delete after adding to .env.local
+
+    ⛔ NEVER:
+      → Email the key
+      → Commit to git
+      → Share in chat/Slack
+      → Store in plain text cloud files
+
+================================================================================
+STEP 2: SET UP YOUR ENVIRONMENT
+================================================================================
+
+2.1 Navigate to Project Directory:
+    Open terminal and run:
+
+    cd /Users/ai.place/Crypto
+
+2.2 Create .env.local File:
+    Copy the example file:
+
+    cp .env.local.example .env.local
+
+2.3 Add Your API Key:
+    Open .env.local in your editor:
+
+    nano .env.local
+    # or
+    code .env.local
+    # or
+    vim .env.local
+
+    Find this line:
+    GROQ_API_KEY=gsk_your_actual_api_key_here
+
+    Replace with your actual key:
+    GROQ_API_KEY=gsk_abc123xyz456...your_real_key_here
+
+    Add today's date:
+    GROQ_API_KEY_ROTATION_DATE=2025-10-26
+
+    Save and close the file
+
+2.4 Verify .gitignore:
+    Make sure .env.local will NOT be committed to git:
+
+    echo ".env.local" >> .gitignore
+
+    Check it's there:
+
+    cat .gitignore | grep ".env.local"
+
+    You should see: .env.local
+
+2.5 Install Dependencies (if needed):
+    If you haven't already:
+
+    npm install dotenv
+
+================================================================================
+STEP 3: TEST YOUR SETUP
+================================================================================
+
+3.1 Quick Command Line Test:
+    Run this in terminal:
+
+    node -e "require('dotenv').config({path:'.env.local'}); console.log('API Key:', process.env.GROQ_API_KEY ? '✅ Loaded' : '❌ Missing')"
+
+    Expected output: API Key: ✅ Loaded
+
+3.2 Test API Connection:
+    Create a test file:
+
+    cat > test-groq.js << 'EOF'
+    require('dotenv').config({ path: '.env.local' });
+
+    async function test() {
+      const key = process.env.GROQ_API_KEY;
+
+      if (!key) {
+        console.error('❌ No API key found');
+        process.exit(1);
+      }
+
+      console.log('✅ API key loaded');
+      console.log('🔍 Testing connection...\n');
+
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${key}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: 'llama-3.3-70b-versatile',
+          messages: [{ role: 'user', content: 'Привет!' }],
+          max_tokens: 50
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('✅ Connection successful!');
+        console.log('📝 Response:', data.choices[0].message.content);
+        console.log('📊 Tokens used:', data.usage.total_tokens);
+      } else {
+        console.error('❌ Error:', data.error?.message);
+      }
+    }
+
+    test();
+    EOF
+
+    Run the test:
+
+    node test-groq.js
+
+    Expected output:
+    ✅ API key loaded
+    🔍 Testing connection...
+    ✅ Connection successful!
+    📝 Response: Здравствуйте! Как дела?
+    📊 Tokens used: 27
+
+    If successful, delete the test file:
+
+    rm test-groq.js
+
+================================================================================
+STEP 4: SECURITY CHECKLIST
+================================================================================
+
+Before you deploy to production, verify:
+
+✓ [ ] .env.local file exists with your API key
+✓ [ ] .env.local is in .gitignore
+✓ [ ] API key backed up in password manager
+✓ [ ] No API keys in git history:
+      git log --all --grep="gsk_"
+✓ [ ] No hardcoded keys in code:
+      grep -r "gsk_" . --exclude-dir=node_modules
+✓ [ ] Environment variables used everywhere:
+      process.env.GROQ_API_KEY (not hardcoded)
+✓ [ ] API calls only from server (not browser)
+✓ [ ] Monthly rotation reminder set:
+      Add calendar reminder for 2025-11-26
+
+================================================================================
+STEP 5: QUICK REFERENCE
+================================================================================
+
+Free Tier Limits:
+- 30 requests per minute
+- 7,000 tokens per minute
+- ~200,000 tokens per day
+- $0.00 cost (completely FREE!)
+
+Best Model for Russian:
+llama-3.3-70b-versatile
+
+Basic Usage:
+const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    model: 'llama-3.3-70b-versatile',
+    messages: [{ role: 'user', content: 'Your question' }]
+  })
+});
+
+Groq Console (manage keys, view usage):
+https://console.groq.com
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Problem: "Invalid API Key" error
+Solution: Verify key in .env.local, check for typos
+
+Problem: "Rate limit exceeded" error
+Solution: Wait 60 seconds, implement rate limiting (see docs)
+
+Problem: Environment variable not loading
+Solution: Make sure dotenv.config() is at top of file
+
+Problem: API key exposed in git
+Solution: IMMEDIATELY revoke key in Groq console, create new one
+
+For more help:
+- Quick Start Guide: docs/GROQ_QUICK_START.md
+- Full Setup Guide: docs/GROQ_API_SETUP.md
+- Troubleshooting: docs/GROQ_TROUBLESHOOTING.md
+
+================================================================================
+SUPPORT
+================================================================================
+
+Groq Support:
+- Documentation: https://console.groq.com/docs
+- Status Page: https://status.groq.com
+- Email: support@groq.com
+
+HypeAI Documentation:
+- AI Assistant Guide: docs/AI_ASSISTANT_INTEGRATION.md
+- API Documentation: docs/api/
+- Architecture: docs/architecture/
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. ✅ Get API key from Groq Console
+2. ✅ Add to .env.local file
+3. ✅ Test connection
+4. ✅ Complete security checklist
+5. 📖 Read full documentation:
+   - docs/GROQ_QUICK_START.md (5-minute guide)
+   - docs/GROQ_API_SETUP.md (complete guide)
+6. 🔧 Implement rate limiting
+7. 📊 Monitor usage in Groq Console
+8. 🔐 Set monthly rotation reminder
+9. 🚀 Deploy to production
+
+================================================================================
+CONGRATULATIONS!
+================================================================================
+
+You're ready to use Groq API with HypeAI!
+
+Your AI assistant will now be able to:
+✅ Answer questions in Russian
+✅ Handle up to 200,000 tokens/day for FREE
+✅ Respond in 1-2 seconds
+✅ Understand crypto and DeFi terminology
+
+Happy coding! 🎉
+
+================================================================================

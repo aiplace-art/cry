@@ -266,7 +266,102 @@ class DiamondChatController {
     indicator?.remove();
   }
 
-  generateResponse(userMessage) {
+  async generateResponse(userMessage) {
+    try {
+      // Build conversation history (last 10 messages for context)
+      const history = this.messages.slice(-10).map(m => ({
+        role: m.sender === 'user' ? 'user' : 'assistant',
+        content: m.text
+      }));
+
+      // Try API call with retry logic
+      const maxRetries = 3;
+      let lastError = null;
+
+      for (let attempt = 1; attempt <= maxRetries; attempt++) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
+
+          const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              message: userMessage,
+              conversationHistory: history
+            }),
+            signal: controller.signal
+          });
+
+          clearTimeout(timeoutId);
+
+          if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+
+            // Handle specific error codes
+            if (response.status === 429) {
+              throw new Error('RATE_LIMIT');
+            } else if (response.status >= 500) {
+              throw new Error('SERVER_ERROR');
+            } else {
+              throw new Error(`API error: ${response.status}`);
+            }
+          }
+
+          const data = await response.json();
+
+          // Success - display AI response
+          this.addMessage(data.message, 'ai');
+          this.trackEvent('ai_response_success', { attempt });
+          return;
+
+        } catch (error) {
+          lastError = error;
+
+          // Don't retry on rate limit or timeout
+          if (error.message === 'RATE_LIMIT' || error.name === 'AbortError') {
+            break;
+          }
+
+          // Wait before retry (exponential backoff)
+          if (attempt < maxRetries) {
+            await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+          }
+        }
+      }
+
+      // If all retries failed, use fallback
+      throw lastError;
+
+    } catch (error) {
+      console.error('AI response error:', error);
+      this.trackEvent('ai_response_error', { error: error.message });
+
+      // Show error message based on type
+      let errorMessage = '';
+      if (error.message === 'RATE_LIMIT') {
+        errorMessage = '⏰ Слишком много запросов. Подождите минуту и попробуйте снова.';
+      } else if (error.message === 'SERVER_ERROR') {
+        errorMessage = '🔧 Временные технические работы. Используем локальную базу знаний...';
+      } else if (error.name === 'AbortError') {
+        errorMessage = '⏱️ Превышено время ожидания. Используем локальную базу знаний...';
+      } else if (!navigator.onLine) {
+        errorMessage = '❌ Ошибка сети. Проверьте подключение к интернету.';
+      } else {
+        errorMessage = '⚠️ API временно недоступен. Используем локальную базу знаний...';
+      }
+
+      // Display error and fallback response
+      this.addMessage(errorMessage, 'ai');
+
+      // Wait a bit, then show fallback response
+      setTimeout(() => {
+        this.getFallbackResponse(userMessage);
+      }, 500);
+    }
+  }
+
+  getFallbackResponse(userMessage) {
     const lowerMessage = userMessage.toLowerCase();
     let response = '';
 
@@ -494,6 +589,27 @@ class DiamondChatController {
 
     response = fallbacks[Math.floor(Math.random() * fallbacks.length)];
     this.addMessage(response, 'ai');
+  }
+
+  clearConversation() {
+    this.messages = [];
+    this.messagesContainer.innerHTML = '';
+
+    // Show empty state
+    const emptyStateHTML = `
+      <div class="chat-empty-state">
+        <div class="diamond-icon">
+          <video class="diamond-cosmic-video" autoplay loop muted playsinline>
+            <source src="assets/ai-assistant/animations/button-cosmic-ultra.mp4" type="video/mp4">
+          </video>
+          <span class="diamond-ai-text">AI</span>
+        </div>
+        <h3>Добро пожаловать в HypeAI!</h3>
+        <p>Спросите о наших AI агентах, сервисах или технологиях</p>
+      </div>
+    `;
+    this.messagesContainer.innerHTML = emptyStateHTML;
+    this.trackEvent('conversation_cleared');
   }
 
   // Helper: Simple text similarity (Jaccard similarity)

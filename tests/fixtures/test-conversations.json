@@ -1,0 +1,202 @@
+{
+  "conversations": [
+    {
+      "id": "basic_greeting",
+      "description": "Basic greeting conversation",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Привет"
+        },
+        {
+          "role": "assistant",
+          "content": "Здравствуйте! Я AI-ассистент HypeAI. Чем могу помочь?"
+        }
+      ],
+      "expectedKeywords": ["Здравствуйте", "помочь"]
+    },
+    {
+      "id": "project_info",
+      "description": "Ask about HypeAI project",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Что такое HypeAI?"
+        },
+        {
+          "role": "assistant",
+          "content": "HypeAI - это децентрализованная платформа для AI-агентов на блокчейне BNB Smart Chain"
+        }
+      ],
+      "expectedKeywords": ["HypeAI", "платформ", "агент", "BNB"]
+    },
+    {
+      "id": "agents_list",
+      "description": "Ask about available agents",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Какие агенты доступны?"
+        },
+        {
+          "role": "assistant",
+          "content": "Доступные агенты:\n🤖 Coder - разработка кода\n🔍 Researcher - исследования\n🧪 Tester - тестирование\n📊 Analyst - анализ данных"
+        }
+      ],
+      "expectedKeywords": ["агент", "Coder", "Researcher", "Tester"]
+    },
+    {
+      "id": "tokenomics",
+      "description": "Ask about token",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Расскажи о токене HYPEAI"
+        },
+        {
+          "role": "assistant",
+          "content": "Токен HYPEAI - нативный токен платформы на BNB Smart Chain"
+        }
+      ],
+      "expectedKeywords": ["токен", "HYPEAI", "BNB"]
+    },
+    {
+      "id": "staking",
+      "description": "Ask about staking",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Как работает стейкинг?"
+        },
+        {
+          "role": "assistant",
+          "content": "Стейкинг HYPEAI позволяет зарабатывать вознаграждения за блокировку токенов"
+        }
+      ],
+      "expectedKeywords": ["стейкинг", "вознаграждения", "токен"]
+    },
+    {
+      "id": "long_conversation",
+      "description": "Long multi-turn conversation",
+      "messages": [
+        {"role": "user", "content": "Привет"},
+        {"role": "assistant", "content": "Здравствуйте!"},
+        {"role": "user", "content": "Что такое HypeAI?"},
+        {"role": "assistant", "content": "HypeAI - платформа для AI-агентов"},
+        {"role": "user", "content": "Какие агенты есть?"},
+        {"role": "assistant", "content": "Coder, Researcher, Tester и другие"},
+        {"role": "user", "content": "Как купить токены?"},
+        {"role": "assistant", "content": "Через Private Sale или на DEX"},
+        {"role": "user", "content": "Спасибо!"},
+        {"role": "assistant", "content": "Пожалуйста! Обращайтесь!"}
+      ],
+      "expectedKeywords": ["агент", "токен", "спасибо"]
+    },
+    {
+      "id": "technical_question",
+      "description": "Technical implementation question",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Какие технологии используются?"
+        },
+        {
+          "role": "assistant",
+          "content": "Solidity для смарт-контрактов, React для фронтенда, BNB Smart Chain для блокчейна"
+        }
+      ],
+      "expectedKeywords": ["Solidity", "React", "BNB", "технолог"]
+    },
+    {
+      "id": "error_fallback",
+      "description": "Test fallback when API fails",
+      "simulateError": true,
+      "messages": [
+        {
+          "role": "user",
+          "content": "Что такое HypeAI?"
+        }
+      ],
+      "expectedFallback": true,
+      "expectedKeywords": ["HypeAI", "платформ"]
+    },
+    {
+      "id": "rate_limit_scenario",
+      "description": "Test rate limiting",
+      "rapidFire": true,
+      "messages": [
+        {"role": "user", "content": "Вопрос 1"},
+        {"role": "user", "content": "Вопрос 2"},
+        {"role": "user", "content": "Вопрос 3"},
+        {"role": "user", "content": "Вопрос 4"},
+        {"role": "user", "content": "Вопрос 5"},
+        {"role": "user", "content": "Вопрос 6"},
+        {"role": "user", "content": "Вопрос 7"},
+        {"role": "user", "content": "Вопрос 8"},
+        {"role": "user", "content": "Вопрос 9"},
+        {"role": "user", "content": "Вопрос 10"},
+        {"role": "user", "content": "Вопрос 11"},
+        {"role": "user", "content": "Вопрос 12"},
+        {"role": "user", "content": "Вопрос 13"},
+        {"role": "user", "content": "Вопрос 14"},
+        {"role": "user", "content": "Вопрос 15"}
+      ],
+      "expectedRateLimit": true
+    },
+    {
+      "id": "context_test",
+      "description": "Test conversation context retention",
+      "messages": [
+        {"role": "user", "content": "Меня зовут Алекс"},
+        {"role": "assistant", "content": "Приятно познакомиться, Алекс!"},
+        {"role": "user", "content": "Как меня зовут?"},
+        {"role": "assistant", "content": "Вас зовут Алекс"}
+      ],
+      "expectedKeywords": ["Алекс"]
+    }
+  ],
+  "testQuestions": [
+    "Что такое HypeAI?",
+    "Какие агенты доступны?",
+    "Как купить токены?",
+    "Что такое стейкинг?",
+    "Какие технологии используются?",
+    "Как работает governance?",
+    "Что такое Private Sale?",
+    "Какие вознаграждения за стейкинг?",
+    "Как работает реферальная программа?",
+    "Какие планы развития?"
+  ],
+  "edgeCases": [
+    {
+      "case": "empty_message",
+      "input": "",
+      "expected": "validation_error"
+    },
+    {
+      "case": "very_long_message",
+      "input": "Что такое HypeAI? ".repeat(100),
+      "expected": "truncated_or_error"
+    },
+    {
+      "case": "special_characters",
+      "input": "!@#$%^&*()",
+      "expected": "safe_response"
+    },
+    {
+      "case": "xss_attempt",
+      "input": "<script>alert('XSS')</script>",
+      "expected": "sanitized_input"
+    },
+    {
+      "case": "sql_injection",
+      "input": "'; DROP TABLE users; --",
+      "expected": "sanitized_input"
+    },
+    {
+      "case": "unicode_emoji",
+      "input": "Привет 🚀🤖💎",
+      "expected": "normal_response"
+    }
+  ]
+}

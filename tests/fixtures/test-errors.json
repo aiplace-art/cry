@@ -1,0 +1,179 @@
+{
+  "apiErrors": [
+    {
+      "type": "network_error",
+      "error": {
+        "code": "ECONNREFUSED",
+        "message": "Connection refused"
+      },
+      "expectedFallback": "knowledge_base",
+      "expectedUserMessage": "Извините, возникла проблема с подключением. Используется резервная база знаний."
+    },
+    {
+      "type": "timeout",
+      "error": {
+        "code": "ECONNABORTED",
+        "message": "timeout of 5000ms exceeded"
+      },
+      "expectedFallback": "knowledge_base",
+      "expectedUserMessage": "Запрос занял слишком много времени. Попробуйте еще раз."
+    },
+    {
+      "type": "rate_limit",
+      "error": {
+        "response": {
+          "status": 429,
+          "data": {
+            "error": "Rate limit exceeded"
+          }
+        }
+      },
+      "expectedFallback": "rate_limit_message",
+      "expectedUserMessage": "Слишком много запросов. Пожалуйста, подождите минуту."
+    },
+    {
+      "type": "unauthorized",
+      "error": {
+        "response": {
+          "status": 401,
+          "data": {
+            "error": "Invalid API key"
+          }
+        }
+      },
+      "expectedFallback": "knowledge_base",
+      "expectedUserMessage": "Ошибка авторизации. Используется резервная база знаний."
+    },
+    {
+      "type": "server_error",
+      "error": {
+        "response": {
+          "status": 500,
+          "data": {
+            "error": "Internal server error"
+          }
+        }
+      },
+      "expectedFallback": "knowledge_base",
+      "expectedUserMessage": "Сервер временно недоступен. Используется резервная база знаний."
+    },
+    {
+      "type": "bad_request",
+      "error": {
+        "response": {
+          "status": 400,
+          "data": {
+            "error": "Invalid request format"
+          }
+        }
+      },
+      "expectedFallback": "knowledge_base",
+      "expectedUserMessage": "Некорректный запрос. Попробуйте переформулировать вопрос."
+    },
+    {
+      "type": "quota_exceeded",
+      "error": {
+        "response": {
+          "status": 429,
+          "data": {
+            "error": "Quota exceeded"
+          }
+        }
+      },
+      "expectedFallback": "knowledge_base",
+      "expectedUserMessage": "Превышена квота запросов. Используется резервная база знаний."
+    },
+    {
+      "type": "invalid_response",
+      "error": {
+        "response": {
+          "status": 200,
+          "data": "Not a JSON response"
+        }
+      },
+      "expectedFallback": "knowledge_base",
+      "expectedUserMessage": "Получен некорректный ответ. Используется резервная база знаний."
+    },
+    {
+      "type": "empty_response",
+      "error": {
+        "response": {
+          "status": 200,
+          "data": {
+            "choices": []
+          }
+        }
+      },
+      "expectedFallback": "knowledge_base",
+      "expectedUserMessage": "Не удалось получить ответ. Используется резервная база знаний."
+    },
+    {
+      "type": "dns_error",
+      "error": {
+        "code": "ENOTFOUND",
+        "message": "DNS lookup failed"
+      },
+      "expectedFallback": "knowledge_base",
+      "expectedUserMessage": "Проблема с подключением к интернету. Используется резервная база знаний."
+    }
+  ],
+  "fallbackResponses": {
+    "general_error": "Извините, возникла техническая проблема. Попробуйте еще раз через несколько секунд.",
+    "rate_limit": "Слишком много запросов. Пожалуйста, подождите 1 минуту перед следующим вопросом.",
+    "network_error": "Проблема с подключением. Проверьте интернет-соединение и попробуйте снова.",
+    "server_error": "Сервер временно недоступен. Используется резервная база знаний.",
+    "knowledge_base_active": "ℹ️ Работаем в режиме резервной базы знаний"
+  },
+  "retryScenarios": [
+    {
+      "scenario": "temporary_network_issue",
+      "attempts": [
+        {"attempt": 1, "success": false, "error": "ECONNREFUSED"},
+        {"attempt": 2, "success": false, "error": "ECONNREFUSED"},
+        {"attempt": 3, "success": true, "response": "Успешный ответ"}
+      ],
+      "expectedBehavior": "Should retry up to 3 times with exponential backoff"
+    },
+    {
+      "scenario": "rate_limit_recovery",
+      "attempts": [
+        {"attempt": 1, "success": false, "error": 429},
+        {"wait": 60000},
+        {"attempt": 2, "success": true, "response": "Успешный ответ после ожидания"}
+      ],
+      "expectedBehavior": "Should wait 1 minute before retry after rate limit"
+    },
+    {
+      "scenario": "persistent_failure",
+      "attempts": [
+        {"attempt": 1, "success": false, "error": 500},
+        {"attempt": 2, "success": false, "error": 500},
+        {"attempt": 3, "success": false, "error": 500}
+      ],
+      "expectedBehavior": "Should fall back to knowledge base after 3 failed attempts"
+    }
+  ],
+  "validationErrors": [
+    {
+      "input": "",
+      "error": "Empty message not allowed",
+      "expectedMessage": "Пожалуйста, введите ваш вопрос"
+    },
+    {
+      "input": "   ",
+      "error": "Whitespace-only message",
+      "expectedMessage": "Пожалуйста, введите ваш вопрос"
+    },
+    {
+      "input": "a".repeat(5000),
+      "error": "Message too long",
+      "expectedMessage": "Сообщение слишком длинное (максимум 2000 символов)"
+    },
+    {
+      "input": "<script>alert('xss')</script>",
+      "error": "Unsafe content detected",
+      "expectedMessage": "Обнаружен небезопасный контент",
+      "expectedSanitized": "scriptalert('xss')/script"
+    }
+  ]
+}
