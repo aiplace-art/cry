@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypeAI AI Assistant - Test Page</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0118 0%, #1a0033 100%);
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            max-width: 800px;
+        }
+        h1 {
+            background: linear-gradient(135deg, #9333ea, #00E5FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .instructions {
+            background: rgba(147, 51, 234, 0.1);
+            border: 2px solid rgba(147, 51, 234, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+        .step {
+            background: rgba(0, 229, 255, 0.1);
+            border-left: 4px solid #00E5FF;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+            border-radius: 10px;
+        }
+        .highlight {
+            color: #FFD700;
+            font-weight: bold;
+        }
+        .arrow {
+            font-size: 2em;
+            color: #00E5FF;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .test-questions {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .question {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .question:hover {
+            background: rgba(147, 51, 234, 0.3);
+            transform: translateX(5px);
+        }
+    </style>
+
+    <!-- AI Assistant CSS -->
+    <link rel="stylesheet" href="css/ai-assistant.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 HypeAI AI Assistant</h1>
+
+        <div class="instructions">
+            <h2>Тестовая Страница</h2>
+            <p>Эта страница создана для проверки работы AI ассистента</p>
+
+            <div class="step">
+                <strong>Шаг 1:</strong> Посмотрите в правый нижний угол экрана
+            </div>
+
+            <div class="step">
+                <strong>Шаг 2:</strong> Найдите <span class="highlight">фиолетовую кнопку с роботом 🤖</span>
+            </div>
+
+            <div class="step">
+                <strong>Шаг 3:</strong> Кликните на неё, чтобы открыть чат
+            </div>
+
+            <div class="step">
+                <strong>Шаг 4:</strong> Задайте любой вопрос из списка ниже!
+            </div>
+        </div>
+
+        <div class="arrow">⬇️</div>
+        <p style="font-size: 1.5em; margin: 20px 0;">
+            Кнопка находится <span class="highlight">СПРАВА ВНИЗУ</span> →
+        </p>
+
+        <div class="test-questions">
+            <h3>💬 Тестовые Вопросы (попробуйте их):</h3>
+
+            <div class="question">📊 "Что такое HypeAI?"</div>
+            <div class="question">💰 "Какой APY на стейкинг?"</div>
+            <div class="question">🛠️ "Какие сервисы вы предлагаете?"</div>
+            <div class="question">📅 "Расскажите про roadmap"</div>
+            <div class="question">🔒 "Насколько это безопасно?"</div>
+            <div class="question">💎 "Сколько всего токенов?"</div>
+            <div class="question">🚀 "Когда TGE?"</div>
+            <div class="question">💼 "Сколько стоят ваши услуги?"</div>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: rgba(0, 229, 255, 0.1); border-radius: 15px;">
+            <p><strong>✅ Если видите кнопку:</strong> Всё работает отлично!</p>
+            <p><strong>❌ Если не видите кнопку:</strong> Откройте консоль (F12) и проверьте ошибки</p>
+        </div>
+    </div>
+
+    <!-- AI Assistant JavaScript -->
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        // Initialize AI Assistant
+        console.log('🤖 Initializing HypeAI Assistant...');
+
+        try {
+            const aiAssistant = new HypeAIAssistant({
+                apiUrl: '/api/ai-assistant/chat',
+                language: 'en',
+                welcomeMessage: '👋 Привет! Я AI ассистент HypeAI. Спрашивайте что угодно!',
+                position: 'bottom-right',
+                theme: 'cosmic-purple'
+            });
+            console.log('✅ AI Assistant initialized successfully!');
+        } catch (error) {
+            console.error('❌ Error initializing AI Assistant:', error);
+            alert('Ошибка инициализации AI ассистента. Проверьте консоль (F12)');
+        }
+    </script>
+</body>
+</html>

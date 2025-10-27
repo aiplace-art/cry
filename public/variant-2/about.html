@@ -830,9 +830,10 @@
        SCROLL ANIMATIONS
        ======================================== */
 
+    /* ✅ FIXED: Elements visible by default, no initial hiding */
     .scroll-fade-in {
-      opacity: 0;
-      transform: translateY(40px);
+      opacity: 1;
+      transform: translateY(0);
       transition: all 0.8s var(--ease-premium);
     }
 
@@ -888,7 +889,6 @@
             <div class="lang-dropdown" id="langDropdown">
               <a href="#" class="lang-option active" id="langEn" data-lang="en">English</a>
               <a href="#" class="lang-option" id="langRu" data-lang="ru">Русский</a>
-              <a href="#" class="lang-option" id="langZh" data-lang="zh">中文</a>
             </div>
           </div>
 
@@ -1330,9 +1330,36 @@
       });
     }, observerOptions);
 
-    document.querySelectorAll('.scroll-fade-in').forEach(el => {
+    // ✅ FIX: Make elements visible immediately on page load, then observe for scroll
+    const fadeElements = document.querySelectorAll('.scroll-fade-in');
+
+    fadeElements.forEach(el => {
       observer.observe(el);
+
+      // Check immediately if element is in viewport
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (isVisible) {
+        // Element already visible - show immediately without delay
+        requestAnimationFrame(() => {
+          el.classList.add('visible');
+        });
+      }
     });
+
+    // Double-check after a short delay to catch any elements that loaded late
+    setTimeout(() => {
+      fadeElements.forEach(el => {
+        if (!el.classList.contains('visible')) {
+          const rect = el.getBoundingClientRect();
+          const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+          if (isVisible) {
+            el.classList.add('visible');
+          }
+        }
+      });
+    }, 100);
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1387,10 +1414,316 @@
   <script src="/variant-2/js/ai-assistant-diamond.js"></script>
 
   <!-- Language Switcher System -->
-  <script src="../../website/js/language-switcher.js"></script>
+  <script src="../../website/js/language-switcher.js?t=1735248000"></script>
 
-  <!-- About Page Russian Translations -->
-  <script src="/variant-2/about-translations-embed.js"></script>
+  <!-- 🇷🇺 About Page Russian Translations - INJECT IMMEDIATELY AFTER LanguageManager LOADS -->
+  <script>
+  // This runs IMMEDIATELY after language-switcher.js loads
+  (function() {
+    // LanguageManager should be available now
+    if (!window.LanguageManager || !window.LanguageManager.translations) {
+      console.error('❌ LanguageManager not available after loading!');
+      return;
+    }
+
+    // Ensure ru translations object exists
+    if (!window.LanguageManager.translations.ru) {
+      window.LanguageManager.translations.ru = {};
+    }
+
+    console.log('🇷🇺 Injecting About page Russian translations (73 keys)...');
+
+    // Add all 73 About page Russian translations
+    Object.assign(window.LanguageManager.translations.ru, {
+        "about_hero_label": "Наша миссия и видение",
+        "about_title": "О нас",
+        "about_description": "Строим будущее профессиональных AI-сервисов через передовой искусственный интеллект и автоматизацию",
+        "about_mission_label": "Наша миссия",
+        "about_mission_title": "Демократизация AI-сервисов",
+        "about_mission_card_title": "Делаем профессиональные AI доступными для всех",
+        "about_mission_description_1": "HypeAI объединяет передовой искусственный интеллект с профессиональной доставкой услуг для создания AI-решений, доступных каждому. Наша платформа из 27 специализированных AI-агентов работает 24/7.",
+        "about_mission_description_2": "Мы верим, что мощные AI-сервисы должны быть быстрыми, доступными и недорогими. Поэтому мы создали платформу, которая обеспечивает результаты в 3-10 раз быстрее при стоимости на 50-70% ниже.",
+        "about_why_label": "Почему HypeAI",
+        "about_why_title": "Создано для производительности",
+        "about_why_description": "AI-инфраструктура корпоративного уровня на BNB Chain для исключительных результатов",
+        "about_advantage_speed_title": "Молниеносная доставка",
+        "about_advantage_speed_description": "В 3-10 раз быстрее традиционных агентств. Наши 27 AI-агентов работают параллельно круглосуточно.",
+        "about_advantage_quality_title": "Премиум качество",
+        "about_advantage_quality_description": "Результаты корпоративного уровня с постоянным качеством. Каждый проект проверяется несколькими специализированными AI-агентами.",
+        "about_advantage_cost_title": "Экономически выгодно",
+        "about_advantage_cost_description": "На 50-70% дешевле традиционных решений. Получите работу качества агентства за долю стоимости.",
+        "about_advantage_bnb_title": "На BNB Chain",
+        "about_advantage_bnb_description": "Построено на BNB Chain для недорогих высокоскоростных транзакций. Приватная продажа по $0.00008 за токен.",
+        "about_advantage_referral_title": "3-уровневая реферальная система",
+        "about_advantage_referral_description": "Зарабатывайте 10%/5%/2% комиссии на 3 уровнях. Бонусы за вехи до $2,500.",
+        "about_advantage_vesting_title": "Умный вестинг",
+        "about_advantage_vesting_description": "20% разблокировка при TGE + оставшиеся 80% распределяются за 21 месяц.",
+        "about_platform_label": "О HypeAI",
+        "about_platform_title": "Криптоплатформа на AI",
+        "about_platform_description": "Профессиональные AI-сервисы встречают блокчейн инновации",
+        "about_platform_agents_title": "27 AI-агентов работают 24/7",
+        "about_platform_agents_description": "Наши специализированные AI-агенты никогда не спят. От разработки блокчейна до маркетинга - 27 экспертных агентов сотрудничают круглосуточно.",
+        "about_platform_services_title": "Более 35 профессиональных сервисов",
+        "about_platform_services_description": "Полное портфолио услуг, охватывающее разработку блокчейна, веб-приложения, дизайн и UX, маркетинг, аудит безопасности и многое другое.",
+        "about_platform_tokenomics_title": "Токен-экономика",
+        "about_platform_tokenomics_description": "Общее предложение: 10,000,000,000 HYPE\nПриватная продажа: $0.00008 за токен\nБлокчейн: BNB Chain",
+        "about_platform_rewards_title": "Реферальные награды",
+        "about_platform_rewards_description": "Уровень 1: 10% прямых рефералов\nУровень 2: 5% второй уровень\nУровень 3: 2% третий уровень",
+        "about_platform_vesting_title": "Справедливый график вестинга",
+        "about_platform_vesting_description": "Разблокировка TGE: 20% сразу доступно\nПериод вестинга: 80% распределяется за 21 месяц",
+        "about_platform_integration_title": "Интеграция BNB Chain",
+        "about_platform_integration_description": "Низкие транзакционные издержки, быстрые подтверждения и проверенная безопасность.",
+        "about_team_label": "Команда",
+        "about_team_title": "Наша команда",
+        "about_team_description": "Экспертные AI-исследователи, разработчики и профессионалы сервиса работают вместе",
+        "about_team_member1_name": "Др. Сара Чен",
+        "about_team_member1_role": "Главный директор по AI",
+        "about_team_member1_description": "PhD по машинному обучению из MIT. Бывший ведущий AI-исследователь в Google DeepMind с 15-летним опытом.",
+        "about_team_member2_name": "Маркус Родригес",
+        "about_team_member2_role": "Главный технический директор",
+        "about_team_member2_description": "Бывший вице-президент инженерии в крупных технологических компаниях.",
+        "about_team_member3_name": "Эмили Чжан",
+        "about_team_member3_role": "Руководитель продукта",
+        "about_team_member3_description": "Более 10 лет создания ориентированных на пользователя AI-продуктов.",
+        "about_team_member4_name": "Джеймс Парк",
+        "about_team_member4_role": "Директор по безопасности",
+        "about_team_member4_description": "Специалист по кибербезопасности с глубокой экспертизой в безопасности AI-систем.",
+        "about_team_member5_name": "Оливия Мартинес",
+        "about_team_member5_role": "Руководитель клиентского успеха",
+        "about_team_member5_description": "Эксперт в клиентских отношениях и доставке услуг.",
+        "about_team_member6_name": "Дэвид Ким",
+        "about_team_member6_role": "Менеджер сообщества",
+        "about_team_member6_description": "Создал и масштабировал технологические сообщества от 0 до 100K+ членов.",
+        "about_values_label": "Основные ценности",
+        "about_values_title": "Что мы отстаиваем",
+        "about_values_transparency_title": "Прозрачность",
+        "about_values_transparency_description": "Четкие цены, честные сроки и открытое общение. Вы всегда точно знаете, что получаете.",
+        "about_values_accessibility_title": "Доступность",
+        "about_values_accessibility_description": "Профессиональные AI-сервисы не должны требовать огромных бюджетов.",
+        "about_values_innovation_title": "Инновации",
+        "about_values_innovation_description": "Постоянное улучшение наших AI-моделей с использованием новейших исследований.",
+        "about_values_security_title": "Безопасность прежде всего",
+        "about_values_security_description": "Множественные аудиты безопасности, надежное шифрование и консервативный дизайн.",
+        "about_values_customer_title": "Фокус на клиенте",
+        "about_values_customer_description": "Каждое наше решение начинается с одного вопроса: Как это принесет пользу нашим клиентам?",
+        "about_values_quality_title": "Качество превыше всего",
+        "about_values_quality_description": "Мы строим на долгосрочную перспективу. Устойчивый рост и создание подлинной ценности."
+      });
+    console.log('✅ About page Russian translations patched successfully!');
+    // Reapply translations if language is already Russian
+    if (window.LanguageManager.currentLang === 'ru') {
+      window.LanguageManager.applyTranslations();
+    }
+  })();
+  </script>
+
+  <!-- DIRECT TRANSLATION FALLBACK - Bypasses LanguageManager entirely -->
+  <script>
+  (function() {
+    function applyDirectTranslations() {
+      // Check if Russian is selected by looking for .lang-active on Russian dropdown item
+      const russianButton = Array.from(document.querySelectorAll('.lang-dropdown-item')).find(btn =>
+        btn.textContent.includes('Russian') && btn.classList.contains('lang-active')
+      );
+
+      if (!russianButton) {
+        console.log('⏭️ DIRECT TRANSLATION: Russian not active, skipping...');
+        return;
+      }
+
+      console.log('🔧 DIRECT TRANSLATION: Russian is active! Applying translations to DOM...');
+
+      // Russian translations map
+      const ruTranslations = {
+        "about_hero_label": "Наша миссия и видение",
+        "about_title": "О нас",
+        "about_description": "Строим будущее профессиональных AI-сервисов через передовой искусственный интеллект и автоматизацию",
+        "about_mission_label": "Наша миссия",
+        "about_mission_title": "Демократизация AI-сервисов",
+        "about_mission_card_title": "Делаем профессиональные AI доступными для всех",
+        "about_mission_description_1": "HypeAI объединяет передовой искусственный интеллект с профессиональной доставкой услуг для создания AI-решений, доступных каждому. Наша платформа из <strong>27 специализированных AI-агентов работает 24/7</strong> для доставки исключительных результатов через <strong>более 35 профессиональных сервисов</strong>, которые ранее были доступны только крупным предприятиям.",
+        "about_mission_description_2": "Мы верим, что мощные AI-сервисы должны быть быстрыми, доступными и эффективными. Поэтому мы создали платформу, которая обеспечивает <strong>результаты в 3-10 раз быстрее при стоимости на 50-70% ниже</strong>, сохраняя при этом премиальное качество.",
+        "about_why_label": "Почему HypeAI",
+        "about_why_title": "Создано для производительности",
+        "about_why_description": "AI-инфраструктура корпоративного уровня на BNB Chain для исключительных результатов",
+        "about_advantage_speed_title": "Молниеносная доставка",
+        "about_advantage_speed_description": "<strong>В 3-10 раз быстрее</strong> традиционных агентств. Наши 27 AI-агентов работают параллельно 24/7, завершая сложные проекты за дни вместо месяцев.",
+        "about_advantage_quality_title": "Премиум качество",
+        "about_advantage_quality_description": "Результаты корпоративного уровня с постоянным качеством. Каждый проект проверяется несколькими специализированными AI-агентами на превосходство через более 35 сервисов.",
+        "about_advantage_cost_title": "Экономически выгодно",
+        "about_advantage_cost_description": "<strong>На 50-70% дешевле</strong> традиционных решений. Получайте работу качества агентства за долю цены благодаря эффективности AI.",
+        "about_advantage_bnb_title": "На BNB Chain",
+        "about_advantage_bnb_description": "Построено на BNB Chain для недорогих высокоскоростных транзакций. Приватная продажа по <strong>$0.00008</strong> за токен с общим предложением 10B.",
+        "about_advantage_referral_title": "3-уровневая реферальная система",
+        "about_advantage_referral_description": "Зарабатывайте <strong>10%/5%/2%</strong> комиссии на 3 уровнях. Бонусы за вехи до $2,500 за рост нашего сообщества.",
+        "about_advantage_vesting_title": "Умный вестинг",
+        "about_advantage_vesting_description": "<strong>20% разблокировка при TGE</strong> + оставшиеся 80% распределяются за 21 месяц. Справедливое распределение, обеспечивающее долгосрочное здоровье проекта.",
+        "about_platform_label": "О HypeAI",
+        "about_platform_title": "Криптоплатформа на AI",
+        "about_platform_description": "Профессиональные AI-сервисы встречают блокчейн инновации",
+        "about_platform_agents_title": "27 AI-агентов работают 24/7",
+        "about_platform_agents_description": "Наши специализированные AI-агенты никогда не спят. От разработки блокчейна до маркетинга, аудита безопасности до создания контента - 27 экспертных агентов сотрудничают круглосуточно.",
+        "about_platform_services_title": "Более 35 профессиональных сервисов",
+        "about_platform_services_description": "Полное портфолио услуг, охватывающее разработку блокчейна, веб-приложения, дизайн и UX, автоматизацию маркетинга, аудит безопасности, создание контента и многое другое. Одна платформа для всех нужд вашего проекта.",
+        "about_platform_tokenomics_title": "Токен-экономика",
+        "about_platform_tokenomics_description": "<strong>Общее предложение:</strong> 10,000,000,000 HYPE<br><strong>Приватная продажа:</strong> $0.00008 за токен<br><strong>Блокчейн:</strong> BNB Chain (низкие комиссии)<br><strong>Распределение:</strong> 93.75% Приватная продажа, 3% Команда, 2% Ликвидность, 1.25% Маркетинг",
+        "about_platform_rewards_title": "Реферальные награды",
+        "about_platform_rewards_description": "<strong>Уровень 1:</strong> 10% прямых рефералов<br><strong>Уровень 2:</strong> 5% второй уровень<br><strong>Уровень 3:</strong> 2% третий уровень<br>Плюс бонусы за вехи: $50 (10 рефералов) до $2,500 (250 рефералов)",
+        "about_platform_vesting_title": "Справедливый график вестинга",
+        "about_platform_vesting_description": "<strong>Разблокировка TGE:</strong> 20% сразу доступно<br><strong>Период вестинга:</strong> 80% распределяется за 21 месяц<br>Разработано для обеспечения долгосрочной стабильности проекта и предотвращения дампов.",
+        "about_platform_integration_title": "Интеграция BNB Chain",
+        "about_platform_integration_description": "Низкие транзакционные издержки, быстрые подтверждения и проверенная безопасность. BNB Chain обеспечивает идеальную основу для нашей платформы AI-сервисов с минимальными комиссиями и максимальной производительностью.",
+        "about_team_label": "Команда",
+        "about_team_title": "Наша команда",
+        "about_team_description": "Экспертные AI-исследователи, разработчики и профессионалы сервиса работают вместе",
+        "about_team_member1_name": "Др. Сара Чен",
+        "about_team_member1_role": "Главный директор по AI",
+        "about_team_member1_description": "PhD по машинному обучению из MIT. Бывший ведущий AI-исследователь в Google DeepMind с 15-летним опытом создания производственных AI-систем.",
+        "about_team_member2_name": "Маркус Родригес",
+        "about_team_member2_role": "Главный технический директор",
+        "about_team_member2_description": "Бывший вице-президент инженерии в крупных технологических компаниях. Создал масштабируемые AI-платформы, обслуживающие миллионы пользователей ежедневно.",
+        "about_team_member3_name": "Эмили Чжан",
+        "about_team_member3_role": "Руководитель продукта",
+        "about_team_member3_description": "Более 10 лет создания ориентированных на пользователя AI-продуктов. Бывший менеджер продукта на ведущих платформах AI-сервисов.",
+        "about_team_member4_name": "Джеймс Парк",
+        "about_team_member4_role": "Директор по безопасности",
+        "about_team_member4_description": "Специалист по кибербезопасности с глубокой экспертизой в безопасности AI-систем. Защищал платформы, обрабатывающие миллиарды в конфиденциальных данных.",
+        "about_team_member5_name": "Оливия Мартинес",
+        "about_team_member5_role": "Руководитель клиентского успеха",
+        "about_team_member5_description": "Эксперт в клиентских отношениях и доставке услуг. Создала программы клиентского успеха для компаний Fortune 500.",
+        "about_team_member6_name": "Дэвид Ким",
+        "about_team_member6_role": "Менеджер сообщества",
+        "about_team_member6_description": "Создал и масштабировал технологические сообщества от 0 до 100K+ членов. Эксперт в вовлечении сообщества и росте.",
+        "about_values_label": "Основные ценности",
+        "about_values_title": "Что мы отстаиваем",
+        "about_values_transparency_title": "Прозрачность",
+        "about_values_transparency_description": "Четкие цены, честные сроки и открытое общение. Вы всегда точно знаете, что получаете.",
+        "about_values_accessibility_title": "Доступность",
+        "about_values_accessibility_description": "Профессиональные AI-сервисы не должны требовать огромных бюджетов. Мы делаем корпоративные инструменты доступными для всех.",
+        "about_values_innovation_title": "Инновации",
+        "about_values_innovation_description": "Постоянное улучшение наших AI-моделей с использованием новейших исследований и добавление новых возможностей на основе отзывов пользователей.",
+        "about_values_security_title": "Безопасность прежде всего",
+        "about_values_security_description": "Множественные аудиты безопасности, надежное шифрование и консервативный дизайн обеспечивают защиту ваших данных в любое время.",
+        "about_values_customer_title": "Фокус на клиенте",
+        "about_values_customer_description": "Каждое наше решение начинается с одного вопроса: Как это принесет пользу нашим клиентам?",
+        "about_values_quality_title": "Качество превыше всего",
+        "about_values_quality_description": "Мы строим на долгосрочную перспективу. Устойчивый рост и создание подлинной ценности вместо краткосрочных выгод."
+      };
+
+      // Apply translations directly to DOM
+      let translated = 0;
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const translation = ruTranslations[key];
+
+        if (translation) {
+          element.innerHTML = translation;
+          translated++;
+        }
+      });
+
+      console.log(`✅ DIRECT TRANSLATION: Applied ${translated} Russian translations!`);
+    }
+
+    // Try immediately (for when script loads after DOM is ready)
+    if (document.readyState === 'loading') {
+      // DOM not ready yet, wait for it
+      document.addEventListener('DOMContentLoaded', () => setTimeout(applyDirectTranslations, 500));
+    } else {
+      // DOM already loaded, run after delay to let LanguageManager finish first
+      setTimeout(applyDirectTranslations, 500);
+    }
+  })();
+  </script>
+
+  <!-- About Page Russian Translations - Already injected at line 1420 -->
+
+  <!-- Static Language Switcher Handler -->
+  <script>
+  (function() {
+    function initStaticSwitcher() {
+      const langBtn = document.getElementById('langBtn');
+      const langDropdown = document.getElementById('langDropdown');
+      const langOptions = document.querySelectorAll('.lang-option');
+
+      if (!langBtn || !langDropdown) {
+        console.log('⚠️ Static switcher elements not found');
+        return;
+      }
+
+      // Toggle dropdown on button click
+      langBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isExpanded = langBtn.getAttribute('aria-expanded') === 'true';
+
+        if (isExpanded) {
+          // Close dropdown
+          langBtn.setAttribute('aria-expanded', 'false');
+          langDropdown.style.opacity = '0';
+          langDropdown.style.visibility = 'hidden';
+          langDropdown.style.transform = 'translateY(-10px)';
+        } else {
+          // Open dropdown
+          langBtn.setAttribute('aria-expanded', 'true');
+          langDropdown.style.opacity = '1';
+          langDropdown.style.visibility = 'visible';
+          langDropdown.style.transform = 'translateY(0)';
+        }
+      });
+
+      // Handle language selection
+      langOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          const selectedLang = this.getAttribute('data-lang');
+          console.log('🌍 Switching to language:', selectedLang);
+
+          // Update active state
+          langOptions.forEach(opt => opt.classList.remove('active'));
+          this.classList.add('active');
+
+          // Update button text
+          langBtn.textContent = selectedLang.toUpperCase();
+
+          // Close dropdown
+          langBtn.setAttribute('aria-expanded', 'false');
+          langDropdown.style.opacity = '0';
+          langDropdown.style.visibility = 'hidden';
+          langDropdown.style.transform = 'translateY(-10px)';
+
+          // Switch language via LanguageManager
+          if (window.LanguageManager && typeof window.LanguageManager.setLanguage === 'function') {
+            window.LanguageManager.setLanguage(selectedLang);
+          }
+        });
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+          langBtn.setAttribute('aria-expanded', 'false');
+          langDropdown.style.opacity = '0';
+          langDropdown.style.visibility = 'hidden';
+          langDropdown.style.transform = 'translateY(-10px)';
+        }
+      });
+
+      console.log('✅ Static language switcher initialized');
+    }
+
+    // Wait for DOM and LanguageManager
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(initStaticSwitcher, 100);
+      });
+    } else {
+      setTimeout(initStaticSwitcher, 100);
+    }
+  })();
+  </script>
 
 </body>
 </html>

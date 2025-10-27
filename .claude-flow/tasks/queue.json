@@ -8,5 +8,15 @@
     "createdAt": 1761047032859,
     "assignedTo": null,
     "progress": 0
+  },
+  {
+    "id": "task_1761493850778_2mj9s331t",
+    "type": "coordination",
+    "description": "Create professional PDF documentation for HYPEAI project\n\nCRITICAL REQUIREMENTS:\n\nLaunch Model (MOST IMPORTANT):\n✅ ONLY Private Sale at /bin/zsh.00008 per token\n❌ NOT fair launch, NOT IDO, NOT public sale\n📅 Date: TBD (to be announced)\n\nTasks for agents:\n1. Research agent: Gather all data from PROJECT_KNOWLEDGE_BASE.md, tokenomics.md, architecture.md\n2. Architect agent: Structure 8-section professional document\n3. Coder agent: Create markdown with proper formatting and visualizations\n4. Designer agent: Apply cosmic theme with colors #00E5FF, #00AAFF, #0077FF\n5. Reviewer agent: Verify accuracy and professional tone\n\nOutput: /Users/ai.place/Crypto/docs/pdf-ready/HYPEAI_PROJECT_DOCUMENTATION.md + PDF\n\nEmphasize PRIVATE SALE model throughout document.",
+    "priority": 5,
+    "status": "queued",
+    "createdAt": 1761493850778,
+    "assignedTo": null,
+    "progress": 0
   }
 ]

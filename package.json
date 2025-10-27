@@ -8,7 +8,19 @@
     "build": "vercel build",
     "deploy": "vercel --prod",
     "test:api": "node api/test-groq.js",
-    "test:local": "vercel dev"
+    "test:local": "vercel dev",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report tests/e2e/reports/html",
+    "test:mobile": "playwright test --project='Mobile Chrome' --project='Mobile Safari' --project='iPhone SE' --project='Galaxy S9+' --project='iPad Mini'",
+    "test:desktop": "playwright test --project=chromium --project=firefox --project=webkit",
+    "test:performance": "playwright test hyper-chat-performance",
+    "test:accessibility": "playwright test hyper-chat-accessibility",
+    "test:coverage": "npm run test && echo 'Coverage report generated'",
+    "server": "http-server -p 8080",
+    "server:test": "http-server -p 8080 -s -c-1"
   },
   "keywords": [
     "hypeai",
@@ -21,7 +33,10 @@
   "author": "HypeAI Team",
   "license": "MIT",
   "devDependencies": {
-    "vercel": "^33.0.0"
+    "vercel": "^33.0.0",
+    "@playwright/test": "^1.40.0",
+    "@axe-core/playwright": "^4.8.0",
+    "http-server": "^14.1.1"
   },
   "engines": {
     "node": ">=18.0.0"

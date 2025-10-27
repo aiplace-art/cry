@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✅ AI Assistant Integration Test - HypeAI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0118;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .test-container {
+            max-width: 1000px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #9333ea, #00E5FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .status-card {
+            background: rgba(147, 51, 234, 0.1);
+            border: 2px solid rgba(147, 51, 234, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .checklist {
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border-left: 4px solid #00E5FF;
+        }
+
+        .check-icon {
+            font-size: 24px;
+            min-width: 30px;
+        }
+
+        .arrow-indicator {
+            font-size: 3em;
+            color: #FFE900;
+            animation: bounce 1.5s infinite;
+            margin: 30px 0;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(45deg); }
+            50% { transform: translateY(-15px) rotate(45deg); }
+        }
+
+        .highlight {
+            color: #FFE900;
+            font-weight: bold;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 229, 255, 0.6);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .success-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin: 20px 0;
+            animation: pulse-success 2s infinite;
+        }
+
+        @keyframes pulse-success {
+            0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(16, 185, 129, 1); }
+        }
+    </style>
+
+    <!-- AI ASSISTANT CSS -->
+    <link rel="stylesheet" href="css/ai-assistant.css">
+</head>
+<body>
+    <div class="test-container">
+        <h1>⚡ AI Assistant Integration Test</h1>
+
+        <div class="success-badge">
+            ✅ ULTIMATE NEURAL DESIGN ACTIVATED
+        </div>
+
+        <div class="status-card">
+            <h2 style="color: #00E5FF; margin-bottom: 20px;">🎨 Интегрированный дизайн:</h2>
+
+            <div class="checklist">
+                <div class="check-item">
+                    <span class="check-icon">✅</span>
+                    <div>
+                        <strong>Нейронная сеть</strong> - 7 пульсирующих нейронов
+                    </div>
+                </div>
+
+                <div class="check-item">
+                    <span class="check-icon">✅</span>
+                    <div>
+                        <strong>Электрические разряды</strong> - 4 анимированных спарка
+                    </div>
+                </div>
+
+                <div class="check-item">
+                    <span class="check-icon">✅</span>
+                    <div>
+                        <strong>Пульсирующие кольца</strong> - 3 расширяющихся кольца
+                    </div>
+                </div>
+
+                <div class="check-item">
+                    <span class="check-icon">✅</span>
+                    <div>
+                        <strong>Плавающие частицы</strong> - 12 частиц вокруг кнопки
+                    </div>
+                </div>
+
+                <div class="check-item">
+                    <span class="check-icon">✅</span>
+                    <div>
+                        <strong>Градиентный фон</strong> - Cosmic purple → blue → cyan
+                    </div>
+                </div>
+
+                <div class="check-item">
+                    <span class="check-icon">✅</span>
+                    <div>
+                        <strong>NO ROBOT EMOJI</strong> - Только футуристический дизайн ⚡
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow-indicator">↘</div>
+
+        <h2 style="color: #FFE900; font-size: 2em; margin: 30px 0;">
+            СМОТРИТЕ В ПРАВЫЙ НИЖНИЙ УГОЛ!
+        </h2>
+
+        <div class="feature-grid">
+            <div class="feature-box">
+                <div class="feature-icon">🧠</div>
+                <strong>Нейронный мозг</strong>
+                <p>7 пульсирующих нейронов</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">⚡</div>
+                <strong>Электричество</strong>
+                <p>4 электрических разряда</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">💫</div>
+                <strong>Частицы</strong>
+                <p>12 плавающих частиц</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">🌀</div>
+                <strong>Пульсация</strong>
+                <p>3 расширяющихся кольца</p>
+            </div>
+        </div>
+
+        <div class="status-card" style="margin-top: 40px;">
+            <h3 style="color: #00E5FF;">📱 Интегрировано на всех страницах:</h3>
+            <p style="margin-top: 15px; color: #A0A3B1;">
+                index.html, about.html, services.html, roadmap.html, whitepaper.html,<br>
+                и все остальные 40+ страниц вашего сайта!
+            </p>
+        </div>
+    </div>
+
+    <!-- AI ASSISTANT JAVASCRIPT -->
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        console.log('⚡ Initializing HypeAI Neural Assistant...');
+
+        try {
+            const aiAssistant = new HypeAIAssistant({
+                apiUrl: '/api/ai-assistant/chat',
+                language: 'ru',
+                position: 'bottom-right',
+                theme: 'cosmic-purple'
+            });
+            console.log('✅ HypeAI Neural Assistant ACTIVATED!');
+            console.log('🧠 7 neurons initialized');
+            console.log('⚡ 4 electric sparks ready');
+            console.log('💫 12 particles generated');
+            console.log('🌀 3 pulse rings animated');
+        } catch (error) {
+            console.error('❌ Error:', error);
+        }
+    </script>
+</body>
+</html>

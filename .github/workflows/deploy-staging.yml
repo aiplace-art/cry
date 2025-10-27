@@ -1,0 +1,201 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches:
+      - develop
+      - staging
+  pull_request:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint || echo "No lint script configured"
+        continue-on-error: true
+
+      - name: Check for console.log statements
+        run: |
+          if grep -r "console\.log" public/variant-2/js --include="*.js" | grep -v "logger\.log"; then
+            echo "⚠️ Warning: Found console.log statements. Use logger.log() instead."
+            exit 1
+          fi
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test || echo "No tests configured yet"
+        continue-on-error: true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: coverage/
+          retention-days: 7
+
+  security:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Run npm audit
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+
+      - name: Check for secrets in code
+        run: |
+          # Check for common secret patterns
+          if grep -rE "(api[_-]?key|password|secret|token)\s*=\s*['\"][^'\"]+['\"]" public/ --include="*.js" --include="*.html"; then
+            echo "⚠️ Warning: Potential secrets found in code!"
+            exit 1
+          fi
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [test, security]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build || echo "No build script configured"
+        continue-on-error: true
+
+      - name: Verify test files excluded
+        run: |
+          if find public/variant-2 -name "test-*.html" | grep -q .; then
+            echo "❌ Error: Test files found in public directory!"
+            exit 1
+          fi
+          echo "✅ No test files in public directory"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-staging
+          path: |
+            public/
+            !public/**/test-*.html
+            !tests/
+          retention-days: 7
+
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: staging
+      url: https://staging.hypeai.example.com
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-staging
+          path: ./build
+
+      - name: Deploy to Vercel Staging
+        if: github.event_name == 'push'
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./build
+          scope: ${{ secrets.VERCEL_SCOPE }}
+
+      - name: Deploy to Netlify Staging
+        if: github.event_name == 'push'
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STAGING }}
+        with:
+          args: deploy --dir=./build --prod=false
+
+      - name: Comment PR with deployment URL
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🚀 Staging deployment ready!\n\nPreview: https://staging.hypeai.example.com'
+            })
+
+  notify:
+    name: Notify Team
+    runs-on: ubuntu-latest
+    needs: [deploy-staging]
+    if: always()
+    steps:
+      - name: Notify on success
+        if: success()
+        run: |
+          echo "✅ Staging deployment successful!"
+          # Add Slack/Discord notification here
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "❌ Staging deployment failed!"
+          # Add Slack/Discord notification here

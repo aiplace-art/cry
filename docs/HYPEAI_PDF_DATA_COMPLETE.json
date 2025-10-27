@@ -1,0 +1,730 @@
+{
+  "metadata": {
+    "project_name": "HYPEAI",
+    "full_name": "HypeAI - AI Services Marketplace",
+    "version": "2.0",
+    "date_compiled": "2025-10-26",
+    "status": "Pre-Launch (95% ready)",
+    "purpose": "Complete data for PDF whitepaper/documentation"
+  },
+
+  "executive_summary": {
+    "tagline": "Software platform with 27 AI agents providing professional services in crypto/DeFi sector",
+    "business_model": "Marketplace model (like Upwork, but for AI services)",
+    "payment": "Clients pay in HYPEAI tokens",
+    "unique_mechanism": "50% burn on every transaction (deflationary)",
+    "token_type": "Utility token for platform access",
+    "blockchain": "BNB Chain (Binance Smart Chain)",
+    "total_supply": "10,000,000,000 HYPEAI",
+    "target_market_cap": "$100M - $1B"
+  },
+
+  "launch_model": {
+    "type": "PRIVATE SALE",
+    "NOT": ["fair launch", "IDO", "public DEX launch"],
+    "structure": "Private Sale ONLY for selected investors",
+    "price": "$0.00008 per token",
+    "date": "TBD (to be announced)",
+    "kyc_aml": "Strict KYC/AML required for all participants",
+    "vesting": "20% at TGE + 80% over 21 months",
+    "target_raise": "$50,000 - $500,000",
+    "participants": "50-200 qualified investors"
+  },
+
+  "tokenomics": {
+    "token_name": "HypeAI Token",
+    "ticker": "HYPEAI",
+    "standard": "BEP20 (EVM-compatible)",
+    "total_supply": 10000000000,
+    "decimals": 18,
+    "initial_price": 0.00008,
+
+    "distribution": {
+      "private_sale": {
+        "percent": 93.75,
+        "amount": 9375000000,
+        "vesting": "20% TGE + 80% over 21 months"
+      },
+      "team_development": {
+        "percent": 3,
+        "amount": 300000000,
+        "vesting": "2 years (6 months cliff)"
+      },
+      "liquidity": {
+        "percent": 2,
+        "amount": 200000000,
+        "vesting": "Immediate"
+      },
+      "marketing_partnerships": {
+        "percent": 1.25,
+        "amount": 125000000,
+        "vesting": "1 year linear"
+      }
+    },
+
+    "mechanisms": {
+      "burn": "50% of tokens from service payments burned (deflationary)",
+      "treasury": "50% goes to project treasury",
+      "staking_rewards": "17-62% APY based on lock period",
+      "referral_system": "3-tier (10%/5%/2%)"
+    },
+
+    "staking_tiers": [
+      {
+        "period_days": 30,
+        "base_apy": 12,
+        "bonus_apy": 5,
+        "total_apy": 17
+      },
+      {
+        "period_days": 90,
+        "base_apy": 12,
+        "bonus_apy": 15,
+        "total_apy": 27
+      },
+      {
+        "period_days": 365,
+        "base_apy": 12,
+        "bonus_apy": 50,
+        "total_apy": 62
+      }
+    ]
+  },
+
+  "ai_agents_team": {
+    "total_agents": 27,
+    "structure": "1 Chief Coordinator + 26 Specialized Agents",
+    "work_schedule": "24/7/365 infinite",
+    "equivalent_human_workers": 118,
+
+    "hierarchy": {
+      "level_0_coordinator": {
+        "name": "OMEGA",
+        "code": "Agent #0",
+        "role": "Chief Coordinator & Strategic Orchestrator",
+        "responsibilities": [
+          "Strategic planning",
+          "Coordination of all 26 agents",
+          "Final decision making",
+          "Crisis management",
+          "Long-term vision (10+ years)",
+          "Resource optimization"
+        ]
+      },
+
+      "level_1_development": {
+        "count": 8,
+        "leader": "ATLAS",
+        "agents": [
+          {
+            "id": 1,
+            "name": "ATLAS",
+            "role": "Smart Contract Architect",
+            "specialization": "Solidity smart contracts"
+          },
+          {
+            "id": 2,
+            "name": "NEXUS",
+            "role": "Backend Infrastructure Engineer",
+            "specialization": "Backend API, servers, database"
+          },
+          {
+            "id": 3,
+            "name": "SOLIDITY",
+            "role": "Blockchain Integration Specialist",
+            "specialization": "Web3, Multi-chain, bridges"
+          },
+          {
+            "id": 4,
+            "name": "BEACON",
+            "role": "AI Model Trainer",
+            "specialization": "Machine Learning, price predictions"
+          },
+          {
+            "id": 5,
+            "name": "PRISM",
+            "role": "Data Analytics Engineer",
+            "specialization": "Big Data, analytics, insights"
+          },
+          {
+            "id": 6,
+            "name": "NEURAL",
+            "role": "Machine Learning Optimizer",
+            "specialization": "Neural networks, AutoML"
+          },
+          {
+            "id": 7,
+            "name": "VERIFY",
+            "role": "Testing & QA Specialist",
+            "specialization": "Testing, QA, reliability"
+          },
+          {
+            "id": 8,
+            "name": "GUARDIAN",
+            "role": "Security Auditor",
+            "specialization": "Security, audits, protection"
+          }
+        ]
+      },
+
+      "level_2_business": {
+        "count": 7,
+        "leader": "TITAN",
+        "agents": [
+          {
+            "id": 9,
+            "name": "TITAN",
+            "role": "Tokenomics Strategist",
+            "specialization": "Tokenomics, economic model"
+          },
+          {
+            "id": 10,
+            "name": "MOMENTUM",
+            "role": "Growth Hacker",
+            "specialization": "Viral growth, user acquisition"
+          },
+          {
+            "id": 11,
+            "name": "PULSE",
+            "role": "Market Analyst",
+            "specialization": "Market analysis, trading"
+          },
+          {
+            "id": 12,
+            "name": "BRIDGE",
+            "role": "Partnership Developer",
+            "specialization": "Partnerships, integrations"
+          },
+          {
+            "id": 13,
+            "name": "COMPASS",
+            "role": "Strategic Planner",
+            "specialization": "Strategy, roadmap, planning"
+          },
+          {
+            "id": 14,
+            "name": "INSIGHT",
+            "role": "Community Intelligence",
+            "specialization": "Community analysis, sentiment"
+          },
+          {
+            "id": 15,
+            "name": "CATALYST",
+            "role": "Innovation Driver",
+            "specialization": "Innovations, R&D, new features"
+          }
+        ]
+      },
+
+      "level_3_marketing": {
+        "count": 6,
+        "leader": "CONTENT",
+        "agents": [
+          {
+            "id": 16,
+            "name": "CONTENT",
+            "role": "Content Strategist",
+            "specialization": "Content strategy, storytelling"
+          },
+          {
+            "id": 17,
+            "name": "SOCIAL",
+            "role": "Social Media Manager",
+            "specialization": "Social media, engagement"
+          },
+          {
+            "id": 18,
+            "name": "COMMUNITY",
+            "role": "Community Builder",
+            "specialization": "Community management, events"
+          },
+          {
+            "id": 19,
+            "name": "ANALYTICS",
+            "role": "Marketing Analyst",
+            "specialization": "Marketing analytics, ROI"
+          },
+          {
+            "id": 20,
+            "name": "CAMPAIGN",
+            "role": "Campaign Manager",
+            "specialization": "Campaigns, launches, promotions"
+          },
+          {
+            "id": 21,
+            "name": "INTEL",
+            "role": "Competitive Intelligence",
+            "specialization": "Competitive analysis, market intel"
+          }
+        ]
+      },
+
+      "level_4_website": {
+        "count": 5,
+        "leader": "PIXEL",
+        "agents": [
+          {
+            "id": 22,
+            "name": "PIXEL",
+            "role": "UI/UX Designer",
+            "specialization": "UI/UX design, user experience"
+          },
+          {
+            "id": 23,
+            "name": "VIBE",
+            "role": "Brand Manager",
+            "specialization": "Branding, visual identity"
+          },
+          {
+            "id": 24,
+            "name": "MOTION",
+            "role": "Animation & Interaction Specialist",
+            "specialization": "Animations, interactions"
+          },
+          {
+            "id": 25,
+            "name": "PALETTE",
+            "role": "Visual Systems Designer",
+            "specialization": "Design systems, visual languages"
+          },
+          {
+            "id": 26,
+            "name": "LAYOUT",
+            "role": "Responsive Design Engineer",
+            "specialization": "Responsive design, cross-device"
+          }
+        ]
+      }
+    },
+
+    "work_statistics": {
+      "hours_per_agent_per_year": 8760,
+      "total_hours_per_year": 236520,
+      "human_equivalent": "118 full-time employees working year-round",
+      "cost_savings": "~$10M+ per year vs human team"
+    }
+  },
+
+  "services_offered": {
+    "development": [
+      {
+        "service": "Smart contract development",
+        "price_range": "10,000-50,000 HYPEAI"
+      },
+      {
+        "service": "dApp creation",
+        "price_range": "20,000-100,000 HYPEAI"
+      },
+      {
+        "service": "Security audit",
+        "price_range": "5,000-20,000 HYPEAI"
+      },
+      {
+        "service": "Tokenomics design",
+        "price_range": "3,000-15,000 HYPEAI"
+      }
+    ],
+    "marketing": [
+      {
+        "service": "Content creation",
+        "price_range": "500-5,000 HYPEAI"
+      },
+      {
+        "service": "Social media management",
+        "price_range": "1,000-10,000 HYPEAI"
+      },
+      {
+        "service": "Brand strategy",
+        "price_range": "2,000-10,000 HYPEAI"
+      },
+      {
+        "service": "Community building",
+        "price_range": "2,000-15,000 HYPEAI"
+      }
+    ],
+    "design": [
+      {
+        "service": "Logo, branding",
+        "price_range": "300-3,000 HYPEAI"
+      },
+      {
+        "service": "UI/UX design",
+        "price_range": "1,000-10,000 HYPEAI"
+      },
+      {
+        "service": "Website design",
+        "price_range": "5,000-30,000 HYPEAI"
+      }
+    ],
+    "business": [
+      {
+        "service": "Market research",
+        "price_range": "1,000-10,000 HYPEAI"
+      },
+      {
+        "service": "Business plan",
+        "price_range": "2,000-15,000 HYPEAI"
+      },
+      {
+        "service": "Tokenomics consulting",
+        "price_range": "3,000-20,000 HYPEAI"
+      }
+    ]
+  },
+
+  "technology_stack": {
+    "blockchain": {
+      "network": "BNB Chain (Binance Smart Chain)",
+      "standard": "BEP20",
+      "smart_contracts": "Solidity 0.8.19",
+      "compatibility": "EVM-compatible"
+    },
+    "frontend": {
+      "framework": "Next.js",
+      "library": "React",
+      "language": "TypeScript",
+      "styling": "Tailwind CSS"
+    },
+    "backend": {
+      "runtime": "Node.js",
+      "framework": "Express",
+      "database": "MongoDB",
+      "api": "RESTful + GraphQL"
+    },
+    "ai_ml": {
+      "framework": "PyTorch",
+      "language": "Python",
+      "models": "LSTM, Transformer, BERT, Reinforcement Learning"
+    },
+    "blockchain_dev": {
+      "development": "Hardhat",
+      "library": "ethers.js",
+      "testing": "Chai, Mocha"
+    }
+  },
+
+  "smart_contracts": {
+    "total_contracts": 8,
+    "list": [
+      {
+        "name": "Token.sol",
+        "purpose": "Main BEP20 token contract",
+        "features": ["ERC20 standard", "Burn mechanism", "Anti-whale limits"]
+      },
+      {
+        "name": "PrivateSale.sol",
+        "purpose": "Private sale with vesting",
+        "features": ["Vesting schedule", "KYC/AML integration", "Refund protection"]
+      },
+      {
+        "name": "ReferralSystem.sol",
+        "purpose": "3-tier referral system",
+        "features": ["Multi-level rewards", "Milestone bonuses", "Level multipliers"]
+      },
+      {
+        "name": "Staking.sol",
+        "purpose": "Multi-tier staking (17-62% APY)",
+        "features": ["Flexible lock periods", "Compound rewards", "Early withdrawal penalties"]
+      },
+      {
+        "name": "Governance.sol",
+        "purpose": "DAO voting",
+        "features": ["Token-weighted voting", "Proposal system", "Timelock execution"]
+      },
+      {
+        "name": "TeamTokenVesting.sol",
+        "purpose": "Team token vesting",
+        "features": ["2-year vesting", "6-month cliff", "Quarterly releases"]
+      },
+      {
+        "name": "AIOracle.sol",
+        "purpose": "AI predictions oracle",
+        "features": ["Chainlink integration", "Multi-model consensus", "Result verification"]
+      },
+      {
+        "name": "ReferralSystemHelper.sol",
+        "purpose": "Helper contract for referrals",
+        "features": ["Gas optimization", "Batch processing", "Event logging"]
+      }
+    ]
+  },
+
+  "legal_compliance": {
+    "company_structure": {
+      "planned_jurisdiction": "Estonia",
+      "entity_type": "OÜ (Limited Liability Company)",
+      "e_residency": "Required for founder",
+      "founder_location": "Russia"
+    },
+
+    "licenses_required": {
+      "virtual_currency_license": {
+        "needed": "Under consultation",
+        "cost_estimate": "€3,000-25,000",
+        "timeline": "2-3 months"
+      },
+      "fiu_registration": {
+        "needed": "Yes",
+        "cost_estimate": "€1,000-3,000/year"
+      }
+    },
+
+    "private_sale_compliance": {
+      "kyc_aml": "Mandatory for all participants",
+      "sanctions_screening": "OFAC, EU sanctions lists",
+      "geographic_restrictions": [
+        "US residents (restricted)",
+        "Sanctioned countries (prohibited)"
+      ],
+      "investor_qualification": "Professional/High net worth preferred",
+      "disclaimers_required": [
+        "Not investment advice",
+        "No profit guarantees",
+        "High risk warnings",
+        "Regulatory risks",
+        "Technology risks"
+      ]
+    },
+
+    "token_classification": {
+      "type": "Utility token",
+      "use_cases": [
+        "Payment for AI services",
+        "Governance (DAO voting)",
+        "Staking for rewards",
+        "Access to premium features"
+      ],
+      "not_securities_because": [
+        "Functional utility on platform",
+        "No profit-sharing",
+        "No equity-like rights",
+        "Decentralized governance"
+      ],
+      "burn_mechanism_note": "Deflationary mechanism disclosed as utility feature, not profit promise"
+    },
+
+    "mica_regulation": {
+      "applies": "Yes (EU jurisdiction)",
+      "whitepaper_required": "For issuance >€1M or >150 holders",
+      "ongoing_compliance": "Regular reporting, transparency",
+      "transition_period": "Phased implementation 2024-2026"
+    }
+  },
+
+  "current_status": {
+    "development": {
+      "mvp": "Complete (working prototype)",
+      "smart_contracts": "Complete (not deployed)",
+      "website": "Complete (variant-2 cosmic theme)",
+      "documentation": "Complete (760+ documents)",
+      "ai_agents": "Operational (27 agents working)",
+      "testing": "Comprehensive test suite completed"
+    },
+
+    "team": {
+      "founder": "1 person (Russia-based)",
+      "ai_agents": "27 (software, working 24/7)",
+      "human_advisors": "To be hired",
+      "legal_counsel": "In consultation process"
+    },
+
+    "financial": {
+      "invested_to_date": "$5,000 (bootstrapped)",
+      "monthly_burn_rate": "$300",
+      "revenue": "$0 (pre-revenue)",
+      "users": "0 (pre-launch)",
+      "private_sale_target": "$50,000 - $500,000"
+    },
+
+    "roadmap_progress": {
+      "completed": [
+        "MVP development",
+        "Smart contracts",
+        "Website design",
+        "Documentation",
+        "Testing",
+        "Tokenomics modeling",
+        "Marketing strategy"
+      ],
+      "in_progress": [
+        "Legal registration (Estonia)",
+        "Private sale preparation",
+        "Banking setup",
+        "KYC/AML provider selection"
+      ],
+      "planned": [
+        "Private sale launch",
+        "Public listing (PancakeSwap)",
+        "Platform services launch",
+        "CEX listings",
+        "Multi-chain expansion"
+      ]
+    }
+  },
+
+  "competitive_advantage": {
+    "vs_competitors": [
+      {
+        "competitor": "SingularityNET (AGI)",
+        "their_focus": "General AI marketplace",
+        "our_advantage": "Specialized in crypto/DeFi services, 27 expert agents"
+      },
+      {
+        "competitor": "Fetch.ai (FET)",
+        "their_focus": "AI agents platform",
+        "our_advantage": "50% burn mechanism, BNB Chain (cheaper)"
+      },
+      {
+        "competitor": "Ocean Protocol (OCEAN)",
+        "their_focus": "Data marketplace",
+        "our_advantage": "Full-service AI agency, not just data"
+      }
+    ],
+
+    "unique_value_propositions": [
+      "27 specialized AI agents (vs generic AI)",
+      "50% burn mechanism (aggressive deflation)",
+      "BNB Chain (lower fees than Ethereum)",
+      "24/7 infinite work (never stops)",
+      "Crypto/DeFi specialization",
+      "Complete service suite (dev, marketing, design, business)"
+    ]
+  },
+
+  "risks": {
+    "legal": [
+      "Token classification as security",
+      "Regulatory changes (MiCA, local laws)",
+      "Banking access difficulties",
+      "Licensing delays or denials"
+    ],
+    "technical": [
+      "Smart contract vulnerabilities",
+      "AI model performance issues",
+      "Platform scalability challenges",
+      "Blockchain network issues"
+    ],
+    "market": [
+      "Low demand for services",
+      "Competitor market capture",
+      "Crypto market downturn",
+      "Token price volatility"
+    ],
+    "operational": [
+      "Insufficient capital",
+      "Compliance costs too high",
+      "Banking account closures",
+      "Team scaling challenges"
+    ]
+  },
+
+  "financials": {
+    "costs": {
+      "setup_onetime": {
+        "company_registration": "€200-500",
+        "e_residency": "€100-200",
+        "virtual_currency_license": "€3,000-25,000",
+        "legal_fees": "€5,000-10,000",
+        "kyc_provider_setup": "€2,000-5,000",
+        "total": "€10,300-40,700"
+      },
+
+      "ongoing_annual": {
+        "accounting_audit": "€2,000-5,000",
+        "compliance_officer": "€12,000-50,000",
+        "legal_support": "€3,000-10,000",
+        "fiu_fees": "€1,000-3,000",
+        "infrastructure": "€5,000-15,000",
+        "kyc_provider": "€3,000-10,000",
+        "total": "€26,000-93,000"
+      }
+    },
+
+    "revenue_projections": {
+      "year_1": {
+        "conservative": "$850,000",
+        "realistic": "$1,200,000",
+        "optimistic": "$1,850,000"
+      },
+      "year_2": {
+        "conservative": "$2,500,000",
+        "realistic": "$4,000,000",
+        "optimistic": "$6,500,000"
+      },
+      "year_3": {
+        "conservative": "$5,000,000",
+        "realistic": "$10,000,000",
+        "optimistic": "$20,000,000"
+      }
+    }
+  },
+
+  "timeline": {
+    "phase_1_legal_setup": {
+      "duration": "3-6 months",
+      "steps": [
+        "Company registration (2 weeks)",
+        "E-Residency application (4 weeks)",
+        "Banking setup (4-8 weeks)",
+        "Virtual Currency License (2-3 months)"
+      ]
+    },
+
+    "phase_2_private_sale": {
+      "duration": "2-3 months",
+      "steps": [
+        "KYC/AML provider integration",
+        "Sale contracts finalization",
+        "Marketing to qualified investors",
+        "Token distribution"
+      ]
+    },
+
+    "phase_3_public_launch": {
+      "duration": "1-2 months",
+      "steps": [
+        "DEX listing (PancakeSwap)",
+        "Liquidity provision",
+        "Platform services activation",
+        "Marketing campaign launch"
+      ]
+    }
+  },
+
+  "contact_information": {
+    "project": {
+      "website": "https://hypeai.io (in development)",
+      "twitter": "@HypeAIProject",
+      "telegram": "t.me/hypeai",
+      "discord": "discord.gg/hypeai",
+      "github": "github.com/hypeai"
+    },
+    "documentation": {
+      "whitepaper": "/docs/whitepaper/",
+      "technical_docs": "/docs/architecture.md",
+      "tokenomics": "/docs/tokenomics.md",
+      "legal_brief": "/docs/legal/pdf-ready/HYPEAI_COMPANY_BRIEF.md"
+    }
+  },
+
+  "key_messages": {
+    "elevator_pitch": "HypeAI is an AI services marketplace where 27 specialized AI agents work 24/7 to provide professional crypto/DeFi services, paid for in HYPEAI tokens with a 50% burn mechanism creating deflationary economics.",
+
+    "investment_thesis": "HYPEAI combines the explosive growth potential of AI with the scarcity economics of cryptocurrency. As platform usage grows, token burn accelerates, reducing supply while demand increases - a powerful formula for value appreciation.",
+
+    "why_now": "2025 is the perfect timing: AI is mainstream, crypto is recovering, and there's massive unmet demand for professional services in the crypto space. HypeAI is positioned to capture this trillion-dollar opportunity.",
+
+    "team_advantage": "While competitors rely on expensive human teams that sleep, our 27 AI agents work 24/7/365 forever, delivering 118 full-time equivalents of work at a fraction of the cost - an insurmountable competitive moat."
+  },
+
+  "appendix": {
+    "documents_count": 785,
+    "total_codebase_files": "500+",
+    "documentation_pages": "10,000+",
+    "smart_contract_lines": "5,000+",
+    "test_coverage": ">80%",
+    "compilation_date": "2025-10-26",
+    "version": "2.0-complete",
+    "status": "Ready for PDF generation"
+  }
+}

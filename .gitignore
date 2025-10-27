@@ -38,3 +38,6 @@ coverage/
 # Cache
 .cache/
 .parcel-cache/
+.swarm/memory.db
+.swarm/memory.db-wal
+.swarm/memory.db-shm

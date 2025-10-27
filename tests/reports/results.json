@@ -1,0 +1,645 @@
+{
+  "config": {
+    "configFile": "/Users/ai.place/Crypto/playwright.config.test.js",
+    "rootDir": "/Users/ai.place/Crypto/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "tests/reports/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/reports/results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/ai.place/Crypto/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/ai.place/Crypto/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "hyper-chat-accessibility.spec.js",
+      "file": "hyper-chat-accessibility.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Accessibility Tests",
+          "file": "hyper-chat-accessibility.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "meets WCAG 2.1 AA standards",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1001,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 58\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#141414\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 3.45,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"4.5:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#6b6b6b\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"8.3pt (11px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<div class=\\\"sidebar\\\">\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".sidebar\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<div class=\\\"history-label\\\">Today</div>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".history-label\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 58\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#141414\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 3.45,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"4.5:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#6b6b6b\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"8.3pt (11px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<div class=\\\"sidebar\\\">\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".sidebar\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<div class=\\\"history-label\\\">Today</div>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".history-label\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js:13:53",
+                        "location": {
+                          "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                          "column": 53,
+                          "line": 13
+                        },
+                        "snippet": "  11 |             .analyze();\n  12 |\n> 13 |         expect(accessibilityScanResults.violations).toEqual([]);\n     |                                                     ^\n  14 |     });\n  15 |\n  16 |     test('keyboard navigation works', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                            "column": 53,
+                            "line": 13
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 58\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#141414\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 3.45,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"4.5:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#6b6b6b\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"8.3pt (11px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<div class=\\\"sidebar\\\">\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".sidebar\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<div class=\\\"history-label\\\">Today</div>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".history-label\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  11 |             .analyze();\n  12 |\n> 13 |         expect(accessibilityScanResults.violations).toEqual([]);\n     |                                                     ^\n  14 |     });\n  15 |\n  16 |     test('keyboard navigation works', async ({ page }) => {\n    at /Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js:13:53"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:35.486Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-bd1ee-meets-WCAG-2-1-AA-standards-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-bd1ee-meets-WCAG-2-1-AA-standards-chromium/video-1.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-bd1ee-meets-WCAG-2-1-AA-standards-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-bd1ee-meets-WCAG-2-1-AA-standards-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                        "column": 53,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-d649321155b7f31a6264",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 5,
+              "column": 9
+            },
+            {
+              "title": "keyboard navigation works",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5749,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.message.user')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.message.user')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.message.user')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.message.user')\u001b[22m\n\n    at /Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js:62:53",
+                        "location": {
+                          "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                          "column": 53,
+                          "line": 62
+                        },
+                        "snippet": "  60 |\n  61 |         // Message sent\n> 62 |         await expect(page.locator('.message.user')).toBeVisible({ timeout: 5000 });\n     |                                                     ^\n  63 |     });\n  64 |\n  65 |     test('focus indicators visible', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                            "column": 53,
+                            "line": 62
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.message.user')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.message.user')\u001b[22m\n\n\n  60 |\n  61 |         // Message sent\n> 62 |         await expect(page.locator('.message.user')).toBeVisible({ timeout: 5000 });\n     |                                                     ^\n  63 |     });\n  64 |\n  65 |     test('focus indicators visible', async ({ page }) => {\n    at /Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js:62:53"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:36.861Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-af3f4-s-keyboard-navigation-works-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-af3f4-s-keyboard-navigation-works-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-af3f4-s-keyboard-navigation-works-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                        "column": 53,
+                        "line": 62
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-91885139eb276a068715",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 16,
+              "column": 9
+            },
+            {
+              "title": "focus indicators visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 252,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:42.991Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-a44f61ad9814fb5a506a",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 65,
+              "column": 9
+            },
+            {
+              "title": "screen reader announces messages",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 221,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js:105:36",
+                        "location": {
+                          "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                          "column": 36,
+                          "line": 105
+                        },
+                        "snippet": "  103 |\n  104 |         // Should have at least one live region for messages\n> 105 |         expect(liveRegions.length).toBeGreaterThan(0);\n      |                                    ^\n  106 |     });\n  107 |\n  108 |     test('all interactive elements have accessible names', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                            "column": 36,
+                            "line": 105
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  103 |\n  104 |         // Should have at least one live region for messages\n> 105 |         expect(liveRegions.length).toBeGreaterThan(0);\n      |                                    ^\n  106 |     });\n  107 |\n  108 |     test('all interactive elements have accessible names', async ({ page }) => {\n    at /Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js:105:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:43.327Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-6c3ce-n-reader-announces-messages-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-6c3ce-n-reader-announces-messages-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-6c3ce-n-reader-announces-messages-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                        "column": 36,
+                        "line": 105
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-29cb14a57fbf1e5a8031",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 91,
+              "column": 9
+            },
+            {
+              "title": "all interactive elements have accessible names",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 250,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:43.841Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-017d6dfe89206e2b24c1",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 108,
+              "column": 9
+            },
+            {
+              "title": "images have alt text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 247,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:44.175Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-75ef1adb329065b41c63",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 128,
+              "column": 9
+            },
+            {
+              "title": "color contrast meets WCAG AA",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 487,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 58\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#141414\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 3.45,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"4.5:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#6b6b6b\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"8.3pt (11px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<div class=\\\"sidebar\\\">\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".sidebar\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<div class=\\\"history-label\\\">Today</div>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".history-label\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 58\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#141414\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 3.45,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"4.5:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#6b6b6b\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"8.3pt (11px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<div class=\\\"sidebar\\\">\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".sidebar\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<div class=\\\"history-label\\\">Today</div>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".history-label\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js:158:36",
+                        "location": {
+                          "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                          "column": 36,
+                          "line": 158
+                        },
+                        "snippet": "  156 |         );\n  157 |\n> 158 |         expect(contrastViolations).toEqual([]);\n      |                                    ^\n  159 |     });\n  160 |\n  161 |     test('form labels are properly associated', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                            "column": 36,
+                            "line": 158
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 58\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#141414\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 3.45,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"4.5:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#6b6b6b\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"8.3pt (11px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<div class=\\\"sidebar\\\">\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".sidebar\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 3.45 (foreground color: #6b6b6b, background color: #141414, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<div class=\\\"history-label\\\">Today</div>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".history-label\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  156 |         );\n  157 |\n> 158 |         expect(contrastViolations).toEqual([]);\n      |                                    ^\n  159 |     });\n  160 |\n  161 |     test('form labels are properly associated', async ({ page }) => {\n    at /Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js:158:36"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:44.426Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-1ca8d-olor-contrast-meets-WCAG-AA-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-1ca8d-olor-contrast-meets-WCAG-AA-chromium/video-1.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-1ca8d-olor-contrast-meets-WCAG-AA-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ai.place/Crypto/test-results/hyper-chat-accessibility-A-1ca8d-olor-contrast-meets-WCAG-AA-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ai.place/Crypto/tests/e2e/hyper-chat-accessibility.spec.js",
+                        "column": 36,
+                        "line": 158
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-1022a418ed002b8cfd16",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 146,
+              "column": 9
+            },
+            {
+              "title": "form labels are properly associated",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 233,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:45.212Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-0634f357478012e68097",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 161,
+              "column": 9
+            },
+            {
+              "title": "headings are in logical order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 210,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:45.528Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-955b0327fe11b301ed61",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 187,
+              "column": 9
+            },
+            {
+              "title": "skip to main content link works",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 229,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:45.742Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-6fd4bbb061a68ce29b1a",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 208,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "High Contrast Mode",
+          "file": "hyper-chat-accessibility.spec.js",
+          "line": 234,
+          "column": 6,
+          "specs": [
+            {
+              "title": "works in high contrast mode",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 762,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-26T16:10:45.975Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3dba20959b89dd464b9a-31eafd43f7c62f13862d",
+              "file": "hyper-chat-accessibility.spec.js",
+              "line": 235,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-10-26T16:10:35.144Z",
+    "duration": 11617.791000000001,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

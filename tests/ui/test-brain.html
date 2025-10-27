@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Holographic Brain</title>
+    <link rel="stylesheet" href="css/holographic-neural.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0a1f;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Simple test to show intro
+        const intro = document.createElement('div');
+        intro.className = 'holographic-intro';
+        intro.innerHTML = `
+            <div class="intro-content">
+                <div class="glitch-text" data-text="TEST BRAIN">TEST BRAIN</div>
+                <div class="neural-line"></div>
+                <div class="intro-subtitle">
+                    <span class="type-text">Testing Holographic Brain...</span>
+                </div>
+                <div class="loading-neural">
+                    <div class="neural-pulse"></div>
+                    <div class="neural-pulse delay-1"></div>
+                    <div class="neural-pulse delay-2"></div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(intro);
+
+        console.log('✅ Test page loaded!');
+        console.log('✅ Intro element created');
+    </script>
+</body>
+</html>

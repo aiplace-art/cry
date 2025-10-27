@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINEMATIC BRAIN - MAXIMUM QUALITY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            overflow: hidden;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        #instructions {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 229, 255, 0.1);
+            border: 2px solid rgba(0, 229, 255, 0.4);
+            border-radius: 12px;
+            padding: 20px 40px;
+            color: #00E5FF;
+            font-size: 18px;
+            letter-spacing: 2px;
+            z-index: 10001;
+            backdrop-filter: blur(10px);
+            animation: instructionsPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes instructionsPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(0, 229, 255, 0.6);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="instructions">
+        🎬 MAXIMUM QUALITY CINEMATIC EXPERIENCE 🎬<br>
+        Watch: Particle Explosion → 3D Brain → HUD → Voice
+    </div>
+
+    <script src="js/cinematic-brain.js"></script>
+    <script>
+        // Mock chat object
+        const mockChat = {
+            agents: {}
+        };
+
+        // Initialize cinematic brain
+        const cinematicBrain = new CinematicBrain(mockChat);
+
+        console.log('🔥 CINEMATIC BRAIN INITIALIZED!');
+        console.log('MAXIMUM QUALITY FEATURES:');
+        console.log('✅ 2000 particles with realistic physics');
+        console.log('✅ Motion blur trails');
+        console.log('✅ Screen shake (30 frames)');
+        console.log('✅ Bloom effects (multi-layer)');
+        console.log('✅ Chromatic aberration');
+        console.log('✅ Volumetric light rays');
+        console.log('✅ Photorealistic 250px brain core');
+        console.log('✅ 100 neurons with impulses');
+        console.log('✅ 40 energy arcs');
+        console.log('✅ 7 pulsing rings');
+        console.log('✅ 3D rotation + breathing');
+        console.log('✅ Cinematic HUD');
+        console.log('✅ Epic orchestral sound');
+        console.log('');
+        console.log('Timeline:');
+        console.log('0s: Explosion begins');
+        console.log('3s: Brain appears');
+        console.log('5s: Music + Voice');
+
+        // Hide instructions after 10s
+        setTimeout(() => {
+            const instructions = document.getElementById('instructions');
+            instructions.style.transition = 'opacity 1s';
+            instructions.style.opacity = '0';
+            setTimeout(() => instructions.remove(), 1000);
+        }, 10000);
+    </script>
+</body>
+</html>

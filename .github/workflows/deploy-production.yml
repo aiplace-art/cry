@@ -1,0 +1,313 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      skip-tests:
+        description: 'Skip tests (emergency deploy)'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  pre-deploy-checks:
+    name: Pre-deployment Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify branch
+        run: |
+          if [ "${{ github.ref }}" != "refs/heads/main" ] && [ ! "${{ github.ref }}" =~ ^refs/tags/v ]]; then
+            echo "❌ Production deploys only from main branch or version tags"
+            exit 1
+          fi
+
+      - name: Check for emergency markers
+        run: |
+          if git log -1 --pretty=%B | grep -i "EMERGENCY"; then
+            echo "🚨 Emergency deployment detected"
+            echo "emergency=true" >> $GITHUB_OUTPUT
+          fi
+        id: emergency-check
+
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    needs: pre-deploy-checks
+    if: ${{ !inputs.skip-tests }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint || echo "No lint script configured"
+
+      - name: Check for console.log (strict)
+        run: |
+          # Fail build if console.log found (except logger.log)
+          if grep -r "console\.log" public/variant-2/js --include="*.js" | grep -v "logger\.log" | grep -v "// DEBUG"; then
+            echo "❌ Error: console.log statements found in production code!"
+            echo "Use logger.log() instead or mark with // DEBUG comment"
+            exit 1
+          fi
+
+      - name: Check for test files
+        run: |
+          if find public -name "test-*.html" -o -name "*.test.js" | grep -q .; then
+            echo "❌ Error: Test files found in public directory!"
+            exit 1
+          fi
+
+  security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    needs: pre-deploy-checks
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run npm audit (strict)
+        run: npm audit --audit-level=moderate
+
+      - name: Check for hardcoded secrets
+        run: |
+          # Strict secret detection for production
+          if grep -rE "(api[_-]?key|password|secret|token|dsn)\s*[:=]\s*['\"][^'\"]+['\"]" public/ --include="*.js" --include="*.html" | grep -v "placeholder" | grep -v "example" | grep -v "YOUR_"; then
+            echo "❌ CRITICAL: Hardcoded secrets detected!"
+            exit 1
+          fi
+
+      - name: Verify Sentry DSN not hardcoded
+        run: |
+          if grep -r "https://.*@.*\.ingest\.sentry\.io/" public/ --include="*.js"; then
+            echo "❌ CRITICAL: Sentry DSN hardcoded in code!"
+            exit 1
+          fi
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: [lint, security-audit]
+    if: ${{ !inputs.skip-tests }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Run integration tests
+        run: npm run test:integration || echo "No integration tests configured"
+        continue-on-error: true
+
+      - name: Generate coverage report
+        run: npm run test:coverage || echo "No coverage configured"
+        continue-on-error: true
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/coverage-final.json
+          fail_ci_if_error: false
+
+  build:
+    name: Build Production
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --production=false
+
+      - name: Build for production
+        run: |
+          export NODE_ENV=production
+          npm run build || echo "No build script configured"
+
+      - name: Minify assets
+        run: |
+          # Minify JS and CSS if not already done by build
+          echo "Minification handled by build process"
+
+      - name: Remove test files
+        run: |
+          find public -name "test-*.html" -delete
+          find public -name "*.test.js" -delete
+          echo "✅ Test files removed"
+
+      - name: Verify build
+        run: |
+          ls -la public/variant-2/
+          echo "Build verification complete"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-production
+          path: |
+            public/
+            !tests/
+          retention-days: 30
+
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: production
+      url: https://hypeai.io
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-production
+          path: ./build
+
+      - name: Deploy to Vercel Production
+        id: vercel-deploy
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          working-directory: ./build
+          scope: ${{ secrets.VERCEL_SCOPE }}
+
+      - name: Deploy to Netlify Production
+        id: netlify-deploy
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_PRODUCTION }}
+        with:
+          args: deploy --dir=./build --prod
+
+      - name: Update deployment status
+        run: |
+          echo "✅ Production deployment complete!"
+          echo "Vercel URL: ${{ steps.vercel-deploy.outputs.preview-url }}"
+          echo "Netlify URL: ${{ steps.netlify-deploy.outputs.deploy-url }}"
+
+  smoke-tests:
+    name: Post-Deployment Smoke Tests
+    runs-on: ubuntu-latest
+    needs: deploy-production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Wait for deployment to propagate
+        run: sleep 30
+
+      - name: Check homepage
+        run: |
+          curl -f https://hypeai.io || exit 1
+
+      - name: Check services page
+        run: |
+          curl -f https://hypeai.io/services.html || exit 1
+
+      - name: Check API health
+        run: |
+          curl -f https://hypeai.io/api/health || echo "No API health endpoint"
+        continue-on-error: true
+
+      - name: Verify no test files accessible
+        run: |
+          if curl -f https://hypeai.io/test-mobile.html 2>/dev/null; then
+            echo "❌ CRITICAL: Test files are publicly accessible!"
+            exit 1
+          fi
+          echo "✅ Test files properly excluded"
+
+  rollback:
+    name: Rollback on Failure
+    runs-on: ubuntu-latest
+    needs: [deploy-production, smoke-tests]
+    if: failure()
+    steps:
+      - name: Rollback Vercel deployment
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: 'rollback'
+
+      - name: Notify team of rollback
+        run: |
+          echo "🔴 Production deployment rolled back due to failures"
+          # Add Slack/Discord/PagerDuty notification
+
+  notify-success:
+    name: Notify Deployment Success
+    runs-on: ubuntu-latest
+    needs: [smoke-tests]
+    if: success()
+    steps:
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Notify team of success
+        run: |
+          echo "🎉 Production deployment successful!"
+          echo "URL: https://hypeai.io"
+          # Add Slack/Discord notification

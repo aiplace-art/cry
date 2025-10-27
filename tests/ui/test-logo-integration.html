@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypeAI Logo Integration Test</title>
+    <link rel="stylesheet" href="css/ai-assistant-diamond.css">
+    <link rel="stylesheet" href="css/ai-chat-diamond.css">
+    <style>
+        body {
+            background: #14151A;
+            color: white;
+            font-family: sans-serif;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #00E5FF;
+            margin-bottom: 40px;
+        }
+
+        .test-section {
+            background: rgba(30, 32, 38, 0.8);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #A855F7;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .test-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+        }
+
+        .test-label {
+            min-width: 200px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Simulate FAB container */
+        .fab-container-test {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.5);
+        }
+
+        .fab-container-test video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Simulate chat avatars */
+        .avatar-test {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00E5FF, #A855F7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 229, 255, 0.3);
+        }
+
+        .avatar-test-small {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #00E5FF, #A855F7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-test-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00E5FF, #A855F7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 229, 255, 0.4);
+        }
+
+        .success-msg {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10B981;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .success-msg h3 {
+            color: #10B981;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>✨ HypeAI Logo Integration Test</h1>
+
+    <div class="test-section">
+        <h2>1. FAB Button Logo (45px)</h2>
+        <div class="test-row">
+            <span class="test-label">FAB Button:</span>
+            <div class="fab-container-test">
+                <video autoplay loop muted playsinline>
+                    <source src="assets/ai-assistant/animations/button-cosmic-ultra.mp4" type="video/mp4">
+                </video>
+                <img src="assets/ai-assistant/logo-icon.svg" class="fab-logo" alt="AI" />
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Chat Header Avatar (28px)</h2>
+        <div class="test-row">
+            <span class="test-label">Header avatar:</span>
+            <div class="avatar-test">
+                <img src="assets/ai-assistant/logo-icon.svg" class="ai-logo-icon" alt="AI" />
+            </div>
+            <div class="status-line" style="display: flex; align-items: center; gap: 8px;">
+                <span class="status-dot"></span>
+                <span>Online</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. Message Avatar (20px)</h2>
+        <div class="test-row">
+            <span class="test-label">Message avatar:</span>
+            <div class="avatar-test-small">
+                <img src="assets/ai-assistant/logo-icon.svg" class="ai-logo-icon-small" alt="AI" />
+            </div>
+            <span style="color: rgba(255,255,255,0.7);">AI сообщение...</span>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>4. Typing Indicator (20px)</h2>
+        <div class="test-row">
+            <span class="test-label">Typing avatar:</span>
+            <div class="avatar-test-small">
+                <img src="assets/ai-assistant/logo-icon.svg" class="ai-logo-icon-small" alt="AI" />
+            </div>
+            <div class="typing-dots">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>5. Empty State Large (50px)</h2>
+        <div class="test-row">
+            <span class="test-label">Empty state:</span>
+            <div class="avatar-test-large">
+                <img src="assets/ai-assistant/logo-icon.svg" class="ai-logo-icon-large" alt="AI" />
+            </div>
+        </div>
+    </div>
+
+    <div class="success-msg">
+        <h3>✅ Что вы должны видеть:</h3>
+        <p style="line-height: 1.8; color: rgba(255,255,255,0.8);">
+            🔸 Гексагон HypeAI с 8 молниями во всех аватарах<br>
+            🔸 Логотип светится cyan/blue градиентом<br>
+            🔸 Мягкая анимация свечения (3 секунды)<br>
+            🔸 Зелёный пульсирующий кружок "Online" 💚<br>
+            🔸 Все размеры логотипа пропорциональны
+        </p>
+    </div>
+
+    <script>
+        console.log('✅ Logo Integration Test loaded');
+        console.log('📂 Logo path:', 'assets/ai-assistant/logo-icon.svg');
+    </script>
+</body>
+</html>

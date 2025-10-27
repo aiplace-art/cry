@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Button Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0118;
+            color: white;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .test-info {
+            text-align: center;
+            font-size: 2em;
+            color: #00E5FF;
+        }
+
+        .arrow {
+            font-size: 5em;
+            animation: bounce 1s infinite;
+            color: #FFE900;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(45deg); }
+            50% { transform: translateY(-20px) rotate(45deg); }
+        }
+    </style>
+
+    <!-- AI Assistant CSS -->
+    <link rel="stylesheet" href="css/ai-assistant.css">
+</head>
+<body>
+    <div class="test-info">
+        <h1>Neural Button Test</h1>
+        <p>Смотрите в правый нижний угол!</p>
+        <div class="arrow">↘</div>
+        <p id="status">Загрузка...</p>
+    </div>
+
+    <!-- AI Assistant JS -->
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        console.log('========================================');
+        console.log('🤖 Starting HypeAI Neural Assistant Test');
+        console.log('========================================');
+
+        // Check if class is loaded
+        if (typeof HypeAIAssistant === 'undefined') {
+            console.error('❌ HypeAIAssistant class NOT loaded!');
+            document.getElementById('status').textContent = '❌ Класс не загружен!';
+            document.getElementById('status').style.color = '#ff0000';
+        } else {
+            console.log('✅ HypeAIAssistant class loaded successfully');
+
+            try {
+                console.log('🚀 Initializing assistant...');
+                const assistant = new HypeAIAssistant({
+                    language: 'ru',
+                    position: 'bottom-right'
+                });
+                console.log('✅ Assistant initialized!');
+                console.log('Assistant object:', assistant);
+
+                // Check if button was created
+                setTimeout(() => {
+                    const button = document.querySelector('.assistant-fab');
+                    const widget = document.querySelector('.hypeai-assistant');
+
+                    console.log('Button element:', button);
+                    console.log('Widget element:', widget);
+
+                    if (button) {
+                        const rect = button.getBoundingClientRect();
+                        console.log('Button position:', {
+                            top: rect.top,
+                            right: rect.right,
+                            bottom: rect.bottom,
+                            left: rect.left,
+                            width: rect.width,
+                            height: rect.height
+                        });
+                        console.log('Button visible:', rect.width > 0 && rect.height > 0);
+
+                        const styles = window.getComputedStyle(button);
+                        console.log('Button display:', styles.display);
+                        console.log('Button visibility:', styles.visibility);
+                        console.log('Button opacity:', styles.opacity);
+                        console.log('Button z-index:', styles.zIndex);
+
+                        document.getElementById('status').textContent = '✅ Кнопка создана! Смотрите справа внизу!';
+                        document.getElementById('status').style.color = '#10B981';
+                    } else {
+                        console.error('❌ Button not found in DOM!');
+                        document.getElementById('status').textContent = '❌ Кнопка не найдена в DOM!';
+                        document.getElementById('status').style.color = '#ff0000';
+                    }
+                }, 500);
+
+            } catch (error) {
+                console.error('❌ Error initializing assistant:', error);
+                console.error('Error stack:', error.stack);
+                document.getElementById('status').textContent = '❌ Ошибка: ' + error.message;
+                document.getElementById('status').style.color = '#ff0000';
+            }
+        }
+
+        console.log('========================================');
+    </script>
+</body>
+</html>

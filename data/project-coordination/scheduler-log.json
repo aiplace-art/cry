@@ -201,13 +201,63 @@
           "time": "2025-10-26T19:00:00.000Z"
         }
       }
+    },
+    {
+      "timestamp": "2025-10-26T15:00:01.040Z",
+      "moscowTime": "26.10.2025, 18:00:01",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "evening",
+          "time": "2025-10-26T19:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-26T16:00:00.564Z",
+      "moscowTime": "26.10.2025, 19:00:00",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "evening",
+          "time": "2025-10-26T19:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-26T17:00:00.938Z",
+      "moscowTime": "26.10.2025, 20:00:00",
+      "success": false,
+      "reason": "SKIPPED",
+      "details": {
+        "message": "Not in scheduled window",
+        "nextPost": {
+          "slot": "evening",
+          "time": "2025-10-26T19:00:00.000Z"
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-26T18:00:00.853Z",
+      "moscowTime": "26.10.2025, 21:00:00",
+      "success": false,
+      "reason": "POST_FAILED",
+      "details": {
+        "slot": "evening",
+        "success": false,
+        "error": "Command failed: node ./scripts/auto-poster.js"
+      }
     }
   ],
   "stats": {
-    "totalRuns": 16,
+    "totalRuns": 20,
     "successfulPosts": 1,
-    "skippedPosts": 13,
-    "failedPosts": 2,
-    "consecutiveErrors": 2
+    "skippedPosts": 16,
+    "failedPosts": 3,
+    "consecutiveErrors": 3
   }
 }

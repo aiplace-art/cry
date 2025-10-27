@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyper Chat Widget Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #0a0118 0%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 48px;
+            background: linear-gradient(135deg, #FFE900 0%, #F3BA2F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+        }
+
+        .demo-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(243, 186, 47, 0.2);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+        }
+
+        .demo-section h2 {
+            font-size: 32px;
+            color: #00E5FF;
+            margin-bottom: 24px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(243, 186, 47, 0.2);
+            border-color: rgba(243, 186, 47, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #F3BA2F;
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .code-block {
+            background: #1a1a2e;
+            border: 1px solid rgba(243, 186, 47, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            color: #00E5FF;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .code-block code {
+            color: #FFE900;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
+            border: none;
+            color: white;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(147, 51, 234, 0.5);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .status-bar {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 16px #10b981;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.2);
+            }
+        }
+
+        .highlight {
+            color: #FFE900;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Auto-initialize widget with data attributes -->
+    <div data-hyper-chat-widget
+         data-position="bottom-right"
+         data-auto-open="false"
+         data-show-notifications="true"></div>
+
+    <div class="container">
+        <h1>🤖 Hyper Chat Widget Demo</h1>
+        <p class="subtitle">Universal AI Chat Integration for Your Website</p>
+
+        <div class="status-bar">
+            <div class="status-dot"></div>
+            <span><strong class="highlight">Widget Active!</strong> Click the floating button in the bottom-right to open Hyper Chat.</span>
+        </div>
+
+        <div class="demo-section">
+            <h2>✨ Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-title">Easy Integration</div>
+                    <div class="feature-desc">
+                        Add a single script tag and data attribute to enable the chat widget on any page. No complex setup required.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <div class="feature-title">27 AI Agents</div>
+                    <div class="feature-desc">
+                        Powered by specialized AI agents for trading, development, analysis, community management, and more.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Real-time Responses</div>
+                    <div class="feature-desc">
+                        Get instant answers with visual agent activity tracking and beautiful typing indicators.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-title">Beautiful UI</div>
+                    <div class="feature-desc">
+                        Cosmic design with smooth animations, gradient effects, and mobile-responsive layout.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <div class="feature-title">Notifications</div>
+                    <div class="feature-desc">
+                        Unread message badges and optional sound notifications keep users engaged.
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title">Mobile Friendly</div>
+                    <div class="feature-desc">
+                        Automatically adapts to mobile devices with full-screen chat interface.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🛠️ Installation</h2>
+            <p style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.8);">
+                Add the following code to your HTML to integrate Hyper Chat:
+            </p>
+
+            <div class="code-block">
+                <pre><code>&lt;!-- Add before closing &lt;/body&gt; tag --&gt;
+&lt;script src="js/hyper-chat-widget.js"&gt;&lt;/script&gt;
+
+&lt;!-- Auto-initialize with data attributes --&gt;
+&lt;div data-hyper-chat-widget
+     data-position="bottom-right"
+     data-auto-open="false"
+     data-show-notifications="true"&gt;&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3 style="color: #00E5FF; margin: 32px 0 16px;">Or initialize programmatically:</h3>
+
+            <div class="code-block">
+                <pre><code>&lt;script&gt;
+window.hyperChatWidget = new HyperChatWidget({
+    position: 'bottom-right',  // bottom-right, bottom-left, top-right, top-left
+    chatUrl: '/ai-chat-premium.html',
+    autoOpen: false,
+    showNotifications: true,
+    playSound: false
+});
+&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎮 Interactive Demo</h2>
+            <p style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.8);">
+                Try these actions to test the widget functionality:
+            </p>
+
+            <div class="button-group">
+                <button onclick="window.hyperChatWidget.openChat()">
+                    🚀 Open Chat
+                </button>
+                <button onclick="window.hyperChatWidget.closeChat()">
+                    ❌ Close Chat
+                </button>
+                <button onclick="window.hyperChatWidget.showNotification(1)">
+                    🔔 Show Notification
+                </button>
+                <button onclick="window.hyperChatWidget.clearNotifications()">
+                    🧹 Clear Notifications
+                </button>
+                <button onclick="simulateMessage()">
+                    💬 Simulate New Message
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>⚙️ Configuration Options</h2>
+            <div class="code-block">
+                <pre><code>{
+  position: 'bottom-right',        // Widget position
+  chatUrl: '/ai-chat.html',       // Chat page URL
+  theme: 'dark',                  // Theme (dark/light)
+  showNotifications: true,        // Enable notification badges
+  autoOpen: false,                // Auto-open on page load
+  playSound: false                // Play notification sounds
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>📊 Technical Specs</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Performance</div>
+                    <div class="feature-desc">
+                        Lazy-loaded iframe, optimized animations, minimal bundle size (< 15KB minified)
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <div class="feature-title">Browser Support</div>
+                    <div class="feature-desc">
+                        Modern browsers (Chrome, Firefox, Safari, Edge), IE11+ with polyfills
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title">Responsive</div>
+                    <div class="feature-desc">
+                        Desktop: 420x680px overlay<br>Mobile: Full-screen takeover
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/hyper-chat-widget.js"></script>
+    <script>
+        function simulateMessage() {
+            window.hyperChatWidget.showNotification(1);
+
+            // Simulate multiple messages
+            let count = 1;
+            const interval = setInterval(() => {
+                if (count >= 3) {
+                    clearInterval(interval);
+                    return;
+                }
+                window.hyperChatWidget.showNotification(1);
+                count++;
+            }, 1500);
+        }
+
+        // Log widget initialization
+        console.log('✅ Hyper Chat Widget Demo Loaded');
+        console.log('Widget instance:', window.hyperChatWidget);
+    </script>
+</body>
+</html>
