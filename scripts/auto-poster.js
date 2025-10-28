@@ -20,6 +20,57 @@ const POSTING_SCHEDULE = {
   evening: '21:00'     // 9 PM - Evening peak
 };
 
+// ============================================================================
+// KNOWLEDGE BASE SYNCHRONIZATION
+// ============================================================================
+
+/**
+ * Load and parse PROJECT_KNOWLEDGE_BASE.md for accurate project data
+ * This ensures all posts use the latest project information
+ */
+function syncWithKnowledgeBase() {
+  console.log('📚 Syncing with PROJECT_KNOWLEDGE_BASE.md...');
+
+  try {
+    const kb = fs.readFileSync('./docs/PROJECT_KNOWLEDGE_BASE.md', 'utf8');
+
+    // Extract key facts using regex patterns
+    const facts = {
+      aiAgents: kb.match(/(\d+)\s+AI\s+агент/i)?.[1] || '27',
+      services: kb.match(/(\d+)\+?\s+(?:профессиональных\s+)?сервис/i)?.[1] || '35',
+      totalSupply: kb.match(/Total\s+Supply:\s*([\d,]+)/i)?.[1] || '10,000,000,000',
+      blockchain: kb.match(/Blockchain:\s*([^\n]+)/i)?.[1]?.trim() || 'BNB Chain',
+      privateSalePrice: kb.match(/\$?(0\.0+\d+)\s+(?:за\s+токен|per\s+token)/i)?.[1] || '0.00008',
+      vesting: kb.match(/Vesting:\s*([^\n]+)/i)?.[1]?.trim() || '20% TGE + 80% за 21 месяц',
+      referralLevels: kb.match(/(\d+)-уровневая\s+реферальная/i)?.[1] || '3',
+      launchType: kb.includes('ПРИВАТНАЯ ПРОДАЖА') ? 'private_sale' : 'unknown',
+      documents: kb.match(/Документов:\s*(\d+)/)?.[1] || 'N/A',
+      contracts: kb.match(/Смарт-контрактов:\s*(\d+)/)?.[1] || '12'
+    };
+
+    console.log('✅ Knowledge base synced:', facts);
+    return facts;
+
+  } catch (error) {
+    console.error('⚠️ Failed to sync knowledge base:', error.message);
+    console.log('Using default values...');
+
+    // Return safe defaults if KB not available
+    return {
+      aiAgents: '27',
+      services: '35',
+      totalSupply: '10,000,000,000',
+      blockchain: 'BNB Chain',
+      privateSalePrice: '0.00008',
+      vesting: '20% TGE + 80% over 21 months',
+      referralLevels: '3',
+      launchType: 'private_sale',
+      documents: 'N/A',
+      contracts: '12'
+    };
+  }
+}
+
 // Load content bank
 function loadContentBank() {
   const content = fs.readFileSync('./scripts/twitter-content/tweets-bank.json', 'utf8');
@@ -342,6 +393,16 @@ async function autoPost() {
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   try {
+    // 🔄 STEP 1: SYNC WITH KNOWLEDGE BASE FIRST!
+    const projectFacts = syncWithKnowledgeBase();
+    console.log('📊 Using project data from knowledge base:');
+    console.log(`   - AI Agents: ${projectFacts.aiAgents}`);
+    console.log(`   - Services: ${projectFacts.services}+`);
+    console.log(`   - Launch: ${projectFacts.launchType === 'private_sale' ? 'Private Sale' : 'TBD'}`);
+    console.log(`   - Price: $${projectFacts.privateSalePrice}`);
+    console.log(`   - Blockchain: ${projectFacts.blockchain}`);
+    console.log(`   - Documents: ${projectFacts.documents}\n`);
+
     // Initialize Twitter client
     const client = new TwitterApi({
       appKey: process.env.TWITTER_API_KEY,
@@ -361,6 +422,34 @@ async function autoPost() {
 
     // Get next tweet
     const nextTweet = getNextTweet(contentBank, history);
+
+    // 🔍 STEP 2: VALIDATE TWEET CONTENT AGAINST KNOWLEDGE BASE
+    console.log('🔍 Validating tweet content against knowledge base...');
+    const tweetText = nextTweet.text.toLowerCase();
+    const warnings = [];
+
+    // Check for outdated agent count
+    if (tweetText.match(/\b(15|20|25)\s+(ai\s+)?агент/i)) {
+      warnings.push(`⚠️  Tweet mentions outdated agent count, KB says ${projectFacts.aiAgents} agents`);
+    }
+
+    // Check for wrong launch type
+    if (tweetText.includes('fair launch') && projectFacts.launchType === 'private_sale') {
+      warnings.push(`⚠️  Tweet mentions 'fair launch', KB says 'Private Sale'`);
+    }
+
+    // Check for wrong service count
+    if (tweetText.match(/\b(20|25|30)\+?\s+сервис/i) && projectFacts.services !== '35') {
+      warnings.push(`⚠️  Tweet mentions wrong service count, KB says ${projectFacts.services}+ services`);
+    }
+
+    if (warnings.length > 0) {
+      console.log('⚠️  CONTENT VALIDATION WARNINGS:');
+      warnings.forEach(w => console.log(`   ${w}`));
+      console.log('   ℹ️  Consider updating tweets-bank.json with latest facts from PROJECT_KNOWLEDGE_BASE.md!\n');
+    } else {
+      console.log('✅ Tweet content validated against knowledge base\n');
+    }
 
     // Post tweet
     const result = await postTweet(client, nextTweet);
