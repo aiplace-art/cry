@@ -251,7 +251,7 @@ function executeAutoPoster(dryRun = false) {
   try {
     console.log('🚀 Executing auto-poster...\n');
 
-    const output = execSync(`node ${CONFIG.PATHS.AUTO_POSTER}`, {
+    const output = execSync(`/opt/homebrew/bin/node ${CONFIG.PATHS.AUTO_POSTER}`, {
       cwd: path.join(__dirname, '..'),
       encoding: 'utf8',
       stdio: 'inherit'
